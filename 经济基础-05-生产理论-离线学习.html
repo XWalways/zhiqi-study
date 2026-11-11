@@ -1,0 +1,1517 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfdfd">
+  <meta name="description" content="学习经济、金融和保险基础。按章节阅读考点精讲、查看思维导图和做练习。">
+  <title>经济金融保险 · 知其所以</title>
+  <script>
+    (() => {
+      const storageKey = 'zhiqi-theme-mode';
+      const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      const readMode = () => {
+        try {
+          const saved = localStorage.getItem(storageKey);
+          if (saved === 'light' || saved === 'dark') return saved;
+        } catch {
+          // The appearance control still works when browser storage is unavailable.
+        }
+        return 'system';
+      };
+      let mode = readMode();
+
+      function applyAppearance() {
+        const dark = mode === 'dark' || (mode === 'system' && systemTheme.matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.dataset.themeMode = mode;
+        themeColor.content = dark ? '#182427' : '#fbfdfd';
+      }
+
+      applyAppearance();
+      systemTheme.addEventListener('change', () => {
+        if (mode === 'system') applyAppearance();
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        const picker = document.getElementById('theme-mode');
+        const options = picker.querySelectorAll('input[type="radio"]');
+        const selectCurrentMode = () => {
+          for (const option of options) option.checked = option.value === mode;
+        };
+        selectCurrentMode();
+        picker.addEventListener('change', event => {
+          mode = event.target.value;
+          applyAppearance();
+          try {
+            localStorage.setItem(storageKey, mode);
+          } catch {
+            // Apply the choice for this visit even if it cannot be saved.
+          }
+        });
+        window.addEventListener('storage', event => {
+          if (event.key !== storageKey && event.key !== null) return;
+          mode = readMode();
+          selectCurrentMode();
+          applyAppearance();
+        });
+      });
+    })();
+  </script>
+  <style>/* Cool neutral surfaces and one teal accent for navigation and study actions. */
+:root {
+  color-scheme: light;
+  --background: #eef3f4;
+  --surface: #fbfdfd;
+  --surface-subtle: #f1f6f6;
+  --text: #21363c;
+  --heading: #172d34;
+  --muted: #4e656c;
+  --line: #cddbdd;
+  --control-line: #7d9297;
+  --accent: #1a665b;
+  --accent-hover: #144f47;
+  --accent-on: #fbfdfd;
+  --accent-soft: #e2f0eb;
+  --accent-line: #84b5a8;
+  --warning: #75501c;
+  --warning-soft: #f7efdf;
+  --error: #942e38;
+  --error-soft: #f8e9eb;
+  --error-line: #ba717b;
+  --backdrop: rgb(22 42 48 / .54);
+  --shadow: 0 18px 48px rgb(25 54 61 / .14);
+  --radius: 12px;
+  --header-height: 68px;
+  --tabs-height: 53px;
+  --font-body: 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-display: 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-number: 'SF Mono', ui-monospace, 'Cascadia Mono', monospace;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--background);
+  accent-color: var(--accent);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #111b1e;
+  --surface: #182427;
+  --surface-subtle: #202e31;
+  --text: #dbe8e7;
+  --heading: #edf5f4;
+  --muted: #acbfc1;
+  --line: #384a4e;
+  --control-line: #738c90;
+  --accent: #92d1c0;
+  --accent-hover: #b1e3d5;
+  --accent-on: #132a25;
+  --accent-soft: #233b36;
+  --accent-line: #608f84;
+  --warning: #edd09c;
+  --warning-soft: #362e22;
+  --error: #f2a9b0;
+  --error-soft: #3b252a;
+  --error-line: #a46772;
+  --backdrop: rgb(9 17 20 / .75);
+  --shadow: 0 18px 48px rgb(7 14 17 / .44);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--text); }
+[hidden] { display: none !important; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button { color: inherit; background: none; border: 0; cursor: pointer; }
+button, a, input, select, summary { touch-action: manipulation; }
+button:disabled { cursor: not-allowed; opacity: .62; }
+:where(a, button, input, select, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+:where(h1, h2, h3, h4, p, dl, dd) { margin: 0; }
+h1, h2, h3, h4 { color: var(--heading); line-height: 1.36; }
+h1 { font: 680 clamp(2rem, 4vw, 3.15rem)/1.22 var(--font-display); letter-spacing: -.045em; }
+h2 { font-size: 1.43rem; font-weight: 680; letter-spacing: -.02em; }
+h3 { font-size: 1.18rem; font-weight: 650; }
+strong { font-weight: 680; }
+mark { background: var(--accent-soft); color: var(--accent); padding: 0 .12em; }
+.visually-hidden, .skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.skip-link:focus {
+  position: fixed;
+  z-index: 8;
+  inset: 12px auto auto 12px;
+  background: var(--accent);
+  color: var(--accent-on);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+}
+
+/* Global navigation */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  height: var(--header-height);
+  padding-inline: max(24px, calc((100vw - 1512px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.brand { display: inline-flex; gap: 10px; align-items: center; color: var(--heading); font-size: 18px; font-weight: 690; line-height: 1.2; white-space: nowrap; }
+.brand-mark { width: 31px; height: 31px; color: var(--accent); flex: none; }
+.brand-mark svg { width: 100%; height: 100%; }
+.brand small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; font-weight: 460; letter-spacing: .06em; }
+.top-actions { display: flex; gap: clamp(12px, 2vw, 27px); align-items: center; }
+.header-link { padding: 8px 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
+.header-link:hover { color: var(--accent); }
+.theme-control {
+  --theme-slot: 66px;
+  --theme-position: 1;
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(3, var(--theme-slot));
+  flex: none;
+  align-items: stretch;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+}
+:root[data-theme-mode="light"] .theme-control { --theme-position: 0; }
+:root[data-theme-mode="dark"] .theme-control { --theme-position: 2; }
+.theme-thumb {
+  position: absolute;
+  inset: 3px auto 3px 3px;
+  width: var(--theme-slot);
+  border-radius: 999px;
+  background: var(--accent);
+  transform: translateX(calc(100% * var(--theme-position)));
+  pointer-events: none;
+}
+.theme-option {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 35px;
+  color: var(--muted);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 630;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.theme-option:hover { color: var(--accent); }
+.theme-control input:checked + .theme-option { color: var(--accent-on); }
+.theme-control input:focus-visible + .theme-option { outline: 2px solid var(--heading); outline-offset: 1px; }
+
+.button, .download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 43px;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 580;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.button-primary { background: var(--accent); color: var(--accent-on); }
+.button-primary:not(:disabled):hover { background: var(--accent-hover); }
+.button-secondary, .download-button { border-color: var(--control-line); color: var(--heading); background: var(--surface); }
+.button-secondary:not(:disabled):hover, .download-button:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.button-row, .record-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.text-button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 2px 0; font-size: 14px; color: var(--accent); text-align: left; }
+.text-button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.icon-button { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: var(--radius); color: var(--muted); font-size: 22px; line-height: 1; }
+.icon-button:hover, .icon-button.selected { color: var(--accent); background: var(--accent-soft); }
+.mobile-menu, .sidebar-quick-actions { display: none; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  max-width: 1560px;
+  min-height: calc(100dvh - var(--header-height));
+  margin-inline: auto;
+}
+.sidebar {
+  position: sticky;
+  top: var(--header-height);
+  align-self: start;
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  padding: 24px 14px 24px 18px;
+  border-right: 1px solid var(--line);
+  scrollbar-width: thin;
+}
+.sidebar-label { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 0 9px 12px; color: var(--heading); font-size: 15px; font-weight: 680; }
+.sidebar-label small { color: var(--muted); font-size: 11px; font-weight: 480; }
+.module-group + .module-group { margin-top: 8px; }
+.module-group summary { cursor: pointer; list-style: none; }
+.module-group summary::-webkit-details-marker { display: none; }
+.module-group summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 9px;
+  border-radius: var(--radius);
+  color: var(--heading);
+  font-size: 14px;
+  font-weight: 630;
+}
+.module-group summary:hover { background: var(--surface-subtle); }
+.module-group summary small { margin-left: auto; font-size: 11px; color: var(--muted); font-weight: 460; white-space: nowrap; }
+.module-group summary::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  flex: none;
+}
+.module-group[open] > summary::after { transform: rotate(45deg); }
+.chapter-link { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 3px 5px; padding: 8px 9px; margin: 2px 0; border-radius: var(--radius); font-size: 12px; line-height: 1.55; color: var(--muted); }
+.chapter-link .chapter-no, .chapter-no, .topic-number, .lesson-number { font-family: var(--font-number); font-variant-numeric: tabular-nums; }
+a.chapter-link:hover, .chapter-link.active { background: var(--accent-soft); color: var(--accent); }
+.chapter-link.active { font-weight: 680; }
+main { min-width: 0; width: 100%; padding: 27px clamp(24px, 3.2vw, 52px) 56px; }
+main:focus { outline: none; }
+.breadcrumb { display: flex; align-items: baseline; gap: 10px; margin-bottom: 22px; color: var(--muted); font-size: 13px; }
+.breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+.chapter-description { margin-top: 10px; color: var(--muted); font-size: 16px; }
+.chapter-tools { min-height: 38px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0 14px; margin-top: 13px; }
+.reading-progress { display: flex; flex-wrap: wrap; align-items: center; gap: 9px 13px; color: var(--muted); font-size: 13px; }
+#reading-label { color: var(--accent); font-weight: 620; }
+.chapter-exercise-count { border-left: 1px solid var(--line); padding-left: 13px; }
+.view-tabs {
+  position: sticky;
+  z-index: 3;
+  top: var(--header-height);
+  display: flex;
+  gap: 24px;
+  min-height: var(--tabs-height);
+  margin: 17px 0 23px;
+  border-bottom: 1px solid var(--line);
+  background: var(--background);
+  scroll-margin-top: var(--header-height);
+}
+.view-tabs button { position: relative; min-width: 0; padding: 10px 9px 9px; font-weight: 570; font-size: 15px; color: var(--muted); white-space: nowrap; }
+.view-tabs button.active, .view-tabs button:hover { color: var(--accent); }
+.view-tabs button.active { font-weight: 700; }
+.view-tabs button.active::after { content: ''; position: absolute; inset: auto 0 -1px; height: 3px; background: var(--accent); }
+.section-intro { margin: 0 0 18px; }
+.section-intro p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+
+/* A continuous reading surface with a separate index in the margin. */
+.reading-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 190px); align-items: start; gap: 25px; }
+.reading-column { grid-column: 1; grid-row: 1; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.topic-index { grid-column: 2; grid-row: 1; position: sticky; top: calc(var(--header-height) + var(--tabs-height) + 19px); padding-top: 9px; }
+.topic-index h2 { margin-bottom: 9px; color: var(--muted); font-size: 13px; font-weight: 640; }
+.lesson-jump { display: grid; }
+.lesson-jump a { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 4px; padding: 8px 9px; margin-left: -9px; color: var(--muted); font-size: 13px; line-height: 1.6; border-radius: var(--radius); }
+.lesson-jump a:hover, .lesson-jump a[aria-current] { background: var(--accent-soft); color: var(--accent); }
+.lesson-jump a[aria-current] { font-weight: 660; }
+.topic-number { font-size: 11px; margin-top: .15em; }
+.lesson-card {
+  padding: clamp(23px, 3vw, 40px) clamp(24px, 3.4vw, 46px);
+  scroll-margin-top: calc(var(--header-height) + var(--tabs-height) + 13px);
+}
+.lesson-card + .lesson-card { border-top: 1px solid var(--line); }
+.lesson-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 12px; margin-bottom: 18px; }
+.lesson-head h3 { font-size: clamp(1.23rem, 2vw, 1.57rem); letter-spacing: -.025em; }
+.lesson-number { color: var(--accent); font-size: 13px; font-weight: 660; margin-top: 6px; }
+.lesson-summary { margin-top: 4px; color: var(--muted); font-size: 14px; }
+.lesson-head .icon-button { margin: -6px -6px 0 0; }
+.lesson-body { font-size: 16px; line-height: 1.95; overflow-wrap: anywhere; }
+.lesson-body > :where(p, ul, ol, h4, blockquote) { margin-block: 0 13px; }
+.lesson-body > :where(ul, ol) { padding-left: 1.4em; }
+.lesson-body h4 { margin-top: 22px; margin-bottom: 8px; }
+.lesson-body li + li { margin-top: 6px; }
+.lesson-body blockquote { border-left: 2px solid var(--accent-line); padding: 6px 0 6px 16px; color: var(--muted); }
+.table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); margin: 17px 0; }
+.lesson-body table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.75; }
+.lesson-body :where(th, td) { padding: 10px 12px; text-align: left; vertical-align: top; }
+.lesson-body th { background: var(--surface-subtle); color: var(--heading); }
+.lesson-body tr + tr, .lesson-body thead { border-bottom: 1px solid var(--line); }
+.lesson-body tr:last-child { border-bottom: 0; }
+.concept-takeaway { display: grid; gap: 4px; margin-top: 19px; padding: 12px 15px; background: var(--accent-soft); color: var(--text); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; font-size: 15px; }
+.concept-takeaway strong { color: var(--accent); font-size: 13px; }
+.lesson-extras { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 19px; }
+.lesson-extra { border-top: 1px solid var(--line); padding: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.lesson-extra strong { display: block; color: var(--heading); font-size: 13px; margin-bottom: 4px; }
+.lesson-extra.pitfall strong { color: var(--warning); }
+.next-step { border-top: 1px solid var(--line); padding: 20px clamp(24px, 3.4vw, 46px); }
+
+/* Topic map and the interactive production chart */
+.map-panel, .ppf-panel, .quiz-card, .quiz-empty {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.map-panel { min-width: 0; }
+.map-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-subtle);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.map-toolbar button {
+  min-height: 37px;
+  padding: 4px 10px;
+  background: var(--surface);
+  color: var(--heading);
+  font-size: 13px;
+  font-weight: 610;
+  white-space: nowrap;
+}
+.map-toolbar > button, .map-zoom {
+  border: 1px solid var(--control-line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.map-zoom { display: inline-flex; align-items: stretch; }
+.map-zoom button:first-child { border-radius: 7px 0 0 7px; }
+.map-zoom button:last-child { border-radius: 0 7px 7px 0; }
+.map-zoom button + button { border-left: 1px solid var(--line); }
+.map-zoom #map-size { min-width: 55px; font-family: var(--font-number); }
+.map-toolbar button:not(:disabled):hover { background: var(--accent-soft); color: var(--accent); }
+.map-viewport {
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior-inline: contain;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.mindmap {
+  --map-arm: 1.25em;
+  --map-edge: var(--control-line);
+  width: max-content;
+  margin: 0 auto;
+  padding: 1.55em 1.45em;
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.map-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.map-node {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: .28em;
+  padding: .25em .55em;
+  border: 1px solid transparent;
+  border-radius: .6em;
+}
+.map-label { display: block; max-width: 19em; overflow-wrap: anywhere; }
+.map-label[href]:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .18em; }
+.map-root {
+  background: var(--accent);
+  color: var(--accent-on);
+  padding: .67em .8em;
+  font-size: 1.08em;
+  font-weight: 690;
+}
+.map-item[data-depth='1'] > .map-node {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 650;
+}
+.map-item[data-depth='1'] > .map-node .map-label { max-width: 14em; text-wrap: balance; }
+.map-parent:not([data-depth='1']) > .map-node {
+  border-color: var(--line);
+  background: var(--surface-subtle);
+  color: var(--heading);
+}
+.map-parent:not([data-depth='1']) > .map-node .map-label { max-width: 13em; text-wrap: balance; }
+.map-toggle {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.55em;
+  height: 1.55em;
+  padding: 0;
+  border: 1px solid var(--control-line);
+  border-radius: .42em;
+  color: var(--accent);
+  background: var(--surface);
+  font-size: 1em;
+  font-weight: 650;
+  line-height: 1;
+}
+.map-toggle:hover { background: var(--accent-soft); }
+.map-children {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 0 var(--map-arm);
+  padding: 0;
+  list-style: none;
+}
+/* Each parent reaches a shared spine. The spine ends at its outermost children. */
+.map-children::before, .map-children > .map-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: var(--map-arm);
+  border-top: 1px solid var(--map-edge);
+}
+.map-children::before { left: calc(-1 * var(--map-arm)); }
+.map-children > .map-item { padding: .18em 0 .18em var(--map-arm); }
+.map-children > .map-item::before { left: 0; }
+.map-children > .map-item::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-left: 1px solid var(--map-edge);
+}
+.map-children > .map-item:first-child::after { top: 50%; }
+.map-children > .map-item:last-child::after { bottom: 50%; }
+.map-children > .map-item:only-child::after { display: none; }
+.mindmap > .map-item > .map-children > .map-item { padding-block: .48em; }
+.ppf-panel { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(250px, 1fr); }
+.ppf-chart { align-self: center; min-width: 0; padding: 20px 14px; }
+.ppf-chart svg { display: block; width: 100%; max-width: 640px; margin-inline: auto; }
+.chart-caption { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 17px; color: var(--muted); font-size: 12px; }
+.chart-line { display: inline-block; width: 17px; border-top: 2px solid var(--heading); vertical-align: middle; margin-right: 3px; }
+.chart-line.new { border-top-style: dashed; border-color: var(--accent); }
+.chart-grid { stroke: var(--line); }
+.chart-axis, #ppf-guides { stroke: var(--control-line); }
+#ppf-curve { stroke: var(--heading); }
+#ppf-new-curve { stroke: var(--accent); }
+#ppf-halo { fill: var(--accent-line); opacity: .36; }
+#ppf-point { fill: var(--accent); stroke: var(--surface); }
+.axis-label { fill: var(--heading); font-size: 18px; }
+.tick-label { fill: var(--muted); font-size: 16px; }
+.point-label { fill: var(--accent); font: 700 17px var(--font-number); }
+.chart-footnote { text-align: center; color: var(--muted); font-size: 12px; }
+.ppf-controls { display: flex; flex-direction: column; gap: 8px; padding: 23px; border-left: 1px solid var(--line); }
+.ppf-controls h3 { font-size: 17px; }
+.ppf-outputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 4px 0 7px; }
+.ppf-outputs div { border-bottom: 1px solid var(--line); padding: 0 2px 5px; }
+.ppf-outputs span { display: block; color: var(--muted); font-size: 13px; }
+.ppf-outputs strong { color: var(--heading); font: 600 28px/1.35 var(--font-number); }
+.range-label, .range-ends { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; color: var(--muted); font-size: 13px; }
+.range-label output { color: var(--accent); font: 650 13px var(--font-number); }
+input[type=range] { width: 100%; min-height: 25px; margin: 0; cursor: pointer; }
+.ppf-scenarios { display: grid; min-width: 0; gap: 5px; margin: 7px 0; padding: 0; border: 0; }
+.ppf-scenarios legend { padding: 0 0 5px; color: var(--heading); font-weight: 640; font-size: 14px; }
+.ppf-scenarios label { display: flex; align-items: center; min-height: 29px; gap: 7px; color: var(--text); font-size: 13px; cursor: pointer; }
+.ppf-explanation { min-height: 6em; padding: 10px 12px; border-radius: var(--radius); background: var(--accent-soft); font-size: 13px; }
+.ppf-controls .button-row { margin-top: 4px; }
+.visual-notes { display: grid; margin: 18px 0 9px; }
+.visual-notes > div { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.visual-notes dt { color: var(--accent); font-weight: 650; font-size: 14px; }
+.visual-notes dd { color: var(--muted); font-size: 14px; }
+
+/* Catalog */
+.home-hero { padding: 20px 0 29px; }
+.home-hero p { margin-top: 12px; color: var(--muted); }
+.catalog-section + .catalog-section { margin-top: 29px; }
+.catalog-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.catalog-heading span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.catalog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 23px; }
+.catalog-card { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 8px; min-height: 48px; padding: 8px 4px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.catalog-card h3 { color: inherit; font-size: 14px; font-weight: 520; }
+.catalog-card .chapter-no, .catalog-status { font-size: 12px; }
+.catalog-status { white-space: nowrap; }
+.catalog-card.ready { color: var(--accent); font-weight: 650; }
+.catalog-card.ready:hover { background: var(--accent-soft); }
+.catalog-card.ready h3 { font-weight: 670; }
+
+/* Practice and feedback */
+#quiz { max-width: 960px; font-size: 15px; }
+.quiz-toolbar, .quiz-tabs, .quiz-grid, .quiz-card-header, .quiz-actions, .quiz-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.quiz-toolbar, .quiz-card-header, .quiz-actions { justify-content: space-between; }
+.quiz-toolbar { gap: 10px 20px; }
+.quiz-tabs { gap: 6px; }
+.quiz-tab { border: 1px solid transparent; border-radius: var(--radius); padding: 8px 12px; min-height: 42px; font-size: 14px; white-space: nowrap; }
+.quiz-tab:hover, .quiz-tab.active { color: var(--accent); background: var(--accent-soft); }
+.quiz-tab.active { border-color: var(--accent-line); font-weight: 650; }
+.quiz-index { display: grid; gap: 10px; margin: 15px 0; }
+.quiz-grid { gap: 6px; }
+.quiz-group-label { display: block; margin-bottom: 5px; color: var(--muted); font-size: 13px; }
+.quiz-number { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: var(--radius); font: 550 13px var(--font-number); }
+.quiz-number:hover, .quiz-number.answered { border-color: var(--accent); color: var(--accent); }
+.quiz-number.correct { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-line); }
+.quiz-number.wrong { background: var(--error-soft); color: var(--error); border-color: var(--error-line); }
+.quiz-number.active { outline: 2px solid var(--accent); outline-offset: -2px; }
+.quiz-number:focus-visible { outline-offset: 3px; }
+.quiz-card { padding: clamp(17px, 3vw, 34px); }
+.quiz-card-header { gap: 6px 14px; margin-bottom: 12px; color: var(--muted); font-size: 13px; }
+.quiz-favorite { min-height: 38px; padding: 5px 10px; font-size: 13px; }
+.quiz-favorite[aria-pressed=true] { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.quiz-stem { font-size: clamp(17px, 1.7vw, 21px); line-height: 1.65; margin-bottom: 15px; }
+.quiz-options { display: grid; min-width: 0; gap: 8px; padding: 0; border: 0; margin: 0; }
+.quiz-options legend { color: var(--muted); font-size: 13px; padding: 0 0 6px; }
+.quiz-option { display: flex; align-items: baseline; gap: 10px; padding: 10px 13px; min-height: 45px; border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer; }
+.quiz-option:focus-within, .quiz-option:hover { border-color: var(--control-line); }
+.quiz-option input { flex: none; margin: 0; }
+.quiz-option:has(input:checked), .quiz-option.correct { background: var(--accent-soft); border-color: var(--accent-line); color: var(--text); }
+.quiz-option.wrong { background: var(--error-soft); border-color: var(--error-line); color: var(--error); }
+.quiz-option:has(input:disabled) { cursor: default; }
+.quiz-actions { margin-top: 16px; }
+.quiz-feedback { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 17px; }
+.quiz-feedback h3, .quiz-feedback p { margin-bottom: 8px; }
+.quiz-feedback h4 { margin: 16px 0 5px; font-size: 15px; }
+.quiz-feedback p, .quiz-rationale-list { line-height: 1.85; }
+.quiz-rationale-list { padding-left: 1.5em; margin: 6px 0 0; }
+.quiz-rationale-list li + li { margin-top: 5px; }
+.quiz-correct { color: var(--accent); }
+.quiz-incorrect { color: var(--error); }
+.quiz-summary { margin-top: 14px; padding: 13px 17px; border-radius: var(--radius); background: var(--accent-soft); }
+.quiz-summary strong { font: 650 23px var(--font-number); color: var(--accent); }
+.quiz-summary p { margin: 7px 0; }
+.quiz-status { color: var(--muted); font-size: 13px; margin-top: 8px; }
+.quiz-status:empty { display: none; }
+.quiz-empty { padding: 25px; margin-top: 14px; color: var(--muted); }
+.muted { color: var(--muted); font-size: 13px; }
+
+/* Records, dialogs and status */
+dialog { width: min(600px, calc(100% - 24px)); max-height: 85dvh; padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+dialog::backdrop { background: var(--backdrop); }
+.modal-top { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 19px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.modal-top h2 { font-size: 18px; }
+#modal-content { padding: 19px; font-size: 14px; }
+#modal-content p + p { margin-top: 10px; }
+.record-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.record-stats > div { background: var(--surface-subtle); padding: 10px; border-radius: var(--radius); }
+.record-stats strong, .record-stats small { display: block; }
+.record-stats strong { color: var(--accent); font: 650 19px var(--font-number); }
+.record-stats small { color: var(--muted); font-size: 12px; }
+.record-actions { margin: 12px 0; }
+.favorite-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--line); padding: 7px 0; }
+.favorite-item > button:first-child { text-align: left; }
+.favorite-item small { display: block; color: var(--muted); }
+.favorite-item > button:last-child { white-space: nowrap; }
+.inline-notice, .storage-notice, .noscript { padding: 10px 14px; background: var(--warning-soft); color: var(--warning); font-size: 13px; }
+.inline-notice { margin-block: 8px; border-radius: var(--radius); }
+.inline-notice .button { margin-top: 8px; }
+.toast { position: fixed; inset: auto auto 20px 50%; transform: translateX(-50%); z-index: 8; max-width: min(440px, 90vw); width: max-content; padding: 10px 16px; border-radius: var(--radius); background: var(--heading); color: var(--surface); font-size: 14px; box-shadow: var(--shadow); }
+
+@media (max-width: 1080px) {
+  .layout { grid-template-columns: 190px minmax(0, 1fr); }
+  .reading-layout { gap: 15px; grid-template-columns: minmax(0, 1fr) minmax(135px, 158px); }
+  .catalog-grid { grid-template-columns: 1fr; }
+  .ppf-panel { grid-template-columns: minmax(0, 1.25fr) minmax(220px, 1fr); }
+}
+
+@media (max-width: 920px) {
+  .reading-layout { grid-template-columns: minmax(0, 1fr); }
+  .topic-index { grid-column: 1; grid-row: 1; position: static; padding-top: 0; }
+  .reading-column { grid-row: 2; }
+  .lesson-jump { display: flex; flex-wrap: wrap; gap: 5px 8px; }
+  .lesson-jump a { margin-left: 0; padding: 4px 7px; background: var(--surface-subtle); }
+  .ppf-panel { grid-template-columns: minmax(0, 1fr); }
+  .ppf-controls { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 767px) {
+  :root { --header-height: 61px; --tabs-height: 48px; }
+  .topbar { padding-inline: 15px; gap: 8px; }
+  .brand { gap: 6px; font-size: 16px; }
+  .brand-mark { width: 25px; height: 25px; }
+  .brand small { font-size: 10px; }
+  .top-actions { margin-left: auto; gap: 7px; }
+  .top-actions .header-link { display: none; }
+  .theme-control { --theme-slot: 49px; }
+  .theme-option { min-height: 30px; font-size: 12px; }
+  .download-button { min-height: 38px; padding: 6px 10px; font-size: 13px; }
+  .mobile-menu { display: grid; place-items: center; width: 38px; height: 38px; border-radius: var(--radius); color: var(--heading); }
+  .mobile-menu span { position: relative; display: block; height: 1.5px; width: 16px; background: currentColor; }
+  .mobile-menu span::before, .mobile-menu span::after { content: ''; position: absolute; left: 0; width: 100%; height: 100%; background: currentColor; }
+  .mobile-menu span::before { top: -5px; }
+  .mobile-menu span::after { top: 5px; }
+  .layout { display: block; }
+  .sidebar { display: none; position: fixed; inset: var(--header-height) auto auto 0; width: min(285px, 90vw); z-index: 4; background: var(--surface); border-bottom: 1px solid var(--line); border-radius: 0 0 var(--radius) 0; box-shadow: var(--shadow); }
+  .sidebar.open { display: block; }
+  .sidebar-quick-actions { display: flex; gap: 8px; margin: 0 0 10px; }
+  .sidebar-quick-actions button { padding: 7px 8px; background: var(--accent-soft); border-radius: var(--radius); color: var(--accent); font-size: 13px; }
+  main { padding: 19px 15px 35px; }
+  .breadcrumb { margin-bottom: 13px; font-size: 12px; }
+  .chapter-description { margin-top: 6px; font-size: 14px; }
+  .chapter-tools { margin-top: 8px; }
+  .reading-progress, #continue-reading { font-size: 12px; }
+  .chapter-exercise-count { padding-left: 8px; }
+  .view-tabs { gap: 2px; margin: 8px 0 16px; }
+  .view-tabs button { flex: 1; padding-inline: 2px; font-size: 13px; }
+  .topic-index h2 { margin-bottom: 5px; }
+  .lesson-jump { gap: 4px; }
+  .lesson-jump a { grid-template-columns: 20px minmax(0, 1fr); gap: 2px; font-size: 12px; }
+  .lesson-card { padding: 20px 14px; }
+  .lesson-head { gap: 7px; }
+  .lesson-head .icon-button { width: 34px; height: 38px; }
+  .lesson-body { font-size: 15px; }
+  .lesson-extras { grid-template-columns: 1fr; gap: 10px; }
+  .lesson-body :where(th, td) { padding: 7px; }
+  .lesson-body table { font-size: 12px; }
+  .map-toolbar { padding: 8px; gap: 6px; }
+  .map-toolbar button { padding-inline: 8px; }
+  .mindmap { --map-arm: .8em; padding: 1.2em .9em; }
+  .map-item[data-depth='1'] > .map-node .map-label { max-width: 10.5em; }
+  .ppf-chart { padding-inline: 6px; }
+  .ppf-controls { padding: 15px; }
+  .home-hero { padding-top: 9px; padding-bottom: 22px; }
+  .quiz-grid { gap: 5px; }
+  .quiz-number { width: 33px; height: 33px; }
+  .quiz-stem { margin-bottom: 12px; }
+}
+
+@media (max-width: 430px) {
+  .topbar { padding-inline: 10px; gap: 6px; }
+  .brand { font-size: 15px; gap: 5px; }
+  .brand-mark { width: 22px; height: 22px; }
+  .mobile-menu { width: 34px; }
+  .download-button { padding-inline: 7px; font-size: 12px; }
+}
+
+@media (max-width: 360px) {
+  .theme-control { --theme-slot: 30px; }
+  .theme-option-system span { position: absolute; width: 1px; height: 1px; clip-path: inset(50%); overflow: hidden; }
+  .theme-option-system::after { content: '系统'; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .theme-thumb { transition: transform .18s ease-out; }
+  .button:not(:disabled):active, .download-button:active { transform: translateY(1px); }
+}
+
+@media print {
+  :root, :root[data-theme] { color-scheme: light; --background: #fff; --surface: #fff; --text: #22373c; --heading: #182c30; --muted: #43585c; --accent: #1a665b; --accent-soft: #edf5f2; }
+  .topbar, .sidebar, .view-tabs, .chapter-tools, .topic-index, .next-step, .lesson-head button { display: none !important; }
+  .layout, .reading-layout { display: block; }
+  main { padding: 0; }
+  .lesson-card { break-inside: avoid; }
+}
+
+.market-panel { --market-supply: #9c4a2f; }
+[data-theme="dark"] .market-panel { --market-supply: #f6a48a; }
+.market-demand-line { border-color: var(--accent); }
+.market-supply-line { border-color: var(--market-supply); border-top-style: dashed; }
+.market-baseline { border-color: var(--control-line); border-top-style: dotted; }
+.market-demand, .market-supply, .market-guide { fill: none; }
+.market-demand { stroke: var(--accent); }
+.market-supply { stroke: var(--market-supply); stroke-dasharray: 8 3; }
+.market-curve { stroke-width: 2.6; }
+.market-before { opacity: .5; stroke-width: 1.5; stroke-dasharray: 2 5; }
+.market-inactive { display: none; }
+.market-guide { stroke: var(--control-line); stroke-dasharray: 3 4; }
+.market-equilibrium-guide { opacity: .6; }
+.market-demand-point { fill: var(--accent); }
+.market-supply-point { fill: var(--market-supply); }
+.market-equilibrium { fill: var(--surface); stroke: var(--heading); stroke-width: 2.2; }
+.market-panel input[type="range"] { width: 100%; margin: 0 0 7px; }
+.market-panel .ppf-explanation { min-height: 0; }
+.market-outputs { margin-top: 0; }
+</style>
+</head>
+<body data-page="chapter" data-offline="true" data-flat-downloads="true">
+<a class="skip-link" href="#main">跳转到正文</a>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="知其所以，返回学习目录">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 7h9l3 4v17l-4-3H5V7Z" stroke="currentColor" stroke-width="1.7"/><path d="M27 7h-9l-3 4m2 17 4-3h6V7ZM9 12h3m-3 5h3m9-5h3m-3 5h3" stroke="currentColor" stroke-width="1.7"/></svg></span>
+    <span>知其所以<small>经济金融保险</small></span>
+  </a>
+  <nav class="top-actions" aria-label="全局导航">
+    <a href="index.html" class="header-link">学习目录</a>
+    <button class="header-link" data-action="favorites">我的收藏</button>
+    <button class="header-link" data-action="records">学习记录</button>
+    <div class="theme-control" id="theme-mode" role="radiogroup" aria-label="外观模式">
+      <span class="theme-thumb" aria-hidden="true"></span>
+      <input class="visually-hidden" id="theme-light" type="radio" name="appearance" value="light">
+      <label class="theme-option" for="theme-light">白天</label>
+      <input class="visually-hidden" id="theme-system" type="radio" name="appearance" value="system" aria-label="跟随系统" checked>
+      <label class="theme-option theme-option-system" for="theme-system" title="跟随系统"><span>跟随系统</span></label>
+      <input class="visually-hidden" id="theme-dark" type="radio" name="appearance" value="dark">
+      <label class="theme-option" for="theme-dark">黑夜</label>
+    </div>
+    <button class="download-button" data-action="download">离线学习</button>
+  </nav>
+  <button class="mobile-menu" data-action="sidebar" aria-label="展开章节导航" aria-controls="sidebar" aria-expanded="false"><span aria-hidden="true"></span></button>
+</header>
+<div id="storage-notice" class="storage-notice" role="status" hidden></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节导航">
+    <div class="sidebar-label">学习路径 <small id="open-chapter-count"></small></div>
+    <div class="sidebar-quick-actions"><button data-action="favorites">我的收藏</button><button data-action="records">学习记录</button></div>
+    <div id="sidebar-catalog"></div>
+  </aside>
+  <main id="main" tabindex="-1">
+    <div id="home-view" hidden></div>
+    <article id="chapter-view" hidden>
+      <div class="chapter-heading">
+        <div class="breadcrumb"><a href="index.html">学习目录</a><span>/</span><span id="chapter-module"></span><span>/</span><span id="chapter-number"></span></div>
+        <h1 id="chapter-title"></h1>
+        <p class="chapter-description" id="chapter-description"></p>
+        <div class="chapter-tools">
+          <div class="reading-progress"><span id="reading-label"></span><span class="chapter-exercise-count"></span></div>
+          <button class="text-button" id="continue-reading" hidden>继续上次阅读 <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <nav class="view-tabs" aria-label="章节内容">
+        <button data-view="learn" class="active" aria-current="page">考点精讲</button>
+        <button data-view="map">思维导图</button>
+        <button data-view="visual">交互图解</button>
+        <button data-view="practice">章节练习</button>
+      </nav>
+      <section id="view-learn" class="content-view" aria-labelledby="learn-heading">
+        <div class="reading-layout">
+          <aside class="topic-index" aria-labelledby="topic-heading">
+            <h2 id="topic-heading">知识点索引</h2>
+            <nav class="lesson-jump" id="lesson-jump" aria-label="知识点索引"></nav>
+          </aside>
+          <div class="reading-column">
+            <h2 id="learn-heading" class="visually-hidden">考点精讲</h2>
+            <div id="lessons"></div>
+            <div class="next-step"><button class="button button-primary" data-switch="practice">开始本章练习 <span aria-hidden="true">→</span></button></div>
+          </div>
+        </div>
+      </section>
+      <section id="view-map" class="content-view" hidden aria-labelledby="map-heading">
+        <div class="section-intro">
+          <h2 id="map-heading">思维导图</h2>
+          <p id="map-help">点击节点查看讲解，用节点旁的按钮展开或收起分支。图超出屏幕时可横向滑动。</p>
+        </div>
+        <div class="map-panel">
+          <div class="map-toolbar">
+            <div class="map-zoom" role="group" aria-label="导图缩放">
+              <button type="button" id="map-zoom-out" aria-label="缩小导图">−</button>
+              <button type="button" id="map-size" aria-label="恢复阅读比例" title="恢复阅读比例">100%</button>
+              <button type="button" id="map-zoom-in" aria-label="放大导图">+</button>
+            </div>
+            <button type="button" id="map-fit">适应宽度</button>
+            <button type="button" id="map-expand">收起分支</button>
+          </div>
+          <div class="map-viewport" tabindex="0" role="region" aria-labelledby="map-heading" aria-describedby="map-help">
+            <ul id="mindmap" class="mindmap"></ul>
+          </div>
+        </div>
+      </section>
+      <section id="view-visual" class="content-view" hidden></section>
+      <section id="view-practice" class="content-view" hidden aria-labelledby="practice-heading">
+        <h2 id="practice-heading" class="visually-hidden">章节练习</h2>
+        <div id="quiz"></div>
+      </section>
+    </article>
+  </main>
+</div>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter05","number":5,"title":"生产理论","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-05-生产理论-离线学习.html"},"lessons":{"title":"生产理论","subtitle":"区分短期的边际产量与长期的规模报酬，理解厂商如何选择投入组合。","sections":[{"id":"production","title":"厂商目标、生产要素与生产函数","summary":"生产函数描述既定技术下，投入组合所能实现的最大产量。","bodyHtml":"\u003cp>基础模型常假设厂商追求\u003cstrong>利润最大化\u003c/strong>，利润等于总收益减去总经济成本。厂商在生产中组织四类常见要素，即劳动、资本、土地与企业家才能。\u003c/p>\u003cp>对给定技术，\u003cmark>生产函数\u003c/mark>把投入组合与该组合能够有效生产的最大产量联系起来。用劳动 \u003cvar>L\u003c/var> 和资本 \u003cvar>K\u003c/var> 表示时，可写为 \u003cvar>Q = f(L, K)\u003c/var>。技术改进可以改变相同投入对应的最大产量，因此会改变生产函数。\u003c/p>","keyTakeaway":"判断生产函数变化时，区分技术条件变化与同一技术下投入组合的变化。","pitfall":"生产函数说明技术上能生产多少。判断企业利润还需要知道投入品价格与销售收入。","example":"同一间烘焙店拥有两台烤箱，增加工人后沿既有生产函数改变产量。采用更快的烤制技术后，相同工人与烤箱可以生产更多，生产函数随之改变。"},{"id":"short-run-production","title":"短期生产与边际报酬递减","summary":"技术和部分投入固定，观察增加某一种投入带来的产量变化。","bodyHtml":"\u003cp>\u003cstrong>短期\u003c/strong>至少有一种生产要素投入无法调整。\u003cstrong>长期\u003c/strong>允许厂商调整所有要素投入。划分依据是能否调整全部要素，具体时长随行业而异。\u003c/p>\u003cp>在技术和其他要素投入固定时，连续增加某种可变投入，到一定阶段后，每单位新增投入所带来的额外产量会减少。这是\u003cmark>边际报酬递减规律\u003c/mark>。在常见的短期生产曲线中，分工改善可使边际产量先上升，固定设备逐渐饱和后边际产量下降。\u003c/p>","keyTakeaway":"先固定技术和其他投入，再比较可变要素每增加一单位带来的产量增量。","pitfall":"边际产量开始递减时，总产量仍可能增加。只要新增投入的边际产量大于零，就还有额外产出。","example":"厨房的烤箱数量固定。增加最初几名工人有助于分工，后来工人排队使用烤箱，额外一名工人带来的产出开始减少。"},{"id":"marginal-product","title":"总产量、平均产量和边际产量","summary":"总产量看累计产出，平均产量看每单位投入，边际产量看新增投入。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>指标\u003c/th>\u003cth>计算\u003c/th>\u003cth>总产量曲线上的含义\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>总产量 TP\u003c/td>\u003ctd>给定要素组合的总产出\u003c/td>\u003ctd>曲线上该投入量的纵坐标\u003c/td>\u003c/tr>\u003ctr>\u003ctd>平均产量 AP\u003c/td>\u003ctd>TP/L，L 大于零\u003c/td>\u003ctd>原点到对应点的连线斜率\u003c/td>\u003c/tr>\u003ctr>\u003ctd>边际产量 MP\u003c/td>\u003ctd>单位新增投入带来的 TP 变化，可微时为 dTP/dL\u003c/td>\u003ctd>对应点的切线斜率\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>在常见平滑模型中，\u003cmark>MP 大于 AP 时 AP 上升，MP 小于 AP 时 AP 下降\u003c/mark>。若 MP 从高于 AP 转为低于 AP，交点处 AP 达到最大。MP 为正时 TP 上升，MP 为负时 TP 下降。若 MP 从正变负，MP 等于零处 TP 达到峰值。\u003c/p>\u003cp>采用典型的先升后降的边际产量曲线时，峰值依次出现在 MP、AP、TP 上。\u003c/p>","keyTakeaway":"MP 的正负决定 TP 的变化方向。MP 与 AP 的大小关系决定 AP 的变化方向。","pitfall":"只有看到符号或大小关系越过相应临界点，才能确认峰值。只知道某点 MP 等于零或 MP 等于 AP，通常还需检查前后走势。","example":"工人从 4 名增加到 5 名，总产量从 48 件增加到 57 件。第 5 名工人的边际产量为 9 件，低于原平均 12 件，新平均产量降为 11.4 件。"},{"id":"production-stages","title":"短期生产的三个阶段","summary":"以平均产量和总产量的峰值划分典型生产区间。","bodyHtml":"\u003cp>在典型的单一可变投入模型中，\u003cstrong>第一阶段\u003c/strong>的平均产量持续上升，结束于 AP 达到最大、MP 等于 AP 的位置。\u003cstrong>第二阶段\u003c/strong>的 AP 与 MP 下降，MP 仍为正，TP 继续上升至 MP 等于零的峰值。\u003cstrong>第三阶段\u003c/strong>的 MP 为负，继续增加可变投入会减少 TP，常表现为固定要素相对不足。\u003c/p>\u003cp>在可变要素与产出价格为正、厂商选择正产量的典型模型中，第二阶段是通常的经济生产区间，具体投入还要比较新增收益与新增成本。\u003c/p>","keyTakeaway":"两个分界点依次是 MP 等于 AP 和 MP 等于零。","pitfall":"第一阶段内 MP 可能已开始下降，AP 仍可上升。第三阶段的新增投入会使总产量下降。","example":"若平均产量在第 6 个单位投入达到峰值、总产量在第 8 个单位达到峰值，则 6 到 8 是第二阶段。"},{"id":"isoquants","title":"等产量曲线与边际技术替代率","summary":"固定产量，比较劳动和资本可以如何替换。","bodyHtml":"\u003cp>\u003cstrong>等产量曲线\u003c/strong>连接能够生产同一产量的劳动与资本组合。令劳动 L 为横轴，资本 K 为纵轴。两种投入的边际产量均为正时，增加劳动并保持产量不变，需要减少资本，曲线通常向右下倾斜。提高两种要素的生产效率可使同一产量的曲线向原点靠近。\u003c/p>\u003cp>\u003cstrong>边际技术替代率\u003c/strong>是保持产量不变时，多用一单位劳动所能减少的资本量。生产函数可微且两种边际产量为正时，\u003cmark>MRTS = MP\u003csub>L\u003c/sub>/MP\u003csub>K\u003c/sub>\u003c/mark>，等于等产量曲线斜率的绝对值。若在曲线上随劳动增加、资本减少，MRTS 下降，等产量曲线凸向原点。\u003c/p>\u003cp>常见模型中，劳动越多时其边际产量越低，资本越少时其边际产量越高，这使二者的比值趋于下降。一般情形下，判断 MRTS 的变化还要考虑两种要素相互影响的方式。\u003c/p>","keyTakeaway":"用等产量曲线分析固定产量下的投入组合，替代率比较的是两种投入的边际产量。","pitfall":"给定同一条曲线改变投入组合时，产量保持固定。技术改进后，原有产量可能用更少的投入实现。","example":"在某投入组合处，劳动的边际产量为 8，资本的边际产量为 4。小幅增加 1 单位劳动，约能少用 2 单位资本而保持产量。"},{"id":"isocost","title":"等成本线","summary":"给定投入价格和成本预算，比较可购买的要素组合。","bodyHtml":"\u003cp>若工资为 \u003cvar>w\u003c/var>，资本使用价格为 \u003cvar>r\u003c/var>，总投入支出为 \u003cvar>C\u003c/var>，\u003cstrong>等成本线\u003c/strong>满足 \u003cmark>wL + rK = C\u003c/mark>。以劳动为横轴，资本为纵轴，横轴截距是 C/w，纵轴截距是 C/r，斜率是 −w/r。\u003c/p>\u003cp>投入品价格固定时，提高成本预算使线平行外移。只改变一种投入的价格会改变斜率，线围绕另一种投入的截距旋转。\u003c/p>","keyTakeaway":"等产量曲线来自技术，等成本线来自预算和要素价格。","pitfall":"把工资和资本价格放入斜率时，分子是横轴投入的价格。","example":"工资 20 元、资本使用价格 40 元、预算 400 元时，劳动和资本轴截距分别为 20 和 10。斜率为 −0.5。"},{"id":"producer-equilibrium","title":"生产者的投入选择","summary":"内点成本最小化时，两种要素每元支出的边际产量相同。","bodyHtml":"\u003cp>给定产量时，厂商在可行的等产量曲线上寻找最低可达的等成本线。给定成本预算时，厂商寻找可达到的最高等产量曲线。这是同一投入选择的两个方向。\u003c/p>\u003cp>在常见光滑凸等产量曲线和正投入量的内点上，等产量曲线和等成本线相切。\u003cmark>MP\u003csub>L\u003c/sub>/MP\u003csub>K\u003c/sub> = w/r\u003c/mark>，等价于 MP\u003csub>L\u003c/sub>/w = MP\u003csub>K\u003c/sub>/r。若某要素每元投入的边际产量更高，就有理由调整投入结构，直至达到切点或边界。\u003c/p>","keyTakeaway":"成本最小化的切点条件比较技术替代比例与要素价格比。","pitfall":"仅计算边际技术替代率还不够。题目若要求给定产量下的投入，还需用生产函数约束求解。","example":"劳动和资本每投入一元分别带来 0.8 和 0.6 单位新增产量。局部调整时，可将部分预算从资本转到劳动以增加产量。"},{"id":"returns-to-scale","title":"规模报酬","summary":"将全部生产要素同比例放大，比较产量的放大比例。","bodyHtml":"\u003cp>在技术不变时，将劳动和资本等\u003cstrong>全部要素\u003c/strong>乘以同一个 \u003cvar>t\u003c/var>，其中 \u003cvar>t\u003c/var> 大于 1。比较新产量 f(tL, tK) 与原产量的 \u003cvar>t\u003c/var> 倍。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>比较结果\u003c/th>\u003cth>规模报酬\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>新产量大于 t × 原产量\u003c/td>\u003ctd>规模报酬递增\u003c/td>\u003c/tr>\u003ctr>\u003ctd>新产量等于 t × 原产量\u003c/td>\u003ctd>规模报酬不变\u003c/td>\u003c/tr>\u003ctr>\u003ctd>新产量小于 t × 原产量\u003c/td>\u003ctd>规模报酬递减\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>对 Q = A L\u003csup>α\u003c/sup>K\u003csup>β\u003c/sup> 这类生产函数，要素乘以 \u003cvar>t\u003c/var> 后产量乘以 t\u003csup>α+β\u003c/sup>。指数和大于、等于或小于 1，分别对应三类规模报酬。规模报酬也可随考察的投入区间变化。\u003c/p>","keyTakeaway":"规模报酬看所有要素一起变。边际报酬看其他要素固定时单种投入变化。","pitfall":"规模报酬不变只约束全部投入同比例变化的结果。要比较仅增加劳动后的产量，需要生产函数或更多条件。","example":"若产量 Q 等于 L 与 K 乘积的平方根，劳动、资本均翻倍时产量翻倍。只让劳动翻倍，产量乘以 √2。"}],"mindmap":[{"label":"厂商与生产的基本概念","target":"production","children":[{"label":"厂商通常追求利润最大化","target":"production"},{"label":"生产要素","target":"production","children":[{"label":"劳动","target":"production"},{"label":"资本","target":"production"},{"label":"土地","target":"production"},{"label":"企业家才能","target":"production"}]},{"label":"生产函数","target":"production","children":[{"label":"短期至少有一种投入固定","target":"short-run-production"},{"label":"长期可调整全部投入","target":"isoquants"}]}]},{"label":"短期生产函数","target":"short-run-production","children":[{"label":"平均产量与边际产量","target":"marginal-product","children":[{"label":"MP 高于 AP 时 AP 上升","target":"marginal-product"},{"label":"MP 自上而下穿过 AP 时 AP 达到最大","target":"marginal-product"},{"label":"MP 低于 AP 时 AP 下降","target":"marginal-product"}]},{"label":"总产量与边际产量","target":"marginal-product","children":[{"label":"MP 大于零时 TP 上升","target":"marginal-product"},{"label":"MP 由正转负经过零时 TP 达到最大","target":"marginal-product"}]},{"label":"边际报酬递减规律","target":"short-run-production","children":[{"label":"其他要素与技术不变时，增加单种投入的产量增量最终减少","target":"short-run-production"}]},{"label":"生产的三个阶段","target":"production-stages","children":[{"label":"第一阶段结束于平均产量最大","target":"production-stages"},{"label":"第二阶段结束于总产量最大","target":"production-stages"},{"label":"第三阶段总产量减少，固定投入相对不足","target":"production-stages"}]}]},{"label":"长期生产函数","target":"isoquants","children":[{"label":"等产量曲线","target":"isoquants","children":[{"label":"生产技术改进可使同产量曲线向原点移动","target":"isoquants"}]},{"label":"边际技术替代率","target":"isoquants","children":[{"label":"保持产量不变，多用一种要素所能替代的另一要素的数量","target":"isoquants"},{"label":"常见情形中，替代率递减，等产量曲线凸向原点","target":"isoquants"}]},{"label":"规模报酬的种类","target":"returns-to-scale","children":[{"label":"递增时，产量增长比例超过投入增长比例","target":"returns-to-scale"},{"label":"不变时，产量增长比例等于投入增长比例","target":"returns-to-scale"},{"label":"递减时，产量增长比例小于投入增长比例","target":"returns-to-scale"}]},{"label":"投入选择","target":"producer-equilibrium","children":[{"label":"等成本线表示同一支出的投入组合","target":"isocost"},{"label":"内点成本最小时，技术替代率等于投入价格比","target":"producer-equilibrium"}]}]}]},"questions":[{"id":"eco-05-q01","number":1,"group":"厂商与生产的基本概念","type":"single","stem":"下列选项中，不属于生产要素的是（　）。","options":{"A":"土地","B":"产品","C":"资本","D":"劳动"},"answer":["B"],"explanationSupplement":"生产要素指生产过程中使用的投入资源。本题所说的产品是当前生产活动形成的产出。","optionExplanations":{"A":"土地及其自然资源可以用于生产。","B":"产品在本题中指生产活动的产出。","C":"机器、厂房等资本可作为生产投入。","D":"劳动是人员为生产提供的工作投入。"},"conceptId":"production"},{"id":"eco-05-q02","number":2,"group":"厂商与生产的基本概念","type":"single","stem":"在生产者行为的分析中，一般假设生产者或企业的目标是（　）。","options":{"A":"提高生产率","B":"实现战略目标","C":"实现企业使命","D":"追求利润最大化"},"answer":["D"],"explanationSupplement":"标准的厂商模型让企业在给定技术和市场约束下选择产量与投入，目标是让总收益减总成本达到最大。","optionExplanations":{"A":"提高生产率可以帮助降低成本，模型仍要比较收益和成本。","B":"战略目标可能包括许多具体指标，标准厂商模型采用利润目标。","C":"企业使命可用于企业管理分析。","D":"利润最大化是标准厂商模型设定的决策目标。"},"conceptId":"production"},{"id":"eco-05-q03","number":3,"group":"厂商与生产的基本概念","type":"single","stem":"在经济学中，短期是指（　）。","options":{"A":"一年或一年以内的时期","B":"所有投入要素均是固定不变的时间周期","C":"所有投入要素均是可以变动的时间周期","D":"生产者来不及调整其全部生产要素的投入数量，至少有一种生产要素的投入数量是固定不变的时间周期"},"answer":["D"],"explanationSupplement":"判断长短期时看能否改变全部投入。例如厂房短期内无法调整，但企业可改变工时和原料数量。","optionExplanations":{"A":"短期的日历长度随行业和技术条件而变。","B":"只要至少有一种投入固定，就符合短期条件。","C":"所有投入都可调整是长期条件。","D":"该项明确给出了至少一种投入固定的判据。"},"conceptId":"short-run-production"},{"id":"eco-05-q04","number":4,"group":"厂商与生产的基本概念","type":"single","stem":"生产函数是（　）之间的函数关系。","options":{"A":"最大产量与投入成本","B":"最大产量与投入要素","C":"平均产量与投入成本","D":"平均产量与投入要素"},"answer":["B"],"explanationSupplement":"在给定技术下，Q=f(L,K) 给出使用一定劳动 L 和资本 K 所能生产的最大产量 Q。成本的计算还需投入品价格。","optionExplanations":{"A":"投入成本属于用货币衡量的投入支出。","B":"生产函数将要素投入量与可实现的最大产量对应起来。","C":"平均产量通常用总产量除以投入量。","D":"生产函数直接给出总产量的上限。"},"conceptId":"production"},{"id":"eco-05-q05","number":5,"group":"厂商与生产的基本概念","type":"single","stem":"经济学中短期与长期的划分实质上取决于（　）。","options":{"A":"时间长短","B":"可否调整产量","C":"可否调整生产规模","D":"可否调整产品价格"},"answer":["C"],"explanationSupplement":"厂房、设备等投入可随需要调整时，企业可以改变生产规模。短期内部分投入固定，企业仍可通过改变可变投入来调整产量。","optionExplanations":{"A":"不同产业调整固定投入所需时间不同。","B":"短期也可通过可变投入改变产量。","C":"可调整生产规模对应全部投入可以调整的长期情形。","D":"产品价格是市场条件，划分长短期关注投入调整。"},"conceptId":"short-run-production"},{"id":"eco-05-q06","number":6,"group":"厂商与生产的基本概念","type":"single","stem":"以下关于生产函数特点的表述，错误的是（　）。","options":{"A":"生产函数反映的是某一特定要素投入组合在现有技术条件下能且只能产生的最大产出","B":"生产函数反映的是在既定的生产技术条件下投入和产出之间的数量关系","C":"如果技术条件改变，必然会产生新的生产函数","D":"生产函数会使生产自动达到帕累托最优"},"answer":["D"],"explanationSupplement":"生产函数给出技术上可实现的产出上限。帕累托最优涉及整个配置中能否在无人受损时改善某人的处境，需要额外条件。","optionExplanations":{"A":"函数值代表给定投入的最大可达产出，厂商实际可以低于这一上限。","B":"给定技术条件下的投入产出数量关系符合定义。","C":"技术变动若改变可达产出，投入产出函数相应改变。","D":"技术约束本身无法推出整个经济配置的效率，因此本项错误。"},"conceptId":"production"},{"id":"eco-05-q07","number":7,"group":"厂商与生产的基本概念","type":"single","stem":"在生产者行为分析中，生产者或企业追求利润最大化目标这一基本假设，是（　）在生产和企业理论中的具体化。","options":{"A":"经济人假设","B":"社会主义生产目的理论","C":"生产者均衡理论","D":"股东利益最大化"},"answer":["A"],"explanationSupplement":"经济人假设用于概括经济主体在约束下优化目标。应用于厂商时，通常将其目标设定为利润最大化。","optionExplanations":{"A":"这是厂商利润最大化假设背后更一般的假设。","B":"该项讨论特定制度下的生产目的。","C":"生产者均衡是依据目标和约束分析得到的结果。","D":"股东利益最大化属于公司治理层面的目标设定。"},"conceptId":"production"},{"id":"eco-05-q08","number":8,"group":"短期生产函数","type":"single","stem":"在其他条件不变的情况下，如果连续增加劳动的投入，在总产量达到最大值时，劳动的边际产量（　）。","options":{"A":"大于零","B":"小于零","C":"等于零","D":"等于平均产量"},"answer":["C"],"explanationSupplement":"劳动的边际产量是总产量曲线对劳动投入量的斜率。在光滑内点最大值处斜率为零。","optionExplanations":{"A":"边际产量为正时，总产量随劳动增加而上升。","B":"边际产量为负时，总产量随劳动增加而下降。","C":"总产量的可微内点最大值对应零斜率。","D":"边际产量等于平均产量通常标志平均产量达到峰值。"},"conceptId":"marginal-product"},{"id":"eco-05-q09","number":9,"group":"短期生产函数","type":"single","stem":"假设只有一种生产要素投入可变，其他生产要素投入不可变，关于边际产量和平均产量关系的说法，正确的是（　）。","options":{"A":"只要边际产量大于平均产量，平均产量就是递增的","B":"只要边际产量等于平均产量，平均产量就是递增的","C":"只要边际产量小于平均产量，平均产量就是递增的","D":"只要边际产量大于平均产量，平均产量就是递减的"},"answer":["A"],"explanationSupplement":"劳动投入 L＞0 时，AP=Q/L，导数 dAP/dL=(MP−AP)/L。新增投入的产出高于此前平均值，就会拉高平均值。","optionExplanations":{"A":"MP＞AP 时，平均产量的导数为正。","B":"MP=AP 时，平均产量的导数为零。","C":"MP＜AP 时，新增单位的产出会拉低平均值。","D":"MP＞AP 会拉高平均值。"},"conceptId":"marginal-product"},{"id":"eco-05-q10","number":10,"group":"短期生产函数","type":"discussion","stem":"边际产量递减规律的基本含义是（　）。","options":{"A":"在技术水平和其他投入不变的条件下，连续追加一种生产要素的投入量，总是存在着一个临界点，在这一点之前，边际产量递增，超过这一点之后，边际产量将出现递减的趋势，直到出现负值","B":"在技术水平和其他投入变动的条件下，连续追加一种生产要素的投入量，总是存在着一个临界点，在这一点之后，边际产量递增，这一点之前，边际产量将出现递减的趋势，直到出现负值","C":"在技术水平不变、其他投入变动的条件下，连续追加一种生产要素的投入量，边际产量总是递减的","D":"在技术水平和其他投入不变的条件下，连续追加一种生产要素的投入量，边际产量总是递减的"},"answer":[],"explanationSupplement":"边际产量递减的核心是技术与其他投入给定时，持续追加一种可变投入，超过某一范围后，每增加一单位所带来的产量增量会减少。典型的短期三阶段图常画出先升后降及负值区间，而一般规律允许边际产量从一开始就递减，也允许它在递减时始终为正。","optionExplanations":{"A":"符合典型三阶段图，前期必然递增和最终必然出现负值超出了普遍定义。","B":"这里改变了技术或其他投入，无法隔离可变投入的影响。","C":"其他投入的变化可能改变边际产量曲线。","D":"边际产量递减可以在一定投入水平之后出现，普遍命题不要求全程递减。"},"conceptId":"marginal-product"},{"id":"eco-05-q11","number":11,"group":"短期生产函数","type":"single","stem":"如果连续地增加某种生产要素，在总产量达到最大时，边际产量曲线（　）。","options":{"A":"与纵轴相交","B":"经过原点","C":"与平均产量曲线相交","D":"与横轴相交"},"answer":["D"],"explanationSupplement":"横轴表示投入量，纵轴表示边际产量。典型总产量曲线从上升转为下降时，边际产量从正变为负，经过零点并与横轴相交。","optionExplanations":{"A":"与纵轴相交对应投入量为零。","B":"过原点要求投入量和边际产量都为零。","C":"边际产量曲线与平均产量曲线的典型交点对应平均产量峰值。","D":"边际产量为零对应横轴上的点。"},"conceptId":"marginal-product"},{"id":"eco-05-q12","number":12,"group":"短期生产函数","type":"single","stem":"下列说法中错误的是（　）。","options":{"A":"只要总产量减少，边际产量一定是负数","B":"只要边际产量减少，总产量一定也减少","C":"随着某种生产要素投入量的增加，边际产量和平均产量增加到一定程度将趋于下降，其中边际产量的下降一定先于平均产量","D":"边际产量曲线一定在平均产量曲线的最高点与之相交"},"answer":["B"],"explanationSupplement":"在典型短期生产曲线中，MP 的符号决定 TP 的增减。比如 MP 从 8 降到 5，新增一单位仍增加 5 单位总产量。","optionExplanations":{"A":"以新增投入导致的产量变化衡量，负的产量增量意味着负边际产量。","B":"MP 下降但仍为正时，TP 还在增加，因此本项错误。","C":"典型三阶段曲线中，MP 先到峰值，随后在 AP 峰值处降至与 AP 相等。","D":"可微平均产量曲线在正投入量的内点峰值上满足 MP=AP。"},"conceptId":"marginal-product"},{"id":"eco-05-q13","number":13,"group":"短期生产函数","type":"single","stem":"当生产函数 Q=f(L,K) 的 AP_L 为正且递减时，MP_L 可以是（　）。","options":{"A":"递减且为正","B":"递减且为负","C":"为 0","D":"上述任何一种情况"},"answer":["D"],"explanationSupplement":"AP_L 递减仅要求 MP_L＜AP_L。由于 AP_L 是正值，比它小的边际产量既可以为正，也可以等于零或为负。","optionExplanations":{"A":"只要正的 MP_L 低于 AP_L，AP_L 便会递减。","B":"负的 MP_L 低于正的 AP_L，AP_L 会递减。","C":"MP_L 为零时也小于正的 AP_L。","D":"三个情形都与 MP_L＜AP_L 相容。"},"conceptId":"marginal-product"},{"id":"eco-05-q14","number":14,"group":"短期生产函数","type":"single","stem":"在短期生产的第一阶段，产量曲线的特征是（　）。","options":{"A":"总产出上升，平均产出上升，边际产出上升","B":"总产出上升，平均产出上升，边际产出先上升后下降","C":"总产出上升，平均产出先上升后下降，边际产出先上升后下降","D":"总产出上升，平均产出先上升后下降，边际产出上升"},"answer":["B"],"explanationSupplement":"在通常的短期三阶段图中，第一阶段一直持续到 AP 最大处。其间 MP 先升后降，但仍高于 AP，故 AP 与 TP 继续上升。","optionExplanations":{"A":"边际产量在平均产量峰值之前已开始回落。","B":"总产量与平均产量上升，边际产量先升后降，符合典型第一阶段。","C":"平均产量开始下降是在第一阶段结束后。","D":"该项把平均产量与边际产量的典型走势混淆。"},"conceptId":"production-stages"},{"id":"eco-05-q15","number":15,"group":"短期生产函数","type":"single","stem":"在其他投入保持不变的条件下，由于新增一单位的投入而多生产出来的产量或产出称为（　）。","options":{"A":"总产量","B":"平均产量","C":"边际产量","D":"固定产量"},"answer":["C"],"explanationSupplement":"固定资本等其他投入，再多用一单位劳动。比较前后总产量，新增部分就是劳动的边际产量。","optionExplanations":{"A":"总产量是现有投入产生的全部产出。","B":"平均产量等于总产量除以可变投入量。","C":"新增一单位投入带来的额外产量就是边际产量。","D":"投入有固定要素的区分，该题考察产量增量的定义。"},"conceptId":"marginal-product"},{"id":"eco-05-q16","number":16,"group":"短期生产函数","type":"single","stem":"在总产量、平均产量和边际产量的变化过程中，下列哪一个变化首先发生？（　）","options":{"A":"边际产量下降","B":"平均产量下降","C":"总产量下降","D":"B 和 C"},"answer":["A"],"explanationSupplement":"在典型短期曲线中，MP 开始下降时仍大于 AP 且大于零。AP 在 MP 降至等于 AP 后开始下降，TP 在 MP 进一步降为负后开始下降。","optionExplanations":{"A":"边际产量的峰值最早出现。","B":"平均产量在 MP 下降并穿过 AP 时才达到峰值。","C":"总产量要等到 MP 降为负值才开始下降。","D":"平均产量和总产量下降都在边际产量开始下降之后。"},"conceptId":"production-stages"},{"id":"eco-05-q17","number":17,"group":"短期生产函数","type":"single","stem":"根据可变要素的总产量曲线、平均产量曲线和边际产量曲线之间的关系，可将生产划分为三个阶段，任何理性的生产者都会将生产选择在（　）。","options":{"A":"第Ⅰ阶段","B":"第Ⅱ阶段","C":"第Ⅲ阶段","D":"第Ⅳ阶段"},"answer":["B"],"explanationSupplement":"典型短期图中，选择正产量的理性厂商在第二阶段寻找生产点。此时平均产量已开始下降，边际产量仍为正。具体投入还需比较边际产值和投入价格。","optionExplanations":{"A":"通常视为相对于固定要素使用的劳动过少，AP 仍可提高。","B":"可变要素继续增加仍可增加总产量，属于合理生产区间。","C":"边际产量为负，减少投入可以提高产量。","D":"这套划分只有三个阶段。"},"conceptId":"production-stages"},{"id":"eco-05-q18","number":18,"group":"短期生产函数","type":"single","stem":"当（　），平均产量曲线与边际产量曲线相交。","options":{"A":"边际产量为 0","B":"总产量最小","C":"平均产量最大","D":"总产量最大"},"answer":["C"],"explanationSupplement":"在标准短期图中，MP 从 AP 上方穿到 AP 下方时，AP 从递增转为递减，于是交点对应 AP 最大。代数上 dAP/dL=(MP−AP)/L。","optionExplanations":{"A":"MP=0 通常对应 TP 最大。","B":"总产量最小并不能决定 MP 与 AP 是否相等。","C":"在平均产量的可微内点峰值，MP=AP。","D":"TP 最大时 MP=0，而 AP 通常仍为正。"},"conceptId":"marginal-product"},{"id":"eco-05-q19","number":19,"group":"长期生产函数","type":"discussion","stem":"如果规模报酬不变，增加 20% 的劳动量，但保持资本数量不变，则总产量将（　）。","options":{"A":"增加 20%","B":"减少 20%","C":"增加小于 20%","D":"增加大于 20%"},"answer":[],"explanationSupplement":"规模报酬不变说明 f(1.2L,1.2K)=1.2f(L,K)。题目问的是 f(1.2L,K)，还需要技术条件。若产量随两种投入都严格增加，结果是增幅介于 0 与 20% 之间。固定比例技术 Q=min(L,K) 下，劳动仍是瓶颈时可以恰好增加 20%，资本是瓶颈时产量保持不变。","optionExplanations":{"A":"劳动持续为固定比例技术的约束投入时，这种结果可能出现。","B":"在投入可自由处置的通常生产技术中，增加劳动不会降低最大可达产量。","C":"若劳动和资本各自的边际产量都严格为正，此项成立。","D":"在产量随资本非减的技术中，只增劳动的产量不超过两种要素同时增加时的产量。"},"conceptId":"returns-to-scale"},{"id":"eco-05-q20","number":20,"group":"长期生产函数","type":"single","stem":"边际收益递减和规模报酬递减两者之间（　）。","options":{"A":"互为因果关系","B":"前因后果关系","C":"前果后因关系","D":"前提条件不同，不能互为因果关系"},"answer":["D"],"explanationSupplement":"边际报酬递减保持其他要素固定，考察新增一单位的产量。规模报酬递减将所有要素按同一比例放大，比较总产量增幅。比如 Q=√(LK) 的单项边际产量会递减，规模报酬仍不变。","optionExplanations":{"A":"两个命题对应不同的变化实验，无法互为因果。","B":"固定资本时劳动边际报酬递减，整体规模报酬仍可能不变。","C":"整体放大时产量增长比例偏小，不能直接推出每种投入的边际变化。","D":"两种结论的前提不同，无必然因果联系。"},"conceptId":"returns-to-scale"},{"id":"eco-05-q21","number":21,"group":"长期生产函数","type":"single","stem":"根据生产规模和产量的变化比例的比较，可以将规模报酬分为不同类别。如果产量增加的比例大于各种生产要素增加的比例，则属于（　）。","options":{"A":"规模报酬不变","B":"规模报酬递增","C":"规模报酬递减","D":"以上选项都正确"},"answer":["B"],"explanationSupplement":"先确认所有投入按相同比例扩大，再将产出增幅与这个共同增幅比较。产出增加得更快即为规模报酬递增。","optionExplanations":{"A":"规模报酬不变要求两个比例相等。","B":"产量增幅超过共同的投入增幅，符合定义。","C":"规模报酬递减要求产量增幅较小。","D":"三种类型在同一次比较中分别对应大于、等于和小于。"},"conceptId":"returns-to-scale"},{"id":"eco-05-q22","number":22,"group":"长期生产函数","type":"single","stem":"规模报酬递增，就是（　）。","options":{"A":"产量增加的比例等于各生产要素增加的比例","B":"产量增加的比例大于各生产要素增加的比例","C":"产量增加的比例小于各生产要素增加的比例","D":"产量增加的比例小于或等于各生产要素增加的比例"},"answer":["B"],"explanationSupplement":"例如劳动和资本都增加 10%，同一技术下可达的最大产量增加 15%，此时产量增幅超过投入增幅。","optionExplanations":{"A":"增幅相等是规模报酬不变。","B":"产量的比例增幅严格高于共同的投入增幅，符合定义。","C":"产量增幅较小是规模报酬递减。","D":"小于或等于涵盖递减与不变。"},"conceptId":"returns-to-scale"},{"id":"eco-05-q23","number":23,"group":"长期生产函数","type":"single","stem":"关于规模报酬，说法错误的是（　）。","options":{"A":"产量增加的比例等于各种生产要素增加的比例，这是规模报酬不变","B":"产量增加的比例大于各种生产要素增加的比例，这是规模报酬递增","C":"产量增加的比例小于各种生产要素增加的比例，这是规模报酬递减","D":"企业规模较小时规模报酬递减，当企业规模达到临界值以后，企业继续扩大规模会出现规模报酬递增"},"answer":["D"],"explanationSupplement":"判断前三项时用共同的投入增幅与产量增幅比较。不同产量区间的规模报酬取决于技术条件，企业规模本身无法决定从递减转为递增。","optionExplanations":{"A":"相等对应规模报酬不变。","B":"产量增长相对较快对应规模报酬递增。","C":"产量增长相对较慢对应规模报酬递减。","D":"该项把一种规模报酬变化顺序当作普遍结论，因此错误。"},"conceptId":"returns-to-scale"},{"id":"eco-05-q24","number":24,"group":"长期生产函数","type":"single","stem":"规模报酬递减是在下述（　）情况下发生的。","options":{"A":"按比例连续增加各种生产要素","B":"不按比例连续增加各种生产要素","C":"连续地投入某种生产要素而保持其他生产要素不变","D":"上述都正确"},"answer":["A"],"explanationSupplement":"规模报酬的比较实验要求把所有要素同时乘以同一个大于 1 的系数。如果产量增加的比例小于这一投入增幅，就属于规模报酬递减。","optionExplanations":{"A":"同比例增加各种要素提供了判断规模报酬的必要条件。","B":"投入比例改变会同时改变生产规模和投入组合。","C":"仅增加一种投入用来分析其边际产量。","D":"其余两种情形没有满足所有要素同比例增加的条件。"},"conceptId":"returns-to-scale"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":null},{"id":"chapter08","number":8,"title":"博弈论初步","href":null},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":null},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":null},{"id":"chapter11","number":11,"title":"国民收入核算","href":null},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":null},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":null},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":null},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":null},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":null},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":null}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":null},{"id":"chapter19","number":2,"title":"信用与利率","href":null},{"id":"chapter20","number":3,"title":"金融市场","href":null},{"id":"chapter21","number":4,"title":"金融机构","href":null},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":null},{"id":"chapter23","number":6,"title":"国际金融","href":null},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":null},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":null}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":null},{"id":"chapter27","number":2,"title":"保险的基本原则","href":null},{"id":"chapter28","number":3,"title":"保险合同","href":null},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":null},{"id":"chapter30","number":5,"title":"财产保险","href":null},{"id":"chapter31","number":6,"title":"人身保险","href":null}]}]};</script>
+<script>(function (global) {
+  'use strict';
+  let activeController = null;
+  const unique = (values) => Array.isArray(values) ? [...new Set(values)].sort() : [];
+  function grade(question, selected) {
+    if (!question || question.type === 'discussion' || !question.options || !Array.isArray(selected) || !Array.isArray(question.answer)) return false;
+    const actual = unique(selected);
+    const expected = unique(question.answer);
+    if (!actual.length || !expected.length || actual.some((v) => typeof v !== 'string' || !Object.hasOwn(question.options, v))) return false;
+    if (question.type !== 'multiple' && actual.length !== 1) return false;
+    return actual.length === expected.length && actual.every((v, i) => v === expected[i]);
+  }
+  function recordAttempt(state, question, selected, at) {
+    if (question.type === 'discussion' || !Array.isArray(selected) || !selected.length) return false;
+    const correct = grade(question, selected);
+    const previous = state.answers[question.id] || {};
+    state.answers[question.id] = {
+      selected: unique(selected), submitted: true, correct,
+      attempts: (Number.isInteger(previous.attempts) ? previous.attempts : 0) + 1,
+      everWrong: previous.everWrong === true || !correct,
+      lastAnsweredAt: at || new Date().toISOString()
+    };
+    return true;
+  }
+  function testSummary(questions, drafts) {
+    const graded = questions.filter(q => q.type !== 'discussion');
+    const summary = { total: graded.length, answered: 0, correct: 0, wrong: 0, unanswered: 0 };
+    graded.forEach((q) => {
+      const selected = drafts[q.id] || [];
+      if (!selected.length) summary.unanswered += 1;
+      else { summary.answered += 1; if (grade(q, selected)) summary.correct += 1; else summary.wrong += 1; }
+    });
+    return summary;
+  }
+  function submitTest(state, questions, at) {
+    if (state.test.submitted) return false;
+    questions.forEach((q) => recordAttempt(state, q, state.test.drafts[q.id] || [], at));
+    state.test.submitted = true;
+    return true;
+  }
+  function validateImport(input, questions) {
+    if (!input || input.version !== 1 || !input.answers || typeof input.answers !== 'object' || Array.isArray(input.answers)) return false;
+    const byId = new Map(questions.map((q) => [q.id, q]));
+    return Object.entries(input.answers).every(([id, record]) => {
+      const q = byId.get(id);
+      return q && q.type !== 'discussion' && record && Array.isArray(record.selected) && record.selected.length > 0 && record.selected.every((v) => Object.hasOwn(q.options, v)) &&
+        (q.type === 'multiple' || unique(record.selected).length === 1) && record.correct === grade(q, record.selected) && Number.isInteger(record.attempts) && record.attempts > 0;
+    });
+  }
+  function mount(root, config) {
+    if (!root) throw new Error('Quiz root is required');
+    const { questions, store, onConceptJump } = config;
+    const graded = questions.filter(q => q.type !== 'discussion');
+    const openDiscussions = new Set();
+    let mode = 'practice';
+    let currentId = questions[0] && questions[0].id;
+    let statusText = '';
+    let destroyed = false;
+    const el = (tag, cls, text) => {
+      const node = document.createElement(tag);
+      if (cls) node.className = cls;
+      if (text !== undefined && text !== null) node.textContent = text;
+      return node;
+    };
+    const button = (text, action, cls) => {
+      const node = el('button', cls || 'button button-secondary', text);
+      node.type = 'button'; node.dataset.action = action;
+      return node;
+    };
+    function state() {
+      const s = store.get();
+      return { ...s, answers: s.answers || {}, drafts: s.drafts || {}, favorites: s.favorites || [], test: s.test || { drafts: {}, submitted: false } };
+    }
+    function update(mutator) {
+      store.update((s) => {
+        s.answers ||= {}; s.drafts ||= {}; s.favorites ||= []; s.test ||= { drafts: {}, submitted: false }; s.test.drafts ||= {};
+        mutator(s);
+      });
+    }
+    function filtered(s) {
+      if (mode === 'test') return graded;
+      if (mode === 'wrong') return graded.filter(q => s.answers[q.id]?.everWrong);
+      return questions;
+    }
+    function chosen(q, s) {
+      if (mode === 'test') return s.test.drafts[q.id] || [];
+      if (Object.hasOwn(s.drafts, q.id)) return s.drafts[q.id];
+      return s.answers[q.id] ? s.answers[q.id].selected : [];
+    }
+    function revealed(q, s) {
+      return mode === 'test' ? s.test.submitted === true : !!(s.answers[q.id] && s.answers[q.id].submitted && !Object.hasOwn(s.drafts, q.id));
+    }
+    function render() {
+      if (destroyed) return;
+      const s = state();
+      const list = filtered(s);
+      if (!list.some((q) => q.id === currentId)) currentId = list[0] && list[0].id;
+      const q = list.find((item) => item.id === currentId);
+      root.replaceChildren();
+      const toolbar = el('div', 'quiz-toolbar');
+      const tabs = el('div', 'quiz-tabs'); tabs.setAttribute('aria-label', '答题方式');
+      [['practice', '逐题练习'], ['test', '本章测试'], ['wrong', '错题复习']].forEach(([key, label]) => {
+        const tab = button(label, 'mode', 'quiz-tab' + (mode === key ? ' active' : ''));
+        tab.dataset.mode = key; tab.setAttribute('aria-pressed', String(mode === key)); tabs.append(tab);
+      });
+      toolbar.append(tabs);
+      const stats = el('span', 'muted', mode === 'wrong' ? `历史错题 ${list.length} 道 · 答对后保留记录` : mode === 'test' ? `${graded.length} 道计分题` : `${questions.length} 道练习题 · 答题记录保存在当前浏览器`);
+      toolbar.append(stats); root.append(toolbar);
+      if (mode === 'test') renderTestSummary(s);
+      if (!q) {
+        root.append(el('div', 'quiz-empty', mode === 'wrong' ? '还没有错题。完成练习后，答错的题目会出现在这里。' : '本章暂无题目。'));
+        return;
+      }
+      const index = el('nav', 'quiz-index');
+      index.setAttribute('aria-label', '题号导航');
+      let activeGroup;
+      let grid;
+      list.forEach((item) => {
+        if (!grid || item.group !== activeGroup) {
+          activeGroup = item.group;
+          const section = el('div', 'quiz-question-group');
+          if (activeGroup) section.append(el('span', 'quiz-group-label', activeGroup));
+          grid = el('div', 'quiz-grid');
+          section.append(grid);
+          index.append(section);
+        }
+        const n = button(String(item.number), 'question', 'quiz-number'); n.dataset.qid = item.id;
+        const rec = s.answers[item.id];
+        let result = 'unanswered';
+        if (mode === 'test') {
+          if (s.test.submitted) result = (s.test.drafts[item.id] || []).length ? (grade(item, s.test.drafts[item.id]) ? 'correct' : 'wrong') : 'unanswered';
+          else if ((s.test.drafts[item.id] || []).length) result = 'draft';
+        } else if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) result = 'draft';
+        else if (rec) result = rec.correct ? 'correct' : 'wrong';
+        n.dataset.state = result;
+        if (result === 'correct' || result === 'wrong') n.classList.add(result);
+        if (result === 'draft') n.classList.add('answered');
+        if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
+        n.setAttribute('aria-label', `第 ${item.number} 题${item.type === 'discussion' ? '，讨论题' : result === 'correct' ? '，已答对' : result === 'wrong' ? '，答错' : result === 'draft' ? '，已选择待提交' : '，未作答'}`);
+        grid.append(n);
+      }); root.append(index);
+      const card = el('article', 'quiz-card');
+      const head = el('div', 'quiz-card-header');
+      const discussion = q.type === 'discussion';
+      const types = { multiple: '多项选择题 · 全部选对得分', single: '单项选择题', discussion: '讨论题 · 不计分' };
+      const position = mode === 'test' ? `测试第 ${list.indexOf(q) + 1} / ${list.length} 题` : `第 ${q.number} / ${questions.length} 题`;
+      head.append(el('span', '', [q.group, position, types[q.type]].filter(Boolean).join(' · ')));
+      const favorite = button(s.favorites.includes(q.id) ? '★ 已收藏' : '☆ 收藏此题', 'favorite', 'button button-secondary quiz-favorite');
+      favorite.setAttribute('aria-pressed', String(s.favorites.includes(q.id))); head.append(favorite); card.append(head);
+      const stem = el('h3', 'quiz-stem', q.stem); stem.id = 'quiz-current-stem'; card.append(stem);
+      const field = el('fieldset', 'quiz-options');
+      field.setAttribute('aria-labelledby', stem.id);
+      field.append(el('legend', '', discussion ? '讨论选项' : q.type === 'multiple' ? '请选择所有符合题意的选项' : '请选择一个选项'));
+      const selected = chosen(q, s);
+      const show = revealed(q, s);
+      Object.entries(q.options).forEach(([key, text]) => {
+        if (discussion) {
+          field.append(el('div', 'quiz-option', `${key}. ${text}`));
+          return;
+        }
+        const label = el('label', 'quiz-option');
+        const input = el('input'); input.type = q.type === 'multiple' ? 'checkbox' : 'radio'; input.name = 'quiz-answer'; input.value = key;
+        input.checked = selected.includes(key); input.disabled = show; input.dataset.qid = q.id;
+        if (show && q.answer.includes(key)) label.classList.add('correct');
+        if (show && selected.includes(key) && !q.answer.includes(key)) label.classList.add('wrong');
+        label.append(input, el('span', '', `${key}. ${text}`)); field.append(label);
+      }); card.append(field);
+      if (mode === 'wrong' && s.answers[q.id] && s.answers[q.id].correct) card.append(el('p', 'quiz-status quiz-correct', '最近一次已答对 · 已掌握，历史错题仍保留'));
+      const actions = el('div', 'quiz-actions');
+      const nav = el('div', 'quiz-nav');
+      const questionIndex = list.findIndex((item) => item.id === q.id);
+      const prev = button('上一题', 'previous'); prev.disabled = questionIndex <= 0;
+      const next = button('下一题', 'next'); next.disabled = questionIndex >= list.length - 1;
+      nav.append(prev, next); actions.append(nav);
+      if (discussion) {
+        const open = openDiscussions.has(q.id);
+        const toggle = button(open ? '收起讨论解析' : '查看讨论解析', 'discussion', 'button button-primary');
+        toggle.setAttribute('aria-expanded', String(open));
+        actions.append(toggle);
+      } else if (mode !== 'test') {
+        const submit = button(show ? '重新作答' : '提交答案', show ? 'retry' : 'submit', 'button button-primary');
+        submit.disabled = !show && !selected.length; actions.append(submit);
+      } else if (!s.test.submitted) actions.append(el('span', 'muted', '本章测试交卷后统一显示解析'));
+      card.append(actions);
+      const status = el('p', 'quiz-status', statusText); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); card.append(status);
+      if (show || openDiscussions.has(q.id)) renderExplanation(card, q, selected);
+      root.append(card);
+      if (mode === 'test' && !s.test.submitted) {
+        const foot = el('div', 'quiz-actions');
+        foot.append(el('p', 'muted', '未答题交卷后记为未作答，不加入错题本。'), button('交卷并查看解析', 'finish-test', 'button button-primary'));
+        root.append(foot);
+      }
+    }
+    function renderTestSummary(s) {
+      const summary = testSummary(questions, s.test.drafts);
+      const box = el('div', 'quiz-summary');
+      if (s.test.submitted) {
+        box.setAttribute('role', 'status');
+        box.append(el('strong', '', `${summary.correct} / ${summary.total}`), el('span', '', `  答对 · 答错 ${summary.wrong} 道 · 未答 ${summary.unanswered} 道`));
+        box.append(el('p', '', `正确率 ${summary.total ? Math.round(summary.correct / summary.total * 100) : 0}% · 点击题号查看各题解析。`), button('重新测试', 'restart-test'));
+      } else box.append(el('span', '', `已选择 ${summary.answered} / ${summary.total} 题 · 测试中不显示答案，随时可切换题号。`));
+      root.append(box);
+    }
+    function renderExplanation(card, q, selected) {
+      const feedback = el('div', 'quiz-feedback quiz-explanation');
+      if (q.type === 'discussion') {
+        feedback.append(el('h3', '', '讨论解析'));
+      } else {
+        const correct = grade(q, selected);
+        feedback.append(el('h3', correct ? 'quiz-correct' : 'quiz-incorrect', !selected.length ? '本题未作答' : correct ? '回答正确' : '回答错误'));
+        const selectionText = selected.length ? `你选择了 ${selected.join('、')}。` : '你未作答。';
+        feedback.append(el('p', '', `${selectionText}正确答案是 ${q.answer.join('、')}。`));
+      }
+      if (q.type === 'multiple' && selected.length && !grade(q, selected)) {
+        const missing = q.answer.filter((key) => !selected.includes(key)); const extra = selected.filter((key) => !q.answer.includes(key));
+        const details = [];
+        if (missing.length) details.push(`漏选了 ${missing.join('、')}。`);
+        if (extra.length) details.push(`错选了 ${extra.join('、')}。`);
+        feedback.append(el('p', '', details.join('')));
+      }
+      feedback.append(el('h4', '', '解题思路'), el('p', '', q.explanationSupplement || '请结合对应知识点复习。'));
+      if (q.optionExplanations && Object.keys(q.optionExplanations).length) {
+        feedback.append(el('h4', '', '选项辨析'));
+        const reasons = el('ul', 'quiz-rationale-list');
+        Object.entries(q.optionExplanations).forEach(([key, text]) => reasons.append(el('li', '', `${key}　${text}`))); feedback.append(reasons);
+      }
+      const links = el('div', 'quiz-actions'); const jump = button('回看对应知识点', 'concept'); jump.dataset.concept = q.conceptId;
+      links.append(jump); feedback.append(links); card.append(feedback);
+    }
+    function handleClick(event) {
+      const target = event.target.closest('button[data-action]');
+      if (!target || !root.contains(target)) return;
+      const action = target.dataset.action;
+      const s = state(); const list = filtered(s); const q = list.find((item) => item.id === currentId);
+      statusText = '';
+      if (action === 'mode') { mode = target.dataset.mode; }
+      else if (action === 'question') currentId = target.dataset.qid;
+      else if (action === 'discussion' && q?.type === 'discussion') {
+        if (openDiscussions.has(q.id)) openDiscussions.delete(q.id);
+        else openDiscussions.add(q.id);
+      }
+      else if (action === 'previous' || action === 'next') {
+        const index = list.findIndex((item) => item.id === currentId); const item = list[index + (action === 'next' ? 1 : -1)]; if (item) currentId = item.id;
+      } else if (action === 'favorite' && q) update((draft) => { const i = draft.favorites.indexOf(q.id); if (i >= 0) draft.favorites.splice(i, 1); else draft.favorites.push(q.id); });
+      else if (action === 'retry' && q) { update((draft) => { draft.drafts[q.id] = []; }); statusText = '已开始重新作答，历史记录保留。'; }
+      else if (action === 'submit' && q) {
+        const selected = chosen(q, s); if (!selected.length) { statusText = '请先选择答案。'; }
+        else { update((draft) => { recordAttempt(draft, q, selected); delete draft.drafts[q.id]; }); statusText = grade(q, selected) ? '答案已保存，回答正确。' : '答案已保存，已加入错题本。'; }
+      } else if (action === 'finish-test') { update((draft) => submitTest(draft, questions)); statusText = '测试已交卷，答题记录已保存。'; }
+      else if (action === 'restart-test') { update((draft) => { draft.test = { drafts: {}, submitted: false }; }); currentId = questions[0] && questions[0].id; statusText = '新一轮测试已开始，历史答题记录保留。'; }
+      else if (action === 'concept') { if (typeof onConceptJump === 'function') onConceptJump(target.dataset.concept); return; }
+      render();
+      if (action === 'discussion') root.querySelector('[data-action="discussion"]')?.focus();
+    }
+    function handleChange(event) {
+      const input = event.target;
+      if (!input.matches('input[name="quiz-answer"]')) return;
+      const s = state(); const q = questions.find((item) => item.id === input.dataset.qid); if (!q || revealed(q, s)) return;
+      const selected = [...root.querySelectorAll('input[name="quiz-answer"]:checked')].map((node) => node.value);
+      update((draft) => { if (mode === 'test') draft.test.drafts[q.id] = selected; else draft.drafts[q.id] = selected; });
+      statusText = '选项已暂存，提交后判题。';
+      const value = input.value; render();
+      const focus = [...root.querySelectorAll('input[name="quiz-answer"]')].find((node) => node.value === value); if (focus) focus.focus({ preventScroll: true });
+    }
+    const controller = { openQuestion(id) { if (!questions.some((q) => q.id === id)) return false; mode = 'practice'; currentId = id; statusText = ''; render(); return true; } };
+    activeController = controller;
+    root.addEventListener('click', handleClick); root.addEventListener('change', handleChange); render();
+    return function cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); if (activeController === controller) activeController = null; };
+  }
+  const api = { mount, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  if (global) global.StudyQuiz = api;
+})(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this);
+
+(function(){
+ 'use strict';
+ const C=window.STUDY_CONTENT, $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+ const chapter=C.chapter;
+ const offline=document.body.dataset.offline==='true', flatDownloads=document.body.dataset.flatDownloads==='true';
+ const keyBase='zhiqi-study-v1', KEY=chapter?.id==='chapter01' ? keyBase : `${keyBase}:${chapter?.id}`;
+ const sectionIds=new Set(C.lessons?.sections.map(s=>s.id));
+ const questionIds=new Set(C.questions?.map(q=>q.id));
+ const empty=()=>({version:1,answers:{},drafts:{},favorites:[],reading:{seen:[],lastConcept:'',scrollY:0},test:{drafts:{},submitted:false}});
+ let storageAvailable=true,state=empty(),quizCleanup=null,view='learn',toastTimer,ppfTimer=null;
+ const clone=o=>JSON.parse(JSON.stringify(o));
+ function cleanSelected(value,q){if(!Array.isArray(value)||!value.every(v=>typeof v==='string'&&Object.hasOwn(q.options,v)))throw Error('备份中的作答选项无效');const out=[...new Set(value)].sort();if(q.type==='single'&&out.length>1)throw Error('单选题备份含多个选项');return out;}
+ function validateState(raw){
+  if(!raw||raw.version!==1||!raw.answers||typeof raw.answers!=='object'||Array.isArray(raw.answers)||!Array.isArray(raw.favorites))throw Error('文件不是有效的学习记录备份');
+  const out=empty();
+  C.questions.filter(q=>q.type!=='discussion').forEach(q=>{
+   const rec=Object.hasOwn(raw.answers,q.id)?raw.answers[q.id]:null;
+   if(rec){const selected=cleanSelected(rec.selected,q);if(!selected.length||rec.submitted!==true||!Number.isSafeInteger(rec.attempts)||rec.attempts<1)throw Error('答题记录格式不完整');out.answers[q.id]={selected,submitted:true,correct:window.StudyQuiz.grade(q,selected),attempts:rec.attempts,everWrong:rec.everWrong===true||!window.StudyQuiz.grade(q,selected),lastAnsweredAt:typeof rec.lastAnsweredAt==='string'?rec.lastAnsweredAt:''};}
+   if(raw.drafts&&Object.hasOwn(raw.drafts,q.id))out.drafts[q.id]=cleanSelected(raw.drafts[q.id],q);
+   if(raw.test?.drafts&&Object.hasOwn(raw.test.drafts,q.id))out.test.drafts[q.id]=cleanSelected(raw.test.drafts[q.id],q);
+  });
+  out.favorites=[...new Set(raw.favorites.filter(id=>typeof id==='string'&&(questionIds.has(id)||(id.startsWith('concept:')&&sectionIds.has(id.slice(8))))))];
+  out.reading.seen=Array.isArray(raw.reading?.seen)?[...new Set(raw.reading.seen.filter(id=>sectionIds.has(id)))]:[];
+  out.reading.lastConcept=sectionIds.has(raw.reading?.lastConcept)?raw.reading.lastConcept:'';
+  out.reading.scrollY=Number.isFinite(raw.reading?.scrollY)?Math.max(0,raw.reading.scrollY):0;
+  out.test.submitted=raw.test?.submitted===true;
+  return out;
+ }
+ function notice(){storageAvailable=false;$('#storage-notice').hidden=false;$('#storage-notice').textContent='当前浏览器无法保存学习记录，阅读和答题仍可使用。离开前请导出记录备份。';}
+ if (chapter) {
+  try {
+   const saved=localStorage.getItem(KEY);
+   if(saved)state=validateState(JSON.parse(saved));
+   const probe=KEY+'-probe';
+   localStorage.setItem(probe,'1');
+   localStorage.removeItem(probe);
+  } catch { notice(); }
+ }
+ function updateState(mutator) {
+  if (storageAvailable) {
+   try {
+    const saved=localStorage.getItem(KEY);
+    if (saved) state=validateState(JSON.parse(saved));
+   } catch { notice(); }
+  }
+  mutator(state);
+  try { localStorage.setItem(KEY,JSON.stringify(state)); } catch { notice(); }
+  updateProgress();
+  return clone(state);
+ }
+ const store={get:()=>clone(state),update:updateState};
+ window.StudyStore=store;
+ function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
+ function el(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;}
+ function button(text,className,onClick){const b=el('button',className,text);b.type='button';if(onClick)b.addEventListener('click',onClick);return b;}
+ function openModal(title,content){$('#modal-title').textContent=title;$('#modal-content').replaceChildren();if(typeof content==='string')$('#modal-content').innerHTML=content;else if(content)$('#modal-content').append(content);if(!$('#modal').open)$('#modal').showModal();}
+ $('#modal-close').addEventListener('click',()=>$('#modal').close());
+ $('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
+ function jumpConcept(id){if(!sectionIds.has(id))return;showChapter();switchView('learn',false);history.replaceState(null,'','#'+id);requestAnimationFrame(()=>{const target=document.getElementById(id);target.scrollIntoView({behavior:'auto',block:'start'});const h=$('h3',target);h.tabIndex=-1;h.focus({preventScroll:true});});}
+ function mountQuiz(){if(quizCleanup)quizCleanup();quizCleanup=window.StudyQuiz.mount($('#quiz'),{questions:C.questions,store,onConceptJump:jumpConcept});}
+ function updateProgress(){const count=state.reading?.seen?.length||0;$('#reading-label').textContent=`已读 ${count} / ${C.lessons.sections.length} 个知识点`;$('#continue-reading').hidden=!state.reading?.lastConcept;$$('#lesson-jump a').forEach(link=>{if(link.dataset.concept===state.reading.lastConcept)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});$$('[data-favorite-concept]').forEach(b=>{const yes=state.favorites.includes('concept:'+b.dataset.favoriteConcept);b.classList.toggle('selected',yes);b.textContent=yes?'★':'☆';b.setAttribute('aria-pressed',String(yes));});}
+ function toggleFavorite(id){store.update(s=>{const i=s.favorites.indexOf(id);if(i===-1)s.favorites.push(id);else s.favorites.splice(i,1);});}
+ function chapterLink(entry) {
+  return offline ? (entry.id === chapter?.id ? '#learn' : null) : entry.href;
+ }
+ function renderSidebar() {
+  const openCount = C.catalog.flatMap(module => module.chapters).filter(chapterLink).length;
+  $('#open-chapter-count').textContent = offline ? '本章离线版' : `已开放 ${openCount} 章`;
+  for (const [moduleIndex, module] of C.catalog.entries()) {
+   const group = el('details', 'module-group');
+   group.open = chapter ? module.id === chapter.moduleId : moduleIndex === 0;
+   const summary = el('summary', '', module.title);
+   summary.append(el('small', '', `${module.chapters.length} 章`));
+   group.append(summary);
+   module.chapters.forEach(entry => {
+    const href = chapterLink(entry);
+    const row = el(href ? 'a' : 'div', 'chapter-link');
+    if (href) {
+     row.href = href;
+     row.dataset.openChapter = 'true';
+     if (entry.id === chapter?.id) {
+      row.classList.add('active');
+      row.setAttribute('aria-current', 'page');
+     }
+    } else {
+     row.setAttribute('aria-disabled', 'true');
+     row.title = offline ? '此文件仅包含当前章节' : '待开放';
+    }
+    row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), el('span', '', entry.title));
+    group.append(row);
+   });
+   $('#sidebar-catalog').append(group);
+  }
+ }
+ function renderHome() {
+  const root = $('#home-view');
+  const introduction = el('div', 'home-hero');
+  introduction.innerHTML = `<h1>经济金融保险基础</h1>
+   <p>按章节学习概念、操作图解、练习做题。</p>`;
+  root.append(introduction);
+
+  C.catalog.forEach(module => {
+   const section = el('section', 'catalog-section');
+   const heading = el('div', 'catalog-heading');
+   heading.append(el('h2', '', module.title), el('span', '', `${module.chapters.length} 章`));
+   section.append(heading);
+   const chapters = el('div', 'catalog-grid');
+   module.chapters.forEach(entry => {
+    const href = chapterLink(entry);
+    const row = el(href ? 'a' : 'div', 'catalog-card' + (href ? ' ready' : ''));
+    const name = el('h3', '', entry.title);
+    row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), name);
+    if (href) {
+     row.href = href;
+     row.dataset.openChapter = 'true';
+     row.append(el('span', 'catalog-status', '开始学习 →'));
+    } else {
+     row.append(el('span', 'catalog-status', offline ? '其他章节' : '待开放'));
+    }
+    chapters.append(row);
+   });
+   section.append(chapters);
+   root.append(section);
+  });
+ }
+
+ function renderLessons() {
+  C.lessons.sections.forEach((section, index) => {
+   const number = String(index + 1).padStart(2, '0');
+   const jump = el('a');
+   jump.href = '#' + section.id;
+   jump.dataset.concept = section.id;
+   jump.append(el('span', 'topic-number', number), el('span', '', section.title));
+   $('#lesson-jump').append(jump);
+
+   const card = el('section', 'lesson-card');
+   card.id = section.id;
+   const head = el('div', 'lesson-head');
+   const heading = el('div');
+   heading.append(el('h3', '', section.title), el('p', 'lesson-summary', section.summary));
+   const favorite = button('☆', 'icon-button', () => toggleFavorite('concept:' + section.id));
+   favorite.dataset.favoriteConcept = section.id;
+   favorite.setAttribute('aria-label', '收藏知识点：' + section.title);
+   favorite.setAttribute('aria-pressed', 'false');
+   head.append(el('span', 'lesson-number', number), heading, favorite);
+
+   const body = el('div', 'lesson-body');
+   body.innerHTML = section.bodyHtml;
+   $$('table', body).forEach(table => {
+    const wrap = el('div', 'table-wrap');
+    table.replaceWith(wrap);
+    wrap.append(table);
+   });
+   const takeaway = el('div', 'concept-takeaway');
+   takeaway.append(el('strong', '', '考点'), document.createTextNode(section.keyTakeaway));
+   body.append(takeaway);
+
+   const extras = el('div', 'lesson-extras');
+   for (const [label, value, className] of [
+    ['例子', section.example, 'lesson-extra'],
+    ['易错提醒', section.pitfall, 'lesson-extra pitfall']
+   ]) {
+    const item = el('div', className);
+    item.append(el('strong', '', label), el('p', '', value));
+    extras.append(item);
+   }
+   body.append(extras);
+   card.append(head, body);
+   $('#lessons').append(card);
+  });
+ }
+ const observer = new IntersectionObserver(entries => {
+  if (view !== 'learn' || $('#chapter-view').hidden) return;
+  for (const entry of entries) {
+   if (!entry.isIntersecting) continue;
+   const id = entry.target.id;
+   store.update(record => {
+    if (!record.reading.seen.includes(id)) record.reading.seen.push(id);
+    record.reading.lastConcept = id;
+   });
+  }
+ }, { threshold: 0.12, rootMargin: '-125px 0px -15% 0px' });
+ function renderMap() {
+  const tree = $('#mindmap');
+  const viewport = $('.map-viewport');
+  const expand = $('#map-expand');
+  const zoomIn = $('#map-zoom-in');
+  const zoomOut = $('#map-zoom-out');
+  const size = $('#map-size');
+  const branches = [];
+  const startExpanded = !matchMedia('(max-width: 767px)').matches;
+  const readingSize = 14;
+  const minScale = 0.25;
+  const maxScale = 1.75;
+  let scale = 1;
+  let hasOpened = false;
+
+  function setExpanded(branch, expanded) {
+   branch.children.hidden = !expanded;
+   branch.toggle.setAttribute('aria-expanded', String(expanded));
+   branch.toggle.setAttribute('aria-label', `${expanded ? '收起' : '展开'}“${branch.label}”的分支`);
+   branch.toggle.textContent = expanded ? '−' : '+';
+  }
+
+  function updateExpandLabel() {
+   expand.textContent = branches.every(branch => !branch.children.hidden) ? '收起分支' : '全部展开';
+  }
+
+  function buildNode(node, depth, parentTarget) {
+   const item = el('li', 'map-item');
+   const target = node.target || parentTarget;
+   const isRoot = depth === 0;
+   item.dataset.depth = String(depth);
+   const label = el(isRoot ? 'span' : 'a', 'map-label', node.label);
+   const face = el('div', isRoot ? 'map-node map-root' : 'map-node');
+   if (!isRoot) {
+    label.href = '#' + target;
+    label.dataset.concept = target;
+   }
+   face.append(label);
+   item.append(face);
+   if (!node.children?.length) return item;
+
+   const children = el('ul', 'map-children');
+   if (!isRoot) {
+    item.classList.add('map-parent');
+    children.id = `map-branch-${branches.length + 1}`;
+    const toggle = button('', 'map-toggle');
+    toggle.setAttribute('aria-controls', children.id);
+    const branch = { toggle, children, label: node.label };
+    branches.push(branch);
+    setExpanded(branch, startExpanded);
+    toggle.addEventListener('click', () => {
+     setExpanded(branch, children.hidden);
+     updateExpandLabel();
+    });
+    face.append(toggle);
+   }
+   for (const child of node.children) children.append(buildNode(child, depth + 1, target));
+   item.append(children);
+   return item;
+  }
+
+  function setScale(next) {
+   scale = Math.min(maxScale, Math.max(minScale, next));
+   tree.style.fontSize = `${readingSize * scale}px`;
+   size.textContent = `${Math.round(scale * 100)}%`;
+   zoomIn.disabled = scale >= maxScale;
+   zoomOut.disabled = scale <= minScale;
+  }
+
+  function fitWidth() {
+   const availableWidth = viewport.clientWidth;
+   if (!availableWidth) return;
+   setScale(1);
+   const readingWidth = tree.getBoundingClientRect().width;
+   if (readingWidth > availableWidth) setScale((availableWidth - 8) / readingWidth);
+   viewport.scrollLeft = 0;
+  }
+
+  tree.append(buildNode({ label: C.lessons.title, children: C.lessons.mindmap }, 0));
+  updateExpandLabel();
+  expand.addEventListener('click', () => {
+   const next = branches.some(branch => branch.children.hidden);
+   branches.forEach(branch => setExpanded(branch, next));
+   updateExpandLabel();
+  });
+  zoomIn.addEventListener('click', () => setScale(scale * 1.2));
+  zoomOut.addEventListener('click', () => setScale(scale / 1.2));
+  size.addEventListener('click', () => setScale(1));
+  $('#map-fit').addEventListener('click', fitWidth);
+
+  return () => {
+   if (hasOpened) return;
+   hasOpened = true;
+   fitWidth();
+  };
+ }
+ const chapterViews = chapter?.visual ? ['learn', 'map', 'visual', 'practice'] : ['learn', 'map', 'practice'];
+ function chapterActions(visible) {
+  $$('[data-action="favorites"], [data-action="records"], [data-action="download"], .sidebar-quick-actions').forEach(node => node.hidden = !visible);
+ }
+ function showHome() {
+  pausePPF();
+  chapterActions(false);
+  $('#home-view').hidden=false;
+  $('#chapter-view').hidden=true;
+  document.title='学习目录 · 知其所以';
+  window.scrollTo({top:0,behavior:'instant'});
+ }
+ function showChapter() {
+  chapterActions(true);
+  $('#home-view').hidden=true;
+  $('#chapter-view').hidden=false;
+  document.title=chapter.title+' · 知其所以';
+ }
+ function switchView(next, scroll=true) {
+  if (!chapterViews.includes(next)) next='learn';
+  pausePPF();
+  view=next;
+  $$('.content-view').forEach(v=>v.hidden=v.id!=='view-'+next);
+  $$('[data-view]').forEach(b=>{
+   const active=b.dataset.view===next;
+   b.classList.toggle('active',active);
+   if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+  });
+  if(scroll)$('.view-tabs').scrollIntoView({behavior:'auto',block:'start'});
+  if(next==='map')fitMapOnFirstOpen();
+  if(next==='practice')mountQuiz();
+  history.replaceState(null,'','#'+next);
+ }
+ $('#continue-reading').addEventListener('click',()=>jumpConcept(state.reading.lastConcept));
+ function records() {
+  const wrap=el('div');
+  wrap.append(el('p','','本章记录保存在当前浏览器。可用备份文件在设备之间，以及本章在线版和离线版之间转移。'));
+  const stats=el('div','record-stats'), answered=Object.values(state.answers), correct=answered.filter(x=>x.correct).length;
+  const scoredCount=C.questions.filter(q=>q.type!=='discussion').length;
+  for(const [value,label] of [[state.reading.seen.length+'/'+C.lessons.sections.length,'已读知识点'],[answered.length+'/'+scoredCount,'已作答'],[correct,'最近答对']]) {
+   const item=el('div');
+   item.append(el('strong','',value),el('small','',label));
+   stats.append(item);
+  }
+  wrap.append(stats);
+  const actions=el('div','record-actions');
+  actions.append(button('导出学习记录','button button-primary',()=>{
+   const backup={app:'zhiqi-study',chapterId:chapter.id,exportedAt:new Date().toISOString(),state};
+   const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});
+   saveBlob(blob,`知其所以-${chapter.id}-学习记录-${backup.exportedAt.slice(0,10)}.json`);
+   toast('学习记录已导出');
+  }));
+  const file=el('input');
+  file.type='file';file.accept='.json,application/json';file.hidden=true;
+  const status=el('p','muted');
+  status.setAttribute('role','status');
+  file.addEventListener('change',async()=>{
+   try {
+    const f=file.files[0];
+    if(!f)return;
+    if(f.size>2*1024*1024)throw Error('备份文件过大，请选择有效的学习记录');
+    const parsed=JSON.parse(await f.text());
+    const backupChapter=parsed?.chapterId ?? 'chapter01';
+    if(backupChapter!==chapter.id)throw Error('备份属于其他章节，请在对应章节导入');
+    const next=validateState(parsed?.app==='zhiqi-study'?parsed.state:parsed);
+    const confirm=el('div','inline-notice');
+    confirm.append(el('p','',`已检查备份，含 ${Object.keys(next.answers).length} 道作答记录、${next.reading.seen.length} 个已读知识点。导入将替换本章记录。`),
+     button('确认导入并替换','button button-primary',()=>{
+      store.update(record=>Object.assign(record,next));
+      mountQuiz();records();toast('学习记录已恢复');
+     }));
+    status.replaceChildren(confirm);
+   } catch(e) {
+    status.textContent='无法导入：'+e.message;
+   } finally {
+    file.value='';
+   }
+  });
+  actions.append(button('导入记录','button button-secondary',()=>file.click()),file);
+  wrap.append(actions,status,el('p','muted',storageAvailable?'浏览器存储可用。清除浏览器数据前，建议先导出备份。':'当前存储不可用，请在离开页面前导出备份。'));
+  openModal('学习记录与备份',wrap);
+ }
+ function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+ function favorites(){const wrap=el('div');if(!state.favorites.length)wrap.append(el('p','muted','还没有收藏。阅读时点击知识点右侧的 ☆，或在答题时收藏题目。'));state.favorites.forEach(id=>{const isConcept=id.startsWith('concept:'),item=isConcept?C.lessons.sections.find(s=>s.id===id.slice(8)):C.questions.find(q=>q.id===id);if(!item)return;const row=el('div','favorite-item');const b=button(isConcept?item.title:`第 ${item.number} 题 · ${item.stem}`,'',()=>{$('#modal').close();if(isConcept)jumpConcept(item.id);else{showChapter();switchView('practice');window.StudyQuiz.openQuestion?.(item.id);}});b.append(el('small','',isConcept?'知识点':'练习题'));row.append(b,button('移除','text-button',()=>{toggleFavorite(id);favorites();}));wrap.append(row);});openModal('我的收藏',wrap);}
+ function download() {
+  if(offline) {
+   openModal('你正在使用离线学习版','<p>本文件包含本章的讲解、思维导图和练习。保存好这份 HTML，断网后双击即可继续学习。</p><p>可在「学习记录」中导出、导入本章备份。</p>');
+   return;
+  }
+  const a=el('a');
+  a.href=(flatDownloads?'':'downloads/')+encodeURIComponent(chapter.downloadName);
+  a.download=chapter.downloadName;
+  document.body.append(a);
+  a.click();
+  a.remove();
+  toast('离线 HTML 下载已开始，保存后可双击学习');
+ }
+ document.addEventListener('click',e=>{const target=e.target.closest('button,a');if(!target)return;if(target.dataset.concept){e.preventDefault();jumpConcept(target.dataset.concept);return;}if(target.dataset.view){switchView(target.dataset.view);return;}if(target.dataset.switch){switchView(target.dataset.switch);return;}if(offline&&target.hasAttribute('data-open-chapter')){e.preventDefault();showChapter();switchView('learn');window.scrollTo({top:0,behavior:'instant'});return;}if(offline&&target.getAttribute('href')==='index.html'){e.preventDefault();showHome();history.replaceState(null,'','#home');return;}switch(target.dataset.action){case'favorites':favorites();break;case'records':records();break;case'download':download();break;case'sidebar':{const open=$('#sidebar').classList.toggle('open');target.setAttribute('aria-expanded',String(open));break;}}});
+ function pausePPF(){if(ppfTimer){clearInterval(ppfTimer);ppfTimer=null;}if($('#ppf-play')){$('#ppf-play').textContent='播放取舍变化';$('#ppf-play').setAttribute('aria-pressed','false');}}
+ function initPPF(){const range=$('#grain-range'),radios=$$('input[name=scenario]');function point(p,f=1){const x=p*470*f,y=Math.sqrt(Math.max(0,1-p*p))*340*f;return[76+x,388-y];}function path(f){let d='';for(let i=0;i<=100;i++){const[x,y]=point(i/100,f);d+=(i?' L':'M')+x.toFixed(2)+' '+y.toFixed(2);}return d;}
+  $('#ppf-curve').setAttribute('d',path(1));$('#ppf-new-curve').setAttribute('d',path(1.12));
+  function draw(){const v=Number(range.value)/100,scenario=radios.find(r=>r.checked).value,f=scenario==='idle'?.7:scenario==='growth'?1.12:1;const[x,y]=point(v,f);$('#ppf-point').setAttribute('cx',x);$('#ppf-point').setAttribute('cy',y);$('#ppf-halo').setAttribute('cx',x);$('#ppf-halo').setAttribute('cy',y);$('#ppf-guides').setAttribute('d',`M76 ${y}H${x}V388`);$('#ppf-point-label').setAttribute('x',x+13);$('#ppf-point-label').setAttribute('y',y-14);$('#grain-output').textContent=Math.round(v*100*f);$('#machine-output').textContent=Math.round(Math.sqrt(1-v*v)*100*f);$('#grain-percent').value=range.value+'%';$('#ppf-new-curve').setAttribute('opacity',scenario==='growth'?'1':'0');const explanation=scenario==='idle'?'点在原有曲线内：存在资源闲置或利用低效。提高利用效率，可让两类产品产量同时增加。':scenario==='growth'?'技术进步使生产边界向外移动：相同资源下可以生产更多。图中按两类产品同比例提高作简化演示。':'点在曲线上：资源充分有效利用。向右移动时粮食增加、机器减少，这就是取舍。';if($('#ppf-explanation').textContent!==explanation)$('#ppf-explanation').textContent=explanation;}
+  range.addEventListener('input',draw);radios.forEach(r=>r.addEventListener('change',draw));let direction=1;$('#ppf-play').addEventListener('click',()=>{if(ppfTimer){pausePPF();return;}if(matchMedia('(prefers-reduced-motion: reduce)').matches){toast('已启用减少动态效果，请拖动滑块逐步观察');return;}$('#ppf-play').textContent='暂停变化';$('#ppf-play').setAttribute('aria-pressed','true');ppfTimer=setInterval(()=>{let n=Number(range.value)+direction;if(n>=95||n<=5)direction*=-1;range.value=n;draw();},90);});$('#ppf-reset').addEventListener('click',()=>{pausePPF();range.value=60;radios[0].checked=true;draw();});document.addEventListener('visibilitychange',()=>{if(document.hidden)pausePPF();});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches)pausePPF();});draw();}
+ renderSidebar();
+ renderHome();
+ let fitMapOnFirstOpen;
+ if(chapter) {
+  $('#chapter-module').textContent=chapter.moduleTitle;
+  $('#chapter-number').textContent=`第 ${chapter.number} 章`;
+  $('#chapter-title').textContent=chapter.title;
+  $('#chapter-description').textContent=C.lessons.subtitle;
+  $('.chapter-exercise-count').textContent=`${C.questions.length} 道练习`;
+  $('[data-view="visual"]').hidden=!chapter.visual;
+  renderLessons();
+  $$('.lesson-card').forEach(card=>observer.observe(card));
+  fitMapOnFirstOpen=renderMap();
+  if(chapter.visual==='ppf')initPPF();
+  mountQuiz();
+  updateProgress();
+  let hash=location.hash.slice(1);
+  try { hash=decodeURIComponent(hash); } catch { hash=''; }
+  if(offline&&hash==='home')showHome();
+  else {
+   showChapter();
+   if(sectionIds.has(hash))jumpConcept(hash);
+   else switchView(hash,false);
+  }
+ } else {
+  showHome();
+ }
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#sidebar').classList.remove('open');$('.mobile-menu').setAttribute('aria-expanded','false');}});
+})();
+</script>
+</body>
+</html>

@@ -557,7 +557,9 @@ input[type=range] { width: 100%; min-height: 25px; margin: 0; cursor: pointer; }
 .quiz-tab { border: 1px solid transparent; border-radius: var(--radius); padding: 8px 12px; min-height: 42px; font-size: 14px; white-space: nowrap; }
 .quiz-tab:hover, .quiz-tab.active { color: var(--accent); background: var(--accent-soft); }
 .quiz-tab.active { border-color: var(--accent-line); font-weight: 650; }
-.quiz-grid { margin: 15px 0; gap: 6px; }
+.quiz-index { display: grid; gap: 10px; margin: 15px 0; }
+.quiz-grid { gap: 6px; }
+.quiz-group-label { display: block; margin-bottom: 5px; color: var(--muted); font-size: 13px; }
 .quiz-number { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: var(--radius); font: 550 13px var(--font-number); }
 .quiz-number:hover, .quiz-number.answered { border-color: var(--accent); color: var(--accent); }
 .quiz-number.correct { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-line); }
@@ -825,7 +827,7 @@ dialog::backdrop { background: var(--backdrop); }
 <dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
-<script>window.STUDY_CONTENT={"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":null},{"id":"chapter04","number":4,"title":"消费者行为理论","href":null},{"id":"chapter05","number":5,"title":"生产理论","href":null},{"id":"chapter06","number":6,"title":"成本理论","href":null},{"id":"chapter07","number":7,"title":"市场结构理论","href":null},{"id":"chapter08","number":8,"title":"博弈论初步","href":null},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":null},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":null},{"id":"chapter11","number":11,"title":"国民收入核算","href":null},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":null},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":null},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":null},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":null},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":null},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":null}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":null},{"id":"chapter19","number":2,"title":"信用与利率","href":null},{"id":"chapter20","number":3,"title":"金融市场","href":null},{"id":"chapter21","number":4,"title":"金融机构","href":null},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":null},{"id":"chapter23","number":6,"title":"国际金融","href":null},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":null},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":null}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":null},{"id":"chapter27","number":2,"title":"保险的基本原则","href":null},{"id":"chapter28","number":3,"title":"保险合同","href":null},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":null},{"id":"chapter30","number":5,"title":"财产保险","href":null},{"id":"chapter31","number":6,"title":"人身保险","href":null}]}]};</script>
+<script>window.STUDY_CONTENT={"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":null},{"id":"chapter08","number":8,"title":"博弈论初步","href":null},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":null},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":null},{"id":"chapter11","number":11,"title":"国民收入核算","href":null},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":null},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":null},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":null},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":null},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":null},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":null}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":null},{"id":"chapter19","number":2,"title":"信用与利率","href":null},{"id":"chapter20","number":3,"title":"金融市场","href":null},{"id":"chapter21","number":4,"title":"金融机构","href":null},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":null},{"id":"chapter23","number":6,"title":"国际金融","href":null},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":null},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":null}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":null},{"id":"chapter27","number":2,"title":"保险的基本原则","href":null},{"id":"chapter28","number":3,"title":"保险合同","href":null},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":null},{"id":"chapter30","number":5,"title":"财产保险","href":null},{"id":"chapter31","number":6,"title":"人身保险","href":null}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -939,8 +941,19 @@ dialog::backdrop { background: var(--backdrop); }
         root.append(el('div', 'quiz-empty', mode === 'wrong' ? '还没有错题。完成练习后，答错的题目会出现在这里。' : '本章暂无题目。'));
         return;
       }
-      const grid = el('nav', 'quiz-grid'); grid.setAttribute('aria-label', '题号导航');
+      const index = el('nav', 'quiz-index');
+      index.setAttribute('aria-label', '题号导航');
+      let activeGroup;
+      let grid;
       list.forEach((item) => {
+        if (!grid || item.group !== activeGroup) {
+          activeGroup = item.group;
+          const section = el('div', 'quiz-question-group');
+          if (activeGroup) section.append(el('span', 'quiz-group-label', activeGroup));
+          grid = el('div', 'quiz-grid');
+          section.append(grid);
+          index.append(section);
+        }
         const n = button(String(item.number), 'question', 'quiz-number'); n.dataset.qid = item.id;
         const rec = s.answers[item.id];
         let result = 'unanswered';
@@ -955,7 +968,7 @@ dialog::backdrop { background: var(--backdrop); }
         if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
         n.setAttribute('aria-label', `第 ${item.number} 题${item.type === 'discussion' ? '，讨论题' : result === 'correct' ? '，已答对' : result === 'wrong' ? '，答错' : result === 'draft' ? '，已选择待提交' : '，未作答'}`);
         grid.append(n);
-      }); root.append(grid);
+      }); root.append(index);
       const card = el('article', 'quiz-card');
       const head = el('div', 'quiz-card-header');
       const discussion = q.type === 'discussion';
@@ -985,9 +998,9 @@ dialog::backdrop { background: var(--backdrop); }
       if (mode === 'wrong' && s.answers[q.id] && s.answers[q.id].correct) card.append(el('p', 'quiz-status quiz-correct', '最近一次已答对 · 已掌握，历史错题仍保留'));
       const actions = el('div', 'quiz-actions');
       const nav = el('div', 'quiz-nav');
-      const index = list.findIndex((item) => item.id === q.id);
-      const prev = button('上一题', 'previous'); prev.disabled = index <= 0;
-      const next = button('下一题', 'next'); next.disabled = index >= list.length - 1;
+      const questionIndex = list.findIndex((item) => item.id === q.id);
+      const prev = button('上一题', 'previous'); prev.disabled = questionIndex <= 0;
+      const next = button('下一题', 'next'); next.disabled = questionIndex >= list.length - 1;
       nav.append(prev, next); actions.append(nav);
       if (discussion) {
         const open = openDiscussions.has(q.id);
