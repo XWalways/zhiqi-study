@@ -1,0 +1,1575 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfdfd">
+  <meta name="description" content="学习经济、金融和保险基础。按章节阅读考点精讲、查看思维导图和做练习。">
+  <title>经济金融保险 · 知其所以</title>
+  <script>
+    (() => {
+      const storageKey = 'zhiqi-theme-mode';
+      const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      const readMode = () => {
+        try {
+          const saved = localStorage.getItem(storageKey);
+          if (saved === 'light' || saved === 'dark') return saved;
+        } catch {
+          // The appearance control still works when browser storage is unavailable.
+        }
+        return 'system';
+      };
+      let mode = readMode();
+
+      function applyAppearance() {
+        const dark = mode === 'dark' || (mode === 'system' && systemTheme.matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.dataset.themeMode = mode;
+        themeColor.content = dark ? '#182427' : '#fbfdfd';
+      }
+
+      applyAppearance();
+      systemTheme.addEventListener('change', () => {
+        if (mode === 'system') applyAppearance();
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        const picker = document.getElementById('theme-mode');
+        const options = picker.querySelectorAll('input[type="radio"]');
+        const selectCurrentMode = () => {
+          for (const option of options) option.checked = option.value === mode;
+        };
+        selectCurrentMode();
+        picker.addEventListener('change', event => {
+          mode = event.target.value;
+          applyAppearance();
+          try {
+            localStorage.setItem(storageKey, mode);
+          } catch {
+            // Apply the choice for this visit even if it cannot be saved.
+          }
+        });
+        window.addEventListener('storage', event => {
+          if (event.key !== storageKey && event.key !== null) return;
+          mode = readMode();
+          selectCurrentMode();
+          applyAppearance();
+        });
+      });
+    })();
+  </script>
+  <style>/* Cool neutral surfaces and one teal accent for navigation and study actions. */
+:root {
+  color-scheme: light;
+  --background: #eef3f4;
+  --surface: #fbfdfd;
+  --surface-subtle: #f1f6f6;
+  --text: #21363c;
+  --heading: #172d34;
+  --muted: #4e656c;
+  --line: #cddbdd;
+  --control-line: #7d9297;
+  --accent: #1a665b;
+  --accent-hover: #144f47;
+  --accent-on: #fbfdfd;
+  --accent-soft: #e2f0eb;
+  --accent-line: #84b5a8;
+  --warning: #75501c;
+  --warning-soft: #f7efdf;
+  --error: #942e38;
+  --error-soft: #f8e9eb;
+  --error-line: #ba717b;
+  --backdrop: rgb(22 42 48 / .54);
+  --shadow: 0 18px 48px rgb(25 54 61 / .14);
+  --radius: 12px;
+  --header-height: 68px;
+  --tabs-height: 53px;
+  --font-body: 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-display: 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-number: 'SF Mono', ui-monospace, 'Cascadia Mono', monospace;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--background);
+  accent-color: var(--accent);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #111b1e;
+  --surface: #182427;
+  --surface-subtle: #202e31;
+  --text: #dbe8e7;
+  --heading: #edf5f4;
+  --muted: #acbfc1;
+  --line: #384a4e;
+  --control-line: #738c90;
+  --accent: #92d1c0;
+  --accent-hover: #b1e3d5;
+  --accent-on: #132a25;
+  --accent-soft: #233b36;
+  --accent-line: #608f84;
+  --warning: #edd09c;
+  --warning-soft: #362e22;
+  --error: #f2a9b0;
+  --error-soft: #3b252a;
+  --error-line: #a46772;
+  --backdrop: rgb(9 17 20 / .75);
+  --shadow: 0 18px 48px rgb(7 14 17 / .44);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--text); }
+[hidden] { display: none !important; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button { color: inherit; background: none; border: 0; cursor: pointer; }
+button, a, input, select, summary { touch-action: manipulation; }
+button:disabled { cursor: not-allowed; opacity: .62; }
+:where(a, button, input, select, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+:where(h1, h2, h3, h4, p, dl, dd) { margin: 0; }
+h1, h2, h3, h4 { color: var(--heading); line-height: 1.36; }
+h1 { font: 680 clamp(2rem, 4vw, 3.15rem)/1.22 var(--font-display); letter-spacing: -.045em; }
+h2 { font-size: 1.43rem; font-weight: 680; letter-spacing: -.02em; }
+h3 { font-size: 1.18rem; font-weight: 650; }
+strong { font-weight: 680; }
+mark { background: var(--accent-soft); color: var(--accent); padding: 0 .12em; }
+.visually-hidden, .skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.skip-link:focus {
+  position: fixed;
+  z-index: 8;
+  inset: 12px auto auto 12px;
+  background: var(--accent);
+  color: var(--accent-on);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+}
+
+/* Global navigation */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  height: var(--header-height);
+  padding-inline: max(24px, calc((100vw - 1512px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.brand { display: inline-flex; gap: 10px; align-items: center; color: var(--heading); font-size: 18px; font-weight: 690; line-height: 1.2; white-space: nowrap; }
+.brand-mark { width: 31px; height: 31px; color: var(--accent); flex: none; }
+.brand-mark svg { width: 100%; height: 100%; }
+.brand small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; font-weight: 460; letter-spacing: .06em; }
+.top-actions { display: flex; gap: clamp(12px, 2vw, 27px); align-items: center; }
+.header-link { padding: 8px 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
+.header-link:hover { color: var(--accent); }
+.theme-control {
+  --theme-slot: 66px;
+  --theme-position: 1;
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(3, var(--theme-slot));
+  flex: none;
+  align-items: stretch;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+}
+:root[data-theme-mode="light"] .theme-control { --theme-position: 0; }
+:root[data-theme-mode="dark"] .theme-control { --theme-position: 2; }
+.theme-thumb {
+  position: absolute;
+  inset: 3px auto 3px 3px;
+  width: var(--theme-slot);
+  border-radius: 999px;
+  background: var(--accent);
+  transform: translateX(calc(100% * var(--theme-position)));
+  pointer-events: none;
+}
+.theme-option {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 35px;
+  color: var(--muted);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 630;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.theme-option:hover { color: var(--accent); }
+.theme-control input:checked + .theme-option { color: var(--accent-on); }
+.theme-control input:focus-visible + .theme-option { outline: 2px solid var(--heading); outline-offset: 1px; }
+
+.button, .download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 43px;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 580;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.button-primary { background: var(--accent); color: var(--accent-on); }
+.button-primary:not(:disabled):hover { background: var(--accent-hover); }
+.button-secondary, .download-button { border-color: var(--control-line); color: var(--heading); background: var(--surface); }
+.button-secondary:not(:disabled):hover, .download-button:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.button-row, .record-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.text-button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 2px 0; font-size: 14px; color: var(--accent); text-align: left; }
+.text-button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.icon-button { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: var(--radius); color: var(--muted); font-size: 22px; line-height: 1; }
+.icon-button:hover, .icon-button.selected { color: var(--accent); background: var(--accent-soft); }
+.mobile-menu, .sidebar-quick-actions { display: none; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  max-width: 1560px;
+  min-height: calc(100dvh - var(--header-height));
+  margin-inline: auto;
+}
+.sidebar {
+  position: sticky;
+  top: var(--header-height);
+  align-self: start;
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  padding: 24px 14px 24px 18px;
+  border-right: 1px solid var(--line);
+  scrollbar-width: thin;
+}
+.sidebar-label { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 0 9px 12px; color: var(--heading); font-size: 15px; font-weight: 680; }
+.sidebar-label small { color: var(--muted); font-size: 11px; font-weight: 480; }
+.module-group + .module-group { margin-top: 8px; }
+.module-group summary { cursor: pointer; list-style: none; }
+.module-group summary::-webkit-details-marker { display: none; }
+.module-group summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 9px;
+  border-radius: var(--radius);
+  color: var(--heading);
+  font-size: 14px;
+  font-weight: 630;
+}
+.module-group summary:hover { background: var(--surface-subtle); }
+.module-group summary small { margin-left: auto; font-size: 11px; color: var(--muted); font-weight: 460; white-space: nowrap; }
+.module-group summary::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  flex: none;
+}
+.module-group[open] > summary::after { transform: rotate(45deg); }
+.chapter-link { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 3px 5px; padding: 8px 9px; margin: 2px 0; border-radius: var(--radius); font-size: 12px; line-height: 1.55; color: var(--muted); }
+.chapter-link .chapter-no, .chapter-no, .topic-number, .lesson-number { font-family: var(--font-number); font-variant-numeric: tabular-nums; }
+a.chapter-link:hover, .chapter-link.active { background: var(--accent-soft); color: var(--accent); }
+.chapter-link.active { font-weight: 680; }
+main { min-width: 0; width: 100%; padding: 27px clamp(24px, 3.2vw, 52px) 56px; }
+main:focus { outline: none; }
+.breadcrumb { display: flex; align-items: baseline; gap: 10px; margin-bottom: 22px; color: var(--muted); font-size: 13px; }
+.breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+.chapter-description { margin-top: 10px; color: var(--muted); font-size: 16px; }
+.chapter-tools { min-height: 38px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0 14px; margin-top: 13px; }
+.reading-progress { display: flex; flex-wrap: wrap; align-items: center; gap: 9px 13px; color: var(--muted); font-size: 13px; }
+#reading-label { color: var(--accent); font-weight: 620; }
+.chapter-exercise-count { border-left: 1px solid var(--line); padding-left: 13px; }
+.view-tabs {
+  position: sticky;
+  z-index: 3;
+  top: var(--header-height);
+  display: flex;
+  gap: 24px;
+  min-height: var(--tabs-height);
+  margin: 17px 0 23px;
+  border-bottom: 1px solid var(--line);
+  background: var(--background);
+  scroll-margin-top: var(--header-height);
+}
+.view-tabs button { position: relative; min-width: 0; padding: 10px 9px 9px; font-weight: 570; font-size: 15px; color: var(--muted); white-space: nowrap; }
+.view-tabs button.active, .view-tabs button:hover { color: var(--accent); }
+.view-tabs button.active { font-weight: 700; }
+.view-tabs button.active::after { content: ''; position: absolute; inset: auto 0 -1px; height: 3px; background: var(--accent); }
+.section-intro { margin: 0 0 18px; }
+.section-intro p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+
+/* A continuous reading surface with a separate index in the margin. */
+.reading-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 190px); align-items: start; gap: 25px; }
+.reading-column { grid-column: 1; grid-row: 1; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.topic-index { grid-column: 2; grid-row: 1; position: sticky; top: calc(var(--header-height) + var(--tabs-height) + 19px); padding-top: 9px; }
+.topic-index h2 { margin-bottom: 9px; color: var(--muted); font-size: 13px; font-weight: 640; }
+.lesson-jump { display: grid; }
+.lesson-jump a { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 4px; padding: 8px 9px; margin-left: -9px; color: var(--muted); font-size: 13px; line-height: 1.6; border-radius: var(--radius); }
+.lesson-jump a:hover, .lesson-jump a[aria-current] { background: var(--accent-soft); color: var(--accent); }
+.lesson-jump a[aria-current] { font-weight: 660; }
+.topic-number { font-size: 11px; margin-top: .15em; }
+.lesson-card {
+  padding: clamp(23px, 3vw, 40px) clamp(24px, 3.4vw, 46px);
+  scroll-margin-top: calc(var(--header-height) + var(--tabs-height) + 13px);
+}
+.lesson-card + .lesson-card { border-top: 1px solid var(--line); }
+.lesson-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 12px; margin-bottom: 18px; }
+.lesson-head h3 { font-size: clamp(1.23rem, 2vw, 1.57rem); letter-spacing: -.025em; }
+.lesson-number { color: var(--accent); font-size: 13px; font-weight: 660; margin-top: 6px; }
+.lesson-summary { margin-top: 4px; color: var(--muted); font-size: 14px; }
+.lesson-head .icon-button { margin: -6px -6px 0 0; }
+.lesson-body { font-size: 16px; line-height: 1.95; overflow-wrap: anywhere; }
+.lesson-body > :where(p, ul, ol, h4, blockquote) { margin-block: 0 13px; }
+.lesson-body > :where(ul, ol) { padding-left: 1.4em; }
+.lesson-body h4 { margin-top: 22px; margin-bottom: 8px; }
+.lesson-body li + li { margin-top: 6px; }
+.lesson-body blockquote { border-left: 2px solid var(--accent-line); padding: 6px 0 6px 16px; color: var(--muted); }
+.table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); margin: 17px 0; }
+.lesson-body table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.75; }
+.lesson-body :where(th, td) { padding: 10px 12px; text-align: left; vertical-align: top; }
+.lesson-body th { background: var(--surface-subtle); color: var(--heading); }
+.lesson-body tr + tr, .lesson-body thead { border-bottom: 1px solid var(--line); }
+.lesson-body tr:last-child { border-bottom: 0; }
+.concept-takeaway { display: grid; gap: 4px; margin-top: 19px; padding: 12px 15px; background: var(--accent-soft); color: var(--text); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; font-size: 15px; }
+.concept-takeaway strong { color: var(--accent); font-size: 13px; }
+.lesson-extras { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 19px; }
+.lesson-extra { border-top: 1px solid var(--line); padding: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.lesson-extra strong { display: block; color: var(--heading); font-size: 13px; margin-bottom: 4px; }
+.lesson-extra.pitfall strong { color: var(--warning); }
+.next-step { border-top: 1px solid var(--line); padding: 20px clamp(24px, 3.4vw, 46px); }
+
+/* Topic map and the interactive production chart */
+.map-panel, .ppf-panel, .quiz-card, .quiz-empty {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.map-panel { min-width: 0; }
+.map-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-subtle);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.map-toolbar button {
+  min-height: 37px;
+  padding: 4px 10px;
+  background: var(--surface);
+  color: var(--heading);
+  font-size: 13px;
+  font-weight: 610;
+  white-space: nowrap;
+}
+.map-toolbar > button, .map-zoom {
+  border: 1px solid var(--control-line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.map-zoom { display: inline-flex; align-items: stretch; }
+.map-zoom button:first-child { border-radius: 7px 0 0 7px; }
+.map-zoom button:last-child { border-radius: 0 7px 7px 0; }
+.map-zoom button + button { border-left: 1px solid var(--line); }
+.map-zoom #map-size { min-width: 55px; font-family: var(--font-number); }
+.map-toolbar button:not(:disabled):hover { background: var(--accent-soft); color: var(--accent); }
+.map-viewport {
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior-inline: contain;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.mindmap {
+  --map-arm: 1.25em;
+  --map-edge: var(--control-line);
+  width: max-content;
+  margin: 0 auto;
+  padding: 1.55em 1.45em;
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.map-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.map-node {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: .28em;
+  padding: .25em .55em;
+  border: 1px solid transparent;
+  border-radius: .6em;
+}
+.map-label { display: block; max-width: 19em; overflow-wrap: anywhere; }
+.map-label[href]:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .18em; }
+.map-root {
+  background: var(--accent);
+  color: var(--accent-on);
+  padding: .67em .8em;
+  font-size: 1.08em;
+  font-weight: 690;
+}
+.map-item[data-depth='1'] > .map-node {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 650;
+}
+.map-item[data-depth='1'] > .map-node .map-label { max-width: 14em; text-wrap: balance; }
+.map-parent:not([data-depth='1']) > .map-node {
+  border-color: var(--line);
+  background: var(--surface-subtle);
+  color: var(--heading);
+}
+.map-parent:not([data-depth='1']) > .map-node .map-label { max-width: 13em; text-wrap: balance; }
+.map-toggle {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.55em;
+  height: 1.55em;
+  padding: 0;
+  border: 1px solid var(--control-line);
+  border-radius: .42em;
+  color: var(--accent);
+  background: var(--surface);
+  font-size: 1em;
+  font-weight: 650;
+  line-height: 1;
+}
+.map-toggle:hover { background: var(--accent-soft); }
+.map-children {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 0 var(--map-arm);
+  padding: 0;
+  list-style: none;
+}
+/* Each parent reaches a shared spine. The spine ends at its outermost children. */
+.map-children::before, .map-children > .map-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: var(--map-arm);
+  border-top: 1px solid var(--map-edge);
+}
+.map-children::before { left: calc(-1 * var(--map-arm)); }
+.map-children > .map-item { padding: .18em 0 .18em var(--map-arm); }
+.map-children > .map-item::before { left: 0; }
+.map-children > .map-item::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-left: 1px solid var(--map-edge);
+}
+.map-children > .map-item:first-child::after { top: 50%; }
+.map-children > .map-item:last-child::after { bottom: 50%; }
+.map-children > .map-item:only-child::after { display: none; }
+.mindmap > .map-item > .map-children > .map-item { padding-block: .48em; }
+.ppf-panel { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(250px, 1fr); }
+.ppf-chart { align-self: center; min-width: 0; padding: 20px 14px; }
+.ppf-chart svg { display: block; width: 100%; max-width: 640px; margin-inline: auto; }
+.chart-caption { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 17px; color: var(--muted); font-size: 12px; }
+.chart-line { display: inline-block; width: 17px; border-top: 2px solid var(--heading); vertical-align: middle; margin-right: 3px; }
+.chart-line.new { border-top-style: dashed; border-color: var(--accent); }
+.chart-grid { stroke: var(--line); }
+.chart-axis, #ppf-guides { stroke: var(--control-line); }
+#ppf-curve { stroke: var(--heading); }
+#ppf-new-curve { stroke: var(--accent); }
+#ppf-halo { fill: var(--accent-line); opacity: .36; }
+#ppf-point { fill: var(--accent); stroke: var(--surface); }
+.axis-label { fill: var(--heading); font-size: 18px; }
+.tick-label { fill: var(--muted); font-size: 16px; }
+.point-label { fill: var(--accent); font: 700 17px var(--font-number); }
+.chart-footnote { text-align: center; color: var(--muted); font-size: 12px; }
+.ppf-controls { display: flex; flex-direction: column; gap: 8px; padding: 23px; border-left: 1px solid var(--line); }
+.ppf-controls h3 { font-size: 17px; }
+.ppf-outputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 4px 0 7px; }
+.ppf-outputs div { border-bottom: 1px solid var(--line); padding: 0 2px 5px; }
+.ppf-outputs span { display: block; color: var(--muted); font-size: 13px; }
+.ppf-outputs strong { color: var(--heading); font: 600 28px/1.35 var(--font-number); }
+.range-label, .range-ends { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; color: var(--muted); font-size: 13px; }
+.range-label output { color: var(--accent); font: 650 13px var(--font-number); }
+input[type=range] { width: 100%; min-height: 25px; margin: 0; cursor: pointer; }
+.ppf-scenarios { display: grid; min-width: 0; gap: 5px; margin: 7px 0; padding: 0; border: 0; }
+.ppf-scenarios legend { padding: 0 0 5px; color: var(--heading); font-weight: 640; font-size: 14px; }
+.ppf-scenarios label { display: flex; align-items: center; min-height: 29px; gap: 7px; color: var(--text); font-size: 13px; cursor: pointer; }
+.ppf-explanation { min-height: 6em; padding: 10px 12px; border-radius: var(--radius); background: var(--accent-soft); font-size: 13px; }
+.ppf-controls .button-row { margin-top: 4px; }
+.visual-notes { display: grid; margin: 18px 0 9px; }
+.visual-notes > div { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.visual-notes dt { color: var(--accent); font-weight: 650; font-size: 14px; }
+.visual-notes dd { color: var(--muted); font-size: 14px; }
+
+/* Catalog */
+.home-hero { padding: 20px 0 29px; }
+.home-hero p { margin-top: 12px; color: var(--muted); }
+.catalog-section + .catalog-section { margin-top: 29px; }
+.catalog-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.catalog-heading span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.catalog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 23px; }
+.catalog-card { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 8px; min-height: 48px; padding: 8px 4px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.catalog-card h3 { color: inherit; font-size: 14px; font-weight: 520; }
+.catalog-card .chapter-no, .catalog-status { font-size: 12px; }
+.catalog-status { white-space: nowrap; }
+.catalog-card.ready { color: var(--accent); font-weight: 650; }
+.catalog-card.ready:hover { background: var(--accent-soft); }
+.catalog-card.ready h3 { font-weight: 670; }
+
+/* Practice and feedback */
+#quiz { max-width: 960px; font-size: 15px; }
+.quiz-toolbar, .quiz-tabs, .quiz-grid, .quiz-card-header, .quiz-actions, .quiz-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.quiz-toolbar, .quiz-card-header, .quiz-actions { justify-content: space-between; }
+.quiz-toolbar { gap: 10px 20px; }
+.quiz-tabs { gap: 6px; }
+.quiz-tab { border: 1px solid transparent; border-radius: var(--radius); padding: 8px 12px; min-height: 42px; font-size: 14px; white-space: nowrap; }
+.quiz-tab:hover, .quiz-tab.active { color: var(--accent); background: var(--accent-soft); }
+.quiz-tab.active { border-color: var(--accent-line); font-weight: 650; }
+.quiz-index { display: grid; gap: 10px; margin: 15px 0; }
+.quiz-grid { gap: 6px; }
+.quiz-group-label { display: block; margin-bottom: 5px; color: var(--muted); font-size: 13px; }
+.quiz-number { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: var(--radius); font: 550 13px var(--font-number); }
+.quiz-number:hover, .quiz-number.answered { border-color: var(--accent); color: var(--accent); }
+.quiz-number.correct { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-line); }
+.quiz-number.wrong { background: var(--error-soft); color: var(--error); border-color: var(--error-line); }
+.quiz-number.active { outline: 2px solid var(--accent); outline-offset: -2px; }
+.quiz-number:focus-visible { outline-offset: 3px; }
+.quiz-card { padding: clamp(17px, 3vw, 34px); }
+.quiz-card-header { gap: 6px 14px; margin-bottom: 12px; color: var(--muted); font-size: 13px; }
+.quiz-favorite { min-height: 38px; padding: 5px 10px; font-size: 13px; }
+.quiz-favorite[aria-pressed=true] { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.quiz-stem { font-size: clamp(17px, 1.7vw, 21px); line-height: 1.65; margin-bottom: 15px; }
+.quiz-options { display: grid; min-width: 0; gap: 8px; padding: 0; border: 0; margin: 0; }
+.quiz-options legend { color: var(--muted); font-size: 13px; padding: 0 0 6px; }
+.quiz-option { display: flex; align-items: baseline; gap: 10px; padding: 10px 13px; min-height: 45px; border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer; }
+.quiz-option:focus-within, .quiz-option:hover { border-color: var(--control-line); }
+.quiz-option input { flex: none; margin: 0; }
+.quiz-option:has(input:checked), .quiz-option.correct { background: var(--accent-soft); border-color: var(--accent-line); color: var(--text); }
+.quiz-option.wrong { background: var(--error-soft); border-color: var(--error-line); color: var(--error); }
+.quiz-option:has(input:disabled) { cursor: default; }
+.quiz-actions { margin-top: 16px; }
+.quiz-feedback { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 17px; }
+.quiz-feedback h3, .quiz-feedback p { margin-bottom: 8px; }
+.quiz-feedback h4 { margin: 16px 0 5px; font-size: 15px; }
+.quiz-feedback p, .quiz-rationale-list { line-height: 1.85; }
+.quiz-rationale-list { padding-left: 1.5em; margin: 6px 0 0; }
+.quiz-rationale-list li + li { margin-top: 5px; }
+.quiz-correct { color: var(--accent); }
+.quiz-incorrect { color: var(--error); }
+.quiz-summary { margin-top: 14px; padding: 13px 17px; border-radius: var(--radius); background: var(--accent-soft); }
+.quiz-summary strong { font: 650 23px var(--font-number); color: var(--accent); }
+.quiz-summary p { margin: 7px 0; }
+.quiz-status { color: var(--muted); font-size: 13px; margin-top: 8px; }
+.quiz-status:empty { display: none; }
+.quiz-empty { padding: 25px; margin-top: 14px; color: var(--muted); }
+.muted { color: var(--muted); font-size: 13px; }
+
+/* Records, dialogs and status */
+dialog { width: min(600px, calc(100% - 24px)); max-height: 85dvh; padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+dialog::backdrop { background: var(--backdrop); }
+.modal-top { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 19px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.modal-top h2 { font-size: 18px; }
+#modal-content { padding: 19px; font-size: 14px; }
+#modal-content p + p { margin-top: 10px; }
+.record-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.record-stats > div { background: var(--surface-subtle); padding: 10px; border-radius: var(--radius); }
+.record-stats strong, .record-stats small { display: block; }
+.record-stats strong { color: var(--accent); font: 650 19px var(--font-number); }
+.record-stats small { color: var(--muted); font-size: 12px; }
+.record-actions { margin: 12px 0; }
+.favorite-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--line); padding: 7px 0; }
+.favorite-item > button:first-child { text-align: left; }
+.favorite-item small { display: block; color: var(--muted); }
+.favorite-item > button:last-child { white-space: nowrap; }
+.inline-notice, .storage-notice, .noscript { padding: 10px 14px; background: var(--warning-soft); color: var(--warning); font-size: 13px; }
+.inline-notice { margin-block: 8px; border-radius: var(--radius); }
+.inline-notice .button { margin-top: 8px; }
+.toast { position: fixed; inset: auto auto 20px 50%; transform: translateX(-50%); z-index: 8; max-width: min(440px, 90vw); width: max-content; padding: 10px 16px; border-radius: var(--radius); background: var(--heading); color: var(--surface); font-size: 14px; box-shadow: var(--shadow); }
+
+@media (max-width: 1080px) {
+  .layout { grid-template-columns: 190px minmax(0, 1fr); }
+  .reading-layout { gap: 15px; grid-template-columns: minmax(0, 1fr) minmax(135px, 158px); }
+  .catalog-grid { grid-template-columns: 1fr; }
+  .ppf-panel { grid-template-columns: minmax(0, 1.25fr) minmax(220px, 1fr); }
+}
+
+@media (max-width: 920px) {
+  .reading-layout { grid-template-columns: minmax(0, 1fr); }
+  .topic-index { grid-column: 1; grid-row: 1; position: static; padding-top: 0; }
+  .reading-column { grid-row: 2; }
+  .lesson-jump { display: flex; flex-wrap: wrap; gap: 5px 8px; }
+  .lesson-jump a { margin-left: 0; padding: 4px 7px; background: var(--surface-subtle); }
+  .ppf-panel { grid-template-columns: minmax(0, 1fr); }
+  .ppf-controls { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 767px) {
+  :root { --header-height: 61px; --tabs-height: 48px; }
+  .topbar { padding-inline: 15px; gap: 8px; }
+  .brand { gap: 6px; font-size: 16px; }
+  .brand-mark { width: 25px; height: 25px; }
+  .brand small { font-size: 10px; }
+  .top-actions { margin-left: auto; gap: 7px; }
+  .top-actions .header-link { display: none; }
+  .theme-control { --theme-slot: 49px; }
+  .theme-option { min-height: 30px; font-size: 12px; }
+  .download-button { min-height: 38px; padding: 6px 10px; font-size: 13px; }
+  .mobile-menu { display: grid; place-items: center; width: 38px; height: 38px; border-radius: var(--radius); color: var(--heading); }
+  .mobile-menu span { position: relative; display: block; height: 1.5px; width: 16px; background: currentColor; }
+  .mobile-menu span::before, .mobile-menu span::after { content: ''; position: absolute; left: 0; width: 100%; height: 100%; background: currentColor; }
+  .mobile-menu span::before { top: -5px; }
+  .mobile-menu span::after { top: 5px; }
+  .layout { display: block; }
+  .sidebar { display: none; position: fixed; inset: var(--header-height) auto auto 0; width: min(285px, 90vw); z-index: 4; background: var(--surface); border-bottom: 1px solid var(--line); border-radius: 0 0 var(--radius) 0; box-shadow: var(--shadow); }
+  .sidebar.open { display: block; }
+  .sidebar-quick-actions { display: flex; gap: 8px; margin: 0 0 10px; }
+  .sidebar-quick-actions button { padding: 7px 8px; background: var(--accent-soft); border-radius: var(--radius); color: var(--accent); font-size: 13px; }
+  main { padding: 19px 15px 35px; }
+  .breadcrumb { margin-bottom: 13px; font-size: 12px; }
+  .chapter-description { margin-top: 6px; font-size: 14px; }
+  .chapter-tools { margin-top: 8px; }
+  .reading-progress, #continue-reading { font-size: 12px; }
+  .chapter-exercise-count { padding-left: 8px; }
+  .view-tabs { gap: 2px; margin: 8px 0 16px; }
+  .view-tabs button { flex: 1; padding-inline: 2px; font-size: 13px; }
+  .topic-index h2 { margin-bottom: 5px; }
+  .lesson-jump { gap: 4px; }
+  .lesson-jump a { grid-template-columns: 20px minmax(0, 1fr); gap: 2px; font-size: 12px; }
+  .lesson-card { padding: 20px 14px; }
+  .lesson-head { gap: 7px; }
+  .lesson-head .icon-button { width: 34px; height: 38px; }
+  .lesson-body { font-size: 15px; }
+  .lesson-extras { grid-template-columns: 1fr; gap: 10px; }
+  .lesson-body :where(th, td) { padding: 7px; }
+  .lesson-body table { font-size: 12px; }
+  .map-toolbar { padding: 8px; gap: 6px; }
+  .map-toolbar button { padding-inline: 8px; }
+  .mindmap { --map-arm: .8em; padding: 1.2em .9em; }
+  .map-item[data-depth='1'] > .map-node .map-label { max-width: 10.5em; }
+  .ppf-chart { padding-inline: 6px; }
+  .ppf-controls { padding: 15px; }
+  .home-hero { padding-top: 9px; padding-bottom: 22px; }
+  .quiz-grid { gap: 5px; }
+  .quiz-number { width: 33px; height: 33px; }
+  .quiz-stem { margin-bottom: 12px; }
+}
+
+@media (max-width: 430px) {
+  .topbar { padding-inline: 10px; gap: 6px; }
+  .brand { font-size: 15px; gap: 5px; }
+  .brand-mark { width: 22px; height: 22px; }
+  .mobile-menu { width: 34px; }
+  .download-button { padding-inline: 7px; font-size: 12px; }
+}
+
+@media (max-width: 360px) {
+  .theme-control { --theme-slot: 30px; }
+  .theme-option-system span { position: absolute; width: 1px; height: 1px; clip-path: inset(50%); overflow: hidden; }
+  .theme-option-system::after { content: '系统'; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .theme-thumb { transition: transform .18s ease-out; }
+  .button:not(:disabled):active, .download-button:active { transform: translateY(1px); }
+}
+
+@media print {
+  :root, :root[data-theme] { color-scheme: light; --background: #fff; --surface: #fff; --text: #22373c; --heading: #182c30; --muted: #43585c; --accent: #1a665b; --accent-soft: #edf5f2; }
+  .topbar, .sidebar, .view-tabs, .chapter-tools, .topic-index, .next-step, .lesson-head button { display: none !important; }
+  .layout, .reading-layout { display: block; }
+  main { padding: 0; }
+  .lesson-card { break-inside: avoid; }
+}
+
+.market-panel { --market-supply: #9c4a2f; }
+[data-theme="dark"] .market-panel { --market-supply: #f6a48a; }
+.market-demand-line { border-color: var(--accent); }
+.market-supply-line { border-color: var(--market-supply); border-top-style: dashed; }
+.market-baseline { border-color: var(--control-line); border-top-style: dotted; }
+.market-demand, .market-supply, .market-guide { fill: none; }
+.market-demand { stroke: var(--accent); }
+.market-supply { stroke: var(--market-supply); stroke-dasharray: 8 3; }
+.market-curve { stroke-width: 2.6; }
+.market-before { opacity: .5; stroke-width: 1.5; stroke-dasharray: 2 5; }
+.market-inactive { display: none; }
+.market-guide { stroke: var(--control-line); stroke-dasharray: 3 4; }
+.market-equilibrium-guide { opacity: .6; }
+.market-demand-point { fill: var(--accent); }
+.market-supply-point { fill: var(--market-supply); }
+.market-equilibrium { fill: var(--surface); stroke: var(--heading); stroke-width: 2.2; }
+.market-panel input[type="range"] { width: 100%; margin: 0 0 7px; }
+.market-panel .ppf-explanation { min-height: 0; }
+.market-outputs { margin-top: 0; }
+</style>
+</head>
+<body data-page="chapter" data-offline="true" data-flat-downloads="true">
+<a class="skip-link" href="#main">跳转到正文</a>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="知其所以，返回学习目录">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 7h9l3 4v17l-4-3H5V7Z" stroke="currentColor" stroke-width="1.7"/><path d="M27 7h-9l-3 4m2 17 4-3h6V7ZM9 12h3m-3 5h3m9-5h3m-3 5h3" stroke="currentColor" stroke-width="1.7"/></svg></span>
+    <span>知其所以<small>经济金融保险</small></span>
+  </a>
+  <nav class="top-actions" aria-label="全局导航">
+    <a href="index.html" class="header-link">学习目录</a>
+    <button class="header-link" data-action="favorites">我的收藏</button>
+    <button class="header-link" data-action="records">学习记录</button>
+    <div class="theme-control" id="theme-mode" role="radiogroup" aria-label="外观模式">
+      <span class="theme-thumb" aria-hidden="true"></span>
+      <input class="visually-hidden" id="theme-light" type="radio" name="appearance" value="light">
+      <label class="theme-option" for="theme-light">白天</label>
+      <input class="visually-hidden" id="theme-system" type="radio" name="appearance" value="system" aria-label="跟随系统" checked>
+      <label class="theme-option theme-option-system" for="theme-system" title="跟随系统"><span>跟随系统</span></label>
+      <input class="visually-hidden" id="theme-dark" type="radio" name="appearance" value="dark">
+      <label class="theme-option" for="theme-dark">黑夜</label>
+    </div>
+    <button class="download-button" data-action="download">离线学习</button>
+  </nav>
+  <button class="mobile-menu" data-action="sidebar" aria-label="展开章节导航" aria-controls="sidebar" aria-expanded="false"><span aria-hidden="true"></span></button>
+</header>
+<div id="storage-notice" class="storage-notice" role="status" hidden></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节导航">
+    <div class="sidebar-label">学习路径 <small id="open-chapter-count"></small></div>
+    <div class="sidebar-quick-actions"><button data-action="favorites">我的收藏</button><button data-action="records">学习记录</button></div>
+    <div id="sidebar-catalog"></div>
+  </aside>
+  <main id="main" tabindex="-1">
+    <div id="home-view" hidden></div>
+    <article id="chapter-view" hidden>
+      <div class="chapter-heading">
+        <div class="breadcrumb"><a href="index.html">学习目录</a><span>/</span><span id="chapter-module"></span><span>/</span><span id="chapter-number"></span></div>
+        <h1 id="chapter-title"></h1>
+        <p class="chapter-description" id="chapter-description"></p>
+        <div class="chapter-tools">
+          <div class="reading-progress"><span id="reading-label"></span><span class="chapter-exercise-count"></span></div>
+          <button class="text-button" id="continue-reading" hidden>继续上次阅读 <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <nav class="view-tabs" aria-label="章节内容">
+        <button data-view="learn" class="active" aria-current="page">考点精讲</button>
+        <button data-view="map">思维导图</button>
+        <button data-view="visual">交互图解</button>
+        <button data-view="practice">章节练习</button>
+      </nav>
+      <section id="view-learn" class="content-view" aria-labelledby="learn-heading">
+        <div class="reading-layout">
+          <aside class="topic-index" aria-labelledby="topic-heading">
+            <h2 id="topic-heading">知识点索引</h2>
+            <nav class="lesson-jump" id="lesson-jump" aria-label="知识点索引"></nav>
+          </aside>
+          <div class="reading-column">
+            <h2 id="learn-heading" class="visually-hidden">考点精讲</h2>
+            <div id="lessons"></div>
+            <div class="next-step"><button class="button button-primary" data-switch="practice">开始本章练习 <span aria-hidden="true">→</span></button></div>
+          </div>
+        </div>
+      </section>
+      <section id="view-map" class="content-view" hidden aria-labelledby="map-heading">
+        <div class="section-intro">
+          <h2 id="map-heading">思维导图</h2>
+          <p id="map-help">点击节点查看讲解，用节点旁的按钮展开或收起分支。图超出屏幕时可横向滑动。</p>
+        </div>
+        <div class="map-panel">
+          <div class="map-toolbar">
+            <div class="map-zoom" role="group" aria-label="导图缩放">
+              <button type="button" id="map-zoom-out" aria-label="缩小导图">−</button>
+              <button type="button" id="map-size" aria-label="恢复阅读比例" title="恢复阅读比例">100%</button>
+              <button type="button" id="map-zoom-in" aria-label="放大导图">+</button>
+            </div>
+            <button type="button" id="map-fit">适应宽度</button>
+            <button type="button" id="map-expand">收起分支</button>
+          </div>
+          <div class="map-viewport" tabindex="0" role="region" aria-labelledby="map-heading" aria-describedby="map-help">
+            <ul id="mindmap" class="mindmap"></ul>
+          </div>
+        </div>
+      </section>
+      <section id="view-visual" class="content-view" hidden></section>
+      <section id="view-practice" class="content-view" hidden aria-labelledby="practice-heading">
+        <h2 id="practice-heading" class="visually-hidden">章节练习</h2>
+        <div id="quiz"></div>
+      </section>
+    </article>
+  </main>
+</div>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
+
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter24","number":7,"title":"金融风险与金融监管","moduleId":"finance","moduleTitle":"金融基础","downloadName":"金融基础-07-金融风险与金融监管-离线学习.html"},"lessons":{"title":"金融风险与金融监管","subtitle":"识别金融损失的来源，并理解资本、流动性与监管工具如何降低风险。","sections":[{"id":"risk-preference","title":"风险偏好、分散化与系统性风险","summary":"比较期望收入相同的确定方案和有风险方案，再区分共同冲击与个体冲击。","bodyHtml":"\u003cp>期望收入相同时，\u003cstrong>风险厌恶者\u003c/strong>偏好确定方案，\u003cstrong>风险偏好者\u003c/strong>偏好有风险方案，\u003cstrong>风险中性者\u003c/strong>只依据期望值选择。\u003c/p>\u003cp>投资组合中的系统性风险来自共同因素，例如宏观周期、市场利率、通胀或汇率冲击，普通分散投资难以消除。非系统性风险与个别企业财务、经营、信用和偶发事件有关，可以通过分散化降低。监管所说的系统性金融风险还关注传染及金融系统功能受损。\u003c/p>","keyTakeaway":"先让期望金额相同，再比较确定性和波动。","pitfall":"信用风险既有个体成分，也可能受经济周期等共同因素影响。市场风险也可由特定头寸和个别资产引发。","example":"确定获得 100 元，与各一半概率获得 50 元或 150 元的期望值相同。偏好后者体现风险偏好。"},{"id":"market-risk","title":"市场风险与风险价值 VaR","summary":"识别价格变动造成的损失，按持有期和置信水平读损失分位数。","bodyHtml":"\u003cp>市场风险来自利率、汇率、股票价格或商品价格的不利变化。汇率风险可区分合同现金流的\u003cstrong>交易风险\u003c/strong>、合并报表的\u003cstrong>折算风险\u003c/strong>、长期现金流或竞争力受影响的\u003cstrong>经济风险\u003c/strong>。远期外汇可锁定约定日期的兑换价格。\u003c/p>\u003cp>VaR 是损失分布在给定持有期和置信水平下的分位数。历史题常称为给定置信水平下的“最大可能损失”。损失仍有可能超过 VaR，因此可配合压力测试或预期损失尾部指标。市场风险也可用外汇敞口、利率敏感度及其他指标监测。\u003c/p>\u003cp>监管定义核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.nfra.gov.cn/cn/view/pages/governmentDetail.html?docId=1214382&amp;generaltype=1&amp;itemId=861\">金融监管总局《商业银行市场风险管理办法》\u003c/a>\u003c/p>","keyTakeaway":"1 日 99% VaR 为 100 万，模型估计约有 1% 的可能性损失超过它。","pitfall":"交易风险有实际待结算现金流，折算风险来自报表换算。VaR 与最大可能损失、平均损失各有定义。","example":"企业已签合同三个月后支付 100 万欧元。若欧元升值，本币付款成本提高。远期购汇可以锁定该笔支付的兑换价格。"},{"id":"credit-risk","title":"信用风险、五级分类与迁徙率","summary":"从履约能力变化辨认信用风险，用五级分类持续跟踪资产质量。","bodyHtml":"\u003cp>信用风险指借款人或交易对手信用恶化、未能履行合同义务而造成损失的可能性。狭义考法侧重贷款违约，广义还覆盖外汇、担保等交易的对手方。贷前调查、存续期监测与分类、违约处置分别覆盖不同阶段。\u003c/p>\u003cp>商业银行金融资产按风险分为\u003cstrong>正常、关注、次级、可疑、损失\u003c/strong>，后三类为不良。\u003cstrong>不良贷款率 = 不良贷款余额 ÷ 各项贷款余额\u003c/strong>。分类迁徙率衡量一组资产由某类迁入另一类的比例，体现跨期变化。\u003c/p>\u003cp>适用规则核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1095372\">《商业银行金融资产风险分类办法》\u003c/a>\u003c/p>","keyTakeaway":"关注类属于风险上升的观察信号，计算不良贷款率时从次级类开始。","pitfall":"不良贷款率看一个时点的存量，分类迁徙率看跨期变动。","example":"贷款总额 100 亿元，次级、可疑、损失分别为 10、7、3 亿元，不良贷款率为 20%。"},{"id":"operational-risk","title":"操作、法律、合规与声誉风险","summary":"按触发损失的直接原因判断人员、流程、系统和外部事件。","bodyHtml":"\u003cp>\u003cstrong>操作风险\u003c/strong>由内部流程、员工、信息科技系统问题及外部事件引起，可出现在各业务环节。当前银行保险机构规则把法律风险计入操作风险，战略风险和声誉风险分别管理。合规风险强调违反法律、规则或行业准则后引发处罚、损失或声誉影响。\u003c/p>\u003cp>同一事件可涉及不同分类。收受贿赂属于人员引发的操作风险，随后贷款无法收回还体现信用损失。按题目所问的起因或结果选取分类。\u003c/p>\u003cp>适用规则核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1144382\">《银行保险机构操作风险管理办法》\u003c/a>\u003c/p>","keyTakeaway":"操作风险看成因，声誉风险看负面评价对机构的影响。","pitfall":"巴塞尔Ⅱ历史上允许经监管批准采用操作风险高级计量法。现行国内资本框架规定了操作风险标准法等计量规则，按机构档次和适用条款判断。","example":"交易员绕过限额产生损失，失控的人员行为和流程属于操作风险。"},{"id":"liquidity-country","title":"流动性风险、国家风险与转移风险","summary":"判断是机构现金来源不足，还是东道国冲击阻碍项目及跨境支付。","bodyHtml":"\u003cp>\u003cstrong>流动性风险\u003c/strong>涉及无法及时、以合理成本获得资金履行到期义务。管理工具包括期限梯度、优质流动性资产、资金来源分散和应急融资。资产与负债的重定价差异还可能形成利率风险。\u003c/p>\u003cp>\u003cstrong>国家风险\u003c/strong>来自特定国家或地区的政治、经济、社会或政策变化。转移风险涉及外汇管制等因素妨碍兑换或转出资金，主权风险侧重主权借款人履约。海外合资可分摊某些国家风险敞口。\u003c/p>","keyTakeaway":"交易对手违约看信用风险，东道国外汇限制使资金汇不出看转移风险。","pitfall":"期限匹配针对支付与融资，重定价期限匹配针对利率敏感性。","example":"海外子公司盈利但无法按期将资金兑换并汇回，若直接原因是东道国外汇限制，可归入转移风险。"},{"id":"supervision-models","title":"金融监管组织与市场准入、运营、退出","summary":"按监管主体、权限划分和被监管环节识别监管模式。","bodyHtml":"\u003cp>按监管主体数量可分单一和多头监管，按中央与地方权限可分集权与分权。实践中也有伞形、双峰等安排。并表监管看金融集团整体风险，审慎监管着重机构稳健，行为监管着重交易和消费者权益。\u003c/p>\u003cp>市场准入关注机构设立、注册资本、业务范围和高管资格。运营监管关注资本、资产质量、流动性、内控与合规。出现严重风险时可依法采取纠正、接管、重组或退出安排。现场检查通常包括合规性与风险性检查。\u003c/p>\u003cp>2017 年成立的国务院金融稳定发展委员会承担统筹协调职责。2023 年机构改革后，相关办公室职责划入中央金融委员会办公室。金融监管总局依法负责除证券业之外的金融业监管。核验于 2026 年 11 月 11 日。\u003ca href=\"https://app.www.gov.cn/govdata/gov/202310/13/508173/article.html\">金融管理机构职责调整通知\u003c/a> · \u003ca href=\"https://www.moe.gov.cn/jyb_xxgk/moe_1777/moe_1778/202303/t20230317_1051346.html\">《党和国家机构改革方案》\u003c/a> · \u003ca href=\"https://www.govinfo.gov/app/details/PLAW-106publ102\">美国 1999 年《金融服务现代化法案》\u003c/a>\u003c/p>","keyTakeaway":"先看是设立、持续经营还是处置退出。","pitfall":"注册资本是登记和准入事项之一，资本充足率是持续审慎要求，准入审查也可关注资本条件。","example":"审批银行高管任职资格属于准入监管，检查已运营银行的资本充足情况属于持续监管。"},{"id":"rating-and-indicators","title":"CAMELS、流动性比例与存款保险","summary":"把监管评级、定量约束和风险处置保障分别记忆。","bodyHtml":"\u003cp>\u003cstrong>CAMELS\u003c/strong>分别对应资本充足性、资产质量、管理、收益、流动性和市场风险敏感性。早期风险核心指标分类包括风险水平、风险迁徙和风险抵补。早期市场风险指标包含累计外汇敞口头寸比例与利率风险敏感度。计算比率时先确定指标规定的资产范围与分母。\u003c/p>\u003cp>《商业银行法》第三十九条规定，流动性资产余额占流动性负债余额比例不得低于 25%，同一借款人贷款余额占商业银行资本余额比例不得超过 10%。《存款保险条例》第五条的限额是同一存款人在同一家投保机构所有被保险存款本息合计最高 50 万元。超出部分依法从清算财产中受偿。\u003c/p>\u003cp>适用规则核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.fdic.gov/news/financial-institution-letters/1996/fil96105.html\">FDIC 关于 CAMELS 的说明\u003c/a> · \u003ca href=\"https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=62760\">商务部法规库所载 2005 年风险监管核心指标\u003c/a> · \u003ca href=\"https://fgw.sh.gov.cn/ys-hqjrfw-1.3.1.3/20240820/76cd65ba821343edbbcb9774cb2a511f.html\">《中华人民共和国商业银行法》第三十九条\u003c/a> · \u003ca href=\"https://xzfg.moj.gov.cn/front/law/detail?LawID=419\">《存款保险条例》\u003c/a>\u003c/p>","keyTakeaway":"流动性比例看流动性资产与流动性负债。存款保险按存款人和投保机构计算。","pitfall":"25% 流动性比例和流动性覆盖率使用不同口径。存款保险限额按同一机构的被保险账户合计。","example":"一位存款人在同一投保银行有 20 万元和 25 万元被保险存款本息，合计 45 万元，处于限额以内。"},{"id":"basel-capital","title":"巴塞尔协议、资本充足率与杠杆率","summary":"区分版本、资本层级、风险加权与非风险加权的监管指标。","bodyHtml":"\u003cp>巴塞尔Ⅰ建立总资本充足率 8% 的基础框架。巴塞尔Ⅱ保留这一最低总资本比率，明确信用、市场、操作风险的资本要求，并提出最低资本、监督检查与市场纪律三支柱。巴塞尔Ⅲ强化资本质量、缓冲、流动性和杠杆率，并为系统重要性银行等制定附加要求。\u003c/p>\u003cp>我国现行《商业银行资本管理办法》规定，资本充足率为资本净额除以风险加权资产。一般最低核心一级、一级和总资本比率分别为 5%、6%、8%，还应按规定考虑缓冲和附加要求。核心一级资本包括符合条件的实收资本、盈余公积、一般风险准备与未分配利润等。杠杆率分母是调整后的表内外资产余额，补充风险加权指标。\u003c/p>\u003cp>现行规定核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1134197\">金融监管总局《商业银行资本管理办法》\u003c/a> · \u003ca href=\"https://www.bis.org/committees/bcbs/history\">巴塞尔委员会历史与各版框架\u003c/a>\u003c/p>","keyTakeaway":"资本充足率用风险加权资产，杠杆率用调整后表内外资产余额。","pitfall":"总资本最低要求、各级资本要求和银行适用的缓冲可以同时存在。历史术语“核心资本”和现行“核心一级资本”应按相应版本判断。","example":"资本净额 12 亿元、风险加权资产 100 亿元，对应总资本充足率 12%。还需进一步比较该行的各层级和附加要求。"},{"id":"macroprudential","title":"宏观审慎与国际协调","summary":"从金融系统整体看风险积累、机构关联和跨境传导。","bodyHtml":"\u003cp>宏观审慎政策旨在降低系统性金融风险，关注风险随金融周期积累，也关注机构之间风险传播。评估可结合总量信贷、杠杆、关联和压力测试。逆周期资本缓冲可在信贷风险积累时提高损失吸收能力，压力期可调整以缓冲冲击。现行《商业银行资本管理办法》第二十七条规定，逆周期资本的计提和运用由中国人民银行会同金融监管总局另行规定。旧试行办法曾直接规定 0% 至 2.5% 的区间。\u003c/p>\u003cp>巴塞尔委员会制定银行审慎国际标准，金融稳定理事会协调国际监管政策，具体强制性要求通常通过各司法辖区的法规落实。IMF 从事监督、金融援助与技术合作，世界银行着重发展融资。\u003c/p>\u003cp>框架核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.pbc.gov.cn/huobizhengceersi/214481/3868581/3868584/9ab0bf3b9a6849ee9273ce48eb243f89/2021123117181828138.pdf\">中国人民银行宏观审慎政策指引\u003c/a> · \u003ca href=\"https://www.bis.org/committees/bcbs/policy-development\">巴塞尔委员会标准制定\u003c/a> · \u003ca href=\"https://www.fsb.org/about/\">金融稳定理事会职责\u003c/a> · \u003ca href=\"https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzbmgz/202409/t20240909_505612.html\">现行《商业银行资本管理办法》\u003c/a> · \u003ca href=\"https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=47729\">历史试行办法\u003c/a>\u003c/p>","keyTakeaway":"微观审慎关注单家机构，宏观审慎关注全系统的共同冲击与传染。","pitfall":"国际标准协调机构与具有法定执法权的国内监管机关职责不同。逆周期缓冲区间和当期实际适用比例也需分开。","example":"多家银行同时扩大对同类资产的贷款时，单家机构暂时表现良好，系统仍可能累积集中敞口。"}],"mindmap":[{"label":"金融风险","target":"risk-preference","children":[{"label":"风险偏好","target":"risk-preference","children":[{"label":"风险回避","target":"risk-preference"},{"label":"风险爱好","target":"risk-preference"},{"label":"风险中性","target":"risk-preference"}]},{"label":"风险价值","target":"market-risk","children":[{"label":"持有期","target":"market-risk"},{"label":"置信水平","target":"market-risk"},{"label":"损失分位数","target":"market-risk"}]},{"label":"金融风险的分类","target":"risk-preference","children":[{"label":"按风险形式","target":"risk-preference","children":[{"label":"信用风险","target":"credit-risk"},{"label":"市场风险","target":"market-risk","children":[{"label":"利率风险","target":"market-risk"},{"label":"汇率风险","target":"market-risk"},{"label":"股票与商品价格风险","target":"market-risk"}]},{"label":"操作风险","target":"operational-risk","children":[{"label":"人员","target":"operational-risk"},{"label":"内部流程","target":"operational-risk"},{"label":"信息科技系统","target":"operational-risk"},{"label":"外部事件","target":"operational-risk"}]},{"label":"流动性风险","target":"liquidity-country"},{"label":"法律风险","target":"operational-risk"},{"label":"合规风险","target":"operational-risk"},{"label":"国家风险","target":"liquidity-country"},{"label":"声誉风险","target":"operational-risk"}]},{"label":"按风险性质","target":"risk-preference","children":[{"label":"系统性风险与共同冲击","target":"risk-preference"},{"label":"非系统性风险与分散投资","target":"risk-preference"}]}]}]},{"label":"金融监管","target":"supervision-models","children":[{"label":"金融监管模式","target":"supervision-models","children":[{"label":"单一与多头监管","target":"supervision-models"},{"label":"集权与分权监管","target":"supervision-models"},{"label":"伞形、双峰与其他安排","target":"supervision-models"},{"label":"并表监管","target":"supervision-models"},{"label":"CAMELS 评级","target":"rating-and-indicators"}]},{"label":"金融监管内容","target":"supervision-models","children":[{"label":"市场准入","target":"supervision-models"},{"label":"持续运营","target":"supervision-models"},{"label":"市场退出","target":"supervision-models"}]},{"label":"监管常用指标","target":"rating-and-indicators","children":[{"label":"贷款风险迁徙率","target":"credit-risk"},{"label":"流动性比例","target":"rating-and-indicators"},{"label":"存款保险限额","target":"rating-and-indicators"}]},{"label":"巴塞尔协议","target":"basel-capital","children":[{"label":"巴塞尔Ⅰ、Ⅱ、Ⅲ","target":"basel-capital"},{"label":"风险加权资本和杠杆率","target":"basel-capital"},{"label":"系统重要性银行要求","target":"basel-capital"}]},{"label":"宏观审慎","target":"macroprudential","children":[{"label":"目标与职责","target":"macroprudential"},{"label":"监测评估","target":"macroprudential"},{"label":"资本缓冲工具","target":"macroprudential"},{"label":"监管协调与系统稳定","target":"macroprudential"}]}]}]},"questions":[{"id":"fin-07-q01","number":1,"group":"金融风险","type":"single","stem":"如果消费者对于确定性收入的偏好小于有风险条件下期望收入的偏好，那么该消费者属于风险（　　）。","options":{"A":"回避者","B":"爱好者","C":"中立者","D":"承担者"},"answer":["B"],"explanationSupplement":"若确定收入等于风险方案的期望收入，而消费者仍偏好风险方案，则体现风险偏好。","optionExplanations":{"A":"偏好确定收入。","B":"偏好等期望收入的风险方案。","C":"同一期望下无差异。","D":"描述承担后果，未刻画偏好。"},"conceptId":"risk-preference"},{"id":"fin-07-q02","number":2,"group":"金融风险","type":"single","stem":"对商业银行进行市场风险监管的指标主要有利率风险敏感度和（　　）。","options":{"A":"流动性比率","B":"全部关联度","C":"核心负债比例","D":"累计外汇敞口头寸比例"},"answer":["D"],"explanationSupplement":"累计外汇敞口反映汇率变动可能造成的风险，是 2005 年风险核心指标中的市场风险指标。现行市场风险管理范围也包括股票和商品价格等。","optionExplanations":{"A":"反映资金流动性。","B":"反映关联业务集中程度。","C":"反映负债结构。","D":"反映汇率风险敞口。"},"conceptId":"market-risk"},{"id":"fin-07-q03","number":3,"group":"金融风险","type":"single","stem":"风险价值是指在一定的持有期和置信水平下，利率、汇率等市场风险要素发生变化对资产价值造成的（　　）损失。","options":{"A":"最大","B":"最小","C":"平均","D":"预期"},"answer":["A"],"explanationSupplement":"VaR 是给定持有期和置信水平下的损失分位数。题中“最大”是该置信范围内的传统简化表述，极端损失仍可超过 VaR。","optionExplanations":{"A":"仅在给定置信水平的简化说法下适用。","B":"不是损失下界。","C":"均值与分位数不同。","D":"期望损失不是给定分位数。"},"conceptId":"market-risk"},{"id":"fin-07-q04","number":4,"group":"金融风险","type":"single","stem":"操作风险经济资本计量模型中，（　　）的采用需要经过监管当局的批准。","options":{"A":"基本指标法","B":"标准法","C":"高级计量法","D":"模型法"},"answer":["C"],"explanationSupplement":"在巴塞尔Ⅱ历史框架下，采用操作风险高级计量法计算监管资本需要监管批准。现行国内框架已按新的资本规则实施。","optionExplanations":{"A":"按历史框架使用统一基础指标。","B":"标准法使用规定的计量规则。","C":"使用高级内部计量系统需符合条件并获批。","D":"名称未指明历史框架的具体方法。"},"conceptId":"operational-risk"},{"id":"fin-07-q05","number":5,"group":"金融风险","type":"single","stem":"某公司与其新加坡分公司的资产负债表进行合并时，由于新币贬值，折算出的资产金额比预期减少，该公司由此面临的风险属于汇率风险中的（　　）。","options":{"A":"估值风险","B":"交易风险","C":"操作风险","D":"折算风险"},"answer":["D"],"explanationSupplement":"合并报表时要用统一的报告货币折算。外币变动造成报表账面价值变化，属于折算风险。","optionExplanations":{"A":"表述较宽泛，题目已有明确的报表折算场景。","B":"涉及实际合同收付。","C":"来自人员、流程、系统或外部事件。","D":"合并报表换算对应折算风险。"},"conceptId":"market-risk"},{"id":"fin-07-q06","number":6,"group":"金融风险","type":"single","stem":"（　　）是指由于金融机构内部程序、人员、系统的不完善或失误，或突发事件而导致的金融机构直接或间接损失的风险。","options":{"A":"信用风险","B":"道德风险","C":"政策风险","D":"操作风险"},"answer":["D"],"explanationSupplement":"人员、流程、系统和外部事件是识别操作风险的四类常见成因。","optionExplanations":{"A":"来自交易对手履约能力。","B":"强调行为者因信息或激励而改变行为。","C":"政策冲击可导致多类风险。","D":"符合题目列出的来源。"},"conceptId":"operational-risk"},{"id":"fin-07-q07","number":7,"group":"金融风险","type":"single","stem":"某企业采取跨国联合的股份化投资方式向海外投资，从风险防范的角度看，这样做主要在于规避（　　）。","options":{"A":"合规风险","B":"操作风险","C":"国家风险","D":"声誉风险"},"answer":["C"],"explanationSupplement":"跨国合资可分担海外投资损失，也可能利用当地合作方缓解部分东道国风险。","optionExplanations":{"A":"遵守当地规则仍需专门管理。","B":"内部流程和系统风险需内部控制。","C":"题设直接涉及东道国环境和风险分担。","D":"与负面外部评价有关。"},"conceptId":"liquidity-country"},{"id":"fin-07-q08","number":8,"group":"金融风险","type":"single","stem":"下列关于信用风险的表述错误的是（　　）。","options":{"A":"信用风险具有明显的非系统性特征","B":"信息不对称是形成信用风险的重要因素","C":"多样化投资分散风险的管理原则不适用于信用风险","D":"信用风险的量化分析比较困难"},"answer":["C"],"explanationSupplement":"分散不同借款人或行业的敞口可以降低个体信用风险，宏观冲击仍可能同时影响多个债务人。","optionExplanations":{"A":"个体违约部分具有非系统性。","B":"信息不对称会影响风险判断。","C":"分散化适用于个体成分，题干问错误项。","D":"违约关联和回收率等使量化较复杂。"},"conceptId":"credit-risk"},{"id":"fin-07-q09","number":9,"group":"金融风险","type":"single","stem":"（　　）是指有关主体（主要是跨国公司）在因合并财务报表而引致的不同货币的相互折算中，因汇率在一定时间内发生意外变动，而蒙受账面经济损失的可能性。","options":{"A":"交易风险","B":"折算风险","C":"经济风险","D":"投资风险"},"answer":["B"],"explanationSupplement":"题目描述把子公司的外币报表统一折算时出现账面波动，属于折算风险。","optionExplanations":{"A":"侧重实际外币收付款。","B":"对应合并报表换算。","C":"侧重对未来经营与现金流的持续影响。","D":"范围宽泛，未区分折算。"},"conceptId":"market-risk"},{"id":"fin-07-q10","number":10,"group":"金融风险","type":"single","stem":"如果商业银行在外汇交易中以美元兑换客户的欧元，而客户未履行将欧元划到银行指定账户的义务，这种可能性就是商业银行承担的（　　）。","options":{"A":"狭义的信用风险","B":"广义的信用风险","C":"操作风险","D":"市场风险"},"answer":["B"],"explanationSupplement":"外汇交易对手未按约交付另一种货币属于交易对手信用风险，也可具体称结算风险。","optionExplanations":{"A":"狭义常特指贷款违约。","B":"涵盖贷款之外的履约违约。","C":"题目未给出银行流程差错。","D":"未给出汇率变化造成的损失。"},"conceptId":"credit-risk"},{"id":"fin-07-q11","number":11,"group":"金融风险","type":"single","stem":"某商业银行主管信贷业务的经理，在收受某借款人贿赂的情况下，向该借款人发放了本不该发放的贷款，导致该笔贷款无法收回。此种情况说明该商业银行蒙受了（　　）的损失。","options":{"A":"信用风险","B":"市场风险","C":"法律风险","D":"操作风险"},"answer":["D"],"explanationSupplement":"受贿并违规审批是人员和流程控制问题，造成的损失可从操作风险起因识别。贷款不能收回也体现信用风险后果。","optionExplanations":{"A":"违约体现信用损失这一结果。","B":"题干没有价格变动。","C":"违法行为可能涉及法律责任，但直接操作起因是内控失败。","D":"对应人员行为与控制失效。"},"conceptId":"operational-risk"},{"id":"fin-07-q12","number":12,"group":"金融风险","type":"single","stem":"我国某企业在海外投资了一个全资子公司。该子公司在将所获得的利润汇回国内时，其东道国实行了严格的外汇管制，该子公司无法将所获得的利润如期汇回。此种情形说明该企业承受了（　　）。","options":{"A":"转移风险","B":"主权风险","C":"投资风险","D":"系统风险"},"answer":["A"],"explanationSupplement":"东道国限制外汇兑换或利润汇出，使跨境资金不能正常转移，属于国家风险中的转移风险。","optionExplanations":{"A":"与资金汇出受限直接对应。","B":"通常侧重主权主体履约。","C":"范围较宽。","D":"题干描述一个国家的具体转移障碍。"},"conceptId":"liquidity-country"},{"id":"fin-07-q13","number":13,"group":"金融风险","type":"single","stem":"属于系统性风险的是（　　）。","options":{"A":"信用风险","B":"经营风险","C":"利率风险","D":"国家风险"},"answer":["C"],"explanationSupplement":"一般市场利率变动是多数资产共同面对的因素，属于典型的系统性风险来源。","optionExplanations":{"A":"个别债务人风险可部分分散。","B":"公司经营差异通常具有个体成分。","C":"广泛影响资产估值和融资条件。","D":"跨境组合可以分散部分特定国家敞口，宏观冲击也可能有共同成分。"},"conceptId":"risk-preference"},{"id":"fin-07-q14","number":14,"group":"金融风险","type":"single","stem":"银行因未能遵循法律、监管规定、规则、自律性组织制定的有关准则，而可能遭受法律制裁或监管处罚、重大财务损失或声誉损失的风险是（　　）。","options":{"A":"声誉风险","B":"合规风险","C":"操作风险","D":"系统风险"},"answer":["B"],"explanationSupplement":"违反法律、监管规则或自律准则可能引发处罚、损失或声誉影响，符合合规风险定义。","optionExplanations":{"A":"可能是违规后果之一。","B":"题干直接描述合规风险。","C":"操作风险范围较宽，相关法律风险可同时涉及。","D":"强调系统范围的传染或功能受损。"},"conceptId":"operational-risk"},{"id":"fin-07-q15","number":15,"group":"金融风险","type":"single","stem":"风险价值法（VaR 法）主要用于（　　）的评估。","options":{"A":"信用风险","B":"市场风险","C":"汇率风险","D":"投资风险"},"answer":["B"],"explanationSupplement":"VaR 常用于估计持有期内金融头寸的市场损失分位数，汇率风险是其中一种。","optionExplanations":{"A":"也有信用组合分位数模型，题目考常见主要用途。","B":"是本题所问的总类别。","C":"属于市场风险的子类。","D":"投资风险范围更广。"},"conceptId":"market-risk"},{"id":"fin-07-q16","number":16,"group":"金融风险","type":"single","stem":"下列可能给商业银行造成实质性损失，但不属于操作风险事件的是（　　）。","options":{"A":"信贷人员未经授权调整评级指标","B":"不当言论造成银行声誉受损","C":"黑客攻击造成系统中断","D":"交易员超限额交易"},"answer":["B"],"explanationSupplement":"以负面舆论造成的声誉损失为分类重点时属于声誉风险。违规授权、超限和系统攻击是典型操作风险事件。","optionExplanations":{"A":"员工超越授权属于人员或流程事件。","B":"题中主要描述声誉受损。","C":"外部网络攻击造成系统中断。","D":"超出交易限额体现控制失效。"},"conceptId":"operational-risk"},{"id":"fin-07-q17","number":17,"group":"金融风险","type":"single","stem":"在货币资金借贷中，还款违约属于金融风险中的（　　）。","options":{"A":"流动性风险","B":"市场风险","C":"操作风险","D":"信用风险"},"answer":["D"],"explanationSupplement":"借款人未按合同还款是违约，构成贷款信用风险。","optionExplanations":{"A":"融资困难是可能产生的后果。","B":"题干未涉及价格变动。","C":"题干未给出流程或人员错误。","D":"对应借款人履约问题。"},"conceptId":"credit-risk"},{"id":"fin-07-q18","number":18,"group":"金融风险","type":"single","stem":"我国某商业银行在向某企业发放贷款后，中国人民银行宣布降息，该商业银行随后下调了对该企业的贷款利率，导致利息收益减少，则该商业银行承受了（　　）。","options":{"A":"信用风险","B":"法律风险","C":"利率风险","D":"操作风险"},"answer":["C"],"explanationSupplement":"贷款随利率下调后，银行资产利息收入减少，属于银行账簿利率风险的例子。","optionExplanations":{"A":"未给出借款人违约。","B":"无合同法律纠纷信息。","C":"利率变动改变利息收益。","D":"未给出操作失误。"},"conceptId":"market-risk"},{"id":"fin-07-q19","number":19,"group":"金融风险","type":"single","stem":"我国某企业在并购美国本土的某公司时，美国政府以该并购会危及美国国家安全为由而加倍阻挠，迫使该企业最终不得不放弃该项并购，则该企业承受了（　　）。","options":{"A":"市场风险","B":"国家风险","C":"法律风险","D":"操作风险"},"answer":["B"],"explanationSupplement":"东道国以国家安全为由干预跨境并购，属于政治或政策因素导致的国家风险。","optionExplanations":{"A":"没有以市场价格变化为原因。","B":"符合东道国政策变化或干预机制。","C":"广义法律风险可能涉及规则变化，本题直接强调东道国。","D":"不来自企业操作流程。"},"conceptId":"liquidity-country"},{"id":"fin-07-q20","number":20,"group":"金融风险","type":"single","stem":"贷款五级分类方法被用于管理（　　）。","options":{"A":"信用风险","B":"汇率风险","C":"利率风险","D":"流动性风险"},"answer":["A"],"explanationSupplement":"五级分类根据借款人履约能力和金融资产风险变化评估资产质量，主要用于信用风险管理。","optionExplanations":{"A":"符合分类依据。","B":"用敞口与对冲等方法管理。","C":"用重定价和久期等方法分析。","D":"主要监控现金流和融资。"},"conceptId":"credit-risk"},{"id":"fin-07-q21","number":21,"group":"金融风险","type":"single","stem":"在美国的次贷危机中，很多依靠从银行借入次级贷款来购买住房的人，到期不能还本付息。这种情形对于发放次级贷款的银行而言，属于该银行承受的（　　）。","options":{"A":"流动性风险","B":"操作风险","C":"法律风险","D":"信用风险"},"answer":["D"],"explanationSupplement":"不能按时还本付息体现贷款违约，给放贷银行带来信用风险。","optionExplanations":{"A":"大规模违约可进一步影响银行流动性。","B":"未描述放贷流程或系统失误。","C":"题设直接说明合同履约问题。","D":"借款人违约对应信用风险。"},"conceptId":"credit-risk"},{"id":"fin-07-q22","number":22,"group":"金融风险","type":"single","stem":"根据2013年春季广交会传出的信息，我国很多从事加工贸易的企业在人民币对外持续升值的情况下，不敢接来自外商的长期订单。这是因为，如果接下外商的订单，当未来对外商交货并结汇时，如果人民币对外币升值，我国企业在将收入的外币兑换为人民币时，兑换到的人民币金额会减少。这种情形属于我国企业承受的（　　）。","options":{"A":"利率风险","B":"汇率风险","C":"投资风险","D":"操作风险"},"answer":["B"],"explanationSupplement":"出口收入以外币计价，人民币升值时，同额外币换得的人民币可能减少，属于汇率交易风险。","optionExplanations":{"A":"利率不是材料中的变化变量。","B":"改变结汇本币价值。","C":"题设是出口销售回款。","D":"没有给出操作错误。"},"conceptId":"market-risk"},{"id":"fin-07-q23","number":23,"group":"金融风险","type":"single","stem":"（　　）属于商业银行所面临的市场风险。","options":{"A":"商业银行无力为负债的减少或资产的增加提供融资而造成损失或破产的风险","B":"金融资产价格和商品价格的波动给商业银行表内、表外头寸造成损失的风险","C":"交易双方在结算过程中，一方支付了合同资金但另一方发生违约的风险","D":"由于人为错误、流程缺失给商业银行造成损失的风险"},"answer":["B"],"explanationSupplement":"市场价格变化造成表内外头寸损失，属于市场风险。","optionExplanations":{"A":"属于流动性风险。","B":"属于结算信用风险。","C":"覆盖金融和商品价格变化。","D":"属于操作风险。"},"conceptId":"market-risk"},{"id":"fin-07-q24","number":24,"group":"金融风险","type":"single","stem":"商业银行采用的贷款五级分类方法，属于信用风险的（　　）管理。","options":{"A":"机制","B":"事前","C":"事中","D":"事后"},"answer":["C"],"explanationSupplement":"已发放贷款的风险分类需要随履约情况动态调整，属于信贷存续期监测。","optionExplanations":{"A":"机制管理是更广泛的制度安排。","B":"贷前强调尽调与授信审批。","C":"属于事中管理。","D":"事后可涉及催收、重组和处置。"},"conceptId":"credit-risk"},{"id":"fin-07-q25","number":25,"group":"金融风险","type":"single","stem":"商业银行在资产负债综合管理中，致力于实现资产与负债在期限上的匹配。这是商业银行进行（　　）管理的举措。","options":{"A":"信用风险","B":"市场风险","C":"操作风险","D":"流动性风险"},"answer":["D"],"explanationSupplement":"安排资金流入和流出的期限，可以缓解集中到期的资金缺口。","optionExplanations":{"A":"主要看交易对手履约。","B":"若按利率重定价期限匹配还可管理利率风险，题目强调资金期限。","C":"主要看人员、流程、系统和外部事件。","D":"符合资金到期和支付能力的关系。"},"conceptId":"liquidity-country"},{"id":"fin-07-q26","number":26,"group":"金融风险","type":"single","stem":"我国某企业从德国进口一批设备，以欧元计价结算，在对德国出口商进行支付时，正逢欧元兑人民币升值，结果为购买同额欧元支付的人民币金额增多，这种情形是该企业承受的（　　）。","options":{"A":"利率风险","B":"汇率风险","C":"投资风险","D":"操作风险"},"answer":["B"],"explanationSupplement":"进口合同以欧元结算。欧元升值后，支付同额欧元需要更多人民币，属于汇率交易风险。","optionExplanations":{"A":"题干没有利率变化。","B":"汇率变动提高本币成本。","C":"材料是进口付款。","D":"没有操作差错。"},"conceptId":"market-risk"},{"id":"fin-07-q27","number":27,"group":"金融风险","type":"single","stem":"以下属于汇率风险事件的是（　　）。","options":{"A":"百富勤公司因为一家印尼公司无法按约偿付贷款而遭受2.35亿美元的巨大损失","B":"20世纪70年代，美国金融市场的收益率曲线向上倾斜，储蓄信贷协会通过吸收短期存款后发放长期固定利率抵押贷款就可以获得稳定收益，但到了80年代，收益率曲线发生了逆转，储蓄信贷协会因此陷入困境","C":"英国雷克航空公司的收入主要来自英国游客，但它用美元融资购置了几架飞机，但后来美元开始坚挺，雷克公司因入不敷出而破产","D":"1995年，具有233年悠久历史的巴林银行破产，破产的直接原因是一位28岁的交易员在衍生品交易中造成巨额损失"},"answer":["C"],"explanationSupplement":"收入主要以英镑取得，美元债务形成外币敞口。美元升值会增加折算后的偿债成本。","optionExplanations":{"A":"源于借款人不履约。","B":"源于利率及收益率曲线变化。","C":"是货币错配导致的汇率风险。","D":"例子强调交易失控和内部控制风险。"},"conceptId":"market-risk"},{"id":"fin-07-q28","number":28,"group":"金融风险","type":"single","stem":"在市场风险的管理中，做远期外汇交易用于（　　）管理。","options":{"A":"信用风险","B":"利率风险","C":"汇率风险","D":"投资风险"},"answer":["C"],"explanationSupplement":"远期外汇交易事先确定未来换汇价格，可对冲外币应收或应付的汇率敞口。","optionExplanations":{"A":"远期本身可能引入交易对手信用风险。","B":"利率互换等可用于利率对冲。","C":"与未来外币兑换直接相关。","D":"投资风险范围更宽。"},"conceptId":"market-risk"},{"id":"fin-07-q29","number":29,"group":"金融风险","type":"single","stem":"某企业从某银行借入一笔贷款后，到期不能如期、足额还本付息，这种情形属于该银行的（　　）。","options":{"A":"市场风险","B":"信用风险","C":"流动风险","D":"操作风险"},"answer":["B"],"explanationSupplement":"未能按约定时间和金额还款属于借款人违约风险。","optionExplanations":{"A":"题目没有市场价格变动。","B":"贷款回收问题直接对应信用风险。","C":"回款不足可能间接形成银行流动性问题。","D":"材料未指明操作事故。"},"conceptId":"credit-risk"},{"id":"fin-07-q30","number":30,"group":"金融风险","type":"single","stem":"权威信用评级机构将一家受金融危机影响的AAA级企业改为AA级，则表明与该企业发生业务往来的商业银行所面临的（　　）增加。","options":{"A":"声誉风险","B":"操作风险","C":"信用风险","D":"法律风险"},"answer":["C"],"explanationSupplement":"从 AAA 下调至 AA 表明该企业信用质量评价降低，交易对手需关注违约概率和损失可能性。","optionExplanations":{"A":"企业信用评级变化和银行声誉是不同风险。","B":"未体现银行的操作控制失败。","C":"对应信用质量变化。","D":"未给出法律纠纷或制度变化。"},"conceptId":"credit-risk"},{"id":"fin-07-q31","number":31,"group":"金融风险","type":"single","stem":"我国某企业在海外承建了某项目，但因海外爆发政府与反政府武装的冲突而不得不中断项目建设，并撤出人员，项目工地被洗劫，这种情形属于该企业的（　　）。","options":{"A":"市场风险","B":"信用风险","C":"国家风险","D":"操作风险"},"answer":["C"],"explanationSupplement":"项目所在国发生武装冲突，企业被迫停工撤离，体现东道国政治和社会风险。","optionExplanations":{"A":"无直接市场价格变化。","B":"没有对手方不履约的直接描述。","C":"符合国家风险的来源。","D":"外部事件也需内部管理，题目强调所在国环境。"},"conceptId":"liquidity-country"},{"id":"fin-07-q32","number":32,"group":"金融风险","type":"single","stem":"下列具有明显系统性风险特征的风险类别是（　　）。","options":{"A":"信用风险","B":"市场风险","C":"声誉风险","D":"操作风险"},"answer":["B"],"explanationSupplement":"利率、汇率等广泛影响多数资产的市场因素，常带来显著的系统性成分。","optionExplanations":{"A":"信用风险既有个体成分，也会受共同经济冲击。","B":"可源于个体机构事件。","C":"最符合共同市场因素的分类。","D":"多数操作事件起源于机构内部或特定外部事件。"},"conceptId":"risk-preference"},{"id":"fin-07-q33","number":33,"group":"金融风险","type":"single","stem":"商业银行操作风险与市场风险、信用风险相比，具有（　　） 的特点。","options":{"A":"普遍性、非营利性","B":"普遍性、营利性","C":"特殊性、非营利性","D":"特殊性、营利性"},"answer":["A"],"explanationSupplement":"操作风险可发生在各业务和管理环节。银行通常不以主动承担内部操作失误作为盈利方式。","optionExplanations":{"A":"概括普遍性与非营利性。","B":"操作失误本身不是收益来源。","C":"并不限于个别业务。","D":"两个特点均不符合。"},"conceptId":"operational-risk"},{"id":"fin-07-q34","number":34,"group":"金融监管","type":"single","stem":"骆驼（CAMELS）评级法中的A是指（　　）。","options":{"A":"盈利水平","B":"资本充足率","C":"资产流动性","D":"资产质量"},"answer":["D"],"explanationSupplement":"CAMELS 的 A 是 Asset Quality，即资产质量。","optionExplanations":{"A":"E 代表收益。","B":"C 代表资本充足性。","C":"L 代表流动性。","D":"A 代表资产质量。"},"conceptId":"rating-and-indicators"},{"id":"fin-07-q35","number":35,"group":"金融监管","type":"single","stem":"2017年11月成立的国务院金融稳定发展委员会的主要职能是（　　）。","options":{"A":"行为监管","B":"机构监管","C":"监管协调","D":"监管执法"},"answer":["C"],"explanationSupplement":"题目询问历史上的职责，该委员会曾统筹协调金融稳定与改革发展。2023 年改革后相关办公室职责划入中央金融委员会办公室。","optionExplanations":{"A":"是金融市场监管维度。","B":"主要看具体机构经营。","C":"符合该委员会设立时的功能。","D":"执法由有法定权限的部门进行。"},"conceptId":"supervision-models"},{"id":"fin-07-q36","number":36,"group":"金融监管","type":"single","stem":"审慎银行监管的核心是（　　）。","options":{"A":"市场准入","B":"资本监管","C":"监督检查","D":"风险评级"},"answer":["B"],"explanationSupplement":"资本可吸收损失，资本要求是审慎银行监管的重要核心。","optionExplanations":{"A":"是机构设立和进入市场环节。","B":"资本监管是核心。","C":"是实施监管的方法。","D":"是对银行状况的评估。"},"conceptId":"basel-capital"},{"id":"fin-07-q37","number":37,"group":"金融监管","type":"single","stem":"《巴塞尔协议》引入（　　）概念，要求业务规模大、复杂程度高、对整个银行体系带来系统风险的银行，提出特别资本要求，使其具有超出一般标准的吸收亏损能力。（2019）","options":{"A":"国际重要性银行","B":"系统关键性银行","C":"系统重要性银行","D":"国际核心性银行"},"answer":["C"],"explanationSupplement":"系统重要性银行的困境可能影响整个金融系统，监管框架可要求额外的损失吸收能力。","optionExplanations":{"A":"不属标准术语。","B":"与实际含义近似，但并非所用术语。","C":"符合监管框架的定义。","D":"不属标准术语。"},"conceptId":"basel-capital"},{"id":"fin-07-q38","number":38,"group":"金融监管","type":"single","stem":"1999 年11月，美国国会通过（　　）允许金融持股公司下属子公司对银行、证券、保险兼业经营，美国金融重新进入混业时代。","options":{"A":"《麦克法登法案》","B":"《金融服务现代化法案》","C":"《银行体系改革蓝图》","D":"《多德•弗兰克法案》"},"answer":["B"],"explanationSupplement":"美国 1999 年《金融服务现代化法案》为银行、证券和保险等金融机构的关联经营提供框架。","optionExplanations":{"A":"主要涉及国民银行分支等。","B":"是题目所指法案。","C":"不属于题目所指的 1999 年法律。","D":"是 2010 年改革法案。"},"conceptId":"supervision-models"},{"id":"fin-07-q39","number":39,"group":"金融监管","type":"single","stem":"《中华人民共和国商业银行法》规定，商业银行的流动性比例不得低于（　　）。","options":{"A":"10%","B":"15%","C":"20%","D":"25%"},"answer":["D"],"explanationSupplement":"《商业银行法》第三十九条规定流动性资产余额占流动性负债余额的比例不得低于 25%。","optionExplanations":{"A":"10% 是条文中的同一借款人贷款占比上限。","B":"低于法定流动性比例最低标准。","C":"仍低于 25%。","D":"符合最低标准。"},"conceptId":"rating-and-indicators"},{"id":"fin-07-q40","number":40,"group":"金融监管","type":"single","stem":"衡量商业银行综合经营实力和抵御风险能力的重要指标是（　　）。","options":{"A":"风险管理水平","B":"资本充足率","C":"风险加权资产","D":"资金流动性"},"answer":["B"],"explanationSupplement":"资本充足率把符合条件的资本净额与风险加权资产对比，可衡量损失吸收能力。","optionExplanations":{"A":"管理水平还包含定性因素。","B":"是题目所指量化指标。","C":"只构成比率的分母。","D":"反映支付和融资能力。"},"conceptId":"basel-capital"},{"id":"fin-07-q41","number":41,"group":"金融监管","type":"single","stem":"（　　）用来衡量商业银行信用风险变化程度，表示资产质量从上期到本期变化的比率。","options":{"A":"逾期贷款率","B":"不良贷款率","C":"贷款风险分类迁徙率","D":"预期损失率"},"answer":["C"],"explanationSupplement":"分类迁徙率衡量资产从上期分类转入本期其他分类的比例，可跟踪质量变化。","optionExplanations":{"A":"衡量逾期余额占比。","B":"衡量某一时点的不良占比。","C":"明确描述跨期风险变化。","D":"衡量估计损失程度。"},"conceptId":"credit-risk"},{"id":"fin-07-q42","number":42,"group":"金融监管","type":"single","stem":"银行资本充足率是指商业银行资本与（　　）之间的比率。","options":{"A":"银行总资产","B":"银行并表总资产","C":"加权风险资产","D":"监管总资产"},"answer":["C"],"explanationSupplement":"资本充足率等于符合规定的资本净额除以风险加权资产。","optionExplanations":{"A":"未按风险加权。","B":"并表范围与风险加权是不同维度。","C":"是规定分母。","D":"非该比率定义。"},"conceptId":"basel-capital"},{"id":"fin-07-q43","number":43,"group":"金融监管","type":"single","stem":"根据《存款保险条例》，存款保险最高偿付限额为（　　）万元人民币。","options":{"A":"20","B":"50","C":"100","D":"150"},"answer":["B"],"explanationSupplement":"《存款保险条例》第五条规定最高偿付限额为 50 万元，按同一存款人同一家投保机构的被保险本息合计。","optionExplanations":{"A":"低于现行限额。","B":"符合现行规定。","C":"高于现行限额。","D":"高于现行限额。"},"conceptId":"rating-and-indicators"},{"id":"fin-07-q44","number":44,"group":"金融监管","type":"single","stem":"《巴塞尔协议Ⅱ》规定商业银行的最低资本充足率要达到（　　）。","options":{"A":"4%","B":"6%","C":"8%","D":"10%"},"answer":["C"],"explanationSupplement":"巴塞尔Ⅱ最低总资本充足率是 8%，并以更细的风险计量规则为基础。","optionExplanations":{"A":"常与旧框架核心资本标准联系。","B":"不是巴塞尔Ⅱ最低总资本比率。","C":"是该版最低总资本比率。","D":"实际约束可更高，题目问该历史下限。"},"conceptId":"basel-capital"},{"id":"fin-07-q45","number":45,"group":"金融监管","type":"discussion","stem":"下列属于国际性金融监管机构的是（　　）。","options":{"A":"世界银行","B":"国际货币基金组织","C":"巴塞尔委员会","D":"金融稳定理事会"},"answer":[],"explanationSupplement":"巴塞尔委员会制定银行审慎国际标准，金融稳定理事会协调全球金融监管政策。具体执法一般由各司法辖区负责。","optionExplanations":{"A":"主要从事发展融资。","B":"主要从事监督、融资与政策支持。","C":"是银行审慎标准制定者。","D":"是国际金融监管政策协调机构。"},"conceptId":"macroprudential"},{"id":"fin-07-q46","number":46,"group":"金融监管","type":"single","stem":"《巴塞尔新资本协议》的最低资本要求，涵盖了信用风险、市场风险和（　　）。","options":{"A":"汇率风险","B":"利率风险","C":"法律风险","D":"操作风险"},"answer":["D"],"explanationSupplement":"巴塞尔Ⅱ第一支柱覆盖信用风险、市场风险和操作风险。","optionExplanations":{"A":"是市场风险的一类。","B":"可属于市场风险的一个来源。","C":"在操作风险框架中纳入。","D":"是独立的第一支柱类别。"},"conceptId":"basel-capital"},{"id":"fin-07-q47","number":47,"group":"金融监管","type":"single","stem":"下列不属于核心资本的是（　　）。","options":{"A":"资本公积","B":"重估储备","C":"未分配利润","D":"盈余公积"},"answer":["B"],"explanationSupplement":"在题目使用的历史核心资本分类中，资本公积、盈余公积、未分配利润可计入核心资本，重估储备另行处理。","optionExplanations":{"A":"可列入公开储备。","B":"在历史框架中归为附属资本项目。","C":"留存利润可计入核心资本。","D":"属于公开储备之一。"},"conceptId":"basel-capital"},{"id":"fin-07-q48","number":48,"group":"金融监管","type":"discussion","stem":"根据我国《商业银行资本管理办法》的有关规定，在特定情况下，商业银行应当计提逆周期资本，逆周期资本要求为风险加权资产的（　　）。","options":{"A":"0%~1%","B":"0%~1.5%","C":"0%~2%","D":"0%~2.5%"},"answer":[],"explanationSupplement":"传统考法对应风险加权资产 0% 至 2.5% 的逆周期资本区间。现行资本办法第二十七条将逆周期资本的计提和运用规则交由中国人民银行会同金融监管总局另行规定。","optionExplanations":{"A":"低于旧办法规定的区间上限。","B":"低于旧办法规定的区间上限。","C":"低于旧办法规定的区间上限。","D":"对应旧办法规定的区间。"},"conceptId":"macroprudential"},{"id":"fin-07-q49","number":49,"group":"金融监管","type":"single","stem":"商业银行核心一级资本不包括（　　）。","options":{"A":"实收资本","B":"超额贷款损失准备","C":"一般风险准备","D":"未分配利润"},"answer":["B"],"explanationSupplement":"实收资本、一般风险准备和未分配利润可按规定计入核心一级资本。符合条件的超额损失准备可按规定计入二级资本。","optionExplanations":{"A":"可属于核心一级资本。","B":"归属二级资本的合格项目。","C":"可属于核心一级资本。","D":"可属于核心一级资本。"},"conceptId":"basel-capital"},{"id":"fin-07-q50","number":50,"group":"金融监管","type":"single","stem":"假设某银行期末各项贷款余额是100亿元，其中正常类贷款60亿元，关注类贷款20亿元，次级类贷款10亿元，可疑类贷款7亿元，损失类贷款3亿元，那么该银行不良贷款率为（　　）。","options":{"A":"3%","B":"10%","C":"20%","D":"40%"},"answer":["C"],"explanationSupplement":"不良贷款为次级、可疑、损失类合计，(10 + 7 + 3) ÷ 100 = 20%。","optionExplanations":{"A":"只计损失类。","B":"只计次级类。","C":"合计后三类。","D":"错误纳入关注类。"},"conceptId":"credit-risk"},{"id":"fin-07-q51","number":51,"group":"金融监管","type":"single","stem":"根据《商业银行法》的规定，商业银行应当遵循资产负债比例管理的规定，对同一借款人的贷款余额与商业银行资本余额的比例不得超过（　　）。","options":{"A":"5%","B":"25%","C":"15%","D":"10%"},"answer":["D"],"explanationSupplement":"《商业银行法》第三十九条规定，同一借款人贷款余额与商业银行资本余额的比例不超过 10%。","optionExplanations":{"A":"低于题目所问的法定上限。","B":"25% 是流动性比例最低标准。","C":"高于这里的 10% 上限。","D":"符合法条。"},"conceptId":"rating-and-indicators"},{"id":"fin-07-q52","number":52,"group":"金融监管","type":"single","stem":"根据《巴塞尔协议Ⅲ》搭建的新资本监管框架，银监会提高了对银行业审慎监管标准。新引入（　　）指标作为资本充足率的补充监管指标。","options":{"A":"核心资本充足率","B":"次级资本充足率","C":"净稳定资金比例","D":"杠杆率"},"answer":["D"],"explanationSupplement":"杠杆率以一级资本净额除以调整后表内外资产余额，是对风险加权资本充足率的补充。","optionExplanations":{"A":"同样属于风险加权资本指标。","B":"是资本层级相关概念。","C":"主要衡量融资结构稳定性。","D":"分母不做通常的风险权重加权。"},"conceptId":"basel-capital"},{"id":"fin-07-q53","number":53,"group":"金融监管","type":"single","stem":"下列不属于商业银行代理业务中的操作风险的是（　　）。","options":{"A":"代客理财产品由于市场利率波动而造成损失","B":"客户通过代理收付款进行洗钱活动","C":"委托方伪造收付款凭证骗取资金","D":"业务中贪污或截留代理业务手续费"},"answer":["A"],"explanationSupplement":"理财资产因为市场利率变化损失，直接反映市场风险。欺诈、洗钱活动或侵占手续费可形成操作或合规风险。","optionExplanations":{"A":"市场价格因素直接造成损失。","B":"存在外部行为及机构控制风险。","C":"属于外部欺诈事件。","D":"属于内部人员行为风险。"},"conceptId":"operational-risk"},{"id":"fin-07-q54","number":54,"group":"金融监管","type":"single","stem":"根据《商业银行风险监管核心指标》，我国衡量商业银行资产安全性指标中，不良资产率是指（　　）之比。","options":{"A":"不良贷款与贷款总额","B":"不良贷款与总资产","C":"不良信用资产与信用资产总额","D":"不良信用资产与贷款总额"},"answer":["C"],"explanationSupplement":"题目指定的历史核心指标以不良信用资产余额除以信用资产总额。选用指标时要保持分子分母范围一致。","optionExplanations":{"A":"是不良贷款率。","B":"分子范围比信用资产窄。","C":"分子和分母均按信用资产范围。","D":"两个口径不一致。"},"conceptId":"credit-risk"},{"id":"fin-07-q55","number":55,"group":"金融监管","type":"single","stem":"以下不属于市场准入监管的是（　　）。","options":{"A":"审批资本充足率","B":"审批注册机构","C":"审批注册资本","D":"审批高级管理人员任职资格"},"answer":["A"],"explanationSupplement":"持续监测资本充足率属于运营监管。市场准入重点包括机构注册、注册资本和高管任职资格。","optionExplanations":{"A":"属于持续审慎监管指标。","B":"涉及机构设立。","C":"涉及机构设立的资本条件。","D":"涉及监管审批的任职资格。"},"conceptId":"supervision-models"},{"id":"fin-07-q56","number":56,"group":"金融监管","type":"single","stem":"国际上通行的金融监管评级制度，即骆驼评级制度“CAMELS”，其中字母“E”代表的是（　　）。","options":{"A":"流动性","B":"收益水平","C":"经营管理水平","D":"市场敏感性"},"answer":["B"],"explanationSupplement":"CAMELS 的 E 对应 Earnings，即收益水平。","optionExplanations":{"A":"L 对应流动性。","B":"是 E 的含义。","C":"M 对应管理。","D":"S 对应市场风险敏感性。"},"conceptId":"rating-and-indicators"},{"id":"fin-07-q57","number":57,"group":"金融监管","type":"single","stem":"某银行为争取客户资源开发了一种新的理财产品，但该理财产品存在的设计缺陷可能给银行带来巨大损失。该情况对应的操作风险成因属于（　　）。","options":{"A":"外部事件","B":"内部流程","C":"人员因素","D":"系统缺陷"},"answer":["B"],"explanationSupplement":"产品设计、审批或验证流程不健全导致的损失，通常归为内部流程类操作风险。","optionExplanations":{"A":"缺陷来自机构内部。","B":"设计缺陷对应流程问题。","C":"题中未说明是个人违规。","D":"未说明信息系统故障。"},"conceptId":"operational-risk"},{"id":"fin-07-q58","number":58,"group":"金融监管","type":"single","stem":"资本金是金融机构抵御风险和吸收损失的保障，“巴塞尔协议”对于银行业的监管以（　　）为核心。","options":{"A":"不良贷款率","B":"资产利润率","C":"资本利润率","D":"资本充足率"},"answer":["D"],"explanationSupplement":"巴塞尔银行资本框架以资本充足率要求衡量可吸收风险的资本能力，并辅以监督、披露等。","optionExplanations":{"A":"衡量信用资产质量。","B":"衡量资产盈利能力。","C":"衡量权益资本的盈利水平。","D":"是资本风险监管核心指标。"},"conceptId":"basel-capital"},{"id":"fin-07-q59","number":59,"group":"金融监管","type":"single","stem":"流动性比例是（　　）。","options":{"A":"核心负债与总负债之比，不应低于60%","B":"流动性资产与流动性负债之比，不应低于25%","C":"流动性缺口与90天以内到期表内外流动性资产之比，不得低于-10%","D":"净利润与资产平均余额之比，不应低于0.6%"},"answer":["B"],"explanationSupplement":"流动性比例为流动性资产余额与流动性负债余额之比，最低监管标准为 25%。","optionExplanations":{"A":"属于核心负债结构口径。","B":"与定义和门槛均一致。","C":"属于流动性缺口口径。","D":"属于资产收益率口径。"},"conceptId":"rating-and-indicators"},{"id":"fin-07-q60","number":60,"group":"金融监管","type":"single","stem":"下列措施中，属于银行业市场运营监管内容的是（　　）。","options":{"A":"监管资本充足","B":"审批业务范围","C":"审批注册资本","D":"处理有问题银行"},"answer":["A"],"explanationSupplement":"市场运营监管持续检查银行资本、资产质量、流动性和内控。","optionExplanations":{"A":"资本充足性属于运营监管。","B":"属于准入审批。","C":"属于准入资本条件。","D":"属于问题机构风险处置。"},"conceptId":"supervision-models"},{"id":"fin-07-q61","number":61,"group":"金融监管","type":"single","stem":"根据新巴塞尔协议，法律风险是一类特殊的（　　）。","options":{"A":"市场风险","B":"声誉风险","C":"操作风险","D":"流动性风险"},"answer":["C"],"explanationSupplement":"巴塞尔Ⅱ定义将法律风险纳入操作风险。我国现行银行保险机构操作风险管理办法也明确纳入。","optionExplanations":{"A":"市场价格波动形成市场风险。","B":"声誉风险单列。","C":"符合监管定义。","D":"流动性风险关注资金可得性。"},"conceptId":"operational-risk"},{"id":"fin-07-q62","number":62,"group":"金融监管","type":"single","stem":"根据中国银行业监督管理委员会2005年发布的《商业银行风险监管核心指标》，风险监管核心指标分为风险水平、风险迁徙和（　　）三个层次。","options":{"A":"风险控制","B":"风险抵补","C":"风险识别","D":"风险测度"},"answer":["B"],"explanationSupplement":"按题目明确的 2005 年风险监管指标框架，第三层是风险抵补，用于观察资本和准备等吸收损失的能力。","optionExplanations":{"A":"属于一般管理环节。","B":"符合指定历史分类。","C":"是发现风险的过程。","D":"是定量评估过程。"},"conceptId":"rating-and-indicators"},{"id":"fin-07-q63","number":63,"group":"金融监管","type":"single","stem":"在银行业监管中，现场检查的基础是（　　）检查。","options":{"A":"风险性","B":"合规性","C":"有效性","D":"适宜性"},"answer":["B"],"explanationSupplement":"现场检查可核实经营管理是否遵循法律和监管要求，也可审查业务风险和内控有效性。题目考察常见的合规性检查基础。","optionExplanations":{"A":"通常也是现场检查内容。","B":"核实是否依法依规开展业务。","C":"可用于评价控制运行效果。","D":"是部分判断标准，未涵盖基本合规内容。"},"conceptId":"supervision-models"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>(function (global) {
+  'use strict';
+  let activeController = null;
+  const unique = (values) => Array.isArray(values) ? [...new Set(values)].sort() : [];
+  function grade(question, selected) {
+    if (!question || question.type === 'discussion' || !question.options || !Array.isArray(selected) || !Array.isArray(question.answer)) return false;
+    const actual = unique(selected);
+    const expected = unique(question.answer);
+    if (!actual.length || !expected.length || actual.some((v) => typeof v !== 'string' || !Object.hasOwn(question.options, v))) return false;
+    if (question.type !== 'multiple' && actual.length !== 1) return false;
+    return actual.length === expected.length && actual.every((v, i) => v === expected[i]);
+  }
+  function recordAttempt(state, question, selected, at) {
+    if (question.type === 'discussion' || !Array.isArray(selected) || !selected.length) return false;
+    const correct = grade(question, selected);
+    const previous = state.answers[question.id] || {};
+    state.answers[question.id] = {
+      selected: unique(selected), submitted: true, correct,
+      attempts: (Number.isInteger(previous.attempts) ? previous.attempts : 0) + 1,
+      everWrong: previous.everWrong === true || !correct,
+      lastAnsweredAt: at || new Date().toISOString()
+    };
+    return true;
+  }
+  function testSummary(questions, drafts) {
+    const graded = questions.filter(q => q.type !== 'discussion');
+    const summary = { total: graded.length, answered: 0, correct: 0, wrong: 0, unanswered: 0 };
+    graded.forEach((q) => {
+      const selected = drafts[q.id] || [];
+      if (!selected.length) summary.unanswered += 1;
+      else { summary.answered += 1; if (grade(q, selected)) summary.correct += 1; else summary.wrong += 1; }
+    });
+    return summary;
+  }
+  function submitTest(state, questions, at) {
+    if (state.test.submitted) return false;
+    questions.forEach((q) => recordAttempt(state, q, state.test.drafts[q.id] || [], at));
+    state.test.submitted = true;
+    return true;
+  }
+  function validateImport(input, questions) {
+    if (!input || input.version !== 1 || !input.answers || typeof input.answers !== 'object' || Array.isArray(input.answers)) return false;
+    const byId = new Map(questions.map((q) => [q.id, q]));
+    return Object.entries(input.answers).every(([id, record]) => {
+      const q = byId.get(id);
+      return q && q.type !== 'discussion' && record && Array.isArray(record.selected) && record.selected.length > 0 && record.selected.every((v) => Object.hasOwn(q.options, v)) &&
+        (q.type === 'multiple' || unique(record.selected).length === 1) && record.correct === grade(q, record.selected) && Number.isInteger(record.attempts) && record.attempts > 0;
+    });
+  }
+  function mount(root, config) {
+    if (!root) throw new Error('Quiz root is required');
+    const { questions, store, onConceptJump } = config;
+    const graded = questions.filter(q => q.type !== 'discussion');
+    const openDiscussions = new Set();
+    let mode = 'practice';
+    let currentId = questions[0] && questions[0].id;
+    let statusText = '';
+    let destroyed = false;
+    const el = (tag, cls, text) => {
+      const node = document.createElement(tag);
+      if (cls) node.className = cls;
+      if (text !== undefined && text !== null) node.textContent = text;
+      return node;
+    };
+    const button = (text, action, cls) => {
+      const node = el('button', cls || 'button button-secondary', text);
+      node.type = 'button'; node.dataset.action = action;
+      return node;
+    };
+    function state() {
+      const s = store.get();
+      return { ...s, answers: s.answers || {}, drafts: s.drafts || {}, favorites: s.favorites || [], test: s.test || { drafts: {}, submitted: false } };
+    }
+    function update(mutator) {
+      store.update((s) => {
+        s.answers ||= {}; s.drafts ||= {}; s.favorites ||= []; s.test ||= { drafts: {}, submitted: false }; s.test.drafts ||= {};
+        mutator(s);
+      });
+    }
+    function filtered(s) {
+      if (mode === 'test') return graded;
+      if (mode === 'wrong') return graded.filter(q => s.answers[q.id]?.everWrong);
+      return questions;
+    }
+    function chosen(q, s) {
+      if (mode === 'test') return s.test.drafts[q.id] || [];
+      if (Object.hasOwn(s.drafts, q.id)) return s.drafts[q.id];
+      return s.answers[q.id] ? s.answers[q.id].selected : [];
+    }
+    function revealed(q, s) {
+      return mode === 'test' ? s.test.submitted === true : !!(s.answers[q.id] && s.answers[q.id].submitted && !Object.hasOwn(s.drafts, q.id));
+    }
+    function render() {
+      if (destroyed) return;
+      const s = state();
+      const list = filtered(s);
+      if (!list.some((q) => q.id === currentId)) currentId = list[0] && list[0].id;
+      const q = list.find((item) => item.id === currentId);
+      root.replaceChildren();
+      const toolbar = el('div', 'quiz-toolbar');
+      const tabs = el('div', 'quiz-tabs'); tabs.setAttribute('aria-label', '答题方式');
+      [['practice', '逐题练习'], ['test', '本章测试'], ['wrong', '错题复习']].forEach(([key, label]) => {
+        const tab = button(label, 'mode', 'quiz-tab' + (mode === key ? ' active' : ''));
+        tab.dataset.mode = key; tab.setAttribute('aria-pressed', String(mode === key)); tabs.append(tab);
+      });
+      toolbar.append(tabs);
+      const stats = el('span', 'muted', mode === 'wrong' ? `历史错题 ${list.length} 道 · 答对后保留记录` : mode === 'test' ? `${graded.length} 道计分题` : `${questions.length} 道练习题 · 答题记录保存在当前浏览器`);
+      toolbar.append(stats); root.append(toolbar);
+      if (mode === 'test') renderTestSummary(s);
+      if (!q) {
+        root.append(el('div', 'quiz-empty', mode === 'wrong' ? '还没有错题。完成练习后，答错的题目会出现在这里。' : '本章暂无题目。'));
+        return;
+      }
+      const index = el('nav', 'quiz-index');
+      index.setAttribute('aria-label', '题号导航');
+      let activeGroup;
+      let grid;
+      list.forEach((item) => {
+        if (!grid || item.group !== activeGroup) {
+          activeGroup = item.group;
+          const section = el('div', 'quiz-question-group');
+          if (activeGroup) section.append(el('span', 'quiz-group-label', activeGroup));
+          grid = el('div', 'quiz-grid');
+          section.append(grid);
+          index.append(section);
+        }
+        const n = button(String(item.number), 'question', 'quiz-number'); n.dataset.qid = item.id;
+        const rec = s.answers[item.id];
+        let result = 'unanswered';
+        if (mode === 'test') {
+          if (s.test.submitted) result = (s.test.drafts[item.id] || []).length ? (grade(item, s.test.drafts[item.id]) ? 'correct' : 'wrong') : 'unanswered';
+          else if ((s.test.drafts[item.id] || []).length) result = 'draft';
+        } else if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) result = 'draft';
+        else if (rec) result = rec.correct ? 'correct' : 'wrong';
+        n.dataset.state = result;
+        if (result === 'correct' || result === 'wrong') n.classList.add(result);
+        if (result === 'draft') n.classList.add('answered');
+        if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
+        n.setAttribute('aria-label', `第 ${item.number} 题${item.type === 'discussion' ? '，讨论题' : result === 'correct' ? '，已答对' : result === 'wrong' ? '，答错' : result === 'draft' ? '，已选择待提交' : '，未作答'}`);
+        grid.append(n);
+      }); root.append(index);
+      const card = el('article', 'quiz-card');
+      const head = el('div', 'quiz-card-header');
+      const discussion = q.type === 'discussion';
+      const types = { multiple: '多项选择题 · 全部选对得分', single: '单项选择题', discussion: '讨论题 · 不计分' };
+      const position = mode === 'test' ? `测试第 ${list.indexOf(q) + 1} / ${list.length} 题` : `第 ${q.number} / ${questions.length} 题`;
+      head.append(el('span', '', [q.group, position, types[q.type]].filter(Boolean).join(' · ')));
+      const favorite = button(s.favorites.includes(q.id) ? '★ 已收藏' : '☆ 收藏此题', 'favorite', 'button button-secondary quiz-favorite');
+      favorite.setAttribute('aria-pressed', String(s.favorites.includes(q.id))); head.append(favorite); card.append(head);
+      const stem = el('h3', 'quiz-stem', q.stem); stem.id = 'quiz-current-stem'; card.append(stem);
+      const field = el('fieldset', 'quiz-options');
+      field.setAttribute('aria-labelledby', stem.id);
+      field.append(el('legend', '', discussion ? '讨论选项' : q.type === 'multiple' ? '请选择所有符合题意的选项' : '请选择一个选项'));
+      const selected = chosen(q, s);
+      const show = revealed(q, s);
+      Object.entries(q.options).forEach(([key, text]) => {
+        if (discussion) {
+          field.append(el('div', 'quiz-option', `${key}. ${text}`));
+          return;
+        }
+        const label = el('label', 'quiz-option');
+        const input = el('input'); input.type = q.type === 'multiple' ? 'checkbox' : 'radio'; input.name = 'quiz-answer'; input.value = key;
+        input.checked = selected.includes(key); input.disabled = show; input.dataset.qid = q.id;
+        if (show && q.answer.includes(key)) label.classList.add('correct');
+        if (show && selected.includes(key) && !q.answer.includes(key)) label.classList.add('wrong');
+        label.append(input, el('span', '', `${key}. ${text}`)); field.append(label);
+      }); card.append(field);
+      if (mode === 'wrong' && s.answers[q.id] && s.answers[q.id].correct) card.append(el('p', 'quiz-status quiz-correct', '最近一次已答对 · 已掌握，历史错题仍保留'));
+      const actions = el('div', 'quiz-actions');
+      const nav = el('div', 'quiz-nav');
+      const questionIndex = list.findIndex((item) => item.id === q.id);
+      const prev = button('上一题', 'previous'); prev.disabled = questionIndex <= 0;
+      const next = button('下一题', 'next'); next.disabled = questionIndex >= list.length - 1;
+      nav.append(prev, next); actions.append(nav);
+      if (discussion) {
+        const open = openDiscussions.has(q.id);
+        const toggle = button(open ? '收起讨论解析' : '查看讨论解析', 'discussion', 'button button-primary');
+        toggle.setAttribute('aria-expanded', String(open));
+        actions.append(toggle);
+      } else if (mode !== 'test') {
+        const submit = button(show ? '重新作答' : '提交答案', show ? 'retry' : 'submit', 'button button-primary');
+        submit.disabled = !show && !selected.length; actions.append(submit);
+      } else if (!s.test.submitted) actions.append(el('span', 'muted', '本章测试交卷后统一显示解析'));
+      card.append(actions);
+      const status = el('p', 'quiz-status', statusText); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); card.append(status);
+      if (show || openDiscussions.has(q.id)) renderExplanation(card, q, selected);
+      root.append(card);
+      if (mode === 'test' && !s.test.submitted) {
+        const foot = el('div', 'quiz-actions');
+        foot.append(el('p', 'muted', '未答题交卷后记为未作答，不加入错题本。'), button('交卷并查看解析', 'finish-test', 'button button-primary'));
+        root.append(foot);
+      }
+    }
+    function renderTestSummary(s) {
+      const summary = testSummary(questions, s.test.drafts);
+      const box = el('div', 'quiz-summary');
+      if (s.test.submitted) {
+        box.setAttribute('role', 'status');
+        box.append(el('strong', '', `${summary.correct} / ${summary.total}`), el('span', '', `  答对 · 答错 ${summary.wrong} 道 · 未答 ${summary.unanswered} 道`));
+        box.append(el('p', '', `正确率 ${summary.total ? Math.round(summary.correct / summary.total * 100) : 0}% · 点击题号查看各题解析。`), button('重新测试', 'restart-test'));
+      } else box.append(el('span', '', `已选择 ${summary.answered} / ${summary.total} 题 · 测试中不显示答案，随时可切换题号。`));
+      root.append(box);
+    }
+    function renderExplanation(card, q, selected) {
+      const feedback = el('div', 'quiz-feedback quiz-explanation');
+      if (q.type === 'discussion') {
+        feedback.append(el('h3', '', '讨论解析'));
+      } else {
+        const correct = grade(q, selected);
+        feedback.append(el('h3', correct ? 'quiz-correct' : 'quiz-incorrect', !selected.length ? '本题未作答' : correct ? '回答正确' : '回答错误'));
+        const selectionText = selected.length ? `你选择了 ${selected.join('、')}。` : '你未作答。';
+        feedback.append(el('p', '', `${selectionText}正确答案是 ${q.answer.join('、')}。`));
+      }
+      if (q.type === 'multiple' && selected.length && !grade(q, selected)) {
+        const missing = q.answer.filter((key) => !selected.includes(key)); const extra = selected.filter((key) => !q.answer.includes(key));
+        const details = [];
+        if (missing.length) details.push(`漏选了 ${missing.join('、')}。`);
+        if (extra.length) details.push(`错选了 ${extra.join('、')}。`);
+        feedback.append(el('p', '', details.join('')));
+      }
+      feedback.append(el('h4', '', '解题思路'), el('p', '', q.explanationSupplement || '请结合对应知识点复习。'));
+      if (q.optionExplanations && Object.keys(q.optionExplanations).length) {
+        feedback.append(el('h4', '', '选项辨析'));
+        const reasons = el('ul', 'quiz-rationale-list');
+        Object.entries(q.optionExplanations).forEach(([key, text]) => reasons.append(el('li', '', `${key}　${text}`))); feedback.append(reasons);
+      }
+      const links = el('div', 'quiz-actions'); const jump = button('回看对应知识点', 'concept'); jump.dataset.concept = q.conceptId;
+      links.append(jump); feedback.append(links); card.append(feedback);
+    }
+    function handleClick(event) {
+      const target = event.target.closest('button[data-action]');
+      if (!target || !root.contains(target)) return;
+      const action = target.dataset.action;
+      const s = state(); const list = filtered(s); const q = list.find((item) => item.id === currentId);
+      statusText = '';
+      if (action === 'mode') { mode = target.dataset.mode; }
+      else if (action === 'question') currentId = target.dataset.qid;
+      else if (action === 'discussion' && q?.type === 'discussion') {
+        if (openDiscussions.has(q.id)) openDiscussions.delete(q.id);
+        else openDiscussions.add(q.id);
+      }
+      else if (action === 'previous' || action === 'next') {
+        const index = list.findIndex((item) => item.id === currentId); const item = list[index + (action === 'next' ? 1 : -1)]; if (item) currentId = item.id;
+      } else if (action === 'favorite' && q) update((draft) => { const i = draft.favorites.indexOf(q.id); if (i >= 0) draft.favorites.splice(i, 1); else draft.favorites.push(q.id); });
+      else if (action === 'retry' && q) { update((draft) => { draft.drafts[q.id] = []; }); statusText = '已开始重新作答，历史记录保留。'; }
+      else if (action === 'submit' && q) {
+        const selected = chosen(q, s); if (!selected.length) { statusText = '请先选择答案。'; }
+        else { update((draft) => { recordAttempt(draft, q, selected); delete draft.drafts[q.id]; }); statusText = grade(q, selected) ? '答案已保存，回答正确。' : '答案已保存，已加入错题本。'; }
+      } else if (action === 'finish-test') { update((draft) => submitTest(draft, questions)); statusText = '测试已交卷，答题记录已保存。'; }
+      else if (action === 'restart-test') { update((draft) => { draft.test = { drafts: {}, submitted: false }; }); currentId = questions[0] && questions[0].id; statusText = '新一轮测试已开始，历史答题记录保留。'; }
+      else if (action === 'concept') { if (typeof onConceptJump === 'function') onConceptJump(target.dataset.concept); return; }
+      render();
+      if (action === 'discussion') root.querySelector('[data-action="discussion"]')?.focus();
+    }
+    function handleChange(event) {
+      const input = event.target;
+      if (!input.matches('input[name="quiz-answer"]')) return;
+      const s = state(); const q = questions.find((item) => item.id === input.dataset.qid); if (!q || revealed(q, s)) return;
+      const selected = [...root.querySelectorAll('input[name="quiz-answer"]:checked')].map((node) => node.value);
+      update((draft) => { if (mode === 'test') draft.test.drafts[q.id] = selected; else draft.drafts[q.id] = selected; });
+      statusText = '选项已暂存，提交后判题。';
+      const value = input.value; render();
+      const focus = [...root.querySelectorAll('input[name="quiz-answer"]')].find((node) => node.value === value); if (focus) focus.focus({ preventScroll: true });
+    }
+    const controller = { openQuestion(id) { if (!questions.some((q) => q.id === id)) return false; mode = 'practice'; currentId = id; statusText = ''; render(); return true; } };
+    activeController = controller;
+    root.addEventListener('click', handleClick); root.addEventListener('change', handleChange); render();
+    return function cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); if (activeController === controller) activeController = null; };
+  }
+  const api = { mount, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  if (global) global.StudyQuiz = api;
+})(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this);
+
+(function(){
+ 'use strict';
+ const C=window.STUDY_CONTENT, $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+ const chapter=C.chapter;
+ const openedCount=modules=>modules.flatMap(module=>module.chapters).filter(entry=>entry.href).length;
+ const sharedCatalog=window.STUDY_CATALOG;
+ const catalog=sharedCatalog&&openedCount(sharedCatalog)>openedCount(C.catalog)?sharedCatalog:C.catalog;
+ const offline=document.body.dataset.offline==='true', flatDownloads=document.body.dataset.flatDownloads==='true';
+ const keyBase='zhiqi-study-v1', KEY=chapter?.id==='chapter01' ? keyBase : `${keyBase}:${chapter?.id}`;
+ const sectionIds=new Set(C.lessons?.sections.map(s=>s.id));
+ const questionIds=new Set(C.questions?.map(q=>q.id));
+ const empty=()=>({version:1,answers:{},drafts:{},favorites:[],reading:{seen:[],lastConcept:'',scrollY:0},test:{drafts:{},submitted:false}});
+ let storageAvailable=true,state=empty(),quizCleanup=null,view='learn',toastTimer,ppfTimer=null;
+ let readingTimer, readingTracking=false, readingChanged=false;
+ const clone=o=>JSON.parse(JSON.stringify(o));
+ function cleanSelected(value,q){if(!Array.isArray(value)||!value.every(v=>typeof v==='string'&&Object.hasOwn(q.options,v)))throw Error('备份中的作答选项无效');const out=[...new Set(value)].sort();if(q.type==='single'&&out.length>1)throw Error('单选题备份含多个选项');return out;}
+ function validateState(raw){
+  if(!raw||raw.version!==1||!raw.answers||typeof raw.answers!=='object'||Array.isArray(raw.answers)||!Array.isArray(raw.favorites))throw Error('文件不是有效的学习记录备份');
+  const out=empty();
+  C.questions.filter(q=>q.type!=='discussion').forEach(q=>{
+   const rec=Object.hasOwn(raw.answers,q.id)?raw.answers[q.id]:null;
+   if(rec){const selected=cleanSelected(rec.selected,q);if(!selected.length||rec.submitted!==true||!Number.isSafeInteger(rec.attempts)||rec.attempts<1)throw Error('答题记录格式不完整');out.answers[q.id]={selected,submitted:true,correct:window.StudyQuiz.grade(q,selected),attempts:rec.attempts,everWrong:rec.everWrong===true||!window.StudyQuiz.grade(q,selected),lastAnsweredAt:typeof rec.lastAnsweredAt==='string'?rec.lastAnsweredAt:''};}
+   if(raw.drafts&&Object.hasOwn(raw.drafts,q.id))out.drafts[q.id]=cleanSelected(raw.drafts[q.id],q);
+   if(raw.test?.drafts&&Object.hasOwn(raw.test.drafts,q.id))out.test.drafts[q.id]=cleanSelected(raw.test.drafts[q.id],q);
+  });
+  out.favorites=[...new Set(raw.favorites.filter(id=>typeof id==='string'&&(questionIds.has(id)||(id.startsWith('concept:')&&sectionIds.has(id.slice(8))))))];
+  out.reading.seen=Array.isArray(raw.reading?.seen)?[...new Set(raw.reading.seen.filter(id=>sectionIds.has(id)))]:[];
+  out.reading.lastConcept=sectionIds.has(raw.reading?.lastConcept)?raw.reading.lastConcept:'';
+  out.reading.scrollY=Number.isFinite(raw.reading?.scrollY)?Math.max(0,raw.reading.scrollY):0;
+  out.test.submitted=raw.test?.submitted===true;
+  return out;
+ }
+ function notice(){storageAvailable=false;$('#storage-notice').hidden=false;$('#storage-notice').textContent='当前浏览器无法保存学习记录，阅读和答题仍可使用。离开前请导出记录备份。';}
+ if (chapter) {
+  try {
+   const saved=localStorage.getItem(KEY);
+   if(saved)state=validateState(JSON.parse(saved));
+   const probe=KEY+'-probe';
+   localStorage.setItem(probe,'1');
+   localStorage.removeItem(probe);
+  } catch { notice(); }
+ }
+ function updateState(mutator) {
+  if (storageAvailable) {
+   try {
+    const saved=localStorage.getItem(KEY);
+    if (saved) state=validateState(JSON.parse(saved));
+   } catch { notice(); }
+  }
+  mutator(state);
+  try { localStorage.setItem(KEY,JSON.stringify(state)); } catch { notice(); }
+  updateProgress();
+  return clone(state);
+ }
+ const store={get:()=>clone(state),update:updateState};
+ window.StudyStore=store;
+ function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
+ function el(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;}
+ function button(text,className,onClick){const b=el('button',className,text);b.type='button';if(onClick)b.addEventListener('click',onClick);return b;}
+ function openModal(title,content){$('#modal-title').textContent=title;$('#modal-content').replaceChildren();if(typeof content==='string')$('#modal-content').innerHTML=content;else if(content)$('#modal-content').append(content);if(!$('#modal').open)$('#modal').showModal();}
+ $('#modal-close').addEventListener('click',()=>$('#modal').close());
+ $('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
+ function jumpConcept(id) {
+  if(!sectionIds.has(id))return;
+  showChapter();
+  switchView('learn',false);
+  history.replaceState(null,'','#'+id);
+  readingTracking=false;
+  requestAnimationFrame(()=>{
+   const target=document.getElementById(id);
+   target.scrollIntoView({behavior:'instant',block:'start'});
+   const heading=$('h3',target);
+   heading.tabIndex=-1;
+   heading.focus({preventScroll:true});
+   store.update(record=>{record.reading.lastConcept=id;record.reading.scrollY=window.scrollY;});
+   requestAnimationFrame(()=>{readingTracking=true;});
+  });
+ }
+ function mountQuiz(){if(quizCleanup)quizCleanup();quizCleanup=window.StudyQuiz.mount($('#quiz'),{questions:C.questions,store,onConceptJump:jumpConcept});}
+ function updateProgress(){const count=state.reading?.seen?.length||0;$('#reading-label').textContent=`已读 ${count} / ${C.lessons.sections.length} 个知识点`;$('#continue-reading').hidden=!state.reading?.lastConcept;$$('#lesson-jump a').forEach(link=>{if(link.dataset.concept===state.reading.lastConcept)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});$$('[data-favorite-concept]').forEach(b=>{const yes=state.favorites.includes('concept:'+b.dataset.favoriteConcept);b.classList.toggle('selected',yes);b.textContent=yes?'★':'☆';b.setAttribute('aria-pressed',String(yes));});}
+ function toggleFavorite(id){store.update(s=>{const i=s.favorites.indexOf(id);if(i===-1)s.favorites.push(id);else s.favorites.splice(i,1);});}
+ function chapterLink(entry) {
+  return offline ? (entry.id === chapter?.id ? '#learn' : null) : entry.href;
+ }
+ function renderSidebar() {
+  const openCount = catalog.flatMap(module => module.chapters).filter(chapterLink).length;
+  $('#open-chapter-count').textContent = offline ? '本章离线版' : `已开放 ${openCount} 章`;
+  for (const [moduleIndex, module] of catalog.entries()) {
+   const group = el('details', 'module-group');
+   group.open = chapter ? module.id === chapter.moduleId : moduleIndex === 0;
+   const summary = el('summary', '', module.title);
+   summary.append(el('small', '', `${module.chapters.length} 章`));
+   group.append(summary);
+   module.chapters.forEach(entry => {
+    const href = chapterLink(entry);
+    const row = el(href ? 'a' : 'div', 'chapter-link');
+    if (href) {
+     row.href = href;
+     row.dataset.openChapter = 'true';
+     if (entry.id === chapter?.id) {
+      row.classList.add('active');
+      row.setAttribute('aria-current', 'page');
+     }
+    } else {
+     row.setAttribute('aria-disabled', 'true');
+     row.title = offline ? '此文件仅包含当前章节' : '待开放';
+    }
+    row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), el('span', '', entry.title));
+    group.append(row);
+   });
+   $('#sidebar-catalog').append(group);
+  }
+ }
+ function renderHome() {
+  const root = $('#home-view');
+  const introduction = el('div', 'home-hero');
+  introduction.innerHTML = `<h1>经济金融保险基础</h1>
+   <p>按章节学习概念、操作图解、练习做题。</p>`;
+  root.append(introduction);
+
+  catalog.forEach(module => {
+   const section = el('section', 'catalog-section');
+   const heading = el('div', 'catalog-heading');
+   heading.append(el('h2', '', module.title), el('span', '', `${module.chapters.length} 章`));
+   section.append(heading);
+   const chapters = el('div', 'catalog-grid');
+   module.chapters.forEach(entry => {
+    const href = chapterLink(entry);
+    const row = el(href ? 'a' : 'div', 'catalog-card' + (href ? ' ready' : ''));
+    const name = el('h3', '', entry.title);
+    row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), name);
+    if (href) {
+     row.href = href;
+     row.dataset.openChapter = 'true';
+     row.append(el('span', 'catalog-status', '开始学习 →'));
+    } else {
+     row.append(el('span', 'catalog-status', offline ? '其他章节' : '待开放'));
+    }
+    chapters.append(row);
+   });
+   section.append(chapters);
+   root.append(section);
+  });
+ }
+
+ function renderLessons() {
+  C.lessons.sections.forEach((section, index) => {
+   const number = String(index + 1).padStart(2, '0');
+   const jump = el('a');
+   jump.href = '#' + section.id;
+   jump.dataset.concept = section.id;
+   jump.append(el('span', 'topic-number', number), el('span', '', section.title));
+   $('#lesson-jump').append(jump);
+
+   const card = el('section', 'lesson-card');
+   card.id = section.id;
+   const head = el('div', 'lesson-head');
+   const heading = el('div');
+   heading.append(el('h3', '', section.title), el('p', 'lesson-summary', section.summary));
+   const favorite = button('☆', 'icon-button', () => toggleFavorite('concept:' + section.id));
+   favorite.dataset.favoriteConcept = section.id;
+   favorite.setAttribute('aria-label', '收藏知识点：' + section.title);
+   favorite.setAttribute('aria-pressed', 'false');
+   head.append(el('span', 'lesson-number', number), heading, favorite);
+
+   const body = el('div', 'lesson-body');
+   body.innerHTML = section.bodyHtml;
+   $$('table', body).forEach(table => {
+    const wrap = el('div', 'table-wrap');
+    table.replaceWith(wrap);
+    wrap.append(table);
+   });
+   const takeaway = el('div', 'concept-takeaway');
+   takeaway.append(el('strong', '', '考点'), document.createTextNode(section.keyTakeaway));
+   body.append(takeaway);
+
+   const extras = el('div', 'lesson-extras');
+   for (const [label, value, className] of [
+    ['例子', section.example, 'lesson-extra'],
+    ['易错提醒', section.pitfall, 'lesson-extra pitfall']
+   ]) {
+    const item = el('div', className);
+    item.append(el('strong', '', label), el('p', '', value));
+    extras.append(item);
+   }
+   body.append(extras);
+   card.append(head, body);
+   $('#lessons').append(card);
+  });
+ }
+ const observer = new IntersectionObserver(entries => {
+  if (view !== 'learn' || $('#chapter-view').hidden) return;
+  const visible=entries.filter(entry=>entry.isIntersecting).map(entry=>entry.target.id);
+  if(!visible.some(id=>!state.reading.seen.includes(id)))return;
+  store.update(record=>{
+   record.reading.seen=[...new Set([...record.reading.seen,...visible])];
+   if(!record.reading.lastConcept)record.reading.lastConcept=visible[0];
+  });
+ }, { threshold: 0.12, rootMargin: '-125px 0px -15% 0px' });
+
+ function saveReadingPosition() {
+  if(!readingChanged||view!=='learn'||$('#chapter-view').hidden)return;
+  readingChanged=false;
+  const cards=$$('.lesson-card');
+  const current=cards.findLast(card=>card.getBoundingClientRect().top<=155)||cards[0];
+  store.update(record=>{
+   record.reading.lastConcept=current.id;
+   record.reading.scrollY=window.scrollY;
+  });
+  if(sectionIds.has(location.hash.slice(1)))history.replaceState(null,'','#learn');
+ }
+
+ function restoreReadingPosition(saved) {
+  requestAnimationFrame(()=>{
+   if(saved.lastConcept) {
+    if(saved.scrollY>0)window.scrollTo({top:saved.scrollY,behavior:'instant'});
+    else document.getElementById(saved.lastConcept).scrollIntoView({block:'start',behavior:'instant'});
+   }
+   requestAnimationFrame(()=>{readingTracking=true;});
+  });
+ }
+ function renderMap() {
+  const tree = $('#mindmap');
+  const viewport = $('.map-viewport');
+  const expand = $('#map-expand');
+  const zoomIn = $('#map-zoom-in');
+  const zoomOut = $('#map-zoom-out');
+  const size = $('#map-size');
+  const branches = [];
+  const startExpanded = !matchMedia('(max-width: 767px)').matches;
+  const readingSize = 14;
+  const minScale = 0.25;
+  const maxScale = 1.75;
+  let scale = 1;
+  let hasOpened = false;
+
+  function setExpanded(branch, expanded) {
+   branch.children.hidden = !expanded;
+   branch.toggle.setAttribute('aria-expanded', String(expanded));
+   branch.toggle.setAttribute('aria-label', `${expanded ? '收起' : '展开'}“${branch.label}”的分支`);
+   branch.toggle.textContent = expanded ? '−' : '+';
+  }
+
+  function updateExpandLabel() {
+   expand.textContent = branches.every(branch => !branch.children.hidden) ? '收起分支' : '全部展开';
+  }
+
+  function buildNode(node, depth, parentTarget) {
+   const item = el('li', 'map-item');
+   const target = node.target || parentTarget;
+   const isRoot = depth === 0;
+   item.dataset.depth = String(depth);
+   const label = el(isRoot ? 'span' : 'a', 'map-label', node.label);
+   const face = el('div', isRoot ? 'map-node map-root' : 'map-node');
+   if (!isRoot) {
+    label.href = '#' + target;
+    label.dataset.concept = target;
+   }
+   face.append(label);
+   item.append(face);
+   if (!node.children?.length) return item;
+
+   const children = el('ul', 'map-children');
+   if (!isRoot) {
+    item.classList.add('map-parent');
+    children.id = `map-branch-${branches.length + 1}`;
+    const toggle = button('', 'map-toggle');
+    toggle.setAttribute('aria-controls', children.id);
+    const branch = { toggle, children, label: node.label };
+    branches.push(branch);
+    setExpanded(branch, startExpanded);
+    toggle.addEventListener('click', () => {
+     setExpanded(branch, children.hidden);
+     updateExpandLabel();
+    });
+    face.append(toggle);
+   }
+   for (const child of node.children) children.append(buildNode(child, depth + 1, target));
+   item.append(children);
+   return item;
+  }
+
+  function setScale(next) {
+   scale = Math.min(maxScale, Math.max(minScale, next));
+   tree.style.fontSize = `${readingSize * scale}px`;
+   size.textContent = `${Math.round(scale * 100)}%`;
+   zoomIn.disabled = scale >= maxScale;
+   zoomOut.disabled = scale <= minScale;
+  }
+
+  function fitWidth() {
+   const availableWidth = viewport.clientWidth;
+   if (!availableWidth) return;
+   setScale(1);
+   const readingWidth = tree.getBoundingClientRect().width;
+   if (readingWidth > availableWidth) setScale((availableWidth - 8) / readingWidth);
+   viewport.scrollLeft = 0;
+  }
+
+  tree.append(buildNode({ label: C.lessons.title, children: C.lessons.mindmap }, 0));
+  updateExpandLabel();
+  expand.addEventListener('click', () => {
+   const next = branches.some(branch => branch.children.hidden);
+   branches.forEach(branch => setExpanded(branch, next));
+   updateExpandLabel();
+  });
+  zoomIn.addEventListener('click', () => setScale(scale * 1.2));
+  zoomOut.addEventListener('click', () => setScale(scale / 1.2));
+  size.addEventListener('click', () => setScale(1));
+  $('#map-fit').addEventListener('click', fitWidth);
+
+  return () => {
+   if (hasOpened) return;
+   hasOpened = true;
+   fitWidth();
+  };
+ }
+ const chapterViews = chapter?.visual ? ['learn', 'map', 'visual', 'practice'] : ['learn', 'map', 'practice'];
+ function chapterActions(visible) {
+  $$('[data-action="favorites"], [data-action="records"], [data-action="download"], .sidebar-quick-actions').forEach(node => node.hidden = !visible);
+ }
+ function showHome() {
+  saveReadingPosition();
+  pausePPF();
+  chapterActions(false);
+  $('#home-view').hidden=false;
+  $('#chapter-view').hidden=true;
+  document.title='学习目录 · 知其所以';
+  window.scrollTo({top:0,behavior:'instant'});
+ }
+ function showChapter() {
+  chapterActions(true);
+  $('#home-view').hidden=true;
+  $('#chapter-view').hidden=false;
+  document.title=chapter.title+' · 知其所以';
+ }
+ function switchView(next, scroll=true) {
+  if (!chapterViews.includes(next)) next='learn';
+  saveReadingPosition();
+  pausePPF();
+  view=next;
+  $$('.content-view').forEach(v=>v.hidden=v.id!=='view-'+next);
+  $$('[data-view]').forEach(b=>{
+   const active=b.dataset.view===next;
+   b.classList.toggle('active',active);
+   if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+  });
+  if(scroll) {
+   readingTracking=false;
+   $('.view-tabs').scrollIntoView({behavior:'instant',block:'start'});
+   requestAnimationFrame(()=>requestAnimationFrame(()=>{readingTracking=true;}));
+  }
+  if(next==='map')fitMapOnFirstOpen();
+  if(next==='practice')mountQuiz();
+  history.replaceState(null,'','#'+next);
+ }
+ $('#continue-reading').addEventListener('click',()=>jumpConcept(state.reading.lastConcept));
+ function records() {
+  const wrap=el('div');
+  wrap.append(el('p','','本章记录保存在当前浏览器。可用备份文件在设备之间，以及本章在线版和离线版之间转移。'));
+  const stats=el('div','record-stats'), answered=Object.values(state.answers), correct=answered.filter(x=>x.correct).length;
+  const scoredCount=C.questions.filter(q=>q.type!=='discussion').length;
+  for(const [value,label] of [[state.reading.seen.length+'/'+C.lessons.sections.length,'已读知识点'],[answered.length+'/'+scoredCount,'已作答'],[correct,'最近答对']]) {
+   const item=el('div');
+   item.append(el('strong','',value),el('small','',label));
+   stats.append(item);
+  }
+  wrap.append(stats);
+  const actions=el('div','record-actions');
+  actions.append(button('导出学习记录','button button-primary',()=>{
+   const backup={app:'zhiqi-study',chapterId:chapter.id,exportedAt:new Date().toISOString(),state};
+   const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});
+   saveBlob(blob,`知其所以-${chapter.id}-学习记录-${backup.exportedAt.slice(0,10)}.json`);
+   toast('学习记录已导出');
+  }));
+  const file=el('input');
+  file.type='file';file.accept='.json,application/json';file.hidden=true;
+  const status=el('p','muted');
+  status.setAttribute('role','status');
+  file.addEventListener('change',async()=>{
+   try {
+    const f=file.files[0];
+    if(!f)return;
+    if(f.size>2*1024*1024)throw Error('备份文件过大，请选择有效的学习记录');
+    const parsed=JSON.parse(await f.text());
+    const backupChapter=parsed?.chapterId ?? 'chapter01';
+    if(backupChapter!==chapter.id)throw Error('备份属于其他章节，请在对应章节导入');
+    const next=validateState(parsed?.app==='zhiqi-study'?parsed.state:parsed);
+    const confirm=el('div','inline-notice');
+    confirm.append(el('p','',`已检查备份，含 ${Object.keys(next.answers).length} 道作答记录、${next.reading.seen.length} 个已读知识点。导入将替换本章记录。`),
+     button('确认导入并替换','button button-primary',()=>{
+      store.update(record=>Object.assign(record,next));
+      mountQuiz();records();toast('学习记录已恢复');
+     }));
+    status.replaceChildren(confirm);
+   } catch(e) {
+    status.textContent='无法导入：'+e.message;
+   } finally {
+    file.value='';
+   }
+  });
+  actions.append(button('导入记录','button button-secondary',()=>file.click()),file);
+  wrap.append(actions,status,el('p','muted',storageAvailable?'浏览器存储可用。清除浏览器数据前，建议先导出备份。':'当前存储不可用，请在离开页面前导出备份。'));
+  openModal('学习记录与备份',wrap);
+ }
+ function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+ function favorites(){const wrap=el('div');if(!state.favorites.length)wrap.append(el('p','muted','还没有收藏。阅读时点击知识点右侧的 ☆，或在答题时收藏题目。'));state.favorites.forEach(id=>{const isConcept=id.startsWith('concept:'),item=isConcept?C.lessons.sections.find(s=>s.id===id.slice(8)):C.questions.find(q=>q.id===id);if(!item)return;const row=el('div','favorite-item');const b=button(isConcept?item.title:`第 ${item.number} 题 · ${item.stem}`,'',()=>{$('#modal').close();if(isConcept)jumpConcept(item.id);else{showChapter();switchView('practice');window.StudyQuiz.openQuestion?.(item.id);}});b.append(el('small','',isConcept?'知识点':'练习题'));row.append(b,button('移除','text-button',()=>{toggleFavorite(id);favorites();}));wrap.append(row);});openModal('我的收藏',wrap);}
+ function download() {
+  if(offline) {
+   openModal('你正在使用离线学习版','<p>本文件包含本章的讲解、思维导图和练习。保存好这份 HTML，断网后双击即可继续学习。</p><p>可在「学习记录」中导出、导入本章备份。</p>');
+   return;
+  }
+  const a=el('a');
+  a.href=(flatDownloads?'':'downloads/')+encodeURIComponent(chapter.downloadName);
+  a.download=chapter.downloadName;
+  document.body.append(a);
+  a.click();
+  a.remove();
+  toast('离线 HTML 下载已开始，保存后可双击学习');
+ }
+ document.addEventListener('click',e=>{const target=e.target.closest('button,a');if(!target)return;if(target.dataset.concept){e.preventDefault();jumpConcept(target.dataset.concept);return;}if(target.dataset.view){switchView(target.dataset.view);return;}if(target.dataset.switch){switchView(target.dataset.switch);return;}if(offline&&target.hasAttribute('data-open-chapter')){e.preventDefault();showChapter();switchView('learn');window.scrollTo({top:0,behavior:'instant'});return;}if(offline&&target.getAttribute('href')==='index.html'){e.preventDefault();showHome();history.replaceState(null,'','#home');return;}switch(target.dataset.action){case'favorites':favorites();break;case'records':records();break;case'download':download();break;case'sidebar':{const open=$('#sidebar').classList.toggle('open');target.setAttribute('aria-expanded',String(open));break;}}});
+ function pausePPF(){if(ppfTimer){clearInterval(ppfTimer);ppfTimer=null;}if($('#ppf-play')){$('#ppf-play').textContent='播放取舍变化';$('#ppf-play').setAttribute('aria-pressed','false');}}
+ function initPPF(){const range=$('#grain-range'),radios=$$('input[name=scenario]');function point(p,f=1){const x=p*470*f,y=Math.sqrt(Math.max(0,1-p*p))*340*f;return[76+x,388-y];}function path(f){let d='';for(let i=0;i<=100;i++){const[x,y]=point(i/100,f);d+=(i?' L':'M')+x.toFixed(2)+' '+y.toFixed(2);}return d;}
+  $('#ppf-curve').setAttribute('d',path(1));$('#ppf-new-curve').setAttribute('d',path(1.12));
+  function draw(){const v=Number(range.value)/100,scenario=radios.find(r=>r.checked).value,f=scenario==='idle'?.7:scenario==='growth'?1.12:1;const[x,y]=point(v,f);$('#ppf-point').setAttribute('cx',x);$('#ppf-point').setAttribute('cy',y);$('#ppf-halo').setAttribute('cx',x);$('#ppf-halo').setAttribute('cy',y);$('#ppf-guides').setAttribute('d',`M76 ${y}H${x}V388`);$('#ppf-point-label').setAttribute('x',x+13);$('#ppf-point-label').setAttribute('y',y-14);$('#grain-output').textContent=Math.round(v*100*f);$('#machine-output').textContent=Math.round(Math.sqrt(1-v*v)*100*f);$('#grain-percent').value=range.value+'%';$('#ppf-new-curve').setAttribute('opacity',scenario==='growth'?'1':'0');const explanation=scenario==='idle'?'点在原有曲线内：存在资源闲置或利用低效。提高利用效率，可让两类产品产量同时增加。':scenario==='growth'?'技术进步使生产边界向外移动：相同资源下可以生产更多。图中按两类产品同比例提高作简化演示。':'点在曲线上：资源充分有效利用。向右移动时粮食增加、机器减少，这就是取舍。';if($('#ppf-explanation').textContent!==explanation)$('#ppf-explanation').textContent=explanation;}
+  range.addEventListener('input',draw);radios.forEach(r=>r.addEventListener('change',draw));let direction=1;$('#ppf-play').addEventListener('click',()=>{if(ppfTimer){pausePPF();return;}if(matchMedia('(prefers-reduced-motion: reduce)').matches){toast('已启用减少动态效果，请拖动滑块逐步观察');return;}$('#ppf-play').textContent='暂停变化';$('#ppf-play').setAttribute('aria-pressed','true');ppfTimer=setInterval(()=>{let n=Number(range.value)+direction;if(n>=95||n<=5)direction*=-1;range.value=n;draw();},90);});$('#ppf-reset').addEventListener('click',()=>{pausePPF();range.value=60;radios[0].checked=true;draw();});document.addEventListener('visibilitychange',()=>{if(document.hidden)pausePPF();});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches)pausePPF();});draw();}
+ renderSidebar();
+ renderHome();
+ let fitMapOnFirstOpen;
+ if(chapter) {
+  window.addEventListener('scroll',()=>{
+   if(!readingTracking||view!=='learn'||$('#chapter-view').hidden)return;
+   readingChanged=true;
+   clearTimeout(readingTimer);
+   readingTimer=setTimeout(saveReadingPosition,160);
+  },{passive:true});
+  window.addEventListener('pagehide',saveReadingPosition);
+  $('#chapter-module').textContent=chapter.moduleTitle;
+  $('#chapter-number').textContent=`第 ${chapter.number} 章`;
+  $('#chapter-title').textContent=chapter.title;
+  $('#chapter-description').textContent=C.lessons.subtitle;
+  $('.chapter-exercise-count').textContent=`${C.questions.length} 道练习`;
+  $('[data-view="visual"]').hidden=!chapter.visual;
+  renderLessons();
+  $$('.lesson-card').forEach(card=>observer.observe(card));
+  fitMapOnFirstOpen=renderMap();
+  if(chapter.visual==='ppf')initPPF();
+  mountQuiz();
+  updateProgress();
+  let hash=location.hash.slice(1);
+  try { hash=decodeURIComponent(hash); } catch { hash=''; }
+  if(offline&&hash==='home')showHome();
+  else {
+   showChapter();
+   if(sectionIds.has(hash)) {
+    jumpConcept(hash);
+   } else {
+    switchView(hash,false);
+    if(view==='learn')restoreReadingPosition({...state.reading});
+    else readingTracking=true;
+   }
+  }
+ } else {
+  showHome();
+ }
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#sidebar').classList.remove('open');$('.mobile-menu').setAttribute('aria-expanded','false');}});
+})();
+</script>
+</body>
+</html>

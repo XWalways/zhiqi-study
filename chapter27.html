@@ -1,0 +1,1575 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfdfd">
+  <meta name="description" content="学习经济、金融和保险基础。按章节阅读考点精讲、查看思维导图和做练习。">
+  <title>经济金融保险 · 知其所以</title>
+  <script>
+    (() => {
+      const storageKey = 'zhiqi-theme-mode';
+      const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      const readMode = () => {
+        try {
+          const saved = localStorage.getItem(storageKey);
+          if (saved === 'light' || saved === 'dark') return saved;
+        } catch {
+          // The appearance control still works when browser storage is unavailable.
+        }
+        return 'system';
+      };
+      let mode = readMode();
+
+      function applyAppearance() {
+        const dark = mode === 'dark' || (mode === 'system' && systemTheme.matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.dataset.themeMode = mode;
+        themeColor.content = dark ? '#182427' : '#fbfdfd';
+      }
+
+      applyAppearance();
+      systemTheme.addEventListener('change', () => {
+        if (mode === 'system') applyAppearance();
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        const picker = document.getElementById('theme-mode');
+        const options = picker.querySelectorAll('input[type="radio"]');
+        const selectCurrentMode = () => {
+          for (const option of options) option.checked = option.value === mode;
+        };
+        selectCurrentMode();
+        picker.addEventListener('change', event => {
+          mode = event.target.value;
+          applyAppearance();
+          try {
+            localStorage.setItem(storageKey, mode);
+          } catch {
+            // Apply the choice for this visit even if it cannot be saved.
+          }
+        });
+        window.addEventListener('storage', event => {
+          if (event.key !== storageKey && event.key !== null) return;
+          mode = readMode();
+          selectCurrentMode();
+          applyAppearance();
+        });
+      });
+    })();
+  </script>
+  <style>/* Cool neutral surfaces and one teal accent for navigation and study actions. */
+:root {
+  color-scheme: light;
+  --background: #eef3f4;
+  --surface: #fbfdfd;
+  --surface-subtle: #f1f6f6;
+  --text: #21363c;
+  --heading: #172d34;
+  --muted: #4e656c;
+  --line: #cddbdd;
+  --control-line: #7d9297;
+  --accent: #1a665b;
+  --accent-hover: #144f47;
+  --accent-on: #fbfdfd;
+  --accent-soft: #e2f0eb;
+  --accent-line: #84b5a8;
+  --warning: #75501c;
+  --warning-soft: #f7efdf;
+  --error: #942e38;
+  --error-soft: #f8e9eb;
+  --error-line: #ba717b;
+  --backdrop: rgb(22 42 48 / .54);
+  --shadow: 0 18px 48px rgb(25 54 61 / .14);
+  --radius: 12px;
+  --header-height: 68px;
+  --tabs-height: 53px;
+  --font-body: 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-display: 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-number: 'SF Mono', ui-monospace, 'Cascadia Mono', monospace;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--background);
+  accent-color: var(--accent);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #111b1e;
+  --surface: #182427;
+  --surface-subtle: #202e31;
+  --text: #dbe8e7;
+  --heading: #edf5f4;
+  --muted: #acbfc1;
+  --line: #384a4e;
+  --control-line: #738c90;
+  --accent: #92d1c0;
+  --accent-hover: #b1e3d5;
+  --accent-on: #132a25;
+  --accent-soft: #233b36;
+  --accent-line: #608f84;
+  --warning: #edd09c;
+  --warning-soft: #362e22;
+  --error: #f2a9b0;
+  --error-soft: #3b252a;
+  --error-line: #a46772;
+  --backdrop: rgb(9 17 20 / .75);
+  --shadow: 0 18px 48px rgb(7 14 17 / .44);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--text); }
+[hidden] { display: none !important; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button { color: inherit; background: none; border: 0; cursor: pointer; }
+button, a, input, select, summary { touch-action: manipulation; }
+button:disabled { cursor: not-allowed; opacity: .62; }
+:where(a, button, input, select, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+:where(h1, h2, h3, h4, p, dl, dd) { margin: 0; }
+h1, h2, h3, h4 { color: var(--heading); line-height: 1.36; }
+h1 { font: 680 clamp(2rem, 4vw, 3.15rem)/1.22 var(--font-display); letter-spacing: -.045em; }
+h2 { font-size: 1.43rem; font-weight: 680; letter-spacing: -.02em; }
+h3 { font-size: 1.18rem; font-weight: 650; }
+strong { font-weight: 680; }
+mark { background: var(--accent-soft); color: var(--accent); padding: 0 .12em; }
+.visually-hidden, .skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.skip-link:focus {
+  position: fixed;
+  z-index: 8;
+  inset: 12px auto auto 12px;
+  background: var(--accent);
+  color: var(--accent-on);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+}
+
+/* Global navigation */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  height: var(--header-height);
+  padding-inline: max(24px, calc((100vw - 1512px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.brand { display: inline-flex; gap: 10px; align-items: center; color: var(--heading); font-size: 18px; font-weight: 690; line-height: 1.2; white-space: nowrap; }
+.brand-mark { width: 31px; height: 31px; color: var(--accent); flex: none; }
+.brand-mark svg { width: 100%; height: 100%; }
+.brand small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; font-weight: 460; letter-spacing: .06em; }
+.top-actions { display: flex; gap: clamp(12px, 2vw, 27px); align-items: center; }
+.header-link { padding: 8px 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
+.header-link:hover { color: var(--accent); }
+.theme-control {
+  --theme-slot: 66px;
+  --theme-position: 1;
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(3, var(--theme-slot));
+  flex: none;
+  align-items: stretch;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+}
+:root[data-theme-mode="light"] .theme-control { --theme-position: 0; }
+:root[data-theme-mode="dark"] .theme-control { --theme-position: 2; }
+.theme-thumb {
+  position: absolute;
+  inset: 3px auto 3px 3px;
+  width: var(--theme-slot);
+  border-radius: 999px;
+  background: var(--accent);
+  transform: translateX(calc(100% * var(--theme-position)));
+  pointer-events: none;
+}
+.theme-option {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 35px;
+  color: var(--muted);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 630;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.theme-option:hover { color: var(--accent); }
+.theme-control input:checked + .theme-option { color: var(--accent-on); }
+.theme-control input:focus-visible + .theme-option { outline: 2px solid var(--heading); outline-offset: 1px; }
+
+.button, .download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 43px;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 580;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.button-primary { background: var(--accent); color: var(--accent-on); }
+.button-primary:not(:disabled):hover { background: var(--accent-hover); }
+.button-secondary, .download-button { border-color: var(--control-line); color: var(--heading); background: var(--surface); }
+.button-secondary:not(:disabled):hover, .download-button:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.button-row, .record-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.text-button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 2px 0; font-size: 14px; color: var(--accent); text-align: left; }
+.text-button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.icon-button { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: var(--radius); color: var(--muted); font-size: 22px; line-height: 1; }
+.icon-button:hover, .icon-button.selected { color: var(--accent); background: var(--accent-soft); }
+.mobile-menu, .sidebar-quick-actions { display: none; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  max-width: 1560px;
+  min-height: calc(100dvh - var(--header-height));
+  margin-inline: auto;
+}
+.sidebar {
+  position: sticky;
+  top: var(--header-height);
+  align-self: start;
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  padding: 24px 14px 24px 18px;
+  border-right: 1px solid var(--line);
+  scrollbar-width: thin;
+}
+.sidebar-label { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 0 9px 12px; color: var(--heading); font-size: 15px; font-weight: 680; }
+.sidebar-label small { color: var(--muted); font-size: 11px; font-weight: 480; }
+.module-group + .module-group { margin-top: 8px; }
+.module-group summary { cursor: pointer; list-style: none; }
+.module-group summary::-webkit-details-marker { display: none; }
+.module-group summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 9px;
+  border-radius: var(--radius);
+  color: var(--heading);
+  font-size: 14px;
+  font-weight: 630;
+}
+.module-group summary:hover { background: var(--surface-subtle); }
+.module-group summary small { margin-left: auto; font-size: 11px; color: var(--muted); font-weight: 460; white-space: nowrap; }
+.module-group summary::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  flex: none;
+}
+.module-group[open] > summary::after { transform: rotate(45deg); }
+.chapter-link { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 3px 5px; padding: 8px 9px; margin: 2px 0; border-radius: var(--radius); font-size: 12px; line-height: 1.55; color: var(--muted); }
+.chapter-link .chapter-no, .chapter-no, .topic-number, .lesson-number { font-family: var(--font-number); font-variant-numeric: tabular-nums; }
+a.chapter-link:hover, .chapter-link.active { background: var(--accent-soft); color: var(--accent); }
+.chapter-link.active { font-weight: 680; }
+main { min-width: 0; width: 100%; padding: 27px clamp(24px, 3.2vw, 52px) 56px; }
+main:focus { outline: none; }
+.breadcrumb { display: flex; align-items: baseline; gap: 10px; margin-bottom: 22px; color: var(--muted); font-size: 13px; }
+.breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+.chapter-description { margin-top: 10px; color: var(--muted); font-size: 16px; }
+.chapter-tools { min-height: 38px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0 14px; margin-top: 13px; }
+.reading-progress { display: flex; flex-wrap: wrap; align-items: center; gap: 9px 13px; color: var(--muted); font-size: 13px; }
+#reading-label { color: var(--accent); font-weight: 620; }
+.chapter-exercise-count { border-left: 1px solid var(--line); padding-left: 13px; }
+.view-tabs {
+  position: sticky;
+  z-index: 3;
+  top: var(--header-height);
+  display: flex;
+  gap: 24px;
+  min-height: var(--tabs-height);
+  margin: 17px 0 23px;
+  border-bottom: 1px solid var(--line);
+  background: var(--background);
+  scroll-margin-top: var(--header-height);
+}
+.view-tabs button { position: relative; min-width: 0; padding: 10px 9px 9px; font-weight: 570; font-size: 15px; color: var(--muted); white-space: nowrap; }
+.view-tabs button.active, .view-tabs button:hover { color: var(--accent); }
+.view-tabs button.active { font-weight: 700; }
+.view-tabs button.active::after { content: ''; position: absolute; inset: auto 0 -1px; height: 3px; background: var(--accent); }
+.section-intro { margin: 0 0 18px; }
+.section-intro p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+
+/* A continuous reading surface with a separate index in the margin. */
+.reading-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 190px); align-items: start; gap: 25px; }
+.reading-column { grid-column: 1; grid-row: 1; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.topic-index { grid-column: 2; grid-row: 1; position: sticky; top: calc(var(--header-height) + var(--tabs-height) + 19px); padding-top: 9px; }
+.topic-index h2 { margin-bottom: 9px; color: var(--muted); font-size: 13px; font-weight: 640; }
+.lesson-jump { display: grid; }
+.lesson-jump a { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 4px; padding: 8px 9px; margin-left: -9px; color: var(--muted); font-size: 13px; line-height: 1.6; border-radius: var(--radius); }
+.lesson-jump a:hover, .lesson-jump a[aria-current] { background: var(--accent-soft); color: var(--accent); }
+.lesson-jump a[aria-current] { font-weight: 660; }
+.topic-number { font-size: 11px; margin-top: .15em; }
+.lesson-card {
+  padding: clamp(23px, 3vw, 40px) clamp(24px, 3.4vw, 46px);
+  scroll-margin-top: calc(var(--header-height) + var(--tabs-height) + 13px);
+}
+.lesson-card + .lesson-card { border-top: 1px solid var(--line); }
+.lesson-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 12px; margin-bottom: 18px; }
+.lesson-head h3 { font-size: clamp(1.23rem, 2vw, 1.57rem); letter-spacing: -.025em; }
+.lesson-number { color: var(--accent); font-size: 13px; font-weight: 660; margin-top: 6px; }
+.lesson-summary { margin-top: 4px; color: var(--muted); font-size: 14px; }
+.lesson-head .icon-button { margin: -6px -6px 0 0; }
+.lesson-body { font-size: 16px; line-height: 1.95; overflow-wrap: anywhere; }
+.lesson-body > :where(p, ul, ol, h4, blockquote) { margin-block: 0 13px; }
+.lesson-body > :where(ul, ol) { padding-left: 1.4em; }
+.lesson-body h4 { margin-top: 22px; margin-bottom: 8px; }
+.lesson-body li + li { margin-top: 6px; }
+.lesson-body blockquote { border-left: 2px solid var(--accent-line); padding: 6px 0 6px 16px; color: var(--muted); }
+.table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); margin: 17px 0; }
+.lesson-body table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.75; }
+.lesson-body :where(th, td) { padding: 10px 12px; text-align: left; vertical-align: top; }
+.lesson-body th { background: var(--surface-subtle); color: var(--heading); }
+.lesson-body tr + tr, .lesson-body thead { border-bottom: 1px solid var(--line); }
+.lesson-body tr:last-child { border-bottom: 0; }
+.concept-takeaway { display: grid; gap: 4px; margin-top: 19px; padding: 12px 15px; background: var(--accent-soft); color: var(--text); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; font-size: 15px; }
+.concept-takeaway strong { color: var(--accent); font-size: 13px; }
+.lesson-extras { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 19px; }
+.lesson-extra { border-top: 1px solid var(--line); padding: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.lesson-extra strong { display: block; color: var(--heading); font-size: 13px; margin-bottom: 4px; }
+.lesson-extra.pitfall strong { color: var(--warning); }
+.next-step { border-top: 1px solid var(--line); padding: 20px clamp(24px, 3.4vw, 46px); }
+
+/* Topic map and the interactive production chart */
+.map-panel, .ppf-panel, .quiz-card, .quiz-empty {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.map-panel { min-width: 0; }
+.map-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-subtle);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.map-toolbar button {
+  min-height: 37px;
+  padding: 4px 10px;
+  background: var(--surface);
+  color: var(--heading);
+  font-size: 13px;
+  font-weight: 610;
+  white-space: nowrap;
+}
+.map-toolbar > button, .map-zoom {
+  border: 1px solid var(--control-line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.map-zoom { display: inline-flex; align-items: stretch; }
+.map-zoom button:first-child { border-radius: 7px 0 0 7px; }
+.map-zoom button:last-child { border-radius: 0 7px 7px 0; }
+.map-zoom button + button { border-left: 1px solid var(--line); }
+.map-zoom #map-size { min-width: 55px; font-family: var(--font-number); }
+.map-toolbar button:not(:disabled):hover { background: var(--accent-soft); color: var(--accent); }
+.map-viewport {
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior-inline: contain;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.mindmap {
+  --map-arm: 1.25em;
+  --map-edge: var(--control-line);
+  width: max-content;
+  margin: 0 auto;
+  padding: 1.55em 1.45em;
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.map-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.map-node {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: .28em;
+  padding: .25em .55em;
+  border: 1px solid transparent;
+  border-radius: .6em;
+}
+.map-label { display: block; max-width: 19em; overflow-wrap: anywhere; }
+.map-label[href]:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .18em; }
+.map-root {
+  background: var(--accent);
+  color: var(--accent-on);
+  padding: .67em .8em;
+  font-size: 1.08em;
+  font-weight: 690;
+}
+.map-item[data-depth='1'] > .map-node {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 650;
+}
+.map-item[data-depth='1'] > .map-node .map-label { max-width: 14em; text-wrap: balance; }
+.map-parent:not([data-depth='1']) > .map-node {
+  border-color: var(--line);
+  background: var(--surface-subtle);
+  color: var(--heading);
+}
+.map-parent:not([data-depth='1']) > .map-node .map-label { max-width: 13em; text-wrap: balance; }
+.map-toggle {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.55em;
+  height: 1.55em;
+  padding: 0;
+  border: 1px solid var(--control-line);
+  border-radius: .42em;
+  color: var(--accent);
+  background: var(--surface);
+  font-size: 1em;
+  font-weight: 650;
+  line-height: 1;
+}
+.map-toggle:hover { background: var(--accent-soft); }
+.map-children {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 0 var(--map-arm);
+  padding: 0;
+  list-style: none;
+}
+/* Each parent reaches a shared spine. The spine ends at its outermost children. */
+.map-children::before, .map-children > .map-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: var(--map-arm);
+  border-top: 1px solid var(--map-edge);
+}
+.map-children::before { left: calc(-1 * var(--map-arm)); }
+.map-children > .map-item { padding: .18em 0 .18em var(--map-arm); }
+.map-children > .map-item::before { left: 0; }
+.map-children > .map-item::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-left: 1px solid var(--map-edge);
+}
+.map-children > .map-item:first-child::after { top: 50%; }
+.map-children > .map-item:last-child::after { bottom: 50%; }
+.map-children > .map-item:only-child::after { display: none; }
+.mindmap > .map-item > .map-children > .map-item { padding-block: .48em; }
+.ppf-panel { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(250px, 1fr); }
+.ppf-chart { align-self: center; min-width: 0; padding: 20px 14px; }
+.ppf-chart svg { display: block; width: 100%; max-width: 640px; margin-inline: auto; }
+.chart-caption { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 17px; color: var(--muted); font-size: 12px; }
+.chart-line { display: inline-block; width: 17px; border-top: 2px solid var(--heading); vertical-align: middle; margin-right: 3px; }
+.chart-line.new { border-top-style: dashed; border-color: var(--accent); }
+.chart-grid { stroke: var(--line); }
+.chart-axis, #ppf-guides { stroke: var(--control-line); }
+#ppf-curve { stroke: var(--heading); }
+#ppf-new-curve { stroke: var(--accent); }
+#ppf-halo { fill: var(--accent-line); opacity: .36; }
+#ppf-point { fill: var(--accent); stroke: var(--surface); }
+.axis-label { fill: var(--heading); font-size: 18px; }
+.tick-label { fill: var(--muted); font-size: 16px; }
+.point-label { fill: var(--accent); font: 700 17px var(--font-number); }
+.chart-footnote { text-align: center; color: var(--muted); font-size: 12px; }
+.ppf-controls { display: flex; flex-direction: column; gap: 8px; padding: 23px; border-left: 1px solid var(--line); }
+.ppf-controls h3 { font-size: 17px; }
+.ppf-outputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 4px 0 7px; }
+.ppf-outputs div { border-bottom: 1px solid var(--line); padding: 0 2px 5px; }
+.ppf-outputs span { display: block; color: var(--muted); font-size: 13px; }
+.ppf-outputs strong { color: var(--heading); font: 600 28px/1.35 var(--font-number); }
+.range-label, .range-ends { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; color: var(--muted); font-size: 13px; }
+.range-label output { color: var(--accent); font: 650 13px var(--font-number); }
+input[type=range] { width: 100%; min-height: 25px; margin: 0; cursor: pointer; }
+.ppf-scenarios { display: grid; min-width: 0; gap: 5px; margin: 7px 0; padding: 0; border: 0; }
+.ppf-scenarios legend { padding: 0 0 5px; color: var(--heading); font-weight: 640; font-size: 14px; }
+.ppf-scenarios label { display: flex; align-items: center; min-height: 29px; gap: 7px; color: var(--text); font-size: 13px; cursor: pointer; }
+.ppf-explanation { min-height: 6em; padding: 10px 12px; border-radius: var(--radius); background: var(--accent-soft); font-size: 13px; }
+.ppf-controls .button-row { margin-top: 4px; }
+.visual-notes { display: grid; margin: 18px 0 9px; }
+.visual-notes > div { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.visual-notes dt { color: var(--accent); font-weight: 650; font-size: 14px; }
+.visual-notes dd { color: var(--muted); font-size: 14px; }
+
+/* Catalog */
+.home-hero { padding: 20px 0 29px; }
+.home-hero p { margin-top: 12px; color: var(--muted); }
+.catalog-section + .catalog-section { margin-top: 29px; }
+.catalog-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.catalog-heading span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.catalog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 23px; }
+.catalog-card { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 8px; min-height: 48px; padding: 8px 4px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.catalog-card h3 { color: inherit; font-size: 14px; font-weight: 520; }
+.catalog-card .chapter-no, .catalog-status { font-size: 12px; }
+.catalog-status { white-space: nowrap; }
+.catalog-card.ready { color: var(--accent); font-weight: 650; }
+.catalog-card.ready:hover { background: var(--accent-soft); }
+.catalog-card.ready h3 { font-weight: 670; }
+
+/* Practice and feedback */
+#quiz { max-width: 960px; font-size: 15px; }
+.quiz-toolbar, .quiz-tabs, .quiz-grid, .quiz-card-header, .quiz-actions, .quiz-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.quiz-toolbar, .quiz-card-header, .quiz-actions { justify-content: space-between; }
+.quiz-toolbar { gap: 10px 20px; }
+.quiz-tabs { gap: 6px; }
+.quiz-tab { border: 1px solid transparent; border-radius: var(--radius); padding: 8px 12px; min-height: 42px; font-size: 14px; white-space: nowrap; }
+.quiz-tab:hover, .quiz-tab.active { color: var(--accent); background: var(--accent-soft); }
+.quiz-tab.active { border-color: var(--accent-line); font-weight: 650; }
+.quiz-index { display: grid; gap: 10px; margin: 15px 0; }
+.quiz-grid { gap: 6px; }
+.quiz-group-label { display: block; margin-bottom: 5px; color: var(--muted); font-size: 13px; }
+.quiz-number { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: var(--radius); font: 550 13px var(--font-number); }
+.quiz-number:hover, .quiz-number.answered { border-color: var(--accent); color: var(--accent); }
+.quiz-number.correct { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-line); }
+.quiz-number.wrong { background: var(--error-soft); color: var(--error); border-color: var(--error-line); }
+.quiz-number.active { outline: 2px solid var(--accent); outline-offset: -2px; }
+.quiz-number:focus-visible { outline-offset: 3px; }
+.quiz-card { padding: clamp(17px, 3vw, 34px); }
+.quiz-card-header { gap: 6px 14px; margin-bottom: 12px; color: var(--muted); font-size: 13px; }
+.quiz-favorite { min-height: 38px; padding: 5px 10px; font-size: 13px; }
+.quiz-favorite[aria-pressed=true] { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.quiz-stem { font-size: clamp(17px, 1.7vw, 21px); line-height: 1.65; margin-bottom: 15px; }
+.quiz-options { display: grid; min-width: 0; gap: 8px; padding: 0; border: 0; margin: 0; }
+.quiz-options legend { color: var(--muted); font-size: 13px; padding: 0 0 6px; }
+.quiz-option { display: flex; align-items: baseline; gap: 10px; padding: 10px 13px; min-height: 45px; border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer; }
+.quiz-option:focus-within, .quiz-option:hover { border-color: var(--control-line); }
+.quiz-option input { flex: none; margin: 0; }
+.quiz-option:has(input:checked), .quiz-option.correct { background: var(--accent-soft); border-color: var(--accent-line); color: var(--text); }
+.quiz-option.wrong { background: var(--error-soft); border-color: var(--error-line); color: var(--error); }
+.quiz-option:has(input:disabled) { cursor: default; }
+.quiz-actions { margin-top: 16px; }
+.quiz-feedback { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 17px; }
+.quiz-feedback h3, .quiz-feedback p { margin-bottom: 8px; }
+.quiz-feedback h4 { margin: 16px 0 5px; font-size: 15px; }
+.quiz-feedback p, .quiz-rationale-list { line-height: 1.85; }
+.quiz-rationale-list { padding-left: 1.5em; margin: 6px 0 0; }
+.quiz-rationale-list li + li { margin-top: 5px; }
+.quiz-correct { color: var(--accent); }
+.quiz-incorrect { color: var(--error); }
+.quiz-summary { margin-top: 14px; padding: 13px 17px; border-radius: var(--radius); background: var(--accent-soft); }
+.quiz-summary strong { font: 650 23px var(--font-number); color: var(--accent); }
+.quiz-summary p { margin: 7px 0; }
+.quiz-status { color: var(--muted); font-size: 13px; margin-top: 8px; }
+.quiz-status:empty { display: none; }
+.quiz-empty { padding: 25px; margin-top: 14px; color: var(--muted); }
+.muted { color: var(--muted); font-size: 13px; }
+
+/* Records, dialogs and status */
+dialog { width: min(600px, calc(100% - 24px)); max-height: 85dvh; padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+dialog::backdrop { background: var(--backdrop); }
+.modal-top { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 19px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.modal-top h2 { font-size: 18px; }
+#modal-content { padding: 19px; font-size: 14px; }
+#modal-content p + p { margin-top: 10px; }
+.record-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.record-stats > div { background: var(--surface-subtle); padding: 10px; border-radius: var(--radius); }
+.record-stats strong, .record-stats small { display: block; }
+.record-stats strong { color: var(--accent); font: 650 19px var(--font-number); }
+.record-stats small { color: var(--muted); font-size: 12px; }
+.record-actions { margin: 12px 0; }
+.favorite-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--line); padding: 7px 0; }
+.favorite-item > button:first-child { text-align: left; }
+.favorite-item small { display: block; color: var(--muted); }
+.favorite-item > button:last-child { white-space: nowrap; }
+.inline-notice, .storage-notice, .noscript { padding: 10px 14px; background: var(--warning-soft); color: var(--warning); font-size: 13px; }
+.inline-notice { margin-block: 8px; border-radius: var(--radius); }
+.inline-notice .button { margin-top: 8px; }
+.toast { position: fixed; inset: auto auto 20px 50%; transform: translateX(-50%); z-index: 8; max-width: min(440px, 90vw); width: max-content; padding: 10px 16px; border-radius: var(--radius); background: var(--heading); color: var(--surface); font-size: 14px; box-shadow: var(--shadow); }
+
+@media (max-width: 1080px) {
+  .layout { grid-template-columns: 190px minmax(0, 1fr); }
+  .reading-layout { gap: 15px; grid-template-columns: minmax(0, 1fr) minmax(135px, 158px); }
+  .catalog-grid { grid-template-columns: 1fr; }
+  .ppf-panel { grid-template-columns: minmax(0, 1.25fr) minmax(220px, 1fr); }
+}
+
+@media (max-width: 920px) {
+  .reading-layout { grid-template-columns: minmax(0, 1fr); }
+  .topic-index { grid-column: 1; grid-row: 1; position: static; padding-top: 0; }
+  .reading-column { grid-row: 2; }
+  .lesson-jump { display: flex; flex-wrap: wrap; gap: 5px 8px; }
+  .lesson-jump a { margin-left: 0; padding: 4px 7px; background: var(--surface-subtle); }
+  .ppf-panel { grid-template-columns: minmax(0, 1fr); }
+  .ppf-controls { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 767px) {
+  :root { --header-height: 61px; --tabs-height: 48px; }
+  .topbar { padding-inline: 15px; gap: 8px; }
+  .brand { gap: 6px; font-size: 16px; }
+  .brand-mark { width: 25px; height: 25px; }
+  .brand small { font-size: 10px; }
+  .top-actions { margin-left: auto; gap: 7px; }
+  .top-actions .header-link { display: none; }
+  .theme-control { --theme-slot: 49px; }
+  .theme-option { min-height: 30px; font-size: 12px; }
+  .download-button { min-height: 38px; padding: 6px 10px; font-size: 13px; }
+  .mobile-menu { display: grid; place-items: center; width: 38px; height: 38px; border-radius: var(--radius); color: var(--heading); }
+  .mobile-menu span { position: relative; display: block; height: 1.5px; width: 16px; background: currentColor; }
+  .mobile-menu span::before, .mobile-menu span::after { content: ''; position: absolute; left: 0; width: 100%; height: 100%; background: currentColor; }
+  .mobile-menu span::before { top: -5px; }
+  .mobile-menu span::after { top: 5px; }
+  .layout { display: block; }
+  .sidebar { display: none; position: fixed; inset: var(--header-height) auto auto 0; width: min(285px, 90vw); z-index: 4; background: var(--surface); border-bottom: 1px solid var(--line); border-radius: 0 0 var(--radius) 0; box-shadow: var(--shadow); }
+  .sidebar.open { display: block; }
+  .sidebar-quick-actions { display: flex; gap: 8px; margin: 0 0 10px; }
+  .sidebar-quick-actions button { padding: 7px 8px; background: var(--accent-soft); border-radius: var(--radius); color: var(--accent); font-size: 13px; }
+  main { padding: 19px 15px 35px; }
+  .breadcrumb { margin-bottom: 13px; font-size: 12px; }
+  .chapter-description { margin-top: 6px; font-size: 14px; }
+  .chapter-tools { margin-top: 8px; }
+  .reading-progress, #continue-reading { font-size: 12px; }
+  .chapter-exercise-count { padding-left: 8px; }
+  .view-tabs { gap: 2px; margin: 8px 0 16px; }
+  .view-tabs button { flex: 1; padding-inline: 2px; font-size: 13px; }
+  .topic-index h2 { margin-bottom: 5px; }
+  .lesson-jump { gap: 4px; }
+  .lesson-jump a { grid-template-columns: 20px minmax(0, 1fr); gap: 2px; font-size: 12px; }
+  .lesson-card { padding: 20px 14px; }
+  .lesson-head { gap: 7px; }
+  .lesson-head .icon-button { width: 34px; height: 38px; }
+  .lesson-body { font-size: 15px; }
+  .lesson-extras { grid-template-columns: 1fr; gap: 10px; }
+  .lesson-body :where(th, td) { padding: 7px; }
+  .lesson-body table { font-size: 12px; }
+  .map-toolbar { padding: 8px; gap: 6px; }
+  .map-toolbar button { padding-inline: 8px; }
+  .mindmap { --map-arm: .8em; padding: 1.2em .9em; }
+  .map-item[data-depth='1'] > .map-node .map-label { max-width: 10.5em; }
+  .ppf-chart { padding-inline: 6px; }
+  .ppf-controls { padding: 15px; }
+  .home-hero { padding-top: 9px; padding-bottom: 22px; }
+  .quiz-grid { gap: 5px; }
+  .quiz-number { width: 33px; height: 33px; }
+  .quiz-stem { margin-bottom: 12px; }
+}
+
+@media (max-width: 430px) {
+  .topbar { padding-inline: 10px; gap: 6px; }
+  .brand { font-size: 15px; gap: 5px; }
+  .brand-mark { width: 22px; height: 22px; }
+  .mobile-menu { width: 34px; }
+  .download-button { padding-inline: 7px; font-size: 12px; }
+}
+
+@media (max-width: 360px) {
+  .theme-control { --theme-slot: 30px; }
+  .theme-option-system span { position: absolute; width: 1px; height: 1px; clip-path: inset(50%); overflow: hidden; }
+  .theme-option-system::after { content: '系统'; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .theme-thumb { transition: transform .18s ease-out; }
+  .button:not(:disabled):active, .download-button:active { transform: translateY(1px); }
+}
+
+@media print {
+  :root, :root[data-theme] { color-scheme: light; --background: #fff; --surface: #fff; --text: #22373c; --heading: #182c30; --muted: #43585c; --accent: #1a665b; --accent-soft: #edf5f2; }
+  .topbar, .sidebar, .view-tabs, .chapter-tools, .topic-index, .next-step, .lesson-head button { display: none !important; }
+  .layout, .reading-layout { display: block; }
+  main { padding: 0; }
+  .lesson-card { break-inside: avoid; }
+}
+
+.market-panel { --market-supply: #9c4a2f; }
+[data-theme="dark"] .market-panel { --market-supply: #f6a48a; }
+.market-demand-line { border-color: var(--accent); }
+.market-supply-line { border-color: var(--market-supply); border-top-style: dashed; }
+.market-baseline { border-color: var(--control-line); border-top-style: dotted; }
+.market-demand, .market-supply, .market-guide { fill: none; }
+.market-demand { stroke: var(--accent); }
+.market-supply { stroke: var(--market-supply); stroke-dasharray: 8 3; }
+.market-curve { stroke-width: 2.6; }
+.market-before { opacity: .5; stroke-width: 1.5; stroke-dasharray: 2 5; }
+.market-inactive { display: none; }
+.market-guide { stroke: var(--control-line); stroke-dasharray: 3 4; }
+.market-equilibrium-guide { opacity: .6; }
+.market-demand-point { fill: var(--accent); }
+.market-supply-point { fill: var(--market-supply); }
+.market-equilibrium { fill: var(--surface); stroke: var(--heading); stroke-width: 2.2; }
+.market-panel input[type="range"] { width: 100%; margin: 0 0 7px; }
+.market-panel .ppf-explanation { min-height: 0; }
+.market-outputs { margin-top: 0; }
+</style>
+</head>
+<body data-page="chapter" data-offline="false" data-flat-downloads="true">
+<a class="skip-link" href="#main">跳转到正文</a>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="知其所以，返回学习目录">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 7h9l3 4v17l-4-3H5V7Z" stroke="currentColor" stroke-width="1.7"/><path d="M27 7h-9l-3 4m2 17 4-3h6V7ZM9 12h3m-3 5h3m9-5h3m-3 5h3" stroke="currentColor" stroke-width="1.7"/></svg></span>
+    <span>知其所以<small>经济金融保险</small></span>
+  </a>
+  <nav class="top-actions" aria-label="全局导航">
+    <a href="index.html" class="header-link">学习目录</a>
+    <button class="header-link" data-action="favorites">我的收藏</button>
+    <button class="header-link" data-action="records">学习记录</button>
+    <div class="theme-control" id="theme-mode" role="radiogroup" aria-label="外观模式">
+      <span class="theme-thumb" aria-hidden="true"></span>
+      <input class="visually-hidden" id="theme-light" type="radio" name="appearance" value="light">
+      <label class="theme-option" for="theme-light">白天</label>
+      <input class="visually-hidden" id="theme-system" type="radio" name="appearance" value="system" aria-label="跟随系统" checked>
+      <label class="theme-option theme-option-system" for="theme-system" title="跟随系统"><span>跟随系统</span></label>
+      <input class="visually-hidden" id="theme-dark" type="radio" name="appearance" value="dark">
+      <label class="theme-option" for="theme-dark">黑夜</label>
+    </div>
+    <button class="download-button" data-action="download">离线学习</button>
+  </nav>
+  <button class="mobile-menu" data-action="sidebar" aria-label="展开章节导航" aria-controls="sidebar" aria-expanded="false"><span aria-hidden="true"></span></button>
+</header>
+<div id="storage-notice" class="storage-notice" role="status" hidden></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节导航">
+    <div class="sidebar-label">学习路径 <small id="open-chapter-count"></small></div>
+    <div class="sidebar-quick-actions"><button data-action="favorites">我的收藏</button><button data-action="records">学习记录</button></div>
+    <div id="sidebar-catalog"></div>
+  </aside>
+  <main id="main" tabindex="-1">
+    <div id="home-view" hidden></div>
+    <article id="chapter-view" hidden>
+      <div class="chapter-heading">
+        <div class="breadcrumb"><a href="index.html">学习目录</a><span>/</span><span id="chapter-module"></span><span>/</span><span id="chapter-number"></span></div>
+        <h1 id="chapter-title"></h1>
+        <p class="chapter-description" id="chapter-description"></p>
+        <div class="chapter-tools">
+          <div class="reading-progress"><span id="reading-label"></span><span class="chapter-exercise-count"></span></div>
+          <button class="text-button" id="continue-reading" hidden>继续上次阅读 <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <nav class="view-tabs" aria-label="章节内容">
+        <button data-view="learn" class="active" aria-current="page">考点精讲</button>
+        <button data-view="map">思维导图</button>
+        <button data-view="visual">交互图解</button>
+        <button data-view="practice">章节练习</button>
+      </nav>
+      <section id="view-learn" class="content-view" aria-labelledby="learn-heading">
+        <div class="reading-layout">
+          <aside class="topic-index" aria-labelledby="topic-heading">
+            <h2 id="topic-heading">知识点索引</h2>
+            <nav class="lesson-jump" id="lesson-jump" aria-label="知识点索引"></nav>
+          </aside>
+          <div class="reading-column">
+            <h2 id="learn-heading" class="visually-hidden">考点精讲</h2>
+            <div id="lessons"></div>
+            <div class="next-step"><button class="button button-primary" data-switch="practice">开始本章练习 <span aria-hidden="true">→</span></button></div>
+          </div>
+        </div>
+      </section>
+      <section id="view-map" class="content-view" hidden aria-labelledby="map-heading">
+        <div class="section-intro">
+          <h2 id="map-heading">思维导图</h2>
+          <p id="map-help">点击节点查看讲解，用节点旁的按钮展开或收起分支。图超出屏幕时可横向滑动。</p>
+        </div>
+        <div class="map-panel">
+          <div class="map-toolbar">
+            <div class="map-zoom" role="group" aria-label="导图缩放">
+              <button type="button" id="map-zoom-out" aria-label="缩小导图">−</button>
+              <button type="button" id="map-size" aria-label="恢复阅读比例" title="恢复阅读比例">100%</button>
+              <button type="button" id="map-zoom-in" aria-label="放大导图">+</button>
+            </div>
+            <button type="button" id="map-fit">适应宽度</button>
+            <button type="button" id="map-expand">收起分支</button>
+          </div>
+          <div class="map-viewport" tabindex="0" role="region" aria-labelledby="map-heading" aria-describedby="map-help">
+            <ul id="mindmap" class="mindmap"></ul>
+          </div>
+        </div>
+      </section>
+      <section id="view-visual" class="content-view" hidden></section>
+      <section id="view-practice" class="content-view" hidden aria-labelledby="practice-heading">
+        <h2 id="practice-heading" class="visually-hidden">章节练习</h2>
+        <div id="quiz"></div>
+      </section>
+    </article>
+  </main>
+</div>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
+<script src="catalog.js"></script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter27","number":2,"title":"保险的基本原则","moduleId":"insurance","moduleTitle":"保险基础","downloadName":"保险基础-02-保险的基本原则-离线学习.html"},"lessons":{"title":"保险的基本原则","subtitle":"从保险利益、告知义务、补偿金额和事故因果链判断承保与理赔。","sections":[{"id":"insurable-interest","title":"保险利益原则","summary":"先识别谁对保险标的有法律承认的利益，再确认法律要求在哪个时点具备这种利益。","bodyHtml":"\u003cp>\u003cstrong>保险利益\u003c/strong>是投保人或者被保险人对保险标的具有的法律承认的利益。财产利益通常能够确定或实现，常来自所有权、担保物权或法律上的赔偿责任。人身保险的利益可以来自本人、特定亲属或劳动关系，也可以基于被保险人的同意。保险利益原则能限制以他人的损失或死亡作为获利机会。\u003c/p>\u003cp>\u003cstrong>人身保险看订立时，财产保险看事故时。\u003c/strong>订立人身保险合同时，投保人对被保险人没有保险利益，合同无效。财产保险事故发生时，被保险人没有保险利益的，不得请求赔偿。财产保障金额通常与经济利益相关，定额给付人身保险按法律与合同确定给付数额。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）。《保险法》第 12、31、34、48 条规定保险利益、审查时点和死亡给付合同的同意要求。父母为未成年子女投保存在第 34 条规定的例外。\u003ca href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 保险法\u003c/a>\u003c/p>","keyTakeaway":"人身险记“投保人＋订立时”，财产险记“被保险人＋事故时”。","pitfall":"已有保险利益的劳动者死亡给付保险，仍须单独审查被保险人同意和认可保险金额等要求。","example":"为自己的房屋投保时，所有权通常构成保险利益。为恋人投保寿险时，应另看被保险人是否同意等法定条件。"},{"id":"utmost-good-faith","title":"最大诚信原则","summary":"理解如实告知、保证、弃权与禁止反言，并区分逆选择与道德风险。","bodyHtml":"\u003cp>\u003cstrong>如实告知\u003c/strong>帮助保险人判断是否承保及如何定价。健康状况、既往损失和标的风险等可能影响承保，但投保人法定告知义务通常以保险人具体询问的范围和内容为限。保险人使用格式条款时，应说明合同内容并依法提示、明确说明免责条款。\u003c/p>\u003cp>\u003cstrong>保证\u003c/strong>指约定在合同中遵守特定事项的承诺。明示保证写入条款，默示保证在有特别法律或其他适用依据时讨论，效力和后果应结合具体规则。\u003cstrong>弃权\u003c/strong>是放弃一项权利，\u003cstrong>禁止反言\u003c/strong>限制已作出相应表示或行为的一方随后作相反主张。保险人订约时明知未如实告知，或者成立后知悉仍收取保费等情形，适用相应法律和司法解释规则。\u003c/p>\u003cp>\u003cstrong>逆选择\u003c/strong>指投保前的隐藏风险类型影响参保组成。\u003cstrong>道德风险\u003c/strong>指保障安排改变投保后采取防护措施等行为的激励。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）。《保险法》第 5、16、17 条规定诚信、询问告知和免责提示说明，保险法司法解释（二）第 5–8 条规定询问范围、继续收取保费和解除与拒赔的衔接。\u003ca href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 保险法\u003c/a>　\u003ca href=\"https://cicc.court.gov.cn/html/1/380/385/12841.html\">最高人民法院 · 保险法司法解释\u003c/a>\u003c/p>","keyTakeaway":"告知范围、违背义务的程度、解除权期限和理赔后果需要分开判断。","pitfall":"弃权与禁止反言在保险实践中主要考查保险人。故意或重大过失、知情时间和继续收费等具体事实会影响法律后果。","example":"保险公司明确询问曾否因某疾病住院时，投保人应如实作答。高风险人群因更了解自己的健康状况而更愿投保，属于逆选择。"},{"id":"indemnity","title":"损失补偿的范围与计算","summary":"保险金额是责任限额。补偿型保险的赔偿还要看保险利益、实际损失和赔付方式。","bodyHtml":"\u003cp>保险责任范围内发生损失时，保险人可以按合同支付保险金、修复或更换标的。财产保险常用实际损失、保险金额和保险利益限制补偿。定值保险以合同约定的保险价值作为赔偿计算标准。\u003c/p>\u003cp>\u003cstrong>不足额投保比例赔偿\u003c/strong>＝可赔损失 × 保险金额 ÷ 保险价值，前提是保险金额低于保险价值且合同没有另行约定。\u003cstrong>第一损失赔偿\u003c/strong>按条款在保险金额范围内弥补承保损失，无须对每笔损失乘以不足额比例。计算仍须检查免赔额、责任限额等具体约定。\u003c/p>\u003cp>定额寿险按约定给付，费用补偿型医疗保险则根据实际发生的医疗、康复费用按约定计算。两种机制可以同属人身保险，判断时应看具体给付方式。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）。《保险法》第 18、55 条规定保险金额的定义与财产保险的计价和赔付。《健康保险管理办法》第 5 条区分费用补偿型和定额给付型医疗保险。\u003ca href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 保险法\u003c/a>　\u003ca href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1027050\">国家金融监督管理总局 · 健康保险管理办法\u003c/a>\u003c/p>","keyTakeaway":"赔付方式决定是否乘以保险金额与保险价值的比例。","pitfall":"保险价值是赔付计算基准，保险金额是最高责任限额，保险费是获得保险保障的支出。","example":"房屋保险价值 60 万元，保额 30 万元，承保损失 20 万元，按比例赔偿且无其他约定时赔 10 万元。"},{"id":"subrogation-contribution","title":"代位与重复保险分摊","summary":"区分向第三者追偿、取得受损标的权利与保险人之间的分摊。","bodyHtml":"\u003cp>\u003cstrong>权利代位\u003c/strong>指财产险保险人向被保险人赔付后，在赔付范围内代位向造成损害的第三者请求赔偿。被保险人仍可以主张未获赔部分。被保险人故意或因重大过失导致保险人无法行使代位权时，保险人可以扣减或请求返还相应的保险金。\u003cstrong>物上代位\u003c/strong>涉及受损标的的权利归属，按全额赔付及保险金额与保险价值的关系确定。委付是海上保险中与推定全损相关的制度，有其独立适用条件。\u003c/p>\u003cp>\u003cstrong>重复保险分摊\u003c/strong>解决同一保险标的、同一保险利益、同一保险事故由多个保险人承保且保险金额总和超过保险价值时如何分担。除合同另有约定外，按各保险金额占总保险金额的比例分摊，合计赔偿不得超过保险价值。还可区分按各自可赔限额分摊、按承保次序分担等计算思路。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）。《保险法》第 46 条规定人身保险给付后不享有向第三者追偿的权利，第 56、59–63 条规定财产保险重复保险和代位。\u003ca href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 保险法\u003c/a>\u003c/p>","keyTakeaway":"代位指向第三者或保险标的权利，分摊发生在多个保险人之间。","pitfall":"被保险人妨碍代位求偿时，要看故意或重大过失与无法行使之间的因果关系，扣减或返还以相应金额为限。","example":"第三者撞坏设备，损失 10 万元，保险人赔 8 万元后，可在 8 万元内代位求偿。被保险人仍可向第三者主张未补偿的 2 万元。"},{"id":"proximate-cause","title":"近因原则与因果链","summary":"找到对损失具有直接、有效和支配性作用的原因，再检查合同责任范围。","bodyHtml":"\u003cp>\u003cstrong>近因\u003c/strong>是对保险损失起直接、有效、支配作用的原因。单一原因导致损失时，先确认该原因，再检查是否属于承保风险。连续原因构成未中断的因果链时，应追踪起支配作用的原因，并核对涉及除外风险或未承保风险的合同条款。\u003c/p>\u003cp>多因间断时，检查有无独立新原因切断原有因果链。多个原因同时起作用时，要识别不同原因的作用以及能否区分相应损失，结合承保范围、除外责任、因果证据和适用规则判断责任。\u003c/p>","keyTakeaway":"“近”描述的是因果作用，时间先后与空间距离仅能辅助还原事实。","pitfall":"遇到连续事故先画因果箭头，再检查中间是否出现足以独立造成损失的新原因。","example":"雷击折断大树，大树压倒房屋，房屋倒塌压坏电视。在没有独立介入原因时，雷击是支配整条链的原因。"}],"mindmap":[{"label":"保险利益原则","target":"insurable-interest","children":[{"label":"含义与适用","target":"insurable-interest","children":[{"label":"法律承认的利益","target":"insurable-interest"},{"label":"财产险事故时、人身险订立时","target":"insurable-interest"}]},{"label":"构成要件","target":"insurable-interest","children":[{"label":"法律承认、通常具经济性、可确定或实现","target":"insurable-interest"}]},{"label":"人身险与财产险","target":"insurable-interest","children":[{"label":"利益来源、审查时点、金额依据","target":"insurable-interest"}]}]},{"label":"最大诚信原则","target":"utmost-good-faith","children":[{"label":"如实告知","target":"utmost-good-faith","children":[{"label":"具体询问与承保重要事实","target":"utmost-good-faith"},{"label":"逆选择与道德风险","target":"utmost-good-faith"}]},{"label":"保证","target":"utmost-good-faith","children":[{"label":"明示与默示的适用依据","target":"utmost-good-faith"}]},{"label":"弃权","target":"utmost-good-faith","children":[{"label":"放弃合同权利及适用规则","target":"utmost-good-faith"}]},{"label":"禁止反言","target":"utmost-good-faith","children":[{"label":"限制事后提出相反主张","target":"utmost-good-faith"}]}]},{"label":"损失补偿原则","target":"indemnity","children":[{"label":"定义和适用","target":"indemnity","children":[{"label":"赔偿、实物补偿或修复","target":"indemnity"},{"label":"财产险、费用补偿型与定额给付型","target":"indemnity"}]},{"label":"赔偿限额","target":"indemnity","children":[{"label":"实际损失、保险金额、保险利益","target":"indemnity"},{"label":"定值保险","target":"indemnity"}]},{"label":"损失赔偿方式","target":"indemnity","children":[{"label":"第一损失赔偿","target":"indemnity"},{"label":"不足额投保比例赔偿","target":"indemnity"}]},{"label":"派生原则","target":"subrogation-contribution","children":[{"label":"代位","target":"subrogation-contribution","children":[{"label":"权利代位与物上代位","target":"subrogation-contribution"}]},{"label":"重复保险分摊","target":"subrogation-contribution","children":[{"label":"比例责任、限额责任与顺序责任","target":"subrogation-contribution"}]},{"label":"财产险代位与人身险给付","target":"subrogation-contribution"}]}]},{"label":"近因原则","target":"proximate-cause","children":[{"label":"直接、有效且支配损失的原因","target":"proximate-cause"},{"label":"单一原因","target":"proximate-cause","children":[{"label":"判断是否承保","target":"proximate-cause"}]},{"label":"多种原因连续","target":"proximate-cause","children":[{"label":"全部承保、部分除外或未承保","target":"proximate-cause"}]},{"label":"多种原因间断","target":"proximate-cause","children":[{"label":"独立介入与因果链切断","target":"proximate-cause"}]},{"label":"多种原因同时发生","target":"proximate-cause","children":[{"label":"识别各原因作用和条款范围","target":"proximate-cause"}]}]}]},"questions":[{"id":"ins-02-q01","number":1,"group":"保险利益原则","type":"single","stem":"保险利益是指（　）对保险标的具有的法律上承认的经济利益。","options":{"A":"投保人或者受益人","B":"保险人或者受益人","C":"投保人或者被保险人","D":"保险人或者被保险人"},"answer":["C"],"explanationSupplement":"《保险法》第 12 条规定了保险利益的主体。进一步判断时，人身保险看投保人，财产保险看被保险人。","optionExplanations":{"A":"受益人的保险金请求权属于另一个概念。","B":"保险人与受益人均未对应定义中的主体组合。","C":"对应保险利益定义。","D":"应为投保人或被保险人。"},"conceptId":"insurable-interest"},{"id":"ins-02-q02","number":2,"group":"保险利益原则","type":"single","stem":"根据《保险法》的规定，在订立人身保险合同时，投保人对被保险人不具有保险利益的（　）。","options":{"A":"合同中止","B":"合同终止","C":"合同无效","D":"合同解除"},"answer":["C"],"explanationSupplement":"抓住“订立时”与“不具有保险利益”。《保险法》第 31 条规定的是效力瑕疵，合同中止、终止和解除各有独立条件。","optionExplanations":{"A":"中止通常发生在合同效力已经存在后。","B":"终止描述权利义务关系结束。","C":"符合《保险法》第 31 条。","D":"解除有其法定或约定的事由。"},"conceptId":"insurable-interest"},{"id":"ins-02-q03","number":3,"group":"保险利益原则","type":"single","stem":"张某和王某是恋人关系。为给王某惊喜，张某悄悄为王某投保了终身寿险，受益人为自己，并代替王某签字。不久王某意外车祸身故，张某向保险公司申请保险金。下列说法中正确的是（　）。","options":{"A":"该保险合同自始无效","B":"保险公司应当给付死亡保险金给张某","C":"保险公司给付的死亡保险金应当视作王某的遗产","D":"保险公司应当解除该保险合同，并退还张某现金价值"},"answer":["A"],"explanationSupplement":"先按《保险法》第 31 条判断保险利益，再按第 34 条审查死亡给付合同的被保险人同意与金额认可要求。题干中的代签体现不知情，应判断为无效。","optionExplanations":{"A":"符合题中未经同意的人身保险合同情形。","B":"张某未取得该合同下的死亡保险金。","C":"保险金作为遗产的规则以存在可给付保险金为前提。","D":"合同解除后的现金价值规则和合同无效的后果属于不同问题。"},"conceptId":"insurable-interest"},{"id":"ins-02-q04","number":4,"group":"保险利益原则","type":"multiple","stem":"投保人对以下哪些人员具有保险利益？（多选）","options":{"A":"本人","B":"配偶、子女、父母","C":"投保人抚养子女","D":"投保人雇佣的员工"},"answer":["A","B","C","D"],"explanationSupplement":"《保险法》第 31 条还包括与投保人有抚养、赡养或者扶养关系的其他家庭成员、近亲属。法定范围以外，如被保险人同意投保人为其订约，可视为具有保险利益。","optionExplanations":{"A":"本人在第 31 条中明列。","B":"均为第 31 条明列的近亲属。","C":"按抚养的是投保人子女理解，属于子女一项。其他受抚养人员需要审查法定家庭或近亲关系等条件。","D":"以依法存在劳动关系为前提。"},"conceptId":"insurable-interest"},{"id":"ins-02-q05","number":5,"group":"最大诚信原则","type":"single","stem":"在最大诚信原则中，弃权与禁止反言约束的对象主要是（　）。","options":{"A":"投保人","B":"被保险人","C":"保险人","D":"受益人"},"answer":["C"],"explanationSupplement":"看到“主要”应想到保险人的承保与理赔行为。对任何具体权利是否已放弃，仍须核查行为和法定条件。","optionExplanations":{"A":"投保人也可能作出权利放弃，但本题问主要对象。","B":"被保险人是保障对象，题目问实务中主要受约束的一方。","C":"保险人对是否行使解除权等作出的行为是典型考点。","D":"受益人是保险金请求权的主体之一。"},"conceptId":"utmost-good-faith"},{"id":"ins-02-q06","number":6,"group":"最大诚信原则","type":"single","stem":"体弱多病的人比健康少病的人更愿意购买保险，这种倾向称为（　）。","options":{"A":"保险意识","B":"逆选择","C":"道德风险","D":"风险偏好"},"answer":["B"],"explanationSupplement":"按信息不对称发生的环节作区分。投保前隐藏的风险类型对应逆选择，投保后防范行为受保障影响则涉及道德风险。","optionExplanations":{"A":"保险意识是对保险的认知与态度。","B":"不同风险类型的投保意愿差异是典型逆选择。","C":"道德风险看保险安排下行为激励的变化。","D":"风险偏好描述对风险和收益波动的态度。"},"conceptId":"utmost-good-faith"},{"id":"ins-02-q07","number":7,"group":"最大诚信原则","type":"single","stem":"在保险实践中，禁止反言是最大诚信原则的内容之一，主要用于约束（　）。","options":{"A":"保险人","B":"被保险人","C":"受益人","D":"投保人"},"answer":["A"],"explanationSupplement":"例如保险人知道或应当知道投保人未如实告知，合同成立后仍收取保费，再以该事由主张解除时，适用保险法司法解释（二）第 7 条。","optionExplanations":{"A":"符合保险实务中的主要适用对象。","B":"题目未考查被保险人的保障范围。","C":"题目未考查受益人的保险金请求权。","D":"投保人也可能放弃合同权利，实务考点主要指向保险人。"},"conceptId":"utmost-good-faith"},{"id":"ins-02-q08","number":8,"group":"损失补偿原则","type":"single","stem":"某房产实际价值为 60 万元，投保保险金额为 30 万元，发生保险事故所致损失为 20 万元。按保险的补偿原则，保险公司计算后的赔偿金额应为（　）。","options":{"A":"60 万","B":"30 万","C":"20 万","D":"10 万"},"answer":["D"],"explanationSupplement":"《保险法》第 55 条第 4 款规定了不足额投保的默认比例规则。有第一损失、免赔额等特别条款时需另行核对。","optionExplanations":{"A":"60 万元是题设实际价值。","B":"30 万元是保险金额。","C":"20 万元是损失金额，尚未乘不足额比例。","D":"赔偿比例是 1/2，对应 10 万元。"},"conceptId":"indemnity"},{"id":"ins-02-q09","number":9,"group":"损失补偿原则","type":"single","stem":"保险人承担赔偿或给付保险金的最高限额称为（　）。","options":{"A":"保险费","B":"保险价值","C":"保险价格","D":"保险金额"},"answer":["D"],"explanationSupplement":"遇到“最高限额”应选保险金额。具体支付还应根据合同和适用的赔付规则确定。","optionExplanations":{"A":"保险费是投保人向保险人支付的款项。","B":"保险价值可作为财产损失赔偿的计算标准。","C":"保险价格是价格表述，题目考查合同中的法定术语。","D":"保险金额是保险人的赔偿或给付责任限额。"},"conceptId":"indemnity"},{"id":"ins-02-q10","number":10,"group":"损失补偿原则","type":"discussion","stem":"保险损失补偿原则不适用于（　）。","options":{"A":"建筑工程保险","B":"货物运输保险","C":"农业保险","D":"人身保险"},"answer":[],"explanationSupplement":"若把 D 限定为定额给付型人身保险，D 符合预期考点。题项写的是整个人身保险类别，《健康保险管理办法》第 5 条明确区分按实际费用补偿的医疗保险和定额给付型医疗保险，因此应按给付机制辨析。","optionExplanations":{"A":"建筑工程险通常按承保财产损失等约定补偿。","B":"货物运输险通常按约定赔偿承保的货物损失。","C":"损失型农业险以承保损失为基础，具体赔付还看产品是否采用指数等机制。","D":"定额寿险等按约定给付，费用补偿型医疗险按约定核算实际发生的费用。"},"conceptId":"indemnity"},{"id":"ins-02-q11","number":11,"group":"损失补偿原则","type":"single","stem":"由于被保险人的故意或者重大过失致使保险人不能行使代位求偿权的后果是（　）。","options":{"A":"对保险人承担保险赔偿责任不产生影响","B":"被保险人不得向保险人行使请求赔偿的权利","C":"保险人可以扣减或者要求返还相应的保险金","D":"保险人可以不承担保险赔偿的责任"},"answer":["C"],"explanationSupplement":"抓住“故意或者重大过失”导致“不能行使代位权”以及“相应”三个限制。已经支付的相应部分可以请求返还。","optionExplanations":{"A":"妨碍代位求偿会影响赔偿金额。","B":"法律规定的后果以相应保险金为范围。","C":"完整对应法定的扣减或返还规则。","D":"笼统不赔忽略了“相应”的范围要求。"},"conceptId":"subrogation-contribution"},{"id":"ins-02-q12","number":12,"group":"近因原则","type":"single","stem":"保险损失的近因，是指在保险事故发生时（　）。","options":{"A":"时间上最接近损失的原因","B":"离损失最近的原因","C":"最直接、最有效、起支配作用的原因","D":"空间上最接近损失的原因"},"answer":["C"],"explanationSupplement":"这里的“近”是因果意义上的联系。确定近因后，还需核对该原因是否属于保险责任范围。","optionExplanations":{"A":"事故发生的时间间隔仅是还原事实的线索。","B":"“最近”没有指出起支配作用的因果关系。","C":"完整体现近因的定义。","D":"空间距离无法替代因果判断。"},"conceptId":"proximate-cause"},{"id":"ins-02-q13","number":13,"group":"近因原则","type":"single","stem":"某日雷雨天气，雷电击断某住户房屋后的一棵大树，大树压倒房屋，房屋倒塌导致该住户的电视机损坏，则电视机损坏的近因是（　）。","options":{"A":"雷雨天气","B":"大树折断","C":"房屋倒塌","D":"电视机质量问题"},"answer":["A"],"explanationSupplement":"画出“雷击 → 大树折断 → 房屋倒塌 → 电视损坏”。A 指该雷雨中的雷击。确认因果链之后，保险责任还要看保单承保风险和除外条件。","optionExplanations":{"A":"对应引发整条连续因果链的雷击。","B":"折断是雷击后的链条环节。","C":"倒塌在时间上最接近电视损坏，仍属连续链条。","D":"题目没有提供电视质量导致损失的事实。"},"conceptId":"proximate-cause"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>(function (global) {
+  'use strict';
+  let activeController = null;
+  const unique = (values) => Array.isArray(values) ? [...new Set(values)].sort() : [];
+  function grade(question, selected) {
+    if (!question || question.type === 'discussion' || !question.options || !Array.isArray(selected) || !Array.isArray(question.answer)) return false;
+    const actual = unique(selected);
+    const expected = unique(question.answer);
+    if (!actual.length || !expected.length || actual.some((v) => typeof v !== 'string' || !Object.hasOwn(question.options, v))) return false;
+    if (question.type !== 'multiple' && actual.length !== 1) return false;
+    return actual.length === expected.length && actual.every((v, i) => v === expected[i]);
+  }
+  function recordAttempt(state, question, selected, at) {
+    if (question.type === 'discussion' || !Array.isArray(selected) || !selected.length) return false;
+    const correct = grade(question, selected);
+    const previous = state.answers[question.id] || {};
+    state.answers[question.id] = {
+      selected: unique(selected), submitted: true, correct,
+      attempts: (Number.isInteger(previous.attempts) ? previous.attempts : 0) + 1,
+      everWrong: previous.everWrong === true || !correct,
+      lastAnsweredAt: at || new Date().toISOString()
+    };
+    return true;
+  }
+  function testSummary(questions, drafts) {
+    const graded = questions.filter(q => q.type !== 'discussion');
+    const summary = { total: graded.length, answered: 0, correct: 0, wrong: 0, unanswered: 0 };
+    graded.forEach((q) => {
+      const selected = drafts[q.id] || [];
+      if (!selected.length) summary.unanswered += 1;
+      else { summary.answered += 1; if (grade(q, selected)) summary.correct += 1; else summary.wrong += 1; }
+    });
+    return summary;
+  }
+  function submitTest(state, questions, at) {
+    if (state.test.submitted) return false;
+    questions.forEach((q) => recordAttempt(state, q, state.test.drafts[q.id] || [], at));
+    state.test.submitted = true;
+    return true;
+  }
+  function validateImport(input, questions) {
+    if (!input || input.version !== 1 || !input.answers || typeof input.answers !== 'object' || Array.isArray(input.answers)) return false;
+    const byId = new Map(questions.map((q) => [q.id, q]));
+    return Object.entries(input.answers).every(([id, record]) => {
+      const q = byId.get(id);
+      return q && q.type !== 'discussion' && record && Array.isArray(record.selected) && record.selected.length > 0 && record.selected.every((v) => Object.hasOwn(q.options, v)) &&
+        (q.type === 'multiple' || unique(record.selected).length === 1) && record.correct === grade(q, record.selected) && Number.isInteger(record.attempts) && record.attempts > 0;
+    });
+  }
+  function mount(root, config) {
+    if (!root) throw new Error('Quiz root is required');
+    const { questions, store, onConceptJump } = config;
+    const graded = questions.filter(q => q.type !== 'discussion');
+    const openDiscussions = new Set();
+    let mode = 'practice';
+    let currentId = questions[0] && questions[0].id;
+    let statusText = '';
+    let destroyed = false;
+    const el = (tag, cls, text) => {
+      const node = document.createElement(tag);
+      if (cls) node.className = cls;
+      if (text !== undefined && text !== null) node.textContent = text;
+      return node;
+    };
+    const button = (text, action, cls) => {
+      const node = el('button', cls || 'button button-secondary', text);
+      node.type = 'button'; node.dataset.action = action;
+      return node;
+    };
+    function state() {
+      const s = store.get();
+      return { ...s, answers: s.answers || {}, drafts: s.drafts || {}, favorites: s.favorites || [], test: s.test || { drafts: {}, submitted: false } };
+    }
+    function update(mutator) {
+      store.update((s) => {
+        s.answers ||= {}; s.drafts ||= {}; s.favorites ||= []; s.test ||= { drafts: {}, submitted: false }; s.test.drafts ||= {};
+        mutator(s);
+      });
+    }
+    function filtered(s) {
+      if (mode === 'test') return graded;
+      if (mode === 'wrong') return graded.filter(q => s.answers[q.id]?.everWrong);
+      return questions;
+    }
+    function chosen(q, s) {
+      if (mode === 'test') return s.test.drafts[q.id] || [];
+      if (Object.hasOwn(s.drafts, q.id)) return s.drafts[q.id];
+      return s.answers[q.id] ? s.answers[q.id].selected : [];
+    }
+    function revealed(q, s) {
+      return mode === 'test' ? s.test.submitted === true : !!(s.answers[q.id] && s.answers[q.id].submitted && !Object.hasOwn(s.drafts, q.id));
+    }
+    function render() {
+      if (destroyed) return;
+      const s = state();
+      const list = filtered(s);
+      if (!list.some((q) => q.id === currentId)) currentId = list[0] && list[0].id;
+      const q = list.find((item) => item.id === currentId);
+      root.replaceChildren();
+      const toolbar = el('div', 'quiz-toolbar');
+      const tabs = el('div', 'quiz-tabs'); tabs.setAttribute('aria-label', '答题方式');
+      [['practice', '逐题练习'], ['test', '本章测试'], ['wrong', '错题复习']].forEach(([key, label]) => {
+        const tab = button(label, 'mode', 'quiz-tab' + (mode === key ? ' active' : ''));
+        tab.dataset.mode = key; tab.setAttribute('aria-pressed', String(mode === key)); tabs.append(tab);
+      });
+      toolbar.append(tabs);
+      const stats = el('span', 'muted', mode === 'wrong' ? `历史错题 ${list.length} 道 · 答对后保留记录` : mode === 'test' ? `${graded.length} 道计分题` : `${questions.length} 道练习题 · 答题记录保存在当前浏览器`);
+      toolbar.append(stats); root.append(toolbar);
+      if (mode === 'test') renderTestSummary(s);
+      if (!q) {
+        root.append(el('div', 'quiz-empty', mode === 'wrong' ? '还没有错题。完成练习后，答错的题目会出现在这里。' : '本章暂无题目。'));
+        return;
+      }
+      const index = el('nav', 'quiz-index');
+      index.setAttribute('aria-label', '题号导航');
+      let activeGroup;
+      let grid;
+      list.forEach((item) => {
+        if (!grid || item.group !== activeGroup) {
+          activeGroup = item.group;
+          const section = el('div', 'quiz-question-group');
+          if (activeGroup) section.append(el('span', 'quiz-group-label', activeGroup));
+          grid = el('div', 'quiz-grid');
+          section.append(grid);
+          index.append(section);
+        }
+        const n = button(String(item.number), 'question', 'quiz-number'); n.dataset.qid = item.id;
+        const rec = s.answers[item.id];
+        let result = 'unanswered';
+        if (mode === 'test') {
+          if (s.test.submitted) result = (s.test.drafts[item.id] || []).length ? (grade(item, s.test.drafts[item.id]) ? 'correct' : 'wrong') : 'unanswered';
+          else if ((s.test.drafts[item.id] || []).length) result = 'draft';
+        } else if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) result = 'draft';
+        else if (rec) result = rec.correct ? 'correct' : 'wrong';
+        n.dataset.state = result;
+        if (result === 'correct' || result === 'wrong') n.classList.add(result);
+        if (result === 'draft') n.classList.add('answered');
+        if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
+        n.setAttribute('aria-label', `第 ${item.number} 题${item.type === 'discussion' ? '，讨论题' : result === 'correct' ? '，已答对' : result === 'wrong' ? '，答错' : result === 'draft' ? '，已选择待提交' : '，未作答'}`);
+        grid.append(n);
+      }); root.append(index);
+      const card = el('article', 'quiz-card');
+      const head = el('div', 'quiz-card-header');
+      const discussion = q.type === 'discussion';
+      const types = { multiple: '多项选择题 · 全部选对得分', single: '单项选择题', discussion: '讨论题 · 不计分' };
+      const position = mode === 'test' ? `测试第 ${list.indexOf(q) + 1} / ${list.length} 题` : `第 ${q.number} / ${questions.length} 题`;
+      head.append(el('span', '', [q.group, position, types[q.type]].filter(Boolean).join(' · ')));
+      const favorite = button(s.favorites.includes(q.id) ? '★ 已收藏' : '☆ 收藏此题', 'favorite', 'button button-secondary quiz-favorite');
+      favorite.setAttribute('aria-pressed', String(s.favorites.includes(q.id))); head.append(favorite); card.append(head);
+      const stem = el('h3', 'quiz-stem', q.stem); stem.id = 'quiz-current-stem'; card.append(stem);
+      const field = el('fieldset', 'quiz-options');
+      field.setAttribute('aria-labelledby', stem.id);
+      field.append(el('legend', '', discussion ? '讨论选项' : q.type === 'multiple' ? '请选择所有符合题意的选项' : '请选择一个选项'));
+      const selected = chosen(q, s);
+      const show = revealed(q, s);
+      Object.entries(q.options).forEach(([key, text]) => {
+        if (discussion) {
+          field.append(el('div', 'quiz-option', `${key}. ${text}`));
+          return;
+        }
+        const label = el('label', 'quiz-option');
+        const input = el('input'); input.type = q.type === 'multiple' ? 'checkbox' : 'radio'; input.name = 'quiz-answer'; input.value = key;
+        input.checked = selected.includes(key); input.disabled = show; input.dataset.qid = q.id;
+        if (show && q.answer.includes(key)) label.classList.add('correct');
+        if (show && selected.includes(key) && !q.answer.includes(key)) label.classList.add('wrong');
+        label.append(input, el('span', '', `${key}. ${text}`)); field.append(label);
+      }); card.append(field);
+      if (mode === 'wrong' && s.answers[q.id] && s.answers[q.id].correct) card.append(el('p', 'quiz-status quiz-correct', '最近一次已答对 · 已掌握，历史错题仍保留'));
+      const actions = el('div', 'quiz-actions');
+      const nav = el('div', 'quiz-nav');
+      const questionIndex = list.findIndex((item) => item.id === q.id);
+      const prev = button('上一题', 'previous'); prev.disabled = questionIndex <= 0;
+      const next = button('下一题', 'next'); next.disabled = questionIndex >= list.length - 1;
+      nav.append(prev, next); actions.append(nav);
+      if (discussion) {
+        const open = openDiscussions.has(q.id);
+        const toggle = button(open ? '收起讨论解析' : '查看讨论解析', 'discussion', 'button button-primary');
+        toggle.setAttribute('aria-expanded', String(open));
+        actions.append(toggle);
+      } else if (mode !== 'test') {
+        const submit = button(show ? '重新作答' : '提交答案', show ? 'retry' : 'submit', 'button button-primary');
+        submit.disabled = !show && !selected.length; actions.append(submit);
+      } else if (!s.test.submitted) actions.append(el('span', 'muted', '本章测试交卷后统一显示解析'));
+      card.append(actions);
+      const status = el('p', 'quiz-status', statusText); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); card.append(status);
+      if (show || openDiscussions.has(q.id)) renderExplanation(card, q, selected);
+      root.append(card);
+      if (mode === 'test' && !s.test.submitted) {
+        const foot = el('div', 'quiz-actions');
+        foot.append(el('p', 'muted', '未答题交卷后记为未作答，不加入错题本。'), button('交卷并查看解析', 'finish-test', 'button button-primary'));
+        root.append(foot);
+      }
+    }
+    function renderTestSummary(s) {
+      const summary = testSummary(questions, s.test.drafts);
+      const box = el('div', 'quiz-summary');
+      if (s.test.submitted) {
+        box.setAttribute('role', 'status');
+        box.append(el('strong', '', `${summary.correct} / ${summary.total}`), el('span', '', `  答对 · 答错 ${summary.wrong} 道 · 未答 ${summary.unanswered} 道`));
+        box.append(el('p', '', `正确率 ${summary.total ? Math.round(summary.correct / summary.total * 100) : 0}% · 点击题号查看各题解析。`), button('重新测试', 'restart-test'));
+      } else box.append(el('span', '', `已选择 ${summary.answered} / ${summary.total} 题 · 测试中不显示答案，随时可切换题号。`));
+      root.append(box);
+    }
+    function renderExplanation(card, q, selected) {
+      const feedback = el('div', 'quiz-feedback quiz-explanation');
+      if (q.type === 'discussion') {
+        feedback.append(el('h3', '', '讨论解析'));
+      } else {
+        const correct = grade(q, selected);
+        feedback.append(el('h3', correct ? 'quiz-correct' : 'quiz-incorrect', !selected.length ? '本题未作答' : correct ? '回答正确' : '回答错误'));
+        const selectionText = selected.length ? `你选择了 ${selected.join('、')}。` : '你未作答。';
+        feedback.append(el('p', '', `${selectionText}正确答案是 ${q.answer.join('、')}。`));
+      }
+      if (q.type === 'multiple' && selected.length && !grade(q, selected)) {
+        const missing = q.answer.filter((key) => !selected.includes(key)); const extra = selected.filter((key) => !q.answer.includes(key));
+        const details = [];
+        if (missing.length) details.push(`漏选了 ${missing.join('、')}。`);
+        if (extra.length) details.push(`错选了 ${extra.join('、')}。`);
+        feedback.append(el('p', '', details.join('')));
+      }
+      feedback.append(el('h4', '', '解题思路'), el('p', '', q.explanationSupplement || '请结合对应知识点复习。'));
+      if (q.optionExplanations && Object.keys(q.optionExplanations).length) {
+        feedback.append(el('h4', '', '选项辨析'));
+        const reasons = el('ul', 'quiz-rationale-list');
+        Object.entries(q.optionExplanations).forEach(([key, text]) => reasons.append(el('li', '', `${key}　${text}`))); feedback.append(reasons);
+      }
+      const links = el('div', 'quiz-actions'); const jump = button('回看对应知识点', 'concept'); jump.dataset.concept = q.conceptId;
+      links.append(jump); feedback.append(links); card.append(feedback);
+    }
+    function handleClick(event) {
+      const target = event.target.closest('button[data-action]');
+      if (!target || !root.contains(target)) return;
+      const action = target.dataset.action;
+      const s = state(); const list = filtered(s); const q = list.find((item) => item.id === currentId);
+      statusText = '';
+      if (action === 'mode') { mode = target.dataset.mode; }
+      else if (action === 'question') currentId = target.dataset.qid;
+      else if (action === 'discussion' && q?.type === 'discussion') {
+        if (openDiscussions.has(q.id)) openDiscussions.delete(q.id);
+        else openDiscussions.add(q.id);
+      }
+      else if (action === 'previous' || action === 'next') {
+        const index = list.findIndex((item) => item.id === currentId); const item = list[index + (action === 'next' ? 1 : -1)]; if (item) currentId = item.id;
+      } else if (action === 'favorite' && q) update((draft) => { const i = draft.favorites.indexOf(q.id); if (i >= 0) draft.favorites.splice(i, 1); else draft.favorites.push(q.id); });
+      else if (action === 'retry' && q) { update((draft) => { draft.drafts[q.id] = []; }); statusText = '已开始重新作答，历史记录保留。'; }
+      else if (action === 'submit' && q) {
+        const selected = chosen(q, s); if (!selected.length) { statusText = '请先选择答案。'; }
+        else { update((draft) => { recordAttempt(draft, q, selected); delete draft.drafts[q.id]; }); statusText = grade(q, selected) ? '答案已保存，回答正确。' : '答案已保存，已加入错题本。'; }
+      } else if (action === 'finish-test') { update((draft) => submitTest(draft, questions)); statusText = '测试已交卷，答题记录已保存。'; }
+      else if (action === 'restart-test') { update((draft) => { draft.test = { drafts: {}, submitted: false }; }); currentId = questions[0] && questions[0].id; statusText = '新一轮测试已开始，历史答题记录保留。'; }
+      else if (action === 'concept') { if (typeof onConceptJump === 'function') onConceptJump(target.dataset.concept); return; }
+      render();
+      if (action === 'discussion') root.querySelector('[data-action="discussion"]')?.focus();
+    }
+    function handleChange(event) {
+      const input = event.target;
+      if (!input.matches('input[name="quiz-answer"]')) return;
+      const s = state(); const q = questions.find((item) => item.id === input.dataset.qid); if (!q || revealed(q, s)) return;
+      const selected = [...root.querySelectorAll('input[name="quiz-answer"]:checked')].map((node) => node.value);
+      update((draft) => { if (mode === 'test') draft.test.drafts[q.id] = selected; else draft.drafts[q.id] = selected; });
+      statusText = '选项已暂存，提交后判题。';
+      const value = input.value; render();
+      const focus = [...root.querySelectorAll('input[name="quiz-answer"]')].find((node) => node.value === value); if (focus) focus.focus({ preventScroll: true });
+    }
+    const controller = { openQuestion(id) { if (!questions.some((q) => q.id === id)) return false; mode = 'practice'; currentId = id; statusText = ''; render(); return true; } };
+    activeController = controller;
+    root.addEventListener('click', handleClick); root.addEventListener('change', handleChange); render();
+    return function cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); if (activeController === controller) activeController = null; };
+  }
+  const api = { mount, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  if (global) global.StudyQuiz = api;
+})(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this);
+
+(function(){
+ 'use strict';
+ const C=window.STUDY_CONTENT, $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+ const chapter=C.chapter;
+ const openedCount=modules=>modules.flatMap(module=>module.chapters).filter(entry=>entry.href).length;
+ const sharedCatalog=window.STUDY_CATALOG;
+ const catalog=sharedCatalog&&openedCount(sharedCatalog)>openedCount(C.catalog)?sharedCatalog:C.catalog;
+ const offline=document.body.dataset.offline==='true', flatDownloads=document.body.dataset.flatDownloads==='true';
+ const keyBase='zhiqi-study-v1', KEY=chapter?.id==='chapter01' ? keyBase : `${keyBase}:${chapter?.id}`;
+ const sectionIds=new Set(C.lessons?.sections.map(s=>s.id));
+ const questionIds=new Set(C.questions?.map(q=>q.id));
+ const empty=()=>({version:1,answers:{},drafts:{},favorites:[],reading:{seen:[],lastConcept:'',scrollY:0},test:{drafts:{},submitted:false}});
+ let storageAvailable=true,state=empty(),quizCleanup=null,view='learn',toastTimer,ppfTimer=null;
+ let readingTimer, readingTracking=false, readingChanged=false;
+ const clone=o=>JSON.parse(JSON.stringify(o));
+ function cleanSelected(value,q){if(!Array.isArray(value)||!value.every(v=>typeof v==='string'&&Object.hasOwn(q.options,v)))throw Error('备份中的作答选项无效');const out=[...new Set(value)].sort();if(q.type==='single'&&out.length>1)throw Error('单选题备份含多个选项');return out;}
+ function validateState(raw){
+  if(!raw||raw.version!==1||!raw.answers||typeof raw.answers!=='object'||Array.isArray(raw.answers)||!Array.isArray(raw.favorites))throw Error('文件不是有效的学习记录备份');
+  const out=empty();
+  C.questions.filter(q=>q.type!=='discussion').forEach(q=>{
+   const rec=Object.hasOwn(raw.answers,q.id)?raw.answers[q.id]:null;
+   if(rec){const selected=cleanSelected(rec.selected,q);if(!selected.length||rec.submitted!==true||!Number.isSafeInteger(rec.attempts)||rec.attempts<1)throw Error('答题记录格式不完整');out.answers[q.id]={selected,submitted:true,correct:window.StudyQuiz.grade(q,selected),attempts:rec.attempts,everWrong:rec.everWrong===true||!window.StudyQuiz.grade(q,selected),lastAnsweredAt:typeof rec.lastAnsweredAt==='string'?rec.lastAnsweredAt:''};}
+   if(raw.drafts&&Object.hasOwn(raw.drafts,q.id))out.drafts[q.id]=cleanSelected(raw.drafts[q.id],q);
+   if(raw.test?.drafts&&Object.hasOwn(raw.test.drafts,q.id))out.test.drafts[q.id]=cleanSelected(raw.test.drafts[q.id],q);
+  });
+  out.favorites=[...new Set(raw.favorites.filter(id=>typeof id==='string'&&(questionIds.has(id)||(id.startsWith('concept:')&&sectionIds.has(id.slice(8))))))];
+  out.reading.seen=Array.isArray(raw.reading?.seen)?[...new Set(raw.reading.seen.filter(id=>sectionIds.has(id)))]:[];
+  out.reading.lastConcept=sectionIds.has(raw.reading?.lastConcept)?raw.reading.lastConcept:'';
+  out.reading.scrollY=Number.isFinite(raw.reading?.scrollY)?Math.max(0,raw.reading.scrollY):0;
+  out.test.submitted=raw.test?.submitted===true;
+  return out;
+ }
+ function notice(){storageAvailable=false;$('#storage-notice').hidden=false;$('#storage-notice').textContent='当前浏览器无法保存学习记录，阅读和答题仍可使用。离开前请导出记录备份。';}
+ if (chapter) {
+  try {
+   const saved=localStorage.getItem(KEY);
+   if(saved)state=validateState(JSON.parse(saved));
+   const probe=KEY+'-probe';
+   localStorage.setItem(probe,'1');
+   localStorage.removeItem(probe);
+  } catch { notice(); }
+ }
+ function updateState(mutator) {
+  if (storageAvailable) {
+   try {
+    const saved=localStorage.getItem(KEY);
+    if (saved) state=validateState(JSON.parse(saved));
+   } catch { notice(); }
+  }
+  mutator(state);
+  try { localStorage.setItem(KEY,JSON.stringify(state)); } catch { notice(); }
+  updateProgress();
+  return clone(state);
+ }
+ const store={get:()=>clone(state),update:updateState};
+ window.StudyStore=store;
+ function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
+ function el(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;}
+ function button(text,className,onClick){const b=el('button',className,text);b.type='button';if(onClick)b.addEventListener('click',onClick);return b;}
+ function openModal(title,content){$('#modal-title').textContent=title;$('#modal-content').replaceChildren();if(typeof content==='string')$('#modal-content').innerHTML=content;else if(content)$('#modal-content').append(content);if(!$('#modal').open)$('#modal').showModal();}
+ $('#modal-close').addEventListener('click',()=>$('#modal').close());
+ $('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
+ function jumpConcept(id) {
+  if(!sectionIds.has(id))return;
+  showChapter();
+  switchView('learn',false);
+  history.replaceState(null,'','#'+id);
+  readingTracking=false;
+  requestAnimationFrame(()=>{
+   const target=document.getElementById(id);
+   target.scrollIntoView({behavior:'instant',block:'start'});
+   const heading=$('h3',target);
+   heading.tabIndex=-1;
+   heading.focus({preventScroll:true});
+   store.update(record=>{record.reading.lastConcept=id;record.reading.scrollY=window.scrollY;});
+   requestAnimationFrame(()=>{readingTracking=true;});
+  });
+ }
+ function mountQuiz(){if(quizCleanup)quizCleanup();quizCleanup=window.StudyQuiz.mount($('#quiz'),{questions:C.questions,store,onConceptJump:jumpConcept});}
+ function updateProgress(){const count=state.reading?.seen?.length||0;$('#reading-label').textContent=`已读 ${count} / ${C.lessons.sections.length} 个知识点`;$('#continue-reading').hidden=!state.reading?.lastConcept;$$('#lesson-jump a').forEach(link=>{if(link.dataset.concept===state.reading.lastConcept)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});$$('[data-favorite-concept]').forEach(b=>{const yes=state.favorites.includes('concept:'+b.dataset.favoriteConcept);b.classList.toggle('selected',yes);b.textContent=yes?'★':'☆';b.setAttribute('aria-pressed',String(yes));});}
+ function toggleFavorite(id){store.update(s=>{const i=s.favorites.indexOf(id);if(i===-1)s.favorites.push(id);else s.favorites.splice(i,1);});}
+ function chapterLink(entry) {
+  return offline ? (entry.id === chapter?.id ? '#learn' : null) : entry.href;
+ }
+ function renderSidebar() {
+  const openCount = catalog.flatMap(module => module.chapters).filter(chapterLink).length;
+  $('#open-chapter-count').textContent = offline ? '本章离线版' : `已开放 ${openCount} 章`;
+  for (const [moduleIndex, module] of catalog.entries()) {
+   const group = el('details', 'module-group');
+   group.open = chapter ? module.id === chapter.moduleId : moduleIndex === 0;
+   const summary = el('summary', '', module.title);
+   summary.append(el('small', '', `${module.chapters.length} 章`));
+   group.append(summary);
+   module.chapters.forEach(entry => {
+    const href = chapterLink(entry);
+    const row = el(href ? 'a' : 'div', 'chapter-link');
+    if (href) {
+     row.href = href;
+     row.dataset.openChapter = 'true';
+     if (entry.id === chapter?.id) {
+      row.classList.add('active');
+      row.setAttribute('aria-current', 'page');
+     }
+    } else {
+     row.setAttribute('aria-disabled', 'true');
+     row.title = offline ? '此文件仅包含当前章节' : '待开放';
+    }
+    row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), el('span', '', entry.title));
+    group.append(row);
+   });
+   $('#sidebar-catalog').append(group);
+  }
+ }
+ function renderHome() {
+  const root = $('#home-view');
+  const introduction = el('div', 'home-hero');
+  introduction.innerHTML = `<h1>经济金融保险基础</h1>
+   <p>按章节学习概念、操作图解、练习做题。</p>`;
+  root.append(introduction);
+
+  catalog.forEach(module => {
+   const section = el('section', 'catalog-section');
+   const heading = el('div', 'catalog-heading');
+   heading.append(el('h2', '', module.title), el('span', '', `${module.chapters.length} 章`));
+   section.append(heading);
+   const chapters = el('div', 'catalog-grid');
+   module.chapters.forEach(entry => {
+    const href = chapterLink(entry);
+    const row = el(href ? 'a' : 'div', 'catalog-card' + (href ? ' ready' : ''));
+    const name = el('h3', '', entry.title);
+    row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), name);
+    if (href) {
+     row.href = href;
+     row.dataset.openChapter = 'true';
+     row.append(el('span', 'catalog-status', '开始学习 →'));
+    } else {
+     row.append(el('span', 'catalog-status', offline ? '其他章节' : '待开放'));
+    }
+    chapters.append(row);
+   });
+   section.append(chapters);
+   root.append(section);
+  });
+ }
+
+ function renderLessons() {
+  C.lessons.sections.forEach((section, index) => {
+   const number = String(index + 1).padStart(2, '0');
+   const jump = el('a');
+   jump.href = '#' + section.id;
+   jump.dataset.concept = section.id;
+   jump.append(el('span', 'topic-number', number), el('span', '', section.title));
+   $('#lesson-jump').append(jump);
+
+   const card = el('section', 'lesson-card');
+   card.id = section.id;
+   const head = el('div', 'lesson-head');
+   const heading = el('div');
+   heading.append(el('h3', '', section.title), el('p', 'lesson-summary', section.summary));
+   const favorite = button('☆', 'icon-button', () => toggleFavorite('concept:' + section.id));
+   favorite.dataset.favoriteConcept = section.id;
+   favorite.setAttribute('aria-label', '收藏知识点：' + section.title);
+   favorite.setAttribute('aria-pressed', 'false');
+   head.append(el('span', 'lesson-number', number), heading, favorite);
+
+   const body = el('div', 'lesson-body');
+   body.innerHTML = section.bodyHtml;
+   $$('table', body).forEach(table => {
+    const wrap = el('div', 'table-wrap');
+    table.replaceWith(wrap);
+    wrap.append(table);
+   });
+   const takeaway = el('div', 'concept-takeaway');
+   takeaway.append(el('strong', '', '考点'), document.createTextNode(section.keyTakeaway));
+   body.append(takeaway);
+
+   const extras = el('div', 'lesson-extras');
+   for (const [label, value, className] of [
+    ['例子', section.example, 'lesson-extra'],
+    ['易错提醒', section.pitfall, 'lesson-extra pitfall']
+   ]) {
+    const item = el('div', className);
+    item.append(el('strong', '', label), el('p', '', value));
+    extras.append(item);
+   }
+   body.append(extras);
+   card.append(head, body);
+   $('#lessons').append(card);
+  });
+ }
+ const observer = new IntersectionObserver(entries => {
+  if (view !== 'learn' || $('#chapter-view').hidden) return;
+  const visible=entries.filter(entry=>entry.isIntersecting).map(entry=>entry.target.id);
+  if(!visible.some(id=>!state.reading.seen.includes(id)))return;
+  store.update(record=>{
+   record.reading.seen=[...new Set([...record.reading.seen,...visible])];
+   if(!record.reading.lastConcept)record.reading.lastConcept=visible[0];
+  });
+ }, { threshold: 0.12, rootMargin: '-125px 0px -15% 0px' });
+
+ function saveReadingPosition() {
+  if(!readingChanged||view!=='learn'||$('#chapter-view').hidden)return;
+  readingChanged=false;
+  const cards=$$('.lesson-card');
+  const current=cards.findLast(card=>card.getBoundingClientRect().top<=155)||cards[0];
+  store.update(record=>{
+   record.reading.lastConcept=current.id;
+   record.reading.scrollY=window.scrollY;
+  });
+  if(sectionIds.has(location.hash.slice(1)))history.replaceState(null,'','#learn');
+ }
+
+ function restoreReadingPosition(saved) {
+  requestAnimationFrame(()=>{
+   if(saved.lastConcept) {
+    if(saved.scrollY>0)window.scrollTo({top:saved.scrollY,behavior:'instant'});
+    else document.getElementById(saved.lastConcept).scrollIntoView({block:'start',behavior:'instant'});
+   }
+   requestAnimationFrame(()=>{readingTracking=true;});
+  });
+ }
+ function renderMap() {
+  const tree = $('#mindmap');
+  const viewport = $('.map-viewport');
+  const expand = $('#map-expand');
+  const zoomIn = $('#map-zoom-in');
+  const zoomOut = $('#map-zoom-out');
+  const size = $('#map-size');
+  const branches = [];
+  const startExpanded = !matchMedia('(max-width: 767px)').matches;
+  const readingSize = 14;
+  const minScale = 0.25;
+  const maxScale = 1.75;
+  let scale = 1;
+  let hasOpened = false;
+
+  function setExpanded(branch, expanded) {
+   branch.children.hidden = !expanded;
+   branch.toggle.setAttribute('aria-expanded', String(expanded));
+   branch.toggle.setAttribute('aria-label', `${expanded ? '收起' : '展开'}“${branch.label}”的分支`);
+   branch.toggle.textContent = expanded ? '−' : '+';
+  }
+
+  function updateExpandLabel() {
+   expand.textContent = branches.every(branch => !branch.children.hidden) ? '收起分支' : '全部展开';
+  }
+
+  function buildNode(node, depth, parentTarget) {
+   const item = el('li', 'map-item');
+   const target = node.target || parentTarget;
+   const isRoot = depth === 0;
+   item.dataset.depth = String(depth);
+   const label = el(isRoot ? 'span' : 'a', 'map-label', node.label);
+   const face = el('div', isRoot ? 'map-node map-root' : 'map-node');
+   if (!isRoot) {
+    label.href = '#' + target;
+    label.dataset.concept = target;
+   }
+   face.append(label);
+   item.append(face);
+   if (!node.children?.length) return item;
+
+   const children = el('ul', 'map-children');
+   if (!isRoot) {
+    item.classList.add('map-parent');
+    children.id = `map-branch-${branches.length + 1}`;
+    const toggle = button('', 'map-toggle');
+    toggle.setAttribute('aria-controls', children.id);
+    const branch = { toggle, children, label: node.label };
+    branches.push(branch);
+    setExpanded(branch, startExpanded);
+    toggle.addEventListener('click', () => {
+     setExpanded(branch, children.hidden);
+     updateExpandLabel();
+    });
+    face.append(toggle);
+   }
+   for (const child of node.children) children.append(buildNode(child, depth + 1, target));
+   item.append(children);
+   return item;
+  }
+
+  function setScale(next) {
+   scale = Math.min(maxScale, Math.max(minScale, next));
+   tree.style.fontSize = `${readingSize * scale}px`;
+   size.textContent = `${Math.round(scale * 100)}%`;
+   zoomIn.disabled = scale >= maxScale;
+   zoomOut.disabled = scale <= minScale;
+  }
+
+  function fitWidth() {
+   const availableWidth = viewport.clientWidth;
+   if (!availableWidth) return;
+   setScale(1);
+   const readingWidth = tree.getBoundingClientRect().width;
+   if (readingWidth > availableWidth) setScale((availableWidth - 8) / readingWidth);
+   viewport.scrollLeft = 0;
+  }
+
+  tree.append(buildNode({ label: C.lessons.title, children: C.lessons.mindmap }, 0));
+  updateExpandLabel();
+  expand.addEventListener('click', () => {
+   const next = branches.some(branch => branch.children.hidden);
+   branches.forEach(branch => setExpanded(branch, next));
+   updateExpandLabel();
+  });
+  zoomIn.addEventListener('click', () => setScale(scale * 1.2));
+  zoomOut.addEventListener('click', () => setScale(scale / 1.2));
+  size.addEventListener('click', () => setScale(1));
+  $('#map-fit').addEventListener('click', fitWidth);
+
+  return () => {
+   if (hasOpened) return;
+   hasOpened = true;
+   fitWidth();
+  };
+ }
+ const chapterViews = chapter?.visual ? ['learn', 'map', 'visual', 'practice'] : ['learn', 'map', 'practice'];
+ function chapterActions(visible) {
+  $$('[data-action="favorites"], [data-action="records"], [data-action="download"], .sidebar-quick-actions').forEach(node => node.hidden = !visible);
+ }
+ function showHome() {
+  saveReadingPosition();
+  pausePPF();
+  chapterActions(false);
+  $('#home-view').hidden=false;
+  $('#chapter-view').hidden=true;
+  document.title='学习目录 · 知其所以';
+  window.scrollTo({top:0,behavior:'instant'});
+ }
+ function showChapter() {
+  chapterActions(true);
+  $('#home-view').hidden=true;
+  $('#chapter-view').hidden=false;
+  document.title=chapter.title+' · 知其所以';
+ }
+ function switchView(next, scroll=true) {
+  if (!chapterViews.includes(next)) next='learn';
+  saveReadingPosition();
+  pausePPF();
+  view=next;
+  $$('.content-view').forEach(v=>v.hidden=v.id!=='view-'+next);
+  $$('[data-view]').forEach(b=>{
+   const active=b.dataset.view===next;
+   b.classList.toggle('active',active);
+   if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+  });
+  if(scroll) {
+   readingTracking=false;
+   $('.view-tabs').scrollIntoView({behavior:'instant',block:'start'});
+   requestAnimationFrame(()=>requestAnimationFrame(()=>{readingTracking=true;}));
+  }
+  if(next==='map')fitMapOnFirstOpen();
+  if(next==='practice')mountQuiz();
+  history.replaceState(null,'','#'+next);
+ }
+ $('#continue-reading').addEventListener('click',()=>jumpConcept(state.reading.lastConcept));
+ function records() {
+  const wrap=el('div');
+  wrap.append(el('p','','本章记录保存在当前浏览器。可用备份文件在设备之间，以及本章在线版和离线版之间转移。'));
+  const stats=el('div','record-stats'), answered=Object.values(state.answers), correct=answered.filter(x=>x.correct).length;
+  const scoredCount=C.questions.filter(q=>q.type!=='discussion').length;
+  for(const [value,label] of [[state.reading.seen.length+'/'+C.lessons.sections.length,'已读知识点'],[answered.length+'/'+scoredCount,'已作答'],[correct,'最近答对']]) {
+   const item=el('div');
+   item.append(el('strong','',value),el('small','',label));
+   stats.append(item);
+  }
+  wrap.append(stats);
+  const actions=el('div','record-actions');
+  actions.append(button('导出学习记录','button button-primary',()=>{
+   const backup={app:'zhiqi-study',chapterId:chapter.id,exportedAt:new Date().toISOString(),state};
+   const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});
+   saveBlob(blob,`知其所以-${chapter.id}-学习记录-${backup.exportedAt.slice(0,10)}.json`);
+   toast('学习记录已导出');
+  }));
+  const file=el('input');
+  file.type='file';file.accept='.json,application/json';file.hidden=true;
+  const status=el('p','muted');
+  status.setAttribute('role','status');
+  file.addEventListener('change',async()=>{
+   try {
+    const f=file.files[0];
+    if(!f)return;
+    if(f.size>2*1024*1024)throw Error('备份文件过大，请选择有效的学习记录');
+    const parsed=JSON.parse(await f.text());
+    const backupChapter=parsed?.chapterId ?? 'chapter01';
+    if(backupChapter!==chapter.id)throw Error('备份属于其他章节，请在对应章节导入');
+    const next=validateState(parsed?.app==='zhiqi-study'?parsed.state:parsed);
+    const confirm=el('div','inline-notice');
+    confirm.append(el('p','',`已检查备份，含 ${Object.keys(next.answers).length} 道作答记录、${next.reading.seen.length} 个已读知识点。导入将替换本章记录。`),
+     button('确认导入并替换','button button-primary',()=>{
+      store.update(record=>Object.assign(record,next));
+      mountQuiz();records();toast('学习记录已恢复');
+     }));
+    status.replaceChildren(confirm);
+   } catch(e) {
+    status.textContent='无法导入：'+e.message;
+   } finally {
+    file.value='';
+   }
+  });
+  actions.append(button('导入记录','button button-secondary',()=>file.click()),file);
+  wrap.append(actions,status,el('p','muted',storageAvailable?'浏览器存储可用。清除浏览器数据前，建议先导出备份。':'当前存储不可用，请在离开页面前导出备份。'));
+  openModal('学习记录与备份',wrap);
+ }
+ function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+ function favorites(){const wrap=el('div');if(!state.favorites.length)wrap.append(el('p','muted','还没有收藏。阅读时点击知识点右侧的 ☆，或在答题时收藏题目。'));state.favorites.forEach(id=>{const isConcept=id.startsWith('concept:'),item=isConcept?C.lessons.sections.find(s=>s.id===id.slice(8)):C.questions.find(q=>q.id===id);if(!item)return;const row=el('div','favorite-item');const b=button(isConcept?item.title:`第 ${item.number} 题 · ${item.stem}`,'',()=>{$('#modal').close();if(isConcept)jumpConcept(item.id);else{showChapter();switchView('practice');window.StudyQuiz.openQuestion?.(item.id);}});b.append(el('small','',isConcept?'知识点':'练习题'));row.append(b,button('移除','text-button',()=>{toggleFavorite(id);favorites();}));wrap.append(row);});openModal('我的收藏',wrap);}
+ function download() {
+  if(offline) {
+   openModal('你正在使用离线学习版','<p>本文件包含本章的讲解、思维导图和练习。保存好这份 HTML，断网后双击即可继续学习。</p><p>可在「学习记录」中导出、导入本章备份。</p>');
+   return;
+  }
+  const a=el('a');
+  a.href=(flatDownloads?'':'downloads/')+encodeURIComponent(chapter.downloadName);
+  a.download=chapter.downloadName;
+  document.body.append(a);
+  a.click();
+  a.remove();
+  toast('离线 HTML 下载已开始，保存后可双击学习');
+ }
+ document.addEventListener('click',e=>{const target=e.target.closest('button,a');if(!target)return;if(target.dataset.concept){e.preventDefault();jumpConcept(target.dataset.concept);return;}if(target.dataset.view){switchView(target.dataset.view);return;}if(target.dataset.switch){switchView(target.dataset.switch);return;}if(offline&&target.hasAttribute('data-open-chapter')){e.preventDefault();showChapter();switchView('learn');window.scrollTo({top:0,behavior:'instant'});return;}if(offline&&target.getAttribute('href')==='index.html'){e.preventDefault();showHome();history.replaceState(null,'','#home');return;}switch(target.dataset.action){case'favorites':favorites();break;case'records':records();break;case'download':download();break;case'sidebar':{const open=$('#sidebar').classList.toggle('open');target.setAttribute('aria-expanded',String(open));break;}}});
+ function pausePPF(){if(ppfTimer){clearInterval(ppfTimer);ppfTimer=null;}if($('#ppf-play')){$('#ppf-play').textContent='播放取舍变化';$('#ppf-play').setAttribute('aria-pressed','false');}}
+ function initPPF(){const range=$('#grain-range'),radios=$$('input[name=scenario]');function point(p,f=1){const x=p*470*f,y=Math.sqrt(Math.max(0,1-p*p))*340*f;return[76+x,388-y];}function path(f){let d='';for(let i=0;i<=100;i++){const[x,y]=point(i/100,f);d+=(i?' L':'M')+x.toFixed(2)+' '+y.toFixed(2);}return d;}
+  $('#ppf-curve').setAttribute('d',path(1));$('#ppf-new-curve').setAttribute('d',path(1.12));
+  function draw(){const v=Number(range.value)/100,scenario=radios.find(r=>r.checked).value,f=scenario==='idle'?.7:scenario==='growth'?1.12:1;const[x,y]=point(v,f);$('#ppf-point').setAttribute('cx',x);$('#ppf-point').setAttribute('cy',y);$('#ppf-halo').setAttribute('cx',x);$('#ppf-halo').setAttribute('cy',y);$('#ppf-guides').setAttribute('d',`M76 ${y}H${x}V388`);$('#ppf-point-label').setAttribute('x',x+13);$('#ppf-point-label').setAttribute('y',y-14);$('#grain-output').textContent=Math.round(v*100*f);$('#machine-output').textContent=Math.round(Math.sqrt(1-v*v)*100*f);$('#grain-percent').value=range.value+'%';$('#ppf-new-curve').setAttribute('opacity',scenario==='growth'?'1':'0');const explanation=scenario==='idle'?'点在原有曲线内：存在资源闲置或利用低效。提高利用效率，可让两类产品产量同时增加。':scenario==='growth'?'技术进步使生产边界向外移动：相同资源下可以生产更多。图中按两类产品同比例提高作简化演示。':'点在曲线上：资源充分有效利用。向右移动时粮食增加、机器减少，这就是取舍。';if($('#ppf-explanation').textContent!==explanation)$('#ppf-explanation').textContent=explanation;}
+  range.addEventListener('input',draw);radios.forEach(r=>r.addEventListener('change',draw));let direction=1;$('#ppf-play').addEventListener('click',()=>{if(ppfTimer){pausePPF();return;}if(matchMedia('(prefers-reduced-motion: reduce)').matches){toast('已启用减少动态效果，请拖动滑块逐步观察');return;}$('#ppf-play').textContent='暂停变化';$('#ppf-play').setAttribute('aria-pressed','true');ppfTimer=setInterval(()=>{let n=Number(range.value)+direction;if(n>=95||n<=5)direction*=-1;range.value=n;draw();},90);});$('#ppf-reset').addEventListener('click',()=>{pausePPF();range.value=60;radios[0].checked=true;draw();});document.addEventListener('visibilitychange',()=>{if(document.hidden)pausePPF();});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches)pausePPF();});draw();}
+ renderSidebar();
+ renderHome();
+ let fitMapOnFirstOpen;
+ if(chapter) {
+  window.addEventListener('scroll',()=>{
+   if(!readingTracking||view!=='learn'||$('#chapter-view').hidden)return;
+   readingChanged=true;
+   clearTimeout(readingTimer);
+   readingTimer=setTimeout(saveReadingPosition,160);
+  },{passive:true});
+  window.addEventListener('pagehide',saveReadingPosition);
+  $('#chapter-module').textContent=chapter.moduleTitle;
+  $('#chapter-number').textContent=`第 ${chapter.number} 章`;
+  $('#chapter-title').textContent=chapter.title;
+  $('#chapter-description').textContent=C.lessons.subtitle;
+  $('.chapter-exercise-count').textContent=`${C.questions.length} 道练习`;
+  $('[data-view="visual"]').hidden=!chapter.visual;
+  renderLessons();
+  $$('.lesson-card').forEach(card=>observer.observe(card));
+  fitMapOnFirstOpen=renderMap();
+  if(chapter.visual==='ppf')initPPF();
+  mountQuiz();
+  updateProgress();
+  let hash=location.hash.slice(1);
+  try { hash=decodeURIComponent(hash); } catch { hash=''; }
+  if(offline&&hash==='home')showHome();
+  else {
+   showChapter();
+   if(sectionIds.has(hash)) {
+    jumpConcept(hash);
+   } else {
+    switchView(hash,false);
+    if(view==='learn')restoreReadingPosition({...state.reading});
+    else readingTracking=true;
+   }
+  }
+ } else {
+  showHome();
+ }
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#sidebar').classList.remove('open');$('.mobile-menu').setAttribute('aria-expanded','false');}});
+})();
+</script>
+</body>
+</html>

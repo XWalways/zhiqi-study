@@ -1,0 +1,1575 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfdfd">
+  <meta name="description" content="学习经济、金融和保险基础。按章节阅读考点精讲、查看思维导图和做练习。">
+  <title>经济金融保险 · 知其所以</title>
+  <script>
+    (() => {
+      const storageKey = 'zhiqi-theme-mode';
+      const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      const readMode = () => {
+        try {
+          const saved = localStorage.getItem(storageKey);
+          if (saved === 'light' || saved === 'dark') return saved;
+        } catch {
+          // The appearance control still works when browser storage is unavailable.
+        }
+        return 'system';
+      };
+      let mode = readMode();
+
+      function applyAppearance() {
+        const dark = mode === 'dark' || (mode === 'system' && systemTheme.matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.dataset.themeMode = mode;
+        themeColor.content = dark ? '#182427' : '#fbfdfd';
+      }
+
+      applyAppearance();
+      systemTheme.addEventListener('change', () => {
+        if (mode === 'system') applyAppearance();
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        const picker = document.getElementById('theme-mode');
+        const options = picker.querySelectorAll('input[type="radio"]');
+        const selectCurrentMode = () => {
+          for (const option of options) option.checked = option.value === mode;
+        };
+        selectCurrentMode();
+        picker.addEventListener('change', event => {
+          mode = event.target.value;
+          applyAppearance();
+          try {
+            localStorage.setItem(storageKey, mode);
+          } catch {
+            // Apply the choice for this visit even if it cannot be saved.
+          }
+        });
+        window.addEventListener('storage', event => {
+          if (event.key !== storageKey && event.key !== null) return;
+          mode = readMode();
+          selectCurrentMode();
+          applyAppearance();
+        });
+      });
+    })();
+  </script>
+  <style>/* Cool neutral surfaces and one teal accent for navigation and study actions. */
+:root {
+  color-scheme: light;
+  --background: #eef3f4;
+  --surface: #fbfdfd;
+  --surface-subtle: #f1f6f6;
+  --text: #21363c;
+  --heading: #172d34;
+  --muted: #4e656c;
+  --line: #cddbdd;
+  --control-line: #7d9297;
+  --accent: #1a665b;
+  --accent-hover: #144f47;
+  --accent-on: #fbfdfd;
+  --accent-soft: #e2f0eb;
+  --accent-line: #84b5a8;
+  --warning: #75501c;
+  --warning-soft: #f7efdf;
+  --error: #942e38;
+  --error-soft: #f8e9eb;
+  --error-line: #ba717b;
+  --backdrop: rgb(22 42 48 / .54);
+  --shadow: 0 18px 48px rgb(25 54 61 / .14);
+  --radius: 12px;
+  --header-height: 68px;
+  --tabs-height: 53px;
+  --font-body: 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-display: 'PingFang SC', 'Noto Sans CJK SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-number: 'SF Mono', ui-monospace, 'Cascadia Mono', monospace;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--background);
+  accent-color: var(--accent);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #111b1e;
+  --surface: #182427;
+  --surface-subtle: #202e31;
+  --text: #dbe8e7;
+  --heading: #edf5f4;
+  --muted: #acbfc1;
+  --line: #384a4e;
+  --control-line: #738c90;
+  --accent: #92d1c0;
+  --accent-hover: #b1e3d5;
+  --accent-on: #132a25;
+  --accent-soft: #233b36;
+  --accent-line: #608f84;
+  --warning: #edd09c;
+  --warning-soft: #362e22;
+  --error: #f2a9b0;
+  --error-soft: #3b252a;
+  --error-line: #a46772;
+  --backdrop: rgb(9 17 20 / .75);
+  --shadow: 0 18px 48px rgb(7 14 17 / .44);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--text); }
+[hidden] { display: none !important; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button { color: inherit; background: none; border: 0; cursor: pointer; }
+button, a, input, select, summary { touch-action: manipulation; }
+button:disabled { cursor: not-allowed; opacity: .62; }
+:where(a, button, input, select, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+:where(h1, h2, h3, h4, p, dl, dd) { margin: 0; }
+h1, h2, h3, h4 { color: var(--heading); line-height: 1.36; }
+h1 { font: 680 clamp(2rem, 4vw, 3.15rem)/1.22 var(--font-display); letter-spacing: -.045em; }
+h2 { font-size: 1.43rem; font-weight: 680; letter-spacing: -.02em; }
+h3 { font-size: 1.18rem; font-weight: 650; }
+strong { font-weight: 680; }
+mark { background: var(--accent-soft); color: var(--accent); padding: 0 .12em; }
+.visually-hidden, .skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.skip-link:focus {
+  position: fixed;
+  z-index: 8;
+  inset: 12px auto auto 12px;
+  background: var(--accent);
+  color: var(--accent-on);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+}
+
+/* Global navigation */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  height: var(--header-height);
+  padding-inline: max(24px, calc((100vw - 1512px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.brand { display: inline-flex; gap: 10px; align-items: center; color: var(--heading); font-size: 18px; font-weight: 690; line-height: 1.2; white-space: nowrap; }
+.brand-mark { width: 31px; height: 31px; color: var(--accent); flex: none; }
+.brand-mark svg { width: 100%; height: 100%; }
+.brand small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; font-weight: 460; letter-spacing: .06em; }
+.top-actions { display: flex; gap: clamp(12px, 2vw, 27px); align-items: center; }
+.header-link { padding: 8px 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
+.header-link:hover { color: var(--accent); }
+.theme-control {
+  --theme-slot: 66px;
+  --theme-position: 1;
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(3, var(--theme-slot));
+  flex: none;
+  align-items: stretch;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+}
+:root[data-theme-mode="light"] .theme-control { --theme-position: 0; }
+:root[data-theme-mode="dark"] .theme-control { --theme-position: 2; }
+.theme-thumb {
+  position: absolute;
+  inset: 3px auto 3px 3px;
+  width: var(--theme-slot);
+  border-radius: 999px;
+  background: var(--accent);
+  transform: translateX(calc(100% * var(--theme-position)));
+  pointer-events: none;
+}
+.theme-option {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 35px;
+  color: var(--muted);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 630;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.theme-option:hover { color: var(--accent); }
+.theme-control input:checked + .theme-option { color: var(--accent-on); }
+.theme-control input:focus-visible + .theme-option { outline: 2px solid var(--heading); outline-offset: 1px; }
+
+.button, .download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 43px;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 580;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.button-primary { background: var(--accent); color: var(--accent-on); }
+.button-primary:not(:disabled):hover { background: var(--accent-hover); }
+.button-secondary, .download-button { border-color: var(--control-line); color: var(--heading); background: var(--surface); }
+.button-secondary:not(:disabled):hover, .download-button:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.button-row, .record-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.text-button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 2px 0; font-size: 14px; color: var(--accent); text-align: left; }
+.text-button:hover { text-decoration: underline; text-underline-offset: 3px; }
+.icon-button { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: var(--radius); color: var(--muted); font-size: 22px; line-height: 1; }
+.icon-button:hover, .icon-button.selected { color: var(--accent); background: var(--accent-soft); }
+.mobile-menu, .sidebar-quick-actions { display: none; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  max-width: 1560px;
+  min-height: calc(100dvh - var(--header-height));
+  margin-inline: auto;
+}
+.sidebar {
+  position: sticky;
+  top: var(--header-height);
+  align-self: start;
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  padding: 24px 14px 24px 18px;
+  border-right: 1px solid var(--line);
+  scrollbar-width: thin;
+}
+.sidebar-label { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 0 9px 12px; color: var(--heading); font-size: 15px; font-weight: 680; }
+.sidebar-label small { color: var(--muted); font-size: 11px; font-weight: 480; }
+.module-group + .module-group { margin-top: 8px; }
+.module-group summary { cursor: pointer; list-style: none; }
+.module-group summary::-webkit-details-marker { display: none; }
+.module-group summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 9px;
+  border-radius: var(--radius);
+  color: var(--heading);
+  font-size: 14px;
+  font-weight: 630;
+}
+.module-group summary:hover { background: var(--surface-subtle); }
+.module-group summary small { margin-left: auto; font-size: 11px; color: var(--muted); font-weight: 460; white-space: nowrap; }
+.module-group summary::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  flex: none;
+}
+.module-group[open] > summary::after { transform: rotate(45deg); }
+.chapter-link { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 3px 5px; padding: 8px 9px; margin: 2px 0; border-radius: var(--radius); font-size: 12px; line-height: 1.55; color: var(--muted); }
+.chapter-link .chapter-no, .chapter-no, .topic-number, .lesson-number { font-family: var(--font-number); font-variant-numeric: tabular-nums; }
+a.chapter-link:hover, .chapter-link.active { background: var(--accent-soft); color: var(--accent); }
+.chapter-link.active { font-weight: 680; }
+main { min-width: 0; width: 100%; padding: 27px clamp(24px, 3.2vw, 52px) 56px; }
+main:focus { outline: none; }
+.breadcrumb { display: flex; align-items: baseline; gap: 10px; margin-bottom: 22px; color: var(--muted); font-size: 13px; }
+.breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+.chapter-description { margin-top: 10px; color: var(--muted); font-size: 16px; }
+.chapter-tools { min-height: 38px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0 14px; margin-top: 13px; }
+.reading-progress { display: flex; flex-wrap: wrap; align-items: center; gap: 9px 13px; color: var(--muted); font-size: 13px; }
+#reading-label { color: var(--accent); font-weight: 620; }
+.chapter-exercise-count { border-left: 1px solid var(--line); padding-left: 13px; }
+.view-tabs {
+  position: sticky;
+  z-index: 3;
+  top: var(--header-height);
+  display: flex;
+  gap: 24px;
+  min-height: var(--tabs-height);
+  margin: 17px 0 23px;
+  border-bottom: 1px solid var(--line);
+  background: var(--background);
+  scroll-margin-top: var(--header-height);
+}
+.view-tabs button { position: relative; min-width: 0; padding: 10px 9px 9px; font-weight: 570; font-size: 15px; color: var(--muted); white-space: nowrap; }
+.view-tabs button.active, .view-tabs button:hover { color: var(--accent); }
+.view-tabs button.active { font-weight: 700; }
+.view-tabs button.active::after { content: ''; position: absolute; inset: auto 0 -1px; height: 3px; background: var(--accent); }
+.section-intro { margin: 0 0 18px; }
+.section-intro p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+
+/* A continuous reading surface with a separate index in the margin. */
+.reading-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 190px); align-items: start; gap: 25px; }
+.reading-column { grid-column: 1; grid-row: 1; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.topic-index { grid-column: 2; grid-row: 1; position: sticky; top: calc(var(--header-height) + var(--tabs-height) + 19px); padding-top: 9px; }
+.topic-index h2 { margin-bottom: 9px; color: var(--muted); font-size: 13px; font-weight: 640; }
+.lesson-jump { display: grid; }
+.lesson-jump a { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 4px; padding: 8px 9px; margin-left: -9px; color: var(--muted); font-size: 13px; line-height: 1.6; border-radius: var(--radius); }
+.lesson-jump a:hover, .lesson-jump a[aria-current] { background: var(--accent-soft); color: var(--accent); }
+.lesson-jump a[aria-current] { font-weight: 660; }
+.topic-number { font-size: 11px; margin-top: .15em; }
+.lesson-card {
+  padding: clamp(23px, 3vw, 40px) clamp(24px, 3.4vw, 46px);
+  scroll-margin-top: calc(var(--header-height) + var(--tabs-height) + 13px);
+}
+.lesson-card + .lesson-card { border-top: 1px solid var(--line); }
+.lesson-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 12px; margin-bottom: 18px; }
+.lesson-head h3 { font-size: clamp(1.23rem, 2vw, 1.57rem); letter-spacing: -.025em; }
+.lesson-number { color: var(--accent); font-size: 13px; font-weight: 660; margin-top: 6px; }
+.lesson-summary { margin-top: 4px; color: var(--muted); font-size: 14px; }
+.lesson-head .icon-button { margin: -6px -6px 0 0; }
+.lesson-body { font-size: 16px; line-height: 1.95; overflow-wrap: anywhere; }
+.lesson-body > :where(p, ul, ol, h4, blockquote) { margin-block: 0 13px; }
+.lesson-body > :where(ul, ol) { padding-left: 1.4em; }
+.lesson-body h4 { margin-top: 22px; margin-bottom: 8px; }
+.lesson-body li + li { margin-top: 6px; }
+.lesson-body blockquote { border-left: 2px solid var(--accent-line); padding: 6px 0 6px 16px; color: var(--muted); }
+.table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); margin: 17px 0; }
+.lesson-body table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.75; }
+.lesson-body :where(th, td) { padding: 10px 12px; text-align: left; vertical-align: top; }
+.lesson-body th { background: var(--surface-subtle); color: var(--heading); }
+.lesson-body tr + tr, .lesson-body thead { border-bottom: 1px solid var(--line); }
+.lesson-body tr:last-child { border-bottom: 0; }
+.concept-takeaway { display: grid; gap: 4px; margin-top: 19px; padding: 12px 15px; background: var(--accent-soft); color: var(--text); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; font-size: 15px; }
+.concept-takeaway strong { color: var(--accent); font-size: 13px; }
+.lesson-extras { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 19px; }
+.lesson-extra { border-top: 1px solid var(--line); padding: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.lesson-extra strong { display: block; color: var(--heading); font-size: 13px; margin-bottom: 4px; }
+.lesson-extra.pitfall strong { color: var(--warning); }
+.next-step { border-top: 1px solid var(--line); padding: 20px clamp(24px, 3.4vw, 46px); }
+
+/* Topic map and the interactive production chart */
+.map-panel, .ppf-panel, .quiz-card, .quiz-empty {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.map-panel { min-width: 0; }
+.map-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-subtle);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.map-toolbar button {
+  min-height: 37px;
+  padding: 4px 10px;
+  background: var(--surface);
+  color: var(--heading);
+  font-size: 13px;
+  font-weight: 610;
+  white-space: nowrap;
+}
+.map-toolbar > button, .map-zoom {
+  border: 1px solid var(--control-line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.map-zoom { display: inline-flex; align-items: stretch; }
+.map-zoom button:first-child { border-radius: 7px 0 0 7px; }
+.map-zoom button:last-child { border-radius: 0 7px 7px 0; }
+.map-zoom button + button { border-left: 1px solid var(--line); }
+.map-zoom #map-size { min-width: 55px; font-family: var(--font-number); }
+.map-toolbar button:not(:disabled):hover { background: var(--accent-soft); color: var(--accent); }
+.map-viewport {
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior-inline: contain;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.mindmap {
+  --map-arm: 1.25em;
+  --map-edge: var(--control-line);
+  width: max-content;
+  margin: 0 auto;
+  padding: 1.55em 1.45em;
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.map-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.map-node {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: .28em;
+  padding: .25em .55em;
+  border: 1px solid transparent;
+  border-radius: .6em;
+}
+.map-label { display: block; max-width: 19em; overflow-wrap: anywhere; }
+.map-label[href]:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .18em; }
+.map-root {
+  background: var(--accent);
+  color: var(--accent-on);
+  padding: .67em .8em;
+  font-size: 1.08em;
+  font-weight: 690;
+}
+.map-item[data-depth='1'] > .map-node {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 650;
+}
+.map-item[data-depth='1'] > .map-node .map-label { max-width: 14em; text-wrap: balance; }
+.map-parent:not([data-depth='1']) > .map-node {
+  border-color: var(--line);
+  background: var(--surface-subtle);
+  color: var(--heading);
+}
+.map-parent:not([data-depth='1']) > .map-node .map-label { max-width: 13em; text-wrap: balance; }
+.map-toggle {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.55em;
+  height: 1.55em;
+  padding: 0;
+  border: 1px solid var(--control-line);
+  border-radius: .42em;
+  color: var(--accent);
+  background: var(--surface);
+  font-size: 1em;
+  font-weight: 650;
+  line-height: 1;
+}
+.map-toggle:hover { background: var(--accent-soft); }
+.map-children {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 0 var(--map-arm);
+  padding: 0;
+  list-style: none;
+}
+/* Each parent reaches a shared spine. The spine ends at its outermost children. */
+.map-children::before, .map-children > .map-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: var(--map-arm);
+  border-top: 1px solid var(--map-edge);
+}
+.map-children::before { left: calc(-1 * var(--map-arm)); }
+.map-children > .map-item { padding: .18em 0 .18em var(--map-arm); }
+.map-children > .map-item::before { left: 0; }
+.map-children > .map-item::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-left: 1px solid var(--map-edge);
+}
+.map-children > .map-item:first-child::after { top: 50%; }
+.map-children > .map-item:last-child::after { bottom: 50%; }
+.map-children > .map-item:only-child::after { display: none; }
+.mindmap > .map-item > .map-children > .map-item { padding-block: .48em; }
+.ppf-panel { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(250px, 1fr); }
+.ppf-chart { align-self: center; min-width: 0; padding: 20px 14px; }
+.ppf-chart svg { display: block; width: 100%; max-width: 640px; margin-inline: auto; }
+.chart-caption { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px 17px; color: var(--muted); font-size: 12px; }
+.chart-line { display: inline-block; width: 17px; border-top: 2px solid var(--heading); vertical-align: middle; margin-right: 3px; }
+.chart-line.new { border-top-style: dashed; border-color: var(--accent); }
+.chart-grid { stroke: var(--line); }
+.chart-axis, #ppf-guides { stroke: var(--control-line); }
+#ppf-curve { stroke: var(--heading); }
+#ppf-new-curve { stroke: var(--accent); }
+#ppf-halo { fill: var(--accent-line); opacity: .36; }
+#ppf-point { fill: var(--accent); stroke: var(--surface); }
+.axis-label { fill: var(--heading); font-size: 18px; }
+.tick-label { fill: var(--muted); font-size: 16px; }
+.point-label { fill: var(--accent); font: 700 17px var(--font-number); }
+.chart-footnote { text-align: center; color: var(--muted); font-size: 12px; }
+.ppf-controls { display: flex; flex-direction: column; gap: 8px; padding: 23px; border-left: 1px solid var(--line); }
+.ppf-controls h3 { font-size: 17px; }
+.ppf-outputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 4px 0 7px; }
+.ppf-outputs div { border-bottom: 1px solid var(--line); padding: 0 2px 5px; }
+.ppf-outputs span { display: block; color: var(--muted); font-size: 13px; }
+.ppf-outputs strong { color: var(--heading); font: 600 28px/1.35 var(--font-number); }
+.range-label, .range-ends { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; color: var(--muted); font-size: 13px; }
+.range-label output { color: var(--accent); font: 650 13px var(--font-number); }
+input[type=range] { width: 100%; min-height: 25px; margin: 0; cursor: pointer; }
+.ppf-scenarios { display: grid; min-width: 0; gap: 5px; margin: 7px 0; padding: 0; border: 0; }
+.ppf-scenarios legend { padding: 0 0 5px; color: var(--heading); font-weight: 640; font-size: 14px; }
+.ppf-scenarios label { display: flex; align-items: center; min-height: 29px; gap: 7px; color: var(--text); font-size: 13px; cursor: pointer; }
+.ppf-explanation { min-height: 6em; padding: 10px 12px; border-radius: var(--radius); background: var(--accent-soft); font-size: 13px; }
+.ppf-controls .button-row { margin-top: 4px; }
+.visual-notes { display: grid; margin: 18px 0 9px; }
+.visual-notes > div { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.visual-notes dt { color: var(--accent); font-weight: 650; font-size: 14px; }
+.visual-notes dd { color: var(--muted); font-size: 14px; }
+
+/* Catalog */
+.home-hero { padding: 20px 0 29px; }
+.home-hero p { margin-top: 12px; color: var(--muted); }
+.catalog-section + .catalog-section { margin-top: 29px; }
+.catalog-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.catalog-heading span { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.catalog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 23px; }
+.catalog-card { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 8px; min-height: 48px; padding: 8px 4px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.catalog-card h3 { color: inherit; font-size: 14px; font-weight: 520; }
+.catalog-card .chapter-no, .catalog-status { font-size: 12px; }
+.catalog-status { white-space: nowrap; }
+.catalog-card.ready { color: var(--accent); font-weight: 650; }
+.catalog-card.ready:hover { background: var(--accent-soft); }
+.catalog-card.ready h3 { font-weight: 670; }
+
+/* Practice and feedback */
+#quiz { max-width: 960px; font-size: 15px; }
+.quiz-toolbar, .quiz-tabs, .quiz-grid, .quiz-card-header, .quiz-actions, .quiz-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.quiz-toolbar, .quiz-card-header, .quiz-actions { justify-content: space-between; }
+.quiz-toolbar { gap: 10px 20px; }
+.quiz-tabs { gap: 6px; }
+.quiz-tab { border: 1px solid transparent; border-radius: var(--radius); padding: 8px 12px; min-height: 42px; font-size: 14px; white-space: nowrap; }
+.quiz-tab:hover, .quiz-tab.active { color: var(--accent); background: var(--accent-soft); }
+.quiz-tab.active { border-color: var(--accent-line); font-weight: 650; }
+.quiz-index { display: grid; gap: 10px; margin: 15px 0; }
+.quiz-grid { gap: 6px; }
+.quiz-group-label { display: block; margin-bottom: 5px; color: var(--muted); font-size: 13px; }
+.quiz-number { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: var(--radius); font: 550 13px var(--font-number); }
+.quiz-number:hover, .quiz-number.answered { border-color: var(--accent); color: var(--accent); }
+.quiz-number.correct { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-line); }
+.quiz-number.wrong { background: var(--error-soft); color: var(--error); border-color: var(--error-line); }
+.quiz-number.active { outline: 2px solid var(--accent); outline-offset: -2px; }
+.quiz-number:focus-visible { outline-offset: 3px; }
+.quiz-card { padding: clamp(17px, 3vw, 34px); }
+.quiz-card-header { gap: 6px 14px; margin-bottom: 12px; color: var(--muted); font-size: 13px; }
+.quiz-favorite { min-height: 38px; padding: 5px 10px; font-size: 13px; }
+.quiz-favorite[aria-pressed=true] { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.quiz-stem { font-size: clamp(17px, 1.7vw, 21px); line-height: 1.65; margin-bottom: 15px; }
+.quiz-options { display: grid; min-width: 0; gap: 8px; padding: 0; border: 0; margin: 0; }
+.quiz-options legend { color: var(--muted); font-size: 13px; padding: 0 0 6px; }
+.quiz-option { display: flex; align-items: baseline; gap: 10px; padding: 10px 13px; min-height: 45px; border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer; }
+.quiz-option:focus-within, .quiz-option:hover { border-color: var(--control-line); }
+.quiz-option input { flex: none; margin: 0; }
+.quiz-option:has(input:checked), .quiz-option.correct { background: var(--accent-soft); border-color: var(--accent-line); color: var(--text); }
+.quiz-option.wrong { background: var(--error-soft); border-color: var(--error-line); color: var(--error); }
+.quiz-option:has(input:disabled) { cursor: default; }
+.quiz-actions { margin-top: 16px; }
+.quiz-feedback { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 17px; }
+.quiz-feedback h3, .quiz-feedback p { margin-bottom: 8px; }
+.quiz-feedback h4 { margin: 16px 0 5px; font-size: 15px; }
+.quiz-feedback p, .quiz-rationale-list { line-height: 1.85; }
+.quiz-rationale-list { padding-left: 1.5em; margin: 6px 0 0; }
+.quiz-rationale-list li + li { margin-top: 5px; }
+.quiz-correct { color: var(--accent); }
+.quiz-incorrect { color: var(--error); }
+.quiz-summary { margin-top: 14px; padding: 13px 17px; border-radius: var(--radius); background: var(--accent-soft); }
+.quiz-summary strong { font: 650 23px var(--font-number); color: var(--accent); }
+.quiz-summary p { margin: 7px 0; }
+.quiz-status { color: var(--muted); font-size: 13px; margin-top: 8px; }
+.quiz-status:empty { display: none; }
+.quiz-empty { padding: 25px; margin-top: 14px; color: var(--muted); }
+.muted { color: var(--muted); font-size: 13px; }
+
+/* Records, dialogs and status */
+dialog { width: min(600px, calc(100% - 24px)); max-height: 85dvh; padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+dialog::backdrop { background: var(--backdrop); }
+.modal-top { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 19px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.modal-top h2 { font-size: 18px; }
+#modal-content { padding: 19px; font-size: 14px; }
+#modal-content p + p { margin-top: 10px; }
+.record-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.record-stats > div { background: var(--surface-subtle); padding: 10px; border-radius: var(--radius); }
+.record-stats strong, .record-stats small { display: block; }
+.record-stats strong { color: var(--accent); font: 650 19px var(--font-number); }
+.record-stats small { color: var(--muted); font-size: 12px; }
+.record-actions { margin: 12px 0; }
+.favorite-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--line); padding: 7px 0; }
+.favorite-item > button:first-child { text-align: left; }
+.favorite-item small { display: block; color: var(--muted); }
+.favorite-item > button:last-child { white-space: nowrap; }
+.inline-notice, .storage-notice, .noscript { padding: 10px 14px; background: var(--warning-soft); color: var(--warning); font-size: 13px; }
+.inline-notice { margin-block: 8px; border-radius: var(--radius); }
+.inline-notice .button { margin-top: 8px; }
+.toast { position: fixed; inset: auto auto 20px 50%; transform: translateX(-50%); z-index: 8; max-width: min(440px, 90vw); width: max-content; padding: 10px 16px; border-radius: var(--radius); background: var(--heading); color: var(--surface); font-size: 14px; box-shadow: var(--shadow); }
+
+@media (max-width: 1080px) {
+  .layout { grid-template-columns: 190px minmax(0, 1fr); }
+  .reading-layout { gap: 15px; grid-template-columns: minmax(0, 1fr) minmax(135px, 158px); }
+  .catalog-grid { grid-template-columns: 1fr; }
+  .ppf-panel { grid-template-columns: minmax(0, 1.25fr) minmax(220px, 1fr); }
+}
+
+@media (max-width: 920px) {
+  .reading-layout { grid-template-columns: minmax(0, 1fr); }
+  .topic-index { grid-column: 1; grid-row: 1; position: static; padding-top: 0; }
+  .reading-column { grid-row: 2; }
+  .lesson-jump { display: flex; flex-wrap: wrap; gap: 5px 8px; }
+  .lesson-jump a { margin-left: 0; padding: 4px 7px; background: var(--surface-subtle); }
+  .ppf-panel { grid-template-columns: minmax(0, 1fr); }
+  .ppf-controls { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 767px) {
+  :root { --header-height: 61px; --tabs-height: 48px; }
+  .topbar { padding-inline: 15px; gap: 8px; }
+  .brand { gap: 6px; font-size: 16px; }
+  .brand-mark { width: 25px; height: 25px; }
+  .brand small { font-size: 10px; }
+  .top-actions { margin-left: auto; gap: 7px; }
+  .top-actions .header-link { display: none; }
+  .theme-control { --theme-slot: 49px; }
+  .theme-option { min-height: 30px; font-size: 12px; }
+  .download-button { min-height: 38px; padding: 6px 10px; font-size: 13px; }
+  .mobile-menu { display: grid; place-items: center; width: 38px; height: 38px; border-radius: var(--radius); color: var(--heading); }
+  .mobile-menu span { position: relative; display: block; height: 1.5px; width: 16px; background: currentColor; }
+  .mobile-menu span::before, .mobile-menu span::after { content: ''; position: absolute; left: 0; width: 100%; height: 100%; background: currentColor; }
+  .mobile-menu span::before { top: -5px; }
+  .mobile-menu span::after { top: 5px; }
+  .layout { display: block; }
+  .sidebar { display: none; position: fixed; inset: var(--header-height) auto auto 0; width: min(285px, 90vw); z-index: 4; background: var(--surface); border-bottom: 1px solid var(--line); border-radius: 0 0 var(--radius) 0; box-shadow: var(--shadow); }
+  .sidebar.open { display: block; }
+  .sidebar-quick-actions { display: flex; gap: 8px; margin: 0 0 10px; }
+  .sidebar-quick-actions button { padding: 7px 8px; background: var(--accent-soft); border-radius: var(--radius); color: var(--accent); font-size: 13px; }
+  main { padding: 19px 15px 35px; }
+  .breadcrumb { margin-bottom: 13px; font-size: 12px; }
+  .chapter-description { margin-top: 6px; font-size: 14px; }
+  .chapter-tools { margin-top: 8px; }
+  .reading-progress, #continue-reading { font-size: 12px; }
+  .chapter-exercise-count { padding-left: 8px; }
+  .view-tabs { gap: 2px; margin: 8px 0 16px; }
+  .view-tabs button { flex: 1; padding-inline: 2px; font-size: 13px; }
+  .topic-index h2 { margin-bottom: 5px; }
+  .lesson-jump { gap: 4px; }
+  .lesson-jump a { grid-template-columns: 20px minmax(0, 1fr); gap: 2px; font-size: 12px; }
+  .lesson-card { padding: 20px 14px; }
+  .lesson-head { gap: 7px; }
+  .lesson-head .icon-button { width: 34px; height: 38px; }
+  .lesson-body { font-size: 15px; }
+  .lesson-extras { grid-template-columns: 1fr; gap: 10px; }
+  .lesson-body :where(th, td) { padding: 7px; }
+  .lesson-body table { font-size: 12px; }
+  .map-toolbar { padding: 8px; gap: 6px; }
+  .map-toolbar button { padding-inline: 8px; }
+  .mindmap { --map-arm: .8em; padding: 1.2em .9em; }
+  .map-item[data-depth='1'] > .map-node .map-label { max-width: 10.5em; }
+  .ppf-chart { padding-inline: 6px; }
+  .ppf-controls { padding: 15px; }
+  .home-hero { padding-top: 9px; padding-bottom: 22px; }
+  .quiz-grid { gap: 5px; }
+  .quiz-number { width: 33px; height: 33px; }
+  .quiz-stem { margin-bottom: 12px; }
+}
+
+@media (max-width: 430px) {
+  .topbar { padding-inline: 10px; gap: 6px; }
+  .brand { font-size: 15px; gap: 5px; }
+  .brand-mark { width: 22px; height: 22px; }
+  .mobile-menu { width: 34px; }
+  .download-button { padding-inline: 7px; font-size: 12px; }
+}
+
+@media (max-width: 360px) {
+  .theme-control { --theme-slot: 30px; }
+  .theme-option-system span { position: absolute; width: 1px; height: 1px; clip-path: inset(50%); overflow: hidden; }
+  .theme-option-system::after { content: '系统'; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .theme-thumb { transition: transform .18s ease-out; }
+  .button:not(:disabled):active, .download-button:active { transform: translateY(1px); }
+}
+
+@media print {
+  :root, :root[data-theme] { color-scheme: light; --background: #fff; --surface: #fff; --text: #22373c; --heading: #182c30; --muted: #43585c; --accent: #1a665b; --accent-soft: #edf5f2; }
+  .topbar, .sidebar, .view-tabs, .chapter-tools, .topic-index, .next-step, .lesson-head button { display: none !important; }
+  .layout, .reading-layout { display: block; }
+  main { padding: 0; }
+  .lesson-card { break-inside: avoid; }
+}
+
+.market-panel { --market-supply: #9c4a2f; }
+[data-theme="dark"] .market-panel { --market-supply: #f6a48a; }
+.market-demand-line { border-color: var(--accent); }
+.market-supply-line { border-color: var(--market-supply); border-top-style: dashed; }
+.market-baseline { border-color: var(--control-line); border-top-style: dotted; }
+.market-demand, .market-supply, .market-guide { fill: none; }
+.market-demand { stroke: var(--accent); }
+.market-supply { stroke: var(--market-supply); stroke-dasharray: 8 3; }
+.market-curve { stroke-width: 2.6; }
+.market-before { opacity: .5; stroke-width: 1.5; stroke-dasharray: 2 5; }
+.market-inactive { display: none; }
+.market-guide { stroke: var(--control-line); stroke-dasharray: 3 4; }
+.market-equilibrium-guide { opacity: .6; }
+.market-demand-point { fill: var(--accent); }
+.market-supply-point { fill: var(--market-supply); }
+.market-equilibrium { fill: var(--surface); stroke: var(--heading); stroke-width: 2.2; }
+.market-panel input[type="range"] { width: 100%; margin: 0 0 7px; }
+.market-panel .ppf-explanation { min-height: 0; }
+.market-outputs { margin-top: 0; }
+</style>
+</head>
+<body data-page="chapter" data-offline="false" data-flat-downloads="true">
+<a class="skip-link" href="#main">跳转到正文</a>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="知其所以，返回学习目录">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 7h9l3 4v17l-4-3H5V7Z" stroke="currentColor" stroke-width="1.7"/><path d="M27 7h-9l-3 4m2 17 4-3h6V7ZM9 12h3m-3 5h3m9-5h3m-3 5h3" stroke="currentColor" stroke-width="1.7"/></svg></span>
+    <span>知其所以<small>经济金融保险</small></span>
+  </a>
+  <nav class="top-actions" aria-label="全局导航">
+    <a href="index.html" class="header-link">学习目录</a>
+    <button class="header-link" data-action="favorites">我的收藏</button>
+    <button class="header-link" data-action="records">学习记录</button>
+    <div class="theme-control" id="theme-mode" role="radiogroup" aria-label="外观模式">
+      <span class="theme-thumb" aria-hidden="true"></span>
+      <input class="visually-hidden" id="theme-light" type="radio" name="appearance" value="light">
+      <label class="theme-option" for="theme-light">白天</label>
+      <input class="visually-hidden" id="theme-system" type="radio" name="appearance" value="system" aria-label="跟随系统" checked>
+      <label class="theme-option theme-option-system" for="theme-system" title="跟随系统"><span>跟随系统</span></label>
+      <input class="visually-hidden" id="theme-dark" type="radio" name="appearance" value="dark">
+      <label class="theme-option" for="theme-dark">黑夜</label>
+    </div>
+    <button class="download-button" data-action="download">离线学习</button>
+  </nav>
+  <button class="mobile-menu" data-action="sidebar" aria-label="展开章节导航" aria-controls="sidebar" aria-expanded="false"><span aria-hidden="true"></span></button>
+</header>
+<div id="storage-notice" class="storage-notice" role="status" hidden></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节导航">
+    <div class="sidebar-label">学习路径 <small id="open-chapter-count"></small></div>
+    <div class="sidebar-quick-actions"><button data-action="favorites">我的收藏</button><button data-action="records">学习记录</button></div>
+    <div id="sidebar-catalog"></div>
+  </aside>
+  <main id="main" tabindex="-1">
+    <div id="home-view" hidden></div>
+    <article id="chapter-view" hidden>
+      <div class="chapter-heading">
+        <div class="breadcrumb"><a href="index.html">学习目录</a><span>/</span><span id="chapter-module"></span><span>/</span><span id="chapter-number"></span></div>
+        <h1 id="chapter-title"></h1>
+        <p class="chapter-description" id="chapter-description"></p>
+        <div class="chapter-tools">
+          <div class="reading-progress"><span id="reading-label"></span><span class="chapter-exercise-count"></span></div>
+          <button class="text-button" id="continue-reading" hidden>继续上次阅读 <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <nav class="view-tabs" aria-label="章节内容">
+        <button data-view="learn" class="active" aria-current="page">考点精讲</button>
+        <button data-view="map">思维导图</button>
+        <button data-view="visual">交互图解</button>
+        <button data-view="practice">章节练习</button>
+      </nav>
+      <section id="view-learn" class="content-view" aria-labelledby="learn-heading">
+        <div class="reading-layout">
+          <aside class="topic-index" aria-labelledby="topic-heading">
+            <h2 id="topic-heading">知识点索引</h2>
+            <nav class="lesson-jump" id="lesson-jump" aria-label="知识点索引"></nav>
+          </aside>
+          <div class="reading-column">
+            <h2 id="learn-heading" class="visually-hidden">考点精讲</h2>
+            <div id="lessons"></div>
+            <div class="next-step"><button class="button button-primary" data-switch="practice">开始本章练习 <span aria-hidden="true">→</span></button></div>
+          </div>
+        </div>
+      </section>
+      <section id="view-map" class="content-view" hidden aria-labelledby="map-heading">
+        <div class="section-intro">
+          <h2 id="map-heading">思维导图</h2>
+          <p id="map-help">点击节点查看讲解，用节点旁的按钮展开或收起分支。图超出屏幕时可横向滑动。</p>
+        </div>
+        <div class="map-panel">
+          <div class="map-toolbar">
+            <div class="map-zoom" role="group" aria-label="导图缩放">
+              <button type="button" id="map-zoom-out" aria-label="缩小导图">−</button>
+              <button type="button" id="map-size" aria-label="恢复阅读比例" title="恢复阅读比例">100%</button>
+              <button type="button" id="map-zoom-in" aria-label="放大导图">+</button>
+            </div>
+            <button type="button" id="map-fit">适应宽度</button>
+            <button type="button" id="map-expand">收起分支</button>
+          </div>
+          <div class="map-viewport" tabindex="0" role="region" aria-labelledby="map-heading" aria-describedby="map-help">
+            <ul id="mindmap" class="mindmap"></ul>
+          </div>
+        </div>
+      </section>
+      <section id="view-visual" class="content-view" hidden></section>
+      <section id="view-practice" class="content-view" hidden aria-labelledby="practice-heading">
+        <h2 id="practice-heading" class="visually-hidden">章节练习</h2>
+        <div id="quiz"></div>
+      </section>
+    </article>
+  </main>
+</div>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
+<script src="catalog.js"></script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter07","number":7,"title":"市场结构理论","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-07-市场结构理论-离线学习.html"},"lessons":{"title":"市场结构理论","subtitle":"从同质产品的价格接受者，学到寡头之间的战略选择。","sections":[{"id":"market-types","title":"四种市场结构","summary":"从卖者数量、产品差异和进入壁垒辨认市场。","bodyHtml":"\u003cp>市场结构由相关市场的\u003cmark>厂商数量、产品差异、进入与退出障碍和定价能力\u003c/mark>共同刻画。产品差异尤其有助于区分完全竞争与垄断竞争。进入壁垒和单家控制力通常随垄断程度提高而增强。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>类型\u003c/th>\u003cth>卖者与产品\u003c/th>\u003cth>进入与定价\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>完全竞争\u003c/td>\u003ctd>大量卖者，同质产品\u003c/td>\u003ctd>自由进入，接受市场价格\u003c/td>\u003c/tr>\u003ctr>\u003ctd>垄断竞争\u003c/td>\u003ctd>较多卖者，差异化产品\u003c/td>\u003ctd>进入较容易，有一定定价能力\u003c/td>\u003c/tr>\u003ctr>\u003ctd>寡头垄断\u003c/td>\u003ctd>少数主要卖者，可同质或差异化\u003c/td>\u003ctd>进入较难，决策彼此依存\u003c/td>\u003c/tr>\u003ctr>\u003ctd>完全垄断\u003c/td>\u003ctd>一个卖者，无接近替代品\u003c/td>\u003ctd>进入障碍高，受市场需求约束\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>在给定同样的需求与边际成本等条件时，统一定价的垄断均衡通常比竞争均衡价格高、数量少。比较不同产业的价格和产量时还要考虑成本、需求和产品差异。\u003c/p>","keyTakeaway":"先界定相关市场，再比较厂商数量、产品和进入条件。","pitfall":"寡头的产品可以有差别，也可以同质。只看价格高低无法判别市场结构。","example":"标准化农产品的许多小卖家接近竞争模型；同一商圈的特色餐馆接近垄断竞争。"},{"id":"perfect-revenue","title":"竞争厂商的需求与收益","summary":"单个企业接受市场价格，P、AR、MR 在图上重合。","bodyHtml":"\u003cp>完全竞争通常假定买卖者众多、产品同质、资源可充分流动、信息充分。市场总需求通常向右下倾斜。单家竞争厂商影响不了市场价格，面对的是\u003cmark>给定价格处的水平需求曲线\u003c/mark>。\u003c/p>\u003cp>统一单价下，总收益 \u003cvar>TR\u003c/var>＝\u003cvar>PQ\u003c/var>，平均收益 \u003cvar>AR\u003c/var>＝\u003cvar>TR/Q\u003c/var>＝\u003cvar>P\u003c/var>。对价格接受者，多卖一单位也能增加 \u003cvar>P\u003c/var> 单位收益，故 \u003cvar>MR\u003c/var>＝\u003cvar>AR\u003c/var>＝\u003cvar>P\u003c/var>，与单厂商需求曲线重合。\u003c/p>","keyTakeaway":"竞争市场需求曲线和单个竞争厂商的需求曲线有不同形状。","pitfall":"只要统一单价，AR＝P；MR 也等于 P 还需要厂商无法影响价格。","example":"市场价是每公斤 5 元时，某小农户多卖 1 公斤，总收益增加 5 元。"},{"id":"profit-max","title":"边际收益与利润最大化","summary":"内部最优比较多生产一单位的收益和成本。","bodyHtml":"\u003cp>利润 \u003cvar>π\u003c/var>＝\u003cvar>TR\u003c/var>−\u003cvar>TC\u003c/var>。在可微的内部解，\u003cmark>MR＝MC\u003c/mark> 是一阶条件。增产时若 MR＞MC，利润提高；若 MR＜MC，增产降低利润。通常找 MR−MC 由正转负的交点，再和停产等边界比较。\u003c/p>\u003cp>完全竞争时 MR＝P，故最优产量通常在上升段的 MC 与 P 的交点。完全垄断则先用 MR＝MC 求产量，再用需求曲线确定该销量对应的价格。\u003c/p>","keyTakeaway":"数量由边际比较决定，利润正负由总收益与总成本或 P 与 AC 比较。","pitfall":"MR＝MC 也可能是利润最小点。离散产量和产能边界要比较可行选择。","example":"若第 5 单位的 MR 为 10、MC 为 8，第 6 单位的 MC 为 12 且 MR 仍为 10，增加第 5 单位有利，增加第 6 单位不利。"},{"id":"perfect-short","title":"完全竞争的短期决策","summary":"比较价格与平均可变成本最低值，判断是否继续营业。","bodyHtml":"\u003cp>短期中，总固定成本已经发生。厂商若生产，最优正产量满足 \u003cvar>P\u003c/var>＝\u003cvar>SMC\u003c/var>。当价格低于 \u003cmark>最小 AVC\u003c/mark>，所有正产量都无法覆盖可变成本，停产更好。等于最小 AVC 时，生产与停产都损失固定成本。\u003c/p>\u003cp>短期供给曲线是 SMC 在 AVC 最低点及其以上的上升部分。在给定价格下，生产者剩余是收益扣除可变成本，也等于价格减去各单位边际成本的加总。\u003c/p>","keyTakeaway":"停止营业点 SMC＝AVC，盈亏平衡点 SMC＝SAC。","pitfall":"P 低于 SAC 时会出现经济亏损，只要覆盖 AVC 仍可能继续生产。","example":"产量为 10 时，TR＝100、TVC＝80、TFC＝40。继续生产亏 20，停产亏 40。"},{"id":"perfect-long","title":"完全竞争的长期均衡","summary":"进入退出消除可复制厂商的超额经济利润。","bodyHtml":"\u003cp>长期中企业可调整规模，并进入或退出行业。在自由进入、同质厂商可复制的基准模型中，长期均衡处 \u003cmark>P＝MR＝LMC＝SMC＝SAC＝LAC\u003c/mark>，价格等于最低长期平均成本，企业获得正常利润。\u003c/p>\u003cp>长期厂商的供给决策由覆盖长期成本的 LMC 决定。若长期技术表现为恒定规模报酬，在相应产量区间可得到水平的长期边际成本。行业长期供给则取决于行业扩张如何改变投入品成本：成本不变、递增、递减行业分别对应水平、向上、向下的长期供给。厂商之间若有不能复制的要素优势，长期剩余可以体现为稀缺要素租金。\u003c/p>","keyTakeaway":"零经济利润表示收入覆盖包括机会成本在内的全部成本。","pitfall":"单厂商长期成本曲线和行业长期供给曲线属于不同层次。","example":"市场需求提高，成本不变行业短期涨价并吸引进入，长期可在原价格上实现更高的行业产量。"},{"id":"monopoly","title":"完全垄断与自然垄断","summary":"唯一卖者面对市场需求，成本优势只是壁垒的一类。","bodyHtml":"\u003cp>完全垄断的基准是行业只有一个卖者，产品缺少接近替代品。壁垒可来自行政排他、关键原材料控制、专利保护或成本结构。若一家生产整个市场所需数量的成本低于分给多家生产的总成本，称为\u003cmark>自然垄断\u003c/mark>。\u003c/p>\u003cp>统一定价的垄断者面对市场需求，\u003cvar>AR\u003c/var>＝\u003cvar>P\u003c/var>。需求向下倾斜时，\u003cvar>MR\u003c/var>＝\u003cvar>P\u003c/var>＋\u003cvar>Q\u003c/var>×d\u003cvar>P\u003c/var>/d\u003cvar>Q\u003c/var>＜\u003cvar>P\u003c/var>。短期内部均衡满足 MR＝SMC，长期在最优规模下满足 MR＝LMC＝SMC。均衡价格和产量共同受需求与成本影响，无法从价格单独推导常规供给曲线。\u003c/p>","keyTakeaway":"先由 MR＝MC 选产量，再从市场需求读取价格。","pitfall":"市场力量受需求约束。控制自然资源与自然垄断是不同机制。","example":"线性需求 P＝100−Q、MC＝20 时，MR＝100−2Q，故垄断产量 40、价格 60。"},{"id":"discrimination","title":"三级价格歧视怎么区分","summary":"比较按支付意愿、按购买量与按群体定价。","bodyHtml":"\u003cp>\u003cstrong>价格歧视\u003c/strong>是同类商品或服务的价差不能由相应成本差异解释。卖家需要一定市场力量和限制套利的能力。分群定价还要求能够识别群体，其需求条件通常不同。\u003c/p>\u003cul>\u003cli>\u003cstrong>一级\u003c/strong>：按每一单位的最高支付意愿定价。\u003c/li>\u003cli>\u003cstrong>二级\u003c/strong>：按数量、版本或套餐设置价格，消费者自行选择。\u003c/li>\u003cli>\u003cstrong>三级\u003c/strong>：按学生、普通乘客等可识别群体分价。在相同边际成本等条件下，需求更缺乏弹性的群体常被收取较高的价格。\u003c/li>\u003c/ul>\u003cp>铁路学生优惠票用来识别按身份分群的机制。\u003cstrong>规则核验于 2026 年 11 月 11 日\u003c/strong>：合资格学生通常可按学年使用四次单程优惠，全年可用；适用席别包括普速硬座、硬卧及客规列明的动车组席别。\u003ca href=\"https://kyfw.12306.cn/otn/gonggao/saleTicketMeans.html?linktypeid=means1\" target=\"_blank\" rel=\"noopener noreferrer\">铁路 12306 客运规程\u003c/a> · \u003ca href=\"https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202509/t20250908_4192554.html\" target=\"_blank\" rel=\"noopener noreferrer\">学生优惠票使用时间说明\u003c/a>\u003c/p>","keyTakeaway":"关键是价差机制。一级逐单位，二级自选数量或套餐，三级按身份或市场分组。","pitfall":"安装距离增加带来的服务成本差异可以解释价差，不能仅凭收费不同认定价格歧视。","example":"会员和非会员若按可识别身份在成本相同的服务上付不同价格，接近三级；用水按使用量分档定价，接近二级。"},{"id":"monopolistic","title":"垄断竞争的短期和长期","summary":"产品差异带来定价能力，自由进入压低长期经济利润。","bodyHtml":"\u003cp>垄断竞争中有很多生产者和消费者，产品有差异，进入与退出较容易。单家厂商面对向下倾斜的需求。短期内部最优满足 MR＝SMC，可能有利润、盈亏平衡或亏损。\u003c/p>\u003cp>长期进入使单厂商需求移动，直至在最优产量处与 LAC 相切。在标准模型中 \u003cmark>MR＝LMC＝SMC，AR＝LAC＝SAC\u003c/mark>，经济利润为零。由于需求向下倾斜，通常 P＞MC，产量低于使 LAC 最小的规模。\u003c/p>","keyTakeaway":"长期 AR＝LAC 给出零经济利润，MR＝LMC 决定产量。","pitfall":"若区分单厂商调价时所认为的需求和同行共同调价的实际轨迹，边际收益来自厂商决策所依据的需求。","example":"特色餐馆短期获利后，同类餐馆进入会分走客源，压缩单店经济利润。"},{"id":"oligopoly","title":"寡头的战略相互依赖","summary":"少数厂商的价格和产量决策会彼此影响。","bodyHtml":"\u003cp>寡头市场由少数重要厂商主导，进入障碍通常较高。产品既可以同质，也可以差异化。厂商决定产量、价格或广告时要预判对手的反应，\u003cmark>战略相互依赖\u003c/mark>是识别寡头的核心。\u003c/p>\u003cp>寡头的均衡数量由需求、成本和竞争者策略共同决定。同一价格未必总对应同一均衡产量，通常不存在像完全竞争中那样的独立供给曲线。\u003c/p>","keyTakeaway":"厂商很少时，改变自身策略可能改变对手的最优反应。","pitfall":"不能从寡头结构直接推出高利润、产能过剩或产品差异。","example":"两家供应商竞争时，一家新增生产线后，另一家可能改变原有产量计划。"},{"id":"oligopoly-models","title":"古诺、领导者、折弯需求与串谋","summary":"区分决定产量或价格，以及行动是否有先后。","bodyHtml":"\u003cul>\u003cli>\u003cstrong>古诺\u003c/strong>：厂商同时选择数量，把对手数量当作已知。线性需求、成本为零且有 N 家对称厂商时，单家产量为市场容量的 \u003cmark>1/(N＋1)\u003c/mark>，行业为 N/(N＋1)。\u003c/li>\u003cli>\u003cstrong>斯塔克尔伯格\u003c/strong>：领导者先选数量，追随者观察后反应，领导者事先考虑该反应。\u003c/li>\u003cli>\u003cstrong>斯威齐\u003c/strong>：对手不跟随提价，却跟随降价。折点上方的需求更有弹性，折点下方更缺乏弹性，MR 可能出现间断。\u003c/li>\u003cli>\u003cstrong>卡特尔\u003c/strong>：以行业联合利润为目标，在集团边际收益与有效分配下的边际成本相等处选总量。\u003c/li>\u003cli>\u003cstrong>伯特兰德\u003c/strong>：厂商同时定价。在同质品、相同恒定边际成本、无容量约束的基准中，价格降至边际成本。\u003c/li>\u003c/ul>\u003cp>在线性同质品和相同恒定成本的基准比较中，伯特兰德与竞争的产量较高，古诺居中，串谋最少；价格和行业经济利润的排序反向。\u003c/p>","keyTakeaway":"先定位竞争变量与行动顺序，再套用相应均衡条件。","pitfall":"古诺的分数依赖对称和线性条件。折弯需求讨论的是拐点附近两侧的弹性。","example":"若市场容量为 90、成本为零，两个对称古诺厂商各生产 30，市场总产量 60。"}],"mindmap":[{"label":"完全竞争市场","target":"market-types","children":[{"label":"市场结构划分","target":"market-types","children":[{"label":"厂商数量","target":"market-types"},{"label":"产品差异","target":"market-types"},{"label":"进入壁垒","target":"market-types"},{"label":"定价能力","target":"market-types"}]},{"label":"比较价格与数量","target":"market-types","children":[{"label":"在成本、需求相同时比较竞争程度","target":"market-types"}]},{"label":"完全竞争的条件","target":"market-types","children":[{"label":"买卖者众多","target":"market-types"},{"label":"产品同质","target":"market-types"},{"label":"资源可流动","target":"market-types"},{"label":"信息充分","target":"market-types"}]},{"label":"市场与厂商需求","target":"perfect-revenue","children":[{"label":"市场需求通常向右下倾斜","target":"perfect-revenue"},{"label":"厂商水平需求，P＝AR＝MR","target":"perfect-revenue"}]},{"label":"短期均衡","target":"perfect-short","children":[{"label":"MR＝SMC＝P","target":"profit-max"},{"label":"停止营业点为最小 AVC","target":"perfect-short"},{"label":"短期供给为 AVC 最低点以上的 SMC","target":"perfect-short"},{"label":"短期生产者剩余等于收益减可变成本","target":"perfect-short"}]},{"label":"长期均衡","target":"perfect-long","children":[{"label":"可自由调整规模及进入退出","target":"perfect-long"},{"label":"P＝MR＝LMC＝SMC＝SAC＝LAC","target":"perfect-long"},{"label":"行业成本不变、递增、递减时的供给","target":"perfect-long"},{"label":"稀缺要素优势与长期剩余","target":"perfect-long"}]}]},{"label":"完全垄断市场","target":"monopoly","children":[{"label":"形成原因","target":"monopoly","children":[{"label":"行政排他","target":"monopoly"},{"label":"关键原材料控制","target":"monopoly"},{"label":"专利保护","target":"monopoly"},{"label":"自然垄断","target":"monopoly"}]},{"label":"需求和厂商均衡","target":"monopoly","children":[{"label":"行业需求就是厂商需求","target":"monopoly"},{"label":"短期 MR＝SMC","target":"monopoly"},{"label":"长期 MR＝LMC＝SMC","target":"monopoly"},{"label":"一般没有常规供给曲线","target":"monopoly"}]},{"label":"价格歧视","target":"discrimination","children":[{"label":"成本不能解释同类服务的价差","target":"discrimination"},{"label":"可区分消费者且能限制套利","target":"discrimination"},{"label":"一级按支付意愿","target":"discrimination"},{"label":"二级按数量或套餐","target":"discrimination"},{"label":"三级按群体","target":"discrimination"}]}]},{"label":"垄断竞争市场","target":"monopolistic","children":[{"label":"厂商和消费者较多","target":"monopolistic"},{"label":"产品有差异","target":"monopolistic"},{"label":"进入退出较容易","target":"monopolistic"},{"label":"短期 MR＝SMC","target":"monopolistic"},{"label":"长期 AR＝LAC，MR＝LMC","target":"monopolistic"}]},{"label":"寡头垄断市场","target":"oligopoly","children":[{"label":"市场特征","target":"oligopoly","children":[{"label":"少数厂商控制市场","target":"oligopoly"},{"label":"产品可同质或差异化","target":"oligopoly"},{"label":"进入较难","target":"oligopoly"},{"label":"策略相互影响","target":"oligopoly"}]},{"label":"典型模型","target":"oligopoly-models","children":[{"label":"古诺同时选产量","target":"oligopoly-models"},{"label":"斯塔克尔伯格的产量领导","target":"oligopoly-models"},{"label":"斯威齐的折弯需求","target":"oligopoly-models"},{"label":"卡特尔联合最大化","target":"oligopoly-models"},{"label":"伯特兰德同时选价格","target":"oligopoly-models"},{"label":"基准模型比较数量、价格与利润","target":"oligopoly-models"}]}]}]},"questions":[{"id":"eco-07-q01","number":1,"group":"完全竞争市场","type":"single","stem":"完全竞争市场和垄断竞争市场的主要区别是（　　）。","options":{"A":"企业是否可以取得最大利润","B":"产品是否有差别性","C":"是否存在政府管制","D":"消费者的价格弹性大小"},"answer":["B"],"explanationSupplement":"同质产品和差异化产品是区分两者的直接线索。垄断竞争有较多卖者，但每家的产品有所不同，因而拥有一定的定价能力。","optionExplanations":{"A":"两类企业都可寻求利润最大化。","B":"完全竞争产品同质，垄断竞争产品有差异。","C":"政府管制不是分类依据。","D":"可比较厂商需求曲线的弹性，但不是选项中直接的区分标准。"},"conceptId":"market-types"},{"id":"eco-07-q02","number":2,"group":"完全竞争市场","type":"single","stem":"不论在何种市场上，企业实现利润最大化的决策原则都是（　　）。","options":{"A":"边际收益等于边际成本","B":"边际收益大于边际成本","C":"价格大于平均成本","D":"劳动的边际产量为零"},"answer":["A"],"explanationSupplement":"可微的内部最优点通常满足 MR＝MC，并要求在附近产量增加时 MR−MC 从正变负。还应核对停产、容量等边界。","optionExplanations":{"A":"是内部利润最大化的一阶条件。","B":"继续增加产量可提高利润。","C":"只说明平均每单位有正经济利润。","D":"边际产量为零不是利润最大化的一般条件。"},"conceptId":"profit-max"},{"id":"eco-07-q03","number":3,"group":"完全竞争市场","type":"single","stem":"在完全竞争市场上，单个企业的需求曲线是（　　）。","options":{"A":"向右下方倾斜的","B":"向右上方倾斜的","C":"平行于横轴的","D":"平行于纵轴的"},"answer":["C"],"explanationSupplement":"单家竞争企业无法影响市场给定价格。在标准模型中，该价位的企业需求曲线为水平线。","optionExplanations":{"A":"常见于有市场力量的企业。","B":"并非给定价格的需求曲线。","C":"横轴是产量，固定价格表现为水平线。","D":"竖线表示给定数量，不符合价格接受者模型。"},"conceptId":"perfect-revenue"},{"id":"eco-07-q04","number":4,"group":"完全竞争市场","type":"single","stem":"实施价格歧视的前提和基本条件不包括（　　）。","options":{"A":"卖方具有垄断地位","B":"企业生产的商品或服务具有耐用品性质","C":"消费者之间存在不同的需求价格弹性","D":"不同消费者所在的市场能被隔离开"},"answer":["B"],"explanationSupplement":"典型三级价格歧视要求卖方有一定市场力量，能够区分需求弹性不同的群体并限制转售。是否耐用不构成必要条件。","optionExplanations":{"A":"市场力量是实施差异化定价的重要条件。","B":"服务等非耐用品也可实行价格歧视。","C":"有助于对各群体采用不同价格。","D":"阻止跨市场套利可维持价差。"},"conceptId":"discrimination"},{"id":"eco-07-q05","number":5,"group":"完全竞争市场","type":"single","stem":"完全垄断企业和完全竞争市场中的企业的一个重要区别是（　　）。","options":{"A":"完全垄断企业的供给曲线就是行业的供给曲线","B":"完全垄断企业的供给曲线就是个别企业的供给曲线","C":"完全垄断企业的需求曲线就是行业的需求曲线","D":"完全垄断企业的需求曲线就是多个企业的需求曲线"},"answer":["C"],"explanationSupplement":"完全垄断只有一个卖者，该卖者面对整个行业的市场需求。它的最优产量依赖需求和成本，没有与需求无关的常规供给曲线。","optionExplanations":{"A":"垄断者一般没有独立供给曲线。","B":"同样假设了垄断者有常规供给曲线。","C":"唯一卖方所面对的需求等于市场需求。","D":"行业只有一家生产者。"},"conceptId":"monopoly"},{"id":"eco-07-q06","number":6,"group":"完全竞争市场","type":"single","stem":"完全竞争市场和完全垄断市场上，企业的平均收益都是等于（　　）。","options":{"A":"总收益","B":"供给量","C":"边际收益","D":"单位产品价格"},"answer":["D"],"explanationSupplement":"在统一单价模型下，总收益 TR＝P×Q，所以 AR＝TR/Q＝P；完全竞争另有 MR＝P，垄断通常有 MR＜P。","optionExplanations":{"A":"平均收益要以总收益除以数量。","B":"收益是单位价格，数量是不同变量。","C":"完全垄断一般不满足。","D":"两类市场的统一单价模型都成立。"},"conceptId":"perfect-revenue"},{"id":"eco-07-q07","number":7,"group":"完全竞争市场","type":"single","stem":"完全竞争厂商利润最大化的条件是“价格等于边际成本”，这表示企业将（　　）。","options":{"A":"扩大产出直到价格上升到等于边际成本","B":"扩大产出直到价格下降到等于边际成本","C":"扩大产出直到边际成本下降到等于价格","D":"扩大产出直到边际成本上升到等于价格"},"answer":["D"],"explanationSupplement":"价格接受者把价格看作给定值。只要新增产出的边际成本低于价格，增产就能提高利润，直到上升段的 MC 与价格相等。","optionExplanations":{"A":"增产不会使该企业面对的价格上升。","B":"增产不会使该企业面对的价格下降。","C":"边际成本下降段上的交点通常不是利润最大点。","D":"上升段的 MC 追上给定价格。"},"conceptId":"profit-max"},{"id":"eco-07-q08","number":8,"group":"完全竞争市场","type":"single","stem":"完全竞争市场上，单个企业的需求曲线的是（　　）。","options":{"A":"与整个行业的需求曲线一致","B":"是向右下方倾斜的","C":"是与横轴平行的","D":"不影响市场价格"},"answer":["C"],"explanationSupplement":"题目比较的是单个竞争厂商的需求曲线形状。厂商在给定市场价格上销售，所以该曲线与横轴平行。","optionExplanations":{"A":"整个行业的需求通常向右下方倾斜。","B":"这一形状不属于单个价格接受者。","C":"固定价格对应水平线。","D":"描述厂商的行为约束，但没有回答曲线形状。"},"conceptId":"perfect-revenue"},{"id":"eco-07-q09","number":9,"group":"完全竞争市场","type":"single","stem":"下列选项中，不属于完全竞争市场特征的是（　　）。","options":{"A":"完全竞争厂商所生产的产品有较大差别","B":"市场上有大量的买者和卖者","C":"资源可以自由流动","D":"完全竞争厂商是既定市场均衡价格的接受者"},"answer":["A"],"explanationSupplement":"完全竞争的典型前提是买卖者众多、产品同质、资源可流动及信息充分。较大的产品差别与同质性冲突。","optionExplanations":{"A":"不属于，产品应当同质。","B":"属于，单家买卖者份额很小。","C":"属于，进入退出及调整不受显著阻碍。","D":"属于，单家厂商接受市场给定价格。"},"conceptId":"market-types"},{"id":"eco-07-q10","number":10,"group":"完全竞争市场","type":"single","stem":"作为市场价格接受者的厂商是（　　）。","options":{"A":"垄断竞争厂商","B":"完全垄断厂商","C":"完全竞争厂商","D":"寡头垄断厂商"},"answer":["C"],"explanationSupplement":"完全竞争厂商的市场份额很小，产品与同行同质，不能独立抬高自己的销售价格。","optionExplanations":{"A":"差异化产品带来一定市场力量。","B":"唯一卖者选择价格与产量组合。","C":"接受由市场供求形成的价格。","D":"需要考虑对手行动，对价格有一定影响。"},"conceptId":"market-types"},{"id":"eco-07-q11","number":11,"group":"完全竞争市场","type":"single","stem":"若企业的平均收益曲线、边际收益曲线和需求曲线是同一条曲线，则此时的市场类型是（　　）。","options":{"A":"完全垄断市场","B":"完全竞争市场","C":"寡头垄断市场","D":"垄断竞争市场"},"answer":["B"],"explanationSupplement":"给定市场价格 P 下，总收益随产量以 P 为斜率增加。需求、AR 和 MR 因而都是同一条水平线。","optionExplanations":{"A":"垄断者的需求和 AR 重合，但 MR 通常较低。","B":"三条曲线都等于给定价格。","C":"寡头要考虑竞争者反应。","D":"差异化厂商的需求通常向下倾斜。"},"conceptId":"perfect-revenue"},{"id":"eco-07-q12","number":12,"group":"完全竞争市场","type":"single","stem":"完全竞争行业实现长期均衡时，下列表述不正确的是（　　）。","options":{"A":"行业中的企业都实现了正利润","B":"行业中的企业都实现了正常利润","C":"该行业没有新的企业进入","D":"行业中没有任何企业退出"},"answer":["A"],"explanationSupplement":"自由进入退出且企业可复制时，正经济利润引来新企业，亏损使企业退出。长期均衡中经济利润为零，仍取得计入成本的正常利润。","optionExplanations":{"A":"若指正经济利润，该项不正确。","B":"正常利润已计入机会成本。","C":"长期均衡没有净进入的动力。","D":"长期均衡没有因经济亏损而退出的动力。"},"conceptId":"perfect-long"},{"id":"eco-07-q13","number":13,"group":"完全竞争市场","type":"single","stem":"厂商的停止营业点是指（　　）。（2019）","options":{"A":"SMC 与 SAC 相交之点","B":"SMC 与 AVC 相交之点","C":"SMC 与 AFC 相交之点","D":"SAC 与 AVC 相切之点"},"answer":["B"],"explanationSupplement":"短期停业点是平均可变成本 AVC 的最低点，此处 SMC＝AVC。在这个价格上，生产与停业都只损失总固定成本。","optionExplanations":{"A":"SMC 与 SAC 的相交点对应平均总成本最低点。","B":"SMC 穿过 AVC 最低点，符合停业点条件。","C":"AFC 是平均固定成本，不决定停业。","D":"存在正固定成本时 SAC 位于 AVC 上方。"},"conceptId":"perfect-short"},{"id":"eco-07-q14","number":14,"group":"完全垄断市场","type":"single","stem":"下列产业中最接近于完全垄断模式的是（　　）。","options":{"A":"公用事业","B":"汽车行业","C":"药品行业","D":"玉米行业"},"answer":["A"],"explanationSupplement":"供水管网等公用网络固定投入高，单家覆盖整个市场有时比重复建设更省成本，接近自然垄断的模型。","optionExplanations":{"A":"典型公用网络更接近单家供给。","B":"通常有数家主要厂商，接近寡头。","C":"某些专利药可以有较强市场力量，但行业并非普遍单一卖者。","D":"农产品通常有众多卖者。"},"conceptId":"monopoly"},{"id":"eco-07-q15","number":15,"group":"完全垄断市场","type":"single","stem":"下列描述中对价格歧视的概念表达最准确的是（　　）。","options":{"A":"以同一价格销售不同产品","B":"以不同价格销售同一种产品","C":"以不同价格销售不同产品","D":"以同一价格销售同一种产品"},"answer":["B"],"explanationSupplement":"价格歧视用不同价格销售同一产品或服务，且价差无法单纯用服务成本差别解释。","optionExplanations":{"A":"同价销售不同产品不符合。","B":"最接近，完整定义还需排除成本差异。","C":"不同产品本身即可有不同价格。","D":"没有价差。"},"conceptId":"discrimination"},{"id":"eco-07-q16","number":16,"group":"完全垄断市场","type":"single","stem":"关于完全垄断企业的需求曲线的说法，正确的是（　　）。","options":{"A":"完全垄断企业的需求曲线是一条平行于横轴的水平线","B":"完全垄断企业的需求曲线位于其平均收益曲线的上方","C":"完全垄断企业的需求曲线与整个行业的需求曲线相同","D":"完全垄断企业的需求曲线与完全竞争企业的需求曲线相同"},"answer":["C"],"explanationSupplement":"整个行业只有这一家厂商，所以该厂商面对全部市场需求。在统一单价销售下，需求曲线也等于平均收益曲线。","optionExplanations":{"A":"是单个完全竞争厂商的情形。","B":"与平均收益曲线重合。","C":"唯一卖方承接整个市场需求。","D":"竞争厂商接受市场给定价格。"},"conceptId":"monopoly"},{"id":"eco-07-q17","number":17,"group":"完全垄断市场","type":"single","stem":"完全垄断企业为了实现利润最大化，应遵循的决策原则是（　　）。","options":{"A":"按照价格弹性进行价格歧视","B":"边际收益大于边际成本","C":"边际收益等于边际成本","D":"边际收益等于平均收益"},"answer":["C"],"explanationSupplement":"单一定价垄断者先比较 MR 与 MC 选择产量，再沿市场需求曲线读取能卖出这一产量的价格。内部最优点应核对 MR−MC 的变号。","optionExplanations":{"A":"价格歧视不是所有垄断者都能实行的。","B":"增加产量仍可能提高利润。","C":"是通常的内部最优条件。","D":"向下倾斜的需求下 MR 一般小于 AR。"},"conceptId":"profit-max"},{"id":"eco-07-q18","number":18,"group":"完全垄断市场","type":"single","stem":"自然垄断指的是（　　）的情况。","options":{"A":"一个企业能以低于两个或更多企业的成本向整个市场供给一种产品","B":"企业垄断某种自然资源","C":"政府对重要自然资源实行完全垄断","D":"两家企业共同控制一个市场"},"answer":["A"],"explanationSupplement":"自然垄断是成本结构造成的。一家供应全市场的总成本低于由多家分摊同一总产量的总成本时，单家供给更有效率。","optionExplanations":{"A":"直接表达成本条件。","B":"属于关键资源控制。","C":"可能是行政排他。","D":"描述双寡头情形。"},"conceptId":"monopoly"},{"id":"eco-07-q19","number":19,"group":"完全垄断市场","type":"single","stem":"整个行业只有唯一供给者的市场结构是（　　）。","options":{"A":"完全竞争市场","B":"垄断竞争市场","C":"寡头垄断市场","D":"完全垄断市场"},"answer":["D"],"explanationSupplement":"先数相关市场中的供给者。完全垄断在模型中只有一家，且产品没有接近替代品。","optionExplanations":{"A":"大量卖者，产品同质。","B":"较多卖者，产品差异化。","C":"少数重要卖者。","D":"唯一供给者。"},"conceptId":"market-types"},{"id":"eco-07-q20","number":20,"group":"完全垄断市场","type":"single","stem":"南非的钻石公司戴比尔斯，一度控制了世界生产钻石资源的80%左右，它的市场份额并不是100%，但是也大到足以对世界钻石价格产生重大影响，这种垄断属于（　　）。","options":{"A":"自然垄断","B":"政府垄断","C":"对某些产品的专利权形成的完全垄断","D":"对某些特殊的原材料的单独控制而形成的对这些资源和产品的完全垄断"},"answer":["D"],"explanationSupplement":"按题设，市场力量的来源是对关键钻石资源的控制。题设历史份额用于识别成因；份额小于100%时，严格说应区分支配地位与单一供给者的完全垄断。","optionExplanations":{"A":"自然垄断看供给成本条件。","B":"没有给出行政授予排他权。","C":"没有以专利排除竞争。","D":"题设说明关键资源控制。"},"conceptId":"monopoly"},{"id":"eco-07-q21","number":21,"group":"完全垄断市场","type":"single","stem":"关于完全垄断企业需求曲线和收益曲线的关系，下列说法正确的是（　　）。","options":{"A":"需求曲线和平均收益曲线是完全重合的","B":"需求曲线和边际收益曲线是完全重合的","C":"边际收益曲线和平均收益曲线是完全重合的","D":"边际收益曲线位于平均收益曲线的上方"},"answer":["A"],"explanationSupplement":"统一单价 P 下，AR＝PQ/Q＝P，因而 AR 与逆需求曲线重合。当 P 随销量下降，MR＝P＋Q×dP/dQ 低于 P。","optionExplanations":{"A":"平均每单位收益就是该销量对应的单价。","B":"边际收益通常更低。","C":"新增一单位往往要降低既有单位的单价。","D":"边际收益在需求下方。"},"conceptId":"monopoly"},{"id":"eco-07-q22","number":22,"group":"完全垄断市场","type":"single","stem":"在我国，火车硬座客票假期对大中专学生回家和返校优惠票价属于（　　）。","options":{"A":"一级价格歧视","B":"二级价格歧视","C":"三级价格歧视","D":"四级价格歧视"},"answer":["C"],"explanationSupplement":"按学生身份分组，在同类客运服务上适用不同价格，是三级价格歧视模型的例子。题干中的假期场景用于分类，现行规则见对应知识点。","optionExplanations":{"A":"一级按各单位的支付意愿逐一收费。","B":"二级以购买量或套餐菜单区分。","C":"学生与普通乘客按可识别身份分组。","D":"通常使用一、二、三级划分。"},"conceptId":"discrimination"},{"id":"eco-07-q23","number":23,"group":"完全垄断市场","type":"discussion","stem":"下列关于完全垄断市场特征的说法，错误的是（　　）。","options":{"A":"只有一个生产者，因而生产者是价格的决定者，而不是价格的接受者","B":"完全垄断者的产品是没有合适替代品的独特产品","C":"完全垄断者对价格有较大程度的控制","D":"其他企业进入这一市场非常困难"},"answer":[],"explanationSupplement":"市场力量使垄断者对价格有较强影响，但定价受到需求约束。A 中的价格决定者按标准模型理解，B、C、D 也都可以成立，题目缺少唯一的错误项。","optionExplanations":{"A":"通常称有定价权，同时要沿需求曲线选择价格与产量。","B":"缺乏接近替代品是模型的重要条件。","C":"具有较强控制力是合理描述。","D":"进入壁垒通常较高。"},"conceptId":"monopoly"},{"id":"eco-07-q24","number":24,"group":"完全垄断市场","type":"single","stem":"下列哪项是二级价格歧视的例子？（　　）","options":{"A":"供水部门根据水的消费量制定不同的价格","B":"航空公司根据旅客的类型制定不同的价格","C":"企业根据消费者的意愿支付水平的不同制定不同的价格","D":"景点对本地和外地游客出售不同价格的门票"},"answer":["A"],"explanationSupplement":"第二级价格歧视通常按数量区间或可自选的套餐收费。无需事先识别不同买家的群体身份。","optionExplanations":{"A":"按用量设置阶梯价，符合数量区间机制。","B":"按旅客类型区分通常是三级。","C":"若能逐一识别支付意愿并按其收费，接近一级。","D":"按可识别的地域群体区分，接近三级。"},"conceptId":"discrimination"},{"id":"eco-07-q25","number":25,"group":"完全垄断市场","type":"discussion","stem":"下列行为中，属于价格歧视的是（　　）。","options":{"A":"超市每天下午固定时间对蔬菜将提供临时促销价","B":"坚持产品上门安装服务，并根据购买者居住地址的远近收取不同的安装费用","C":"向周末出行的旅客收取无折扣票价，向工作日出行旅客出售折扣票","D":"上述所有"},"answer":[],"explanationSupplement":"是否属于价格歧视，要比较同类服务的价差能否由供给成本解释。远距离安装可能更耗时，临近打烊的蔬菜价值也可能变化。题目缺少排除这些解释的条件，无法给出唯一选项。","optionExplanations":{"A":"同质同成本且按支付意愿分时销售时可能成立。","B":"远距离安装的额外成本可能解释价差。","C":"若同类座位的成本相近，按出行时段分价可作为例子。","D":"不足以认定三个场景都属于价格歧视。"},"conceptId":"discrimination"},{"id":"eco-07-q26","number":26,"group":"垄断竞争市场","type":"single","stem":"任一不完全竞争市场的本质特点是单个企业的（　　）。","options":{"A":"需求曲线向下倾斜","B":"边际收益大于价格","C":"在产出超过一定数量后平均成本曲线下降","D":"厂商产品同质"},"answer":["A"],"explanationSupplement":"在基础模型中，具有市场力量的单个厂商面对向下倾斜的需求。增加销量通常需要降低价格，边际收益低于价格。","optionExplanations":{"A":"与价格接受者的水平需求相区分。","B":"需求向下时通常 MR＜P。","C":"是否存在规模经济属于成本特征。","D":"不完全竞争既可能同质也可能差异化。"},"conceptId":"market-types"},{"id":"eco-07-q27","number":27,"group":"垄断竞争市场","type":"single","stem":"下列属于垄断竞争市场的特征的是（　　）。","options":{"A":"没有很多生产者和消费者","B":"产品具有同质性","C":"进入或者退出市场比较难","D":"进入或者退出市场比较容易"},"answer":["D"],"explanationSupplement":"垄断竞争把产品差异和较自由进入结合起来。众多企业各有客户群，超额利润会吸引相似产品加入竞争。","optionExplanations":{"A":"通常有众多企业和消费者。","B":"产品有差异。","C":"进入障碍通常没有垄断或寡头那么高。","D":"是标准模型的特征。"},"conceptId":"monopolistic"},{"id":"eco-07-q28","number":28,"group":"垄断竞争市场","type":"single","stem":"在任何市场中，厂商的平均收益曲线可以用（　　）表示。","options":{"A":"它的产品需求曲线","B":"它的产品供给曲线","C":"行业的产品需求曲线","D":"行业的产品供给曲线"},"answer":["A"],"explanationSupplement":"在统一单价销售下，厂商卖出 Q 单位取得 PQ 的收益，平均收益就是 P。这里的价格来自该厂商所面对的产品需求。","optionExplanations":{"A":"它自身的逆需求曲线给出 AR。","B":"供给反映成本和供货决策。","C":"只有在该厂商独占市场时才与其需求重合。","D":"行业供给不能给出单厂商平均收益。"},"conceptId":"perfect-revenue"},{"id":"eco-07-q29","number":29,"group":"垄断竞争市场","type":"single","stem":"在垄断竞争中（　　）。","options":{"A":"只有为数很少几个厂商生产有差异的产品","B":"有许多厂商生产同质产品","C":"只有为数很少几个厂商生产同质产品","D":"有许多厂商生产有差异的产品"},"answer":["D"],"explanationSupplement":"看厂商数量和产品同质性。垄断竞争有许多企业，产品是可替代但有所区别的。","optionExplanations":{"A":"少数企业且产品有差异更接近寡头。","B":"许多厂商生产同质品更接近完全竞争。","C":"少数厂商生产同质品可属于寡头。","D":"同时满足企业众多和产品差异。"},"conceptId":"monopolistic"},{"id":"eco-07-q30","number":30,"group":"垄断竞争市场","type":"single","stem":"垄断竞争厂商长期均衡时，必然有（　　）。","options":{"A":"价格大于长期平均成本","B":"在均衡点上，AR=LAC","C":"资源在广告中浪费","D":"边际成本等于实际需求曲线中产生的边际收益"},"answer":["B"],"explanationSupplement":"在自由进出的长期均衡，进入使单家厂商的需求移到与长期平均成本相切的位置。该点 P＝AR＝LAC，而产量选择依赖其决策所用需求的 MR。","optionExplanations":{"A":"正经济利润会吸引进入。","B":"长期零经济利润意味着 AR＝LAC。","C":"广告可有信息价值，不能说必然浪费。","D":"在区分主观需求与厂商共同调价轨迹的模型中，MR 取自其决策所依据的需求。"},"conceptId":"monopolistic"},{"id":"eco-07-q31","number":31,"group":"寡头垄断市场","type":"single","stem":"寡头垄断市场的主要特征是（　　）。","options":{"A":"资本容量过剩","B":"较高的利润率","C":"企业生产差别产品","D":"企业之间存在依存关系"},"answer":["D"],"explanationSupplement":"寡头最具区分度的特征是战略相互依赖：每家的定价、产量等决策会改变其他大厂商的利润和最优反应。","optionExplanations":{"A":"产能过剩可能出现，非必要特征。","B":"高利润取决于竞争方式与成本。","C":"产品既可能差异化也可能同质。","D":"少数大企业需要考虑彼此反应。"},"conceptId":"oligopoly"},{"id":"eco-07-q32","number":32,"group":"寡头垄断市场","type":"single","stem":"在国际航空制造业，少数几家厂商控制了整个市场的产品生产和销售，这种市场一般被称为（　　）。","options":{"A":"寡头垄断市场","B":"垄断竞争市场","C":"完全垄断市场","D":"完全竞争市场"},"answer":["A"],"explanationSupplement":"题设强调少数大厂商占据市场并相互影响，符合寡头的结构定义。","optionExplanations":{"A":"少数卖者控制多数市场销售。","B":"垄断竞争通常有很多卖者。","C":"完全垄断只有一家。","D":"完全竞争中个别企业不能影响价格。"},"conceptId":"oligopoly"},{"id":"eco-07-q33","number":33,"group":"寡头垄断市场","type":"single","stem":"寡头垄断和垄断竞争的主要区别是（　　）。","options":{"A":"厂商之间相互影响的程度不同","B":"厂商的成本函数不同","C":"厂商非价格竞争的种类不同","D":"厂商生产的产品不同"},"answer":["A"],"explanationSupplement":"寡头厂商数量少，某一厂商改变策略会明显影响其余厂商。垄断竞争企业较多，对单个对手的影响通常更小。","optionExplanations":{"A":"战略依存程度是关键差异。","B":"成本形状不是区分标准。","C":"都可以有非价格竞争。","D":"寡头的产品既可有差异也可同质。"},"conceptId":"oligopoly"},{"id":"eco-07-q34","number":34,"group":"寡头垄断市场","type":"multiple","stem":"（多选题）关于寡头厂商的供给曲线论述正确的是（　　）。","options":{"A":"寡头厂商面临的供给曲线向右下方倾斜","B":"寡头厂商的均衡产量和均衡价格之间不存在一一对应的关系","C":"寡头厂商的均衡产量和均衡价格之间存在一一对应的关系","D":"不存在寡头厂商和行业的具有规律性的供给曲线"},"answer":["B","D"],"explanationSupplement":"寡头的均衡由需求、成本和竞争者反应共同决定。同一价格在不同竞争条件下可以对应不同产量，因此不能照搬完全竞争市场的独立供给曲线。","optionExplanations":{"A":"可能向下倾斜的是需求曲线。","B":"价格与最优产量不必一一对应。","C":"忽略了需求与对手的反应。","D":"无法得到只用价格决定数量的常规供给曲线。"},"conceptId":"oligopoly"},{"id":"eco-07-q35","number":35,"group":"寡头垄断市场","type":"single","stem":"根据古诺模型，当生产成本为0，若寡头厂商的数量为N，则每个厂商的均衡产量为市场容量的（　　）。","options":{"A":"1/N","B":"1/ （N+1）","C":"1/ （N-1）","D":"1/ （N+2）"},"answer":["B"],"explanationSupplement":"对称古诺、线性逆需求且边际成本为零时，令市场容量为 a，利润最大化给出 qᵢ＝(a−其他厂商产量之和)/2。对称均衡下每家 q＝a/(N＋1)。","optionExplanations":{"A":"平均分配市场容量忽略了价格和战略选择。","B":"符合对称古诺的均衡。","C":"分母来自一阶条件，应为 N＋1。","D":"多加了一个单位。"},"conceptId":"oligopoly-models"},{"id":"eco-07-q36","number":36,"group":"寡头垄断市场","type":"single","stem":"在折弯的需求曲线模型中，拐点左右两边的需求弹性大小关系为（　　）。","options":{"A":"左边弹性大，右边弹性小","B":"左边弹性小，右边弹性大","C":"左右两边弹性一样大","D":"左右两边弹性之和为1"},"answer":["A"],"explanationSupplement":"斯威齐模型假设竞争者不跟随提价，却会跟随降价。因此在拐点附近，提价侧（左上段）更有弹性，降价侧（右下段）较缺乏弹性。","optionExplanations":{"A":"提价丢失顾客多，降价跟随下增加的顾客较少。","B":"把跟涨与跟降假设的效果颠倒。","C":"两段反映不同反应，弹性不同。","D":"模型没有这种加总条件。"},"conceptId":"oligopoly-models"},{"id":"eco-07-q37","number":37,"group":"寡头垄断市场","type":"single","stem":"卡特尔通过下列哪种方式决定其联合利润最大化的产量水平（　　）。","options":{"A":"使每个厂商的边际成本等于边际收益","B":"使卡特尔的边际成本等于市场需求","C":"使每个厂商达到供求平衡","D":"使卡特尔的边际成本等于边际收益"},"answer":["D"],"explanationSupplement":"卡特尔按联合利润决策，先选市场总量，使总量的边际收益等于集团最优分配下的边际成本，再在成员间分配产量。","optionExplanations":{"A":"每家各自的 MR 不等于卡特尔统一决策的 MR。","B":"边际成本应与边际收益比较，不能与整条需求曲线等同。","C":"并非各成员独立令各自市场出清。","D":"是联合最优产量的边际条件。"},"conceptId":"oligopoly-models"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>(function (global) {
+  'use strict';
+  let activeController = null;
+  const unique = (values) => Array.isArray(values) ? [...new Set(values)].sort() : [];
+  function grade(question, selected) {
+    if (!question || question.type === 'discussion' || !question.options || !Array.isArray(selected) || !Array.isArray(question.answer)) return false;
+    const actual = unique(selected);
+    const expected = unique(question.answer);
+    if (!actual.length || !expected.length || actual.some((v) => typeof v !== 'string' || !Object.hasOwn(question.options, v))) return false;
+    if (question.type !== 'multiple' && actual.length !== 1) return false;
+    return actual.length === expected.length && actual.every((v, i) => v === expected[i]);
+  }
+  function recordAttempt(state, question, selected, at) {
+    if (question.type === 'discussion' || !Array.isArray(selected) || !selected.length) return false;
+    const correct = grade(question, selected);
+    const previous = state.answers[question.id] || {};
+    state.answers[question.id] = {
+      selected: unique(selected), submitted: true, correct,
+      attempts: (Number.isInteger(previous.attempts) ? previous.attempts : 0) + 1,
+      everWrong: previous.everWrong === true || !correct,
+      lastAnsweredAt: at || new Date().toISOString()
+    };
+    return true;
+  }
+  function testSummary(questions, drafts) {
+    const graded = questions.filter(q => q.type !== 'discussion');
+    const summary = { total: graded.length, answered: 0, correct: 0, wrong: 0, unanswered: 0 };
+    graded.forEach((q) => {
+      const selected = drafts[q.id] || [];
+      if (!selected.length) summary.unanswered += 1;
+      else { summary.answered += 1; if (grade(q, selected)) summary.correct += 1; else summary.wrong += 1; }
+    });
+    return summary;
+  }
+  function submitTest(state, questions, at) {
+    if (state.test.submitted) return false;
+    questions.forEach((q) => recordAttempt(state, q, state.test.drafts[q.id] || [], at));
+    state.test.submitted = true;
+    return true;
+  }
+  function validateImport(input, questions) {
+    if (!input || input.version !== 1 || !input.answers || typeof input.answers !== 'object' || Array.isArray(input.answers)) return false;
+    const byId = new Map(questions.map((q) => [q.id, q]));
+    return Object.entries(input.answers).every(([id, record]) => {
+      const q = byId.get(id);
+      return q && q.type !== 'discussion' && record && Array.isArray(record.selected) && record.selected.length > 0 && record.selected.every((v) => Object.hasOwn(q.options, v)) &&
+        (q.type === 'multiple' || unique(record.selected).length === 1) && record.correct === grade(q, record.selected) && Number.isInteger(record.attempts) && record.attempts > 0;
+    });
+  }
+  function mount(root, config) {
+    if (!root) throw new Error('Quiz root is required');
+    const { questions, store, onConceptJump } = config;
+    const graded = questions.filter(q => q.type !== 'discussion');
+    const openDiscussions = new Set();
+    let mode = 'practice';
+    let currentId = questions[0] && questions[0].id;
+    let statusText = '';
+    let destroyed = false;
+    const el = (tag, cls, text) => {
+      const node = document.createElement(tag);
+      if (cls) node.className = cls;
+      if (text !== undefined && text !== null) node.textContent = text;
+      return node;
+    };
+    const button = (text, action, cls) => {
+      const node = el('button', cls || 'button button-secondary', text);
+      node.type = 'button'; node.dataset.action = action;
+      return node;
+    };
+    function state() {
+      const s = store.get();
+      return { ...s, answers: s.answers || {}, drafts: s.drafts || {}, favorites: s.favorites || [], test: s.test || { drafts: {}, submitted: false } };
+    }
+    function update(mutator) {
+      store.update((s) => {
+        s.answers ||= {}; s.drafts ||= {}; s.favorites ||= []; s.test ||= { drafts: {}, submitted: false }; s.test.drafts ||= {};
+        mutator(s);
+      });
+    }
+    function filtered(s) {
+      if (mode === 'test') return graded;
+      if (mode === 'wrong') return graded.filter(q => s.answers[q.id]?.everWrong);
+      return questions;
+    }
+    function chosen(q, s) {
+      if (mode === 'test') return s.test.drafts[q.id] || [];
+      if (Object.hasOwn(s.drafts, q.id)) return s.drafts[q.id];
+      return s.answers[q.id] ? s.answers[q.id].selected : [];
+    }
+    function revealed(q, s) {
+      return mode === 'test' ? s.test.submitted === true : !!(s.answers[q.id] && s.answers[q.id].submitted && !Object.hasOwn(s.drafts, q.id));
+    }
+    function render() {
+      if (destroyed) return;
+      const s = state();
+      const list = filtered(s);
+      if (!list.some((q) => q.id === currentId)) currentId = list[0] && list[0].id;
+      const q = list.find((item) => item.id === currentId);
+      root.replaceChildren();
+      const toolbar = el('div', 'quiz-toolbar');
+      const tabs = el('div', 'quiz-tabs'); tabs.setAttribute('aria-label', '答题方式');
+      [['practice', '逐题练习'], ['test', '本章测试'], ['wrong', '错题复习']].forEach(([key, label]) => {
+        const tab = button(label, 'mode', 'quiz-tab' + (mode === key ? ' active' : ''));
+        tab.dataset.mode = key; tab.setAttribute('aria-pressed', String(mode === key)); tabs.append(tab);
+      });
+      toolbar.append(tabs);
+      const stats = el('span', 'muted', mode === 'wrong' ? `历史错题 ${list.length} 道 · 答对后保留记录` : mode === 'test' ? `${graded.length} 道计分题` : `${questions.length} 道练习题 · 答题记录保存在当前浏览器`);
+      toolbar.append(stats); root.append(toolbar);
+      if (mode === 'test') renderTestSummary(s);
+      if (!q) {
+        root.append(el('div', 'quiz-empty', mode === 'wrong' ? '还没有错题。完成练习后，答错的题目会出现在这里。' : '本章暂无题目。'));
+        return;
+      }
+      const index = el('nav', 'quiz-index');
+      index.setAttribute('aria-label', '题号导航');
+      let activeGroup;
+      let grid;
+      list.forEach((item) => {
+        if (!grid || item.group !== activeGroup) {
+          activeGroup = item.group;
+          const section = el('div', 'quiz-question-group');
+          if (activeGroup) section.append(el('span', 'quiz-group-label', activeGroup));
+          grid = el('div', 'quiz-grid');
+          section.append(grid);
+          index.append(section);
+        }
+        const n = button(String(item.number), 'question', 'quiz-number'); n.dataset.qid = item.id;
+        const rec = s.answers[item.id];
+        let result = 'unanswered';
+        if (mode === 'test') {
+          if (s.test.submitted) result = (s.test.drafts[item.id] || []).length ? (grade(item, s.test.drafts[item.id]) ? 'correct' : 'wrong') : 'unanswered';
+          else if ((s.test.drafts[item.id] || []).length) result = 'draft';
+        } else if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) result = 'draft';
+        else if (rec) result = rec.correct ? 'correct' : 'wrong';
+        n.dataset.state = result;
+        if (result === 'correct' || result === 'wrong') n.classList.add(result);
+        if (result === 'draft') n.classList.add('answered');
+        if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
+        n.setAttribute('aria-label', `第 ${item.number} 题${item.type === 'discussion' ? '，讨论题' : result === 'correct' ? '，已答对' : result === 'wrong' ? '，答错' : result === 'draft' ? '，已选择待提交' : '，未作答'}`);
+        grid.append(n);
+      }); root.append(index);
+      const card = el('article', 'quiz-card');
+      const head = el('div', 'quiz-card-header');
+      const discussion = q.type === 'discussion';
+      const types = { multiple: '多项选择题 · 全部选对得分', single: '单项选择题', discussion: '讨论题 · 不计分' };
+      const position = mode === 'test' ? `测试第 ${list.indexOf(q) + 1} / ${list.length} 题` : `第 ${q.number} / ${questions.length} 题`;
+      head.append(el('span', '', [q.group, position, types[q.type]].filter(Boolean).join(' · ')));
+      const favorite = button(s.favorites.includes(q.id) ? '★ 已收藏' : '☆ 收藏此题', 'favorite', 'button button-secondary quiz-favorite');
+      favorite.setAttribute('aria-pressed', String(s.favorites.includes(q.id))); head.append(favorite); card.append(head);
+      const stem = el('h3', 'quiz-stem', q.stem); stem.id = 'quiz-current-stem'; card.append(stem);
+      const field = el('fieldset', 'quiz-options');
+      field.setAttribute('aria-labelledby', stem.id);
+      field.append(el('legend', '', discussion ? '讨论选项' : q.type === 'multiple' ? '请选择所有符合题意的选项' : '请选择一个选项'));
+      const selected = chosen(q, s);
+      const show = revealed(q, s);
+      Object.entries(q.options).forEach(([key, text]) => {
+        if (discussion) {
+          field.append(el('div', 'quiz-option', `${key}. ${text}`));
+          return;
+        }
+        const label = el('label', 'quiz-option');
+        const input = el('input'); input.type = q.type === 'multiple' ? 'checkbox' : 'radio'; input.name = 'quiz-answer'; input.value = key;
+        input.checked = selected.includes(key); input.disabled = show; input.dataset.qid = q.id;
+        if (show && q.answer.includes(key)) label.classList.add('correct');
+        if (show && selected.includes(key) && !q.answer.includes(key)) label.classList.add('wrong');
+        label.append(input, el('span', '', `${key}. ${text}`)); field.append(label);
+      }); card.append(field);
+      if (mode === 'wrong' && s.answers[q.id] && s.answers[q.id].correct) card.append(el('p', 'quiz-status quiz-correct', '最近一次已答对 · 已掌握，历史错题仍保留'));
+      const actions = el('div', 'quiz-actions');
+      const nav = el('div', 'quiz-nav');
+      const questionIndex = list.findIndex((item) => item.id === q.id);
+      const prev = button('上一题', 'previous'); prev.disabled = questionIndex <= 0;
+      const next = button('下一题', 'next'); next.disabled = questionIndex >= list.length - 1;
+      nav.append(prev, next); actions.append(nav);
+      if (discussion) {
+        const open = openDiscussions.has(q.id);
+        const toggle = button(open ? '收起讨论解析' : '查看讨论解析', 'discussion', 'button button-primary');
+        toggle.setAttribute('aria-expanded', String(open));
+        actions.append(toggle);
+      } else if (mode !== 'test') {
+        const submit = button(show ? '重新作答' : '提交答案', show ? 'retry' : 'submit', 'button button-primary');
+        submit.disabled = !show && !selected.length; actions.append(submit);
+      } else if (!s.test.submitted) actions.append(el('span', 'muted', '本章测试交卷后统一显示解析'));
+      card.append(actions);
+      const status = el('p', 'quiz-status', statusText); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); card.append(status);
+      if (show || openDiscussions.has(q.id)) renderExplanation(card, q, selected);
+      root.append(card);
+      if (mode === 'test' && !s.test.submitted) {
+        const foot = el('div', 'quiz-actions');
+        foot.append(el('p', 'muted', '未答题交卷后记为未作答，不加入错题本。'), button('交卷并查看解析', 'finish-test', 'button button-primary'));
+        root.append(foot);
+      }
+    }
+    function renderTestSummary(s) {
+      const summary = testSummary(questions, s.test.drafts);
+      const box = el('div', 'quiz-summary');
+      if (s.test.submitted) {
+        box.setAttribute('role', 'status');
+        box.append(el('strong', '', `${summary.correct} / ${summary.total}`), el('span', '', `  答对 · 答错 ${summary.wrong} 道 · 未答 ${summary.unanswered} 道`));
+        box.append(el('p', '', `正确率 ${summary.total ? Math.round(summary.correct / summary.total * 100) : 0}% · 点击题号查看各题解析。`), button('重新测试', 'restart-test'));
+      } else box.append(el('span', '', `已选择 ${summary.answered} / ${summary.total} 题 · 测试中不显示答案，随时可切换题号。`));
+      root.append(box);
+    }
+    function renderExplanation(card, q, selected) {
+      const feedback = el('div', 'quiz-feedback quiz-explanation');
+      if (q.type === 'discussion') {
+        feedback.append(el('h3', '', '讨论解析'));
+      } else {
+        const correct = grade(q, selected);
+        feedback.append(el('h3', correct ? 'quiz-correct' : 'quiz-incorrect', !selected.length ? '本题未作答' : correct ? '回答正确' : '回答错误'));
+        const selectionText = selected.length ? `你选择了 ${selected.join('、')}。` : '你未作答。';
+        feedback.append(el('p', '', `${selectionText}正确答案是 ${q.answer.join('、')}。`));
+      }
+      if (q.type === 'multiple' && selected.length && !grade(q, selected)) {
+        const missing = q.answer.filter((key) => !selected.includes(key)); const extra = selected.filter((key) => !q.answer.includes(key));
+        const details = [];
+        if (missing.length) details.push(`漏选了 ${missing.join('、')}。`);
+        if (extra.length) details.push(`错选了 ${extra.join('、')}。`);
+        feedback.append(el('p', '', details.join('')));
+      }
+      feedback.append(el('h4', '', '解题思路'), el('p', '', q.explanationSupplement || '请结合对应知识点复习。'));
+      if (q.optionExplanations && Object.keys(q.optionExplanations).length) {
+        feedback.append(el('h4', '', '选项辨析'));
+        const reasons = el('ul', 'quiz-rationale-list');
+        Object.entries(q.optionExplanations).forEach(([key, text]) => reasons.append(el('li', '', `${key}　${text}`))); feedback.append(reasons);
+      }
+      const links = el('div', 'quiz-actions'); const jump = button('回看对应知识点', 'concept'); jump.dataset.concept = q.conceptId;
+      links.append(jump); feedback.append(links); card.append(feedback);
+    }
+    function handleClick(event) {
+      const target = event.target.closest('button[data-action]');
+      if (!target || !root.contains(target)) return;
+      const action = target.dataset.action;
+      const s = state(); const list = filtered(s); const q = list.find((item) => item.id === currentId);
+      statusText = '';
+      if (action === 'mode') { mode = target.dataset.mode; }
+      else if (action === 'question') currentId = target.dataset.qid;
+      else if (action === 'discussion' && q?.type === 'discussion') {
+        if (openDiscussions.has(q.id)) openDiscussions.delete(q.id);
+        else openDiscussions.add(q.id);
+      }
+      else if (action === 'previous' || action === 'next') {
+        const index = list.findIndex((item) => item.id === currentId); const item = list[index + (action === 'next' ? 1 : -1)]; if (item) currentId = item.id;
+      } else if (action === 'favorite' && q) update((draft) => { const i = draft.favorites.indexOf(q.id); if (i >= 0) draft.favorites.splice(i, 1); else draft.favorites.push(q.id); });
+      else if (action === 'retry' && q) { update((draft) => { draft.drafts[q.id] = []; }); statusText = '已开始重新作答，历史记录保留。'; }
+      else if (action === 'submit' && q) {
+        const selected = chosen(q, s); if (!selected.length) { statusText = '请先选择答案。'; }
+        else { update((draft) => { recordAttempt(draft, q, selected); delete draft.drafts[q.id]; }); statusText = grade(q, selected) ? '答案已保存，回答正确。' : '答案已保存，已加入错题本。'; }
+      } else if (action === 'finish-test') { update((draft) => submitTest(draft, questions)); statusText = '测试已交卷，答题记录已保存。'; }
+      else if (action === 'restart-test') { update((draft) => { draft.test = { drafts: {}, submitted: false }; }); currentId = questions[0] && questions[0].id; statusText = '新一轮测试已开始，历史答题记录保留。'; }
+      else if (action === 'concept') { if (typeof onConceptJump === 'function') onConceptJump(target.dataset.concept); return; }
+      render();
+      if (action === 'discussion') root.querySelector('[data-action="discussion"]')?.focus();
+    }
+    function handleChange(event) {
+      const input = event.target;
+      if (!input.matches('input[name="quiz-answer"]')) return;
+      const s = state(); const q = questions.find((item) => item.id === input.dataset.qid); if (!q || revealed(q, s)) return;
+      const selected = [...root.querySelectorAll('input[name="quiz-answer"]:checked')].map((node) => node.value);
+      update((draft) => { if (mode === 'test') draft.test.drafts[q.id] = selected; else draft.drafts[q.id] = selected; });
+      statusText = '选项已暂存，提交后判题。';
+      const value = input.value; render();
+      const focus = [...root.querySelectorAll('input[name="quiz-answer"]')].find((node) => node.value === value); if (focus) focus.focus({ preventScroll: true });
+    }
+    const controller = { openQuestion(id) { if (!questions.some((q) => q.id === id)) return false; mode = 'practice'; currentId = id; statusText = ''; render(); return true; } };
+    activeController = controller;
+    root.addEventListener('click', handleClick); root.addEventListener('change', handleChange); render();
+    return function cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); if (activeController === controller) activeController = null; };
+  }
+  const api = { mount, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  if (global) global.StudyQuiz = api;
+})(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this);
+
+(function(){
+ 'use strict';
+ const C=window.STUDY_CONTENT, $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+ const chapter=C.chapter;
+ const openedCount=modules=>modules.flatMap(module=>module.chapters).filter(entry=>entry.href).length;
+ const sharedCatalog=window.STUDY_CATALOG;
+ const catalog=sharedCatalog&&openedCount(sharedCatalog)>openedCount(C.catalog)?sharedCatalog:C.catalog;
+ const offline=document.body.dataset.offline==='true', flatDownloads=document.body.dataset.flatDownloads==='true';
+ const keyBase='zhiqi-study-v1', KEY=chapter?.id==='chapter01' ? keyBase : `${keyBase}:${chapter?.id}`;
+ const sectionIds=new Set(C.lessons?.sections.map(s=>s.id));
+ const questionIds=new Set(C.questions?.map(q=>q.id));
+ const empty=()=>({version:1,answers:{},drafts:{},favorites:[],reading:{seen:[],lastConcept:'',scrollY:0},test:{drafts:{},submitted:false}});
+ let storageAvailable=true,state=empty(),quizCleanup=null,view='learn',toastTimer,ppfTimer=null;
+ let readingTimer, readingTracking=false, readingChanged=false;
+ const clone=o=>JSON.parse(JSON.stringify(o));
+ function cleanSelected(value,q){if(!Array.isArray(value)||!value.every(v=>typeof v==='string'&&Object.hasOwn(q.options,v)))throw Error('备份中的作答选项无效');const out=[...new Set(value)].sort();if(q.type==='single'&&out.length>1)throw Error('单选题备份含多个选项');return out;}
+ function validateState(raw){
+  if(!raw||raw.version!==1||!raw.answers||typeof raw.answers!=='object'||Array.isArray(raw.answers)||!Array.isArray(raw.favorites))throw Error('文件不是有效的学习记录备份');
+  const out=empty();
+  C.questions.filter(q=>q.type!=='discussion').forEach(q=>{
+   const rec=Object.hasOwn(raw.answers,q.id)?raw.answers[q.id]:null;
+   if(rec){const selected=cleanSelected(rec.selected,q);if(!selected.length||rec.submitted!==true||!Number.isSafeInteger(rec.attempts)||rec.attempts<1)throw Error('答题记录格式不完整');out.answers[q.id]={selected,submitted:true,correct:window.StudyQuiz.grade(q,selected),attempts:rec.attempts,everWrong:rec.everWrong===true||!window.StudyQuiz.grade(q,selected),lastAnsweredAt:typeof rec.lastAnsweredAt==='string'?rec.lastAnsweredAt:''};}
+   if(raw.drafts&&Object.hasOwn(raw.drafts,q.id))out.drafts[q.id]=cleanSelected(raw.drafts[q.id],q);
+   if(raw.test?.drafts&&Object.hasOwn(raw.test.drafts,q.id))out.test.drafts[q.id]=cleanSelected(raw.test.drafts[q.id],q);
+  });
+  out.favorites=[...new Set(raw.favorites.filter(id=>typeof id==='string'&&(questionIds.has(id)||(id.startsWith('concept:')&&sectionIds.has(id.slice(8))))))];
+  out.reading.seen=Array.isArray(raw.reading?.seen)?[...new Set(raw.reading.seen.filter(id=>sectionIds.has(id)))]:[];
+  out.reading.lastConcept=sectionIds.has(raw.reading?.lastConcept)?raw.reading.lastConcept:'';
+  out.reading.scrollY=Number.isFinite(raw.reading?.scrollY)?Math.max(0,raw.reading.scrollY):0;
+  out.test.submitted=raw.test?.submitted===true;
+  return out;
+ }
+ function notice(){storageAvailable=false;$('#storage-notice').hidden=false;$('#storage-notice').textContent='当前浏览器无法保存学习记录，阅读和答题仍可使用。离开前请导出记录备份。';}
+ if (chapter) {
+  try {
+   const saved=localStorage.getItem(KEY);
+   if(saved)state=validateState(JSON.parse(saved));
+   const probe=KEY+'-probe';
+   localStorage.setItem(probe,'1');
+   localStorage.removeItem(probe);
+  } catch { notice(); }
+ }
+ function updateState(mutator) {
+  if (storageAvailable) {
+   try {
+    const saved=localStorage.getItem(KEY);
+    if (saved) state=validateState(JSON.parse(saved));
+   } catch { notice(); }
+  }
+  mutator(state);
+  try { localStorage.setItem(KEY,JSON.stringify(state)); } catch { notice(); }
+  updateProgress();
+  return clone(state);
+ }
+ const store={get:()=>clone(state),update:updateState};
+ window.StudyStore=store;
+ function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,3500);}
+ function el(tag,className,text){const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;}
+ function button(text,className,onClick){const b=el('button',className,text);b.type='button';if(onClick)b.addEventListener('click',onClick);return b;}
+ function openModal(title,content){$('#modal-title').textContent=title;$('#modal-content').replaceChildren();if(typeof content==='string')$('#modal-content').innerHTML=content;else if(content)$('#modal-content').append(content);if(!$('#modal').open)$('#modal').showModal();}
+ $('#modal-close').addEventListener('click',()=>$('#modal').close());
+ $('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
+ function jumpConcept(id) {
+  if(!sectionIds.has(id))return;
+  showChapter();
+  switchView('learn',false);
+  history.replaceState(null,'','#'+id);
+  readingTracking=false;
+  requestAnimationFrame(()=>{
+   const target=document.getElementById(id);
+   target.scrollIntoView({behavior:'instant',block:'start'});
+   const heading=$('h3',target);
+   heading.tabIndex=-1;
+   heading.focus({preventScroll:true});
+   store.update(record=>{record.reading.lastConcept=id;record.reading.scrollY=window.scrollY;});
+   requestAnimationFrame(()=>{readingTracking=true;});
+  });
+ }
+ function mountQuiz(){if(quizCleanup)quizCleanup();quizCleanup=window.StudyQuiz.mount($('#quiz'),{questions:C.questions,store,onConceptJump:jumpConcept});}
+ function updateProgress(){const count=state.reading?.seen?.length||0;$('#reading-label').textContent=`已读 ${count} / ${C.lessons.sections.length} 个知识点`;$('#continue-reading').hidden=!state.reading?.lastConcept;$$('#lesson-jump a').forEach(link=>{if(link.dataset.concept===state.reading.lastConcept)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});$$('[data-favorite-concept]').forEach(b=>{const yes=state.favorites.includes('concept:'+b.dataset.favoriteConcept);b.classList.toggle('selected',yes);b.textContent=yes?'★':'☆';b.setAttribute('aria-pressed',String(yes));});}
+ function toggleFavorite(id){store.update(s=>{const i=s.favorites.indexOf(id);if(i===-1)s.favorites.push(id);else s.favorites.splice(i,1);});}
+ function chapterLink(entry) {
+  return offline ? (entry.id === chapter?.id ? '#learn' : null) : entry.href;
+ }
+ function renderSidebar() {
+  const openCount = catalog.flatMap(module => module.chapters).filter(chapterLink).length;
+  $('#open-chapter-count').textContent = offline ? '本章离线版' : `已开放 ${openCount} 章`;
+  for (const [moduleIndex, module] of catalog.entries()) {
+   const group = el('details', 'module-group');
+   group.open = chapter ? module.id === chapter.moduleId : moduleIndex === 0;
+   const summary = el('summary', '', module.title);
+   summary.append(el('small', '', `${module.chapters.length} 章`));
+   group.append(summary);
+   module.chapters.forEach(entry => {
+    const href = chapterLink(entry);
+    const row = el(href ? 'a' : 'div', 'chapter-link');
+    if (href) {
+     row.href = href;
+     row.dataset.openChapter = 'true';
+     if (entry.id === chapter?.id) {
+      row.classList.add('active');
+      row.setAttribute('aria-current', 'page');
+     }
+    } else {
+     row.setAttribute('aria-disabled', 'true');
+     row.title = offline ? '此文件仅包含当前章节' : '待开放';
+    }
+    row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), el('span', '', entry.title));
+    group.append(row);
+   });
+   $('#sidebar-catalog').append(group);
+  }
+ }
+ function renderHome() {
+  const root = $('#home-view');
+  const introduction = el('div', 'home-hero');
+  introduction.innerHTML = `<h1>经济金融保险基础</h1>
+   <p>按章节学习概念、操作图解、练习做题。</p>`;
+  root.append(introduction);
+
+  catalog.forEach(module => {
+   const section = el('section', 'catalog-section');
+   const heading = el('div', 'catalog-heading');
+   heading.append(el('h2', '', module.title), el('span', '', `${module.chapters.length} 章`));
+   section.append(heading);
+   const chapters = el('div', 'catalog-grid');
+   module.chapters.forEach(entry => {
+    const href = chapterLink(entry);
+    const row = el(href ? 'a' : 'div', 'catalog-card' + (href ? ' ready' : ''));
+    const name = el('h3', '', entry.title);
+    row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), name);
+    if (href) {
+     row.href = href;
+     row.dataset.openChapter = 'true';
+     row.append(el('span', 'catalog-status', '开始学习 →'));
+    } else {
+     row.append(el('span', 'catalog-status', offline ? '其他章节' : '待开放'));
+    }
+    chapters.append(row);
+   });
+   section.append(chapters);
+   root.append(section);
+  });
+ }
+
+ function renderLessons() {
+  C.lessons.sections.forEach((section, index) => {
+   const number = String(index + 1).padStart(2, '0');
+   const jump = el('a');
+   jump.href = '#' + section.id;
+   jump.dataset.concept = section.id;
+   jump.append(el('span', 'topic-number', number), el('span', '', section.title));
+   $('#lesson-jump').append(jump);
+
+   const card = el('section', 'lesson-card');
+   card.id = section.id;
+   const head = el('div', 'lesson-head');
+   const heading = el('div');
+   heading.append(el('h3', '', section.title), el('p', 'lesson-summary', section.summary));
+   const favorite = button('☆', 'icon-button', () => toggleFavorite('concept:' + section.id));
+   favorite.dataset.favoriteConcept = section.id;
+   favorite.setAttribute('aria-label', '收藏知识点：' + section.title);
+   favorite.setAttribute('aria-pressed', 'false');
+   head.append(el('span', 'lesson-number', number), heading, favorite);
+
+   const body = el('div', 'lesson-body');
+   body.innerHTML = section.bodyHtml;
+   $$('table', body).forEach(table => {
+    const wrap = el('div', 'table-wrap');
+    table.replaceWith(wrap);
+    wrap.append(table);
+   });
+   const takeaway = el('div', 'concept-takeaway');
+   takeaway.append(el('strong', '', '考点'), document.createTextNode(section.keyTakeaway));
+   body.append(takeaway);
+
+   const extras = el('div', 'lesson-extras');
+   for (const [label, value, className] of [
+    ['例子', section.example, 'lesson-extra'],
+    ['易错提醒', section.pitfall, 'lesson-extra pitfall']
+   ]) {
+    const item = el('div', className);
+    item.append(el('strong', '', label), el('p', '', value));
+    extras.append(item);
+   }
+   body.append(extras);
+   card.append(head, body);
+   $('#lessons').append(card);
+  });
+ }
+ const observer = new IntersectionObserver(entries => {
+  if (view !== 'learn' || $('#chapter-view').hidden) return;
+  const visible=entries.filter(entry=>entry.isIntersecting).map(entry=>entry.target.id);
+  if(!visible.some(id=>!state.reading.seen.includes(id)))return;
+  store.update(record=>{
+   record.reading.seen=[...new Set([...record.reading.seen,...visible])];
+   if(!record.reading.lastConcept)record.reading.lastConcept=visible[0];
+  });
+ }, { threshold: 0.12, rootMargin: '-125px 0px -15% 0px' });
+
+ function saveReadingPosition() {
+  if(!readingChanged||view!=='learn'||$('#chapter-view').hidden)return;
+  readingChanged=false;
+  const cards=$$('.lesson-card');
+  const current=cards.findLast(card=>card.getBoundingClientRect().top<=155)||cards[0];
+  store.update(record=>{
+   record.reading.lastConcept=current.id;
+   record.reading.scrollY=window.scrollY;
+  });
+  if(sectionIds.has(location.hash.slice(1)))history.replaceState(null,'','#learn');
+ }
+
+ function restoreReadingPosition(saved) {
+  requestAnimationFrame(()=>{
+   if(saved.lastConcept) {
+    if(saved.scrollY>0)window.scrollTo({top:saved.scrollY,behavior:'instant'});
+    else document.getElementById(saved.lastConcept).scrollIntoView({block:'start',behavior:'instant'});
+   }
+   requestAnimationFrame(()=>{readingTracking=true;});
+  });
+ }
+ function renderMap() {
+  const tree = $('#mindmap');
+  const viewport = $('.map-viewport');
+  const expand = $('#map-expand');
+  const zoomIn = $('#map-zoom-in');
+  const zoomOut = $('#map-zoom-out');
+  const size = $('#map-size');
+  const branches = [];
+  const startExpanded = !matchMedia('(max-width: 767px)').matches;
+  const readingSize = 14;
+  const minScale = 0.25;
+  const maxScale = 1.75;
+  let scale = 1;
+  let hasOpened = false;
+
+  function setExpanded(branch, expanded) {
+   branch.children.hidden = !expanded;
+   branch.toggle.setAttribute('aria-expanded', String(expanded));
+   branch.toggle.setAttribute('aria-label', `${expanded ? '收起' : '展开'}“${branch.label}”的分支`);
+   branch.toggle.textContent = expanded ? '−' : '+';
+  }
+
+  function updateExpandLabel() {
+   expand.textContent = branches.every(branch => !branch.children.hidden) ? '收起分支' : '全部展开';
+  }
+
+  function buildNode(node, depth, parentTarget) {
+   const item = el('li', 'map-item');
+   const target = node.target || parentTarget;
+   const isRoot = depth === 0;
+   item.dataset.depth = String(depth);
+   const label = el(isRoot ? 'span' : 'a', 'map-label', node.label);
+   const face = el('div', isRoot ? 'map-node map-root' : 'map-node');
+   if (!isRoot) {
+    label.href = '#' + target;
+    label.dataset.concept = target;
+   }
+   face.append(label);
+   item.append(face);
+   if (!node.children?.length) return item;
+
+   const children = el('ul', 'map-children');
+   if (!isRoot) {
+    item.classList.add('map-parent');
+    children.id = `map-branch-${branches.length + 1}`;
+    const toggle = button('', 'map-toggle');
+    toggle.setAttribute('aria-controls', children.id);
+    const branch = { toggle, children, label: node.label };
+    branches.push(branch);
+    setExpanded(branch, startExpanded);
+    toggle.addEventListener('click', () => {
+     setExpanded(branch, children.hidden);
+     updateExpandLabel();
+    });
+    face.append(toggle);
+   }
+   for (const child of node.children) children.append(buildNode(child, depth + 1, target));
+   item.append(children);
+   return item;
+  }
+
+  function setScale(next) {
+   scale = Math.min(maxScale, Math.max(minScale, next));
+   tree.style.fontSize = `${readingSize * scale}px`;
+   size.textContent = `${Math.round(scale * 100)}%`;
+   zoomIn.disabled = scale >= maxScale;
+   zoomOut.disabled = scale <= minScale;
+  }
+
+  function fitWidth() {
+   const availableWidth = viewport.clientWidth;
+   if (!availableWidth) return;
+   setScale(1);
+   const readingWidth = tree.getBoundingClientRect().width;
+   if (readingWidth > availableWidth) setScale((availableWidth - 8) / readingWidth);
+   viewport.scrollLeft = 0;
+  }
+
+  tree.append(buildNode({ label: C.lessons.title, children: C.lessons.mindmap }, 0));
+  updateExpandLabel();
+  expand.addEventListener('click', () => {
+   const next = branches.some(branch => branch.children.hidden);
+   branches.forEach(branch => setExpanded(branch, next));
+   updateExpandLabel();
+  });
+  zoomIn.addEventListener('click', () => setScale(scale * 1.2));
+  zoomOut.addEventListener('click', () => setScale(scale / 1.2));
+  size.addEventListener('click', () => setScale(1));
+  $('#map-fit').addEventListener('click', fitWidth);
+
+  return () => {
+   if (hasOpened) return;
+   hasOpened = true;
+   fitWidth();
+  };
+ }
+ const chapterViews = chapter?.visual ? ['learn', 'map', 'visual', 'practice'] : ['learn', 'map', 'practice'];
+ function chapterActions(visible) {
+  $$('[data-action="favorites"], [data-action="records"], [data-action="download"], .sidebar-quick-actions').forEach(node => node.hidden = !visible);
+ }
+ function showHome() {
+  saveReadingPosition();
+  pausePPF();
+  chapterActions(false);
+  $('#home-view').hidden=false;
+  $('#chapter-view').hidden=true;
+  document.title='学习目录 · 知其所以';
+  window.scrollTo({top:0,behavior:'instant'});
+ }
+ function showChapter() {
+  chapterActions(true);
+  $('#home-view').hidden=true;
+  $('#chapter-view').hidden=false;
+  document.title=chapter.title+' · 知其所以';
+ }
+ function switchView(next, scroll=true) {
+  if (!chapterViews.includes(next)) next='learn';
+  saveReadingPosition();
+  pausePPF();
+  view=next;
+  $$('.content-view').forEach(v=>v.hidden=v.id!=='view-'+next);
+  $$('[data-view]').forEach(b=>{
+   const active=b.dataset.view===next;
+   b.classList.toggle('active',active);
+   if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+  });
+  if(scroll) {
+   readingTracking=false;
+   $('.view-tabs').scrollIntoView({behavior:'instant',block:'start'});
+   requestAnimationFrame(()=>requestAnimationFrame(()=>{readingTracking=true;}));
+  }
+  if(next==='map')fitMapOnFirstOpen();
+  if(next==='practice')mountQuiz();
+  history.replaceState(null,'','#'+next);
+ }
+ $('#continue-reading').addEventListener('click',()=>jumpConcept(state.reading.lastConcept));
+ function records() {
+  const wrap=el('div');
+  wrap.append(el('p','','本章记录保存在当前浏览器。可用备份文件在设备之间，以及本章在线版和离线版之间转移。'));
+  const stats=el('div','record-stats'), answered=Object.values(state.answers), correct=answered.filter(x=>x.correct).length;
+  const scoredCount=C.questions.filter(q=>q.type!=='discussion').length;
+  for(const [value,label] of [[state.reading.seen.length+'/'+C.lessons.sections.length,'已读知识点'],[answered.length+'/'+scoredCount,'已作答'],[correct,'最近答对']]) {
+   const item=el('div');
+   item.append(el('strong','',value),el('small','',label));
+   stats.append(item);
+  }
+  wrap.append(stats);
+  const actions=el('div','record-actions');
+  actions.append(button('导出学习记录','button button-primary',()=>{
+   const backup={app:'zhiqi-study',chapterId:chapter.id,exportedAt:new Date().toISOString(),state};
+   const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});
+   saveBlob(blob,`知其所以-${chapter.id}-学习记录-${backup.exportedAt.slice(0,10)}.json`);
+   toast('学习记录已导出');
+  }));
+  const file=el('input');
+  file.type='file';file.accept='.json,application/json';file.hidden=true;
+  const status=el('p','muted');
+  status.setAttribute('role','status');
+  file.addEventListener('change',async()=>{
+   try {
+    const f=file.files[0];
+    if(!f)return;
+    if(f.size>2*1024*1024)throw Error('备份文件过大，请选择有效的学习记录');
+    const parsed=JSON.parse(await f.text());
+    const backupChapter=parsed?.chapterId ?? 'chapter01';
+    if(backupChapter!==chapter.id)throw Error('备份属于其他章节，请在对应章节导入');
+    const next=validateState(parsed?.app==='zhiqi-study'?parsed.state:parsed);
+    const confirm=el('div','inline-notice');
+    confirm.append(el('p','',`已检查备份，含 ${Object.keys(next.answers).length} 道作答记录、${next.reading.seen.length} 个已读知识点。导入将替换本章记录。`),
+     button('确认导入并替换','button button-primary',()=>{
+      store.update(record=>Object.assign(record,next));
+      mountQuiz();records();toast('学习记录已恢复');
+     }));
+    status.replaceChildren(confirm);
+   } catch(e) {
+    status.textContent='无法导入：'+e.message;
+   } finally {
+    file.value='';
+   }
+  });
+  actions.append(button('导入记录','button button-secondary',()=>file.click()),file);
+  wrap.append(actions,status,el('p','muted',storageAvailable?'浏览器存储可用。清除浏览器数据前，建议先导出备份。':'当前存储不可用，请在离开页面前导出备份。'));
+  openModal('学习记录与备份',wrap);
+ }
+ function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+ function favorites(){const wrap=el('div');if(!state.favorites.length)wrap.append(el('p','muted','还没有收藏。阅读时点击知识点右侧的 ☆，或在答题时收藏题目。'));state.favorites.forEach(id=>{const isConcept=id.startsWith('concept:'),item=isConcept?C.lessons.sections.find(s=>s.id===id.slice(8)):C.questions.find(q=>q.id===id);if(!item)return;const row=el('div','favorite-item');const b=button(isConcept?item.title:`第 ${item.number} 题 · ${item.stem}`,'',()=>{$('#modal').close();if(isConcept)jumpConcept(item.id);else{showChapter();switchView('practice');window.StudyQuiz.openQuestion?.(item.id);}});b.append(el('small','',isConcept?'知识点':'练习题'));row.append(b,button('移除','text-button',()=>{toggleFavorite(id);favorites();}));wrap.append(row);});openModal('我的收藏',wrap);}
+ function download() {
+  if(offline) {
+   openModal('你正在使用离线学习版','<p>本文件包含本章的讲解、思维导图和练习。保存好这份 HTML，断网后双击即可继续学习。</p><p>可在「学习记录」中导出、导入本章备份。</p>');
+   return;
+  }
+  const a=el('a');
+  a.href=(flatDownloads?'':'downloads/')+encodeURIComponent(chapter.downloadName);
+  a.download=chapter.downloadName;
+  document.body.append(a);
+  a.click();
+  a.remove();
+  toast('离线 HTML 下载已开始，保存后可双击学习');
+ }
+ document.addEventListener('click',e=>{const target=e.target.closest('button,a');if(!target)return;if(target.dataset.concept){e.preventDefault();jumpConcept(target.dataset.concept);return;}if(target.dataset.view){switchView(target.dataset.view);return;}if(target.dataset.switch){switchView(target.dataset.switch);return;}if(offline&&target.hasAttribute('data-open-chapter')){e.preventDefault();showChapter();switchView('learn');window.scrollTo({top:0,behavior:'instant'});return;}if(offline&&target.getAttribute('href')==='index.html'){e.preventDefault();showHome();history.replaceState(null,'','#home');return;}switch(target.dataset.action){case'favorites':favorites();break;case'records':records();break;case'download':download();break;case'sidebar':{const open=$('#sidebar').classList.toggle('open');target.setAttribute('aria-expanded',String(open));break;}}});
+ function pausePPF(){if(ppfTimer){clearInterval(ppfTimer);ppfTimer=null;}if($('#ppf-play')){$('#ppf-play').textContent='播放取舍变化';$('#ppf-play').setAttribute('aria-pressed','false');}}
+ function initPPF(){const range=$('#grain-range'),radios=$$('input[name=scenario]');function point(p,f=1){const x=p*470*f,y=Math.sqrt(Math.max(0,1-p*p))*340*f;return[76+x,388-y];}function path(f){let d='';for(let i=0;i<=100;i++){const[x,y]=point(i/100,f);d+=(i?' L':'M')+x.toFixed(2)+' '+y.toFixed(2);}return d;}
+  $('#ppf-curve').setAttribute('d',path(1));$('#ppf-new-curve').setAttribute('d',path(1.12));
+  function draw(){const v=Number(range.value)/100,scenario=radios.find(r=>r.checked).value,f=scenario==='idle'?.7:scenario==='growth'?1.12:1;const[x,y]=point(v,f);$('#ppf-point').setAttribute('cx',x);$('#ppf-point').setAttribute('cy',y);$('#ppf-halo').setAttribute('cx',x);$('#ppf-halo').setAttribute('cy',y);$('#ppf-guides').setAttribute('d',`M76 ${y}H${x}V388`);$('#ppf-point-label').setAttribute('x',x+13);$('#ppf-point-label').setAttribute('y',y-14);$('#grain-output').textContent=Math.round(v*100*f);$('#machine-output').textContent=Math.round(Math.sqrt(1-v*v)*100*f);$('#grain-percent').value=range.value+'%';$('#ppf-new-curve').setAttribute('opacity',scenario==='growth'?'1':'0');const explanation=scenario==='idle'?'点在原有曲线内：存在资源闲置或利用低效。提高利用效率，可让两类产品产量同时增加。':scenario==='growth'?'技术进步使生产边界向外移动：相同资源下可以生产更多。图中按两类产品同比例提高作简化演示。':'点在曲线上：资源充分有效利用。向右移动时粮食增加、机器减少，这就是取舍。';if($('#ppf-explanation').textContent!==explanation)$('#ppf-explanation').textContent=explanation;}
+  range.addEventListener('input',draw);radios.forEach(r=>r.addEventListener('change',draw));let direction=1;$('#ppf-play').addEventListener('click',()=>{if(ppfTimer){pausePPF();return;}if(matchMedia('(prefers-reduced-motion: reduce)').matches){toast('已启用减少动态效果，请拖动滑块逐步观察');return;}$('#ppf-play').textContent='暂停变化';$('#ppf-play').setAttribute('aria-pressed','true');ppfTimer=setInterval(()=>{let n=Number(range.value)+direction;if(n>=95||n<=5)direction*=-1;range.value=n;draw();},90);});$('#ppf-reset').addEventListener('click',()=>{pausePPF();range.value=60;radios[0].checked=true;draw();});document.addEventListener('visibilitychange',()=>{if(document.hidden)pausePPF();});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches)pausePPF();});draw();}
+ renderSidebar();
+ renderHome();
+ let fitMapOnFirstOpen;
+ if(chapter) {
+  window.addEventListener('scroll',()=>{
+   if(!readingTracking||view!=='learn'||$('#chapter-view').hidden)return;
+   readingChanged=true;
+   clearTimeout(readingTimer);
+   readingTimer=setTimeout(saveReadingPosition,160);
+  },{passive:true});
+  window.addEventListener('pagehide',saveReadingPosition);
+  $('#chapter-module').textContent=chapter.moduleTitle;
+  $('#chapter-number').textContent=`第 ${chapter.number} 章`;
+  $('#chapter-title').textContent=chapter.title;
+  $('#chapter-description').textContent=C.lessons.subtitle;
+  $('.chapter-exercise-count').textContent=`${C.questions.length} 道练习`;
+  $('[data-view="visual"]').hidden=!chapter.visual;
+  renderLessons();
+  $$('.lesson-card').forEach(card=>observer.observe(card));
+  fitMapOnFirstOpen=renderMap();
+  if(chapter.visual==='ppf')initPPF();
+  mountQuiz();
+  updateProgress();
+  let hash=location.hash.slice(1);
+  try { hash=decodeURIComponent(hash); } catch { hash=''; }
+  if(offline&&hash==='home')showHome();
+  else {
+   showChapter();
+   if(sectionIds.has(hash)) {
+    jumpConcept(hash);
+   } else {
+    switchView(hash,false);
+    if(view==='learn')restoreReadingPosition({...state.reading});
+    else readingTracking=true;
+   }
+  }
+ } else {
+  showHome();
+ }
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#sidebar').classList.remove('open');$('.mobile-menu').setAttribute('aria-expanded','false');}});
+})();
+</script>
+</body>
+</html>
