@@ -924,6 +924,39 @@ dialog::backdrop { background: var(--backdrop); }
 .market-panel input[type="range"] { width: 100%; margin: 0 0 7px; }
 .market-panel .ppf-explanation { min-height: 0; }
 .market-outputs { margin-top: 0; }
+
+/* Micro interactive charts */
+.micro-panel { --mv-c1: var(--accent); --mv-c2: #b85633; --mv-c3: #5b6fc7; }
+[data-theme="dark"] .micro-panel { --mv-c2: #f4a07e; --mv-c3: #9cb0ff; }
+.mv-grid-box { fill: none; stroke: var(--line); stroke-width: 1; opacity: .7; }
+.mv-curve-1, .mv-curve-2, .mv-curve-3, .mv-base-curve, .mv-ref-ic, .mv-guide { fill: none; }
+.mv-curve-1 { stroke: var(--mv-c1); stroke-width: 2.6; }
+.mv-curve-2 { stroke: var(--mv-c2); stroke-width: 2.6; }
+.mv-curve-3 { stroke: var(--mv-c3); stroke-width: 2.2; stroke-dasharray: 6 3; }
+.mv-base-curve { stroke: var(--control-line); stroke-width: 1.6; stroke-dasharray: 4 4; opacity: .75; }
+.mv-ref-ic { stroke: var(--line); stroke-width: 1.4; stroke-dasharray: 3 4; }
+.mv-guide { stroke: var(--control-line); stroke-width: 1.3; stroke-dasharray: 3 4; }
+.mv-zero-line { stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.mv-limit-line { stroke: var(--error); stroke-width: 2; stroke-dasharray: 6 4; }
+.mv-dot-1 { fill: var(--mv-c1); stroke: var(--surface); stroke-width: 2; }
+.mv-dot-2 { fill: var(--mv-c2); stroke: var(--surface); stroke-width: 2; }
+.mv-dot-3 { fill: var(--mv-c3); stroke: var(--surface); stroke-width: 2; }
+.mv-dot-eq { fill: var(--surface); stroke: var(--heading); stroke-width: 2.4; }
+.mv-fill-cs { fill: var(--mv-c1); opacity: .18; }
+.mv-fill-ps { fill: var(--mv-c3); opacity: .18; }
+.mv-fill-dwl { fill: var(--error); opacity: .24; }
+.mv-base-rect { fill: none; stroke: var(--control-line); stroke-width: 1.4; stroke-dasharray: 4 4; }
+.mv-stage-band { fill: var(--mv-c1); opacity: .10; }
+.mv-c1-line { border-color: var(--mv-c1); }
+.mv-c2-line { border-color: var(--mv-c2); }
+.mv-c3-line { border-color: var(--mv-c3); border-top-style: dashed; }
+.mv-base-line { border-color: var(--control-line); border-top-style: dashed; }
+.mv-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; }
+.mv-swatch.mv-cs { background: color-mix(in srgb, var(--mv-c1) 35%, transparent); border: 1px solid var(--mv-c1); }
+.mv-swatch.mv-ps { background: color-mix(in srgb, var(--mv-c3) 35%, transparent); border: 1px solid var(--mv-c3); }
+.mv-swatch.mv-dwl { background: color-mix(in srgb, var(--error) 35%, transparent); border: 1px solid var(--error); }
+.micro-panel .ppf-explanation { min-height: 0; }
+.micro-panel .ppf-outputs strong { font-size: 22px; }
 </style>
 </head>
 <body data-page="chapter" data-offline="true" data-flat-downloads="true">
@@ -1063,12 +1096,12 @@ dialog::backdrop { background: var(--backdrop); }
     <span>记录</span>
   </button>
 </nav>
-<template id="visual-template"></template>
+<div id="visual-templates" hidden></div>
 <dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter08","number":8,"title":"博弈论初步","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-08-博弈论初步-离线学习.html"},"lessons":{"title":"博弈论初步","subtitle":"从支付表找最优反应，判断策略组合是否稳定。","sections":[{"id":"game-elements","title":"博弈的基本要素","summary":"参与人、策略与支付描述互相影响的选择。","bodyHtml":"\u003cp>\u003cstrong>博弈\u003c/strong>分析一个人的结果如何同时取决于自己的选择与别人的选择。策略式表示包含\u003cmark>参与人、各参与人的策略集合、各策略组合下的支付\u003c/mark>。支付可以是利润、效用或以负数表示的损失。\u003c/p>\u003cp>纯策略是在给定信息下确定的行动计划。若按某种概率选择不同纯策略，就是混合策略。支付表通常用有序数对记「行方，列方」，比较行方选择时只看数对的第一项。\u003c/p>","keyTakeaway":"均衡是根据策略和支付推导的结果。","pitfall":"支付的单位和方向要先确认。若用负刑期表示，−1 大于 −3。","example":"两家企业各可选高价或低价，支付表的每格记录该价格组合下两家的利润。"},{"id":"nash","title":"占优策略与纳什均衡","summary":"逐一核对参与人是否能靠单方面改变策略提高支付。","bodyHtml":"\u003cp>给定对手选择，能带来最高支付的策略称为\u003cstrong>最优反应\u003c/strong>。如果不论对手如何选择，某策略总是最佳，它就是占优策略；总是严格更好时称为严格占优。\u003c/p>\u003cp>\u003cstrong>纳什均衡\u003c/strong>要求每个人的策略都是对其他人策略的最优反应。固定其他人的选择，任何参与人都无法通过单方面改策略而提高自己的支付。各自选择占优策略形成的组合一定是纳什均衡。纳什均衡也可以在没有占优策略时出现。\u003c/p>","keyTakeaway":"找纯策略纳什均衡时，分别标出各人的最优反应，寻找它们重合的格子。","pitfall":"均衡只限制单边偏离。参与人可以选不同策略，支付也可以不同。","example":"两家商店都希望选在对方也开业的时段。双方都选上午或都选下午可能各是一个纳什均衡。"},{"id":"prisoners-dilemma","title":"囚徒困境","summary":"个体的占优策略组合可能使双方比共同合作时更差。","bodyHtml":"\u003cp>下面给出标准单次博弈。括号里先写甲的支付，再写乙的支付，数值越大越好。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>甲／乙\u003c/th>\u003cth>乙合作\u003c/th>\u003cth>乙背离\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003cth>甲合作\u003c/th>\u003ctd>3，3\u003c/td>\u003ctd>0，5\u003c/td>\u003c/tr>\u003ctr>\u003cth>甲背离\u003c/th>\u003ctd>5，0\u003c/td>\u003ctd>1，1\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>乙合作时，甲背离得 5 而合作得 3；乙背离时，甲背离得 1 而合作得 0。乙的比较对称。因此背离是双方的严格占优策略，均衡支付为（1，1）。双方合作的（3，3）对双方都更好，却无法阻止单方面背离。\u003c/p>","keyTakeaway":"比较单方面偏离能否获益，再比较两个结果对双方的支付。","pitfall":"重复博弈、约束或可执行承诺改变了问题的条件。单次博弈结论不能直接套用。","example":"两家企业都希望减少成本较高的促销，但如果只有一家取消促销，它可能失去许多顾客。"}],"mindmap":[{"label":"博弈论的基本概念","target":"game-elements","children":[{"label":"基本要素","target":"game-elements","children":[{"label":"参与人","target":"game-elements"},{"label":"参与人的策略","target":"game-elements"},{"label":"各策略组合的支付","target":"game-elements"}]}]},{"label":"纯策略均衡","target":"nash","children":[{"label":"均衡与最优反应","target":"nash","children":[{"label":"固定他人策略，比较自己的支付","target":"nash"},{"label":"无人因单边偏离获益","target":"nash"}]},{"label":"占优策略均衡","target":"nash","children":[{"label":"最优策略不取决于对手选择","target":"nash"},{"label":"占优策略均衡是纳什均衡","target":"nash"}]},{"label":"纳什均衡","target":"nash","children":[{"label":"不必每个人都有占优策略","target":"nash"}]},{"label":"囚徒困境","target":"prisoners-dilemma","children":[{"label":"背离是双方的占优策略","target":"prisoners-dilemma"},{"label":"共同合作对双方都更好","target":"prisoners-dilemma"}]}]}]},"questions":[{"id":"eco-08-q01","number":1,"group":"博弈论的基本概念","type":"multiple","stem":"（多选题）博弈的基本要素包括（　　）。","options":{"A":"参与人","B":"均衡","C":"参与人的策略","D":"参与人的支付"},"answer":["A","C","D"],"explanationSupplement":"一个策略式博弈需要给出谁参与、每人可以选择哪些策略，以及各策略组合给每个人带来什么支付。均衡是在给出这些条件后推导的结果。","optionExplanations":{"A":"参与人是作决策的主体。","B":"均衡是用基本要素分析出的策略组合。","C":"每人的策略集合给出可选计划。","D":"支付表达每人在各结果下的收益或效用。"},"conceptId":"game-elements"},{"id":"eco-08-q02","number":2,"group":"纯策略均衡","type":"single","stem":"囚徒困境中，两个人的博弈说明（　　）。","options":{"A":"合作的结果对两个人来说可能比纳什均衡还坏","B":"即使合作的结果对一个人来说比纳什均衡好，对另一个人来说可能会更坏","C":"即使合作比纳什均衡好，每个囚徒也会有不合作的激励","D":"理性、利己的人会自然而然地回避纳什均衡，因为这对他们都不好"},"answer":["C"],"explanationSupplement":"在标准的单次囚徒困境中，无论另一方是否合作，自己背离都能得到更高支付。双方按各自最优反应都背离，却比双方合作时得到的支付更低。","optionExplanations":{"A":"标准囚徒困境的共同合作对双方都更好。","B":"共同合作相对于共同背离改善双方支付。","C":"个体有单方面背离的激励，即使合作对双方更好。","D":"个体理性恰可导向共同背离的纳什均衡。"},"conceptId":"prisoners-dilemma"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter08","number":8,"title":"博弈论初步","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-08-博弈论初步-离线学习.html","visuals":[]},"lessons":{"title":"博弈论初步","subtitle":"从支付表找最优反应，判断策略组合是否稳定。","sections":[{"id":"game-elements","title":"博弈的基本要素","summary":"参与人、策略与支付描述互相影响的选择。","bodyHtml":"\u003cp>\u003cstrong>博弈\u003c/strong>分析一个人的结果如何同时取决于自己的选择与别人的选择。策略式表示包含\u003cmark>参与人、各参与人的策略集合、各策略组合下的支付\u003c/mark>。支付可以是利润、效用或以负数表示的损失。\u003c/p>\u003cp>纯策略是在给定信息下确定的行动计划。若按某种概率选择不同纯策略，就是混合策略。支付表通常用有序数对记「行方，列方」，比较行方选择时只看数对的第一项。\u003c/p>","keyTakeaway":"均衡是根据策略和支付推导的结果。","pitfall":"支付的单位和方向要先确认。若用负刑期表示，−1 大于 −3。","example":"两家企业各可选高价或低价，支付表的每格记录该价格组合下两家的利润。"},{"id":"nash","title":"占优策略与纳什均衡","summary":"逐一核对参与人是否能靠单方面改变策略提高支付。","bodyHtml":"\u003cp>给定对手选择，能带来最高支付的策略称为\u003cstrong>最优反应\u003c/strong>。如果不论对手如何选择，某策略总是最佳，它就是占优策略；总是严格更好时称为严格占优。\u003c/p>\u003cp>\u003cstrong>纳什均衡\u003c/strong>要求每个人的策略都是对其他人策略的最优反应。固定其他人的选择，任何参与人都无法通过单方面改策略而提高自己的支付。各自选择占优策略形成的组合一定是纳什均衡。纳什均衡也可以在没有占优策略时出现。\u003c/p>","keyTakeaway":"找纯策略纳什均衡时，分别标出各人的最优反应，寻找它们重合的格子。","pitfall":"均衡只限制单边偏离。参与人可以选不同策略，支付也可以不同。","example":"两家商店都希望选在对方也开业的时段。双方都选上午或都选下午可能各是一个纳什均衡。"},{"id":"prisoners-dilemma","title":"囚徒困境","summary":"个体的占优策略组合可能使双方比共同合作时更差。","bodyHtml":"\u003cp>下面给出标准单次博弈。括号里先写甲的支付，再写乙的支付，数值越大越好。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>甲／乙\u003c/th>\u003cth>乙合作\u003c/th>\u003cth>乙背离\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003cth>甲合作\u003c/th>\u003ctd>3，3\u003c/td>\u003ctd>0，5\u003c/td>\u003c/tr>\u003ctr>\u003cth>甲背离\u003c/th>\u003ctd>5，0\u003c/td>\u003ctd>1，1\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>乙合作时，甲背离得 5 而合作得 3；乙背离时，甲背离得 1 而合作得 0。乙的比较对称。因此背离是双方的严格占优策略，均衡支付为（1，1）。双方合作的（3，3）对双方都更好，却无法阻止单方面背离。\u003c/p>","keyTakeaway":"比较单方面偏离能否获益，再比较两个结果对双方的支付。","pitfall":"重复博弈、约束或可执行承诺改变了问题的条件。单次博弈结论不能直接套用。","example":"两家企业都希望减少成本较高的促销，但如果只有一家取消促销，它可能失去许多顾客。"}],"mindmap":[{"label":"博弈论的基本概念","target":"game-elements","children":[{"label":"基本要素","target":"game-elements","children":[{"label":"参与人","target":"game-elements"},{"label":"参与人的策略","target":"game-elements"},{"label":"各策略组合的支付","target":"game-elements"}]}]},{"label":"纯策略均衡","target":"nash","children":[{"label":"均衡与最优反应","target":"nash","children":[{"label":"固定他人策略，比较自己的支付","target":"nash"},{"label":"无人因单边偏离获益","target":"nash"}]},{"label":"占优策略均衡","target":"nash","children":[{"label":"最优策略不取决于对手选择","target":"nash"},{"label":"占优策略均衡是纳什均衡","target":"nash"}]},{"label":"纳什均衡","target":"nash","children":[{"label":"不必每个人都有占优策略","target":"nash"}]},{"label":"囚徒困境","target":"prisoners-dilemma","children":[{"label":"背离是双方的占优策略","target":"prisoners-dilemma"},{"label":"共同合作对双方都更好","target":"prisoners-dilemma"}]}]}]},"questions":[{"id":"eco-08-q01","number":1,"group":"博弈论的基本概念","type":"multiple","stem":"（多选题）博弈的基本要素包括（　　）。","options":{"A":"参与人","B":"均衡","C":"参与人的策略","D":"参与人的支付"},"answer":["A","C","D"],"explanationSupplement":"一个策略式博弈需要给出谁参与、每人可以选择哪些策略，以及各策略组合给每个人带来什么支付。均衡是在给出这些条件后推导的结果。","optionExplanations":{"A":"参与人是作决策的主体。","B":"均衡是用基本要素分析出的策略组合。","C":"每人的策略集合给出可选计划。","D":"支付表达每人在各结果下的收益或效用。"},"conceptId":"game-elements"},{"id":"eco-08-q02","number":2,"group":"纯策略均衡","type":"single","stem":"囚徒困境中，两个人的博弈说明（　　）。","options":{"A":"合作的结果对两个人来说可能比纳什均衡还坏","B":"即使合作的结果对一个人来说比纳什均衡好，对另一个人来说可能会更坏","C":"即使合作比纳什均衡好，每个囚徒也会有不合作的激励","D":"理性、利己的人会自然而然地回避纳什均衡，因为这对他们都不好"},"answer":["C"],"explanationSupplement":"在标准的单次囚徒困境中，无论另一方是否合作，自己背离都能得到更高支付。双方按各自最优反应都背离，却比双方合作时得到的支付更低。","optionExplanations":{"A":"标准囚徒困境的共同合作对双方都更好。","B":"共同合作相对于共同背离改善双方支付。","C":"个体有单方面背离的激励，即使合作对双方更好。","D":"个体理性恰可导向共同背离的纳什均衡。"},"conceptId":"prisoners-dilemma"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -1806,11 +1839,13 @@ dialog::backdrop { background: var(--backdrop); }
  }
 
  function renderLessons() {
-  const visualTpl = $('#visual-template');
+  const chapterVisuals = chapter.visuals || (chapter.visual && chapter.visualSectionId ? [{ type: chapter.visual, sectionId: chapter.visualSectionId }] : []);
+  let firstVisualAssigned = false;
   C.lessons.sections.forEach((section, index) => {
    const number = String(index + 1).padStart(2, '0');
    const sectionQuestions = C.questions.filter(q => q.conceptId === section.id);
-   const hasVisual = Boolean(chapter.visual && chapter.visualSectionId === section.id && visualTpl && visualTpl.content.childNodes.length);
+   const sectionVisual = chapterVisuals.find(v => v.sectionId === section.id);
+   const hasVisual = Boolean(sectionVisual);
 
    const jump = el('a');
    jump.href = '#' + section.id;
@@ -1846,10 +1881,15 @@ dialog::backdrop { background: var(--backdrop); }
     wrap.append(table);
    });
 
-   if (chapter.visual && chapter.visualSectionId === section.id && visualTpl && visualTpl.content.childNodes.length) {
+   if (sectionVisual) {
     const visualBox = el('div', 'inline-visual');
-    visualBox.id = 'inline-visual';
-    visualBox.append(visualTpl.content.cloneNode(true));
+    if (!firstVisualAssigned) { visualBox.id = 'inline-visual'; firstVisualAssigned = true; }
+    const tpl = $(`template[data-visual-template="${sectionVisual.type}"]`);
+    if (tpl && tpl.content.childNodes.length) {
+     visualBox.append(tpl.content.cloneNode(true));
+    } else {
+     visualBox.dataset.microVisual = sectionVisual.type;
+    }
     body.append(visualBox);
    }
 
@@ -2184,7 +2224,7 @@ dialog::backdrop { background: var(--backdrop); }
   });
   $$('.lesson-card').forEach(card=>observer.observe(card));
   fitMapOnFirstOpen=renderMap();
-  if(chapter.visual==='ppf')initPPF();
+  if((chapter.visuals||[]).some(v=>v.type==='ppf')||chapter.visual==='ppf')initPPF();
   mountQuiz();
   updateProgress();
   let hash=location.hash.slice(1);

@@ -924,6 +924,39 @@ dialog::backdrop { background: var(--backdrop); }
 .market-panel input[type="range"] { width: 100%; margin: 0 0 7px; }
 .market-panel .ppf-explanation { min-height: 0; }
 .market-outputs { margin-top: 0; }
+
+/* Micro interactive charts */
+.micro-panel { --mv-c1: var(--accent); --mv-c2: #b85633; --mv-c3: #5b6fc7; }
+[data-theme="dark"] .micro-panel { --mv-c2: #f4a07e; --mv-c3: #9cb0ff; }
+.mv-grid-box { fill: none; stroke: var(--line); stroke-width: 1; opacity: .7; }
+.mv-curve-1, .mv-curve-2, .mv-curve-3, .mv-base-curve, .mv-ref-ic, .mv-guide { fill: none; }
+.mv-curve-1 { stroke: var(--mv-c1); stroke-width: 2.6; }
+.mv-curve-2 { stroke: var(--mv-c2); stroke-width: 2.6; }
+.mv-curve-3 { stroke: var(--mv-c3); stroke-width: 2.2; stroke-dasharray: 6 3; }
+.mv-base-curve { stroke: var(--control-line); stroke-width: 1.6; stroke-dasharray: 4 4; opacity: .75; }
+.mv-ref-ic { stroke: var(--line); stroke-width: 1.4; stroke-dasharray: 3 4; }
+.mv-guide { stroke: var(--control-line); stroke-width: 1.3; stroke-dasharray: 3 4; }
+.mv-zero-line { stroke: var(--line); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.mv-limit-line { stroke: var(--error); stroke-width: 2; stroke-dasharray: 6 4; }
+.mv-dot-1 { fill: var(--mv-c1); stroke: var(--surface); stroke-width: 2; }
+.mv-dot-2 { fill: var(--mv-c2); stroke: var(--surface); stroke-width: 2; }
+.mv-dot-3 { fill: var(--mv-c3); stroke: var(--surface); stroke-width: 2; }
+.mv-dot-eq { fill: var(--surface); stroke: var(--heading); stroke-width: 2.4; }
+.mv-fill-cs { fill: var(--mv-c1); opacity: .18; }
+.mv-fill-ps { fill: var(--mv-c3); opacity: .18; }
+.mv-fill-dwl { fill: var(--error); opacity: .24; }
+.mv-base-rect { fill: none; stroke: var(--control-line); stroke-width: 1.4; stroke-dasharray: 4 4; }
+.mv-stage-band { fill: var(--mv-c1); opacity: .10; }
+.mv-c1-line { border-color: var(--mv-c1); }
+.mv-c2-line { border-color: var(--mv-c2); }
+.mv-c3-line { border-color: var(--mv-c3); border-top-style: dashed; }
+.mv-base-line { border-color: var(--control-line); border-top-style: dashed; }
+.mv-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; }
+.mv-swatch.mv-cs { background: color-mix(in srgb, var(--mv-c1) 35%, transparent); border: 1px solid var(--mv-c1); }
+.mv-swatch.mv-ps { background: color-mix(in srgb, var(--mv-c3) 35%, transparent); border: 1px solid var(--mv-c3); }
+.mv-swatch.mv-dwl { background: color-mix(in srgb, var(--error) 35%, transparent); border: 1px solid var(--error); }
+.micro-panel .ppf-explanation { min-height: 0; }
+.micro-panel .ppf-outputs strong { font-size: 22px; }
 </style>
 </head>
 <body data-page="chapter" data-offline="true" data-flat-downloads="true">
@@ -1063,12 +1096,12 @@ dialog::backdrop { background: var(--backdrop); }
     <span>记录</span>
   </button>
 </nav>
-<template id="visual-template"></template>
+<div id="visual-templates" hidden></div>
 <dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter06","number":6,"title":"成本理论","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-06-成本理论-离线学习.html"},"lessons":{"title":"成本理论","subtitle":"识别真实的决策成本，比较不同产量和规模下的最低生产成本。","sections":[{"id":"cost","title":"机会成本、显性成本、隐性成本与沉没成本","summary":"从备选用途价值出发，识别经济决策中的成本。","bodyHtml":"\u003cp>\u003cstrong>机会成本\u003c/strong>是作出选择时放弃的最佳可行备选方案的价值。资源可用于不同用途时，经济分析需要考虑被放弃的最好用途。\u003c/p>\u003cul>\u003cli>\u003cstrong>显性成本\u003c/strong>是企业购买或租用外部要素实际支付的费用，例如租金、工资与材料费。\u003c/li>\u003cli>\u003cstrong>隐性成本\u003c/strong>是使用自有资源所放弃的最佳替代收益，例如使用自有厂房放弃的出租收益。\u003c/li>\u003cli>\u003cstrong>经济成本\u003c/strong>包括显性成本与隐性成本。在计算时，每项要素的机会成本只计一次。\u003c/li>\u003cli>\u003cstrong>沉没成本\u003c/strong>是已经发生且无法收回的成本。比较未来方案时，关注会随选择而改变的成本和收益。\u003c/li>\u003c/ul>","keyTakeaway":"经济成本包括实际支出和自有资源的机会成本。沉没成本在当前可选方案之间不再改变。","pitfall":"多个用途相互排斥时，机会成本取价值最高的可行备选用途。可以同时实现的其他用途，要作为一个可行方案整体估值。","example":"自用门店放弃每月 4000 元出租收入，同时支付每月 6000 元员工工资。两项合计的月经济成本是 10000 元。"},{"id":"cost-profit","title":"会计利润、经济利润与正常利润","summary":"利润口径取决于扣除了哪些成本。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>口径\u003c/th>\u003cth>公式或含义\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>会计利润\u003c/td>\u003ctd>在本章的简化口径下，总收益减显性成本\u003c/td>\u003c/tr>\u003ctr>\u003ctd>经济利润\u003c/td>\u003ctd>总收益减经济成本，等于会计利润减隐性成本\u003c/td>\u003c/tr>\u003ctr>\u003ctd>正常利润\u003c/td>\u003ctd>使企业家才能继续用于本用途所需的最低报酬，计入隐性成本\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>经济利润为零时，收入恰好补偿显性成本与隐性成本，企业家仍取得正常利润。经济利润为正时，才有超过全部机会成本的剩余，通常称为超额利润。\u003c/p>","keyTakeaway":"经济利润按全部机会成本计算。正常利润已经列在隐性成本中。","pitfall":"经济利润为零的企业仍可能有正的会计利润。判断时先问用了哪一种成本口径。","example":"总收益 10 万元，显性成本 7 万元，隐性成本 3 万元，其中已包括正常利润。会计利润为 3 万元，经济利润为零。"},{"id":"producer-equilibrium","title":"成本最小化与生产者均衡","summary":"给定产量求最低成本，或给定成本求最高产量。","bodyHtml":"\u003cp>投入劳动 \u003cvar>L\u003c/var>、资本 \u003cvar>K\u003c/var>，价格分别为 \u003cvar>w\u003c/var> 与 \u003cvar>r\u003c/var> 时，\u003cstrong>等成本线\u003c/strong>满足 \u003cmark>wL + rK = C\u003c/mark>。以劳动为横轴、资本为纵轴，斜率为 −w/r。给定产量，选择达到该产量的最低等成本线。给定成本，选择可达到的最高等产量曲线。\u003c/p>\u003cp>在凸且光滑的标准模型中，若两种要素的最优投入量均为正，曲线相切时有 \u003cmark>MRTS = MP\u003csub>L\u003c/sub>/MP\u003csub>K\u003c/sub> = w/r\u003c/mark>，等价于 MP\u003csub>L\u003c/sub>/w = MP\u003csub>K\u003c/sub>/r。若两种要素每元带来的边际产量不同，可以重新分配投入支出。角点等情形按约束单独判断。\u003c/p>\u003cp>对每个产量求最小可行成本，可构成成本函数。短期固定至少一种要素，长期可对全部要素重新选择。\u003c/p>","keyTakeaway":"内点最优时，技术替代率等于投入价格比，同时满足产量或预算约束。","pitfall":"成本最小化选择生产给定产量的投入组合。若要决定利润最大的产量，还需要知道产品收益。","example":"工资为 20 元、资本使用价格为 40 元时，等成本线斜率是 −0.5。若技术替代率为 0.5 且组合在给定等产量曲线上，凸曲线内点满足成本最小化的切点条件。"},{"id":"short-run-cost","title":"短期成本的分解与计算","summary":"固定成本不随产量变动，边际成本只计新增产量的成本。","bodyHtml":"\u003cp>在至少一种生产要素固定的短期，\u003cmark>总成本 TC = 总固定成本 TFC + 总可变成本 TVC\u003c/mark>。若停产时没有可变支出，则 TVC 从零开始，TC 的纵轴截距为 TFC。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>指标\u003c/th>\u003cth>公式\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>平均固定成本 AFC\u003c/td>\u003ctd>TFC/Q\u003c/td>\u003c/tr>\u003ctr>\u003ctd>平均可变成本 AVC\u003c/td>\u003ctd>TVC/Q\u003c/td>\u003c/tr>\u003ctr>\u003ctd>平均总成本 AC 或 ATC\u003c/td>\u003ctd>TC/Q = AFC + AVC\u003c/td>\u003c/tr>\u003ctr>\u003ctd>边际成本 MC\u003c/td>\u003ctd>ΔTC/ΔQ，连续可微时为 dTC/dQ\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>平均成本在正产量时定义。固定成本不随产量变化，所以 MC 也等于总可变成本对产量的增量比或导数。\u003c/p>","keyTakeaway":"用总量除以产量求平均。用两点成本差除以产量差求该段单位增量成本。","pitfall":"固定成本按是否随当期产量变化分类。已经发生且不能收回的成本属于沉没成本，两种分类依据不同。","example":"若 Q = 10 时 TC 为 2300、TVC 为 1100，TFC 为 1200，AFC 为 120，AVC 为 110，AC 为 230。"},{"id":"cost-curves","title":"边际成本与平均成本曲线","summary":"切线与原点连线的斜率分别对应边际量与平均量。","bodyHtml":"\u003cul>\u003cli>\u003cstrong>MC\u003c/strong>是总成本或总可变成本曲线的切线斜率。\u003c/li>\u003cli>\u003cstrong>AC\u003c/strong>是原点到总成本曲线上对应点的连线斜率。\u003c/li>\u003cli>\u003cstrong>AVC\u003c/strong>是原点到总可变成本曲线上对应点的连线斜率。\u003c/li>\u003c/ul>\u003cp>MC 小于某项平均成本时，该平均成本下降。MC 大于它时，该平均成本上升。对典型的 U 形 AC、AVC 曲线，\u003cmark>MC 自下而上穿过两者各自的最低点\u003c/mark>，通常先经过 AVC 最低点，再经过 AC 最低点。两条平均成本曲线的垂直差为 AFC，若 TFC 大于零，差距随产量增加而缩小。\u003c/p>","keyTakeaway":"MC 与 AC 或 AVC 相交于其最低点，前提是 MC 从较低一侧穿到较高一侧。","pitfall":"MC 大于 AC 说明 AC 上升。仅凭这一关系，无法判断 MC 本身在升还是在降。","example":"当前生产 4 件的平均成本为 25 元。如果第 5 件的边际成本为 30 元，新平均成本是 26 元，高于原平均成本。"},{"id":"cost-product","title":"短期产量与短期成本的关系","summary":"当劳动是唯一可变要素时，产量曲线可转换成成本曲线。","bodyHtml":"\u003cp>劳动是唯一可变投入、工资 \u003cvar>w\u003c/var> 固定时，\u003cvar>TVC = wL\u003c/var>。在边际产量为正且生产函数可逆的有效区间内，从目标产量求出最少用工量，乘以工资，再加上固定成本就得到 TC。\u003c/p>\u003cp>由边际产量 MP\u003csub>L\u003c/sub> 和平均产量 AP\u003csub>L\u003c/sub> 可得 \u003cmark>MC = w/MP\u003csub>L\u003c/sub>\u003c/mark> 与 \u003cmark>AVC = w/AP\u003csub>L\u003c/sub>\u003c/mark>。MP\u003csub>L\u003c/sub> 先升后降且保持为正时，MC 先降后升，MP\u003csub>L\u003c/sub> 的峰值对应 MC 的谷值。AP\u003csub>L\u003c/sub> 达到峰值时，AVC 达到最低。\u003c/p>","keyTakeaway":"在同一工资下，一单位劳动带来的新增产量越多，每新增一单位产出的成本越低。","pitfall":"产量曲线逆推出成本要使用有效生产区间。若有多种可变要素或工资随投入量改变，不能直接套用这组公式。","example":"工资为每工时 60 元。一小时额外劳动能生产 6 件时，边际成本为每件 10 元。若一小时只能额外生产 3 件，边际成本为每件 20 元。"},{"id":"long-run-cost","title":"长期总成本与平均成本的包络线","summary":"长期可以选择厂房规模，每个产量都取相应的最低成本。","bodyHtml":"\u003cp>\u003cstrong>长期总成本 LTC\u003c/strong>是在所有投入可调整时，生产给定产量的最小总成本。每个产量对应的成本，可从不同固定厂房规模的短期总成本曲线中取最低值。因此 LTC 是这些短期总成本曲线的下包络线。\u003c/p>\u003cp>正产量下，\u003cstrong>长期平均成本 LAC = LTC/Q\u003c/strong>，也对应各厂房规模的短期平均成本曲线的下包络线。厂房规模可以连续选择且曲线光滑时，最优规模的短期平均成本曲线与 LAC 相切。切点未必是这条短期曲线的最低点。\u003c/p>","keyTakeaway":"长期的比较单位是同一产量下可选择的全部规模，短期成本还受既定规模约束。","pitfall":"把各条短期平均成本曲线的最低点连接起来，通常不能得到长期平均成本曲线。比较时应把各曲线放在同一产量上。","example":"生产 100 件时，小厂成本为 900 元，大厂为 1000 元。只考虑这两种可行规模，长期总成本是 900 元，长期平均成本是每件 9 元。"},{"id":"scale-economies","title":"规模经济与规模不经济","summary":"随着产量扩大，观察长期平均成本的方向。","bodyHtml":"\u003cp>\u003cstrong>规模经济\u003c/strong>是扩大生产规模时，长期平均成本下降。例如更细的分工、设备利用和专业采购可以减少单位成本。\u003cstrong>规模不经济\u003c/strong>是继续扩大规模后，长期平均成本上升。例如部门增多，协调与监督成本可能增长。\u003c/p>\u003cp>若在较低产量区存在规模经济，较高产量区出现规模不经济，LAC 表现为先降后升。长期平均成本也可能在一段产量范围内近似不变。\u003c/p>","keyTakeaway":"规模经济比较的是产量与单位成本，规模报酬比较的是全部投入同比例变化与产量。","pitfall":"生产规模扩大时，即使长期总成本上升，也可能因增长慢于产量而出现长期平均成本下降。","example":"产量从 100 件升至 200 件，总成本从 900 元升至 1600 元，单位成本从 9 元降到 8 元。在这个区间内表现为规模经济。"},{"id":"external-economies","title":"外在经济与外在不经济","summary":"外部经营条件变化可以移动厂商的平均成本曲线。","bodyHtml":"\u003cp>\u003cstrong>外在经济\u003c/strong>来自厂商依赖的外部生产条件改善，例如产业集聚带来的专业物流和熟练劳动力供给。\u003cstrong>外在不经济\u003c/strong>来自外部条件恶化，例如拥堵、公共设施紧张和投入品价格上升。\u003c/p>\u003cp>外部条件变化时，即使厂商自己的产量未变，每单位的生产成本也可能改变，表现为平均成本曲线的位置变化。\u003c/p>","keyTakeaway":"判断外在经济要看成本变化的原因是否来自企业外部的生产环境。","pitfall":"企业扩大自身产量造成的单位成本变化，通常在同一条长期平均成本曲线上比较。外部条件变化则需要比较不同的曲线。","example":"产业园开通公共物流专线，各厂同一产量下的运输成本下降，原有的单位生产成本也随之降低。"}],"mindmap":[{"label":"成本与生产者均衡","target":"cost","children":[{"label":"成本及利润的概念","target":"cost","children":[{"label":"机会成本是最佳备选用途的价值","target":"cost"},{"label":"显性成本是购买或租用外部要素的支付","target":"cost"},{"label":"隐性成本是自有要素的机会成本","target":"cost"},{"label":"经济成本等于显性成本加隐性成本","target":"cost"},{"label":"沉没成本已经发生且无法收回","target":"cost"},{"label":"会计利润按简化口径扣除显性成本","target":"cost-profit"},{"label":"经济利润扣除全部经济成本","target":"cost-profit"},{"label":"正常利润作为企业家才能的机会成本计入隐性成本","target":"cost-profit"}]},{"label":"生产者均衡","target":"producer-equilibrium","children":[{"label":"给定产量的成本最小化与给定成本的产量最大化","target":"producer-equilibrium"},{"label":"内点最优时，边际技术替代率等于要素价格比","target":"producer-equilibrium"},{"label":"短期和长期成本函数分别取各自可行集合中的最低成本","target":"producer-equilibrium"}]}]},{"label":"成本函数及曲线","target":"short-run-cost","children":[{"label":"各成本曲线之间的关系","target":"cost-curves","children":[{"label":"MC 穿过典型 U 形 AVC、AC 各自的最低点","target":"cost-curves"},{"label":"MC 等于 TC 或 TVC 切线的斜率","target":"cost-curves"},{"label":"AC 等于 TC 对应点到原点连线的斜率","target":"cost-curves"},{"label":"AVC 等于 TVC 对应点到原点连线的斜率","target":"cost-curves"}]},{"label":"短期产量曲线与成本曲线","target":"cost-product","children":[{"label":"劳动是唯一可变要素且工资固定时，MC = w/MP","target":"cost-product"},{"label":"AVC = w/AP","target":"cost-product"},{"label":"典型边际产量先升后降时，MC 先降后升","target":"cost-product"}]},{"label":"长期成本曲线","target":"long-run-cost","children":[{"label":"长期总成本曲线是短期总成本曲线的下包络线","target":"long-run-cost"}]},{"label":"规模经济与规模不经济","target":"scale-economies","children":[{"label":"规模经济表现为扩大规模后长期平均成本下降","target":"scale-economies"},{"label":"规模不经济表现为继续扩大规模时长期平均成本上升","target":"scale-economies"},{"label":"两者依次出现时，长期平均成本曲线呈 U 形","target":"scale-economies"}]},{"label":"外在经济与外在不经济","target":"external-economies","children":[{"label":"外部条件改善可降低单位成本","target":"external-economies"},{"label":"外部条件恶化可提高单位成本","target":"external-economies"},{"label":"外部因素改变平均成本曲线的位置","target":"external-economies"}]}]}]},"questions":[{"id":"eco-06-q01","number":1,"group":"成本与生产者均衡","type":"single","stem":"既定的一组经济资源可以分别生产 A、B、C 三种产品。生产 B 产品收入 900 万元，生产 C 产品收入 1000 万元，那么生产 A 产品的机会成本为（　）。","options":{"A":"900 万元","B":"1000 万元","C":"1900 万元","D":"100 万元"},"answer":["B"],"explanationSupplement":"同一组资源的替代用途是生产 B 或生产 C。比较两种用途，最有价值的可行替代是 C，对应 1000 万元。","optionExplanations":{"A":"生产 B 的收益低于生产 C。","B":"1000 万元是最佳替代用途的收益。","C":"同一组资源在互斥用途之间选择，无法同时获得两种收入。","D":"100 万元只是两个替代用途收益的差额。"},"conceptId":"cost"},{"id":"eco-06-q02","number":2,"group":"成本与生产者均衡","type":"single","stem":"某人决定自己创业，于是辞去月薪 2000 元的工作，并取出自有存款 100000 元（月利息 1%）创办一独资企业。如果不考虑商业风险，则此人创业按月计算的机会成本为（　）。","options":{"A":"2000 元","B":"100000 元","C":"3000 元","D":"102000 元"},"answer":["C"],"explanationSupplement":"按月比较两类资源的替代用途：时间原可赚取工资 2000 元，自有资金原可赚取利息 1000 元。两项能在不创业的方案中同时实现，所以加总为 3000 元。","optionExplanations":{"A":"只计入了工资，遗漏利息。","B":"这是投入的存款本金，月度放弃的收益是本金乘利率。","C":"同时计入放弃的工资与月利息。","D":"把本金当作每月放弃的收益会高估成本。"},"conceptId":"cost"},{"id":"eco-06-q03","number":3,"group":"成本与生产者均衡","type":"single","stem":"企业使用自有的资金应计算利息，从成本角度看，这种利息属于（　）。","options":{"A":"固定成本","B":"显成本","C":"隐成本","D":"会计成本"},"answer":["C"],"explanationSupplement":"使用自有资金意味着放弃把钱用于其他可行用途所能获得的回报。即使没有实际支付利息，经济成本仍计入这项隐成本。","optionExplanations":{"A":"是否固定取决于成本随产量的变化，本题识别资金来源和支付方式。","B":"显成本来自实际对外支付。","C":"放弃的自有资金回报是隐成本。","D":"按本题简化口径，会计成本通常计入实际发生的支出。"},"conceptId":"cost"},{"id":"eco-06-q04","number":4,"group":"成本与生产者均衡","type":"single","stem":"（　）是生产成本的一部分，是作为隐成本的一部分计入成本的，因此经济利润中不包括它。","options":{"A":"超额利润","B":"正常利润","C":"会计利润","D":"净利润"},"answer":["B"],"explanationSupplement":"正常利润是企业家才能等自有要素留在本用途所需的正常报酬。计算经济利润时，收入先补偿显成本和隐成本，剩余部分才是经济利润。","optionExplanations":{"A":"超额利润是补偿全部经济成本后的余额。","B":"正常利润作为对自有要素的正常报酬，计入隐成本。","C":"会计利润是收入减会计成本后的余额。","D":"净利润是利润口径，题干说的是生产成本项目。"},"conceptId":"cost-profit"},{"id":"eco-06-q05","number":5,"group":"成本与生产者均衡","type":"single","stem":"增加一个单位产量时总成本的增加额称为（　）。","options":{"A":"总成本","B":"可变成本","C":"边际成本","D":"显成本"},"answer":["C"],"explanationSupplement":"产量从 Q 增至 Q+1 时，比较新旧总成本。差额 TC(Q+1)−TC(Q) 就是这一个额外单位的成本。","optionExplanations":{"A":"总成本是某产量下的全部成本。","B":"可变成本是随产量变化的那部分总额。","C":"边际成本衡量新增产量对应的成本增量。","D":"显成本按是否有实际对外支出分类。"},"conceptId":"short-run-cost"},{"id":"eco-06-q06","number":6,"group":"成本与生产者均衡","type":"single","stem":"在经济学中，我们把为得到某种东西所放弃的其他东西，称为这种东西的（　）。","options":{"A":"获取成本","B":"机会成本","C":"货币成本","D":"财务成本"},"answer":["B"],"explanationSupplement":"做选择时，找出放弃的、最有价值的可行替代方案。它可以表现为收入、时间或其他价值。","optionExplanations":{"A":"获取成本侧重取得某项资源的支出。","B":"机会成本关注因选择而放弃的最佳替代用途价值。","C":"货币成本用货币表示，放弃的价值还可能是时间或其他机会。","D":"财务成本是另一种财务或会计口径。"},"conceptId":"cost"},{"id":"eco-06-q07","number":7,"group":"成本与生产者均衡","type":"single","stem":"企业购买生产要素所引起的成本为（　）。","options":{"A":"显成本","B":"隐成本","C":"固定成本","D":"机会成本"},"answer":["A"],"explanationSupplement":"先看企业是否为要素向他人实际付款。购买原料或支付外聘劳动工资都形成显成本。该成本是否固定还要看它与产量的关系。","optionExplanations":{"A":"实际购买要素的货币支出是显成本。","B":"隐成本对应企业使用自身所拥有的要素。","C":"购买的要素可能是固定投入，也可能是可变投入。","D":"机会成本是放弃的最佳替代用途价值，本题具体考察实际支付的成本分类。"},"conceptId":"cost"},{"id":"eco-06-q08","number":8,"group":"成本与生产者均衡","type":"single","stem":"当厂商的经济利润为零时，正常利润（　）。","options":{"A":"实现","B":"不能够实现","C":"为零","D":"不确定"},"answer":["A"],"explanationSupplement":"零经济利润意味着总收益正好补偿全部显成本和隐成本。正常利润已经计入隐成本，因此能得到补偿。","optionExplanations":{"A":"收入已补偿包括正常利润在内的经济成本。","B":"经济利润为零仍覆盖正常报酬。","C":"正常利润取决于自有要素的机会成本，可能为正。","D":"按经济成本的定义可以确定正常利润得到补偿。"},"conceptId":"cost-profit"},{"id":"eco-06-q09","number":9,"group":"成本与生产者均衡","type":"single","stem":"企业的经济利润，等同于（　）。","options":{"A":"超额利润","B":"平均利润","C":"边际利润","D":"正常利润"},"answer":["A"],"explanationSupplement":"总收益扣除显成本和隐成本后得到经济利润。扣除的隐成本已包含正常利润，因此余下的数额可称为超额利润。","optionExplanations":{"A":"经济利润与超额利润在本题的厂商理论口径中同义。","B":"平均利润一般按单位或平均口径计算。","C":"边际利润描述多生产一单位时的利润变化。","D":"正常利润是作为隐成本计入的正常报酬。"},"conceptId":"cost-profit"},{"id":"eco-06-q10","number":10,"group":"成本与生产者均衡","type":"single","stem":"机会成本是指，当一种生产要素被用于生产某产品时，所放弃的使用相同生产要素在其他生产用途中所得到的（　）。","options":{"A":"最高收入","B":"最低收入","C":"平均收入","D":"超额收入"},"answer":["A"],"explanationSupplement":"同一要素投入现有用途后，其他用途成为放弃的备选。找出这些备选中价值最高的一项，按题目口径用收入表示。","optionExplanations":{"A":"它对应放弃的最佳替代用途。","B":"最低收入对应价值最小的备选。","C":"平均值不能反映最佳替代方案。","D":"超额收入描述超出某一基准的部分，机会成本看最佳替代价值。"},"conceptId":"cost"},{"id":"eco-06-q11","number":11,"group":"成本与生产者均衡","type":"single","stem":"小张有一笔资金，如果投资股市能够盈利 10 万元，投资债市能够盈利 5 万元，存在银行能够盈利 3 万元。但是，小张对市场的分析失误，他的实际选择是将这笔资金存入了银行，不考虑其他因素，那么，他的机会成本、会计成本、经济利润、会计利润分别是（　）。","options":{"A":"5 万元，0 万元，5 万元，10 万元","B":"10 万元，0 万元，−7 万元，3 万元","C":"3 万元，5 万元，7 万元，3 万元","D":"7 万元，3 万元，3 万元，5 万元"},"answer":["B"],"explanationSupplement":"按题设将实际存款盈利 3 万元计为会计利润，显成本为零。放弃的最佳方案收益为 10 万元，因此经济利润等于 3−10=−7 万元。","optionExplanations":{"A":"债市收益 5 万元低于放弃的最佳替代收益。","B":"四项依次是 10、0、−7、3 万元。","C":"3 万元是所选用途的收益，债市收益 5 万元不是存款会计成本。","D":"7 万元是所选收益与最佳替代收益之间的差额大小。"},"conceptId":"cost-profit"},{"id":"eco-06-q12","number":12,"group":"成本与生产者均衡","type":"single","stem":"关于成本的说法，正确的是（　）。","options":{"A":"企业的总成本由所有的显成本和隐成本共同构成","B":"隐成本是指企业购买的生产要素所实际支付的货币支出","C":"企业的经济利润包括正常利润","D":"隐成本是指企业租用的生产要素所实际支付的货币支出"},"answer":["A"],"explanationSupplement":"按经济成本口径，将企业购买或租用要素的实际支出与使用自有要素放弃的回报相加，得到总成本。","optionExplanations":{"A":"经济成本包含显成本和隐成本。","B":"实际购买要素的货币支付属于显成本。","C":"正常利润作为隐成本，已经从收益中扣除。","D":"实际租用要素的货币支付属于显成本。"},"conceptId":"cost"},{"id":"eco-06-q13","number":13,"group":"成本与生产者均衡","type":"single","stem":"某大学生决定学习法语，为此他放弃了兼职的机会。已知兼职报酬为 1500 元/月，法语学习期限为 1 个月，资料费 800 元、生活费 1200 元、辅导费 1000 元。那么，他学习法语的机会成本是（　）。","options":{"A":"4500","B":"3300","C":"2300","D":"1500"},"answer":["B"],"explanationSupplement":"比较学法语与兼职两种方案的差别。学法语放弃工资 1500 元，增加资料费 800 元和辅导费 1000 元。若 1200 元生活费在两个方案下都需支付，比较时抵消，经济成本为 3300 元。","optionExplanations":{"A":"4500 元包含两种方案下都发生的生活费。","B":"计入放弃的工资和选择学习产生的两项支出。","C":"2300 元漏计辅导费。","D":"1500 元只反映放弃的兼职收入。"},"conceptId":"cost"},{"id":"eco-06-q14","number":14,"group":"成本与生产者均衡","type":"discussion","stem":"经济学中的零利润是指（　）。","options":{"A":"会计利润为零","B":"会计利润等于厂商投入生产的自由要素的机会成本","C":"正常利润为零","D":"以上都不是"},"answer":[],"explanationSupplement":"经济利润为零时，总收益等于显成本加隐成本，因此会计利润等于隐成本。如果 B 的“自由要素”意指厂商的自有要素，B 就是这个关系的等价表述。若把“自由要素”按字面理解，B 缺少足够的定义。","optionExplanations":{"A":"隐成本为正时，会计利润可以为正。","B":"若所指为自有要素，其机会成本计入隐成本，因而该式成立。","C":"正常利润已经作为隐成本得到补偿，可以为正。","D":"严格按各选项的字面含义理解，前面没有清楚给出零经济利润的等价定义。"},"conceptId":"cost-profit"},{"id":"eco-06-q15","number":15,"group":"成本函数及曲线","type":"single","stem":"当某企业的产量为 10 个单位时，其总成本、总固定成本、总可变成本、平均成本分别是 2000 元、1200 元、800 元和 200 元，则该企业的平均固定成本为（　）元。","options":{"A":"20","B":"80","C":"120","D":"200"},"answer":["C"],"explanationSupplement":"按 AFC=TFC/Q 计算。总固定成本 1200 元由 10 个产量单位分摊，每单位 120 元。","optionExplanations":{"A":"20 元不是总固定成本按当前产量分摊的结果。","B":"80 元等于 800÷10，是平均可变成本。","C":"1200÷10=120，计算正确。","D":"200 元是总成本 2000÷10 得到的平均总成本。"},"conceptId":"short-run-cost"},{"id":"eco-06-q16","number":16,"group":"成本函数及曲线","type":"single","stem":"当某企业的产量为 2 个单位时，其总成本、总固定成本、总可变成本、平均成本分别是 2000 元、1200 元、800 元和 1000 元；当产量为 3 个单位时，其总成本、总固定成本、总可变成本、平均成本分别是 2100 元、1200 元、900 元和 700 元，则该企业的边际成本是（　）元。","options":{"A":"0","B":"150","C":"100","D":"300"},"answer":["C"],"explanationSupplement":"新增产量为 1，边际成本是总成本增量 2100−2000=100 元。总固定成本不变，所以也可用总可变成本增量 900−800 求得。","optionExplanations":{"A":"总固定成本增量为零，总成本仍增加。","B":"150 元不是题设两组总成本的差额。","C":"每增产一个单位总成本增加 100 元。","D":"300 元是两次平均总成本之差的大小，单位平均值变动与新增单位的成本不同。"},"conceptId":"short-run-cost"},{"id":"eco-06-q17","number":17,"group":"成本函数及曲线","type":"single","stem":"短期成本曲线中平行于横轴的一条直线是（　）。","options":{"A":"总可变成本曲线","B":"平均可变成本曲线","C":"总成本曲线","D":"总固定成本曲线"},"answer":["D"],"explanationSupplement":"横轴为产量。给定固定要素和要素价格时，产量变化不改变总固定成本，因此纵坐标保持同一数值。","optionExplanations":{"A":"总可变成本随可变投入和产量变动。","B":"平均可变成本通常随产量变动。","C":"总成本包含随产量变动的总可变成本。","D":"每个产量对应的总固定成本相同，图中是一条水平线。"},"conceptId":"short-run-cost"},{"id":"eco-06-q18","number":18,"group":"成本函数及曲线","type":"single","stem":"在进行短期成本函数分析时，关于各种成本曲线变动规律的说法，正确的是（　）。","options":{"A":"总成本曲线和总可变成本曲线的变动规律是一致的","B":"总固定成本曲线和总可变成本曲线的变动规律是一致的","C":"平均总成本曲线和总固定成本曲线的变动规律是一致的","D":"平均固定成本曲线和平均可变成本曲线的变动规律是一致的"},"answer":["A"],"explanationSupplement":"由 TC=TFC+TVC，短期的 TFC 是常量，所以 TC 图是 TVC 图向上平移后的结果。两条线在同一产量处具有相同的斜率。","optionExplanations":{"A":"两条曲线相差固定成本，变动规律相同。","B":"总固定成本为常量，总可变成本随产量变化。","C":"平均总成本按单位计算，总固定成本为常量。","D":"平均固定成本随产量上升而下降，平均可变成本通常有自己的最低点。"},"conceptId":"cost-curves"},{"id":"eco-06-q19","number":19,"group":"成本函数及曲线","type":"single","stem":"根据成本函数，在平均成本和边际成本的位置关系中，最早到达最低点的曲线是（　）。","options":{"A":"边际成本曲线","B":"平均可变成本曲线","C":"平均总成本曲线","D":"平均固定成本曲线"},"answer":["A"],"explanationSupplement":"按常见 U 形短期成本图，MC 先达到最低点，随后向上穿过 AVC 的最低点，再穿过 AC 的最低点。AFC=TFC/Q 随产量增加持续下降。","optionExplanations":{"A":"MC 自身的谷底先出现。","B":"AVC 最低处出现在 MC 回升并与它相等时。","C":"AC 最低处出现在 MC 回升并与它相等时。","D":"固定成本为正时，AFC 在正产量区间持续下降，没有有限的内点最低值。"},"conceptId":"cost-curves"},{"id":"eco-06-q20","number":20,"group":"成本函数及曲线","type":"single","stem":"在短期中，当边际成本曲线位于平均成本曲线上方时，（　）。","options":{"A":"平均成本是递减的","B":"平均成本是递增的","C":"边际成本是递减的","D":"边际成本保持不变"},"answer":["B"],"explanationSupplement":"在 Q＞0 且成本函数可微时，dAC/dQ=(MC−AC)/Q。题目给出 MC＞AC，所以平均成本的导数为正。","optionExplanations":{"A":"MC 低于 AC 时，平均成本才会下降。","B":"新增单位成本高于原平均成本，会抬高平均成本。","C":"曲线相对高低决定 AC 的走势，MC 自身的走势需要额外信息。","D":"MC 的值高于 AC 无法推出 MC 的斜率。"},"conceptId":"cost-curves"},{"id":"eco-06-q21","number":21,"group":"成本函数及曲线","type":"single","stem":"下列项目中可称为可变成本的是（　）。","options":{"A":"厂房的租金","B":"原料和燃料的支出","C":"机器设备的折旧","D":"高层管理者的薪金"},"answer":["B"],"explanationSupplement":"按常见短期设定，企业扩大产量会消耗更多原料和燃料，这类支出随产量变化。厂房租赁、按期折旧和管理薪金通常在短期内给定。","optionExplanations":{"A":"给定租约下，租金通常在短期内保持固定。","B":"原料和燃料的使用量通常随产量变化。","C":"常见的按期折旧在短期内作为固定成本处理。","D":"给定管理团队的固定薪金在短期内通常不随产量变化。"},"conceptId":"short-run-cost"},{"id":"eco-06-q22","number":22,"group":"成本函数及曲线","type":"single","stem":"假定某企业全部成本函数为 TC=30000+5Q−Q²，Q 为产出数量，那么 TVC 为（　）。","options":{"A":"30000","B":"5Q−Q²","C":"5−Q","D":"30000/Q"},"answer":["B"],"explanationSupplement":"先令 Q=0，得到 TC(0)=30000。再用 TVC(Q)=TC(Q)−TC(0)，得到 5Q−Q²。该题只用给出的表达式拆分成本。","optionExplanations":{"A":"30000 是总固定成本。","B":"从总成本中扣除固定项后得到该式。","C":"对正产量，(5Q−Q²)/Q=5−Q 是平均可变成本。","D":"对正产量，30000/Q 是平均固定成本。"},"conceptId":"short-run-cost"},{"id":"eco-06-q23","number":23,"group":"成本函数及曲线","type":"single","stem":"边际成本的曲线与平均成本的相交点是（　）。","options":{"A":"边际成本曲线的最低点","B":"平均成本曲线下降阶段的任何一点","C":"平均成本曲线的最低点","D":"边际成本曲线的最高点"},"answer":["C"],"explanationSupplement":"在通常 U 形平均成本曲线中，MC 从下方穿过 AC 时，MC−AC 由负变正，AC 的斜率从负变正，交点对应 AC 的最低点。","optionExplanations":{"A":"MC 自身的最低点在其向上穿过 AC 之前。","B":"AC 正在下降时 MC 通常位于 AC 下方。","C":"MC 从下向上穿过 AC 时，平均成本由降转升。","D":"两线相交体现 AC 的斜率为零，无法推出 MC 达到峰值。"},"conceptId":"cost-curves"},{"id":"eco-06-q24","number":24,"group":"成本函数及曲线","type":"single","stem":"短期总成本函数与短期生产函数之间存在的关系是（　）。","options":{"A":"短期总成本函数是短期生产函数的反函数","B":"短期总成本函数是短期生产函数的反函数与可变要素的价格乘积","C":"短期总成本函数是短期生产函数的反函数与可变要素的价格乘积加上固定要素的数量","D":"短期总成本函数是短期生产函数的反函数与可变要素的价格乘积加上固定要素的数量与固定要素价格的乘积"},"answer":["D"],"explanationSupplement":"在只有一种可变投入、生产函数在相关区间可逆且要素价格给定时，先求实现产量 Q 所需的最少劳动 L(Q)。再把两类支出加总，STC(Q)=wL(Q)+rK̄，其中 K̄ 为固定资本量。","optionExplanations":{"A":"生产函数的反函数给出投入数量。","B":"投入量乘价格只得到可变成本。","C":"固定要素数量需乘以其价格才能与货币成本相加。","D":"同时计入了可变成本和固定成本。"},"conceptId":"cost-product"},{"id":"eco-06-q25","number":25,"group":"成本函数及曲线","type":"single","stem":"对应于边际报酬递减阶段，STC 曲线（　）。","options":{"A":"以递增的速率上升","B":"以递增的速率下降","C":"以递减的速率上升","D":"以递减的速率下降"},"answer":["A"],"explanationSupplement":"当劳动是唯一可变投入、工资率固定且边际产量仍为正时，MC=w/MP。MP 递减使 MC 上升，而 MC 是 STC 曲线的斜率，所以总成本上升并越来越陡。","optionExplanations":{"A":"正的边际成本表示总成本上升，边际成本递增表示斜率越来越大。","B":"总成本下降需要边际成本为负，给定条件下 MC 为正。","C":"边际产量递增时，单位新增产出成本才会减少。","D":"给定正的边际成本，总成本随着产量增加上升。"},"conceptId":"cost-product"},{"id":"eco-06-q26","number":26,"group":"成本函数及曲线","type":"single","stem":"MC 曲线达到最低时（　）。","options":{"A":"AVC 最小","B":"MP 最大","C":"TC 最大","D":"AC 最小"},"answer":["B"],"explanationSupplement":"只有劳动可变、工资率固定且 MP＞0 时，MC=w/MP。分母最大的地方，分式最小。","optionExplanations":{"A":"AVC 达到最小对应 AP 最大。","B":"边际产量达到峰值，新增产出的劳动成本最低。","C":"MC 最小表示 TC 曲线斜率最小，TC 的水平仍可能上升。","D":"AC 最低处满足 MC=AC，通常出现在 MC 自身最低点之后。"},"conceptId":"cost-product"},{"id":"eco-06-q27","number":27,"group":"成本函数及曲线","type":"single","stem":"假定在某一产量水平上，某厂商的平均成本达到了最小值，这意味着（　）。","options":{"A":"边际成本等于平均成本","B":"厂商获得了最大利润","C":"厂商获得了最小利润","D":"厂商的超额利润为零"},"answer":["A"],"explanationSupplement":"在可微的内点最小值，平均成本的导数为零。利用 dAC/dQ=(MC−AC)/Q，可得 MC=AC。利润取决于总收益和总成本两部分。","optionExplanations":{"A":"平均成本的内点最低点满足这一等式。","B":"利润最大化需要比较边际收益和边际成本，并检验最优性。","C":"缺少收益信息，不能由成本最低推出利润最低。","D":"经济利润为零需要总收益等于经济总成本，题设只给了成本信息。"},"conceptId":"cost-curves"},{"id":"eco-06-q28","number":28,"group":"成本函数及曲线","type":"single","stem":"在短期内，随着产量从零开始不断地增加，AFC 会越变越小并致使 SAC 曲线和 AVC 曲线之间的垂直距离越来越小，（　）。","options":{"A":"直至两曲线相交","B":"但这两条线并不会相交","C":"直至两曲线相切","D":"无法判断"},"answer":["B"],"explanationSupplement":"SAC−AVC=AFC=TFC/Q。只要 TFC＞0 且 Q 为有限正数，距离就大于零。产量增大使距离缩小，但有限产量处仍保持正值。","optionExplanations":{"A":"相交要求差额为零，正的固定成本保证差额为正。","B":"两条线在有限正产量处始终保持正间距。","C":"相切也需要两条曲线有公共点。","D":"可直接用 SAC−AVC=TFC/Q 判断。"},"conceptId":"cost-curves"},{"id":"eco-06-q29","number":29,"group":"成本函数及曲线","type":"single","stem":"下列哪项不随产量变动而变动？（　）","options":{"A":"平均成本","B":"总固定成本","C":"总成本","D":"平均固定成本"},"answer":["B"],"explanationSupplement":"给定厂房和设备等固定要素，短期总固定成本为常量。用这个常量除以不同产量，单位固定成本会随产量变化。","optionExplanations":{"A":"平均成本等于总成本除以产量。","B":"总固定成本在短期内是给定的。","C":"总成本还包括随产量变动的可变成本。","D":"平均固定成本等于总固定成本除以产量，会被增产摊薄。"},"conceptId":"short-run-cost"},{"id":"eco-06-q30","number":30,"group":"成本函数及曲线","type":"single","stem":"关于短期边际成本曲线和平均成本曲线之间的关系的说法，正确的是（　）。","options":{"A":"平均固定成本曲线和边际成本曲线都具有“U”形特征","B":"当边际成本与平均总成本相等时，平均总成本曲线位于最低点","C":"平均总成本曲线比边际成本曲线更早到达最低点","D":"平均固定成本曲线总是高于边际成本曲线"},"answer":["B"],"explanationSupplement":"通常 U 形图中，MC 从下方穿过平均总成本时，平均总成本由下降转为上升。此时 MC=AC，平均总成本达到最低点。","optionExplanations":{"A":"在正的固定成本下，AFC=TFC/Q 持续下降。","B":"两线相等且 MC 由下向上穿越时，平均总成本达到最低点。","C":"通常顺序为 MC 先到最低点，随后平均总成本到最低点。","D":"AFC 和 MC 的相对位置随产量和成本结构变化。"},"conceptId":"cost-curves"},{"id":"eco-06-q31","number":31,"group":"成本函数及曲线","type":"single","stem":"关于总成本曲线规律的说法，正确的是（　）。","options":{"A":"总成本曲线从原点开始，随产量的增加而逐步上升","B":"总成本曲线不随产量的变动而变动","C":"总成本曲线从纵轴一个截点即产量为零时总成本等于固定成本的那个点开始，并随产量的增加而逐步上升","D":"总成本曲线从纵轴一个截点即产量为零时总成本等于可变成本的那个点开始，随产量的增加而逐步下降"},"answer":["C"],"explanationSupplement":"通常短期模型中，产量为零时 TVC=0，所以 TC(0)=TFC。随产量增加，可变投入的支出增加，使总成本曲线上升。","optionExplanations":{"A":"存在正的固定成本时，总成本曲线纵截距为正。","B":"保持不变的是总固定成本。","C":"起点是 (0,TFC)，曲线随产量增加而上升，符合短期总成本图。","D":"零产量时总成本由固定成本构成。"},"conceptId":"cost-curves"},{"id":"eco-06-q32","number":32,"group":"成本函数及曲线","type":"single","stem":"长期成本函数与短期成本函数的区别在于（　）。","options":{"A":"企业性质不同","B":"生产要素的数量不同","C":"成本是否可以加总","D":"是否有固定成本和可变成本之分"},"answer":["D"],"explanationSupplement":"短期内至少一种投入量固定，所以通常区分固定成本和可变成本。长期企业能调整全部投入并重新选择生产规模。","optionExplanations":{"A":"同一企业可以同时讨论短期与长期成本。","B":"要素数量可以相同，划分看能否调整所有要素。","C":"两种成本函数都可以度量企业的总支出。","D":"短期有固定与可变成本之分，长期全部投入可调。"},"conceptId":"long-run-cost"},{"id":"eco-06-q33","number":33,"group":"成本函数及曲线","type":"single","stem":"长期总成本曲线是各种产量的（　）。","options":{"A":"最低成本点的轨迹","B":"最低平均成本点的轨迹","C":"最低边际成本点的轨迹","D":"平均成本变动的轨迹"},"answer":["A"],"explanationSupplement":"对于每一个 Q，允许厂商改变全部要素，求生产该 Q 的最低总支出。把这些 (Q,最低总成本) 连起来，就得到长期总成本曲线。","optionExplanations":{"A":"每一个产量取长期可实现的最低总成本。","B":"用每单位成本表示时得到长期平均成本曲线。","C":"边际成本衡量总成本随产量增加的增量。","D":"该项描述平均成本的变化，纵轴与题目所问的总成本不同。"},"conceptId":"long-run-cost"},{"id":"eco-06-q34","number":34,"group":"成本函数及曲线","type":"single","stem":"某企业在短期内，当产量为 3 个单位时，总成本为 2100 元，当产量增长到 4 个单位时，平均总成本为 562.5 元，则该企业此时的边际成本是（　）元。","options":{"A":"100","B":"200","C":"150","D":"250"},"answer":["C"],"explanationSupplement":"先把每单位平均成本还原成总成本，TC(4)=4×562.5=2250。然后用 2250−2100=150 求第 4 个单位的成本。","optionExplanations":{"A":"100 元不能由题设两组总成本相减得到。","B":"200 元不是 2250 与 2100 的差额。","C":"新增一单位的总成本增量为 150 元。","D":"250 元会对应 2350 元的总成本，和题设平均成本不符。"},"conceptId":"short-run-cost"},{"id":"eco-06-q35","number":35,"group":"成本函数及曲线","type":"single","stem":"边际成本曲线自下而上穿过平均成本曲线后，平均成本的变化趋势是（　）。","options":{"A":"平均成本上升","B":"平均成本下降","C":"平均成本先上升后下降","D":"平均成本不变"},"answer":["A"],"explanationSupplement":"交点之后 MC＞AC 时，新增单位成本高于当前平均成本，所以平均成本上升。交点处两者相等，平均成本的斜率为零。","optionExplanations":{"A":"新增单位会拉高平均成本。","B":"当 MC＜AC 时，平均成本才下降。","C":"题意给出从下方穿到上方，之后高于平均成本的区间内平均成本上升。","D":"平均成本保持不变要求 MC 与 AC 在相应区间内相等。"},"conceptId":"cost-curves"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter06","number":6,"title":"成本理论","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-06-成本理论-离线学习.html","visual":"cost","visualSectionId":"cost-curves","visuals":[{"type":"cost","sectionId":"cost-curves"}]},"lessons":{"title":"成本理论","subtitle":"识别真实的决策成本，比较不同产量和规模下的最低生产成本。","sections":[{"id":"cost","title":"机会成本、显性成本、隐性成本与沉没成本","summary":"从备选用途价值出发，识别经济决策中的成本。","bodyHtml":"\u003cp>\u003cstrong>机会成本\u003c/strong>是作出选择时放弃的最佳可行备选方案的价值。资源可用于不同用途时，经济分析需要考虑被放弃的最好用途。\u003c/p>\u003cul>\u003cli>\u003cstrong>显性成本\u003c/strong>是企业购买或租用外部要素实际支付的费用，例如租金、工资与材料费。\u003c/li>\u003cli>\u003cstrong>隐性成本\u003c/strong>是使用自有资源所放弃的最佳替代收益，例如使用自有厂房放弃的出租收益。\u003c/li>\u003cli>\u003cstrong>经济成本\u003c/strong>包括显性成本与隐性成本。在计算时，每项要素的机会成本只计一次。\u003c/li>\u003cli>\u003cstrong>沉没成本\u003c/strong>是已经发生且无法收回的成本。比较未来方案时，关注会随选择而改变的成本和收益。\u003c/li>\u003c/ul>","keyTakeaway":"经济成本包括实际支出和自有资源的机会成本。沉没成本在当前可选方案之间不再改变。","pitfall":"多个用途相互排斥时，机会成本取价值最高的可行备选用途。可以同时实现的其他用途，要作为一个可行方案整体估值。","example":"自用门店放弃每月 4000 元出租收入，同时支付每月 6000 元员工工资。两项合计的月经济成本是 10000 元。"},{"id":"cost-profit","title":"会计利润、经济利润与正常利润","summary":"利润口径取决于扣除了哪些成本。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>口径\u003c/th>\u003cth>公式或含义\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>会计利润\u003c/td>\u003ctd>在本章的简化口径下，总收益减显性成本\u003c/td>\u003c/tr>\u003ctr>\u003ctd>经济利润\u003c/td>\u003ctd>总收益减经济成本，等于会计利润减隐性成本\u003c/td>\u003c/tr>\u003ctr>\u003ctd>正常利润\u003c/td>\u003ctd>使企业家才能继续用于本用途所需的最低报酬，计入隐性成本\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>经济利润为零时，收入恰好补偿显性成本与隐性成本，企业家仍取得正常利润。经济利润为正时，才有超过全部机会成本的剩余，通常称为超额利润。\u003c/p>","keyTakeaway":"经济利润按全部机会成本计算。正常利润已经列在隐性成本中。","pitfall":"经济利润为零的企业仍可能有正的会计利润。判断时先问用了哪一种成本口径。","example":"总收益 10 万元，显性成本 7 万元，隐性成本 3 万元，其中已包括正常利润。会计利润为 3 万元，经济利润为零。"},{"id":"producer-equilibrium","title":"成本最小化与生产者均衡","summary":"给定产量求最低成本，或给定成本求最高产量。","bodyHtml":"\u003cp>投入劳动 \u003cvar>L\u003c/var>、资本 \u003cvar>K\u003c/var>，价格分别为 \u003cvar>w\u003c/var> 与 \u003cvar>r\u003c/var> 时，\u003cstrong>等成本线\u003c/strong>满足 \u003cmark>wL + rK = C\u003c/mark>。以劳动为横轴、资本为纵轴，斜率为 −w/r。给定产量，选择达到该产量的最低等成本线。给定成本，选择可达到的最高等产量曲线。\u003c/p>\u003cp>在凸且光滑的标准模型中，若两种要素的最优投入量均为正，曲线相切时有 \u003cmark>MRTS = MP\u003csub>L\u003c/sub>/MP\u003csub>K\u003c/sub> = w/r\u003c/mark>，等价于 MP\u003csub>L\u003c/sub>/w = MP\u003csub>K\u003c/sub>/r。若两种要素每元带来的边际产量不同，可以重新分配投入支出。角点等情形按约束单独判断。\u003c/p>\u003cp>对每个产量求最小可行成本，可构成成本函数。短期固定至少一种要素，长期可对全部要素重新选择。\u003c/p>","keyTakeaway":"内点最优时，技术替代率等于投入价格比，同时满足产量或预算约束。","pitfall":"成本最小化选择生产给定产量的投入组合。若要决定利润最大的产量，还需要知道产品收益。","example":"工资为 20 元、资本使用价格为 40 元时，等成本线斜率是 −0.5。若技术替代率为 0.5 且组合在给定等产量曲线上，凸曲线内点满足成本最小化的切点条件。"},{"id":"short-run-cost","title":"短期成本的分解与计算","summary":"固定成本不随产量变动，边际成本只计新增产量的成本。","bodyHtml":"\u003cp>在至少一种生产要素固定的短期，\u003cmark>总成本 TC = 总固定成本 TFC + 总可变成本 TVC\u003c/mark>。若停产时没有可变支出，则 TVC 从零开始，TC 的纵轴截距为 TFC。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>指标\u003c/th>\u003cth>公式\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>平均固定成本 AFC\u003c/td>\u003ctd>TFC/Q\u003c/td>\u003c/tr>\u003ctr>\u003ctd>平均可变成本 AVC\u003c/td>\u003ctd>TVC/Q\u003c/td>\u003c/tr>\u003ctr>\u003ctd>平均总成本 AC 或 ATC\u003c/td>\u003ctd>TC/Q = AFC + AVC\u003c/td>\u003c/tr>\u003ctr>\u003ctd>边际成本 MC\u003c/td>\u003ctd>ΔTC/ΔQ，连续可微时为 dTC/dQ\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>平均成本在正产量时定义。固定成本不随产量变化，所以 MC 也等于总可变成本对产量的增量比或导数。\u003c/p>","keyTakeaway":"用总量除以产量求平均。用两点成本差除以产量差求该段单位增量成本。","pitfall":"固定成本按是否随当期产量变化分类。已经发生且不能收回的成本属于沉没成本，两种分类依据不同。","example":"若 Q = 10 时 TC 为 2300、TVC 为 1100，TFC 为 1200，AFC 为 120，AVC 为 110，AC 为 230。"},{"id":"cost-curves","title":"边际成本与平均成本曲线","summary":"切线与原点连线的斜率分别对应边际量与平均量。","bodyHtml":"\u003cul>\u003cli>\u003cstrong>MC\u003c/strong>是总成本或总可变成本曲线的切线斜率。\u003c/li>\u003cli>\u003cstrong>AC\u003c/strong>是原点到总成本曲线上对应点的连线斜率。\u003c/li>\u003cli>\u003cstrong>AVC\u003c/strong>是原点到总可变成本曲线上对应点的连线斜率。\u003c/li>\u003c/ul>\u003cp>MC 小于某项平均成本时，该平均成本下降。MC 大于它时，该平均成本上升。对典型的 U 形 AC、AVC 曲线，\u003cmark>MC 自下而上穿过两者各自的最低点\u003c/mark>，通常先经过 AVC 最低点，再经过 AC 最低点。两条平均成本曲线的垂直差为 AFC，若 TFC 大于零，差距随产量增加而缩小。\u003c/p>","keyTakeaway":"MC 与 AC 或 AVC 相交于其最低点，前提是 MC 从较低一侧穿到较高一侧。","pitfall":"MC 大于 AC 说明 AC 上升。仅凭这一关系，无法判断 MC 本身在升还是在降。","example":"当前生产 4 件的平均成本为 25 元。如果第 5 件的边际成本为 30 元，新平均成本是 26 元，高于原平均成本。"},{"id":"cost-product","title":"短期产量与短期成本的关系","summary":"当劳动是唯一可变要素时，产量曲线可转换成成本曲线。","bodyHtml":"\u003cp>劳动是唯一可变投入、工资 \u003cvar>w\u003c/var> 固定时，\u003cvar>TVC = wL\u003c/var>。在边际产量为正且生产函数可逆的有效区间内，从目标产量求出最少用工量，乘以工资，再加上固定成本就得到 TC。\u003c/p>\u003cp>由边际产量 MP\u003csub>L\u003c/sub> 和平均产量 AP\u003csub>L\u003c/sub> 可得 \u003cmark>MC = w/MP\u003csub>L\u003c/sub>\u003c/mark> 与 \u003cmark>AVC = w/AP\u003csub>L\u003c/sub>\u003c/mark>。MP\u003csub>L\u003c/sub> 先升后降且保持为正时，MC 先降后升，MP\u003csub>L\u003c/sub> 的峰值对应 MC 的谷值。AP\u003csub>L\u003c/sub> 达到峰值时，AVC 达到最低。\u003c/p>","keyTakeaway":"在同一工资下，一单位劳动带来的新增产量越多，每新增一单位产出的成本越低。","pitfall":"产量曲线逆推出成本要使用有效生产区间。若有多种可变要素或工资随投入量改变，不能直接套用这组公式。","example":"工资为每工时 60 元。一小时额外劳动能生产 6 件时，边际成本为每件 10 元。若一小时只能额外生产 3 件，边际成本为每件 20 元。"},{"id":"long-run-cost","title":"长期总成本与平均成本的包络线","summary":"长期可以选择厂房规模，每个产量都取相应的最低成本。","bodyHtml":"\u003cp>\u003cstrong>长期总成本 LTC\u003c/strong>是在所有投入可调整时，生产给定产量的最小总成本。每个产量对应的成本，可从不同固定厂房规模的短期总成本曲线中取最低值。因此 LTC 是这些短期总成本曲线的下包络线。\u003c/p>\u003cp>正产量下，\u003cstrong>长期平均成本 LAC = LTC/Q\u003c/strong>，也对应各厂房规模的短期平均成本曲线的下包络线。厂房规模可以连续选择且曲线光滑时，最优规模的短期平均成本曲线与 LAC 相切。切点未必是这条短期曲线的最低点。\u003c/p>","keyTakeaway":"长期的比较单位是同一产量下可选择的全部规模，短期成本还受既定规模约束。","pitfall":"把各条短期平均成本曲线的最低点连接起来，通常不能得到长期平均成本曲线。比较时应把各曲线放在同一产量上。","example":"生产 100 件时，小厂成本为 900 元，大厂为 1000 元。只考虑这两种可行规模，长期总成本是 900 元，长期平均成本是每件 9 元。"},{"id":"scale-economies","title":"规模经济与规模不经济","summary":"随着产量扩大，观察长期平均成本的方向。","bodyHtml":"\u003cp>\u003cstrong>规模经济\u003c/strong>是扩大生产规模时，长期平均成本下降。例如更细的分工、设备利用和专业采购可以减少单位成本。\u003cstrong>规模不经济\u003c/strong>是继续扩大规模后，长期平均成本上升。例如部门增多，协调与监督成本可能增长。\u003c/p>\u003cp>若在较低产量区存在规模经济，较高产量区出现规模不经济，LAC 表现为先降后升。长期平均成本也可能在一段产量范围内近似不变。\u003c/p>","keyTakeaway":"规模经济比较的是产量与单位成本，规模报酬比较的是全部投入同比例变化与产量。","pitfall":"生产规模扩大时，即使长期总成本上升，也可能因增长慢于产量而出现长期平均成本下降。","example":"产量从 100 件升至 200 件，总成本从 900 元升至 1600 元，单位成本从 9 元降到 8 元。在这个区间内表现为规模经济。"},{"id":"external-economies","title":"外在经济与外在不经济","summary":"外部经营条件变化可以移动厂商的平均成本曲线。","bodyHtml":"\u003cp>\u003cstrong>外在经济\u003c/strong>来自厂商依赖的外部生产条件改善，例如产业集聚带来的专业物流和熟练劳动力供给。\u003cstrong>外在不经济\u003c/strong>来自外部条件恶化，例如拥堵、公共设施紧张和投入品价格上升。\u003c/p>\u003cp>外部条件变化时，即使厂商自己的产量未变，每单位的生产成本也可能改变，表现为平均成本曲线的位置变化。\u003c/p>","keyTakeaway":"判断外在经济要看成本变化的原因是否来自企业外部的生产环境。","pitfall":"企业扩大自身产量造成的单位成本变化，通常在同一条长期平均成本曲线上比较。外部条件变化则需要比较不同的曲线。","example":"产业园开通公共物流专线，各厂同一产量下的运输成本下降，原有的单位生产成本也随之降低。"}],"mindmap":[{"label":"成本与生产者均衡","target":"cost","children":[{"label":"成本及利润的概念","target":"cost","children":[{"label":"机会成本是最佳备选用途的价值","target":"cost"},{"label":"显性成本是购买或租用外部要素的支付","target":"cost"},{"label":"隐性成本是自有要素的机会成本","target":"cost"},{"label":"经济成本等于显性成本加隐性成本","target":"cost"},{"label":"沉没成本已经发生且无法收回","target":"cost"},{"label":"会计利润按简化口径扣除显性成本","target":"cost-profit"},{"label":"经济利润扣除全部经济成本","target":"cost-profit"},{"label":"正常利润作为企业家才能的机会成本计入隐性成本","target":"cost-profit"}]},{"label":"生产者均衡","target":"producer-equilibrium","children":[{"label":"给定产量的成本最小化与给定成本的产量最大化","target":"producer-equilibrium"},{"label":"内点最优时，边际技术替代率等于要素价格比","target":"producer-equilibrium"},{"label":"短期和长期成本函数分别取各自可行集合中的最低成本","target":"producer-equilibrium"}]}]},{"label":"成本函数及曲线","target":"short-run-cost","children":[{"label":"各成本曲线之间的关系","target":"cost-curves","children":[{"label":"MC 穿过典型 U 形 AVC、AC 各自的最低点","target":"cost-curves"},{"label":"MC 等于 TC 或 TVC 切线的斜率","target":"cost-curves"},{"label":"AC 等于 TC 对应点到原点连线的斜率","target":"cost-curves"},{"label":"AVC 等于 TVC 对应点到原点连线的斜率","target":"cost-curves"}]},{"label":"短期产量曲线与成本曲线","target":"cost-product","children":[{"label":"劳动是唯一可变要素且工资固定时，MC = w/MP","target":"cost-product"},{"label":"AVC = w/AP","target":"cost-product"},{"label":"典型边际产量先升后降时，MC 先降后升","target":"cost-product"}]},{"label":"长期成本曲线","target":"long-run-cost","children":[{"label":"长期总成本曲线是短期总成本曲线的下包络线","target":"long-run-cost"}]},{"label":"规模经济与规模不经济","target":"scale-economies","children":[{"label":"规模经济表现为扩大规模后长期平均成本下降","target":"scale-economies"},{"label":"规模不经济表现为继续扩大规模时长期平均成本上升","target":"scale-economies"},{"label":"两者依次出现时，长期平均成本曲线呈 U 形","target":"scale-economies"}]},{"label":"外在经济与外在不经济","target":"external-economies","children":[{"label":"外部条件改善可降低单位成本","target":"external-economies"},{"label":"外部条件恶化可提高单位成本","target":"external-economies"},{"label":"外部因素改变平均成本曲线的位置","target":"external-economies"}]}]}]},"questions":[{"id":"eco-06-q01","number":1,"group":"成本与生产者均衡","type":"single","stem":"既定的一组经济资源可以分别生产 A、B、C 三种产品。生产 B 产品收入 900 万元，生产 C 产品收入 1000 万元，那么生产 A 产品的机会成本为（　）。","options":{"A":"900 万元","B":"1000 万元","C":"1900 万元","D":"100 万元"},"answer":["B"],"explanationSupplement":"同一组资源的替代用途是生产 B 或生产 C。比较两种用途，最有价值的可行替代是 C，对应 1000 万元。","optionExplanations":{"A":"生产 B 的收益低于生产 C。","B":"1000 万元是最佳替代用途的收益。","C":"同一组资源在互斥用途之间选择，无法同时获得两种收入。","D":"100 万元只是两个替代用途收益的差额。"},"conceptId":"cost"},{"id":"eco-06-q02","number":2,"group":"成本与生产者均衡","type":"single","stem":"某人决定自己创业，于是辞去月薪 2000 元的工作，并取出自有存款 100000 元（月利息 1%）创办一独资企业。如果不考虑商业风险，则此人创业按月计算的机会成本为（　）。","options":{"A":"2000 元","B":"100000 元","C":"3000 元","D":"102000 元"},"answer":["C"],"explanationSupplement":"按月比较两类资源的替代用途：时间原可赚取工资 2000 元，自有资金原可赚取利息 1000 元。两项能在不创业的方案中同时实现，所以加总为 3000 元。","optionExplanations":{"A":"只计入了工资，遗漏利息。","B":"这是投入的存款本金，月度放弃的收益是本金乘利率。","C":"同时计入放弃的工资与月利息。","D":"把本金当作每月放弃的收益会高估成本。"},"conceptId":"cost"},{"id":"eco-06-q03","number":3,"group":"成本与生产者均衡","type":"single","stem":"企业使用自有的资金应计算利息，从成本角度看，这种利息属于（　）。","options":{"A":"固定成本","B":"显成本","C":"隐成本","D":"会计成本"},"answer":["C"],"explanationSupplement":"使用自有资金意味着放弃把钱用于其他可行用途所能获得的回报。即使没有实际支付利息，经济成本仍计入这项隐成本。","optionExplanations":{"A":"是否固定取决于成本随产量的变化，本题识别资金来源和支付方式。","B":"显成本来自实际对外支付。","C":"放弃的自有资金回报是隐成本。","D":"按本题简化口径，会计成本通常计入实际发生的支出。"},"conceptId":"cost"},{"id":"eco-06-q04","number":4,"group":"成本与生产者均衡","type":"single","stem":"（　）是生产成本的一部分，是作为隐成本的一部分计入成本的，因此经济利润中不包括它。","options":{"A":"超额利润","B":"正常利润","C":"会计利润","D":"净利润"},"answer":["B"],"explanationSupplement":"正常利润是企业家才能等自有要素留在本用途所需的正常报酬。计算经济利润时，收入先补偿显成本和隐成本，剩余部分才是经济利润。","optionExplanations":{"A":"超额利润是补偿全部经济成本后的余额。","B":"正常利润作为对自有要素的正常报酬，计入隐成本。","C":"会计利润是收入减会计成本后的余额。","D":"净利润是利润口径，题干说的是生产成本项目。"},"conceptId":"cost-profit"},{"id":"eco-06-q05","number":5,"group":"成本与生产者均衡","type":"single","stem":"增加一个单位产量时总成本的增加额称为（　）。","options":{"A":"总成本","B":"可变成本","C":"边际成本","D":"显成本"},"answer":["C"],"explanationSupplement":"产量从 Q 增至 Q+1 时，比较新旧总成本。差额 TC(Q+1)−TC(Q) 就是这一个额外单位的成本。","optionExplanations":{"A":"总成本是某产量下的全部成本。","B":"可变成本是随产量变化的那部分总额。","C":"边际成本衡量新增产量对应的成本增量。","D":"显成本按是否有实际对外支出分类。"},"conceptId":"short-run-cost"},{"id":"eco-06-q06","number":6,"group":"成本与生产者均衡","type":"single","stem":"在经济学中，我们把为得到某种东西所放弃的其他东西，称为这种东西的（　）。","options":{"A":"获取成本","B":"机会成本","C":"货币成本","D":"财务成本"},"answer":["B"],"explanationSupplement":"做选择时，找出放弃的、最有价值的可行替代方案。它可以表现为收入、时间或其他价值。","optionExplanations":{"A":"获取成本侧重取得某项资源的支出。","B":"机会成本关注因选择而放弃的最佳替代用途价值。","C":"货币成本用货币表示，放弃的价值还可能是时间或其他机会。","D":"财务成本是另一种财务或会计口径。"},"conceptId":"cost"},{"id":"eco-06-q07","number":7,"group":"成本与生产者均衡","type":"single","stem":"企业购买生产要素所引起的成本为（　）。","options":{"A":"显成本","B":"隐成本","C":"固定成本","D":"机会成本"},"answer":["A"],"explanationSupplement":"先看企业是否为要素向他人实际付款。购买原料或支付外聘劳动工资都形成显成本。该成本是否固定还要看它与产量的关系。","optionExplanations":{"A":"实际购买要素的货币支出是显成本。","B":"隐成本对应企业使用自身所拥有的要素。","C":"购买的要素可能是固定投入，也可能是可变投入。","D":"机会成本是放弃的最佳替代用途价值，本题具体考察实际支付的成本分类。"},"conceptId":"cost"},{"id":"eco-06-q08","number":8,"group":"成本与生产者均衡","type":"single","stem":"当厂商的经济利润为零时，正常利润（　）。","options":{"A":"实现","B":"不能够实现","C":"为零","D":"不确定"},"answer":["A"],"explanationSupplement":"零经济利润意味着总收益正好补偿全部显成本和隐成本。正常利润已经计入隐成本，因此能得到补偿。","optionExplanations":{"A":"收入已补偿包括正常利润在内的经济成本。","B":"经济利润为零仍覆盖正常报酬。","C":"正常利润取决于自有要素的机会成本，可能为正。","D":"按经济成本的定义可以确定正常利润得到补偿。"},"conceptId":"cost-profit"},{"id":"eco-06-q09","number":9,"group":"成本与生产者均衡","type":"single","stem":"企业的经济利润，等同于（　）。","options":{"A":"超额利润","B":"平均利润","C":"边际利润","D":"正常利润"},"answer":["A"],"explanationSupplement":"总收益扣除显成本和隐成本后得到经济利润。扣除的隐成本已包含正常利润，因此余下的数额可称为超额利润。","optionExplanations":{"A":"经济利润与超额利润在本题的厂商理论口径中同义。","B":"平均利润一般按单位或平均口径计算。","C":"边际利润描述多生产一单位时的利润变化。","D":"正常利润是作为隐成本计入的正常报酬。"},"conceptId":"cost-profit"},{"id":"eco-06-q10","number":10,"group":"成本与生产者均衡","type":"single","stem":"机会成本是指，当一种生产要素被用于生产某产品时，所放弃的使用相同生产要素在其他生产用途中所得到的（　）。","options":{"A":"最高收入","B":"最低收入","C":"平均收入","D":"超额收入"},"answer":["A"],"explanationSupplement":"同一要素投入现有用途后，其他用途成为放弃的备选。找出这些备选中价值最高的一项，按题目口径用收入表示。","optionExplanations":{"A":"它对应放弃的最佳替代用途。","B":"最低收入对应价值最小的备选。","C":"平均值不能反映最佳替代方案。","D":"超额收入描述超出某一基准的部分，机会成本看最佳替代价值。"},"conceptId":"cost"},{"id":"eco-06-q11","number":11,"group":"成本与生产者均衡","type":"single","stem":"小张有一笔资金，如果投资股市能够盈利 10 万元，投资债市能够盈利 5 万元，存在银行能够盈利 3 万元。但是，小张对市场的分析失误，他的实际选择是将这笔资金存入了银行，不考虑其他因素，那么，他的机会成本、会计成本、经济利润、会计利润分别是（　）。","options":{"A":"5 万元，0 万元，5 万元，10 万元","B":"10 万元，0 万元，−7 万元，3 万元","C":"3 万元，5 万元，7 万元，3 万元","D":"7 万元，3 万元，3 万元，5 万元"},"answer":["B"],"explanationSupplement":"按题设将实际存款盈利 3 万元计为会计利润，显成本为零。放弃的最佳方案收益为 10 万元，因此经济利润等于 3−10=−7 万元。","optionExplanations":{"A":"债市收益 5 万元低于放弃的最佳替代收益。","B":"四项依次是 10、0、−7、3 万元。","C":"3 万元是所选用途的收益，债市收益 5 万元不是存款会计成本。","D":"7 万元是所选收益与最佳替代收益之间的差额大小。"},"conceptId":"cost-profit"},{"id":"eco-06-q12","number":12,"group":"成本与生产者均衡","type":"single","stem":"关于成本的说法，正确的是（　）。","options":{"A":"企业的总成本由所有的显成本和隐成本共同构成","B":"隐成本是指企业购买的生产要素所实际支付的货币支出","C":"企业的经济利润包括正常利润","D":"隐成本是指企业租用的生产要素所实际支付的货币支出"},"answer":["A"],"explanationSupplement":"按经济成本口径，将企业购买或租用要素的实际支出与使用自有要素放弃的回报相加，得到总成本。","optionExplanations":{"A":"经济成本包含显成本和隐成本。","B":"实际购买要素的货币支付属于显成本。","C":"正常利润作为隐成本，已经从收益中扣除。","D":"实际租用要素的货币支付属于显成本。"},"conceptId":"cost"},{"id":"eco-06-q13","number":13,"group":"成本与生产者均衡","type":"single","stem":"某大学生决定学习法语，为此他放弃了兼职的机会。已知兼职报酬为 1500 元/月，法语学习期限为 1 个月，资料费 800 元、生活费 1200 元、辅导费 1000 元。那么，他学习法语的机会成本是（　）。","options":{"A":"4500","B":"3300","C":"2300","D":"1500"},"answer":["B"],"explanationSupplement":"比较学法语与兼职两种方案的差别。学法语放弃工资 1500 元，增加资料费 800 元和辅导费 1000 元。若 1200 元生活费在两个方案下都需支付，比较时抵消，经济成本为 3300 元。","optionExplanations":{"A":"4500 元包含两种方案下都发生的生活费。","B":"计入放弃的工资和选择学习产生的两项支出。","C":"2300 元漏计辅导费。","D":"1500 元只反映放弃的兼职收入。"},"conceptId":"cost"},{"id":"eco-06-q14","number":14,"group":"成本与生产者均衡","type":"discussion","stem":"经济学中的零利润是指（　）。","options":{"A":"会计利润为零","B":"会计利润等于厂商投入生产的自由要素的机会成本","C":"正常利润为零","D":"以上都不是"},"answer":[],"explanationSupplement":"经济利润为零时，总收益等于显成本加隐成本，因此会计利润等于隐成本。如果 B 的“自由要素”意指厂商的自有要素，B 就是这个关系的等价表述。若把“自由要素”按字面理解，B 缺少足够的定义。","optionExplanations":{"A":"隐成本为正时，会计利润可以为正。","B":"若所指为自有要素，其机会成本计入隐成本，因而该式成立。","C":"正常利润已经作为隐成本得到补偿，可以为正。","D":"严格按各选项的字面含义理解，前面没有清楚给出零经济利润的等价定义。"},"conceptId":"cost-profit"},{"id":"eco-06-q15","number":15,"group":"成本函数及曲线","type":"single","stem":"当某企业的产量为 10 个单位时，其总成本、总固定成本、总可变成本、平均成本分别是 2000 元、1200 元、800 元和 200 元，则该企业的平均固定成本为（　）元。","options":{"A":"20","B":"80","C":"120","D":"200"},"answer":["C"],"explanationSupplement":"按 AFC=TFC/Q 计算。总固定成本 1200 元由 10 个产量单位分摊，每单位 120 元。","optionExplanations":{"A":"20 元不是总固定成本按当前产量分摊的结果。","B":"80 元等于 800÷10，是平均可变成本。","C":"1200÷10=120，计算正确。","D":"200 元是总成本 2000÷10 得到的平均总成本。"},"conceptId":"short-run-cost"},{"id":"eco-06-q16","number":16,"group":"成本函数及曲线","type":"single","stem":"当某企业的产量为 2 个单位时，其总成本、总固定成本、总可变成本、平均成本分别是 2000 元、1200 元、800 元和 1000 元；当产量为 3 个单位时，其总成本、总固定成本、总可变成本、平均成本分别是 2100 元、1200 元、900 元和 700 元，则该企业的边际成本是（　）元。","options":{"A":"0","B":"150","C":"100","D":"300"},"answer":["C"],"explanationSupplement":"新增产量为 1，边际成本是总成本增量 2100−2000=100 元。总固定成本不变，所以也可用总可变成本增量 900−800 求得。","optionExplanations":{"A":"总固定成本增量为零，总成本仍增加。","B":"150 元不是题设两组总成本的差额。","C":"每增产一个单位总成本增加 100 元。","D":"300 元是两次平均总成本之差的大小，单位平均值变动与新增单位的成本不同。"},"conceptId":"short-run-cost"},{"id":"eco-06-q17","number":17,"group":"成本函数及曲线","type":"single","stem":"短期成本曲线中平行于横轴的一条直线是（　）。","options":{"A":"总可变成本曲线","B":"平均可变成本曲线","C":"总成本曲线","D":"总固定成本曲线"},"answer":["D"],"explanationSupplement":"横轴为产量。给定固定要素和要素价格时，产量变化不改变总固定成本，因此纵坐标保持同一数值。","optionExplanations":{"A":"总可变成本随可变投入和产量变动。","B":"平均可变成本通常随产量变动。","C":"总成本包含随产量变动的总可变成本。","D":"每个产量对应的总固定成本相同，图中是一条水平线。"},"conceptId":"short-run-cost"},{"id":"eco-06-q18","number":18,"group":"成本函数及曲线","type":"single","stem":"在进行短期成本函数分析时，关于各种成本曲线变动规律的说法，正确的是（　）。","options":{"A":"总成本曲线和总可变成本曲线的变动规律是一致的","B":"总固定成本曲线和总可变成本曲线的变动规律是一致的","C":"平均总成本曲线和总固定成本曲线的变动规律是一致的","D":"平均固定成本曲线和平均可变成本曲线的变动规律是一致的"},"answer":["A"],"explanationSupplement":"由 TC=TFC+TVC，短期的 TFC 是常量，所以 TC 图是 TVC 图向上平移后的结果。两条线在同一产量处具有相同的斜率。","optionExplanations":{"A":"两条曲线相差固定成本，变动规律相同。","B":"总固定成本为常量，总可变成本随产量变化。","C":"平均总成本按单位计算，总固定成本为常量。","D":"平均固定成本随产量上升而下降，平均可变成本通常有自己的最低点。"},"conceptId":"cost-curves"},{"id":"eco-06-q19","number":19,"group":"成本函数及曲线","type":"single","stem":"根据成本函数，在平均成本和边际成本的位置关系中，最早到达最低点的曲线是（　）。","options":{"A":"边际成本曲线","B":"平均可变成本曲线","C":"平均总成本曲线","D":"平均固定成本曲线"},"answer":["A"],"explanationSupplement":"按常见 U 形短期成本图，MC 先达到最低点，随后向上穿过 AVC 的最低点，再穿过 AC 的最低点。AFC=TFC/Q 随产量增加持续下降。","optionExplanations":{"A":"MC 自身的谷底先出现。","B":"AVC 最低处出现在 MC 回升并与它相等时。","C":"AC 最低处出现在 MC 回升并与它相等时。","D":"固定成本为正时，AFC 在正产量区间持续下降，没有有限的内点最低值。"},"conceptId":"cost-curves"},{"id":"eco-06-q20","number":20,"group":"成本函数及曲线","type":"single","stem":"在短期中，当边际成本曲线位于平均成本曲线上方时，（　）。","options":{"A":"平均成本是递减的","B":"平均成本是递增的","C":"边际成本是递减的","D":"边际成本保持不变"},"answer":["B"],"explanationSupplement":"在 Q＞0 且成本函数可微时，dAC/dQ=(MC−AC)/Q。题目给出 MC＞AC，所以平均成本的导数为正。","optionExplanations":{"A":"MC 低于 AC 时，平均成本才会下降。","B":"新增单位成本高于原平均成本，会抬高平均成本。","C":"曲线相对高低决定 AC 的走势，MC 自身的走势需要额外信息。","D":"MC 的值高于 AC 无法推出 MC 的斜率。"},"conceptId":"cost-curves"},{"id":"eco-06-q21","number":21,"group":"成本函数及曲线","type":"single","stem":"下列项目中可称为可变成本的是（　）。","options":{"A":"厂房的租金","B":"原料和燃料的支出","C":"机器设备的折旧","D":"高层管理者的薪金"},"answer":["B"],"explanationSupplement":"按常见短期设定，企业扩大产量会消耗更多原料和燃料，这类支出随产量变化。厂房租赁、按期折旧和管理薪金通常在短期内给定。","optionExplanations":{"A":"给定租约下，租金通常在短期内保持固定。","B":"原料和燃料的使用量通常随产量变化。","C":"常见的按期折旧在短期内作为固定成本处理。","D":"给定管理团队的固定薪金在短期内通常不随产量变化。"},"conceptId":"short-run-cost"},{"id":"eco-06-q22","number":22,"group":"成本函数及曲线","type":"single","stem":"假定某企业全部成本函数为 TC=30000+5Q−Q²，Q 为产出数量，那么 TVC 为（　）。","options":{"A":"30000","B":"5Q−Q²","C":"5−Q","D":"30000/Q"},"answer":["B"],"explanationSupplement":"先令 Q=0，得到 TC(0)=30000。再用 TVC(Q)=TC(Q)−TC(0)，得到 5Q−Q²。该题只用给出的表达式拆分成本。","optionExplanations":{"A":"30000 是总固定成本。","B":"从总成本中扣除固定项后得到该式。","C":"对正产量，(5Q−Q²)/Q=5−Q 是平均可变成本。","D":"对正产量，30000/Q 是平均固定成本。"},"conceptId":"short-run-cost"},{"id":"eco-06-q23","number":23,"group":"成本函数及曲线","type":"single","stem":"边际成本的曲线与平均成本的相交点是（　）。","options":{"A":"边际成本曲线的最低点","B":"平均成本曲线下降阶段的任何一点","C":"平均成本曲线的最低点","D":"边际成本曲线的最高点"},"answer":["C"],"explanationSupplement":"在通常 U 形平均成本曲线中，MC 从下方穿过 AC 时，MC−AC 由负变正，AC 的斜率从负变正，交点对应 AC 的最低点。","optionExplanations":{"A":"MC 自身的最低点在其向上穿过 AC 之前。","B":"AC 正在下降时 MC 通常位于 AC 下方。","C":"MC 从下向上穿过 AC 时，平均成本由降转升。","D":"两线相交体现 AC 的斜率为零，无法推出 MC 达到峰值。"},"conceptId":"cost-curves"},{"id":"eco-06-q24","number":24,"group":"成本函数及曲线","type":"single","stem":"短期总成本函数与短期生产函数之间存在的关系是（　）。","options":{"A":"短期总成本函数是短期生产函数的反函数","B":"短期总成本函数是短期生产函数的反函数与可变要素的价格乘积","C":"短期总成本函数是短期生产函数的反函数与可变要素的价格乘积加上固定要素的数量","D":"短期总成本函数是短期生产函数的反函数与可变要素的价格乘积加上固定要素的数量与固定要素价格的乘积"},"answer":["D"],"explanationSupplement":"在只有一种可变投入、生产函数在相关区间可逆且要素价格给定时，先求实现产量 Q 所需的最少劳动 L(Q)。再把两类支出加总，STC(Q)=wL(Q)+rK̄，其中 K̄ 为固定资本量。","optionExplanations":{"A":"生产函数的反函数给出投入数量。","B":"投入量乘价格只得到可变成本。","C":"固定要素数量需乘以其价格才能与货币成本相加。","D":"同时计入了可变成本和固定成本。"},"conceptId":"cost-product"},{"id":"eco-06-q25","number":25,"group":"成本函数及曲线","type":"single","stem":"对应于边际报酬递减阶段，STC 曲线（　）。","options":{"A":"以递增的速率上升","B":"以递增的速率下降","C":"以递减的速率上升","D":"以递减的速率下降"},"answer":["A"],"explanationSupplement":"当劳动是唯一可变投入、工资率固定且边际产量仍为正时，MC=w/MP。MP 递减使 MC 上升，而 MC 是 STC 曲线的斜率，所以总成本上升并越来越陡。","optionExplanations":{"A":"正的边际成本表示总成本上升，边际成本递增表示斜率越来越大。","B":"总成本下降需要边际成本为负，给定条件下 MC 为正。","C":"边际产量递增时，单位新增产出成本才会减少。","D":"给定正的边际成本，总成本随着产量增加上升。"},"conceptId":"cost-product"},{"id":"eco-06-q26","number":26,"group":"成本函数及曲线","type":"single","stem":"MC 曲线达到最低时（　）。","options":{"A":"AVC 最小","B":"MP 最大","C":"TC 最大","D":"AC 最小"},"answer":["B"],"explanationSupplement":"只有劳动可变、工资率固定且 MP＞0 时，MC=w/MP。分母最大的地方，分式最小。","optionExplanations":{"A":"AVC 达到最小对应 AP 最大。","B":"边际产量达到峰值，新增产出的劳动成本最低。","C":"MC 最小表示 TC 曲线斜率最小，TC 的水平仍可能上升。","D":"AC 最低处满足 MC=AC，通常出现在 MC 自身最低点之后。"},"conceptId":"cost-product"},{"id":"eco-06-q27","number":27,"group":"成本函数及曲线","type":"single","stem":"假定在某一产量水平上，某厂商的平均成本达到了最小值，这意味着（　）。","options":{"A":"边际成本等于平均成本","B":"厂商获得了最大利润","C":"厂商获得了最小利润","D":"厂商的超额利润为零"},"answer":["A"],"explanationSupplement":"在可微的内点最小值，平均成本的导数为零。利用 dAC/dQ=(MC−AC)/Q，可得 MC=AC。利润取决于总收益和总成本两部分。","optionExplanations":{"A":"平均成本的内点最低点满足这一等式。","B":"利润最大化需要比较边际收益和边际成本，并检验最优性。","C":"缺少收益信息，不能由成本最低推出利润最低。","D":"经济利润为零需要总收益等于经济总成本，题设只给了成本信息。"},"conceptId":"cost-curves"},{"id":"eco-06-q28","number":28,"group":"成本函数及曲线","type":"single","stem":"在短期内，随着产量从零开始不断地增加，AFC 会越变越小并致使 SAC 曲线和 AVC 曲线之间的垂直距离越来越小，（　）。","options":{"A":"直至两曲线相交","B":"但这两条线并不会相交","C":"直至两曲线相切","D":"无法判断"},"answer":["B"],"explanationSupplement":"SAC−AVC=AFC=TFC/Q。只要 TFC＞0 且 Q 为有限正数，距离就大于零。产量增大使距离缩小，但有限产量处仍保持正值。","optionExplanations":{"A":"相交要求差额为零，正的固定成本保证差额为正。","B":"两条线在有限正产量处始终保持正间距。","C":"相切也需要两条曲线有公共点。","D":"可直接用 SAC−AVC=TFC/Q 判断。"},"conceptId":"cost-curves"},{"id":"eco-06-q29","number":29,"group":"成本函数及曲线","type":"single","stem":"下列哪项不随产量变动而变动？（　）","options":{"A":"平均成本","B":"总固定成本","C":"总成本","D":"平均固定成本"},"answer":["B"],"explanationSupplement":"给定厂房和设备等固定要素，短期总固定成本为常量。用这个常量除以不同产量，单位固定成本会随产量变化。","optionExplanations":{"A":"平均成本等于总成本除以产量。","B":"总固定成本在短期内是给定的。","C":"总成本还包括随产量变动的可变成本。","D":"平均固定成本等于总固定成本除以产量，会被增产摊薄。"},"conceptId":"short-run-cost"},{"id":"eco-06-q30","number":30,"group":"成本函数及曲线","type":"single","stem":"关于短期边际成本曲线和平均成本曲线之间的关系的说法，正确的是（　）。","options":{"A":"平均固定成本曲线和边际成本曲线都具有“U”形特征","B":"当边际成本与平均总成本相等时，平均总成本曲线位于最低点","C":"平均总成本曲线比边际成本曲线更早到达最低点","D":"平均固定成本曲线总是高于边际成本曲线"},"answer":["B"],"explanationSupplement":"通常 U 形图中，MC 从下方穿过平均总成本时，平均总成本由下降转为上升。此时 MC=AC，平均总成本达到最低点。","optionExplanations":{"A":"在正的固定成本下，AFC=TFC/Q 持续下降。","B":"两线相等且 MC 由下向上穿越时，平均总成本达到最低点。","C":"通常顺序为 MC 先到最低点，随后平均总成本到最低点。","D":"AFC 和 MC 的相对位置随产量和成本结构变化。"},"conceptId":"cost-curves"},{"id":"eco-06-q31","number":31,"group":"成本函数及曲线","type":"single","stem":"关于总成本曲线规律的说法，正确的是（　）。","options":{"A":"总成本曲线从原点开始，随产量的增加而逐步上升","B":"总成本曲线不随产量的变动而变动","C":"总成本曲线从纵轴一个截点即产量为零时总成本等于固定成本的那个点开始，并随产量的增加而逐步上升","D":"总成本曲线从纵轴一个截点即产量为零时总成本等于可变成本的那个点开始，随产量的增加而逐步下降"},"answer":["C"],"explanationSupplement":"通常短期模型中，产量为零时 TVC=0，所以 TC(0)=TFC。随产量增加，可变投入的支出增加，使总成本曲线上升。","optionExplanations":{"A":"存在正的固定成本时，总成本曲线纵截距为正。","B":"保持不变的是总固定成本。","C":"起点是 (0,TFC)，曲线随产量增加而上升，符合短期总成本图。","D":"零产量时总成本由固定成本构成。"},"conceptId":"cost-curves"},{"id":"eco-06-q32","number":32,"group":"成本函数及曲线","type":"single","stem":"长期成本函数与短期成本函数的区别在于（　）。","options":{"A":"企业性质不同","B":"生产要素的数量不同","C":"成本是否可以加总","D":"是否有固定成本和可变成本之分"},"answer":["D"],"explanationSupplement":"短期内至少一种投入量固定，所以通常区分固定成本和可变成本。长期企业能调整全部投入并重新选择生产规模。","optionExplanations":{"A":"同一企业可以同时讨论短期与长期成本。","B":"要素数量可以相同，划分看能否调整所有要素。","C":"两种成本函数都可以度量企业的总支出。","D":"短期有固定与可变成本之分，长期全部投入可调。"},"conceptId":"long-run-cost"},{"id":"eco-06-q33","number":33,"group":"成本函数及曲线","type":"single","stem":"长期总成本曲线是各种产量的（　）。","options":{"A":"最低成本点的轨迹","B":"最低平均成本点的轨迹","C":"最低边际成本点的轨迹","D":"平均成本变动的轨迹"},"answer":["A"],"explanationSupplement":"对于每一个 Q，允许厂商改变全部要素，求生产该 Q 的最低总支出。把这些 (Q,最低总成本) 连起来，就得到长期总成本曲线。","optionExplanations":{"A":"每一个产量取长期可实现的最低总成本。","B":"用每单位成本表示时得到长期平均成本曲线。","C":"边际成本衡量总成本随产量增加的增量。","D":"该项描述平均成本的变化，纵轴与题目所问的总成本不同。"},"conceptId":"long-run-cost"},{"id":"eco-06-q34","number":34,"group":"成本函数及曲线","type":"single","stem":"某企业在短期内，当产量为 3 个单位时，总成本为 2100 元，当产量增长到 4 个单位时，平均总成本为 562.5 元，则该企业此时的边际成本是（　）元。","options":{"A":"100","B":"200","C":"150","D":"250"},"answer":["C"],"explanationSupplement":"先把每单位平均成本还原成总成本，TC(4)=4×562.5=2250。然后用 2250−2100=150 求第 4 个单位的成本。","optionExplanations":{"A":"100 元不能由题设两组总成本相减得到。","B":"200 元不是 2250 与 2100 的差额。","C":"新增一单位的总成本增量为 150 元。","D":"250 元会对应 2350 元的总成本，和题设平均成本不符。"},"conceptId":"short-run-cost"},{"id":"eco-06-q35","number":35,"group":"成本函数及曲线","type":"single","stem":"边际成本曲线自下而上穿过平均成本曲线后，平均成本的变化趋势是（　）。","options":{"A":"平均成本上升","B":"平均成本下降","C":"平均成本先上升后下降","D":"平均成本不变"},"answer":["A"],"explanationSupplement":"交点之后 MC＞AC 时，新增单位成本高于当前平均成本，所以平均成本上升。交点处两者相等，平均成本的斜率为零。","optionExplanations":{"A":"新增单位会拉高平均成本。","B":"当 MC＜AC 时，平均成本才下降。","C":"题意给出从下方穿到上方，之后高于平均成本的区间内平均成本上升。","D":"平均成本保持不变要求 MC 与 AC 在相应区间内相等。"},"conceptId":"cost-curves"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -1806,11 +1839,13 @@ dialog::backdrop { background: var(--backdrop); }
  }
 
  function renderLessons() {
-  const visualTpl = $('#visual-template');
+  const chapterVisuals = chapter.visuals || (chapter.visual && chapter.visualSectionId ? [{ type: chapter.visual, sectionId: chapter.visualSectionId }] : []);
+  let firstVisualAssigned = false;
   C.lessons.sections.forEach((section, index) => {
    const number = String(index + 1).padStart(2, '0');
    const sectionQuestions = C.questions.filter(q => q.conceptId === section.id);
-   const hasVisual = Boolean(chapter.visual && chapter.visualSectionId === section.id && visualTpl && visualTpl.content.childNodes.length);
+   const sectionVisual = chapterVisuals.find(v => v.sectionId === section.id);
+   const hasVisual = Boolean(sectionVisual);
 
    const jump = el('a');
    jump.href = '#' + section.id;
@@ -1846,10 +1881,15 @@ dialog::backdrop { background: var(--backdrop); }
     wrap.append(table);
    });
 
-   if (chapter.visual && chapter.visualSectionId === section.id && visualTpl && visualTpl.content.childNodes.length) {
+   if (sectionVisual) {
     const visualBox = el('div', 'inline-visual');
-    visualBox.id = 'inline-visual';
-    visualBox.append(visualTpl.content.cloneNode(true));
+    if (!firstVisualAssigned) { visualBox.id = 'inline-visual'; firstVisualAssigned = true; }
+    const tpl = $(`template[data-visual-template="${sectionVisual.type}"]`);
+    if (tpl && tpl.content.childNodes.length) {
+     visualBox.append(tpl.content.cloneNode(true));
+    } else {
+     visualBox.dataset.microVisual = sectionVisual.type;
+    }
     body.append(visualBox);
    }
 
@@ -2184,7 +2224,7 @@ dialog::backdrop { background: var(--backdrop); }
   });
   $$('.lesson-card').forEach(card=>observer.observe(card));
   fitMapOnFirstOpen=renderMap();
-  if(chapter.visual==='ppf')initPPF();
+  if((chapter.visuals||[]).some(v=>v.type==='ppf')||chapter.visual==='ppf')initPPF();
   mountQuiz();
   updateProgress();
   let hash=location.hash.slice(1);
@@ -2217,6 +2257,761 @@ dialog::backdrop { background: var(--backdrop); }
    if(target){ e.preventDefault(); target.focus(); target.select(); }
   }
  });
+})();
+
+(() => {
+  'use strict';
+
+  const fmt = (n, d = 1) => Number(n.toFixed(d)).toString();
+  const samplePath = (fn, start, end, steps, xMap, yMap) => {
+    let d = '';
+    for (let i = 0; i <= steps; i++) {
+      const t = start + (end - start) * (i / steps);
+      const val = fn(t);
+      if (!Number.isFinite(val)) continue;
+      d += (d ? ' L' : 'M') + xMap(t).toFixed(1) + ' ' + yMap(val).toFixed(1);
+    }
+    return d;
+  };
+
+  function mountDemandMove(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>需求曲线：沿曲线点移 vs 整线平移</h4>
+        <p>分别拖动“自身价格”与“非价格因素”，直观区分「需求量变动」与「需求变动」。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>当前需求曲线 D</span>
+            <span><i class="chart-line mv-base-line"></i>初始需求曲线 D₀</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="需求曲线点移与平移对比图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 P</text>
+            <text x="456" y="322" class="axis-label">数量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">0</text><text x="196" y="308">40</text><text x="336" y="308">80</text><text x="476" y="308">120</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="226">10</text><text x="46" y="160">20</text><text x="46" y="94">30</text><text x="46" y="28">40</text></g>
+            <path class="mv-base-curve" data-role="d0"/>
+            <path class="mv-curve-1" data-role="d1"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6.5" class="mv-dot-1" data-role="pt"/>
+            <text class="point-label" data-role="pt-label">A</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <h5>1. 改变商品自身价格（点移）</h5>
+          <label class="range-label">自身价格 P <output data-role="p-out">20</output></label>
+          <input type="range" data-role="p" min="8" max="38" step="1" value="20">
+          <h5>2. 改变收入/偏好等外部条件（线移）</h5>
+          <label class="range-label">需求平移 ΔD <output data-role="s-out">0</output></label>
+          <input type="range" data-role="s" min="-24" max="24" step="4" value="0">
+          <div class="ppf-outputs">
+            <div><span>当前价格 P</span><strong data-role="p-val">20</strong></div>
+            <div><span>需求量 Q</span><strong data-role="q-val">60</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row"><button type="button" class="button button-secondary" data-role="reset">重置</button></div>
+        </div>
+      </div>`;
+    const x = q => 56 + (q / 120) * 420;
+    const y = p => 288 - (p / 40) * 264;
+    const pIn = root.querySelector('[data-role="p"]');
+    const sIn = root.querySelector('[data-role="s"]');
+    const linePath = shift => {
+      const pTop = Math.min(40, (100 + shift) / 2);
+      const qTop = Math.max(0, 100 + shift - 2 * pTop);
+      const pBot = Math.max(0, (100 + shift - 120) / 2);
+      const qBot = Math.min(120, 100 + shift - 2 * pBot);
+      return `M${x(qTop).toFixed(1)} ${y(pTop).toFixed(1)} L${x(qBot).toFixed(1)} ${y(pBot).toFixed(1)}`;
+    };
+    root.querySelector('[data-role="d0"]').setAttribute('d', linePath(0));
+    function draw() {
+      const p = pIn.valueAsNumber, s = sIn.valueAsNumber;
+      const q = Math.max(0, Math.min(120, 100 + s - 2 * p));
+      root.querySelector('[data-role="d1"]').setAttribute('d', linePath(s));
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(p).toFixed(1)} H${x(q).toFixed(1)} V288`);
+      const pt = root.querySelector('[data-role="pt"]');
+      pt.setAttribute('cx', x(q).toFixed(1));
+      pt.setAttribute('cy', y(p).toFixed(1));
+      const lbl = root.querySelector('[data-role="pt-label"]');
+      lbl.setAttribute('x', (x(q) + 10).toFixed(1));
+      lbl.setAttribute('y', (y(p) - 10).toFixed(1));
+      root.querySelector('[data-role="p-out"]').value = String(p);
+      root.querySelector('[data-role="s-out"]').value = (s > 0 ? '+' : '') + s;
+      root.querySelector('[data-role="p-val"]').textContent = String(p);
+      root.querySelector('[data-role="q-val"]').textContent = String(q);
+      root.querySelector('[data-role="msg"]').textContent = s === 0
+        ? '仅改变商品自身价格：点 A 沿着原需求曲线 D₀ 上下滑动，这叫「需求量的变动」，曲线位置不变。'
+        : s > 0
+          ? `外部有利因素使需求增加：整条需求曲线向右平移至 D（同一价格下需求量增加 ${s} 单位），这叫「需求的变动」。`
+          : `外部不利因素使需求减少：整条需求曲线向左平移至 D（同一价格下需求量减少 ${-s} 单位），这叫「需求的变动」。`;
+    }
+    pIn.addEventListener('input', draw);
+    sIn.addEventListener('input', draw);
+    root.querySelector('[data-role="reset"]').addEventListener('click', () => { pIn.value = '20'; sIn.value = '0'; draw(); });
+    draw();
+  }
+
+  function mountPriceControls(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>最高限价、最低限价与交易剩余（CS / PS / DWL）</h4>
+        <p>切换限价类型并拖动管制价格线，观察短缺、过剩与社会无谓损失（DWL）的变化。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="mv-swatch mv-cs"></i>消费者剩余 CS</span>
+            <span><i class="mv-swatch mv-ps"></i>生产者剩余 PS</span>
+            <span><i class="mv-swatch mv-dwl"></i>无谓损失 DWL</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="价格管制与交易剩余图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 P</text>
+            <text x="456" y="322" class="axis-label">数量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">0</text><text x="161" y="308">20</text><text x="266" y="308">40</text><text x="371" y="308">60</text><text x="476" y="308">80</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="239">10</text><text x="46" y="186">20</text><text x="46" y="133">30</text><text x="46" y="81">40</text><text x="46" y="28">50</text></g>
+            <polygon class="mv-fill-cs" data-role="cs"/>
+            <polygon class="mv-fill-ps" data-role="ps"/>
+            <polygon class="mv-fill-dwl" data-role="dwl"/>
+            <path class="mv-curve-1" data-role="d"/>
+            <path class="mv-curve-2" data-role="s"/>
+            <line class="mv-limit-line" data-role="limit" x1="56" x2="476"/>
+            <circle r="5.5" class="mv-dot-eq" data-role="eq"/>
+            <text class="point-label" data-role="eq-lbl">E</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>价格管制方式</legend>
+            <label><input type="radio" name="pc-mode" value="free" checked> 自由市场均衡（P*=30）</label>
+            <label><input type="radio" name="pc-mode" value="ceiling"> 最高限价（限制上限）</label>
+            <label><input type="radio" name="pc-mode" value="floor"> 最低限价（支持价格）</label>
+          </fieldset>
+          <label class="range-label">管制价格 P <output data-role="p-out">30</output></label>
+          <input type="range" data-role="p" min="14" max="46" step="2" value="30">
+          <div class="ppf-outputs">
+            <div><span>实际成交量</span><strong data-role="qt">40</strong></div>
+            <div><span>无谓损失 DWL</span><strong data-role="dwl-val">0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // Demand: P = 50 - 0.5Q (Q = 100 - 2P); Supply: P = 10 + 0.5Q (Q = 2P - 20); Eq: P*=30, Q*=40
+    const x = q => 56 + (q / 80) * 420;
+    const y = p => 288 - (p / 50) * 264;
+    const pIn = root.querySelector('[data-role="p"]');
+    const radios = [...root.querySelectorAll('input[name="pc-mode"]')];
+    root.querySelector('[data-role="d"]').setAttribute('d', `M${x(0)} ${y(50)} L${x(80)} ${y(10)}`);
+    root.querySelector('[data-role="s"]').setAttribute('d', `M${x(0)} ${y(10)} L${x(80)} ${y(50)}`);
+    root.querySelector('[data-role="eq"]').setAttribute('cx', x(40));
+    root.querySelector('[data-role="eq"]').setAttribute('cy', y(30));
+    root.querySelector('[data-role="eq-lbl"]').setAttribute('x', x(40) + 10);
+    root.querySelector('[data-role="eq-lbl"]').setAttribute('y', y(30) - 8);
+    const pts = list => list.map(([q, p]) => `${x(q).toFixed(1)},${y(p).toFixed(1)}`).join(' ');
+
+    function draw() {
+      const mode = radios.find(r => r.checked).value;
+      pIn.disabled = mode === 'free';
+      const pc = mode === 'free' ? 30 : pIn.valueAsNumber;
+      root.querySelector('[data-role="p-out"]').value = String(pc);
+      const limit = root.querySelector('[data-role="limit"]');
+      limit.style.display = mode === 'free' ? 'none' : '';
+      limit.setAttribute('y1', y(pc).toFixed(1));
+      limit.setAttribute('y2', y(pc).toFixed(1));
+
+      let effective = false, qt = 40, pEff = 30, msg = '';
+      if (mode === 'ceiling' && pc < 30) {
+        effective = true;
+        pEff = pc;
+        qt = Math.max(0, 2 * pc - 20);
+        const qd = 100 - 2 * pc;
+        msg = `有效最高限价（P=${pc} < 30）：需求量 ${qd} 大于供给量 ${qt}，市场出现 ${qd - qt} 单位短缺，实际仅成交 ${qt} 单位并产生无谓损失。`;
+      } else if (mode === 'floor' && pc > 30) {
+        effective = true;
+        pEff = pc;
+        qt = Math.max(0, 100 - 2 * pc);
+        const qs = 2 * pc - 20;
+        msg = `有效最低限价（P=${pc} > 30）：供给量 ${qs} 大于需求量 ${qt}，市场出现 ${qs - qt} 单位过剩，实际仅成交 ${qt} 单位并产生无谓损失。`;
+      } else if (mode === 'free') {
+        msg = '自由均衡点 E（P*=30, Q*=40）：消费者剩余 CS 与生产者剩余 PS 之和达到最大，无谓损失 DWL = 0。';
+      } else {
+        msg = mode === 'ceiling'
+          ? `最高限价 P=${pc} 高于或等于均衡价 30，不具有约束力，市场仍停留在均衡点 E。`
+          : `最低限价 P=${pc} 低于或等于均衡价 30，不具有约束力，市场仍停留在均衡点 E。`;
+      }
+
+      const pdAtQt = 50 - 0.5 * qt;
+      const psAtQt = 10 + 0.5 * qt;
+      const dwl = effective ? 0.5 * (pdAtQt - psAtQt) * (40 - qt) : 0;
+      root.querySelector('[data-role="cs"]').setAttribute('points', pts([[0, 50], [0, pEff], [qt, pEff], [qt, pdAtQt]]));
+      root.querySelector('[data-role="ps"]').setAttribute('points', pts([[0, 10], [0, pEff], [qt, pEff], [qt, psAtQt]]));
+      root.querySelector('[data-role="dwl"]').setAttribute('points', effective ? pts([[qt, pdAtQt], [40, 30], [qt, psAtQt]]) : '');
+      root.querySelector('[data-role="qt"]').textContent = String(qt);
+      root.querySelector('[data-role="dwl-val"]').textContent = fmt(dwl, 0);
+      root.querySelector('[data-role="msg"]').textContent = msg;
+    }
+    radios.forEach(r => r.addEventListener('change', () => {
+      if (r.value === 'ceiling' && pIn.valueAsNumber >= 30) pIn.value = '22';
+      if (r.value === 'floor' && pIn.valueAsNumber <= 30) pIn.value = '38';
+      draw();
+    }));
+    pIn.addEventListener('input', draw);
+    draw();
+  }
+
+  function mountElasticity(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>需求价格弹性与总销售收入（TR = P × Q）</h4>
+        <p>切换弹性类型并拖动价格，观察阴影矩形面积（总销售收入）与初始价格 P₀=20 时的增减对比。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="mv-swatch mv-cs"></i>当前总收入 TR = P × Q</span>
+            <span><i class="chart-line mv-base-line"></i>基准总收入（P₀=20, TR₀=1000）</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="需求价格弹性与总销售收入面积图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 P</text>
+            <text x="456" y="322" class="axis-label">数量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">0</text><text x="161" y="308">25</text><text x="266" y="308">50</text><text x="371" y="308">75</text><text x="476" y="308">100</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="226">10</text><text x="46" y="160">20</text><text x="46" y="94">30</text><text x="46" y="28">40</text></g>
+            <rect class="mv-fill-cs" data-role="tr-rect"/>
+            <rect class="mv-base-rect" data-role="base-rect"/>
+            <path class="mv-curve-1" data-role="curve"/>
+            <circle r="6" class="mv-dot-1" data-role="pt"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择需求曲线斜率</legend>
+            <label><input type="radio" name="el-type" value="elastic" checked> 富有弹性（曲线平缓，|Ed| &gt; 1）</label>
+            <label><input type="radio" name="el-type" value="unit"> 单位弹性附近（|Ed| ≈ 1）</label>
+            <label><input type="radio" name="el-type" value="inelastic"> 缺乏弹性（曲线陡峭，|Ed| &lt; 1）</label>
+          </fieldset>
+          <label class="range-label">销售价格 P <output data-role="p-out">20</output></label>
+          <input type="range" data-role="p" min="10" max="30" step="1" value="20">
+          <div class="ppf-outputs">
+            <div><span>点弹性 |Ed|</span><strong data-role="ed">1.60</strong></div>
+            <div><span>总收入 TR</span><strong data-role="tr">1000</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // All curves pass through (Q=50, P=20): Q = 50 - b*(P - 20)
+    const slopes = { elastic: 4, unit: 2.5, inelastic: 0.8 };
+    const x = q => 56 + (q / 100) * 420;
+    const y = p => 288 - (p / 40) * 264;
+    const pIn = root.querySelector('[data-role="p"]');
+    const radios = [...root.querySelectorAll('input[name="el-type"]')];
+    const baseRect = root.querySelector('[data-role="base-rect"]');
+    baseRect.setAttribute('x', x(0));
+    baseRect.setAttribute('y', y(20));
+    baseRect.setAttribute('width', x(50) - x(0));
+    baseRect.setAttribute('height', y(0) - y(20));
+
+    function draw() {
+      const type = radios.find(r => r.checked).value;
+      const b = slopes[type];
+      const p = pIn.valueAsNumber;
+      const qOf = price => Math.max(0, Math.min(100, 50 - b * (price - 20)));
+      const q = qOf(p);
+      const tr = p * q;
+      const ed = q > 0 ? (b * p) / q : 99;
+      const pMin = Math.max(0, 20 - 50 / b);
+      const pMax = Math.min(40, 20 + 50 / b);
+      root.querySelector('[data-role="curve"]').setAttribute('d', `M${x(qOf(pMax)).toFixed(1)} ${y(pMax).toFixed(1)} L${x(qOf(pMin)).toFixed(1)} ${y(pMin).toFixed(1)}`);
+      const r = root.querySelector('[data-role="tr-rect"]');
+      r.setAttribute('x', x(0));
+      r.setAttribute('y', y(p).toFixed(1));
+      r.setAttribute('width', (x(q) - x(0)).toFixed(1));
+      r.setAttribute('height', (y(0) - y(p)).toFixed(1));
+      const pt = root.querySelector('[data-role="pt"]');
+      pt.setAttribute('cx', x(q).toFixed(1));
+      pt.setAttribute('cy', y(p).toFixed(1));
+      root.querySelector('[data-role="p-out"]').value = String(p);
+      root.querySelector('[data-role="ed"]').textContent = fmt(ed, 2);
+      root.querySelector('[data-role="tr"]').textContent = fmt(tr, 0);
+      const diff = Math.round(tr - 1000);
+      const trend = diff > 0 ? `比基准增加 +${diff}` : diff < 0 ? `比基准减少 ${diff}` : '与基准持平';
+      root.querySelector('[data-role="msg"]').textContent = type === 'elastic'
+        ? `富有弹性商品（|Ed|=${fmt(ed, 2)}）：降价带来销量大幅增长，总收入 ${trend}，适合「薄利多销」。`
+        : type === 'inelastic'
+          ? `缺乏弹性商品（|Ed|=${fmt(ed, 2)}）：销量对价格不敏感，提价反而增加总收入（${trend}），即「谷贱伤农」的背面。`
+          : `单位弹性附近（|Ed|=${fmt(ed, 2)}）：P=20 处总收入最大（TR=1000），偏离该点总收入略降（${trend}）。`;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    pIn.addEventListener('input', draw);
+    draw();
+  }
+
+  function mountConsumer(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>无差异曲线与预算线：消费者均衡切点 E</h4>
+        <p>调节收入 I（预算线平移）或商品 X 价格 Px（预算线旋转），观察最优消费束切点 E 如何移动。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>预算线（可行边界）</span>
+            <span><i class="chart-line mv-c2-line"></i>最优无差异曲线 U*</span>
+            <span><i class="chart-line mv-base-line"></i>初始预算线</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="消费者均衡无差异曲线与预算线切点图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">商品 Y</text>
+            <text x="448" y="322" class="axis-label">商品 X</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">0</text><text x="196" y="308">20</text><text x="336" y="308">40</text><text x="476" y="308">60</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="239">10</text><text x="46" y="186">20</text><text x="46" y="133">30</text><text x="46" y="81">40</text><text x="46" y="28">50</text></g>
+            <path class="mv-ref-ic" data-role="ic-low"/>
+            <path class="mv-ref-ic" data-role="ic-high"/>
+            <path class="mv-base-curve" data-role="bl0"/>
+            <path class="mv-curve-2" data-role="ic-opt"/>
+            <path class="mv-curve-1" data-role="bl"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">E</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">消费者收入 I <output data-role="i-out">60</output></label>
+          <input type="range" data-role="inc" min="40" max="100" step="4" value="60">
+          <label class="range-label">商品 X 价格 Px（Py 固定为 2）<output data-role="px-out">2</output></label>
+          <input type="range" data-role="px" min="1" max="4" step="0.5" value="2">
+          <div class="ppf-outputs">
+            <div><span>最优 (X*, Y*)</span><strong data-role="xy">15, 15</strong></div>
+            <div><span>效用水平 U*</span><strong data-role="u-val">15.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row"><button type="button" class="button button-secondary" data-role="reset">重置</button></div>
+        </div>
+      </div>`;
+    const py = 2;
+    const x = v => 56 + (v / 60) * 420;
+    const y = v => 288 - (v / 50) * 264;
+    const incIn = root.querySelector('[data-role="inc"]');
+    const pxIn = root.querySelector('[data-role="px"]');
+    const icPath = u => {
+      const xStart = Math.max(1.2, (u * u) / 48);
+      const xEnd = Math.min(58, (u * u) / 1.5);
+      if (xStart >= xEnd) return '';
+      return samplePath(vx => (u * u) / vx, xStart, xEnd, 60, x, y);
+    };
+    root.querySelector('[data-role="bl0"]').setAttribute('d', `M${x(0)} ${y(30)} L${x(30)} ${y(0)}`);
+
+    function draw() {
+      const I = incIn.valueAsNumber, px = pxIn.valueAsNumber;
+      const xMax = I / px, yMax = I / py;
+      const xOpt = I / (2 * px), yOpt = I / (2 * py);
+      const u = Math.sqrt(xOpt * yOpt);
+      // Clip budget line to x<=60, y<=50
+      const xAtTop = Math.max(0, (I - py * 50) / px);
+      const yAtLeft = Math.min(50, yMax);
+      const xAtBot = Math.min(60, xMax);
+      const yAtRight = Math.max(0, (I - px * 60) / py);
+      root.querySelector('[data-role="bl"]').setAttribute('d', `M${x(xAtTop).toFixed(1)} ${y(yAtLeft).toFixed(1)} L${x(xAtBot).toFixed(1)} ${y(yAtRight).toFixed(1)}`);
+      root.querySelector('[data-role="ic-opt"]').setAttribute('d', icPath(u));
+      root.querySelector('[data-role="ic-low"]').setAttribute('d', icPath(u * 0.72));
+      root.querySelector('[data-role="ic-high"]').setAttribute('d', icPath(u * 1.28));
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(yOpt).toFixed(1)} H${x(xOpt).toFixed(1)} V288`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(xOpt).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(yOpt).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(xOpt) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(yOpt) - 10).toFixed(1));
+      root.querySelector('[data-role="i-out"]').value = String(I);
+      root.querySelector('[data-role="px-out"]').value = fmt(px, 1);
+      root.querySelector('[data-role="xy"]').textContent = `${fmt(xOpt, 1)}, ${fmt(yOpt, 1)}`;
+      root.querySelector('[data-role="u-val"]').textContent = fmt(u, 1);
+      root.querySelector('[data-role="msg"]').textContent = `切点 E 满足 MRSxy = Px/Py = ${fmt(px / py, 2)}。预算线与最高可达无差异曲线 U*=${fmt(u, 1)} 相切，实现给定预算下的最大效用。`;
+    }
+    incIn.addEventListener('input', draw);
+    pxIn.addEventListener('input', draw);
+    root.querySelector('[data-role="reset"]').addEventListener('click', () => { incIn.value = '60'; pxIn.value = '2'; draw(); });
+    draw();
+  }
+
+  function mountProduction(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>短期生产函数：TP / AP / MP 联动与三个阶段</h4>
+        <p>拖动劳动投入 L，同步观察总产量（TP）、平均产量（AP）与边际产量（MP）的关键交点，定位第 II 合理生产阶段。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>TP / AP</span>
+            <span><i class="chart-line mv-c2-line"></i>边际产量 MP</span>
+            <span><i class="mv-swatch mv-cs"></i>第 II 阶段（合理投入区）</span>
+          </div>
+          <svg viewBox="0 0 520 390" role="img" aria-label="短期生产三阶段联动图">
+            <rect class="mv-stage-band" data-role="band-top"/>
+            <rect class="mv-stage-band" data-role="band-bot"/>
+            <!-- Top: TP -->
+            <path class="chart-axis" d="M56 16V164H486" fill="none" stroke-width="1.4"/>
+            <text x="14" y="24" class="axis-label" style="font-size:14px">TP</text>
+            <path class="mv-curve-1" data-role="tp"/>
+            <!-- Bottom: AP & MP -->
+            <path class="chart-axis" d="M56 196V356H486" fill="none" stroke-width="1.4"/>
+            <line class="mv-zero-line" x1="56" x2="486" y1="322" y2="322"/>
+            <text x="10" y="206" class="axis-label" style="font-size:14px">AP/MP</text>
+            <text x="466" y="378" class="axis-label" style="font-size:14px">L</text>
+            <path class="mv-curve-1" data-role="ap"/>
+            <path class="mv-curve-2" data-role="mp"/>
+            <line class="mv-guide" data-role="vline" y1="18" y2="356"/>
+            <circle r="5" class="mv-dot-1" data-role="pt-tp"/>
+            <circle r="5" class="mv-dot-1" data-role="pt-ap"/>
+            <circle r="5" class="mv-dot-2" data-role="pt-mp"/>
+            <g class="tick-label" style="font-size:13px" text-anchor="middle">
+              <text x="179" y="374">I</text>
+              <text x="372" y="374">II（合理）</text>
+              <text x="452" y="374">III</text>
+            </g>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">劳动投入量 L <output data-role="l-out">9</output></label>
+          <input type="range" data-role="l" min="1" max="13.5" step="0.5" value="9">
+          <div class="ppf-outputs">
+            <div><span>总产量 TP</span><strong data-role="tp-val">729</strong></div>
+            <div><span>平均产量 AP</span><strong data-role="ap-val">81</strong></div>
+          </div>
+          <div class="ppf-outputs">
+            <div><span>边际产量 MP</span><strong data-role="mp-val">81</strong></div>
+            <div><span>所处阶段</span><strong data-role="stage-val">第 II 阶段</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-jump="6">MP 最高点</button>
+            <button type="button" class="button button-secondary" data-jump="9">AP 最高点</button>
+            <button type="button" class="button button-secondary" data-jump="12">TP 最高点</button>
+          </div>
+        </div>
+      </div>`;
+    // TP = 18L^2 - L^3; AP = 18L - L^2 (max 81 at L=9); MP = 36L - 3L^2 (max 108 at L=6, 0 at L=12)
+    const tpFn = l => 18 * l * l - l * l * l;
+    const apFn = l => 18 * l - l * l;
+    const mpFn = l => 36 * l - 3 * l * l;
+    const x = l => 56 + (l / 14) * 420;
+    const yTP = v => 164 - (v / 950) * 140;
+    const yAM = v => 322 - (v / 120) * 116;
+    const bandX = x(9), bandW = x(12) - x(9);
+    root.querySelector('[data-role="band-top"]').setAttribute('x', bandX);
+    root.querySelector('[data-role="band-top"]').setAttribute('y', 18);
+    root.querySelector('[data-role="band-top"]').setAttribute('width', bandW);
+    root.querySelector('[data-role="band-top"]').setAttribute('height', 146);
+    root.querySelector('[data-role="band-bot"]').setAttribute('x', bandX);
+    root.querySelector('[data-role="band-bot"]').setAttribute('y', 196);
+    root.querySelector('[data-role="band-bot"]').setAttribute('width', bandW);
+    root.querySelector('[data-role="band-bot"]').setAttribute('height', 160);
+    root.querySelector('[data-role="tp"]').setAttribute('d', samplePath(tpFn, 0, 14, 70, x, yTP));
+    root.querySelector('[data-role="ap"]').setAttribute('d', samplePath(apFn, 0.2, 14, 70, x, yAM));
+    root.querySelector('[data-role="mp"]').setAttribute('d', samplePath(mpFn, 0, 13.5, 70, x, yAM));
+
+    const lIn = root.querySelector('[data-role="l"]');
+    function draw() {
+      const l = lIn.valueAsNumber;
+      const tp = tpFn(l), ap = apFn(l), mp = mpFn(l);
+      const xl = x(l).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xl); vl.setAttribute('x2', xl);
+      root.querySelector('[data-role="pt-tp"]').setAttribute('cx', xl);
+      root.querySelector('[data-role="pt-tp"]').setAttribute('cy', yTP(tp).toFixed(1));
+      root.querySelector('[data-role="pt-ap"]').setAttribute('cx', xl);
+      root.querySelector('[data-role="pt-ap"]').setAttribute('cy', yAM(ap).toFixed(1));
+      root.querySelector('[data-role="pt-mp"]').setAttribute('cx', xl);
+      root.querySelector('[data-role="pt-mp"]').setAttribute('cy', yAM(mp).toFixed(1));
+      root.querySelector('[data-role="l-out"]').value = fmt(l, 1);
+      root.querySelector('[data-role="tp-val"]').textContent = fmt(tp, 0);
+      root.querySelector('[data-role="ap-val"]').textContent = fmt(ap, 1);
+      root.querySelector('[data-role="mp-val"]').textContent = fmt(mp, 1);
+      let stage = '第 II 阶段', msg = '';
+      if (l < 9) {
+        stage = '第 I 阶段';
+        msg = '第 I 阶段（MP > AP）：平均产量仍在上升，说明固定要素相对过剩，理性厂商会继续增加劳动投入。';
+      } else if (l <= 12) {
+        stage = '第 II 阶段';
+        msg = l === 9
+          ? '分界点 L=9：MP 自上而下穿过 AP 最高点（AP=MP=81），由此进入理性厂商的「第 II 合理生产阶段」。'
+          : l === 12
+            ? '分界点 L=12：边际产量 MP=0，总产量 TP 达到最大值 864；再增加劳动只会让总产量下降。'
+            : '第 II 阶段（0 ≤ MP ≤ AP）：总产量继续增加而平均产量递减，是短期生产的合理投入区间。';
+      } else {
+        stage = '第 III 阶段';
+        msg = '第 III 阶段（MP < 0）：劳动投入过多导致总产量反而下降，理性厂商绝不会在此阶段生产。';
+      }
+      root.querySelector('[data-role="stage-val"]').textContent = stage;
+      root.querySelector('[data-role="msg"]').textContent = msg;
+    }
+    lIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { lIn.value = b.dataset.jump; draw(); }));
+    draw();
+  }
+
+  function mountCost(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>短期成本曲线：MC 穿过 AVC 与 AC 最低点</h4>
+        <p>拖动产量 Q，观察边际成本（MC）如何拉动平均成本（AC）与平均可变成本（AVC）升降，以及 AFC 持续递减。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c2-line"></i>边际成本 MC</span>
+            <span><i class="chart-line mv-c1-line"></i>平均总成本 AC</span>
+            <span><i class="chart-line mv-c3-line"></i>平均可变成本 AVC</span>
+            <span><i class="chart-line mv-base-line"></i>平均固定成本 AFC</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="短期成本曲线关系图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">成本 C</text>
+            <text x="456" y="322" class="axis-label">产量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">0</text><text x="176" y="308">3</text><text x="296" y="308">6</text><text x="416" y="308">9</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="244">10</text><text x="46" y="191">20</text><text x="46" y="138">30</text><text x="46" y="85">40</text><text x="46" y="32">50</text></g>
+            <path class="mv-base-curve" data-role="afc"/>
+            <path class="mv-curve-3" data-role="avc"/>
+            <path class="mv-curve-1" data-role="ac"/>
+            <path class="mv-curve-2" data-role="mc"/>
+            <line class="mv-guide" data-role="vline" y1="24" y2="288"/>
+            <circle r="5" class="mv-dot-2" data-role="pt-mc"/>
+            <circle r="5" class="mv-dot-1" data-role="pt-ac"/>
+            <circle r="5" class="mv-dot-3" data-role="pt-avc"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">产量 Q <output data-role="q-out">6</output></label>
+          <input type="range" data-role="q" min="2" max="10" step="0.2" value="6">
+          <div class="ppf-outputs">
+            <div><span>边际成本 MC</span><strong data-role="mc-val">12.0</strong></div>
+            <div><span>平均总成本 AC</span><strong data-role="ac-val">28.7</strong></div>
+          </div>
+          <div class="ppf-outputs">
+            <div><span>平均可变 AVC</span><strong data-role="avc-val">12.0</strong></div>
+            <div><span>平均固定 AFC</span><strong data-role="afc-val">16.7</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-jump="6">AVC 最低点</button>
+            <button type="button" class="button button-secondary" data-jump="7.6">AC 最低点</button>
+          </div>
+        </div>
+      </div>`;
+    // TC = 100 + 30Q - 6Q^2 + 0.5Q^3
+    const mcFn = q => 30 - 12 * q + 1.5 * q * q;
+    const avcFn = q => 30 - 6 * q + 0.5 * q * q;
+    const afcFn = q => 100 / q;
+    const acFn = q => avcFn(q) + afcFn(q);
+    const x = q => 56 + (q / 10.5) * 420;
+    const y = c => 288 - (Math.min(54, c) / 50) * 264;
+    root.querySelector('[data-role="mc"]').setAttribute('d', samplePath(mcFn, 0.5, 10, 80, x, y));
+    root.querySelector('[data-role="avc"]').setAttribute('d', samplePath(avcFn, 0.5, 10.2, 80, x, y));
+    root.querySelector('[data-role="ac"]').setAttribute('d', samplePath(acFn, 2.7, 10.2, 80, x, y));
+    root.querySelector('[data-role="afc"]').setAttribute('d', samplePath(afcFn, 2.0, 10.2, 80, x, y));
+    const qIn = root.querySelector('[data-role="q"]');
+
+    function draw() {
+      const q = qIn.valueAsNumber;
+      const mc = mcFn(q), ac = acFn(q), avc = avcFn(q), afc = afcFn(q);
+      const xq = x(q).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xq); vl.setAttribute('x2', xq);
+      root.querySelector('[data-role="pt-mc"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-mc"]').setAttribute('cy', y(mc).toFixed(1));
+      root.querySelector('[data-role="pt-ac"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-ac"]').setAttribute('cy', y(ac).toFixed(1));
+      root.querySelector('[data-role="pt-avc"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-avc"]').setAttribute('cy', y(avc).toFixed(1));
+      root.querySelector('[data-role="q-out"]').value = fmt(q, 1);
+      root.querySelector('[data-role="mc-val"]').textContent = fmt(mc, 1);
+      root.querySelector('[data-role="ac-val"]').textContent = fmt(ac, 1);
+      root.querySelector('[data-role="avc-val"]').textContent = fmt(avc, 1);
+      root.querySelector('[data-role="afc-val"]').textContent = fmt(afc, 1);
+      root.querySelector('[data-role="msg"]').textContent = Math.abs(mc - avc) < 0.6
+        ? 'Q=6 是 AVC 最低点（MC = AVC = 12），也是完全竞争厂商的「停止营业点」。'
+        : Math.abs(mc - ac) < 1.2
+          ? 'Q≈7.6 是 AC 最低点（MC = AC ≈ 26.4），也是「收支相抵点」。注意 AC 最低点总在 AVC 最低点右侧。'
+          : mc < ac
+            ? `当前 MC (${fmt(mc, 1)}) < AC (${fmt(ac, 1)})，边际成本低于平均成本，会把 AC 继续向下拉。`
+            : `当前 MC (${fmt(mc, 1)}) > AC (${fmt(ac, 1)})，边际成本高于平均成本，会把 AC 向上拉升。`;
+    }
+    qIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { qIn.value = b.dataset.jump; draw(); }));
+    draw();
+  }
+
+  function mountMarketStructure(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>完全竞争短期决策 vs 完全垄断无谓损失</h4>
+        <p>在「完全竞争」下拖动市场价格，体验盈利、亏损继续生产与停产决策；切换「完全垄断」观察 MR=MC 定价与无谓损失。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption" data-role="caption"></div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="完全竞争与完全垄断利润决策图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">P / C</text>
+            <text x="456" y="322" class="axis-label">产量 Q</text>
+            <rect data-role="profit-rect"/>
+            <polygon class="mv-fill-dwl" data-role="dwl"/>
+            <path class="mv-curve-3" data-role="c-avc"/>
+            <path class="mv-curve-1" data-role="c-ac"/>
+            <path class="mv-curve-2" data-role="c-mc"/>
+            <path class="mv-base-curve" data-role="c-mr"/>
+            <line class="mv-limit-line" data-role="pline" x1="56" x2="476"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>市场结构视角</legend>
+            <label><input type="radio" name="ms-mode" value="pc" checked> 完全竞争（短期生产与停产决策）</label>
+            <label><input type="radio" name="ms-mode" value="mono"> 完全垄断（MR=MC 定价与 DWL）</label>
+          </fieldset>
+          <label class="range-label"><span data-role="sl-label">市场价格 P</span> <output data-role="sl-out">32</output></label>
+          <input type="range" data-role="sl" min="8" max="42" step="1" value="32">
+          <div class="ppf-outputs">
+            <div><span>最优产量 Q*</span><strong data-role="q-val">8.1</strong></div>
+            <div><span data-role="metric-label">经济利润 π</span><strong data-role="m-val">+44</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const mcFn = q => 30 - 12 * q + 1.5 * q * q;
+    const avcFn = q => 30 - 6 * q + 0.5 * q * q;
+    const acFn = q => 100 / q + avcFn(q);
+    const radios = [...root.querySelectorAll('input[name="ms-mode"]')];
+    const sl = root.querySelector('[data-role="sl"]');
+
+    function draw() {
+      const mode = radios.find(r => r.checked).value;
+      const rect = root.querySelector('[data-role="profit-rect"]');
+      const dwl = root.querySelector('[data-role="dwl"]');
+      const pline = root.querySelector('[data-role="pline"]');
+      const pt = root.querySelector('[data-role="pt"]');
+      const cAvc = root.querySelector('[data-role="c-avc"]');
+      const cAc = root.querySelector('[data-role="c-ac"]');
+      const cMc = root.querySelector('[data-role="c-mc"]');
+      const cMr = root.querySelector('[data-role="c-mr"]');
+
+      if (mode === 'pc') {
+        const x = q => 56 + (q / 10.5) * 420;
+        const y = p => 288 - (Math.min(52, p) / 50) * 264;
+        const p = sl.valueAsNumber;
+        root.querySelector('[data-role="sl-label"]').textContent = '市场价格 P';
+        root.querySelector('[data-role="sl-out"]').value = String(p);
+        root.querySelector('[data-role="metric-label"]').textContent = '经济利润 π';
+        root.querySelector('[data-role="caption"]').innerHTML = '<span><i class="chart-line mv-c2-line"></i>MC</span><span><i class="chart-line mv-c1-line"></i>AC</span><span><i class="chart-line mv-c3-line"></i>AVC</span><span><i class="mv-swatch mv-cs"></i>盈利 / 亏损面积</span>';
+        cMc.setAttribute('d', samplePath(mcFn, 0.5, 10, 70, x, y));
+        cAc.setAttribute('d', samplePath(acFn, 2.7, 10.2, 70, x, y));
+        cAvc.setAttribute('d', samplePath(avcFn, 0.5, 10.2, 70, x, y));
+        cMr.setAttribute('d', '');
+        dwl.setAttribute('points', '');
+        pline.style.display = '';
+        pline.setAttribute('y1', y(p).toFixed(1));
+        pline.setAttribute('y2', y(p).toFixed(1));
+
+        if (p < 12) {
+          rect.setAttribute('width', '0');
+          pt.setAttribute('cx', x(0));
+          pt.setAttribute('cy', y(p));
+          root.querySelector('[data-role="q-val"]').textContent = '0';
+          root.querySelector('[data-role="m-val"]').textContent = '-100';
+          root.querySelector('[data-role="msg"]').textContent = `P=${p} 低于 AVC 最低点（12）：价格连可变成本都无法弥补，短期最优决策是「停止营业」（Q*=0），仅承担固定成本 100。`;
+        } else {
+          // Solve 1.5Q^2 - 12Q + (30 - P) = 0 on rising branch Q >= 4
+          const q = 4 + Math.sqrt(Math.max(0, (p - 6) / 1.5));
+          const ac = acFn(q);
+          const profit = (p - ac) * q;
+          const topY = y(Math.max(p, ac));
+          const botY = y(Math.min(p, ac));
+          rect.setAttribute('class', profit >= 0 ? 'mv-fill-cs' : 'mv-fill-dwl');
+          rect.setAttribute('x', x(0));
+          rect.setAttribute('y', topY.toFixed(1));
+          rect.setAttribute('width', (x(q) - x(0)).toFixed(1));
+          rect.setAttribute('height', Math.max(0, botY - topY).toFixed(1));
+          pt.setAttribute('cx', x(q).toFixed(1));
+          pt.setAttribute('cy', y(p).toFixed(1));
+          root.querySelector('[data-role="q-val"]').textContent = fmt(q, 1);
+          root.querySelector('[data-role="m-val"]').textContent = (profit >= 0 ? '+' : '') + fmt(profit, 0);
+          root.querySelector('[data-role="msg"]').textContent = profit > 2
+            ? `P=${p} > AC（${fmt(ac, 1)}）：按 P=MC 生产 Q*=${fmt(q, 1)}，获得超额经济利润 +${fmt(profit, 0)}。`
+            : profit >= -2
+              ? `P=${p} ≈ AC 最低点：处于「盈亏平衡点」，经济利润接近 0（刚好赚取正常利润）。`
+              : `12 ≤ P=${p} < AC（${fmt(ac, 1)}）：虽有亏损（${fmt(profit, 0)}），但收益能弥补全部可变成本并分摊部分固定成本，短期应「继续生产」。`;
+        }
+      } else {
+        // Monopoly: D: P = 50 - 2Q; MR = 50 - 4Q; MC = c (slider 10..30)
+        const x = q => 56 + (q / 25) * 420;
+        const y = p => 288 - (p / 50) * 264;
+        const c = Math.max(10, Math.min(30, sl.valueAsNumber));
+        const qm = (50 - c) / 4;
+        const pm = 50 - 2 * qm;
+        const qc = (50 - c) / 2;
+        const profit = (pm - c) * qm;
+        const dwlVal = 0.5 * (pm - c) * (qc - qm);
+        root.querySelector('[data-role="sl-label"]').textContent = '边际成本 MC';
+        root.querySelector('[data-role="sl-out"]').value = String(c);
+        root.querySelector('[data-role="metric-label"]').textContent = '无谓损失 DWL';
+        root.querySelector('[data-role="caption"]').innerHTML = '<span><i class="chart-line mv-c1-line"></i>需求 D</span><span><i class="chart-line mv-base-line"></i>边际收益 MR</span><span><i class="mv-swatch mv-cs"></i>垄断利润</span><span><i class="mv-swatch mv-dwl"></i>无谓损失 DWL</span>';
+        cAc.setAttribute('d', `M${x(0)} ${y(50)} L${x(25)} ${y(0)}`);
+        cMr.setAttribute('d', `M${x(0)} ${y(50)} L${x(12.5)} ${y(0)}`);
+        cMc.setAttribute('d', `M${x(0)} ${y(c)} L${x(25)} ${y(c)}`);
+        cAvc.setAttribute('d', '');
+        pline.style.display = 'none';
+        rect.setAttribute('class', 'mv-fill-cs');
+        rect.setAttribute('x', x(0));
+        rect.setAttribute('y', y(pm).toFixed(1));
+        rect.setAttribute('width', (x(qm) - x(0)).toFixed(1));
+        rect.setAttribute('height', (y(c) - y(pm)).toFixed(1));
+        dwl.setAttribute('points', `${x(qm).toFixed(1)},${y(pm).toFixed(1)} ${x(qc).toFixed(1)},${y(c).toFixed(1)} ${x(qm).toFixed(1)},${y(c).toFixed(1)}`);
+        pt.setAttribute('cx', x(qm).toFixed(1));
+        pt.setAttribute('cy', y(pm).toFixed(1));
+        root.querySelector('[data-role="q-val"]').textContent = fmt(qm, 1);
+        root.querySelector('[data-role="m-val"]').textContent = fmt(dwlVal, 0);
+        root.querySelector('[data-role="msg"]').textContent = `垄断厂商按 MR=MC 定产 Qm=${fmt(qm, 1)}（低于竞争产量 ${fmt(qc, 1)}），定价 Pm=${fmt(pm, 1)} > MC=${c}，获利润 ${fmt(profit, 0)}，同时造成 ${fmt(dwlVal, 0)} 社会无谓损失。`;
+      }
+    }
+
+    radios.forEach(r => r.addEventListener('change', () => {
+      if (r.value === 'pc') { sl.min = '8'; sl.max = '42'; sl.value = '32'; }
+      else { sl.min = '10'; sl.max = '30'; sl.value = '14'; }
+      draw();
+    }));
+    sl.addEventListener('input', draw);
+    draw();
+  }
+
+  const registry = {
+    'demand-move': mountDemandMove,
+    'price-controls': mountPriceControls,
+    elasticity: mountElasticity,
+    consumer: mountConsumer,
+    production: mountProduction,
+    cost: mountCost,
+    'market-structure': mountMarketStructure,
+  };
+
+  document.querySelectorAll('[data-micro-visual]').forEach(container => {
+    const fn = registry[container.dataset.microVisual];
+    if (fn) fn(container);
+  });
 })();
 </script>
 </body>
