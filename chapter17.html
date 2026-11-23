@@ -960,6 +960,14 @@ dialog::backdrop { background: var(--backdrop); }
 .micro-panel .axis-label, .market-panel .axis-label { font-size: 13px; font-weight: 600; }
 .micro-panel .tick-label, .market-panel .tick-label { font-size: 12px; }
 .micro-panel .point-label { font-size: 14px; }
+.game-matrix { display: grid; grid-template-columns: 96px repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gm-corner, .gm-head { display: grid; place-items: center; padding: 10px 8px; border-radius: 8px; background: var(--surface-subtle); color: var(--heading); font-size: 13px; font-weight: 650; text-align: center; }
+.gm-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 82px; padding: 10px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--heading); transition: border-color .15s ease, background .15s ease; }
+.gm-cell strong { font: 680 16px var(--font-number); }
+.gm-cell small { font-size: 12px; color: var(--muted); }
+.gm-cell:hover { border-color: var(--control-line); }
+.gm-cell.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.gm-cell.active small { color: var(--accent); font-weight: 620; }
 </style>
 </head>
 <body data-page="chapter" data-offline="false" data-flat-downloads="true">
@@ -1104,7 +1112,7 @@ dialog::backdrop { background: var(--backdrop); }
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 <script src="catalog.js"></script>
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter17","number":17,"title":"经济增长与经济周期","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-17-经济增长与经济周期-离线学习.html","visuals":[]},"lessons":{"title":"经济增长与经济周期","subtitle":"分清长期产能扩张与短期波动，读懂实际 GDP 和增长核算。","sections":[{"id":"growth-gdp","title":"经济增长、经济发展与 GDP","summary":"用不变价格计算实际增长率，并区分经济规模和发展质量。","bodyHtml":"\u003cp>\u003cstrong>经济增长\u003c/strong>可以从两个角度看。实际 GDP 增速衡量观察期内总产出的真实变化；长期增长分析关注资本、劳动或技术积累带来的潜在产能提高。用生产可能性曲线表示长期产能扩张时，边界向外移动。\u003c/p>\u003cp>\u003cmark>实际增长率=（本期实际 GDP−上期同口径实际 GDP）÷上期实际 GDP\u003c/mark>。现价 GDP 适合描述当期货币价值，不变价 GDP 用于剔除价格变动后的跨期比较。经济发展还涉及经济结构、收入分配、健康、教育和生活质量。GDP 是一项重要指标，还可结合投资等指标分析经济运行。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）：国家统计局区分现价 GDP 总量与不变价 GDP 增速，其定期国民经济运行发布也列出固定资产投资。\u003ca href=\"https://www.stats.gov.cn/zs/tjws/zytjzbqs/gnsczz/202502/t20250226_1958799.html\">国家统计局 · GDP 数据解读\u003c/a>，\u003ca href=\"https://www.stats.gov.cn/sj/zxfb/202610/t20261019_1965618.html\">国家统计局 · 主要指标发布示例\u003c/a>\u003c/p>","keyTakeaway":"衡量实际增速时比较同口径不变价 GDP。讨论长期增长时留意生产能力是否提高。","pitfall":"价格上涨可以抬高现价 GDP。实际产出变动、潜在产能和居民福利是不同概念。","example":"两年按同一基期价格衡量的 GDP 分别为 100 和 105，实际增长率是 5%。如果产出增长只是闲置设备重新启用，原有生产可能性边界可以保持不变。"},{"id":"growth-accounting","title":"增长核算与全要素生产率","summary":"把产出增长分解为投入贡献和生产率增长。","bodyHtml":"\u003cp>在两要素增长核算中，用劳动和资本的产出弹性作权重，可以写成 g\u003csub>Y\u003c/sub>=αg\u003csub>L\u003c/sub>+βg\u003csub>K\u003c/sub>+g\u003csub>A\u003c/sub>。在完全竞争等条件下，可用要素收入份额估计权重。整理得\u003cmark>g\u003csub>A\u003c/sub>=g\u003csub>Y\u003c/sub>−αg\u003csub>L\u003c/sub>−βg\u003csub>K\u003c/sub>\u003c/mark>。剩余项是全要素生产率的增长估计，常称索罗余值，可能包含技术改进、配置效率、投入质量和测量误差等。\u003c/p>\u003cp>要素投入型或粗放型增长主要依靠投入数量增加。集约型增长更依赖技术、管理、技能和资源利用效率提高。若采用储蓄率 s 固定、资本产出比 v 固定且忽略折旧的简化哈罗德—多马关系 g=s/v，单位产出占用资本越多，给定投入可支持的增长率越低。\u003c/p>\u003cp>索罗的增长核算是经典方法，阿布拉莫维茨也在同期研究中分离投入与生产率的贡献。\u003ca href=\"https://www.bls.gov/opub/hom/opt/concepts.htm\">美国劳工统计局 · 生产率概念\u003c/a>，\u003ca href=\"https://www.nber.org/books-and-chapters/resource-and-output-trends-united-states-1870/resource-and-output-trends-united-states-1870\">阿布拉莫维茨的 1956 年研究\u003c/a>\u003c/p>","keyTakeaway":"各投入贡献等于其增长率乘相应权重。两项贡献从实际产出增长率中扣除后得到生产率余值。","pitfall":"区分生产率水平、生产率增速、生产率拉动的百分点和生产率贡献占总增长的比例。","example":"产出增长 8%，资本增长 5% 且权重 60%，劳动增长 2% 且权重 40%。生产率余值为 8%−3%−0.8%=4.2%。"},{"id":"solow-growth","title":"索罗增长模型：稳态与黄金律","summary":"理解投资补偿折旧与人口增长后，怎样改变人均资本。","bodyHtml":"\u003cp>设 k 为人均资本、f(k) 为人均产出、s 为储蓄率、n 为人口增长率、δ 为折旧率。在无技术进步的连续时间简化模型中，\u003cmark>ḱ=sf(k)−(n+δ)k\u003c/mark>。前者是人均储蓄形成的投资，后者是维持人均资本所需的保本投资，既要补折旧，也要补人口增长带来的资本稀释。\u003c/p>\u003cp>稳态满足 sf(k*)=(n+δ)k*。人均资本和人均产出不变，总资本和总产出随人口按 n 增长。稳态人均消费 c*=f(k*)−(n+δ)k*。可微内点最大化的黄金律条件是\u003cmark>f′(k\u003csub>gold\u003c/sub>)=n+δ\u003c/mark>。在按有效劳动定义变量且引入劳动增进型技术增长 g 的模型中，保本投资包含 g。\u003c/p>","keyTakeaway":"先明确人均或总量口径，以及是否假定技术不变，再写稳态和黄金律条件。","pitfall":"稳态是人均资本停止变化的状态，黄金律在所有可行稳态中进一步寻找人均消费最大的资本水平。","example":"若 n=2%、δ=5%，在无技术进步的简化模型中每年要投入人均资本的 7% 才能维持现有人均资本。黄金律对应资本边际产量 7%。"},{"id":"macro-schools","title":"新古典与新凯恩斯主义的短期观点","summary":"用价格、工资调整速度和预期解释政策影响。","bodyHtml":"\u003cp>部分\u003cstrong>新古典宏观\u003c/strong>模型假定市场价格较灵活且主体具有理性预期。典型的货币意外模型中，预期到的货币变化主要反映在价格上，未被预期的变化才可能暂时影响实际产出和就业。\u003c/p>\u003cp>\u003cstrong>新凯恩斯主义\u003c/strong>模型也常使用理性经济行为和理性预期，同时引入名义价格、工资黏性等约束。需求下滑时，价格和工资调整可能慢于支出调整，经济恢复充分就业需要时间，稳定政策可在短期影响实际活动。\u003c/p>","keyTakeaway":"讨论政策何时有效时，先比较两种模型对价格调整和信息的假设。","pitfall":"索罗模型研究长期资本积累。货币意外和名义黏性属于不同短期波动模型，使用各自的假设。","example":"工资通过年度合同调整。需求突然下降时，工资短期固定，企业可能先减少工时或招聘。"},{"id":"business-cycle","title":"经济周期的阶段与长度","summary":"辨认实际产出、国民收入和就业的共同波动。","bodyHtml":"\u003cp>\u003cstrong>经济周期\u003c/strong>是总体经济活动随时间出现的扩张与收缩，常用实际产出和实际国民收入的变化观察。扩张可分为复苏和繁荣，收缩可分为衰退和萧条。波峰连接扩张与收缩，波谷连接收缩与下一轮扩张。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>传统分类\u003c/th>\u003cth>代表名称\u003c/th>\u003cth>大致长度\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>短周期\u003c/td>\u003ctd>基钦周期\u003c/td>\u003ctd>约 3–5 年\u003c/td>\u003c/tr>\u003ctr>\u003ctd>中周期\u003c/td>\u003ctd>朱格拉周期\u003c/td>\u003ctd>约 8–10 年\u003c/td>\u003c/tr>\u003ctr>\u003ctd>长周期\u003c/td>\u003ctd>康德拉耶夫周期\u003c/td>\u003ctd>约 50–60 年\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>经典周期理论常用这组分类组织长期观察。实际周期的长度和幅度可随冲击、制度和研究口径变化。\u003c/p>","keyTakeaway":"扩张含复苏和繁荣，收缩含衰退和萧条。短、中、长周期分别记住基钦、朱格拉、康德拉耶夫。","pitfall":"就业、价格和利率也可能波动。识别总体经济活动的周期应综合观察多个指标。","example":"经历衰退后，企业订单、产出和就业逐渐回升，可称为复苏，属于扩张的早期阶段。"},{"id":"cycle-mechanisms","title":"乘数、加速数与逆周期调节","summary":"理解需求、投资和产出怎样相互影响。","bodyHtml":"\u003cp>\u003cmark>乘数机制\u003c/mark>描述初始支出变化如何通过收入和消费反复传递，形成更大的产出变化。\u003cmark>加速数机制\u003c/mark>描述产出或销售增长预期如何带动企业扩大所需资本与投资。两者相互反馈并带有时滞时，在某些参数下可生成周期波动。\u003c/p>\u003cp>现实周期还可能由需求、供给、金融等冲击触发。需求不足且产能闲置时，增加有效公共投资可支持总需求。经济过热时，减少支出可降温。政策效果取决于冲击性质、融资空间和项目落地速度。\u003c/p>","keyTakeaway":"乘数的方向是支出影响收入，加速数的方向是需求或产出变化影响投资。","pitfall":"乘数—加速数相互作用是一种解释机制。周期问题若没有限定模型，还需要考虑外部冲击等其他因素。","example":"销售上升促使企业添置设备。设备投资增加又提高收入与消费，进一步推高销售。这是两种机制相互反馈的例子。"}],"mindmap":[{"label":"经济增长","target":"growth-gdp","children":[{"label":"经济增长率","target":"growth-gdp","children":[{"label":"实际 GDP 较上期的增长率","target":"growth-gdp"},{"label":"生产可能性边界向外移动","target":"growth-gdp"}]},{"label":"产出增长的分解","target":"growth-accounting","children":[{"label":"劳动份额乘劳动增长率","target":"growth-accounting"},{"label":"资本份额乘资本增长率","target":"growth-accounting"},{"label":"全要素生产率增长：索罗余值","target":"growth-accounting"}]},{"label":"新古典增长模型","target":"solow-growth","children":[{"label":"人均资本变化：储蓄投资减保本投资","target":"solow-growth"},{"label":"稳态：人均资本和人均产出不变","target":"solow-growth"},{"label":"黄金律：资本边际产量等于折旧率加人口增长率","target":"solow-growth"}]},{"label":"新古典宏观的货币意外模型","target":"macro-schools","children":[{"label":"预期货币变化主要影响价格","target":"macro-schools"},{"label":"意外货币变化可短期影响产出和就业","target":"macro-schools"}]},{"label":"新凯恩斯主义","target":"macro-schools","children":[{"label":"名义工资和价格黏性","target":"macro-schools"},{"label":"理性选择与理性预期","target":"macro-schools"},{"label":"需求冲击后复原较慢，短期稳定政策可影响产出","target":"macro-schools"}]}]},{"label":"经济周期","target":"business-cycle","children":[{"label":"扩张阶段","target":"business-cycle","children":[{"label":"复苏","target":"business-cycle"},{"label":"繁荣","target":"business-cycle"}]},{"label":"紧缩或衰退阶段","target":"business-cycle","children":[{"label":"衰退","target":"business-cycle"},{"label":"萧条","target":"business-cycle"}]},{"label":"传统长度分类：基钦、朱格拉、康德拉耶夫","target":"business-cycle"},{"label":"乘数、加速数与政策应对","target":"cycle-mechanisms"}]}]},"questions":[{"id":"eco-17-q01","number":1,"group":"经济增长","type":"single","stem":"关于经济增长与经济发展，下列说法正确的是（　）。","options":{"A":"用不变价格计算的 GDP 可以反映一国或地区的经济发展规模","B":"用现行价格计算的 GDP 可以用来计算经济增长速度","C":"经济发展是一个国家或地区在一定时期内总产出与前期相比所实现的增长","D":"经济增长率的高低是衡量一个国家总体经济实力增长速度的标志"},"answer":["D"],"explanationSupplement":"题目区分宏观指标的常见用法：当期市场价值总量通常用现价 GDP 表示，跨期实际产出增速用不变价 GDP 计算。经济发展还包括结构变化和生活质量改善。","optionExplanations":{"A":"不变价 GDP 可以比较可比口径下的实际产出规模。本题按统计发布的常用口径，用现价 GDP 描述当期货币计量的经济规模。","B":"现价 GDP 只能直接计算名义增速，价格因素还需剔除。","C":"这个说法描述总产出增长，发展还包括结构和生活质量。","D":"实际经济增长率反映实际产出的扩张速度，是总体经济实力变化的一个指标。"},"conceptId":"growth-gdp"},{"id":"eco-17-q02","number":2,"group":"经济增长","type":"single","stem":"下列因素中，与经济增长率成反比关系的是（　）。","options":{"A":"生产资料数量的增加","B":"固定资产和流动资产数量的增加","C":"单位产品生产基金占用数量的增加","D":"劳动力数量的增加"},"answer":["C"],"explanationSupplement":"在投资规模或储蓄率给定的简化模型中，每单位产出需要的资本越多，同样的资金能形成的新增产出越少。若以 g=s/v 表示这一关系，g 与资本产出比 v 反向变动。","optionExplanations":{"A":"其他条件给定时，更多可用生产资料可支持扩产。","B":"能投入生产的资本增加通常支持扩大产出。","C":"单位产出占用的资本上升，给定资金可支持的产出增幅下降。","D":"其他条件不变且劳动边际产量为正时，新增劳动可增加产出。"},"conceptId":"growth-accounting"},{"id":"eco-17-q03","number":3,"group":"经济增长","type":"single","stem":"在下述选项中，全要素生产率的计算公式是（　）。","options":{"A":"G=αL+βK","B":"G=αL+βK+A","C":"GQ=GH+GP","D":"GA=GY−αGL−βGK"},"answer":["D"],"explanationSupplement":"选项中的 GA 按增长率解释。给劳动和资本的增长率分别乘对应权重，再从产出增长率 GY 扣除，得到全要素生产率的增长余值。","optionExplanations":{"A":"这个表达式只有投入加权项。","B":"右侧包含投入与其他项的和，未把生产率增长单独解出。","C":"它没有体现产出增长扣除劳动与资本贡献。","D":"明确表示从产出增速中扣除两项投入的加权贡献。"},"conceptId":"growth-accounting"},{"id":"eco-17-q04","number":4,"group":"经济增长","type":"single","stem":"主要依靠科技进步及提高劳动者素质来增加社会产品的数量和质量的经济增长方式属于（　）。","options":{"A":"要素投入型经济增长方式","B":"粗放型经济增长方式","C":"集约型经济增长方式","D":"供给推动型经济增长方式"},"answer":["C"],"explanationSupplement":"识别增长来自哪里。题设强调技术和劳动质量提高，说明相同数量的投入可以产生更多或更优的产出，属于集约型增长。","optionExplanations":{"A":"要素投入型以劳动、资本等投入数量的扩大为主要来源。","B":"粗放型强调扩大投入和资源耗用。","C":"技术进步和劳动素质提高符合典型的集约型增长。","D":"供给推动是更广的描述，此处考查投入数量与投入效率的分类。"},"conceptId":"growth-accounting"},{"id":"eco-17-q05","number":5,"group":"经济增长","type":"single","stem":"经济增长的标志是（　）。","options":{"A":"失业率的下降","B":"先进技术的广泛应用","C":"社会生产能力的不断提高","D":"城市化速度加快"},"answer":["C"],"explanationSupplement":"题目使用长期增长口径。资本积累、劳动力和技术改善可以提高潜在产能，使社会能生产更多商品和服务。","optionExplanations":{"A":"失业率下降可伴随短期复苏。","B":"技术应用是提高生产能力的一种来源。","C":"生产能力提高反映长期潜在产出的扩张。","D":"城市化是经济结构变化的表现，速度可以独立变化。"},"conceptId":"growth-gdp"},{"id":"eco-17-q06","number":6,"group":"经济增长","type":"single","stem":"下列对经济指标的说法不准确的是（　）。","options":{"A":"经济指标是指反应一定社会经济现象数量方面的名称及其数值","B":"社会总产值 XX 亿元，就是经济指标","C":"国民收入 XX 亿元，也是经济指标","D":"固定资产投资是经济指标，但不是主要的经济指标"},"answer":["D"],"explanationSupplement":"经济指标把一个经济现象与可观察的数值联系起来。固定资产投资经常列在国民经济运行的主要指标中，题目要求选出把它排除在主要指标之外的说法。","optionExplanations":{"A":"名称和数值共同说明观测的经济现象与程度。","B":"该项同时给出指标概念和以金额表示的观测值。","C":"一定时期内的国民收入可以用数值度量。","D":"固定资产投资是观察资本形成与投资活动的重要宏观指标。"},"conceptId":"growth-gdp"},{"id":"eco-17-q07","number":7,"group":"经济增长","type":"single","stem":"当使用国内生产总值反映一个国家的经济增长速度时，国内生产总值的计算应采用（　）。","options":{"A":"期望价格","B":"现行价格","C":"公允价格","D":"不变价格"},"answer":["D"],"explanationSupplement":"用同一价格口径衡量不同时期的产出，使增速反映产量和结构的实际变动，避免把一般价格变化混入实际增速。","optionExplanations":{"A":"预期价格描述未来判断，无法作为常规实际 GDP 比较口径。","B":"当期价格变化会影响计算出的名义增速。","C":"“公允价格”不是本题要求的跨期不变价口径。","D":"统一价格口径后可比较实际产出。"},"conceptId":"growth-gdp"},{"id":"eco-17-q08","number":8,"group":"经济增长","type":"single","stem":"假设某个国家 2011 年～2015 年，GDP 年均增长 8%，资本存量平均增长 5%，劳动力年均增长 2%，如果在 GDP 增长中的资本的份额为 60%，劳动力为 40%，这一时期全要素生产率增长率为（　）。","options":{"A":"3.0%","B":"4.0%","C":"7.0%","D":"4.2%"},"answer":["D"],"explanationSupplement":"把 60% 和 40% 用作资本、劳动的权重。资本拉动 5%×60%=3 个百分点，劳动拉动 2%×40%=0.8 个百分点，剩余 8−3−0.8=4.2 个百分点。","optionExplanations":{"A":"3.0% 对应资本的加权贡献。","B":"两个加权贡献合计为 3.8 个百分点，8 减去 3.8 得 4.2。","C":"7.0% 不是扣除两种投入贡献后的结果。","D":"同时扣除资本与劳动的加权贡献后得到 4.2%。"},"conceptId":"growth-accounting"},{"id":"eco-17-q09","number":9,"group":"经济增长","type":"discussion","stem":"全要素生产率是由（　）首先提出的。","options":{"A":"罗伯特·索罗","B":"凯恩斯","C":"弗里德曼","D":"法玛"},"answer":[],"explanationSupplement":"索罗的 1957 年工作建立了经典的生产函数增长核算方法，计算结果常称索罗余值。阿布拉莫维茨等研究者在此前也分解了投入与生产率对产出增长的贡献。可用本题辨认经典方法的代表人物，“首先提出”的历史归属需要明确所指方法。","optionExplanations":{"A":"索罗是用生产函数计算增长余值的代表人物。","B":"凯恩斯的代表性贡献集中于总需求与就业理论。","C":"弗里德曼以货币理论等研究著称。","D":"法玛以有效市场理论等金融研究著称。"},"conceptId":"growth-accounting"},{"id":"eco-17-q10","number":10,"group":"经济增长","type":"single","stem":"将劳动、资本等要素投入数量因素对经济增长率的贡献扣除之后，技术进步因素对经济增长的贡献份额称为（　）。","options":{"A":"净要素生产率","B":"技术生产率","C":"经济增长率","D":"全要素生产率"},"answer":["D"],"explanationSupplement":"产出增长率由投入的加权贡献和剩余项组成。扣除可观测的投入贡献后得到全要素生产率增长的估计。其数值是对产出增长的百分点贡献。若要计算占总增长的份额，还需再除以产出增长率。","optionExplanations":{"A":"“净要素生产率”并非此项增长核算余量的常用名称。","B":"技术改进可能是余值的一部分，标准术语为全要素生产率。","C":"经济增长率包括已计量的投入增长贡献。","D":"从产出增长率中扣除投入贡献得到的是全要素生产率增长。"},"conceptId":"growth-accounting"},{"id":"eco-17-q11","number":11,"group":"经济增长","type":"single","stem":"经济增长的最佳定义是（　）。","options":{"A":"投资和资本量的增加","B":"因要素供给增加或生产率提高使潜在的国民收入有所提高","C":"实际国民收入在现有水平上有所提高","D":"人均货币收入的增加"},"answer":["B"],"explanationSupplement":"本题考查长期增长。要素增加或技术进步扩大潜在产能，从而抬高可持续的实际产出。观察短期实际经济增长时，常用实际 GDP 增速，可能包含周期反弹。","optionExplanations":{"A":"投资与资本增长是潜在产能增加的一个来源。","B":"该项同时交代了潜在产出的提高及其来源。","C":"实际国民收入可以因周期性恢复而提高，潜在产能未必改变。","D":"货币收入也可能只因物价上涨而增加。"},"conceptId":"growth-gdp"},{"id":"eco-17-q12","number":12,"group":"经济增长","type":"discussion","stem":"关于经济增长与经济发展之间的关系，下列说法正确的是（　）。","options":{"A":"经济增长与经济发展是同一概念","B":"经济增长过程中必然伴随着经济发展","C":"经济增长不等于经济发展，但经济发展过程中必然存在经济增长","D":"经济增长不等于经济发展，经济发展与经济增长没有关系"},"answer":[],"explanationSupplement":"产出增长通常有助于提高生活水平并支持公共服务，经济发展还涉及结构、分配和生活质量。题目没有限定考察期或发展标准。某一时期内，医疗、教育或分配指标可以改善，同时实际产出未增长，因此“必然”需要附加条件。","optionExplanations":{"A":"实际产出增长与发展所涵盖的社会经济变化范围不同。","B":"产出增长并不能保证分配或生活质量同步改善。","C":"经济增长通常是长期发展的重要物质基础，短期情况需要结合发展指标。","D":"增长和发展存在密切联系，二者可相互影响。"},"conceptId":"growth-gdp"},{"id":"eco-17-q13","number":13,"group":"经济增长","type":"single","stem":"经济增长在图形上表现为（　）。","options":{"A":"生产可能性曲线内的某一点向曲线上移动","B":"生产可能性曲线向外移动","C":"生产可能性曲线外的某一点向曲线上移动","D":"生产可能性曲线上某一点沿曲线移动"},"answer":["B"],"explanationSupplement":"本题关注潜在产出提高。要素增加或技术进步会使某些原本不可达的生产组合变得可达，于是生产可能性边界向外移动。","optionExplanations":{"A":"这是资源利用程度提高，原有边界可以不变。","B":"向外移动意味着可达到的生产组合扩大。","C":"原边界外的点在给定资源技术下不可达。","D":"沿边界变动反映在既定产能下重新配置资源。"},"conceptId":"growth-gdp"},{"id":"eco-17-q14","number":14,"group":"经济增长","type":"single","stem":"GDP 是衡量经济增长的一个较好指标，是因为（　）。","options":{"A":"GDP 以货币表示，易于比较","B":"GDP 的增长总是意味着已发生的实际经济增长","C":"GDP 的值不仅可以反映一国的经济实力，还可以反映一国的经济福利程度","D":"以上说法都对"},"answer":["A"],"explanationSupplement":"以货币单位为权重汇总不同的最终产品和服务，可以形成总产出指标。判断实际增长时还要在相同价格口径下比较。","optionExplanations":{"A":"共同单位有助于加总和比较不同产品与服务。","B":"现价 GDP 可能因价格变化而增长。","C":"GDP 的主要统计对象是生产活动，福利还受收入分配、健康和环境等影响。","D":"实际增长与福利都需要补充适当的口径和指标。"},"conceptId":"growth-gdp"},{"id":"eco-17-q15","number":15,"group":"经济周期","type":"discussion","stem":"经济之所以会发生周期性波动，是因为（　）。","options":{"A":"外部因素的变动","B":"乘数作用","C":"加速数作用","D":"乘数和加速数交织作用"},"answer":[],"explanationSupplement":"在乘数—加速数模型中，支出变化经乘数影响产出，产出增速再经加速数影响投资，两者反馈能在适当参数下形成周期波动。其他理论也讨论技术、供给、金融或政策等外部冲击。题干没有指定模型，因此可以比较不同解释。","optionExplanations":{"A":"外部冲击可触发宏观波动。","B":"乘数描述支出对收入的放大过程，单独使用还需补充周期机制。","C":"加速数描述产出变化引起投资调整。","D":"在乘数—加速数模型中，这是周期波动的反馈机制。"},"conceptId":"cycle-mechanisms"},{"id":"eco-17-q16","number":16,"group":"经济周期","type":"single","stem":"经济周期的实质是（　）。","options":{"A":"失业率的波动","B":"利息率的波动","C":"价格水平的波动","D":"国民收入的波动"},"answer":["D"],"explanationSupplement":"经济周期描述总体经济活动的扩张与收缩。实际国民收入和产出是衡量整体活动的核心量，就业、物价和利率常随之变化。","optionExplanations":{"A":"失业率是反映劳动力市场变化的重要指标。","B":"利率受货币条件和政策等多种因素影响。","C":"物价变化是经济活动的一个方面。","D":"国民收入的波动更直接反映经济活动总量变化。"},"conceptId":"business-cycle"},{"id":"eco-17-q17","number":17,"group":"经济周期","type":"single","stem":"按照经济周期波动的时间长短，经济周期主要有长周期、中周期和短周期三种类型。其中，短周期又称为（　）。","options":{"A":"熊彼特周期","B":"康德拉耶夫周期","C":"基钦周期","D":"朱格拉周期"},"answer":["C"],"explanationSupplement":"经典周期分类中，基钦对应短周期，朱格拉对应中周期，康德拉耶夫对应长周期。","optionExplanations":{"A":"熊彼特的创新理论讨论多种长度的周期。","B":"康德拉耶夫对应长周期。","C":"基钦对应短周期。","D":"朱格拉对应中周期。"},"conceptId":"business-cycle"},{"id":"eco-17-q18","number":18,"group":"经济周期","type":"discussion","stem":"经济周期有三种类型，其中现实生活人们更关注的是（　）。","options":{"A":"短周期","B":"长周期","C":"中周期","D":"全周期"},"answer":[],"explanationSupplement":"朱格拉中周期常用于讨论投资与信贷扩张收缩。关注周期的长度也会随观察对象变化。研究库存的企业可能关心短周期，研究技术扩散的人可能关心长周期。题目没有限定观察对象或时期。","optionExplanations":{"A":"库存管理常关注更短期波动。","B":"技术进步的长期波动适合用长周期框架讨论。","C":"中周期常用于观察固定投资和信贷的阶段性变化。","D":"全周期是一种观察视角，题设长度分类没有“全周期”这一类。"},"conceptId":"business-cycle"},{"id":"eco-17-q19","number":19,"group":"经济周期","type":"single","stem":"扩张阶段可以细分为（　）。","options":{"A":"复苏阶段和萧条阶段","B":"复苏阶段和繁荣阶段","C":"衰退阶段和繁荣阶段","D":"衰退阶段和萧条阶段"},"answer":["B"],"explanationSupplement":"从波谷之后开始，生产和就业回升称为复苏；经济活动维持较高水平并接近波峰可称为繁荣。这两段都属于扩张。","optionExplanations":{"A":"萧条位于经济活动的低谷附近。","B":"复苏与繁荣对应扩张的两个阶段。","C":"衰退描述波峰后的收缩过程。","D":"衰退和萧条是收缩阶段的两部分。"},"conceptId":"business-cycle"},{"id":"eco-17-q20","number":20,"group":"经济周期","type":"single","stem":"当经济处于萧条时期，政府应采取的投资政策措施是（　）。","options":{"A":"提高投资支出水平，缓解或者逐步消除经济衰退","B":"提高税率、增加税收优惠，扩大社会总供给","C":"提高补贴，扩大转移支付，降低社会总需求","D":"降低投资支出水平，使经济降温、平稳回落"},"answer":["A"],"explanationSupplement":"如果萧条源于总需求不足、存在闲置产能，增加有效投资支出会直接增加支出需求，还可能通过收入与消费继续传导。","optionExplanations":{"A":"方向符合需求不足时的扩张性投资政策。","B":"增税会压低可支配收入，税收优惠的效果则取决于细节，该项也未直接提出投资措施。","C":"转移支付通常支持可支配收入和需求，选项给出的方向相反。","D":"削减投资支出通常用于降低需求压力，萧条期总需求已偏弱。"},"conceptId":"cycle-mechanisms"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter17","number":17,"title":"经济增长与经济周期","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-17-经济增长与经济周期-离线学习.html","visual":"solow","visualSectionId":"solow-growth","visuals":[{"type":"solow","sectionId":"solow-growth"}]},"lessons":{"title":"经济增长与经济周期","subtitle":"分清长期产能扩张与短期波动，读懂实际 GDP 和增长核算。","sections":[{"id":"growth-gdp","title":"经济增长、经济发展与 GDP","summary":"用不变价格计算实际增长率，并区分经济规模和发展质量。","bodyHtml":"\u003cp>\u003cstrong>经济增长\u003c/strong>可以从两个角度看。实际 GDP 增速衡量观察期内总产出的真实变化；长期增长分析关注资本、劳动或技术积累带来的潜在产能提高。用生产可能性曲线表示长期产能扩张时，边界向外移动。\u003c/p>\u003cp>\u003cmark>实际增长率=（本期实际 GDP−上期同口径实际 GDP）÷上期实际 GDP\u003c/mark>。现价 GDP 适合描述当期货币价值，不变价 GDP 用于剔除价格变动后的跨期比较。经济发展还涉及经济结构、收入分配、健康、教育和生活质量。GDP 是一项重要指标，还可结合投资等指标分析经济运行。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）：国家统计局区分现价 GDP 总量与不变价 GDP 增速，其定期国民经济运行发布也列出固定资产投资。\u003ca href=\"https://www.stats.gov.cn/zs/tjws/zytjzbqs/gnsczz/202502/t20250226_1958799.html\">国家统计局 · GDP 数据解读\u003c/a>，\u003ca href=\"https://www.stats.gov.cn/sj/zxfb/202610/t20261019_1965618.html\">国家统计局 · 主要指标发布示例\u003c/a>\u003c/p>","keyTakeaway":"衡量实际增速时比较同口径不变价 GDP。讨论长期增长时留意生产能力是否提高。","pitfall":"价格上涨可以抬高现价 GDP。实际产出变动、潜在产能和居民福利是不同概念。","example":"两年按同一基期价格衡量的 GDP 分别为 100 和 105，实际增长率是 5%。如果产出增长只是闲置设备重新启用，原有生产可能性边界可以保持不变。"},{"id":"growth-accounting","title":"增长核算与全要素生产率","summary":"把产出增长分解为投入贡献和生产率增长。","bodyHtml":"\u003cp>在两要素增长核算中，用劳动和资本的产出弹性作权重，可以写成 g\u003csub>Y\u003c/sub>=αg\u003csub>L\u003c/sub>+βg\u003csub>K\u003c/sub>+g\u003csub>A\u003c/sub>。在完全竞争等条件下，可用要素收入份额估计权重。整理得\u003cmark>g\u003csub>A\u003c/sub>=g\u003csub>Y\u003c/sub>−αg\u003csub>L\u003c/sub>−βg\u003csub>K\u003c/sub>\u003c/mark>。剩余项是全要素生产率的增长估计，常称索罗余值，可能包含技术改进、配置效率、投入质量和测量误差等。\u003c/p>\u003cp>要素投入型或粗放型增长主要依靠投入数量增加。集约型增长更依赖技术、管理、技能和资源利用效率提高。若采用储蓄率 s 固定、资本产出比 v 固定且忽略折旧的简化哈罗德—多马关系 g=s/v，单位产出占用资本越多，给定投入可支持的增长率越低。\u003c/p>\u003cp>索罗的增长核算是经典方法，阿布拉莫维茨也在同期研究中分离投入与生产率的贡献。\u003ca href=\"https://www.bls.gov/opub/hom/opt/concepts.htm\">美国劳工统计局 · 生产率概念\u003c/a>，\u003ca href=\"https://www.nber.org/books-and-chapters/resource-and-output-trends-united-states-1870/resource-and-output-trends-united-states-1870\">阿布拉莫维茨的 1956 年研究\u003c/a>\u003c/p>","keyTakeaway":"各投入贡献等于其增长率乘相应权重。两项贡献从实际产出增长率中扣除后得到生产率余值。","pitfall":"区分生产率水平、生产率增速、生产率拉动的百分点和生产率贡献占总增长的比例。","example":"产出增长 8%，资本增长 5% 且权重 60%，劳动增长 2% 且权重 40%。生产率余值为 8%−3%−0.8%=4.2%。"},{"id":"solow-growth","title":"索罗增长模型：稳态与黄金律","summary":"理解投资补偿折旧与人口增长后，怎样改变人均资本。","bodyHtml":"\u003cp>设 k 为人均资本、f(k) 为人均产出、s 为储蓄率、n 为人口增长率、δ 为折旧率。在无技术进步的连续时间简化模型中，\u003cmark>ḱ=sf(k)−(n+δ)k\u003c/mark>。前者是人均储蓄形成的投资，后者是维持人均资本所需的保本投资，既要补折旧，也要补人口增长带来的资本稀释。\u003c/p>\u003cp>稳态满足 sf(k*)=(n+δ)k*。人均资本和人均产出不变，总资本和总产出随人口按 n 增长。稳态人均消费 c*=f(k*)−(n+δ)k*。可微内点最大化的黄金律条件是\u003cmark>f′(k\u003csub>gold\u003c/sub>)=n+δ\u003c/mark>。在按有效劳动定义变量且引入劳动增进型技术增长 g 的模型中，保本投资包含 g。\u003c/p>","keyTakeaway":"先明确人均或总量口径，以及是否假定技术不变，再写稳态和黄金律条件。","pitfall":"稳态是人均资本停止变化的状态，黄金律在所有可行稳态中进一步寻找人均消费最大的资本水平。","example":"若 n=2%、δ=5%，在无技术进步的简化模型中每年要投入人均资本的 7% 才能维持现有人均资本。黄金律对应资本边际产量 7%。"},{"id":"macro-schools","title":"新古典与新凯恩斯主义的短期观点","summary":"用价格、工资调整速度和预期解释政策影响。","bodyHtml":"\u003cp>部分\u003cstrong>新古典宏观\u003c/strong>模型假定市场价格较灵活且主体具有理性预期。典型的货币意外模型中，预期到的货币变化主要反映在价格上，未被预期的变化才可能暂时影响实际产出和就业。\u003c/p>\u003cp>\u003cstrong>新凯恩斯主义\u003c/strong>模型也常使用理性经济行为和理性预期，同时引入名义价格、工资黏性等约束。需求下滑时，价格和工资调整可能慢于支出调整，经济恢复充分就业需要时间，稳定政策可在短期影响实际活动。\u003c/p>","keyTakeaway":"讨论政策何时有效时，先比较两种模型对价格调整和信息的假设。","pitfall":"索罗模型研究长期资本积累。货币意外和名义黏性属于不同短期波动模型，使用各自的假设。","example":"工资通过年度合同调整。需求突然下降时，工资短期固定，企业可能先减少工时或招聘。"},{"id":"business-cycle","title":"经济周期的阶段与长度","summary":"辨认实际产出、国民收入和就业的共同波动。","bodyHtml":"\u003cp>\u003cstrong>经济周期\u003c/strong>是总体经济活动随时间出现的扩张与收缩，常用实际产出和实际国民收入的变化观察。扩张可分为复苏和繁荣，收缩可分为衰退和萧条。波峰连接扩张与收缩，波谷连接收缩与下一轮扩张。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>传统分类\u003c/th>\u003cth>代表名称\u003c/th>\u003cth>大致长度\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>短周期\u003c/td>\u003ctd>基钦周期\u003c/td>\u003ctd>约 3–5 年\u003c/td>\u003c/tr>\u003ctr>\u003ctd>中周期\u003c/td>\u003ctd>朱格拉周期\u003c/td>\u003ctd>约 8–10 年\u003c/td>\u003c/tr>\u003ctr>\u003ctd>长周期\u003c/td>\u003ctd>康德拉耶夫周期\u003c/td>\u003ctd>约 50–60 年\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>经典周期理论常用这组分类组织长期观察。实际周期的长度和幅度可随冲击、制度和研究口径变化。\u003c/p>","keyTakeaway":"扩张含复苏和繁荣，收缩含衰退和萧条。短、中、长周期分别记住基钦、朱格拉、康德拉耶夫。","pitfall":"就业、价格和利率也可能波动。识别总体经济活动的周期应综合观察多个指标。","example":"经历衰退后，企业订单、产出和就业逐渐回升，可称为复苏，属于扩张的早期阶段。"},{"id":"cycle-mechanisms","title":"乘数、加速数与逆周期调节","summary":"理解需求、投资和产出怎样相互影响。","bodyHtml":"\u003cp>\u003cmark>乘数机制\u003c/mark>描述初始支出变化如何通过收入和消费反复传递，形成更大的产出变化。\u003cmark>加速数机制\u003c/mark>描述产出或销售增长预期如何带动企业扩大所需资本与投资。两者相互反馈并带有时滞时，在某些参数下可生成周期波动。\u003c/p>\u003cp>现实周期还可能由需求、供给、金融等冲击触发。需求不足且产能闲置时，增加有效公共投资可支持总需求。经济过热时，减少支出可降温。政策效果取决于冲击性质、融资空间和项目落地速度。\u003c/p>","keyTakeaway":"乘数的方向是支出影响收入，加速数的方向是需求或产出变化影响投资。","pitfall":"乘数—加速数相互作用是一种解释机制。周期问题若没有限定模型，还需要考虑外部冲击等其他因素。","example":"销售上升促使企业添置设备。设备投资增加又提高收入与消费，进一步推高销售。这是两种机制相互反馈的例子。"}],"mindmap":[{"label":"经济增长","target":"growth-gdp","children":[{"label":"经济增长率","target":"growth-gdp","children":[{"label":"实际 GDP 较上期的增长率","target":"growth-gdp"},{"label":"生产可能性边界向外移动","target":"growth-gdp"}]},{"label":"产出增长的分解","target":"growth-accounting","children":[{"label":"劳动份额乘劳动增长率","target":"growth-accounting"},{"label":"资本份额乘资本增长率","target":"growth-accounting"},{"label":"全要素生产率增长：索罗余值","target":"growth-accounting"}]},{"label":"新古典增长模型","target":"solow-growth","children":[{"label":"人均资本变化：储蓄投资减保本投资","target":"solow-growth"},{"label":"稳态：人均资本和人均产出不变","target":"solow-growth"},{"label":"黄金律：资本边际产量等于折旧率加人口增长率","target":"solow-growth"}]},{"label":"新古典宏观的货币意外模型","target":"macro-schools","children":[{"label":"预期货币变化主要影响价格","target":"macro-schools"},{"label":"意外货币变化可短期影响产出和就业","target":"macro-schools"}]},{"label":"新凯恩斯主义","target":"macro-schools","children":[{"label":"名义工资和价格黏性","target":"macro-schools"},{"label":"理性选择与理性预期","target":"macro-schools"},{"label":"需求冲击后复原较慢，短期稳定政策可影响产出","target":"macro-schools"}]}]},{"label":"经济周期","target":"business-cycle","children":[{"label":"扩张阶段","target":"business-cycle","children":[{"label":"复苏","target":"business-cycle"},{"label":"繁荣","target":"business-cycle"}]},{"label":"紧缩或衰退阶段","target":"business-cycle","children":[{"label":"衰退","target":"business-cycle"},{"label":"萧条","target":"business-cycle"}]},{"label":"传统长度分类：基钦、朱格拉、康德拉耶夫","target":"business-cycle"},{"label":"乘数、加速数与政策应对","target":"cycle-mechanisms"}]}]},"questions":[{"id":"eco-17-q01","number":1,"group":"经济增长","type":"single","stem":"关于经济增长与经济发展，下列说法正确的是（　）。","options":{"A":"用不变价格计算的 GDP 可以反映一国或地区的经济发展规模","B":"用现行价格计算的 GDP 可以用来计算经济增长速度","C":"经济发展是一个国家或地区在一定时期内总产出与前期相比所实现的增长","D":"经济增长率的高低是衡量一个国家总体经济实力增长速度的标志"},"answer":["D"],"explanationSupplement":"题目区分宏观指标的常见用法：当期市场价值总量通常用现价 GDP 表示，跨期实际产出增速用不变价 GDP 计算。经济发展还包括结构变化和生活质量改善。","optionExplanations":{"A":"不变价 GDP 可以比较可比口径下的实际产出规模。本题按统计发布的常用口径，用现价 GDP 描述当期货币计量的经济规模。","B":"现价 GDP 只能直接计算名义增速，价格因素还需剔除。","C":"这个说法描述总产出增长，发展还包括结构和生活质量。","D":"实际经济增长率反映实际产出的扩张速度，是总体经济实力变化的一个指标。"},"conceptId":"growth-gdp"},{"id":"eco-17-q02","number":2,"group":"经济增长","type":"single","stem":"下列因素中，与经济增长率成反比关系的是（　）。","options":{"A":"生产资料数量的增加","B":"固定资产和流动资产数量的增加","C":"单位产品生产基金占用数量的增加","D":"劳动力数量的增加"},"answer":["C"],"explanationSupplement":"在投资规模或储蓄率给定的简化模型中，每单位产出需要的资本越多，同样的资金能形成的新增产出越少。若以 g=s/v 表示这一关系，g 与资本产出比 v 反向变动。","optionExplanations":{"A":"其他条件给定时，更多可用生产资料可支持扩产。","B":"能投入生产的资本增加通常支持扩大产出。","C":"单位产出占用的资本上升，给定资金可支持的产出增幅下降。","D":"其他条件不变且劳动边际产量为正时，新增劳动可增加产出。"},"conceptId":"growth-accounting"},{"id":"eco-17-q03","number":3,"group":"经济增长","type":"single","stem":"在下述选项中，全要素生产率的计算公式是（　）。","options":{"A":"G=αL+βK","B":"G=αL+βK+A","C":"GQ=GH+GP","D":"GA=GY−αGL−βGK"},"answer":["D"],"explanationSupplement":"选项中的 GA 按增长率解释。给劳动和资本的增长率分别乘对应权重，再从产出增长率 GY 扣除，得到全要素生产率的增长余值。","optionExplanations":{"A":"这个表达式只有投入加权项。","B":"右侧包含投入与其他项的和，未把生产率增长单独解出。","C":"它没有体现产出增长扣除劳动与资本贡献。","D":"明确表示从产出增速中扣除两项投入的加权贡献。"},"conceptId":"growth-accounting"},{"id":"eco-17-q04","number":4,"group":"经济增长","type":"single","stem":"主要依靠科技进步及提高劳动者素质来增加社会产品的数量和质量的经济增长方式属于（　）。","options":{"A":"要素投入型经济增长方式","B":"粗放型经济增长方式","C":"集约型经济增长方式","D":"供给推动型经济增长方式"},"answer":["C"],"explanationSupplement":"识别增长来自哪里。题设强调技术和劳动质量提高，说明相同数量的投入可以产生更多或更优的产出，属于集约型增长。","optionExplanations":{"A":"要素投入型以劳动、资本等投入数量的扩大为主要来源。","B":"粗放型强调扩大投入和资源耗用。","C":"技术进步和劳动素质提高符合典型的集约型增长。","D":"供给推动是更广的描述，此处考查投入数量与投入效率的分类。"},"conceptId":"growth-accounting"},{"id":"eco-17-q05","number":5,"group":"经济增长","type":"single","stem":"经济增长的标志是（　）。","options":{"A":"失业率的下降","B":"先进技术的广泛应用","C":"社会生产能力的不断提高","D":"城市化速度加快"},"answer":["C"],"explanationSupplement":"题目使用长期增长口径。资本积累、劳动力和技术改善可以提高潜在产能，使社会能生产更多商品和服务。","optionExplanations":{"A":"失业率下降可伴随短期复苏。","B":"技术应用是提高生产能力的一种来源。","C":"生产能力提高反映长期潜在产出的扩张。","D":"城市化是经济结构变化的表现，速度可以独立变化。"},"conceptId":"growth-gdp"},{"id":"eco-17-q06","number":6,"group":"经济增长","type":"single","stem":"下列对经济指标的说法不准确的是（　）。","options":{"A":"经济指标是指反应一定社会经济现象数量方面的名称及其数值","B":"社会总产值 XX 亿元，就是经济指标","C":"国民收入 XX 亿元，也是经济指标","D":"固定资产投资是经济指标，但不是主要的经济指标"},"answer":["D"],"explanationSupplement":"经济指标把一个经济现象与可观察的数值联系起来。固定资产投资经常列在国民经济运行的主要指标中，题目要求选出把它排除在主要指标之外的说法。","optionExplanations":{"A":"名称和数值共同说明观测的经济现象与程度。","B":"该项同时给出指标概念和以金额表示的观测值。","C":"一定时期内的国民收入可以用数值度量。","D":"固定资产投资是观察资本形成与投资活动的重要宏观指标。"},"conceptId":"growth-gdp"},{"id":"eco-17-q07","number":7,"group":"经济增长","type":"single","stem":"当使用国内生产总值反映一个国家的经济增长速度时，国内生产总值的计算应采用（　）。","options":{"A":"期望价格","B":"现行价格","C":"公允价格","D":"不变价格"},"answer":["D"],"explanationSupplement":"用同一价格口径衡量不同时期的产出，使增速反映产量和结构的实际变动，避免把一般价格变化混入实际增速。","optionExplanations":{"A":"预期价格描述未来判断，无法作为常规实际 GDP 比较口径。","B":"当期价格变化会影响计算出的名义增速。","C":"“公允价格”不是本题要求的跨期不变价口径。","D":"统一价格口径后可比较实际产出。"},"conceptId":"growth-gdp"},{"id":"eco-17-q08","number":8,"group":"经济增长","type":"single","stem":"假设某个国家 2011 年～2015 年，GDP 年均增长 8%，资本存量平均增长 5%，劳动力年均增长 2%，如果在 GDP 增长中的资本的份额为 60%，劳动力为 40%，这一时期全要素生产率增长率为（　）。","options":{"A":"3.0%","B":"4.0%","C":"7.0%","D":"4.2%"},"answer":["D"],"explanationSupplement":"把 60% 和 40% 用作资本、劳动的权重。资本拉动 5%×60%=3 个百分点，劳动拉动 2%×40%=0.8 个百分点，剩余 8−3−0.8=4.2 个百分点。","optionExplanations":{"A":"3.0% 对应资本的加权贡献。","B":"两个加权贡献合计为 3.8 个百分点，8 减去 3.8 得 4.2。","C":"7.0% 不是扣除两种投入贡献后的结果。","D":"同时扣除资本与劳动的加权贡献后得到 4.2%。"},"conceptId":"growth-accounting"},{"id":"eco-17-q09","number":9,"group":"经济增长","type":"discussion","stem":"全要素生产率是由（　）首先提出的。","options":{"A":"罗伯特·索罗","B":"凯恩斯","C":"弗里德曼","D":"法玛"},"answer":[],"explanationSupplement":"索罗的 1957 年工作建立了经典的生产函数增长核算方法，计算结果常称索罗余值。阿布拉莫维茨等研究者在此前也分解了投入与生产率对产出增长的贡献。可用本题辨认经典方法的代表人物，“首先提出”的历史归属需要明确所指方法。","optionExplanations":{"A":"索罗是用生产函数计算增长余值的代表人物。","B":"凯恩斯的代表性贡献集中于总需求与就业理论。","C":"弗里德曼以货币理论等研究著称。","D":"法玛以有效市场理论等金融研究著称。"},"conceptId":"growth-accounting"},{"id":"eco-17-q10","number":10,"group":"经济增长","type":"single","stem":"将劳动、资本等要素投入数量因素对经济增长率的贡献扣除之后，技术进步因素对经济增长的贡献份额称为（　）。","options":{"A":"净要素生产率","B":"技术生产率","C":"经济增长率","D":"全要素生产率"},"answer":["D"],"explanationSupplement":"产出增长率由投入的加权贡献和剩余项组成。扣除可观测的投入贡献后得到全要素生产率增长的估计。其数值是对产出增长的百分点贡献。若要计算占总增长的份额，还需再除以产出增长率。","optionExplanations":{"A":"“净要素生产率”并非此项增长核算余量的常用名称。","B":"技术改进可能是余值的一部分，标准术语为全要素生产率。","C":"经济增长率包括已计量的投入增长贡献。","D":"从产出增长率中扣除投入贡献得到的是全要素生产率增长。"},"conceptId":"growth-accounting"},{"id":"eco-17-q11","number":11,"group":"经济增长","type":"single","stem":"经济增长的最佳定义是（　）。","options":{"A":"投资和资本量的增加","B":"因要素供给增加或生产率提高使潜在的国民收入有所提高","C":"实际国民收入在现有水平上有所提高","D":"人均货币收入的增加"},"answer":["B"],"explanationSupplement":"本题考查长期增长。要素增加或技术进步扩大潜在产能，从而抬高可持续的实际产出。观察短期实际经济增长时，常用实际 GDP 增速，可能包含周期反弹。","optionExplanations":{"A":"投资与资本增长是潜在产能增加的一个来源。","B":"该项同时交代了潜在产出的提高及其来源。","C":"实际国民收入可以因周期性恢复而提高，潜在产能未必改变。","D":"货币收入也可能只因物价上涨而增加。"},"conceptId":"growth-gdp"},{"id":"eco-17-q12","number":12,"group":"经济增长","type":"discussion","stem":"关于经济增长与经济发展之间的关系，下列说法正确的是（　）。","options":{"A":"经济增长与经济发展是同一概念","B":"经济增长过程中必然伴随着经济发展","C":"经济增长不等于经济发展，但经济发展过程中必然存在经济增长","D":"经济增长不等于经济发展，经济发展与经济增长没有关系"},"answer":[],"explanationSupplement":"产出增长通常有助于提高生活水平并支持公共服务，经济发展还涉及结构、分配和生活质量。题目没有限定考察期或发展标准。某一时期内，医疗、教育或分配指标可以改善，同时实际产出未增长，因此“必然”需要附加条件。","optionExplanations":{"A":"实际产出增长与发展所涵盖的社会经济变化范围不同。","B":"产出增长并不能保证分配或生活质量同步改善。","C":"经济增长通常是长期发展的重要物质基础，短期情况需要结合发展指标。","D":"增长和发展存在密切联系，二者可相互影响。"},"conceptId":"growth-gdp"},{"id":"eco-17-q13","number":13,"group":"经济增长","type":"single","stem":"经济增长在图形上表现为（　）。","options":{"A":"生产可能性曲线内的某一点向曲线上移动","B":"生产可能性曲线向外移动","C":"生产可能性曲线外的某一点向曲线上移动","D":"生产可能性曲线上某一点沿曲线移动"},"answer":["B"],"explanationSupplement":"本题关注潜在产出提高。要素增加或技术进步会使某些原本不可达的生产组合变得可达，于是生产可能性边界向外移动。","optionExplanations":{"A":"这是资源利用程度提高，原有边界可以不变。","B":"向外移动意味着可达到的生产组合扩大。","C":"原边界外的点在给定资源技术下不可达。","D":"沿边界变动反映在既定产能下重新配置资源。"},"conceptId":"growth-gdp"},{"id":"eco-17-q14","number":14,"group":"经济增长","type":"single","stem":"GDP 是衡量经济增长的一个较好指标，是因为（　）。","options":{"A":"GDP 以货币表示，易于比较","B":"GDP 的增长总是意味着已发生的实际经济增长","C":"GDP 的值不仅可以反映一国的经济实力，还可以反映一国的经济福利程度","D":"以上说法都对"},"answer":["A"],"explanationSupplement":"以货币单位为权重汇总不同的最终产品和服务，可以形成总产出指标。判断实际增长时还要在相同价格口径下比较。","optionExplanations":{"A":"共同单位有助于加总和比较不同产品与服务。","B":"现价 GDP 可能因价格变化而增长。","C":"GDP 的主要统计对象是生产活动，福利还受收入分配、健康和环境等影响。","D":"实际增长与福利都需要补充适当的口径和指标。"},"conceptId":"growth-gdp"},{"id":"eco-17-q15","number":15,"group":"经济周期","type":"discussion","stem":"经济之所以会发生周期性波动，是因为（　）。","options":{"A":"外部因素的变动","B":"乘数作用","C":"加速数作用","D":"乘数和加速数交织作用"},"answer":[],"explanationSupplement":"在乘数—加速数模型中，支出变化经乘数影响产出，产出增速再经加速数影响投资，两者反馈能在适当参数下形成周期波动。其他理论也讨论技术、供给、金融或政策等外部冲击。题干没有指定模型，因此可以比较不同解释。","optionExplanations":{"A":"外部冲击可触发宏观波动。","B":"乘数描述支出对收入的放大过程，单独使用还需补充周期机制。","C":"加速数描述产出变化引起投资调整。","D":"在乘数—加速数模型中，这是周期波动的反馈机制。"},"conceptId":"cycle-mechanisms"},{"id":"eco-17-q16","number":16,"group":"经济周期","type":"single","stem":"经济周期的实质是（　）。","options":{"A":"失业率的波动","B":"利息率的波动","C":"价格水平的波动","D":"国民收入的波动"},"answer":["D"],"explanationSupplement":"经济周期描述总体经济活动的扩张与收缩。实际国民收入和产出是衡量整体活动的核心量，就业、物价和利率常随之变化。","optionExplanations":{"A":"失业率是反映劳动力市场变化的重要指标。","B":"利率受货币条件和政策等多种因素影响。","C":"物价变化是经济活动的一个方面。","D":"国民收入的波动更直接反映经济活动总量变化。"},"conceptId":"business-cycle"},{"id":"eco-17-q17","number":17,"group":"经济周期","type":"single","stem":"按照经济周期波动的时间长短，经济周期主要有长周期、中周期和短周期三种类型。其中，短周期又称为（　）。","options":{"A":"熊彼特周期","B":"康德拉耶夫周期","C":"基钦周期","D":"朱格拉周期"},"answer":["C"],"explanationSupplement":"经典周期分类中，基钦对应短周期，朱格拉对应中周期，康德拉耶夫对应长周期。","optionExplanations":{"A":"熊彼特的创新理论讨论多种长度的周期。","B":"康德拉耶夫对应长周期。","C":"基钦对应短周期。","D":"朱格拉对应中周期。"},"conceptId":"business-cycle"},{"id":"eco-17-q18","number":18,"group":"经济周期","type":"discussion","stem":"经济周期有三种类型，其中现实生活人们更关注的是（　）。","options":{"A":"短周期","B":"长周期","C":"中周期","D":"全周期"},"answer":[],"explanationSupplement":"朱格拉中周期常用于讨论投资与信贷扩张收缩。关注周期的长度也会随观察对象变化。研究库存的企业可能关心短周期，研究技术扩散的人可能关心长周期。题目没有限定观察对象或时期。","optionExplanations":{"A":"库存管理常关注更短期波动。","B":"技术进步的长期波动适合用长周期框架讨论。","C":"中周期常用于观察固定投资和信贷的阶段性变化。","D":"全周期是一种观察视角，题设长度分类没有“全周期”这一类。"},"conceptId":"business-cycle"},{"id":"eco-17-q19","number":19,"group":"经济周期","type":"single","stem":"扩张阶段可以细分为（　）。","options":{"A":"复苏阶段和萧条阶段","B":"复苏阶段和繁荣阶段","C":"衰退阶段和繁荣阶段","D":"衰退阶段和萧条阶段"},"answer":["B"],"explanationSupplement":"从波谷之后开始，生产和就业回升称为复苏；经济活动维持较高水平并接近波峰可称为繁荣。这两段都属于扩张。","optionExplanations":{"A":"萧条位于经济活动的低谷附近。","B":"复苏与繁荣对应扩张的两个阶段。","C":"衰退描述波峰后的收缩过程。","D":"衰退和萧条是收缩阶段的两部分。"},"conceptId":"business-cycle"},{"id":"eco-17-q20","number":20,"group":"经济周期","type":"single","stem":"当经济处于萧条时期，政府应采取的投资政策措施是（　）。","options":{"A":"提高投资支出水平，缓解或者逐步消除经济衰退","B":"提高税率、增加税收优惠，扩大社会总供给","C":"提高补贴，扩大转移支付，降低社会总需求","D":"降低投资支出水平，使经济降温、平稳回落"},"answer":["A"],"explanationSupplement":"如果萧条源于总需求不足、存在闲置产能，增加有效投资支出会直接增加支出需求，还可能通过收入与消费继续传导。","optionExplanations":{"A":"方向符合需求不足时的扩张性投资政策。","B":"增税会压低可支配收入，税收优惠的效果则取决于细节，该项也未直接提出投资措施。","C":"转移支付通常支持可支配收入和需求，选项给出的方向相反。","D":"削减投资支出通常用于降低需求压力，萧条期总需求已偏弱。"},"conceptId":"cycle-mechanisms"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -2260,6 +2268,696 @@ dialog::backdrop { background: var(--backdrop); }
    if(target){ e.preventDefault(); target.focus(); target.select(); }
   }
  });
+})();
+
+(() => {
+  'use strict';
+
+  const fmt = (n, d = 1) => Number(n.toFixed(d)).toString();
+  const samplePath = (fn, start, end, steps, xMap, yMap) => {
+    let d = '';
+    for (let i = 0; i <= steps; i++) {
+      const t = start + (end - start) * (i / steps);
+      const val = fn(t);
+      if (!Number.isFinite(val)) continue;
+      d += (d ? ' L' : 'M') + xMap(t).toFixed(1) + ' ' + yMap(val).toFixed(1);
+    }
+    return d;
+  };
+  const X0 = 66, W = 420, Y0 = 294, H = 252;
+  const wrapStatic = (title, desc, svg) => `
+    <div class="inline-visual-header">
+      <span class="inline-visual-badge">图解示意</span>
+      <h4>${title}</h4>
+      <p>${desc}</p>
+    </div>
+    <div class="static-svg-wrap micro-panel">${svg}</div>`;
+
+  // 1. Chapter 04: Total Utility & Marginal Utility
+  function mountTUMU(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>总效用（TU）与边际效用（MU）递减联动图</h4>
+        <p>拖动消费数量 Q，观察每多消费 1 单位带来的边际效用 MU 递减过程，以及 MU = 0 时总效用 TU 达到最大值。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>总效用 TU</span>
+            <span><i class="chart-line mv-c2-line"></i>边际效用 MU</span>
+          </div>
+          <svg viewBox="0 0 540 390" role="img" aria-label="总效用与边际效用联动图">
+            <path class="chart-axis" d="M66 26V170H498" fill="none" stroke-width="1.4"/>
+            <text x="14" y="18" class="axis-label">总效用 TU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="174">0</text><text x="56" y="106">20</text><text x="56" y="40">40</text></g>
+            <path class="mv-curve-1" data-role="tu"/>
+
+            <path class="chart-axis" d="M66 206V346H498" fill="none" stroke-width="1.4"/>
+            <line class="mv-zero-line" x1="66" x2="498" y1="306" y2="306"/>
+            <text x="14" y="198" class="axis-label">边际效用 MU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="310">0</text><text x="56" y="264">5</text><text x="56" y="218">10</text></g>
+            <path class="mv-curve-2" data-role="mu"/>
+            <line class="mv-guide" data-role="vline" y1="26" y2="346"/>
+            <circle r="5.5" class="mv-dot-1" data-role="pt-tu"/>
+            <circle r="5.5" class="mv-dot-2" data-role="pt-mu"/>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="364">0</text><text x="171" y="364">2</text><text x="276" y="364">4</text><text x="381" y="364">6</text><text x="486" y="364">8</text></g>
+            <text x="276" y="384" text-anchor="middle" class="axis-label">消费数量 Q</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">消费数量 Q <output data-role="q-out">5</output></label>
+          <input type="range" data-role="q" min="0.5" max="8" step="0.5" value="5">
+          <div class="ppf-outputs">
+            <div><span>总效用 TU</span><strong data-role="tu-val">25.0</strong></div>
+            <div><span>边际效用 MU</span><strong data-role="mu-val">0.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-jump="2">递增区间</button>
+            <button type="button" class="button button-secondary" data-jump="5">饱和点(MU=0)</button>
+            <button type="button" class="button button-secondary" data-jump="7">负效用区</button>
+          </div>
+        </div>
+      </div>`;
+    // TU = 10Q - Q^2 (max 25 at Q=5); MU = 10 - 2Q
+    const tuFn = q => 10 * q - q * q;
+    const muFn = q => 10 - 2 * q;
+    const x = q => X0 + (q / 8) * W;
+    const yTU = v => 170 - (v / 32) * 130;
+    const yMU = v => 306 - (v / 10) * 90;
+    root.querySelector('[data-role="tu"]').setAttribute('d', samplePath(tuFn, 0, 8, 60, x, yTU));
+    root.querySelector('[data-role="mu"]').setAttribute('d', samplePath(muFn, 0, 8, 40, x, yMU));
+    const qIn = root.querySelector('[data-role="q"]');
+    function draw() {
+      const q = qIn.valueAsNumber, tu = tuFn(q), mu = muFn(q), xq = x(q).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xq); vl.setAttribute('x2', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cy', yTU(tu).toFixed(1));
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cy', yMU(mu).toFixed(1));
+      root.querySelector('[data-role="q-out"]').value = fmt(q, 1);
+      root.querySelector('[data-role="tu-val"]').textContent = fmt(tu, 1);
+      root.querySelector('[data-role="mu-val"]').textContent = fmt(mu, 1);
+      root.querySelector('[data-role="msg"]').textContent = mu > 0
+        ? `MU=${fmt(mu, 1)} > 0：每多消费 1 单位仍带来正满足，总效用 TU 持续上升，但增速逐渐放缓。`
+        : mu === 0
+          ? '饱和点（Q=5, MU=0）：边际效用降为零，此时总效用 TU 达到最大值 25。'
+          : `MU=${fmt(mu, 1)} < 0：过度消费产生负效用，总效用 TU 反而开始下降。`;
+    }
+    qIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { qIn.value = b.dataset.jump; draw(); }));
+    draw();
+  }
+
+  // 2. Chapter 06: Long-run Average Cost Envelope (static)
+  function mountLACEnvelope(root) {
+    root.innerHTML = wrapStatic(
+      '长期平均成本（LAC）包络线与规模经济',
+      '长期内厂商可自由调整工厂规模，LAC 是无数条短期平均成本曲线（SAC）的下包络线；只有在最低点 E，LAC 才与 SAC 的最低点相切。',
+      `<svg viewBox="0 0 660 280" role="img" aria-label="长期平均成本包络线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M62 28V230H618 M57 35l5-7 5 7 M611 225l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">平均成本 AC</text>
+        <text x="340" y="268" text-anchor="middle" class="axis-label">产量 Q</text>
+        <!-- Vertical split at optimal scale -->
+        <line x1="340" y1="36" x2="340" y2="230" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="200" y="54" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="650">规模经济（LAC 下降）</text>
+        <text x="480" y="54" text-anchor="middle" fill="var(--mv-c2)" font-size="13" font-weight="650">规模不经济（LAC 上升）</text>
+        <!-- SAC curves -->
+        <path d="M110 72 Q175 186 245 104" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="128" y="88" class="tick-label">SAC₁</text>
+        <path d="M250 112 Q340 226 430 112" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="340" y="128" text-anchor="middle" class="tick-label">SAC₂（最优规模）</text>
+        <path d="M435 104 Q505 186 570 72" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="546" y="88" class="tick-label">SAC₃</text>
+        <!-- LAC envelope -->
+        <path d="M96 96 Q340 246 584 96" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="592" y="102" fill="var(--accent)" font-size="13.5" font-weight="700">LAC</text>
+        <!-- Tangent point -->
+        <circle cx="340" cy="171" r="6" class="mv-dot-eq"/>
+        <text x="352" y="190" class="point-label">E（最低点相切）</text>
+      </svg>`
+    );
+  }
+
+  // 3. Chapter 08: Interactive Prisoner's Dilemma Matrix
+  function mountPrisonersMatrix(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>囚徒困境 2×2 支付矩阵（点击任意格子体验纳什均衡）</h4>
+        <p>括号内为（甲的刑期年数，乙的刑期年数），数字越小越好。点击不同策略组合，看双方有没有单方面改选的动机。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart" style="padding:16px">
+          <div class="game-matrix" role="grid" aria-label="囚徒困境支付矩阵">
+            <div class="gm-corner">甲 \\ 乙</div>
+            <div class="gm-head">乙：坦白</div>
+            <div class="gm-head">乙：抵赖</div>
+            <div class="gm-head">甲：坦白</div>
+            <button type="button" class="gm-cell active" data-cell="cc"><strong>(-8年, -8年)</strong><small>纳什均衡 ★</small></button>
+            <button type="button" class="gm-cell" data-cell="cd"><strong>(0年, -10年)</strong><small>甲占便宜</small></button>
+            <div class="gm-head">甲：抵赖</div>
+            <button type="button" class="gm-cell" data-cell="dc"><strong>(-10年, 0年)</strong><small>乙占便宜</small></button>
+            <button type="button" class="gm-cell" data-cell="dd"><strong>(-1年, -1年)</strong><small>帕累托最优</small></button>
+          </div>
+        </div>
+        <div class="ppf-controls">
+          <h5>策略稳定性分析</h5>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const notes = {
+      cc: '【(坦白, 坦白) → 唯一纳什均衡】无论对方选什么，自己选「坦白」刑期都更短（0>-1 且 -8>-10），因此「坦白」是双方的严格占优策略，任何一方单方面改选抵赖都会从 -8 年恶化到 -10 年。',
+      cd: '【(坦白, 抵赖) → 不稳定】此时乙判 10 年；只要乙单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此乙有强烈动机偏离，最终滑向 (坦白, 坦白)。',
+      dc: '【(抵赖, 坦白) → 不稳定】此时甲判 10 年；只要甲单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此甲会立刻偏离，滑向 (坦白, 坦白)。',
+      dd: '【(抵赖, 抵赖) → 帕累托最优但不稳定】虽然两人各判 1 年集体总福利最好，但给定对方抵赖，自己单方面背叛改为坦白可以无罪释放（0 年），所以缺乏约束机制时合作会瓦解。',
+    };
+    const cells = [...root.querySelectorAll('[data-cell]')];
+    function select(key) {
+      cells.forEach(c => c.classList.toggle('active', c.dataset.cell === key));
+      root.querySelector('[data-role="msg"]').textContent = notes[key];
+    }
+    cells.forEach(c => c.addEventListener('click', () => select(c.dataset.cell)));
+    select('cc');
+  }
+
+  // 4. Chapter 09: Lorenz Curve & Gini Coefficient
+  function mountLorenzGini(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>洛伦兹曲线与基尼系数（G = A / (A + B)）</h4>
+        <p>拖动收入分配不平等程度，观察洛伦兹曲线弯曲幅度与阴影面积 A 的变化，直观理解基尼系数 0.4 警戒线。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>绝对平等线（45°）</span>
+            <span><i class="chart-line mv-c1-line"></i>洛伦兹曲线</span>
+            <span><i class="mv-swatch mv-cs"></i>不平等面积 A</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="洛伦兹曲线与基尼系数交互图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">累计收入占比 (%)</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">累计人口占比（从低收入到高收入 %）</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0%</text><text x="171" y="316">25%</text><text x="276" y="316">50%</text><text x="381" y="316">75%</text><text x="486" y="316">100%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">25%</text><text x="56" y="172">50%</text><text x="56" y="109">75%</text><text x="56" y="46">100%</text></g>
+            <path class="mv-fill-cs" data-role="area-a"/>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-1" data-role="curve"/>
+            <text x="248" y="196" class="point-label" data-role="lbl-a">A</text>
+            <text x="382" y="246" class="tick-label" style="font-size:14px">B</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">弯曲指数 k（1=绝对平等，越大越不平等）<output data-role="k-out">2.3</output></label>
+          <input type="range" data-role="k" min="1" max="5" step="0.1" value="2.3">
+          <div class="ppf-outputs">
+            <div><span>基尼系数 G</span><strong data-role="g-val">0.39</strong></div>
+            <div><span>后 50% 人口收入占比</span><strong data-role="b50-val">20%</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // L(p) = p^k => Gini = (k - 1)/(k + 1)
+    const x = p => X0 + p * W;
+    const y = v => Y0 - v * H;
+    const kIn = root.querySelector('[data-role="k"]');
+    function draw() {
+      const k = kIn.valueAsNumber;
+      const gini = (k - 1) / (k + 1);
+      const b50 = Math.pow(0.5, k) * 100;
+      const curveD = samplePath(p => Math.pow(p, k), 0, 1, 50, x, y);
+      root.querySelector('[data-role="curve"]').setAttribute('d', curveD);
+      root.querySelector('[data-role="area-a"]').setAttribute('d', curveD + ` L${x(0)} ${y(0)} Z`);
+      root.querySelector('[data-role="k-out"]').value = fmt(k, 1);
+      root.querySelector('[data-role="g-val"]').textContent = fmt(gini, 2);
+      root.querySelector('[data-role="b50-val"]').textContent = fmt(b50, 0) + '%';
+      root.querySelector('[data-role="msg"]').textContent = gini < 0.2
+        ? 'G < 0.2：收入分配高度平均，洛伦兹曲线紧贴 45° 绝对平等线。'
+        : gini < 0.4
+          ? `G = ${fmt(gini, 2)}（0.2~0.4）：处于相对合理区间；收入较低的一半人口占总收入的 ${fmt(b50, 0)}%。`
+          : `G = ${fmt(gini, 2)} ≥ 0.4：超过国际常用的收入差距警戒线，洛伦兹曲线明显向右下方弯曲。`;
+    }
+    kIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 5. Chapter 09: Backward-bending Labour Supply Curve (static)
+  function mountLabourSupply(root) {
+    root.innerHTML = wrapStatic(
+      '向后弯曲的个人劳动供给曲线',
+      '工资上涨同时产生「替代效应（多干活）」与「收入效应（多买闲暇）」；当工资高过拐点 W* 后，收入效应压过替代效应，劳动供给反向减少。',
+      `<svg viewBox="0 0 640 270" role="img" aria-label="向后弯曲的劳动供给曲线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V224H580 M61 35l5-7 5 7 M573 219l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">工资率 W</text>
+        <text x="323" y="258" text-anchor="middle" class="axis-label">劳动供给时间 L</text>
+        <path d="M130 210 C250 184 320 156 320 124 C320 88 265 64 210 42" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="66" y1="124" x2="320" y2="124" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <circle cx="320" cy="124" r="6" class="mv-dot-eq"/>
+        <text x="48" y="128" text-anchor="end" class="tick-label">W*</text>
+        <text x="336" y="128" class="point-label">拐点（替代效应 = 收入效应）</text>
+        <text x="336" y="76" fill="var(--mv-c2)" font-size="13" font-weight="650">W &gt; W*：收入效应 &gt; 替代效应（高薪更愿享受闲暇，曲线后弯）</text>
+        <text x="336" y="182" fill="var(--accent)" font-size="13" font-weight="650">W &lt; W*：替代效应 &gt; 收入效应（加薪吸引增加工时，曲线右倾）</text>
+      </svg>`
+    );
+  }
+
+  // 6. Chapter 10: Negative Externality & Pigouvian Tax
+  function mountExternality(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>负外部性与庇古税：私人成本（MPC）vs 社会成本（MSC）</h4>
+        <p>拖动“庇古税税率 t”，看如何将外部污染成本内部化，使市场产量从过度生产的 Qm 收敛到社会最优产量 Q*。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>需求 D = MSB</span>
+            <span><i class="chart-line mv-base-line"></i>私人成本 MPC</span>
+            <span><i class="chart-line mv-c2-line"></i>社会成本 MSC</span>
+            <span><i class="mv-swatch mv-dwl"></i>剩余无谓损失</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="负外部性与庇古税纠正图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 / 成本</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">产量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">20</text><text x="276" y="316">40</text><text x="381" y="316">60</text><text x="486" y="316">80</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="248">10</text><text x="56" y="197">20</text><text x="56" y="147">30</text><text x="56" y="96">40</text><text x="56" y="46">50</text></g>
+            <polygon class="mv-fill-dwl" data-role="dwl"/>
+            <path class="mv-curve-1" data-role="d"/>
+            <path class="mv-base-curve" data-role="mpc"/>
+            <path class="mv-curve-2" data-role="msc"/>
+            <path class="mv-curve-3" data-role="tax-s"/>
+            <circle r="5.5" class="mv-dot-2" data-role="opt"/>
+            <circle r="6" class="mv-dot-eq" data-role="cur"/>
+            <text class="point-label" data-role="lbl-opt">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">庇古税税率 t（单位外部成本 = 10）<output data-role="t-out">0</output></label>
+          <input type="range" data-role="t" min="0" max="14" step="1" value="0">
+          <div class="ppf-outputs">
+            <div><span>实际产量 Q</span><strong data-role="q-val">40</strong></div>
+            <div><span>社会最优 Q*</span><strong>30</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row"><button type="button" class="button button-primary" data-role="best">设为最优庇古税 (t=10)</button></div>
+        </div>
+      </div>`;
+    // D: P = 50 - 0.5Q; MPC: P = 10 + 0.5Q (Qm=40, Pm=30); MSC: P = 20 + 0.5Q (Q*=30, P*=35)
+    const x = q => X0 + (q / 80) * W;
+    const y = p => Y0 - (p / 50) * H;
+    root.querySelector('[data-role="d"]').setAttribute('d', `M${x(0)} ${y(50)} L${x(80)} ${y(10)}`);
+    root.querySelector('[data-role="mpc"]').setAttribute('d', `M${x(0)} ${y(10)} L${x(80)} ${y(50)}`);
+    root.querySelector('[data-role="msc"]').setAttribute('d', `M${x(0)} ${y(20)} L${x(60)} ${y(50)}`);
+    root.querySelector('[data-role="opt"]').setAttribute('cx', x(30));
+    root.querySelector('[data-role="opt"]').setAttribute('cy', y(35));
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('x', x(30) - 18);
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('y', y(35) - 10);
+    const tIn = root.querySelector('[data-role="t"]');
+    function draw() {
+      const t = tIn.valueAsNumber;
+      const q = 40 - t;
+      const p = 50 - 0.5 * q;
+      const mscAtQ = 20 + 0.5 * q;
+      root.querySelector('[data-role="tax-s"]').setAttribute('d', `M${x(0)} ${y(10 + t)} L${x(Math.min(80, 80 - 2 * t))} ${y(Math.min(50, 50 + t - Math.max(0, t)))}`);
+      root.querySelector('[data-role="cur"]').setAttribute('cx', x(q).toFixed(1));
+      root.querySelector('[data-role="cur"]').setAttribute('cy', y(p).toFixed(1));
+      root.querySelector('[data-role="dwl"]').setAttribute('points', Math.abs(q - 30) < 0.1 ? '' : `${x(30).toFixed(1)},${y(35).toFixed(1)} ${x(q).toFixed(1)},${y(p).toFixed(1)} ${x(q).toFixed(1)},${y(mscAtQ).toFixed(1)}`);
+      root.querySelector('[data-role="t-out"]').value = String(t);
+      root.querySelector('[data-role="q-val"]').textContent = String(q);
+      root.querySelector('[data-role="msg"]').textContent = t === 0
+        ? '未征税时，厂商只考虑私人成本 MPC，市场过度生产（Q=40 > Q*=30），红色三角为负外部性造成的社会无谓损失。'
+        : t === 10
+          ? '庇古税 t=10 恰好等于边际外部成本：税后供给曲线与 MSC 重合，市场自动收敛到社会最优产量 Q*=30，无谓损失清零！'
+          : t < 10
+            ? `税率 t=${t} 偏低：产量降至 ${q}，无谓损失明显缩小，但仍高于社会最优产量 30。`
+            : `税率 t=${t} 过高：过度征税导致产量降至 ${q}（低于社会最优 30），反而产生新的效率损失。`;
+    }
+    tIn.addEventListener('input', draw);
+    root.querySelector('[data-role="best"]').addEventListener('click', () => { tIn.value = '10'; draw(); });
+    draw();
+  }
+
+  // 7. Chapter 11: Keynesian 45-degree Cross & Multiplier
+  function mountKeynesCross(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>凯恩斯 45° 交叉图与支出乘数效应（k = 1 / (1 − MPC)）</h4>
+        <p>增加自发支出 ΔA 或调高边际消费倾向 MPC，观察计划支出线 AE 上移后均衡产出 Y* 被成倍放大的效果。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>45° 均衡线（AE = Y）</span>
+            <span><i class="chart-line mv-c1-line"></i>当前计划支出 AE</span>
+            <span><i class="chart-line mv-c3-line"></i>初始 AE₀</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="凯恩斯45度交叉图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">计划支出 AE</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">100</text><text x="276" y="316">200</text><text x="381" y="316">300</text><text x="486" y="316">400</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">100</text><text x="56" y="172">200</text><text x="56" y="109">300</text><text x="56" y="46">400</text></g>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-3" data-role="ae0"/>
+            <path class="mv-curve-1" data-role="ae1"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">新增自发支出 ΔA（基准 A₀=50）<output data-role="a-out">+0</output></label>
+          <input type="range" data-role="da" min="0" max="40" step="5" value="0">
+          <label class="range-label">边际消费倾向 MPC <output data-role="c-out">0.75</output></label>
+          <input type="range" data-role="mpc" min="0.5" max="0.8" step="0.05" value="0.75">
+          <div class="ppf-outputs">
+            <div><span>支出乘数 k</span><strong data-role="k-val">4.0×</strong></div>
+            <div><span>均衡产出 Y*</span><strong data-role="y-val">200</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const x = v => X0 + (v / 400) * W;
+    const y = v => Y0 - (v / 400) * H;
+    const daIn = root.querySelector('[data-role="da"]');
+    const cIn = root.querySelector('[data-role="mpc"]');
+    function draw() {
+      const da = daIn.valueAsNumber, c = cIn.valueAsNumber;
+      const k = 1 / (1 - c);
+      const y0 = 50 * k;
+      const ys = (50 + da) * k;
+      const aePath = a => `M${x(0).toFixed(1)} ${y(a).toFixed(1)} L${x(400).toFixed(1)} ${y(Math.min(400, a + c * 400)).toFixed(1)}`;
+      root.querySelector('[data-role="ae0"]').setAttribute('d', aePath(50));
+      root.querySelector('[data-role="ae1"]').setAttribute('d', aePath(50 + da));
+      const yc = Math.min(400, ys);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(yc).toFixed(1)} H${x(yc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(yc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(yc).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(yc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(yc) - 10).toFixed(1));
+      root.querySelector('[data-role="a-out"]').value = '+' + da;
+      root.querySelector('[data-role="c-out"]').value = fmt(c, 2);
+      root.querySelector('[data-role="k-val"]').textContent = fmt(k, 1) + '×';
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 0);
+      root.querySelector('[data-role="msg"]').textContent = da === 0
+        ? `当前 MPC=${fmt(c, 2)}，支出乘数 k=${fmt(k, 1)}。试着增加自发支出 ΔA，观察产出增量如何等于 ΔA × ${fmt(k, 1)}。`
+        : `自发支出仅增加 +${da}，经过乘数 k=${fmt(k, 1)} 放大后，均衡产出从 ${fmt(y0, 0)} 跃升至 ${fmt(ys, 0)}（净增 +${fmt(ys - y0, 0)}）。`;
+    }
+    daIn.addEventListener('input', draw);
+    cIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 8. Chapter 15: LM Three Regions Policy Effectiveness
+  function mountLMRegions(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>LM 三区间：财政政策与货币政策的有效性对比</h4>
+        <p>切换经济所处的 LM 区间（凯恩斯陷阱 / 中间区域 / 古典区域），对比扩张性财政政策（IS 右移）的效果与挤出程度。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c2-line"></i>完整 LM 曲线</span>
+            <span><i class="chart-line mv-base-line"></i>初始 IS₀</span>
+            <span><i class="chart-line mv-c1-line"></i>扩张财政后 IS₁</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="LM三区间政策有效性对比图">
+            <rect x="66" y="42" width="140" height="252" fill="var(--accent-soft)" opacity=".45"/>
+            <rect x="376" y="42" width="110" height="252" fill="var(--warning-soft)" opacity=".45"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">利率 r</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle">
+              <text x="136" y="316">凯恩斯区（水平）</text>
+              <text x="291" y="316">中间区（右倾）</text>
+              <text x="431" y="316">古典区（垂直）</text>
+            </g>
+            <!-- Full LM: horizontal [66..206] at y=248, sloped [206..416] to y=110, vertical at x=416 up to y=48 -->
+            <path d="M66 248 L206 248 L416 110 L416 48" fill="none" class="mv-curve-2"/>
+            <path class="mv-base-curve" data-role="is0"/>
+            <path class="mv-curve-1" data-role="is1"/>
+            <circle r="5" class="mv-dot-3" data-role="e0"/>
+            <circle r="6.5" class="mv-dot-1" data-role="e1"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择当前所处 LM 区间</legend>
+            <label><input type="radio" name="lmr" value="keynes" checked> 凯恩斯区域（流动性陷阱）</label>
+            <label><input type="radio" name="lmr" value="mid"> 中间区域（常态经济）</label>
+            <label><input type="radio" name="lmr" value="classic"> 古典区域（充分就业上限）</label>
+          </fieldset>
+          <div class="ppf-outputs">
+            <div><span>财政政策效果</span><strong data-role="f-val">极有效</strong></div>
+            <div><span>货币政策效果</span><strong data-role="m-val">完全无效</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const cfg = {
+      keynes: { is0: 'M92 174 L164 276', is1: 'M128 174 L200 276', e0: [144, 248], e1: [180, 248], f: '完全有效', m: '无效', msg: '凯恩斯区域（流动性陷阱）：利率已低至底线，增发货币全被持有为现金（货币政策无效）；扩张财政使 IS 右移不推高利率，无挤出效应，财政政策完全有效。' },
+      mid: { is0: 'M216 96 L356 264', is1: 'M260 96 L400 264', e0: [292, 191], e1: [324, 170], f: '部分有效', m: '部分有效', msg: '中间区域：扩张财政使产出上升、利率温和上行，存在「部分挤出效应」；财政政策与货币政策均有效，适合搭配使用。' },
+      classic: { is0: 'M348 106 L466 218', is1: 'M366 64 L484 176', e0: [416, 171], e1: [416, 111], f: '完全无效', m: '完全有效', msg: '古典区域（垂直 LM）：产出已达上限，扩张财政只会把利率推高，导致私人投资被「100% 完全挤出」（财政无效）；此时货币政策完全有效。' },
+    };
+    const radios = [...root.querySelectorAll('input[name="lmr"]')];
+    function draw() {
+      const c = cfg[radios.find(r => r.checked).value];
+      root.querySelector('[data-role="is0"]').setAttribute('d', c.is0);
+      root.querySelector('[data-role="is1"]').setAttribute('d', c.is1);
+      root.querySelector('[data-role="e0"]').setAttribute('cx', c.e0[0]);
+      root.querySelector('[data-role="e0"]').setAttribute('cy', c.e0[1]);
+      root.querySelector('[data-role="e1"]').setAttribute('cx', c.e1[0]);
+      root.querySelector('[data-role="e1"]').setAttribute('cy', c.e1[1]);
+      root.querySelector('[data-role="f-val"]').textContent = c.f;
+      root.querySelector('[data-role="m-val"]').textContent = c.m;
+      root.querySelector('[data-role="msg"]').textContent = c.msg;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    draw();
+  }
+
+  // 9. Chapter 17: Solow Growth Model Steady State
+  function mountSolow(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>索罗增长模型：储蓄率、折旧率与人均资本稳态 k*</h4>
+        <p>调节储蓄率 s 或折旧率 δ，观察实际投资曲线 s·f(k) 与持平投资线 δ·k 的交点（稳态 k*）如何移动。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>人均产出 y = f(k)</span>
+            <span><i class="chart-line mv-c1-line"></i>人均投资 s·f(k)</span>
+            <span><i class="chart-line mv-c2-line"></i>折旧线 δ·k</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="索罗增长模型稳态互动图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">人均产出 / 投资</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">人均资本存量 k</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">25</text><text x="276" y="316">50</text><text x="381" y="316">75</text><text x="486" y="316">100</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">3</text><text x="56" y="172">6</text><text x="56" y="109">9</text><text x="56" y="46">12</text></g>
+            <path class="mv-base-curve" data-role="yk"/>
+            <path class="mv-curve-1" data-role="sfk"/>
+            <path class="mv-curve-2" data-role="dk"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">k*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">储蓄率 s <output data-role="s-out">35%</output></label>
+          <input type="range" data-role="s" min="15" max="60" step="5" value="35">
+          <label class="range-label">折旧率 δ <output data-role="d-out">5%</output></label>
+          <input type="range" data-role="d" min="3" max="10" step="1" value="5">
+          <div class="ppf-outputs">
+            <div><span>稳态人均资本 k*</span><strong data-role="k-val">49</strong></div>
+            <div><span>稳态人均产出 y*</span><strong data-role="y-val">7.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // y = sqrt(k), s*sqrt(k) = d*k => k* = (s/d)^2, y* = s/d
+    const x = k => X0 + (k / 100) * W;
+    const y = v => Y0 - (Math.min(12, v) / 12) * H;
+    root.querySelector('[data-role="yk"]').setAttribute('d', samplePath(k => Math.sqrt(k), 0, 100, 60, x, y));
+    const sIn = root.querySelector('[data-role="s"]');
+    const dIn = root.querySelector('[data-role="d"]');
+    function draw() {
+      const s = sIn.valueAsNumber / 100, d = dIn.valueAsNumber / 100;
+      const ks = Math.pow(s / d, 2);
+      const ys = s / d;
+      const inv = d * ks;
+      root.querySelector('[data-role="sfk"]').setAttribute('d', samplePath(k => s * Math.sqrt(k), 0, 100, 60, x, y));
+      const kEnd = Math.min(100, 12 / d);
+      root.querySelector('[data-role="dk"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(kEnd).toFixed(1)} ${y(d * kEnd).toFixed(1)}`);
+      const kc = Math.min(100, ks), ic = Math.min(12, inv);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(ic).toFixed(1)} H${x(kc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(kc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(ic).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(kc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(ic) - 10).toFixed(1));
+      root.querySelector('[data-role="s-out"]').value = sIn.value + '%';
+      root.querySelector('[data-role="d-out"]').value = dIn.value + '%';
+      root.querySelector('[data-role="k-val"]').textContent = fmt(ks, 0);
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 1);
+      root.querySelector('[data-role="msg"]').textContent = `稳态 k* = (s/δ)² = ${fmt(ks, 0)}，人均产出 y* = ${fmt(ys, 1)}。提高储蓄率 s 只能提升稳态「水平」，在无技术进步时无法永久提高长期「增长率」。`;
+    }
+    sIn.addEventListener('input', draw);
+    dIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 10. Chapter 23: Balance of Payments Account Structure (static)
+  function mountBOPStructure(root) {
+    root.innerHTML = wrapStatic(
+      '国际收支平衡表（BOP）账户结构与恒等关系',
+      '按复式记账法编制，账面总额恒等于 0：经常账户 + 资本和金融账户（不含储备） + 储备资产变动 + 净误差与遗漏 = 0。',
+      `<svg viewBox="0 0 680 236" role="img" aria-label="国际收支平衡表账户结构图" style="width:100%;height:auto;display:block">
+        <g text-anchor="middle">
+          <rect x="16" y="16" width="154" height="132" rx="9" fill="var(--accent-soft)" stroke="var(--accent-line)" stroke-width="1.6"/>
+          <text x="93" y="42" fill="var(--accent)" font-size="13.5" font-weight="700">经常账户</text>
+          <text x="93" y="68" fill="var(--text)" font-size="12">• 货物贸易</text>
+          <text x="93" y="90" fill="var(--text)" font-size="12">• 服务贸易</text>
+          <text x="93" y="112" fill="var(--text)" font-size="12">• 初次收入(股息/利息)</text>
+          <text x="93" y="134" fill="var(--text)" font-size="12">• 二次收入(无偿转移)</text>
+
+          <text x="182" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="194" y="16" width="154" height="132" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="271" y="42" fill="var(--heading)" font-size="13.5" font-weight="700">资本与金融账户</text>
+          <text x="271" y="68" fill="var(--text)" font-size="12">• 直接投资（FDI）</text>
+          <text x="271" y="90" fill="var(--text)" font-size="12">• 证券投资（股/债）</text>
+          <text x="271" y="112" fill="var(--text)" font-size="12">• 金融衍生品</text>
+          <text x="271" y="134" fill="var(--text)" font-size="12">• 贷款与其他投资</text>
+
+          <text x="360" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="372" y="16" width="144" height="132" rx="9" fill="var(--surface)" stroke="var(--mv-c2)" stroke-width="1.5"/>
+          <text x="444" y="42" fill="var(--mv-c2)" font-size="13.5" font-weight="700">储备资产变动</text>
+          <text x="444" y="68" fill="var(--text)" font-size="12">• 外汇储备</text>
+          <text x="444" y="90" fill="var(--text)" font-size="12">• 货币黄金</text>
+          <text x="444" y="112" fill="var(--text)" font-size="12">• 特别提款权 SDR</text>
+          <text x="444" y="134" fill="var(--text)" font-size="12">• IMF 储备头寸</text>
+
+          <text x="528" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="540" y="16" width="124" height="132" rx="9" fill="var(--surface-subtle)" stroke="var(--control-line)" stroke-dasharray="4 3"/>
+          <text x="602" y="64" fill="var(--heading)" font-size="13" font-weight="680">净误差与遗漏</text>
+          <text x="602" y="90" fill="var(--muted)" font-size="11.5">统计口径差异</text>
+          <text x="602" y="110" fill="var(--muted)" font-size="11.5">与漏报轧平项</text>
+        </g>
+        <rect x="16" y="164" width="648" height="54" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+        <text x="340" y="187" text-anchor="middle" fill="var(--heading)" font-size="12.5" font-weight="650">高频考点：国际收支「顺差 / 逆差」通常指前两项（自主性交易）之和；</text>
+        <text x="340" y="207" text-anchor="middle" fill="var(--muted)" font-size="12">顺差导致外汇储备增加（在储备资产项下记为借方负号），从而使整张平衡表借贷轧平为 0。</text>
+      </svg>`
+    );
+  }
+
+  // 11. Chapter 25: Financial Repression Interest Ceiling Gap (static)
+  function mountRepressionGap(root) {
+    root.innerHTML = wrapStatic(
+      '金融抑制：人为利率上限导致的储蓄萎缩与信贷配给缺口',
+      '麦金农—肖模型核心图示：政府将实际利率压低在均衡利率 r* 以下（r₀），导致实际储蓄不足、投资需求过剩，只能依靠非市场信贷配给。',
+      `<svg viewBox="0 0 640 276" role="img" aria-label="金融抑制利率上限与资金缺口图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V226H580 M61 35l5-7 5 7 M573 221l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">实际利率 r</text>
+        <text x="323" y="262" text-anchor="middle" class="axis-label">储蓄 S / 投资 I</text>
+        <!-- I curve downward, S curve upward -->
+        <path d="M126 52 L506 208" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+        <text x="514" y="212" fill="var(--accent)" font-size="13" font-weight="680">投资需求 I(r)</text>
+        <path d="M126 208 L506 52" fill="none" stroke="var(--mv-c2)" stroke-width="2.6"/>
+        <text x="514" y="56" fill="var(--mv-c2)" font-size="13" font-weight="680">储蓄供给 S(r)</text>
+        <!-- Equilibrium -->
+        <circle cx="316" cy="130" r="5.5" class="mv-dot-eq"/>
+        <line x1="66" y1="130" x2="316" y2="130" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="56" y="134" text-anchor="end" class="tick-label">r*</text>
+        <text x="326" y="122" class="point-label">E*（市场均衡）</text>
+        <!-- Ceiling r0 -->
+        <line x1="66" y1="176" x2="540" y2="176" stroke="var(--error)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="56" y="180" text-anchor="end" fill="var(--error)" font-size="12.5" font-weight="680">r₀</text>
+        <line x1="204" y1="176" x2="204" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <line x1="428" y1="176" x2="428" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <text x="204" y="242" text-anchor="middle" class="tick-label">实际储蓄 S₀</text>
+        <text x="428" y="242" text-anchor="middle" class="tick-label">投资需求 I₀</text>
+        <line x1="208" y1="176" x2="424" y2="176" stroke="var(--error)" stroke-width="4.5" opacity=".45"/>
+        <text x="316" y="168" text-anchor="middle" fill="var(--error)" font-size="12.5" font-weight="680">资金短缺 / 非价格信贷配给区</text>
+      </svg>`
+    );
+  }
+
+  // 12. Chapter 26: Risk Management 4-Quadrant Matrix (static)
+  function mountRiskMatrix(root) {
+    root.innerHTML = wrapStatic(
+      '风险管理四象限矩阵：按「损失频率 × 损失程度」选工具',
+      '保险最适合处理「低频率、高损失」的风险；高频低损靠自留与防损，高频高损则应直接回避。',
+      `<svg viewBox="0 0 660 272" role="img" aria-label="风险管理四象限矩阵图" style="width:100%;height:auto;display:block">
+        <text x="364" y="20" text-anchor="middle" class="axis-label">损失频率（发生可能性）</text>
+        <text x="234" y="42" text-anchor="middle" class="tick-label">低频率</text>
+        <text x="494" y="42" text-anchor="middle" class="tick-label">高频率</text>
+        <text x="26" y="156" text-anchor="middle" class="axis-label" transform="rotate(-90 26 156)">损失程度</text>
+        <text x="80" y="106" text-anchor="end" class="tick-label">高损失</text>
+        <text x="80" y="212" text-anchor="end" class="tick-label">低损失</text>
+
+        <!-- Q1: Low freq, High severity -> Insurance -->
+        <rect x="94" y="52" width="268" height="100" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+        <text x="228" y="84" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">风险转移（商业保险 ★）</text>
+        <text x="228" y="108" text-anchor="middle" fill="var(--text)" font-size="12">低频高损：火灾、重疾、重大车祸</text>
+        <text x="228" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">保险最核心的适用场景（杠杆高）</text>
+
+        <!-- Q2: High freq, High severity -> Avoidance -->
+        <rect x="374" y="52" width="268" height="100" rx="9" fill="var(--error-soft)" stroke="var(--error-line)" stroke-width="1.5"/>
+        <text x="508" y="84" text-anchor="middle" fill="var(--error)" font-size="14" font-weight="700">风险回避</text>
+        <text x="508" y="108" text-anchor="middle" fill="var(--text)" font-size="12">高频高损：危房施工、高危违规作业</text>
+        <text x="508" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">直接放弃或退出该项活动</text>
+
+        <!-- Q3: Low freq, Low severity -> Retention -->
+        <rect x="94" y="162" width="268" height="96" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="228" y="194" text-anchor="middle" fill="var(--heading)" font-size="14" font-weight="700">风险自留</text>
+        <text x="228" y="218" text-anchor="middle" fill="var(--text)" font-size="12">低频低损：小额日常磕碰、小件遗失</text>
+        <text x="228" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">自行承担更经济，无需额外投保</text>
+
+        <!-- Q4: High freq, Low severity -> Loss control / Prevention -->
+        <rect x="374" y="162" width="268" height="96" rx="9" fill="var(--warning-soft)" stroke="var(--warning)" stroke-width="1.5"/>
+        <text x="508" y="194" text-anchor="middle" fill="var(--warning)" font-size="14" font-weight="700">损失控制（预防与抑制）</text>
+        <text x="508" y="218" text-anchor="middle" fill="var(--text)" font-size="12">高频低损：装防盗门、定期消防检查</text>
+        <text x="508" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">降低发生概率 + 控制损失规模</text>
+      </svg>`
+    );
+  }
+
+  const registry = {
+    'tu-mu': mountTUMU,
+    'lac-envelope': mountLACEnvelope,
+    'prisoners-matrix': mountPrisonersMatrix,
+    'lorenz-gini': mountLorenzGini,
+    'labour-supply': mountLabourSupply,
+    externality: mountExternality,
+    'keynes-cross': mountKeynesCross,
+    'lm-regions': mountLMRegions,
+    solow: mountSolow,
+    'bop-structure': mountBOPStructure,
+    'repression-gap': mountRepressionGap,
+    'risk-matrix': mountRiskMatrix,
+  };
+
+  document.querySelectorAll('[data-micro-visual]').forEach(container => {
+    const fn = registry[container.dataset.microVisual];
+    if (fn) fn(container);
+  });
 })();
 </script>
 </body>

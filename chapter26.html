@@ -960,6 +960,14 @@ dialog::backdrop { background: var(--backdrop); }
 .micro-panel .axis-label, .market-panel .axis-label { font-size: 13px; font-weight: 600; }
 .micro-panel .tick-label, .market-panel .tick-label { font-size: 12px; }
 .micro-panel .point-label { font-size: 14px; }
+.game-matrix { display: grid; grid-template-columns: 96px repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gm-corner, .gm-head { display: grid; place-items: center; padding: 10px 8px; border-radius: 8px; background: var(--surface-subtle); color: var(--heading); font-size: 13px; font-weight: 650; text-align: center; }
+.gm-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 82px; padding: 10px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--heading); transition: border-color .15s ease, background .15s ease; }
+.gm-cell strong { font: 680 16px var(--font-number); }
+.gm-cell small { font-size: 12px; color: var(--muted); }
+.gm-cell:hover { border-color: var(--control-line); }
+.gm-cell.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.gm-cell.active small { color: var(--accent); font-weight: 620; }
 </style>
 </head>
 <body data-page="chapter" data-offline="false" data-flat-downloads="true">
@@ -1104,7 +1112,7 @@ dialog::backdrop { background: var(--backdrop); }
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 <script src="catalog.js"></script>
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter26","number":1,"title":"风险与保险","moduleId":"insurance","moduleTitle":"保险基础","downloadName":"保险基础-01-风险与保险-离线学习.html","visuals":[]},"lessons":{"title":"风险与保险","subtitle":"沿着风险因素、事故和损失，理解保险如何转移和分散经济负担。","sections":[{"id":"risk-elements","title":"风险的含义与三个要素","summary":"区分使事故更可能发生的条件、事故本身与最终损失。","bodyHtml":"\u003cp>保险语境中的\u003cstrong>风险\u003c/strong>是损失发生的不确定性，包括是否发生、何时发生和损失程度。可用\u003cmark>风险因素 → 风险事故 → 损失\u003c/mark>追踪风险形成过程。风险因素是增加事故发生可能性或扩大损失程度的条件，风险事故是直接造成损失的事件，损失是事故造成的经济价值减少。\u003c/p>\u003cp>从保险公司经营角度，实际出险率或赔付水平高于定价与准备金所依据的估计，会形成保险风险。监管规则也将保险风险、市场风险和信用风险作为不同的风险类别。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.nfra.gov.cn/chinese/docfile/2022/ce1d31a4be034fd4ad9db8913dc7faa3.pdf\">金融监管总局 · 偿付能力风险管理要求与评估\u003c/a>\u003c/p>","keyTakeaway":"识别风险要素时，先找“为什么更容易发生”，再找“发生了什么”，最后看“造成多少损失”。","pitfall":"同一事件在不同因果链中可扮演不同角色。按题干给定的损失和观察对象确定角色。","example":"电线老化是风险因素，火灾是风险事故，烧毁的设备价值是损失。"},{"id":"risk-types","title":"风险的分类","summary":"先识别分类标准，再选择对应的风险类型。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>分类标准\u003c/th>\u003cth>类型\u003c/th>\u003cth>判断线索\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>风险性质\u003c/td>\u003ctd>纯粹风险、投机风险\u003c/td>\u003ctd>纯粹风险的结果是损失或无损失，投机风险还可能有收益\u003c/td>\u003c/tr>\u003ctr>\u003ctd>风险对象\u003c/td>\u003ctd>人身、财产、责任、信用\u003c/td>\u003ctd>判断损害落在人身、财产、依法承担的赔偿责任还是信用义务\u003c/td>\u003c/tr>\u003ctr>\u003ctd>发生原因\u003c/td>\u003ctd>自然、社会、经济、政治等\u003c/td>\u003ctd>判断风险主要由什么引起\u003c/td>\u003c/tr>\u003ctr>\u003ctd>发生环境\u003c/td>\u003ctd>静态风险、动态风险\u003c/td>\u003ctd>静态风险可发生在相对稳定环境中，动态风险与技术、社会经济变化相关\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"“按性质”对应纯粹与投机，“按对象”对应人身、财产、责任、信用。","pitfall":"同一个风险可以同时属于不同维度的类别。标签要与题目的分类标准匹配。","example":"房屋因雷击起火，按原因可归自然风险，按受损对象可归财产风险，按结果可能性可归纯粹风险。"},{"id":"risk-management","title":"风险管理的目标、流程和工具","summary":"用成本与保障的权衡安排预防、控制及事故后的资金。","bodyHtml":"\u003cp>家庭、企业等经济主体进行\u003cstrong>风险管理\u003c/strong>时，通常先识别风险，再衡量频率和损失程度，评价优先级，选择技术，最后检查效果。基本目标是在成本约束下取得尽可能充分的安全保障。损失前重在预防，损失后重在恢复与持续经营。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>技术\u003c/th>\u003cth>要处理的问题\u003c/th>\u003cth>例子\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>控制型\u003c/td>\u003ctd>避免暴露、降低事故频率、减轻损失程度\u003c/td>\u003ctd>放弃危险活动、定期巡检、安装自动喷淋\u003c/td>\u003c/tr>\u003ctr>\u003ctd>财务型\u003c/td>\u003ctd>安排资金、确定谁承担损失的经济后果\u003c/td>\u003ctd>建立自留准备金，通过保险或其他合同转移约定损失\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"损失预防侧重减少发生次数，损失抑制侧重降低发生后的损失程度。","pitfall":"风险转移改变损失经济负担的承担者，风险分散改变风险集中程度。购买保险可同时涉及两个角度。","example":"企业给机房安装烟感和喷淋降低事故损失，同时投保财产险转移合同承保部分的经济负担。"},{"id":"insurance-definition","title":"保险的定义、市场与基本职能","summary":"从合同承诺和风险集合两层理解保险。","bodyHtml":"\u003cp>商业保险通过合同安排分担特定风险。投保人缴纳保险费，保险人按合同对符合条件的财产损失承担赔偿，或在约定的人身事件、年龄或期限条件满足时给付保险金。\u003cmark>基本职能是分散风险以及补偿损失或给付保险金\u003c/mark>，防灾防损、资金运用、社会管理等可视为派生职能。\u003c/p>\u003cp>保险交易提供未来一段期间的风险保障。是否赔付及金额通常要等约定条件成就才确定。保险是无形保障服务，商品属性体现在市场交易和定价。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）：《保险法》第二条规定商业保险的合同关系与赔偿或给付责任。\u003ca href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 中华人民共和国保险法\u003c/a>\u003c/p>","keyTakeaway":"投保人以确定的保费换取约定保障，保险人集中管理并分摊许多风险单位的损失。","pitfall":"保险的未来履约特点可用远期承诺理解，金融期货合约则另有交易结构和监管规则。","example":"家庭为火灾投保后，仍要维护电线。事故如符合保单条件，可按约定获得赔偿。"},{"id":"insurable-risk","title":"可保风险、同质性与大数法则","summary":"判断风险能否进入一个可估计、可分担的风险池。","bodyHtml":"\u003cp>传统可保条件关注纯粹损失、发生的偶然性和意外性，以及同类风险单位的规模和分布。可承保风险通常存在值得转移的损失，且许多类似标的有发生损失的可能。若大多数风险单位可能同时遭受重大损失，风险集中将削弱分散效果，需要再保险、分层或其他机制。\u003c/p>\u003cp>\u003cstrong>同质风险\u003c/strong>指风险单位在相关的种类、品质、性能、价值等方面大体相近，可归入可比较的风险组。在独立或弱相关等条件下，样本规模扩大时，每单位的平均损失或损失频率趋近于期望，这就是\u003cmark>大数法则\u003c/mark>在保险中的应用。\u003c/p>","keyTakeaway":"同质与低相关帮助估计和分散风险。计算时留意题目谈的是平均损失、频率还是总损失。","pitfall":"大数法则说明平均结果更稳定。随着承保数量增加，总损失的绝对金额或波动仍可能增加。","example":"一千户条件相似且分布在不同地区的住宅，通常比少量集中在同一高风险地带的住宅更容易分散个体事故波动。"},{"id":"insurance-types","title":"保险的分类与承保方式","summary":"识别商业、社会、政策性保险，以及多方承保的区别。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>分类维度\u003c/th>\u003cth>示例\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>性质或功能\u003c/td>\u003ctd>社会保险、商业保险、政策性保险\u003c/td>\u003c/tr>\u003ctr>\u003ctd>保险标的\u003c/td>\u003ctd>人身保险、财产保险。狭义财产损失保险可与责任保险、信用保证保险分列\u003c/td>\u003c/tr>\u003ctr>\u003ctd>承保方式与责任次序\u003c/td>\u003ctd>原保险、再保险、复合保险、重复保险、共同保险\u003c/td>\u003c/tr>\u003ctr>\u003ctd>实施方式\u003c/td>\u003ctd>自愿保险、强制保险\u003c/td>\u003c/tr>\u003ctr>\u003ctd>保险价值是否事先约定\u003c/td>\u003ctd>定值保险、不定值保险\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>原保险人与投保人直接订立原保险合同，再保险由保险人向其他保险人分出部分承保责任。多个保险人按份共同承保可称共同保险。同一标的、同一保险利益、同一保险事故分别投保且保险金额总和超过保险价值，符合《保险法》第五十六条所规定的重复保险定义。相同条件下总金额未超过保险价值，学习分类中常称复合保险。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）：《社会保险法》第二条列出基本养老、医疗、工伤、失业、生育等社会保险。商业保险机构可按安排受托承办城乡居民大病保险等服务，具体以项目规则为准。\u003ca href=\"https://shanxi.chinatax.gov.cn/zdgk/detail/sx-11400-545-1784612\">税务总局网站 · 中华人民共和国社会保险法\u003c/a>，\u003ca href=\"https://www.nhsa.gov.cn/art/2020/9/25/art_110_6861.html\">国家医保局 · 商业保险机构参与医保经办\u003c/a>\u003c/p>","keyTakeaway":"按标的、实施方式和承保结构分清题目问的是哪个分类维度。","pitfall":"社会保险提供制度性基本保障，商业保险按具体合同提供保障。保障水平取决于制度、险种与合同安排。","example":"同一设备价值 100 万元，对相同风险分别向两家投保 40 万元和 50 万元，合计 90 万元，符合本章的复合保险分类条件。"}],"mindmap":[{"label":"风险","target":"risk-elements","children":[{"label":"风险因素、风险事故、损失","target":"risk-elements"},{"label":"风险分类","target":"risk-types","children":[{"label":"性质：纯粹风险、投机风险","target":"risk-types"},{"label":"对象：人身、财产、责任、信用","target":"risk-types"},{"label":"原因：自然、社会、经济、政治","target":"risk-types"},{"label":"环境：静态、动态","target":"risk-types"}]},{"label":"风险管理的概念与目标","target":"risk-management","children":[{"label":"主体：家庭、企业等经济单位","target":"risk-management"},{"label":"选择管理技术，权衡成本与安全保障","target":"risk-management"}]},{"label":"管理流程","target":"risk-management","children":[{"label":"识别、衡量、评价","target":"risk-management"},{"label":"选择技术与评估效果","target":"risk-management"}]},{"label":"风险管理技术","target":"risk-management","children":[{"label":"控制型：避免、预防、抑制","target":"risk-management"},{"label":"财务型：风险自留、风险转移","target":"risk-management"}]}]},{"label":"保险","target":"insurance-definition","children":[{"label":"商业保险的合同定义","target":"insurance-definition"},{"label":"可保风险的要件","target":"insurable-risk","children":[{"label":"纯粹风险，具有偶然性和意外性","target":"insurable-risk"},{"label":"大量同质标的有遭受损失的可能","target":"insurable-risk"},{"label":"存在重大损失的可能","target":"insurable-risk"},{"label":"避免多数标的同时遭受重大损失","target":"insurable-risk"},{"label":"大数法则与分散","target":"insurable-risk"}]},{"label":"保险的分类","target":"insurance-types","children":[{"label":"性质：社会、商业、政策性","target":"insurance-types"},{"label":"标的：人身、财产、责任、信用保证","target":"insurance-types"},{"label":"承保：原保险、再保险、复合、重复、共同","target":"insurance-types"},{"label":"实施方式：自愿、强制","target":"insurance-types"},{"label":"保险价值：定值、不定值","target":"insurance-types"}]},{"label":"保险的职能","target":"insurance-definition","children":[{"label":"基本职能：风险分散、损失补偿或保险金给付","target":"insurance-definition"},{"label":"派生职能：防灾防损、融通资金、社会管理","target":"insurance-definition"}]}]}]},"questions":[{"id":"ins-01-q01","number":1,"group":"风险","type":"single","stem":"保险中的风险是指（　）的不确定性。","options":{"A":"发生的结果","B":"损失发生","C":"损失程度","D":"损失补偿"},"answer":["B"],"explanationSupplement":"在保险语境中，先看损失是否会发生，再考虑时间和程度。题目要求选择能够概括损失不确定性的说法。","optionExplanations":{"A":"表述没有明确限定保险所关注的损失。","B":"直接指出损失发生具有不确定性。","C":"损失程度是整体不确定性的一个方面。","D":"损失补偿是保险合同可能产生的结果。"},"conceptId":"risk-elements"},{"id":"ins-01-q02","number":2,"group":"风险","type":"single","stem":"只有损失机会而无获利可能的风险是（　）。","options":{"A":"投机风险","B":"纯粹风险","C":"社会风险","D":"政治风险"},"answer":["B"],"explanationSupplement":"用可能结果来区分。纯粹风险的结果是受到损失或维持原状，比如房屋失火风险。投机风险还可能带来收益。","optionExplanations":{"A":"投机风险同时具有损失和收益的可能。","B":"纯粹风险只有损失或无损失两种结果。","C":"社会风险按成因分类。","D":"政治风险也按风险成因分类。"},"conceptId":"risk-types"},{"id":"ins-01-q03","number":3,"group":"风险","type":"single","stem":"按风险的性质分类，可以分为（　）。","options":{"A":"人身风险和财产风险","B":"纯粹风险和投机风险","C":"经济风险和技术风险","D":"自然风险和社会风险"},"answer":["B"],"explanationSupplement":"按性质分类的依据是结果是否可能包含获利。只有损失或无损失的是纯粹风险，另有获利可能的是投机风险。","optionExplanations":{"A":"人身和财产是按受影响对象分类。","B":"对应风险性质的分类。","C":"经济或技术变动属于风险来源。","D":"自然与社会是风险成因维度。"},"conceptId":"risk-types"},{"id":"ins-01-q04","number":4,"group":"风险","type":"single","stem":"设我国国民收入水平提高，同时环境污染、生活节奏和压力等因素使糖尿病、高血压、癌症等疾病发病率升高。保险公司的投资者关注其健康保险未来赔付水平可能持续上升。这些投资者担忧的是保险公司面临的什么风险？（　）","options":{"A":"环境污染风险","B":"医疗风险","C":"保险风险","D":"流动性风险"},"answer":["C"],"explanationSupplement":"把观察对象放在承保公司的赔付上。发病率或赔付费用高于原先预期，将使保险合同的赔付成本增加。","optionExplanations":{"A":"环境污染在题设中是影响发病和赔付的外部因素。","B":"医疗风险可描述诊疗过程中的损害或不确定性。","C":"实际赔付超出承保估计属于保险风险。","D":"流动性风险关注能否在到期时获得足够资金支付。"},"conceptId":"risk-elements"},{"id":"ins-01-q05","number":5,"group":"风险","type":"single","stem":"风险因素是风险事故发生的（　），是造成损失的（　）。","options":{"A":"间接原因，外部原因","B":"直接原因，间接原因","C":"外部原因，内部原因","D":"潜在原因，间接原因"},"answer":["D"],"explanationSupplement":"例如线路老化增加失火可能性。真正造成财产受损的是失火事故，线路老化通过失火间接造成损失。","optionExplanations":{"A":"外部或内部取决于所研究的对象，无法概括风险因素的角色。","B":"风险事故是损失的直接原因，风险因素在事故发生前形成条件。","C":"内外部并非此处判断两种因果角色的标准。","D":"风险因素增加事故可能性，并通过事故间接带来损失。"},"conceptId":"risk-elements"},{"id":"ins-01-q06","number":6,"group":"风险","type":"single","stem":"只有（　）的存在，才有风险事故发生的可能性。","options":{"A":"风险因素","B":"风险损失","C":"风险事故","D":"风险变化"},"answer":["A"],"explanationSupplement":"这道题按风险因素、风险事故、损失的先后关系判断。事故的发生以相关风险因素或条件存在为背景。","optionExplanations":{"A":"风险因素是可能促成风险事故的条件。","B":"风险损失通常发生在事故之后。","C":"风险事故是题干所问可能发生的事件。","D":"风险变化描述风险程度的变动。"},"conceptId":"risk-elements"},{"id":"ins-01-q07","number":7,"group":"风险","type":"multiple","stem":"风险的基本要素包括（　）。","options":{"A":"风险因素","B":"风险事故","C":"损失","D":"风险评估"},"answer":["A","B","C"],"explanationSupplement":"用一条因果链识别三要素。风险因素影响事故发生概率或程度，风险事故直接引发损失，损失是事故后果。","optionExplanations":{"A":"对应事故发生的条件。","B":"对应造成损害的事件。","C":"对应经济价值的减少等后果。","D":"风险评估是管理流程中的活动。"},"conceptId":"risk-elements"},{"id":"ins-01-q08","number":8,"group":"风险","type":"single","stem":"风险管理的基本目标是（　）。","options":{"A":"以最小的成本获得最小的安全保障","B":"以最大的成本获得最大的安全保障","C":"以最小的成本获得最大的安全保障","D":"以最大的成本获得最小的安全保障"},"answer":["C"],"explanationSupplement":"实际选择需要权衡成本与剩余风险。在可达到的保障水平下选择较低成本，或在给定预算内争取更高保障。","optionExplanations":{"A":"低成本要与足够保障相配合。","B":"追求保障时也应比较成本。","C":"概括了控制成本和提高保障的综合目标。","D":"高成本与低保障同时偏离管理目标。"},"conceptId":"risk-management"},{"id":"ins-01-q09","number":9,"group":"风险","type":"single","stem":"风险管理中损失前目标是（　）。","options":{"A":"消除和降低风险发生的必然性","B":"消除和降低风险发生的可能性","C":"使受损企业的生产得以迅速恢复","D":"使受损家园得以迅速重建"},"answer":["B"],"explanationSupplement":"先判断措施作用在事故发生前还是发生后。事故前可以预防或回避风险，降低事故发生的概率。","optionExplanations":{"A":"风险强调不确定性，应从发生可能性判断。","B":"预防、控制等可以降低风险事故发生的可能性。","C":"恢复生产属于事故后的目标。","D":"重建受损家园属于事故后的目标。"},"conceptId":"risk-management"},{"id":"ins-01-q10","number":10,"group":"风险","type":"single","stem":"控制型风险管理技术的目的是（　）。","options":{"A":"提供基金的方式做财务安排","B":"降低损失频率和减少损失程度","C":"降低损失频率","D":"减少损失幅度"},"answer":["B"],"explanationSupplement":"控制型措施直接作用于事故的发生或后果，例如巡检降低火灾频率，喷淋减轻失火后的损失。","optionExplanations":{"A":"基金安排属于财务型技术。","B":"涵盖降低发生频率和减轻损失程度两方面。","C":"降低频率是预防措施的目标，只覆盖一部分。","D":"减少幅度是减损措施的目标，只覆盖一部分。"},"conceptId":"risk-management"},{"id":"ins-01-q11","number":11,"group":"风险","type":"single","stem":"以下不属于控制型风险管理技术的是（　）。","options":{"A":"避免","B":"预防","C":"抑制","D":"转移"},"answer":["D"],"explanationSupplement":"按本章分类，风险回避、预防和抑制用于改变风险发生或损失程度。保险等财务型风险转移安排的是损失的承担方式。","optionExplanations":{"A":"退出风险活动属于回避。","B":"降低事故发生机会属于预防。","C":"事故发生时减轻损失属于抑制。","D":"题目在财务型的意义上使用转移，故选此项。"},"conceptId":"risk-management"},{"id":"ins-01-q12","number":12,"group":"风险","type":"discussion","stem":"保险是一种（　）风险的办法。","options":{"A":"降低","B":"集中","C":"分散","D":"转移"},"answer":[],"explanationSupplement":"从投保人的风险管理角度，保险转移承保范围内的经济负担，D 成立。从保险人集合许多独立或低相关风险的角度，保险也发挥分散作用，C 成立。题干没有限定观察角度。","optionExplanations":{"A":"购买保险后，个体自担的经济风险可降低，事故发生概率取决于预防等措施。","B":"保险人将许多风险集合起来管理，集中是分散的前置步骤。","C":"从风险池角度，保险使许多个体分担损失。","D":"从投保人角度，保险合同转移约定范围内的经济负担。"},"conceptId":"risk-management"},{"id":"ins-01-q13","number":13,"group":"风险","type":"single","stem":"设医疗费用支出增长、居民健康意识提高，更多人加入跑步、健走、游泳等健身锻炼。从风险管理角度看，这些行为属于（　）。","options":{"A":"损失控制","B":"风险回避","C":"风险自留","D":"风险融资"},"answer":["A"],"explanationSupplement":"题目考查行为直接作用于风险条件的分类。以改善身体状况、降低相关损失发生可能性为目标的措施，可归入损失控制。","optionExplanations":{"A":"降低损失发生概率属于控制型措施。","B":"回避通常意味着退出某项风险活动。","C":"自留指自己承担经济损失。","D":"风险融资为可能的损失预先安排资金。"},"conceptId":"risk-management"},{"id":"ins-01-q14","number":14,"group":"风险","type":"single","stem":"面对养老支出不足的风险，人们选择购买养老保险来弥补退休后的支出缺口。这种风险管理策略属于（　）。","options":{"A":"风险回避","B":"风险自留","C":"风险转移","D":"风险分散"},"answer":["C"],"explanationSupplement":"以个人购买商业养老保险为题设，支付保费换取合同约定的养老给付，由保险人承担相应的给付义务，属于风险转移。","optionExplanations":{"A":"退休后仍有养老支出需求。","B":"自行储蓄并完全自行承担属于风险自留。","C":"通过保险合同由保险人承担约定经济负担。","D":"多样化资产或风险敞口是常见分散方式，题目直接问购买合同的策略。"},"conceptId":"risk-management"},{"id":"ins-01-q15","number":15,"group":"保险","type":"single","stem":"下列有关保险的陈述错误的是（　）。","options":{"A":"保险是风险处理的传统有效的措施","B":"保险是分摊意外事故损失的一种财务安排","C":"保险体现的是一种民事法律关系","D":"保险不具有商品属性"},"answer":["D"],"explanationSupplement":"从商业保险合同看，投保人缴费，保险人提供约定保障，形成有价格的服务交易。合同同时规定双方的民事权利义务。","optionExplanations":{"A":"保险是常用的风险管理工具。","B":"风险池和保费安排可以分担承保事故损失。","C":"商业保险合同载明民事权利与义务。","D":"商业保险提供可定价、可交易的保障服务，此项错误。"},"conceptId":"insurance-definition"},{"id":"ins-01-q16","number":16,"group":"保险","type":"single","stem":"关于社会保险与商业保险，以下陈述错误的是（　）。","options":{"A":"社会保险具有立法强制性，商业保险通常为自愿参加","B":"社会保险具有福利性和政策性，商业保险以盈利性为目标","C":"社会保险比商业保险的覆盖人群更广、保障水平更高","D":"商业保险可以接受政府委托，办理某些项目的社会保险"},"answer":["C"],"explanationSupplement":"社会保险由法律规定相关制度，承担基本保障职责。商业保险通常依合同自愿投保，保障范围与限额取决于具体产品。覆盖面与保障水平是不同指标。","optionExplanations":{"A":"社会保险的法定性质突出，商业保险通常按自愿原则订立，也有法律规定的例外。","B":"社会保险强调基本保障，经营性商业保险通常按市场原则开展业务。","C":"社会保险覆盖面可以较广，不能由此推出保障水平总是高于商业保险。","D":"商业保险机构可按制度安排接受委托承担指定的医疗保障经办服务。"},"conceptId":"insurance-types"},{"id":"ins-01-q17","number":17,"group":"保险","type":"discussion","stem":"关于保险市场的本质特征，以下表述错误的是（　）。","options":{"A":"保险市场交易的标的是风险","B":"保险市场有固定的场所和交易时间","C":"保险市场是一种特殊的期货市场","D":"保险市场是非即时结清的市场"},"answer":[],"explanationSupplement":"保险市场可以通过不同渠道订立合同，没有统一的固定交易场所或时间。保险合同的赔付具有未来性和不确定性，但称其为“期货市场”需要明确这是类比。按期货市场的严格定义理解，B 与 C 都会有问题。","optionExplanations":{"A":"市场交易的经济内容可理解为承保风险及对应保障服务。","B":"保险业务可通过多个场所、渠道和时间开展。","C":"保险具有未来履约特征，金融期货市场的标准化交易结构属于不同概念。","D":"通常要到未来事件发生后，才能确认最终是否赔付。"},"conceptId":"insurance-definition"},{"id":"ins-01-q18","number":18,"group":"保险","type":"single","stem":"同质风险的集合体是保险风险集合与分散的前提条件之一。同质风险的含义是（　）。","options":{"A":"风险单位在种类、品质、性能等方面大体相近，但价值差异较大","B":"风险单位在种类、品质、价值等方面大体相近，但性能差异较大","C":"风险单位在性能、品质、价值等方面大体相近，但种类差异较大","D":"风险单位在种类、性能、品质、价值等方面大体相近"},"answer":["D"],"explanationSupplement":"同质性有利于把相似的出险频率和损失程度归类估计。在题目列出的维度中，相近范围最完整的选项符合定义。","optionExplanations":{"A":"显著的价值差异可能带来不同损失规模。","B":"显著的性能差异可能改变事故频率。","C":"种类差异较大可能对应不同风险形成机制。","D":"各关键维度大体相近，适合归入相同风险组。"},"conceptId":"insurable-risk"},{"id":"ins-01-q19","number":19,"group":"保险","type":"multiple","stem":"可保风险的要件有（　）。","options":{"A":"风险不是投机的","B":"风险必须是偶然的","C":"风险必须是意外的","D":"风险应有发生重大损失的可能性"},"answer":["A","B","C","D"],"explanationSupplement":"传统保险依赖可描述、可估计并可集合的损失风险。题列四项都是传统可保风险判据中的要点。","optionExplanations":{"A":"传统保险主要处理有损失或无损失的纯粹风险。","B":"发生时点、概率或损失结果存在不确定性。","C":"投保人的故意行为与意外风险有不同处理。","D":"损失可能较大时，预先分担具有明显保障价值。"},"conceptId":"insurable-risk"},{"id":"ins-01-q20","number":20,"group":"保险","type":"single","stem":"同质的风险损失事件的不同单位，如果大量结合在一个组里，那么结合的单位越多，发生风险损失的波动幅度就会逐渐减少而趋向于稳定。这是保险经营的一个重要定律，叫做（　）。","options":{"A":"随机定律","B":"大数法则","C":"趋同定律","D":"概率法则"},"answer":["B"],"explanationSupplement":"在风险单位足够相近且相互独立或相关性较低等条件下，样本增多使相对频率和单位平均损失趋稳。题干中的波动应按相对或平均口径理解。","optionExplanations":{"A":"随机性说明结果存在不确定性，无法给出样本增多后的趋稳结论。","B":"大数法则说明样本均值随样本规模扩大趋近于期望。","C":"“趋同定律”不是这项保险统计原理的名称。","D":"概率法则是广义说法，题目要求识别特定的收敛原理。"},"conceptId":"insurable-risk"},{"id":"ins-01-q21","number":21,"group":"保险","type":"single","stem":"人身保险和社会保险的共同点包括（　）等。","options":{"A":"经营主体","B":"费率厘定的数理基础","C":"实施方式","D":"适用原则"},"answer":["B"],"explanationSupplement":"两类制度都需要评估死亡率、疾病率或养老支出等不确定因素，可使用概率与精算方法。具体缴费标准的确定还受各自制度目标影响。","optionExplanations":{"A":"社会保险经办机构与商业保险公司承担不同职责。","B":"估计大规模群体的风险和资金需求时，可以使用共同的数理工具。","C":"法定参保和商业保险合同的实施方式通常不同。","D":"两类制度的法律依据和保障原则各有侧重。"},"conceptId":"insurance-types"},{"id":"ins-01-q22","number":22,"group":"保险","type":"single","stem":"投保人以保险利益的全部或部分，分别向数个保险人投保相同种类的保险，签订数个保险合同，其保险金额总和不超过保险价值的一种保险称为（　）。","options":{"A":"复合保险","B":"联合保险","C":"共同保险","D":"重复保险"},"answer":["A"],"explanationSupplement":"先看合同数量，再比较保险金额合计与保险价值。若相同保险利益与事故分别订立多个合同，且保险金额合计未超过保险价值，可归为复合保险。","optionExplanations":{"A":"多个合同金额合计未超过保险价值，符合复合保险。","B":"此处没有给出可据以认定联合承保的条件。","C":"共同保险通常由多家保险人按份共同承保同一业务。","D":"保险法规定的重复保险还要求保险金额总和超过保险价值。"},"conceptId":"insurance-types"},{"id":"ins-01-q23","number":23,"group":"保险","type":"multiple","stem":"依照承保方式对保险进行划分，可分为（　）。","options":{"A":"重复保险","B":"共同保险","C":"复合保险","D":"信用保险"},"answer":["A","B","C"],"explanationSupplement":"题目问多家保险人怎样承接同一风险。看合同是否分别订立、是否约定共同承保和保险金额的合计。","optionExplanations":{"A":"按分别投保和总金额是否超过保险价值识别。","B":"多家保险人分担同一承保责任属于承保方式。","C":"分别投保且总金额未超过保险价值属于该分类。","D":"信用保险按承保风险或保障对象分类。"},"conceptId":"insurance-types"},{"id":"ins-01-q24","number":24,"group":"保险","type":"discussion","stem":"关于保险的不同分类标准，以下说法正确的有（　）。","options":{"A":"按照保险的实施方式，可以分为自愿保险和强制保险","B":"按照保险对象的不同，可以分为财产保险和人身保险","C":"按照保险实施范围的不同，可以分为社会保险和普通保险","D":"按照保险承担的责任次序，可以分为原保险和再保险"},"answer":[],"explanationSupplement":"A、B、D 使用可明确说明的分类标准。C 的“普通保险”需要给出范围定义，社会保险、商业保险和政策性保险也可以按制度性质划分。不同口径会改变 C 是否纳入，因此适合讨论分类维度。","optionExplanations":{"A":"自愿或强制由实施规则决定。","B":"财产与人身可按保障对象划分。","C":"需要先界定“普通保险”，才能判断这组分类是否完整。","D":"直接承保和由保险人再分保可按责任次序区分。"},"conceptId":"insurance-types"},{"id":"ins-01-q25","number":25,"group":"保险","type":"single","stem":"保险作为风险管理的一种方法，其基本职能是（　）。","options":{"A":"分散风险，补偿损失","B":"分散风险，排除损失","C":"消除风险，排除损失","D":"排除风险，消化损失"},"answer":["A"],"explanationSupplement":"保险人集中保费和承保风险，在合同约定的事件发生后赔偿财产损失或给付人身保险金。许多保单持有人共同分担承保损失。","optionExplanations":{"A":"概括了保险作为风险管理工具的两项基本职能。","B":"保险可以分散经济负担，事故和损失仍可能发生。","C":"保险通过合同赔付缓冲损失后果。","D":"预防和控制措施可减少风险，保险主要承担约定的经济后果。"},"conceptId":"insurance-definition"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter26","number":1,"title":"风险与保险","moduleId":"insurance","moduleTitle":"保险基础","downloadName":"保险基础-01-风险与保险-离线学习.html","visual":"risk-matrix","visualSectionId":"risk-management","visuals":[{"type":"risk-matrix","sectionId":"risk-management"}]},"lessons":{"title":"风险与保险","subtitle":"沿着风险因素、事故和损失，理解保险如何转移和分散经济负担。","sections":[{"id":"risk-elements","title":"风险的含义与三个要素","summary":"区分使事故更可能发生的条件、事故本身与最终损失。","bodyHtml":"\u003cp>保险语境中的\u003cstrong>风险\u003c/strong>是损失发生的不确定性，包括是否发生、何时发生和损失程度。可用\u003cmark>风险因素 → 风险事故 → 损失\u003c/mark>追踪风险形成过程。风险因素是增加事故发生可能性或扩大损失程度的条件，风险事故是直接造成损失的事件，损失是事故造成的经济价值减少。\u003c/p>\u003cp>从保险公司经营角度，实际出险率或赔付水平高于定价与准备金所依据的估计，会形成保险风险。监管规则也将保险风险、市场风险和信用风险作为不同的风险类别。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.nfra.gov.cn/chinese/docfile/2022/ce1d31a4be034fd4ad9db8913dc7faa3.pdf\">金融监管总局 · 偿付能力风险管理要求与评估\u003c/a>\u003c/p>","keyTakeaway":"识别风险要素时，先找“为什么更容易发生”，再找“发生了什么”，最后看“造成多少损失”。","pitfall":"同一事件在不同因果链中可扮演不同角色。按题干给定的损失和观察对象确定角色。","example":"电线老化是风险因素，火灾是风险事故，烧毁的设备价值是损失。"},{"id":"risk-types","title":"风险的分类","summary":"先识别分类标准，再选择对应的风险类型。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>分类标准\u003c/th>\u003cth>类型\u003c/th>\u003cth>判断线索\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>风险性质\u003c/td>\u003ctd>纯粹风险、投机风险\u003c/td>\u003ctd>纯粹风险的结果是损失或无损失，投机风险还可能有收益\u003c/td>\u003c/tr>\u003ctr>\u003ctd>风险对象\u003c/td>\u003ctd>人身、财产、责任、信用\u003c/td>\u003ctd>判断损害落在人身、财产、依法承担的赔偿责任还是信用义务\u003c/td>\u003c/tr>\u003ctr>\u003ctd>发生原因\u003c/td>\u003ctd>自然、社会、经济、政治等\u003c/td>\u003ctd>判断风险主要由什么引起\u003c/td>\u003c/tr>\u003ctr>\u003ctd>发生环境\u003c/td>\u003ctd>静态风险、动态风险\u003c/td>\u003ctd>静态风险可发生在相对稳定环境中，动态风险与技术、社会经济变化相关\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"“按性质”对应纯粹与投机，“按对象”对应人身、财产、责任、信用。","pitfall":"同一个风险可以同时属于不同维度的类别。标签要与题目的分类标准匹配。","example":"房屋因雷击起火，按原因可归自然风险，按受损对象可归财产风险，按结果可能性可归纯粹风险。"},{"id":"risk-management","title":"风险管理的目标、流程和工具","summary":"用成本与保障的权衡安排预防、控制及事故后的资金。","bodyHtml":"\u003cp>家庭、企业等经济主体进行\u003cstrong>风险管理\u003c/strong>时，通常先识别风险，再衡量频率和损失程度，评价优先级，选择技术，最后检查效果。基本目标是在成本约束下取得尽可能充分的安全保障。损失前重在预防，损失后重在恢复与持续经营。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>技术\u003c/th>\u003cth>要处理的问题\u003c/th>\u003cth>例子\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>控制型\u003c/td>\u003ctd>避免暴露、降低事故频率、减轻损失程度\u003c/td>\u003ctd>放弃危险活动、定期巡检、安装自动喷淋\u003c/td>\u003c/tr>\u003ctr>\u003ctd>财务型\u003c/td>\u003ctd>安排资金、确定谁承担损失的经济后果\u003c/td>\u003ctd>建立自留准备金，通过保险或其他合同转移约定损失\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"损失预防侧重减少发生次数，损失抑制侧重降低发生后的损失程度。","pitfall":"风险转移改变损失经济负担的承担者，风险分散改变风险集中程度。购买保险可同时涉及两个角度。","example":"企业给机房安装烟感和喷淋降低事故损失，同时投保财产险转移合同承保部分的经济负担。"},{"id":"insurance-definition","title":"保险的定义、市场与基本职能","summary":"从合同承诺和风险集合两层理解保险。","bodyHtml":"\u003cp>商业保险通过合同安排分担特定风险。投保人缴纳保险费，保险人按合同对符合条件的财产损失承担赔偿，或在约定的人身事件、年龄或期限条件满足时给付保险金。\u003cmark>基本职能是分散风险以及补偿损失或给付保险金\u003c/mark>，防灾防损、资金运用、社会管理等可视为派生职能。\u003c/p>\u003cp>保险交易提供未来一段期间的风险保障。是否赔付及金额通常要等约定条件成就才确定。保险是无形保障服务，商品属性体现在市场交易和定价。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）：《保险法》第二条规定商业保险的合同关系与赔偿或给付责任。\u003ca href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 中华人民共和国保险法\u003c/a>\u003c/p>","keyTakeaway":"投保人以确定的保费换取约定保障，保险人集中管理并分摊许多风险单位的损失。","pitfall":"保险的未来履约特点可用远期承诺理解，金融期货合约则另有交易结构和监管规则。","example":"家庭为火灾投保后，仍要维护电线。事故如符合保单条件，可按约定获得赔偿。"},{"id":"insurable-risk","title":"可保风险、同质性与大数法则","summary":"判断风险能否进入一个可估计、可分担的风险池。","bodyHtml":"\u003cp>传统可保条件关注纯粹损失、发生的偶然性和意外性，以及同类风险单位的规模和分布。可承保风险通常存在值得转移的损失，且许多类似标的有发生损失的可能。若大多数风险单位可能同时遭受重大损失，风险集中将削弱分散效果，需要再保险、分层或其他机制。\u003c/p>\u003cp>\u003cstrong>同质风险\u003c/strong>指风险单位在相关的种类、品质、性能、价值等方面大体相近，可归入可比较的风险组。在独立或弱相关等条件下，样本规模扩大时，每单位的平均损失或损失频率趋近于期望，这就是\u003cmark>大数法则\u003c/mark>在保险中的应用。\u003c/p>","keyTakeaway":"同质与低相关帮助估计和分散风险。计算时留意题目谈的是平均损失、频率还是总损失。","pitfall":"大数法则说明平均结果更稳定。随着承保数量增加，总损失的绝对金额或波动仍可能增加。","example":"一千户条件相似且分布在不同地区的住宅，通常比少量集中在同一高风险地带的住宅更容易分散个体事故波动。"},{"id":"insurance-types","title":"保险的分类与承保方式","summary":"识别商业、社会、政策性保险，以及多方承保的区别。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>分类维度\u003c/th>\u003cth>示例\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>性质或功能\u003c/td>\u003ctd>社会保险、商业保险、政策性保险\u003c/td>\u003c/tr>\u003ctr>\u003ctd>保险标的\u003c/td>\u003ctd>人身保险、财产保险。狭义财产损失保险可与责任保险、信用保证保险分列\u003c/td>\u003c/tr>\u003ctr>\u003ctd>承保方式与责任次序\u003c/td>\u003ctd>原保险、再保险、复合保险、重复保险、共同保险\u003c/td>\u003c/tr>\u003ctr>\u003ctd>实施方式\u003c/td>\u003ctd>自愿保险、强制保险\u003c/td>\u003c/tr>\u003ctr>\u003ctd>保险价值是否事先约定\u003c/td>\u003ctd>定值保险、不定值保险\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>原保险人与投保人直接订立原保险合同，再保险由保险人向其他保险人分出部分承保责任。多个保险人按份共同承保可称共同保险。同一标的、同一保险利益、同一保险事故分别投保且保险金额总和超过保险价值，符合《保险法》第五十六条所规定的重复保险定义。相同条件下总金额未超过保险价值，学习分类中常称复合保险。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）：《社会保险法》第二条列出基本养老、医疗、工伤、失业、生育等社会保险。商业保险机构可按安排受托承办城乡居民大病保险等服务，具体以项目规则为准。\u003ca href=\"https://shanxi.chinatax.gov.cn/zdgk/detail/sx-11400-545-1784612\">税务总局网站 · 中华人民共和国社会保险法\u003c/a>，\u003ca href=\"https://www.nhsa.gov.cn/art/2020/9/25/art_110_6861.html\">国家医保局 · 商业保险机构参与医保经办\u003c/a>\u003c/p>","keyTakeaway":"按标的、实施方式和承保结构分清题目问的是哪个分类维度。","pitfall":"社会保险提供制度性基本保障，商业保险按具体合同提供保障。保障水平取决于制度、险种与合同安排。","example":"同一设备价值 100 万元，对相同风险分别向两家投保 40 万元和 50 万元，合计 90 万元，符合本章的复合保险分类条件。"}],"mindmap":[{"label":"风险","target":"risk-elements","children":[{"label":"风险因素、风险事故、损失","target":"risk-elements"},{"label":"风险分类","target":"risk-types","children":[{"label":"性质：纯粹风险、投机风险","target":"risk-types"},{"label":"对象：人身、财产、责任、信用","target":"risk-types"},{"label":"原因：自然、社会、经济、政治","target":"risk-types"},{"label":"环境：静态、动态","target":"risk-types"}]},{"label":"风险管理的概念与目标","target":"risk-management","children":[{"label":"主体：家庭、企业等经济单位","target":"risk-management"},{"label":"选择管理技术，权衡成本与安全保障","target":"risk-management"}]},{"label":"管理流程","target":"risk-management","children":[{"label":"识别、衡量、评价","target":"risk-management"},{"label":"选择技术与评估效果","target":"risk-management"}]},{"label":"风险管理技术","target":"risk-management","children":[{"label":"控制型：避免、预防、抑制","target":"risk-management"},{"label":"财务型：风险自留、风险转移","target":"risk-management"}]}]},{"label":"保险","target":"insurance-definition","children":[{"label":"商业保险的合同定义","target":"insurance-definition"},{"label":"可保风险的要件","target":"insurable-risk","children":[{"label":"纯粹风险，具有偶然性和意外性","target":"insurable-risk"},{"label":"大量同质标的有遭受损失的可能","target":"insurable-risk"},{"label":"存在重大损失的可能","target":"insurable-risk"},{"label":"避免多数标的同时遭受重大损失","target":"insurable-risk"},{"label":"大数法则与分散","target":"insurable-risk"}]},{"label":"保险的分类","target":"insurance-types","children":[{"label":"性质：社会、商业、政策性","target":"insurance-types"},{"label":"标的：人身、财产、责任、信用保证","target":"insurance-types"},{"label":"承保：原保险、再保险、复合、重复、共同","target":"insurance-types"},{"label":"实施方式：自愿、强制","target":"insurance-types"},{"label":"保险价值：定值、不定值","target":"insurance-types"}]},{"label":"保险的职能","target":"insurance-definition","children":[{"label":"基本职能：风险分散、损失补偿或保险金给付","target":"insurance-definition"},{"label":"派生职能：防灾防损、融通资金、社会管理","target":"insurance-definition"}]}]}]},"questions":[{"id":"ins-01-q01","number":1,"group":"风险","type":"single","stem":"保险中的风险是指（　）的不确定性。","options":{"A":"发生的结果","B":"损失发生","C":"损失程度","D":"损失补偿"},"answer":["B"],"explanationSupplement":"在保险语境中，先看损失是否会发生，再考虑时间和程度。题目要求选择能够概括损失不确定性的说法。","optionExplanations":{"A":"表述没有明确限定保险所关注的损失。","B":"直接指出损失发生具有不确定性。","C":"损失程度是整体不确定性的一个方面。","D":"损失补偿是保险合同可能产生的结果。"},"conceptId":"risk-elements"},{"id":"ins-01-q02","number":2,"group":"风险","type":"single","stem":"只有损失机会而无获利可能的风险是（　）。","options":{"A":"投机风险","B":"纯粹风险","C":"社会风险","D":"政治风险"},"answer":["B"],"explanationSupplement":"用可能结果来区分。纯粹风险的结果是受到损失或维持原状，比如房屋失火风险。投机风险还可能带来收益。","optionExplanations":{"A":"投机风险同时具有损失和收益的可能。","B":"纯粹风险只有损失或无损失两种结果。","C":"社会风险按成因分类。","D":"政治风险也按风险成因分类。"},"conceptId":"risk-types"},{"id":"ins-01-q03","number":3,"group":"风险","type":"single","stem":"按风险的性质分类，可以分为（　）。","options":{"A":"人身风险和财产风险","B":"纯粹风险和投机风险","C":"经济风险和技术风险","D":"自然风险和社会风险"},"answer":["B"],"explanationSupplement":"按性质分类的依据是结果是否可能包含获利。只有损失或无损失的是纯粹风险，另有获利可能的是投机风险。","optionExplanations":{"A":"人身和财产是按受影响对象分类。","B":"对应风险性质的分类。","C":"经济或技术变动属于风险来源。","D":"自然与社会是风险成因维度。"},"conceptId":"risk-types"},{"id":"ins-01-q04","number":4,"group":"风险","type":"single","stem":"设我国国民收入水平提高，同时环境污染、生活节奏和压力等因素使糖尿病、高血压、癌症等疾病发病率升高。保险公司的投资者关注其健康保险未来赔付水平可能持续上升。这些投资者担忧的是保险公司面临的什么风险？（　）","options":{"A":"环境污染风险","B":"医疗风险","C":"保险风险","D":"流动性风险"},"answer":["C"],"explanationSupplement":"把观察对象放在承保公司的赔付上。发病率或赔付费用高于原先预期，将使保险合同的赔付成本增加。","optionExplanations":{"A":"环境污染在题设中是影响发病和赔付的外部因素。","B":"医疗风险可描述诊疗过程中的损害或不确定性。","C":"实际赔付超出承保估计属于保险风险。","D":"流动性风险关注能否在到期时获得足够资金支付。"},"conceptId":"risk-elements"},{"id":"ins-01-q05","number":5,"group":"风险","type":"single","stem":"风险因素是风险事故发生的（　），是造成损失的（　）。","options":{"A":"间接原因，外部原因","B":"直接原因，间接原因","C":"外部原因，内部原因","D":"潜在原因，间接原因"},"answer":["D"],"explanationSupplement":"例如线路老化增加失火可能性。真正造成财产受损的是失火事故，线路老化通过失火间接造成损失。","optionExplanations":{"A":"外部或内部取决于所研究的对象，无法概括风险因素的角色。","B":"风险事故是损失的直接原因，风险因素在事故发生前形成条件。","C":"内外部并非此处判断两种因果角色的标准。","D":"风险因素增加事故可能性，并通过事故间接带来损失。"},"conceptId":"risk-elements"},{"id":"ins-01-q06","number":6,"group":"风险","type":"single","stem":"只有（　）的存在，才有风险事故发生的可能性。","options":{"A":"风险因素","B":"风险损失","C":"风险事故","D":"风险变化"},"answer":["A"],"explanationSupplement":"这道题按风险因素、风险事故、损失的先后关系判断。事故的发生以相关风险因素或条件存在为背景。","optionExplanations":{"A":"风险因素是可能促成风险事故的条件。","B":"风险损失通常发生在事故之后。","C":"风险事故是题干所问可能发生的事件。","D":"风险变化描述风险程度的变动。"},"conceptId":"risk-elements"},{"id":"ins-01-q07","number":7,"group":"风险","type":"multiple","stem":"风险的基本要素包括（　）。","options":{"A":"风险因素","B":"风险事故","C":"损失","D":"风险评估"},"answer":["A","B","C"],"explanationSupplement":"用一条因果链识别三要素。风险因素影响事故发生概率或程度，风险事故直接引发损失，损失是事故后果。","optionExplanations":{"A":"对应事故发生的条件。","B":"对应造成损害的事件。","C":"对应经济价值的减少等后果。","D":"风险评估是管理流程中的活动。"},"conceptId":"risk-elements"},{"id":"ins-01-q08","number":8,"group":"风险","type":"single","stem":"风险管理的基本目标是（　）。","options":{"A":"以最小的成本获得最小的安全保障","B":"以最大的成本获得最大的安全保障","C":"以最小的成本获得最大的安全保障","D":"以最大的成本获得最小的安全保障"},"answer":["C"],"explanationSupplement":"实际选择需要权衡成本与剩余风险。在可达到的保障水平下选择较低成本，或在给定预算内争取更高保障。","optionExplanations":{"A":"低成本要与足够保障相配合。","B":"追求保障时也应比较成本。","C":"概括了控制成本和提高保障的综合目标。","D":"高成本与低保障同时偏离管理目标。"},"conceptId":"risk-management"},{"id":"ins-01-q09","number":9,"group":"风险","type":"single","stem":"风险管理中损失前目标是（　）。","options":{"A":"消除和降低风险发生的必然性","B":"消除和降低风险发生的可能性","C":"使受损企业的生产得以迅速恢复","D":"使受损家园得以迅速重建"},"answer":["B"],"explanationSupplement":"先判断措施作用在事故发生前还是发生后。事故前可以预防或回避风险，降低事故发生的概率。","optionExplanations":{"A":"风险强调不确定性，应从发生可能性判断。","B":"预防、控制等可以降低风险事故发生的可能性。","C":"恢复生产属于事故后的目标。","D":"重建受损家园属于事故后的目标。"},"conceptId":"risk-management"},{"id":"ins-01-q10","number":10,"group":"风险","type":"single","stem":"控制型风险管理技术的目的是（　）。","options":{"A":"提供基金的方式做财务安排","B":"降低损失频率和减少损失程度","C":"降低损失频率","D":"减少损失幅度"},"answer":["B"],"explanationSupplement":"控制型措施直接作用于事故的发生或后果，例如巡检降低火灾频率，喷淋减轻失火后的损失。","optionExplanations":{"A":"基金安排属于财务型技术。","B":"涵盖降低发生频率和减轻损失程度两方面。","C":"降低频率是预防措施的目标，只覆盖一部分。","D":"减少幅度是减损措施的目标，只覆盖一部分。"},"conceptId":"risk-management"},{"id":"ins-01-q11","number":11,"group":"风险","type":"single","stem":"以下不属于控制型风险管理技术的是（　）。","options":{"A":"避免","B":"预防","C":"抑制","D":"转移"},"answer":["D"],"explanationSupplement":"按本章分类，风险回避、预防和抑制用于改变风险发生或损失程度。保险等财务型风险转移安排的是损失的承担方式。","optionExplanations":{"A":"退出风险活动属于回避。","B":"降低事故发生机会属于预防。","C":"事故发生时减轻损失属于抑制。","D":"题目在财务型的意义上使用转移，故选此项。"},"conceptId":"risk-management"},{"id":"ins-01-q12","number":12,"group":"风险","type":"discussion","stem":"保险是一种（　）风险的办法。","options":{"A":"降低","B":"集中","C":"分散","D":"转移"},"answer":[],"explanationSupplement":"从投保人的风险管理角度，保险转移承保范围内的经济负担，D 成立。从保险人集合许多独立或低相关风险的角度，保险也发挥分散作用，C 成立。题干没有限定观察角度。","optionExplanations":{"A":"购买保险后，个体自担的经济风险可降低，事故发生概率取决于预防等措施。","B":"保险人将许多风险集合起来管理，集中是分散的前置步骤。","C":"从风险池角度，保险使许多个体分担损失。","D":"从投保人角度，保险合同转移约定范围内的经济负担。"},"conceptId":"risk-management"},{"id":"ins-01-q13","number":13,"group":"风险","type":"single","stem":"设医疗费用支出增长、居民健康意识提高，更多人加入跑步、健走、游泳等健身锻炼。从风险管理角度看，这些行为属于（　）。","options":{"A":"损失控制","B":"风险回避","C":"风险自留","D":"风险融资"},"answer":["A"],"explanationSupplement":"题目考查行为直接作用于风险条件的分类。以改善身体状况、降低相关损失发生可能性为目标的措施，可归入损失控制。","optionExplanations":{"A":"降低损失发生概率属于控制型措施。","B":"回避通常意味着退出某项风险活动。","C":"自留指自己承担经济损失。","D":"风险融资为可能的损失预先安排资金。"},"conceptId":"risk-management"},{"id":"ins-01-q14","number":14,"group":"风险","type":"single","stem":"面对养老支出不足的风险，人们选择购买养老保险来弥补退休后的支出缺口。这种风险管理策略属于（　）。","options":{"A":"风险回避","B":"风险自留","C":"风险转移","D":"风险分散"},"answer":["C"],"explanationSupplement":"以个人购买商业养老保险为题设，支付保费换取合同约定的养老给付，由保险人承担相应的给付义务，属于风险转移。","optionExplanations":{"A":"退休后仍有养老支出需求。","B":"自行储蓄并完全自行承担属于风险自留。","C":"通过保险合同由保险人承担约定经济负担。","D":"多样化资产或风险敞口是常见分散方式，题目直接问购买合同的策略。"},"conceptId":"risk-management"},{"id":"ins-01-q15","number":15,"group":"保险","type":"single","stem":"下列有关保险的陈述错误的是（　）。","options":{"A":"保险是风险处理的传统有效的措施","B":"保险是分摊意外事故损失的一种财务安排","C":"保险体现的是一种民事法律关系","D":"保险不具有商品属性"},"answer":["D"],"explanationSupplement":"从商业保险合同看，投保人缴费，保险人提供约定保障，形成有价格的服务交易。合同同时规定双方的民事权利义务。","optionExplanations":{"A":"保险是常用的风险管理工具。","B":"风险池和保费安排可以分担承保事故损失。","C":"商业保险合同载明民事权利与义务。","D":"商业保险提供可定价、可交易的保障服务，此项错误。"},"conceptId":"insurance-definition"},{"id":"ins-01-q16","number":16,"group":"保险","type":"single","stem":"关于社会保险与商业保险，以下陈述错误的是（　）。","options":{"A":"社会保险具有立法强制性，商业保险通常为自愿参加","B":"社会保险具有福利性和政策性，商业保险以盈利性为目标","C":"社会保险比商业保险的覆盖人群更广、保障水平更高","D":"商业保险可以接受政府委托，办理某些项目的社会保险"},"answer":["C"],"explanationSupplement":"社会保险由法律规定相关制度，承担基本保障职责。商业保险通常依合同自愿投保，保障范围与限额取决于具体产品。覆盖面与保障水平是不同指标。","optionExplanations":{"A":"社会保险的法定性质突出，商业保险通常按自愿原则订立，也有法律规定的例外。","B":"社会保险强调基本保障，经营性商业保险通常按市场原则开展业务。","C":"社会保险覆盖面可以较广，不能由此推出保障水平总是高于商业保险。","D":"商业保险机构可按制度安排接受委托承担指定的医疗保障经办服务。"},"conceptId":"insurance-types"},{"id":"ins-01-q17","number":17,"group":"保险","type":"discussion","stem":"关于保险市场的本质特征，以下表述错误的是（　）。","options":{"A":"保险市场交易的标的是风险","B":"保险市场有固定的场所和交易时间","C":"保险市场是一种特殊的期货市场","D":"保险市场是非即时结清的市场"},"answer":[],"explanationSupplement":"保险市场可以通过不同渠道订立合同，没有统一的固定交易场所或时间。保险合同的赔付具有未来性和不确定性，但称其为“期货市场”需要明确这是类比。按期货市场的严格定义理解，B 与 C 都会有问题。","optionExplanations":{"A":"市场交易的经济内容可理解为承保风险及对应保障服务。","B":"保险业务可通过多个场所、渠道和时间开展。","C":"保险具有未来履约特征，金融期货市场的标准化交易结构属于不同概念。","D":"通常要到未来事件发生后，才能确认最终是否赔付。"},"conceptId":"insurance-definition"},{"id":"ins-01-q18","number":18,"group":"保险","type":"single","stem":"同质风险的集合体是保险风险集合与分散的前提条件之一。同质风险的含义是（　）。","options":{"A":"风险单位在种类、品质、性能等方面大体相近，但价值差异较大","B":"风险单位在种类、品质、价值等方面大体相近，但性能差异较大","C":"风险单位在性能、品质、价值等方面大体相近，但种类差异较大","D":"风险单位在种类、性能、品质、价值等方面大体相近"},"answer":["D"],"explanationSupplement":"同质性有利于把相似的出险频率和损失程度归类估计。在题目列出的维度中，相近范围最完整的选项符合定义。","optionExplanations":{"A":"显著的价值差异可能带来不同损失规模。","B":"显著的性能差异可能改变事故频率。","C":"种类差异较大可能对应不同风险形成机制。","D":"各关键维度大体相近，适合归入相同风险组。"},"conceptId":"insurable-risk"},{"id":"ins-01-q19","number":19,"group":"保险","type":"multiple","stem":"可保风险的要件有（　）。","options":{"A":"风险不是投机的","B":"风险必须是偶然的","C":"风险必须是意外的","D":"风险应有发生重大损失的可能性"},"answer":["A","B","C","D"],"explanationSupplement":"传统保险依赖可描述、可估计并可集合的损失风险。题列四项都是传统可保风险判据中的要点。","optionExplanations":{"A":"传统保险主要处理有损失或无损失的纯粹风险。","B":"发生时点、概率或损失结果存在不确定性。","C":"投保人的故意行为与意外风险有不同处理。","D":"损失可能较大时，预先分担具有明显保障价值。"},"conceptId":"insurable-risk"},{"id":"ins-01-q20","number":20,"group":"保险","type":"single","stem":"同质的风险损失事件的不同单位，如果大量结合在一个组里，那么结合的单位越多，发生风险损失的波动幅度就会逐渐减少而趋向于稳定。这是保险经营的一个重要定律，叫做（　）。","options":{"A":"随机定律","B":"大数法则","C":"趋同定律","D":"概率法则"},"answer":["B"],"explanationSupplement":"在风险单位足够相近且相互独立或相关性较低等条件下，样本增多使相对频率和单位平均损失趋稳。题干中的波动应按相对或平均口径理解。","optionExplanations":{"A":"随机性说明结果存在不确定性，无法给出样本增多后的趋稳结论。","B":"大数法则说明样本均值随样本规模扩大趋近于期望。","C":"“趋同定律”不是这项保险统计原理的名称。","D":"概率法则是广义说法，题目要求识别特定的收敛原理。"},"conceptId":"insurable-risk"},{"id":"ins-01-q21","number":21,"group":"保险","type":"single","stem":"人身保险和社会保险的共同点包括（　）等。","options":{"A":"经营主体","B":"费率厘定的数理基础","C":"实施方式","D":"适用原则"},"answer":["B"],"explanationSupplement":"两类制度都需要评估死亡率、疾病率或养老支出等不确定因素，可使用概率与精算方法。具体缴费标准的确定还受各自制度目标影响。","optionExplanations":{"A":"社会保险经办机构与商业保险公司承担不同职责。","B":"估计大规模群体的风险和资金需求时，可以使用共同的数理工具。","C":"法定参保和商业保险合同的实施方式通常不同。","D":"两类制度的法律依据和保障原则各有侧重。"},"conceptId":"insurance-types"},{"id":"ins-01-q22","number":22,"group":"保险","type":"single","stem":"投保人以保险利益的全部或部分，分别向数个保险人投保相同种类的保险，签订数个保险合同，其保险金额总和不超过保险价值的一种保险称为（　）。","options":{"A":"复合保险","B":"联合保险","C":"共同保险","D":"重复保险"},"answer":["A"],"explanationSupplement":"先看合同数量，再比较保险金额合计与保险价值。若相同保险利益与事故分别订立多个合同，且保险金额合计未超过保险价值，可归为复合保险。","optionExplanations":{"A":"多个合同金额合计未超过保险价值，符合复合保险。","B":"此处没有给出可据以认定联合承保的条件。","C":"共同保险通常由多家保险人按份共同承保同一业务。","D":"保险法规定的重复保险还要求保险金额总和超过保险价值。"},"conceptId":"insurance-types"},{"id":"ins-01-q23","number":23,"group":"保险","type":"multiple","stem":"依照承保方式对保险进行划分，可分为（　）。","options":{"A":"重复保险","B":"共同保险","C":"复合保险","D":"信用保险"},"answer":["A","B","C"],"explanationSupplement":"题目问多家保险人怎样承接同一风险。看合同是否分别订立、是否约定共同承保和保险金额的合计。","optionExplanations":{"A":"按分别投保和总金额是否超过保险价值识别。","B":"多家保险人分担同一承保责任属于承保方式。","C":"分别投保且总金额未超过保险价值属于该分类。","D":"信用保险按承保风险或保障对象分类。"},"conceptId":"insurance-types"},{"id":"ins-01-q24","number":24,"group":"保险","type":"discussion","stem":"关于保险的不同分类标准，以下说法正确的有（　）。","options":{"A":"按照保险的实施方式，可以分为自愿保险和强制保险","B":"按照保险对象的不同，可以分为财产保险和人身保险","C":"按照保险实施范围的不同，可以分为社会保险和普通保险","D":"按照保险承担的责任次序，可以分为原保险和再保险"},"answer":[],"explanationSupplement":"A、B、D 使用可明确说明的分类标准。C 的“普通保险”需要给出范围定义，社会保险、商业保险和政策性保险也可以按制度性质划分。不同口径会改变 C 是否纳入，因此适合讨论分类维度。","optionExplanations":{"A":"自愿或强制由实施规则决定。","B":"财产与人身可按保障对象划分。","C":"需要先界定“普通保险”，才能判断这组分类是否完整。","D":"直接承保和由保险人再分保可按责任次序区分。"},"conceptId":"insurance-types"},{"id":"ins-01-q25","number":25,"group":"保险","type":"single","stem":"保险作为风险管理的一种方法，其基本职能是（　）。","options":{"A":"分散风险，补偿损失","B":"分散风险，排除损失","C":"消除风险，排除损失","D":"排除风险，消化损失"},"answer":["A"],"explanationSupplement":"保险人集中保费和承保风险，在合同约定的事件发生后赔偿财产损失或给付人身保险金。许多保单持有人共同分担承保损失。","optionExplanations":{"A":"概括了保险作为风险管理工具的两项基本职能。","B":"保险可以分散经济负担，事故和损失仍可能发生。","C":"保险通过合同赔付缓冲损失后果。","D":"预防和控制措施可减少风险，保险主要承担约定的经济后果。"},"conceptId":"insurance-definition"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -2260,6 +2268,696 @@ dialog::backdrop { background: var(--backdrop); }
    if(target){ e.preventDefault(); target.focus(); target.select(); }
   }
  });
+})();
+
+(() => {
+  'use strict';
+
+  const fmt = (n, d = 1) => Number(n.toFixed(d)).toString();
+  const samplePath = (fn, start, end, steps, xMap, yMap) => {
+    let d = '';
+    for (let i = 0; i <= steps; i++) {
+      const t = start + (end - start) * (i / steps);
+      const val = fn(t);
+      if (!Number.isFinite(val)) continue;
+      d += (d ? ' L' : 'M') + xMap(t).toFixed(1) + ' ' + yMap(val).toFixed(1);
+    }
+    return d;
+  };
+  const X0 = 66, W = 420, Y0 = 294, H = 252;
+  const wrapStatic = (title, desc, svg) => `
+    <div class="inline-visual-header">
+      <span class="inline-visual-badge">图解示意</span>
+      <h4>${title}</h4>
+      <p>${desc}</p>
+    </div>
+    <div class="static-svg-wrap micro-panel">${svg}</div>`;
+
+  // 1. Chapter 04: Total Utility & Marginal Utility
+  function mountTUMU(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>总效用（TU）与边际效用（MU）递减联动图</h4>
+        <p>拖动消费数量 Q，观察每多消费 1 单位带来的边际效用 MU 递减过程，以及 MU = 0 时总效用 TU 达到最大值。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>总效用 TU</span>
+            <span><i class="chart-line mv-c2-line"></i>边际效用 MU</span>
+          </div>
+          <svg viewBox="0 0 540 390" role="img" aria-label="总效用与边际效用联动图">
+            <path class="chart-axis" d="M66 26V170H498" fill="none" stroke-width="1.4"/>
+            <text x="14" y="18" class="axis-label">总效用 TU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="174">0</text><text x="56" y="106">20</text><text x="56" y="40">40</text></g>
+            <path class="mv-curve-1" data-role="tu"/>
+
+            <path class="chart-axis" d="M66 206V346H498" fill="none" stroke-width="1.4"/>
+            <line class="mv-zero-line" x1="66" x2="498" y1="306" y2="306"/>
+            <text x="14" y="198" class="axis-label">边际效用 MU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="310">0</text><text x="56" y="264">5</text><text x="56" y="218">10</text></g>
+            <path class="mv-curve-2" data-role="mu"/>
+            <line class="mv-guide" data-role="vline" y1="26" y2="346"/>
+            <circle r="5.5" class="mv-dot-1" data-role="pt-tu"/>
+            <circle r="5.5" class="mv-dot-2" data-role="pt-mu"/>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="364">0</text><text x="171" y="364">2</text><text x="276" y="364">4</text><text x="381" y="364">6</text><text x="486" y="364">8</text></g>
+            <text x="276" y="384" text-anchor="middle" class="axis-label">消费数量 Q</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">消费数量 Q <output data-role="q-out">5</output></label>
+          <input type="range" data-role="q" min="0.5" max="8" step="0.5" value="5">
+          <div class="ppf-outputs">
+            <div><span>总效用 TU</span><strong data-role="tu-val">25.0</strong></div>
+            <div><span>边际效用 MU</span><strong data-role="mu-val">0.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-jump="2">递增区间</button>
+            <button type="button" class="button button-secondary" data-jump="5">饱和点(MU=0)</button>
+            <button type="button" class="button button-secondary" data-jump="7">负效用区</button>
+          </div>
+        </div>
+      </div>`;
+    // TU = 10Q - Q^2 (max 25 at Q=5); MU = 10 - 2Q
+    const tuFn = q => 10 * q - q * q;
+    const muFn = q => 10 - 2 * q;
+    const x = q => X0 + (q / 8) * W;
+    const yTU = v => 170 - (v / 32) * 130;
+    const yMU = v => 306 - (v / 10) * 90;
+    root.querySelector('[data-role="tu"]').setAttribute('d', samplePath(tuFn, 0, 8, 60, x, yTU));
+    root.querySelector('[data-role="mu"]').setAttribute('d', samplePath(muFn, 0, 8, 40, x, yMU));
+    const qIn = root.querySelector('[data-role="q"]');
+    function draw() {
+      const q = qIn.valueAsNumber, tu = tuFn(q), mu = muFn(q), xq = x(q).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xq); vl.setAttribute('x2', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cy', yTU(tu).toFixed(1));
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cy', yMU(mu).toFixed(1));
+      root.querySelector('[data-role="q-out"]').value = fmt(q, 1);
+      root.querySelector('[data-role="tu-val"]').textContent = fmt(tu, 1);
+      root.querySelector('[data-role="mu-val"]').textContent = fmt(mu, 1);
+      root.querySelector('[data-role="msg"]').textContent = mu > 0
+        ? `MU=${fmt(mu, 1)} > 0：每多消费 1 单位仍带来正满足，总效用 TU 持续上升，但增速逐渐放缓。`
+        : mu === 0
+          ? '饱和点（Q=5, MU=0）：边际效用降为零，此时总效用 TU 达到最大值 25。'
+          : `MU=${fmt(mu, 1)} < 0：过度消费产生负效用，总效用 TU 反而开始下降。`;
+    }
+    qIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { qIn.value = b.dataset.jump; draw(); }));
+    draw();
+  }
+
+  // 2. Chapter 06: Long-run Average Cost Envelope (static)
+  function mountLACEnvelope(root) {
+    root.innerHTML = wrapStatic(
+      '长期平均成本（LAC）包络线与规模经济',
+      '长期内厂商可自由调整工厂规模，LAC 是无数条短期平均成本曲线（SAC）的下包络线；只有在最低点 E，LAC 才与 SAC 的最低点相切。',
+      `<svg viewBox="0 0 660 280" role="img" aria-label="长期平均成本包络线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M62 28V230H618 M57 35l5-7 5 7 M611 225l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">平均成本 AC</text>
+        <text x="340" y="268" text-anchor="middle" class="axis-label">产量 Q</text>
+        <!-- Vertical split at optimal scale -->
+        <line x1="340" y1="36" x2="340" y2="230" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="200" y="54" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="650">规模经济（LAC 下降）</text>
+        <text x="480" y="54" text-anchor="middle" fill="var(--mv-c2)" font-size="13" font-weight="650">规模不经济（LAC 上升）</text>
+        <!-- SAC curves -->
+        <path d="M110 72 Q175 186 245 104" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="128" y="88" class="tick-label">SAC₁</text>
+        <path d="M250 112 Q340 226 430 112" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="340" y="128" text-anchor="middle" class="tick-label">SAC₂（最优规模）</text>
+        <path d="M435 104 Q505 186 570 72" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="546" y="88" class="tick-label">SAC₃</text>
+        <!-- LAC envelope -->
+        <path d="M96 96 Q340 246 584 96" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="592" y="102" fill="var(--accent)" font-size="13.5" font-weight="700">LAC</text>
+        <!-- Tangent point -->
+        <circle cx="340" cy="171" r="6" class="mv-dot-eq"/>
+        <text x="352" y="190" class="point-label">E（最低点相切）</text>
+      </svg>`
+    );
+  }
+
+  // 3. Chapter 08: Interactive Prisoner's Dilemma Matrix
+  function mountPrisonersMatrix(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>囚徒困境 2×2 支付矩阵（点击任意格子体验纳什均衡）</h4>
+        <p>括号内为（甲的刑期年数，乙的刑期年数），数字越小越好。点击不同策略组合，看双方有没有单方面改选的动机。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart" style="padding:16px">
+          <div class="game-matrix" role="grid" aria-label="囚徒困境支付矩阵">
+            <div class="gm-corner">甲 \\ 乙</div>
+            <div class="gm-head">乙：坦白</div>
+            <div class="gm-head">乙：抵赖</div>
+            <div class="gm-head">甲：坦白</div>
+            <button type="button" class="gm-cell active" data-cell="cc"><strong>(-8年, -8年)</strong><small>纳什均衡 ★</small></button>
+            <button type="button" class="gm-cell" data-cell="cd"><strong>(0年, -10年)</strong><small>甲占便宜</small></button>
+            <div class="gm-head">甲：抵赖</div>
+            <button type="button" class="gm-cell" data-cell="dc"><strong>(-10年, 0年)</strong><small>乙占便宜</small></button>
+            <button type="button" class="gm-cell" data-cell="dd"><strong>(-1年, -1年)</strong><small>帕累托最优</small></button>
+          </div>
+        </div>
+        <div class="ppf-controls">
+          <h5>策略稳定性分析</h5>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const notes = {
+      cc: '【(坦白, 坦白) → 唯一纳什均衡】无论对方选什么，自己选「坦白」刑期都更短（0>-1 且 -8>-10），因此「坦白」是双方的严格占优策略，任何一方单方面改选抵赖都会从 -8 年恶化到 -10 年。',
+      cd: '【(坦白, 抵赖) → 不稳定】此时乙判 10 年；只要乙单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此乙有强烈动机偏离，最终滑向 (坦白, 坦白)。',
+      dc: '【(抵赖, 坦白) → 不稳定】此时甲判 10 年；只要甲单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此甲会立刻偏离，滑向 (坦白, 坦白)。',
+      dd: '【(抵赖, 抵赖) → 帕累托最优但不稳定】虽然两人各判 1 年集体总福利最好，但给定对方抵赖，自己单方面背叛改为坦白可以无罪释放（0 年），所以缺乏约束机制时合作会瓦解。',
+    };
+    const cells = [...root.querySelectorAll('[data-cell]')];
+    function select(key) {
+      cells.forEach(c => c.classList.toggle('active', c.dataset.cell === key));
+      root.querySelector('[data-role="msg"]').textContent = notes[key];
+    }
+    cells.forEach(c => c.addEventListener('click', () => select(c.dataset.cell)));
+    select('cc');
+  }
+
+  // 4. Chapter 09: Lorenz Curve & Gini Coefficient
+  function mountLorenzGini(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>洛伦兹曲线与基尼系数（G = A / (A + B)）</h4>
+        <p>拖动收入分配不平等程度，观察洛伦兹曲线弯曲幅度与阴影面积 A 的变化，直观理解基尼系数 0.4 警戒线。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>绝对平等线（45°）</span>
+            <span><i class="chart-line mv-c1-line"></i>洛伦兹曲线</span>
+            <span><i class="mv-swatch mv-cs"></i>不平等面积 A</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="洛伦兹曲线与基尼系数交互图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">累计收入占比 (%)</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">累计人口占比（从低收入到高收入 %）</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0%</text><text x="171" y="316">25%</text><text x="276" y="316">50%</text><text x="381" y="316">75%</text><text x="486" y="316">100%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">25%</text><text x="56" y="172">50%</text><text x="56" y="109">75%</text><text x="56" y="46">100%</text></g>
+            <path class="mv-fill-cs" data-role="area-a"/>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-1" data-role="curve"/>
+            <text x="248" y="196" class="point-label" data-role="lbl-a">A</text>
+            <text x="382" y="246" class="tick-label" style="font-size:14px">B</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">弯曲指数 k（1=绝对平等，越大越不平等）<output data-role="k-out">2.3</output></label>
+          <input type="range" data-role="k" min="1" max="5" step="0.1" value="2.3">
+          <div class="ppf-outputs">
+            <div><span>基尼系数 G</span><strong data-role="g-val">0.39</strong></div>
+            <div><span>后 50% 人口收入占比</span><strong data-role="b50-val">20%</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // L(p) = p^k => Gini = (k - 1)/(k + 1)
+    const x = p => X0 + p * W;
+    const y = v => Y0 - v * H;
+    const kIn = root.querySelector('[data-role="k"]');
+    function draw() {
+      const k = kIn.valueAsNumber;
+      const gini = (k - 1) / (k + 1);
+      const b50 = Math.pow(0.5, k) * 100;
+      const curveD = samplePath(p => Math.pow(p, k), 0, 1, 50, x, y);
+      root.querySelector('[data-role="curve"]').setAttribute('d', curveD);
+      root.querySelector('[data-role="area-a"]').setAttribute('d', curveD + ` L${x(0)} ${y(0)} Z`);
+      root.querySelector('[data-role="k-out"]').value = fmt(k, 1);
+      root.querySelector('[data-role="g-val"]').textContent = fmt(gini, 2);
+      root.querySelector('[data-role="b50-val"]').textContent = fmt(b50, 0) + '%';
+      root.querySelector('[data-role="msg"]').textContent = gini < 0.2
+        ? 'G < 0.2：收入分配高度平均，洛伦兹曲线紧贴 45° 绝对平等线。'
+        : gini < 0.4
+          ? `G = ${fmt(gini, 2)}（0.2~0.4）：处于相对合理区间；收入较低的一半人口占总收入的 ${fmt(b50, 0)}%。`
+          : `G = ${fmt(gini, 2)} ≥ 0.4：超过国际常用的收入差距警戒线，洛伦兹曲线明显向右下方弯曲。`;
+    }
+    kIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 5. Chapter 09: Backward-bending Labour Supply Curve (static)
+  function mountLabourSupply(root) {
+    root.innerHTML = wrapStatic(
+      '向后弯曲的个人劳动供给曲线',
+      '工资上涨同时产生「替代效应（多干活）」与「收入效应（多买闲暇）」；当工资高过拐点 W* 后，收入效应压过替代效应，劳动供给反向减少。',
+      `<svg viewBox="0 0 640 270" role="img" aria-label="向后弯曲的劳动供给曲线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V224H580 M61 35l5-7 5 7 M573 219l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">工资率 W</text>
+        <text x="323" y="258" text-anchor="middle" class="axis-label">劳动供给时间 L</text>
+        <path d="M130 210 C250 184 320 156 320 124 C320 88 265 64 210 42" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="66" y1="124" x2="320" y2="124" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <circle cx="320" cy="124" r="6" class="mv-dot-eq"/>
+        <text x="48" y="128" text-anchor="end" class="tick-label">W*</text>
+        <text x="336" y="128" class="point-label">拐点（替代效应 = 收入效应）</text>
+        <text x="336" y="76" fill="var(--mv-c2)" font-size="13" font-weight="650">W &gt; W*：收入效应 &gt; 替代效应（高薪更愿享受闲暇，曲线后弯）</text>
+        <text x="336" y="182" fill="var(--accent)" font-size="13" font-weight="650">W &lt; W*：替代效应 &gt; 收入效应（加薪吸引增加工时，曲线右倾）</text>
+      </svg>`
+    );
+  }
+
+  // 6. Chapter 10: Negative Externality & Pigouvian Tax
+  function mountExternality(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>负外部性与庇古税：私人成本（MPC）vs 社会成本（MSC）</h4>
+        <p>拖动“庇古税税率 t”，看如何将外部污染成本内部化，使市场产量从过度生产的 Qm 收敛到社会最优产量 Q*。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>需求 D = MSB</span>
+            <span><i class="chart-line mv-base-line"></i>私人成本 MPC</span>
+            <span><i class="chart-line mv-c2-line"></i>社会成本 MSC</span>
+            <span><i class="mv-swatch mv-dwl"></i>剩余无谓损失</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="负外部性与庇古税纠正图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 / 成本</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">产量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">20</text><text x="276" y="316">40</text><text x="381" y="316">60</text><text x="486" y="316">80</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="248">10</text><text x="56" y="197">20</text><text x="56" y="147">30</text><text x="56" y="96">40</text><text x="56" y="46">50</text></g>
+            <polygon class="mv-fill-dwl" data-role="dwl"/>
+            <path class="mv-curve-1" data-role="d"/>
+            <path class="mv-base-curve" data-role="mpc"/>
+            <path class="mv-curve-2" data-role="msc"/>
+            <path class="mv-curve-3" data-role="tax-s"/>
+            <circle r="5.5" class="mv-dot-2" data-role="opt"/>
+            <circle r="6" class="mv-dot-eq" data-role="cur"/>
+            <text class="point-label" data-role="lbl-opt">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">庇古税税率 t（单位外部成本 = 10）<output data-role="t-out">0</output></label>
+          <input type="range" data-role="t" min="0" max="14" step="1" value="0">
+          <div class="ppf-outputs">
+            <div><span>实际产量 Q</span><strong data-role="q-val">40</strong></div>
+            <div><span>社会最优 Q*</span><strong>30</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row"><button type="button" class="button button-primary" data-role="best">设为最优庇古税 (t=10)</button></div>
+        </div>
+      </div>`;
+    // D: P = 50 - 0.5Q; MPC: P = 10 + 0.5Q (Qm=40, Pm=30); MSC: P = 20 + 0.5Q (Q*=30, P*=35)
+    const x = q => X0 + (q / 80) * W;
+    const y = p => Y0 - (p / 50) * H;
+    root.querySelector('[data-role="d"]').setAttribute('d', `M${x(0)} ${y(50)} L${x(80)} ${y(10)}`);
+    root.querySelector('[data-role="mpc"]').setAttribute('d', `M${x(0)} ${y(10)} L${x(80)} ${y(50)}`);
+    root.querySelector('[data-role="msc"]').setAttribute('d', `M${x(0)} ${y(20)} L${x(60)} ${y(50)}`);
+    root.querySelector('[data-role="opt"]').setAttribute('cx', x(30));
+    root.querySelector('[data-role="opt"]').setAttribute('cy', y(35));
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('x', x(30) - 18);
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('y', y(35) - 10);
+    const tIn = root.querySelector('[data-role="t"]');
+    function draw() {
+      const t = tIn.valueAsNumber;
+      const q = 40 - t;
+      const p = 50 - 0.5 * q;
+      const mscAtQ = 20 + 0.5 * q;
+      root.querySelector('[data-role="tax-s"]').setAttribute('d', `M${x(0)} ${y(10 + t)} L${x(Math.min(80, 80 - 2 * t))} ${y(Math.min(50, 50 + t - Math.max(0, t)))}`);
+      root.querySelector('[data-role="cur"]').setAttribute('cx', x(q).toFixed(1));
+      root.querySelector('[data-role="cur"]').setAttribute('cy', y(p).toFixed(1));
+      root.querySelector('[data-role="dwl"]').setAttribute('points', Math.abs(q - 30) < 0.1 ? '' : `${x(30).toFixed(1)},${y(35).toFixed(1)} ${x(q).toFixed(1)},${y(p).toFixed(1)} ${x(q).toFixed(1)},${y(mscAtQ).toFixed(1)}`);
+      root.querySelector('[data-role="t-out"]').value = String(t);
+      root.querySelector('[data-role="q-val"]').textContent = String(q);
+      root.querySelector('[data-role="msg"]').textContent = t === 0
+        ? '未征税时，厂商只考虑私人成本 MPC，市场过度生产（Q=40 > Q*=30），红色三角为负外部性造成的社会无谓损失。'
+        : t === 10
+          ? '庇古税 t=10 恰好等于边际外部成本：税后供给曲线与 MSC 重合，市场自动收敛到社会最优产量 Q*=30，无谓损失清零！'
+          : t < 10
+            ? `税率 t=${t} 偏低：产量降至 ${q}，无谓损失明显缩小，但仍高于社会最优产量 30。`
+            : `税率 t=${t} 过高：过度征税导致产量降至 ${q}（低于社会最优 30），反而产生新的效率损失。`;
+    }
+    tIn.addEventListener('input', draw);
+    root.querySelector('[data-role="best"]').addEventListener('click', () => { tIn.value = '10'; draw(); });
+    draw();
+  }
+
+  // 7. Chapter 11: Keynesian 45-degree Cross & Multiplier
+  function mountKeynesCross(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>凯恩斯 45° 交叉图与支出乘数效应（k = 1 / (1 − MPC)）</h4>
+        <p>增加自发支出 ΔA 或调高边际消费倾向 MPC，观察计划支出线 AE 上移后均衡产出 Y* 被成倍放大的效果。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>45° 均衡线（AE = Y）</span>
+            <span><i class="chart-line mv-c1-line"></i>当前计划支出 AE</span>
+            <span><i class="chart-line mv-c3-line"></i>初始 AE₀</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="凯恩斯45度交叉图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">计划支出 AE</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">100</text><text x="276" y="316">200</text><text x="381" y="316">300</text><text x="486" y="316">400</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">100</text><text x="56" y="172">200</text><text x="56" y="109">300</text><text x="56" y="46">400</text></g>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-3" data-role="ae0"/>
+            <path class="mv-curve-1" data-role="ae1"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">新增自发支出 ΔA（基准 A₀=50）<output data-role="a-out">+0</output></label>
+          <input type="range" data-role="da" min="0" max="40" step="5" value="0">
+          <label class="range-label">边际消费倾向 MPC <output data-role="c-out">0.75</output></label>
+          <input type="range" data-role="mpc" min="0.5" max="0.8" step="0.05" value="0.75">
+          <div class="ppf-outputs">
+            <div><span>支出乘数 k</span><strong data-role="k-val">4.0×</strong></div>
+            <div><span>均衡产出 Y*</span><strong data-role="y-val">200</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const x = v => X0 + (v / 400) * W;
+    const y = v => Y0 - (v / 400) * H;
+    const daIn = root.querySelector('[data-role="da"]');
+    const cIn = root.querySelector('[data-role="mpc"]');
+    function draw() {
+      const da = daIn.valueAsNumber, c = cIn.valueAsNumber;
+      const k = 1 / (1 - c);
+      const y0 = 50 * k;
+      const ys = (50 + da) * k;
+      const aePath = a => `M${x(0).toFixed(1)} ${y(a).toFixed(1)} L${x(400).toFixed(1)} ${y(Math.min(400, a + c * 400)).toFixed(1)}`;
+      root.querySelector('[data-role="ae0"]').setAttribute('d', aePath(50));
+      root.querySelector('[data-role="ae1"]').setAttribute('d', aePath(50 + da));
+      const yc = Math.min(400, ys);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(yc).toFixed(1)} H${x(yc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(yc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(yc).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(yc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(yc) - 10).toFixed(1));
+      root.querySelector('[data-role="a-out"]').value = '+' + da;
+      root.querySelector('[data-role="c-out"]').value = fmt(c, 2);
+      root.querySelector('[data-role="k-val"]').textContent = fmt(k, 1) + '×';
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 0);
+      root.querySelector('[data-role="msg"]').textContent = da === 0
+        ? `当前 MPC=${fmt(c, 2)}，支出乘数 k=${fmt(k, 1)}。试着增加自发支出 ΔA，观察产出增量如何等于 ΔA × ${fmt(k, 1)}。`
+        : `自发支出仅增加 +${da}，经过乘数 k=${fmt(k, 1)} 放大后，均衡产出从 ${fmt(y0, 0)} 跃升至 ${fmt(ys, 0)}（净增 +${fmt(ys - y0, 0)}）。`;
+    }
+    daIn.addEventListener('input', draw);
+    cIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 8. Chapter 15: LM Three Regions Policy Effectiveness
+  function mountLMRegions(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>LM 三区间：财政政策与货币政策的有效性对比</h4>
+        <p>切换经济所处的 LM 区间（凯恩斯陷阱 / 中间区域 / 古典区域），对比扩张性财政政策（IS 右移）的效果与挤出程度。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c2-line"></i>完整 LM 曲线</span>
+            <span><i class="chart-line mv-base-line"></i>初始 IS₀</span>
+            <span><i class="chart-line mv-c1-line"></i>扩张财政后 IS₁</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="LM三区间政策有效性对比图">
+            <rect x="66" y="42" width="140" height="252" fill="var(--accent-soft)" opacity=".45"/>
+            <rect x="376" y="42" width="110" height="252" fill="var(--warning-soft)" opacity=".45"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">利率 r</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle">
+              <text x="136" y="316">凯恩斯区（水平）</text>
+              <text x="291" y="316">中间区（右倾）</text>
+              <text x="431" y="316">古典区（垂直）</text>
+            </g>
+            <!-- Full LM: horizontal [66..206] at y=248, sloped [206..416] to y=110, vertical at x=416 up to y=48 -->
+            <path d="M66 248 L206 248 L416 110 L416 48" fill="none" class="mv-curve-2"/>
+            <path class="mv-base-curve" data-role="is0"/>
+            <path class="mv-curve-1" data-role="is1"/>
+            <circle r="5" class="mv-dot-3" data-role="e0"/>
+            <circle r="6.5" class="mv-dot-1" data-role="e1"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择当前所处 LM 区间</legend>
+            <label><input type="radio" name="lmr" value="keynes" checked> 凯恩斯区域（流动性陷阱）</label>
+            <label><input type="radio" name="lmr" value="mid"> 中间区域（常态经济）</label>
+            <label><input type="radio" name="lmr" value="classic"> 古典区域（充分就业上限）</label>
+          </fieldset>
+          <div class="ppf-outputs">
+            <div><span>财政政策效果</span><strong data-role="f-val">极有效</strong></div>
+            <div><span>货币政策效果</span><strong data-role="m-val">完全无效</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const cfg = {
+      keynes: { is0: 'M92 174 L164 276', is1: 'M128 174 L200 276', e0: [144, 248], e1: [180, 248], f: '完全有效', m: '无效', msg: '凯恩斯区域（流动性陷阱）：利率已低至底线，增发货币全被持有为现金（货币政策无效）；扩张财政使 IS 右移不推高利率，无挤出效应，财政政策完全有效。' },
+      mid: { is0: 'M216 96 L356 264', is1: 'M260 96 L400 264', e0: [292, 191], e1: [324, 170], f: '部分有效', m: '部分有效', msg: '中间区域：扩张财政使产出上升、利率温和上行，存在「部分挤出效应」；财政政策与货币政策均有效，适合搭配使用。' },
+      classic: { is0: 'M348 106 L466 218', is1: 'M366 64 L484 176', e0: [416, 171], e1: [416, 111], f: '完全无效', m: '完全有效', msg: '古典区域（垂直 LM）：产出已达上限，扩张财政只会把利率推高，导致私人投资被「100% 完全挤出」（财政无效）；此时货币政策完全有效。' },
+    };
+    const radios = [...root.querySelectorAll('input[name="lmr"]')];
+    function draw() {
+      const c = cfg[radios.find(r => r.checked).value];
+      root.querySelector('[data-role="is0"]').setAttribute('d', c.is0);
+      root.querySelector('[data-role="is1"]').setAttribute('d', c.is1);
+      root.querySelector('[data-role="e0"]').setAttribute('cx', c.e0[0]);
+      root.querySelector('[data-role="e0"]').setAttribute('cy', c.e0[1]);
+      root.querySelector('[data-role="e1"]').setAttribute('cx', c.e1[0]);
+      root.querySelector('[data-role="e1"]').setAttribute('cy', c.e1[1]);
+      root.querySelector('[data-role="f-val"]').textContent = c.f;
+      root.querySelector('[data-role="m-val"]').textContent = c.m;
+      root.querySelector('[data-role="msg"]').textContent = c.msg;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    draw();
+  }
+
+  // 9. Chapter 17: Solow Growth Model Steady State
+  function mountSolow(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>索罗增长模型：储蓄率、折旧率与人均资本稳态 k*</h4>
+        <p>调节储蓄率 s 或折旧率 δ，观察实际投资曲线 s·f(k) 与持平投资线 δ·k 的交点（稳态 k*）如何移动。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>人均产出 y = f(k)</span>
+            <span><i class="chart-line mv-c1-line"></i>人均投资 s·f(k)</span>
+            <span><i class="chart-line mv-c2-line"></i>折旧线 δ·k</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="索罗增长模型稳态互动图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">人均产出 / 投资</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">人均资本存量 k</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">25</text><text x="276" y="316">50</text><text x="381" y="316">75</text><text x="486" y="316">100</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">3</text><text x="56" y="172">6</text><text x="56" y="109">9</text><text x="56" y="46">12</text></g>
+            <path class="mv-base-curve" data-role="yk"/>
+            <path class="mv-curve-1" data-role="sfk"/>
+            <path class="mv-curve-2" data-role="dk"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">k*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">储蓄率 s <output data-role="s-out">35%</output></label>
+          <input type="range" data-role="s" min="15" max="60" step="5" value="35">
+          <label class="range-label">折旧率 δ <output data-role="d-out">5%</output></label>
+          <input type="range" data-role="d" min="3" max="10" step="1" value="5">
+          <div class="ppf-outputs">
+            <div><span>稳态人均资本 k*</span><strong data-role="k-val">49</strong></div>
+            <div><span>稳态人均产出 y*</span><strong data-role="y-val">7.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // y = sqrt(k), s*sqrt(k) = d*k => k* = (s/d)^2, y* = s/d
+    const x = k => X0 + (k / 100) * W;
+    const y = v => Y0 - (Math.min(12, v) / 12) * H;
+    root.querySelector('[data-role="yk"]').setAttribute('d', samplePath(k => Math.sqrt(k), 0, 100, 60, x, y));
+    const sIn = root.querySelector('[data-role="s"]');
+    const dIn = root.querySelector('[data-role="d"]');
+    function draw() {
+      const s = sIn.valueAsNumber / 100, d = dIn.valueAsNumber / 100;
+      const ks = Math.pow(s / d, 2);
+      const ys = s / d;
+      const inv = d * ks;
+      root.querySelector('[data-role="sfk"]').setAttribute('d', samplePath(k => s * Math.sqrt(k), 0, 100, 60, x, y));
+      const kEnd = Math.min(100, 12 / d);
+      root.querySelector('[data-role="dk"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(kEnd).toFixed(1)} ${y(d * kEnd).toFixed(1)}`);
+      const kc = Math.min(100, ks), ic = Math.min(12, inv);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(ic).toFixed(1)} H${x(kc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(kc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(ic).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(kc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(ic) - 10).toFixed(1));
+      root.querySelector('[data-role="s-out"]').value = sIn.value + '%';
+      root.querySelector('[data-role="d-out"]').value = dIn.value + '%';
+      root.querySelector('[data-role="k-val"]').textContent = fmt(ks, 0);
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 1);
+      root.querySelector('[data-role="msg"]').textContent = `稳态 k* = (s/δ)² = ${fmt(ks, 0)}，人均产出 y* = ${fmt(ys, 1)}。提高储蓄率 s 只能提升稳态「水平」，在无技术进步时无法永久提高长期「增长率」。`;
+    }
+    sIn.addEventListener('input', draw);
+    dIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 10. Chapter 23: Balance of Payments Account Structure (static)
+  function mountBOPStructure(root) {
+    root.innerHTML = wrapStatic(
+      '国际收支平衡表（BOP）账户结构与恒等关系',
+      '按复式记账法编制，账面总额恒等于 0：经常账户 + 资本和金融账户（不含储备） + 储备资产变动 + 净误差与遗漏 = 0。',
+      `<svg viewBox="0 0 680 236" role="img" aria-label="国际收支平衡表账户结构图" style="width:100%;height:auto;display:block">
+        <g text-anchor="middle">
+          <rect x="16" y="16" width="154" height="132" rx="9" fill="var(--accent-soft)" stroke="var(--accent-line)" stroke-width="1.6"/>
+          <text x="93" y="42" fill="var(--accent)" font-size="13.5" font-weight="700">经常账户</text>
+          <text x="93" y="68" fill="var(--text)" font-size="12">• 货物贸易</text>
+          <text x="93" y="90" fill="var(--text)" font-size="12">• 服务贸易</text>
+          <text x="93" y="112" fill="var(--text)" font-size="12">• 初次收入(股息/利息)</text>
+          <text x="93" y="134" fill="var(--text)" font-size="12">• 二次收入(无偿转移)</text>
+
+          <text x="182" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="194" y="16" width="154" height="132" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="271" y="42" fill="var(--heading)" font-size="13.5" font-weight="700">资本与金融账户</text>
+          <text x="271" y="68" fill="var(--text)" font-size="12">• 直接投资（FDI）</text>
+          <text x="271" y="90" fill="var(--text)" font-size="12">• 证券投资（股/债）</text>
+          <text x="271" y="112" fill="var(--text)" font-size="12">• 金融衍生品</text>
+          <text x="271" y="134" fill="var(--text)" font-size="12">• 贷款与其他投资</text>
+
+          <text x="360" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="372" y="16" width="144" height="132" rx="9" fill="var(--surface)" stroke="var(--mv-c2)" stroke-width="1.5"/>
+          <text x="444" y="42" fill="var(--mv-c2)" font-size="13.5" font-weight="700">储备资产变动</text>
+          <text x="444" y="68" fill="var(--text)" font-size="12">• 外汇储备</text>
+          <text x="444" y="90" fill="var(--text)" font-size="12">• 货币黄金</text>
+          <text x="444" y="112" fill="var(--text)" font-size="12">• 特别提款权 SDR</text>
+          <text x="444" y="134" fill="var(--text)" font-size="12">• IMF 储备头寸</text>
+
+          <text x="528" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="540" y="16" width="124" height="132" rx="9" fill="var(--surface-subtle)" stroke="var(--control-line)" stroke-dasharray="4 3"/>
+          <text x="602" y="64" fill="var(--heading)" font-size="13" font-weight="680">净误差与遗漏</text>
+          <text x="602" y="90" fill="var(--muted)" font-size="11.5">统计口径差异</text>
+          <text x="602" y="110" fill="var(--muted)" font-size="11.5">与漏报轧平项</text>
+        </g>
+        <rect x="16" y="164" width="648" height="54" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+        <text x="340" y="187" text-anchor="middle" fill="var(--heading)" font-size="12.5" font-weight="650">高频考点：国际收支「顺差 / 逆差」通常指前两项（自主性交易）之和；</text>
+        <text x="340" y="207" text-anchor="middle" fill="var(--muted)" font-size="12">顺差导致外汇储备增加（在储备资产项下记为借方负号），从而使整张平衡表借贷轧平为 0。</text>
+      </svg>`
+    );
+  }
+
+  // 11. Chapter 25: Financial Repression Interest Ceiling Gap (static)
+  function mountRepressionGap(root) {
+    root.innerHTML = wrapStatic(
+      '金融抑制：人为利率上限导致的储蓄萎缩与信贷配给缺口',
+      '麦金农—肖模型核心图示：政府将实际利率压低在均衡利率 r* 以下（r₀），导致实际储蓄不足、投资需求过剩，只能依靠非市场信贷配给。',
+      `<svg viewBox="0 0 640 276" role="img" aria-label="金融抑制利率上限与资金缺口图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V226H580 M61 35l5-7 5 7 M573 221l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">实际利率 r</text>
+        <text x="323" y="262" text-anchor="middle" class="axis-label">储蓄 S / 投资 I</text>
+        <!-- I curve downward, S curve upward -->
+        <path d="M126 52 L506 208" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+        <text x="514" y="212" fill="var(--accent)" font-size="13" font-weight="680">投资需求 I(r)</text>
+        <path d="M126 208 L506 52" fill="none" stroke="var(--mv-c2)" stroke-width="2.6"/>
+        <text x="514" y="56" fill="var(--mv-c2)" font-size="13" font-weight="680">储蓄供给 S(r)</text>
+        <!-- Equilibrium -->
+        <circle cx="316" cy="130" r="5.5" class="mv-dot-eq"/>
+        <line x1="66" y1="130" x2="316" y2="130" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="56" y="134" text-anchor="end" class="tick-label">r*</text>
+        <text x="326" y="122" class="point-label">E*（市场均衡）</text>
+        <!-- Ceiling r0 -->
+        <line x1="66" y1="176" x2="540" y2="176" stroke="var(--error)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="56" y="180" text-anchor="end" fill="var(--error)" font-size="12.5" font-weight="680">r₀</text>
+        <line x1="204" y1="176" x2="204" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <line x1="428" y1="176" x2="428" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <text x="204" y="242" text-anchor="middle" class="tick-label">实际储蓄 S₀</text>
+        <text x="428" y="242" text-anchor="middle" class="tick-label">投资需求 I₀</text>
+        <line x1="208" y1="176" x2="424" y2="176" stroke="var(--error)" stroke-width="4.5" opacity=".45"/>
+        <text x="316" y="168" text-anchor="middle" fill="var(--error)" font-size="12.5" font-weight="680">资金短缺 / 非价格信贷配给区</text>
+      </svg>`
+    );
+  }
+
+  // 12. Chapter 26: Risk Management 4-Quadrant Matrix (static)
+  function mountRiskMatrix(root) {
+    root.innerHTML = wrapStatic(
+      '风险管理四象限矩阵：按「损失频率 × 损失程度」选工具',
+      '保险最适合处理「低频率、高损失」的风险；高频低损靠自留与防损，高频高损则应直接回避。',
+      `<svg viewBox="0 0 660 272" role="img" aria-label="风险管理四象限矩阵图" style="width:100%;height:auto;display:block">
+        <text x="364" y="20" text-anchor="middle" class="axis-label">损失频率（发生可能性）</text>
+        <text x="234" y="42" text-anchor="middle" class="tick-label">低频率</text>
+        <text x="494" y="42" text-anchor="middle" class="tick-label">高频率</text>
+        <text x="26" y="156" text-anchor="middle" class="axis-label" transform="rotate(-90 26 156)">损失程度</text>
+        <text x="80" y="106" text-anchor="end" class="tick-label">高损失</text>
+        <text x="80" y="212" text-anchor="end" class="tick-label">低损失</text>
+
+        <!-- Q1: Low freq, High severity -> Insurance -->
+        <rect x="94" y="52" width="268" height="100" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+        <text x="228" y="84" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">风险转移（商业保险 ★）</text>
+        <text x="228" y="108" text-anchor="middle" fill="var(--text)" font-size="12">低频高损：火灾、重疾、重大车祸</text>
+        <text x="228" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">保险最核心的适用场景（杠杆高）</text>
+
+        <!-- Q2: High freq, High severity -> Avoidance -->
+        <rect x="374" y="52" width="268" height="100" rx="9" fill="var(--error-soft)" stroke="var(--error-line)" stroke-width="1.5"/>
+        <text x="508" y="84" text-anchor="middle" fill="var(--error)" font-size="14" font-weight="700">风险回避</text>
+        <text x="508" y="108" text-anchor="middle" fill="var(--text)" font-size="12">高频高损：危房施工、高危违规作业</text>
+        <text x="508" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">直接放弃或退出该项活动</text>
+
+        <!-- Q3: Low freq, Low severity -> Retention -->
+        <rect x="94" y="162" width="268" height="96" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="228" y="194" text-anchor="middle" fill="var(--heading)" font-size="14" font-weight="700">风险自留</text>
+        <text x="228" y="218" text-anchor="middle" fill="var(--text)" font-size="12">低频低损：小额日常磕碰、小件遗失</text>
+        <text x="228" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">自行承担更经济，无需额外投保</text>
+
+        <!-- Q4: High freq, Low severity -> Loss control / Prevention -->
+        <rect x="374" y="162" width="268" height="96" rx="9" fill="var(--warning-soft)" stroke="var(--warning)" stroke-width="1.5"/>
+        <text x="508" y="194" text-anchor="middle" fill="var(--warning)" font-size="14" font-weight="700">损失控制（预防与抑制）</text>
+        <text x="508" y="218" text-anchor="middle" fill="var(--text)" font-size="12">高频低损：装防盗门、定期消防检查</text>
+        <text x="508" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">降低发生概率 + 控制损失规模</text>
+      </svg>`
+    );
+  }
+
+  const registry = {
+    'tu-mu': mountTUMU,
+    'lac-envelope': mountLACEnvelope,
+    'prisoners-matrix': mountPrisonersMatrix,
+    'lorenz-gini': mountLorenzGini,
+    'labour-supply': mountLabourSupply,
+    externality: mountExternality,
+    'keynes-cross': mountKeynesCross,
+    'lm-regions': mountLMRegions,
+    solow: mountSolow,
+    'bop-structure': mountBOPStructure,
+    'repression-gap': mountRepressionGap,
+    'risk-matrix': mountRiskMatrix,
+  };
+
+  document.querySelectorAll('[data-micro-visual]').forEach(container => {
+    const fn = registry[container.dataset.microVisual];
+    if (fn) fn(container);
+  });
 })();
 </script>
 </body>

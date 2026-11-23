@@ -960,6 +960,14 @@ dialog::backdrop { background: var(--backdrop); }
 .micro-panel .axis-label, .market-panel .axis-label { font-size: 13px; font-weight: 600; }
 .micro-panel .tick-label, .market-panel .tick-label { font-size: 12px; }
 .micro-panel .point-label { font-size: 14px; }
+.game-matrix { display: grid; grid-template-columns: 96px repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gm-corner, .gm-head { display: grid; place-items: center; padding: 10px 8px; border-radius: 8px; background: var(--surface-subtle); color: var(--heading); font-size: 13px; font-weight: 650; text-align: center; }
+.gm-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 82px; padding: 10px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--heading); transition: border-color .15s ease, background .15s ease; }
+.gm-cell strong { font: 680 16px var(--font-number); }
+.gm-cell small { font-size: 12px; color: var(--muted); }
+.gm-cell:hover { border-color: var(--control-line); }
+.gm-cell.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.gm-cell.active small { color: var(--accent); font-weight: 620; }
 </style>
 </head>
 <body data-page="chapter" data-offline="false" data-flat-downloads="true">
@@ -1104,7 +1112,7 @@ dialog::backdrop { background: var(--backdrop); }
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 <script src="catalog.js"></script>
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-15-宏观经济政策及其有效性-离线学习.html","visuals":[]},"lessons":{"title":"宏观经济政策及其有效性","subtitle":"用 IS–LM 模型比较财政、货币政策及其配合。","sections":[{"id":"fiscal-tools","title":"财政政策的工具与作用渠道","summary":"区分政府购买、转移支付、税收和公债。","bodyHtml":"\u003cp>\u003cstrong>财政政策\u003c/strong>通过政府支出、税收和筹资安排影响总需求与产出。在价格水平短期固定的 IS–LM 模型中，提高政府购买或减税通常推动 IS 曲线向右移动，反向操作推动 IS 左移。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>工具\u003c/th>\u003cth>影响渠道\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>政府购买\u003c/td>\u003ctd>直接增加对商品和服务的需求\u003c/td>\u003c/tr>\u003ctr>\u003ctd>政府转移支付\u003c/td>\u003ctd>先改变受益者的可支配收入，再通过其消费倾向影响需求\u003c/td>\u003c/tr>\u003ctr>\u003ctd>政府税收\u003c/td>\u003ctd>通过可支配收入、投资激励等影响私人支出\u003c/td>\u003c/tr>\u003ctr>\u003ctd>公债\u003c/td>\u003ctd>提供融资，影响资金来源及债务负担\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"政府购买直接进入总需求，税收与转移支付主要经过私人消费等渠道。","pitfall":"区分公债融资与税收收入。发行公债会形成债务；预算赤字及其融资需要分开判断。","example":"假设政府增加采购 100 万元，初始的购买需求增加 100 万元。给家庭发放同额转移支付时，其中储蓄的部分不会立即转成消费。"},{"id":"stabilizers","title":"自动稳定器与相机抉择","summary":"已有规则随经济变化自动运作，主动决策根据形势调整力度。","bodyHtml":"\u003cp>\u003cmark>自动稳定器\u003c/mark>依靠既有制度缓冲总需求波动。经济放缓时，所得下降使税收减少，符合条件的失业给付等转移支付增加，居民可支配收入降幅得到缓冲。繁荣时通常反向作用。按预定规则触发的农产品价格维持安排，也可稳定受影响群体收入。\u003c/p>\u003cp>\u003cstrong>相机抉择\u003c/strong>由政府结合经济形势主动选择调控措施。需求不足时可扩张财政，过热时可紧缩财政。识别形势、制定和实施政策都需要时间，结果还取决于预期、乘数和经济所处位置。\u003c/p>","keyTakeaway":"先判断制度是否已在运行，再判断政策变化是否需要作出新决策。","pitfall":"自动稳定器能减弱波动，力度取决于适用制度。市场利率浮动属于金融市场的价格变化。","example":"衰退中失业保险给付按原规则增加，属于自动反应。临时决定新增投资项目，属于相机抉择。"},{"id":"functional-finance","title":"财政思想：年度平衡、周期平衡与功能财政","summary":"理解预算余额在三种财政思想中的位置。","bodyHtml":"\u003cp>\u003cstrong>年度平衡预算\u003c/strong>要求每个预算年度平衡收支。\u003cstrong>周期平衡预算\u003c/strong>把经济周期作为考察单位，允许萧条期的赤字由繁荣期的盈余弥补。\u003cstrong>功能财政\u003c/strong>按就业和价格稳定等经济目标来选择收支规模，在既定宏观目标下可以接受赤字或盈余。\u003c/p>","keyTakeaway":"题干强调以充分就业和价格稳定为目标，预算余额可随实现目标的需要变化，指向功能财政。","pitfall":"周期平衡预算仍关心跨年度的收支平衡，功能财政把宏观政策效果放在首位。","example":"经济需求不足时，可用扩张性预算提高就业。经济恢复后，再根据通胀和就业重新评估收支。"},{"id":"fiscal-effects","title":"财政政策效果与挤出效应","summary":"沿 IS 与 LM 的新交点追踪产出、利率和私人投资。","bodyHtml":"\u003cp>标准短期 IS–LM 图的横轴为产出 Y，纵轴为利率 i。政府购买增加推动 IS 右移，通常抬高产出与利率。较高利率压低利率敏感的私人投资，使财政扩张的产出增量小于利率维持不变时的增量，这称为\u003cmark>挤出效应\u003c/mark>。\u003c/p>\u003cul>\u003cli>给定其他条件和自主支出冲击，IS 越平坦、投资对利率越敏感，挤出通常越强。\u003c/li>\u003cli>LM 越平坦，扩张引起的利率上升越小，财政政策对产出的效果越大。\u003c/li>\u003cli>古典极端的垂直 LM 下，产出由货币市场约束，财政扩张可能完全挤出私人支出。\u003c/li>\u003cli>流动性陷阱的水平 LM 段上，财政扩张可以增加产出，利率维持在低位。\u003c/li>\u003c/ul>","keyTakeaway":"看两个变化：IS 的移动方向和 LM 的斜率。","pitfall":"财政政策在流动性陷阱中的比较结论适用于仍处于水平 LM 段的短期模型。长期效果还涉及价格、产能和融资条件。","example":"投资对利率高度敏感时，财政扩张带来的小幅利率上升也可能使一部分企业推迟设备投资。"},{"id":"monetary-tools","title":"货币政策工具与传导","summary":"理解存款准备金、再贴现与公开市场操作如何影响流动性。","bodyHtml":"\u003cp>\u003cstrong>存款准备金率\u003c/strong>规定金融机构按一定口径交存准备金的比例。下调可释放部分原先受约束的流动性，信贷扩张程度还受资本约束和需求影响。\u003cstrong>再贴现\u003c/strong>通过央行买入符合条件的已贴现票据提供资金，再贴现率关系到资金成本。\u003cstrong>公开市场操作\u003c/strong>通过买卖证券等方式调节银行体系的流动性。\u003c/p>\u003cp>在物价短期固定的简化模型中，增加货币供给使 LM 向右或向下移动。现实传导还涉及政策利率、金融机构和市场预期。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）：中国人民银行法第二十三条列举准备金、再贴现、公开市场操作等工具，并授权人民银行规定具体条件与程序。\u003ca href=\"https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=10279\">商务部全球法规网 · 中国人民银行法\u003c/a>\u003c/p>","keyTakeaway":"在标准 IS–LM 模型中，货币政策主要先改变货币市场均衡和利率，再影响私人支出。","pitfall":"三种工具是常见的分类。实际使用某项工具的条件和政策参数，要看对应制度与操作公告。","example":"央行向市场买入证券并支付资金，可向银行体系增加流动性。卖出证券时作用方向相反。"},{"id":"monetary-effects","title":"货币政策效果、局限与时滞","summary":"比较利率变动对支出的作用，并区分政策实施前后的时间。","bodyHtml":"\u003cp>在通常的比较中，IS 越平坦，支出对利率越敏感。增加货币供给时，利率下降能带动更大的支出和产出变化。LM 越陡且货币供给变化使其有效右移，货币政策对产出的作用通常越强。垂直 LM 是古典极端，水平 LM 的流动性陷阱是另一极端。\u003c/p>\u003cul>\u003cli>\u003cstrong>内部时滞\u003c/strong>从经济状况发生变化，到识别、决定并实施政策。\u003c/li>\u003cli>\u003cstrong>外部时滞\u003c/strong>从政策实施开始，到金融条件改变并传导至需求、产出和价格。\u003c/li>\u003cli>衰退中信贷需求和风险偏好可能较弱；货币流通速度变化会改变固定速度模型的推论；跨境资本流动也会影响国内传导。\u003c/li>\u003c/ul>","keyTakeaway":"常规图中，紧缩货币使 LM 左移，利率上升、产出下降。与扩张财政同时使用时，二者都推高利率，产出净变化取决于力度。","pitfall":"“完全有效”或“完全无效”是特定极端模型的比较用语。判断产出效果还需说明物价、曲线区间和政策冲击的假设。","example":"政策利率先调整，之后银行重新定价贷款，企业再改变投资计划。从利率实施到投资响应属于外部时滞。"},{"id":"tinbergen","title":"丁伯根法则与政策配合","summary":"用工具数量和独立性判断能否同时实现多个目标。","bodyHtml":"\u003cp>\u003cmark>丁伯根法则\u003c/mark>指出，在给定模型中，若要独立实现 N 个经济目标，通常至少需要 N 个可以独立调节、效果方向足以区分的政策工具。在线性模型里，工具到目标的影响矩阵应能覆盖目标空间。\u003c/p>\u003cp>当一个工具同时影响多个目标，政策制定者可以调整工具组合。还要考虑时滞、冲击强弱和实施约束。\u003c/p>","keyTakeaway":"工具数量要充足，政策效果还要具备独立调节能力。","pitfall":"两个名义上不同的工具若始终按同样比例影响所有目标，增加工具名称也无法获得新的调节方向。","example":"一个目标是稳定物价，另一个目标是维持产出。若只有一种总需求工具，通常无法独立把两项指标都调到任意指定的水平。"}],"mindmap":[{"label":"财政政策及其效果","target":"fiscal-tools","children":[{"label":"财政工具","target":"fiscal-tools","children":[{"label":"政府支出：政府购买、转移支付","target":"fiscal-tools"},{"label":"税收与公债融资","target":"fiscal-tools"}]},{"label":"自动稳定器","target":"stabilizers","children":[{"label":"所得税随收入变化","target":"stabilizers"},{"label":"转移支付随符合条件人数变化","target":"stabilizers"},{"label":"按规则触发的农产品价格维持","target":"stabilizers"}]},{"label":"相机抉择：逆周期调节","target":"stabilizers"},{"label":"局限：时滞与效果不确定","target":"stabilizers"},{"label":"财政思想","target":"functional-finance","children":[{"label":"年度平衡预算","target":"functional-finance"},{"label":"周期平衡预算","target":"functional-finance"},{"label":"功能财政","target":"functional-finance"}]},{"label":"政策效果","target":"fiscal-effects","children":[{"label":"IS 越平坦，挤出通常越强","target":"fiscal-effects"},{"label":"LM 越平坦，产出效果通常越大","target":"fiscal-effects"},{"label":"垂直 LM：完全挤出","target":"fiscal-effects"},{"label":"水平 LM：零利率挤出","target":"fiscal-effects"}]}]},{"label":"货币政策及其效果","target":"monetary-tools","children":[{"label":"政策工具","target":"monetary-tools","children":[{"label":"再贴现","target":"monetary-tools"},{"label":"法定存款准备金","target":"monetary-tools"},{"label":"公开市场操作","target":"monetary-tools"}]},{"label":"政策效果","target":"monetary-effects","children":[{"label":"IS 越平坦，货币传导通常越强","target":"monetary-effects"},{"label":"LM 越陡，货币政策的产出作用通常越大","target":"monetary-effects"},{"label":"垂直 LM：古典极端","target":"monetary-effects"},{"label":"水平 LM：流动性陷阱","target":"monetary-effects"}]},{"label":"政策局限","target":"monetary-effects","children":[{"label":"衰退中需求反应可能偏弱","target":"monetary-effects"},{"label":"货币流通速度变动","target":"monetary-effects"},{"label":"政策内外部时滞","target":"monetary-effects"},{"label":"国际资金流动","target":"monetary-effects"}]},{"label":"丁伯根法则：足量且独立的政策工具","target":"tinbergen"}]}]},"questions":[{"id":"eco-15-q01","number":1,"group":"财政政策及其效果","type":"single","stem":"下列选项中，不属于财政政策自动稳定器的是（　）。","options":{"A":"市场浮动利率","B":"所得税制度","C":"政府转移支付制度","D":"农产品维持制度"},"answer":["A"],"explanationSupplement":"判断标准是已有财政制度能否在政策规则不变时随经济周期自动反应。利率浮动是金融市场的价格变动。","optionExplanations":{"A":"浮动利率不是既有财政收支规则，符合题目的反向提问。","B":"经济活动变化会自动改变按现有规则缴纳的所得税。","C":"失业等给付可按既有资格规则随符合条件的人数变化。","D":"满足预先规定触发条件时，价格维持措施可缓冲收入波动。"},"conceptId":"stabilizers"},{"id":"eco-15-q02","number":2,"group":"财政政策及其效果","type":"single","stem":"凯恩斯主义者认为，政府在财政方面实施的积极财政政策主要是为了实现无通货膨胀的充分就业水平。当实现这一目标时，预算可以是盈余，也可以是赤字，这样的财政思想称为（　）。","options":{"A":"功能财政","B":"补偿性财政","C":"顺周期财政","D":"预算平衡财政"},"answer":["A"],"explanationSupplement":"题目以就业和价格稳定作为判断政策的依据，允许收支余额按目标变化。这是功能财政的特征。","optionExplanations":{"A":"以宏观经济目标和财政政策的功能衡量收支安排。","B":"补偿性财政常指借助逆周期措施抵消经济波动，此处强调的是政策目标优先于预算盈亏。","C":"顺周期财政随经济波动同向调节，可能放大波动。","D":"预算平衡思想着重于预算收支的平衡。"},"conceptId":"functional-finance"},{"id":"eco-15-q03","number":3,"group":"财政政策及其效果","type":"single","stem":"根据凯恩斯主义的 IS-LM 模型，当经济处于流动性陷阱时期，为刺激需求应该采取的政策是（　）。","options":{"A":"增加财政税收","B":"增加财政支出","C":"增加货币供给","D":"提高法定准备金率"},"answer":["B"],"explanationSupplement":"在水平 LM 的区间内，增加政府支出让 IS 向右移动，产出可以在利率近似不变时增加。该判断针对题设的短期模型。","optionExplanations":{"A":"增税通常降低可支配收入与消费。","B":"政府购买增加可直接扩张总需求，并在水平 LM 段提高产出。","C":"在流动性陷阱的极端模型中，新增货币由更高的流动性持有吸收。","D":"提高准备金率通常约束流动性，方向与刺激需求的目标相反。"},"conceptId":"fiscal-effects"},{"id":"eco-15-q04","number":4,"group":"货币政策及其效果","type":"single","stem":"从货币当局采取行动开始直到对政策目标产生影响为止的过程被称为（　）。","options":{"A":"货币政策内部时滞","B":"财政政策内部时滞","C":"货币政策外部时滞","D":"财政政策外部时滞"},"answer":["C"],"explanationSupplement":"题目给出的起点是货币当局已经采取行动，终点是政策目标开始受到影响。这段时间属于政策实施后的传导过程。","optionExplanations":{"A":"内部时滞主要发生在识别、决策和实施之前。","B":"题设主体是货币当局，且行动已经发生。","C":"货币政策已实施后，金融与实体经济完成传导需要时间。","D":"政策主体和工具类型指向货币政策。"},"conceptId":"monetary-effects"},{"id":"eco-15-q05","number":5,"group":"货币政策及其效果","type":"single","stem":"在古典情况下，（　）曲线垂直，（　）政策完全有效。","options":{"A":"LM，财政","B":"LM，货币","C":"IS，财政","D":"IS，货币"},"answer":["B"],"explanationSupplement":"货币需求对利率不敏感时，LM 垂直。货币供给的变动移动 LM 所限定的产出水平。财政政策即使移动 IS，也主要改变利率。","optionExplanations":{"A":"LM 垂直时，财政扩张对产出的效果被利率挤出抵消。","B":"垂直 LM 与货币政策的产出作用是题设的对应关系。","C":"古典极端在此由 LM 的垂直形状刻画。","D":"垂直 IS 表示支出对利率不敏感，与货币刺激产出的典型机制不同。"},"conceptId":"monetary-effects"},{"id":"eco-15-q06","number":6,"group":"货币政策及其效果","type":"single","stem":"政府同时采用紧缩的货币政策与扩张的财政政策，根据 IS-LM 模型，则（　）。","options":{"A":"利率上升","B":"利率下降","C":"产出增加","D":"产出减少"},"answer":["A"],"explanationSupplement":"在通常向下的 IS 与向上的 LM 下，紧缩货币减少货币供给并推高利率，扩张财政增加产出需求同样推高利率。前者压低产出，后者抬高产出，净效应要比较幅度。","optionExplanations":{"A":"两项政策都对利率产生向上的影响。","B":"题设两项政策均不会给利率带来向下的独立作用。","C":"只有财政扩张效应占优时，产出才增加。","D":"只有货币紧缩效应占优时，产出才减少。"},"conceptId":"monetary-effects"},{"id":"eco-15-q07","number":7,"group":"货币政策及其效果","type":"single","stem":"要达到 N 个经济目标，至少需要 N 种独立的政策工具，这被称为是（　）。","options":{"A":"马歇尔-勒纳条件","B":"米德冲突","C":"丁伯根法则","D":"蜜月效应"},"answer":["C"],"explanationSupplement":"先找题干中的数量关系和独立性。多个独立目标需要足量的独立工具，这就是丁伯根法则。","optionExplanations":{"A":"马歇尔-勒纳条件涉及贬值与进出口需求弹性。","B":"米德冲突涉及内外部均衡目标之间的矛盾。","C":"工具数量与目标数量的对应关系符合定义。","D":"蜜月效应用于某些其他经济模型，在本题无关。"},"conceptId":"tinbergen"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-15-宏观经济政策及其有效性-离线学习.html","visual":"lm-regions","visualSectionId":"fiscal-effects","visuals":[{"type":"lm-regions","sectionId":"fiscal-effects"}]},"lessons":{"title":"宏观经济政策及其有效性","subtitle":"用 IS–LM 模型比较财政、货币政策及其配合。","sections":[{"id":"fiscal-tools","title":"财政政策的工具与作用渠道","summary":"区分政府购买、转移支付、税收和公债。","bodyHtml":"\u003cp>\u003cstrong>财政政策\u003c/strong>通过政府支出、税收和筹资安排影响总需求与产出。在价格水平短期固定的 IS–LM 模型中，提高政府购买或减税通常推动 IS 曲线向右移动，反向操作推动 IS 左移。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>工具\u003c/th>\u003cth>影响渠道\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>政府购买\u003c/td>\u003ctd>直接增加对商品和服务的需求\u003c/td>\u003c/tr>\u003ctr>\u003ctd>政府转移支付\u003c/td>\u003ctd>先改变受益者的可支配收入，再通过其消费倾向影响需求\u003c/td>\u003c/tr>\u003ctr>\u003ctd>政府税收\u003c/td>\u003ctd>通过可支配收入、投资激励等影响私人支出\u003c/td>\u003c/tr>\u003ctr>\u003ctd>公债\u003c/td>\u003ctd>提供融资，影响资金来源及债务负担\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"政府购买直接进入总需求，税收与转移支付主要经过私人消费等渠道。","pitfall":"区分公债融资与税收收入。发行公债会形成债务；预算赤字及其融资需要分开判断。","example":"假设政府增加采购 100 万元，初始的购买需求增加 100 万元。给家庭发放同额转移支付时，其中储蓄的部分不会立即转成消费。"},{"id":"stabilizers","title":"自动稳定器与相机抉择","summary":"已有规则随经济变化自动运作，主动决策根据形势调整力度。","bodyHtml":"\u003cp>\u003cmark>自动稳定器\u003c/mark>依靠既有制度缓冲总需求波动。经济放缓时，所得下降使税收减少，符合条件的失业给付等转移支付增加，居民可支配收入降幅得到缓冲。繁荣时通常反向作用。按预定规则触发的农产品价格维持安排，也可稳定受影响群体收入。\u003c/p>\u003cp>\u003cstrong>相机抉择\u003c/strong>由政府结合经济形势主动选择调控措施。需求不足时可扩张财政，过热时可紧缩财政。识别形势、制定和实施政策都需要时间，结果还取决于预期、乘数和经济所处位置。\u003c/p>","keyTakeaway":"先判断制度是否已在运行，再判断政策变化是否需要作出新决策。","pitfall":"自动稳定器能减弱波动，力度取决于适用制度。市场利率浮动属于金融市场的价格变化。","example":"衰退中失业保险给付按原规则增加，属于自动反应。临时决定新增投资项目，属于相机抉择。"},{"id":"functional-finance","title":"财政思想：年度平衡、周期平衡与功能财政","summary":"理解预算余额在三种财政思想中的位置。","bodyHtml":"\u003cp>\u003cstrong>年度平衡预算\u003c/strong>要求每个预算年度平衡收支。\u003cstrong>周期平衡预算\u003c/strong>把经济周期作为考察单位，允许萧条期的赤字由繁荣期的盈余弥补。\u003cstrong>功能财政\u003c/strong>按就业和价格稳定等经济目标来选择收支规模，在既定宏观目标下可以接受赤字或盈余。\u003c/p>","keyTakeaway":"题干强调以充分就业和价格稳定为目标，预算余额可随实现目标的需要变化，指向功能财政。","pitfall":"周期平衡预算仍关心跨年度的收支平衡，功能财政把宏观政策效果放在首位。","example":"经济需求不足时，可用扩张性预算提高就业。经济恢复后，再根据通胀和就业重新评估收支。"},{"id":"fiscal-effects","title":"财政政策效果与挤出效应","summary":"沿 IS 与 LM 的新交点追踪产出、利率和私人投资。","bodyHtml":"\u003cp>标准短期 IS–LM 图的横轴为产出 Y，纵轴为利率 i。政府购买增加推动 IS 右移，通常抬高产出与利率。较高利率压低利率敏感的私人投资，使财政扩张的产出增量小于利率维持不变时的增量，这称为\u003cmark>挤出效应\u003c/mark>。\u003c/p>\u003cul>\u003cli>给定其他条件和自主支出冲击，IS 越平坦、投资对利率越敏感，挤出通常越强。\u003c/li>\u003cli>LM 越平坦，扩张引起的利率上升越小，财政政策对产出的效果越大。\u003c/li>\u003cli>古典极端的垂直 LM 下，产出由货币市场约束，财政扩张可能完全挤出私人支出。\u003c/li>\u003cli>流动性陷阱的水平 LM 段上，财政扩张可以增加产出，利率维持在低位。\u003c/li>\u003c/ul>","keyTakeaway":"看两个变化：IS 的移动方向和 LM 的斜率。","pitfall":"财政政策在流动性陷阱中的比较结论适用于仍处于水平 LM 段的短期模型。长期效果还涉及价格、产能和融资条件。","example":"投资对利率高度敏感时，财政扩张带来的小幅利率上升也可能使一部分企业推迟设备投资。"},{"id":"monetary-tools","title":"货币政策工具与传导","summary":"理解存款准备金、再贴现与公开市场操作如何影响流动性。","bodyHtml":"\u003cp>\u003cstrong>存款准备金率\u003c/strong>规定金融机构按一定口径交存准备金的比例。下调可释放部分原先受约束的流动性，信贷扩张程度还受资本约束和需求影响。\u003cstrong>再贴现\u003c/strong>通过央行买入符合条件的已贴现票据提供资金，再贴现率关系到资金成本。\u003cstrong>公开市场操作\u003c/strong>通过买卖证券等方式调节银行体系的流动性。\u003c/p>\u003cp>在物价短期固定的简化模型中，增加货币供给使 LM 向右或向下移动。现实传导还涉及政策利率、金融机构和市场预期。\u003c/p>\u003cp>官方核验（2026 年 11 月 11 日）：中国人民银行法第二十三条列举准备金、再贴现、公开市场操作等工具，并授权人民银行规定具体条件与程序。\u003ca href=\"https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=10279\">商务部全球法规网 · 中国人民银行法\u003c/a>\u003c/p>","keyTakeaway":"在标准 IS–LM 模型中，货币政策主要先改变货币市场均衡和利率，再影响私人支出。","pitfall":"三种工具是常见的分类。实际使用某项工具的条件和政策参数，要看对应制度与操作公告。","example":"央行向市场买入证券并支付资金，可向银行体系增加流动性。卖出证券时作用方向相反。"},{"id":"monetary-effects","title":"货币政策效果、局限与时滞","summary":"比较利率变动对支出的作用，并区分政策实施前后的时间。","bodyHtml":"\u003cp>在通常的比较中，IS 越平坦，支出对利率越敏感。增加货币供给时，利率下降能带动更大的支出和产出变化。LM 越陡且货币供给变化使其有效右移，货币政策对产出的作用通常越强。垂直 LM 是古典极端，水平 LM 的流动性陷阱是另一极端。\u003c/p>\u003cul>\u003cli>\u003cstrong>内部时滞\u003c/strong>从经济状况发生变化，到识别、决定并实施政策。\u003c/li>\u003cli>\u003cstrong>外部时滞\u003c/strong>从政策实施开始，到金融条件改变并传导至需求、产出和价格。\u003c/li>\u003cli>衰退中信贷需求和风险偏好可能较弱；货币流通速度变化会改变固定速度模型的推论；跨境资本流动也会影响国内传导。\u003c/li>\u003c/ul>","keyTakeaway":"常规图中，紧缩货币使 LM 左移，利率上升、产出下降。与扩张财政同时使用时，二者都推高利率，产出净变化取决于力度。","pitfall":"“完全有效”或“完全无效”是特定极端模型的比较用语。判断产出效果还需说明物价、曲线区间和政策冲击的假设。","example":"政策利率先调整，之后银行重新定价贷款，企业再改变投资计划。从利率实施到投资响应属于外部时滞。"},{"id":"tinbergen","title":"丁伯根法则与政策配合","summary":"用工具数量和独立性判断能否同时实现多个目标。","bodyHtml":"\u003cp>\u003cmark>丁伯根法则\u003c/mark>指出，在给定模型中，若要独立实现 N 个经济目标，通常至少需要 N 个可以独立调节、效果方向足以区分的政策工具。在线性模型里，工具到目标的影响矩阵应能覆盖目标空间。\u003c/p>\u003cp>当一个工具同时影响多个目标，政策制定者可以调整工具组合。还要考虑时滞、冲击强弱和实施约束。\u003c/p>","keyTakeaway":"工具数量要充足，政策效果还要具备独立调节能力。","pitfall":"两个名义上不同的工具若始终按同样比例影响所有目标，增加工具名称也无法获得新的调节方向。","example":"一个目标是稳定物价，另一个目标是维持产出。若只有一种总需求工具，通常无法独立把两项指标都调到任意指定的水平。"}],"mindmap":[{"label":"财政政策及其效果","target":"fiscal-tools","children":[{"label":"财政工具","target":"fiscal-tools","children":[{"label":"政府支出：政府购买、转移支付","target":"fiscal-tools"},{"label":"税收与公债融资","target":"fiscal-tools"}]},{"label":"自动稳定器","target":"stabilizers","children":[{"label":"所得税随收入变化","target":"stabilizers"},{"label":"转移支付随符合条件人数变化","target":"stabilizers"},{"label":"按规则触发的农产品价格维持","target":"stabilizers"}]},{"label":"相机抉择：逆周期调节","target":"stabilizers"},{"label":"局限：时滞与效果不确定","target":"stabilizers"},{"label":"财政思想","target":"functional-finance","children":[{"label":"年度平衡预算","target":"functional-finance"},{"label":"周期平衡预算","target":"functional-finance"},{"label":"功能财政","target":"functional-finance"}]},{"label":"政策效果","target":"fiscal-effects","children":[{"label":"IS 越平坦，挤出通常越强","target":"fiscal-effects"},{"label":"LM 越平坦，产出效果通常越大","target":"fiscal-effects"},{"label":"垂直 LM：完全挤出","target":"fiscal-effects"},{"label":"水平 LM：零利率挤出","target":"fiscal-effects"}]}]},{"label":"货币政策及其效果","target":"monetary-tools","children":[{"label":"政策工具","target":"monetary-tools","children":[{"label":"再贴现","target":"monetary-tools"},{"label":"法定存款准备金","target":"monetary-tools"},{"label":"公开市场操作","target":"monetary-tools"}]},{"label":"政策效果","target":"monetary-effects","children":[{"label":"IS 越平坦，货币传导通常越强","target":"monetary-effects"},{"label":"LM 越陡，货币政策的产出作用通常越大","target":"monetary-effects"},{"label":"垂直 LM：古典极端","target":"monetary-effects"},{"label":"水平 LM：流动性陷阱","target":"monetary-effects"}]},{"label":"政策局限","target":"monetary-effects","children":[{"label":"衰退中需求反应可能偏弱","target":"monetary-effects"},{"label":"货币流通速度变动","target":"monetary-effects"},{"label":"政策内外部时滞","target":"monetary-effects"},{"label":"国际资金流动","target":"monetary-effects"}]},{"label":"丁伯根法则：足量且独立的政策工具","target":"tinbergen"}]}]},"questions":[{"id":"eco-15-q01","number":1,"group":"财政政策及其效果","type":"single","stem":"下列选项中，不属于财政政策自动稳定器的是（　）。","options":{"A":"市场浮动利率","B":"所得税制度","C":"政府转移支付制度","D":"农产品维持制度"},"answer":["A"],"explanationSupplement":"判断标准是已有财政制度能否在政策规则不变时随经济周期自动反应。利率浮动是金融市场的价格变动。","optionExplanations":{"A":"浮动利率不是既有财政收支规则，符合题目的反向提问。","B":"经济活动变化会自动改变按现有规则缴纳的所得税。","C":"失业等给付可按既有资格规则随符合条件的人数变化。","D":"满足预先规定触发条件时，价格维持措施可缓冲收入波动。"},"conceptId":"stabilizers"},{"id":"eco-15-q02","number":2,"group":"财政政策及其效果","type":"single","stem":"凯恩斯主义者认为，政府在财政方面实施的积极财政政策主要是为了实现无通货膨胀的充分就业水平。当实现这一目标时，预算可以是盈余，也可以是赤字，这样的财政思想称为（　）。","options":{"A":"功能财政","B":"补偿性财政","C":"顺周期财政","D":"预算平衡财政"},"answer":["A"],"explanationSupplement":"题目以就业和价格稳定作为判断政策的依据，允许收支余额按目标变化。这是功能财政的特征。","optionExplanations":{"A":"以宏观经济目标和财政政策的功能衡量收支安排。","B":"补偿性财政常指借助逆周期措施抵消经济波动，此处强调的是政策目标优先于预算盈亏。","C":"顺周期财政随经济波动同向调节，可能放大波动。","D":"预算平衡思想着重于预算收支的平衡。"},"conceptId":"functional-finance"},{"id":"eco-15-q03","number":3,"group":"财政政策及其效果","type":"single","stem":"根据凯恩斯主义的 IS-LM 模型，当经济处于流动性陷阱时期，为刺激需求应该采取的政策是（　）。","options":{"A":"增加财政税收","B":"增加财政支出","C":"增加货币供给","D":"提高法定准备金率"},"answer":["B"],"explanationSupplement":"在水平 LM 的区间内，增加政府支出让 IS 向右移动，产出可以在利率近似不变时增加。该判断针对题设的短期模型。","optionExplanations":{"A":"增税通常降低可支配收入与消费。","B":"政府购买增加可直接扩张总需求，并在水平 LM 段提高产出。","C":"在流动性陷阱的极端模型中，新增货币由更高的流动性持有吸收。","D":"提高准备金率通常约束流动性，方向与刺激需求的目标相反。"},"conceptId":"fiscal-effects"},{"id":"eco-15-q04","number":4,"group":"货币政策及其效果","type":"single","stem":"从货币当局采取行动开始直到对政策目标产生影响为止的过程被称为（　）。","options":{"A":"货币政策内部时滞","B":"财政政策内部时滞","C":"货币政策外部时滞","D":"财政政策外部时滞"},"answer":["C"],"explanationSupplement":"题目给出的起点是货币当局已经采取行动，终点是政策目标开始受到影响。这段时间属于政策实施后的传导过程。","optionExplanations":{"A":"内部时滞主要发生在识别、决策和实施之前。","B":"题设主体是货币当局，且行动已经发生。","C":"货币政策已实施后，金融与实体经济完成传导需要时间。","D":"政策主体和工具类型指向货币政策。"},"conceptId":"monetary-effects"},{"id":"eco-15-q05","number":5,"group":"货币政策及其效果","type":"single","stem":"在古典情况下，（　）曲线垂直，（　）政策完全有效。","options":{"A":"LM，财政","B":"LM，货币","C":"IS，财政","D":"IS，货币"},"answer":["B"],"explanationSupplement":"货币需求对利率不敏感时，LM 垂直。货币供给的变动移动 LM 所限定的产出水平。财政政策即使移动 IS，也主要改变利率。","optionExplanations":{"A":"LM 垂直时，财政扩张对产出的效果被利率挤出抵消。","B":"垂直 LM 与货币政策的产出作用是题设的对应关系。","C":"古典极端在此由 LM 的垂直形状刻画。","D":"垂直 IS 表示支出对利率不敏感，与货币刺激产出的典型机制不同。"},"conceptId":"monetary-effects"},{"id":"eco-15-q06","number":6,"group":"货币政策及其效果","type":"single","stem":"政府同时采用紧缩的货币政策与扩张的财政政策，根据 IS-LM 模型，则（　）。","options":{"A":"利率上升","B":"利率下降","C":"产出增加","D":"产出减少"},"answer":["A"],"explanationSupplement":"在通常向下的 IS 与向上的 LM 下，紧缩货币减少货币供给并推高利率，扩张财政增加产出需求同样推高利率。前者压低产出，后者抬高产出，净效应要比较幅度。","optionExplanations":{"A":"两项政策都对利率产生向上的影响。","B":"题设两项政策均不会给利率带来向下的独立作用。","C":"只有财政扩张效应占优时，产出才增加。","D":"只有货币紧缩效应占优时，产出才减少。"},"conceptId":"monetary-effects"},{"id":"eco-15-q07","number":7,"group":"货币政策及其效果","type":"single","stem":"要达到 N 个经济目标，至少需要 N 种独立的政策工具，这被称为是（　）。","options":{"A":"马歇尔-勒纳条件","B":"米德冲突","C":"丁伯根法则","D":"蜜月效应"},"answer":["C"],"explanationSupplement":"先找题干中的数量关系和独立性。多个独立目标需要足量的独立工具，这就是丁伯根法则。","optionExplanations":{"A":"马歇尔-勒纳条件涉及贬值与进出口需求弹性。","B":"米德冲突涉及内外部均衡目标之间的矛盾。","C":"工具数量与目标数量的对应关系符合定义。","D":"蜜月效应用于某些其他经济模型，在本题无关。"},"conceptId":"tinbergen"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -2260,6 +2268,696 @@ dialog::backdrop { background: var(--backdrop); }
    if(target){ e.preventDefault(); target.focus(); target.select(); }
   }
  });
+})();
+
+(() => {
+  'use strict';
+
+  const fmt = (n, d = 1) => Number(n.toFixed(d)).toString();
+  const samplePath = (fn, start, end, steps, xMap, yMap) => {
+    let d = '';
+    for (let i = 0; i <= steps; i++) {
+      const t = start + (end - start) * (i / steps);
+      const val = fn(t);
+      if (!Number.isFinite(val)) continue;
+      d += (d ? ' L' : 'M') + xMap(t).toFixed(1) + ' ' + yMap(val).toFixed(1);
+    }
+    return d;
+  };
+  const X0 = 66, W = 420, Y0 = 294, H = 252;
+  const wrapStatic = (title, desc, svg) => `
+    <div class="inline-visual-header">
+      <span class="inline-visual-badge">图解示意</span>
+      <h4>${title}</h4>
+      <p>${desc}</p>
+    </div>
+    <div class="static-svg-wrap micro-panel">${svg}</div>`;
+
+  // 1. Chapter 04: Total Utility & Marginal Utility
+  function mountTUMU(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>总效用（TU）与边际效用（MU）递减联动图</h4>
+        <p>拖动消费数量 Q，观察每多消费 1 单位带来的边际效用 MU 递减过程，以及 MU = 0 时总效用 TU 达到最大值。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>总效用 TU</span>
+            <span><i class="chart-line mv-c2-line"></i>边际效用 MU</span>
+          </div>
+          <svg viewBox="0 0 540 390" role="img" aria-label="总效用与边际效用联动图">
+            <path class="chart-axis" d="M66 26V170H498" fill="none" stroke-width="1.4"/>
+            <text x="14" y="18" class="axis-label">总效用 TU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="174">0</text><text x="56" y="106">20</text><text x="56" y="40">40</text></g>
+            <path class="mv-curve-1" data-role="tu"/>
+
+            <path class="chart-axis" d="M66 206V346H498" fill="none" stroke-width="1.4"/>
+            <line class="mv-zero-line" x1="66" x2="498" y1="306" y2="306"/>
+            <text x="14" y="198" class="axis-label">边际效用 MU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="310">0</text><text x="56" y="264">5</text><text x="56" y="218">10</text></g>
+            <path class="mv-curve-2" data-role="mu"/>
+            <line class="mv-guide" data-role="vline" y1="26" y2="346"/>
+            <circle r="5.5" class="mv-dot-1" data-role="pt-tu"/>
+            <circle r="5.5" class="mv-dot-2" data-role="pt-mu"/>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="364">0</text><text x="171" y="364">2</text><text x="276" y="364">4</text><text x="381" y="364">6</text><text x="486" y="364">8</text></g>
+            <text x="276" y="384" text-anchor="middle" class="axis-label">消费数量 Q</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">消费数量 Q <output data-role="q-out">5</output></label>
+          <input type="range" data-role="q" min="0.5" max="8" step="0.5" value="5">
+          <div class="ppf-outputs">
+            <div><span>总效用 TU</span><strong data-role="tu-val">25.0</strong></div>
+            <div><span>边际效用 MU</span><strong data-role="mu-val">0.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-jump="2">递增区间</button>
+            <button type="button" class="button button-secondary" data-jump="5">饱和点(MU=0)</button>
+            <button type="button" class="button button-secondary" data-jump="7">负效用区</button>
+          </div>
+        </div>
+      </div>`;
+    // TU = 10Q - Q^2 (max 25 at Q=5); MU = 10 - 2Q
+    const tuFn = q => 10 * q - q * q;
+    const muFn = q => 10 - 2 * q;
+    const x = q => X0 + (q / 8) * W;
+    const yTU = v => 170 - (v / 32) * 130;
+    const yMU = v => 306 - (v / 10) * 90;
+    root.querySelector('[data-role="tu"]').setAttribute('d', samplePath(tuFn, 0, 8, 60, x, yTU));
+    root.querySelector('[data-role="mu"]').setAttribute('d', samplePath(muFn, 0, 8, 40, x, yMU));
+    const qIn = root.querySelector('[data-role="q"]');
+    function draw() {
+      const q = qIn.valueAsNumber, tu = tuFn(q), mu = muFn(q), xq = x(q).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xq); vl.setAttribute('x2', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cy', yTU(tu).toFixed(1));
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cy', yMU(mu).toFixed(1));
+      root.querySelector('[data-role="q-out"]').value = fmt(q, 1);
+      root.querySelector('[data-role="tu-val"]').textContent = fmt(tu, 1);
+      root.querySelector('[data-role="mu-val"]').textContent = fmt(mu, 1);
+      root.querySelector('[data-role="msg"]').textContent = mu > 0
+        ? `MU=${fmt(mu, 1)} > 0：每多消费 1 单位仍带来正满足，总效用 TU 持续上升，但增速逐渐放缓。`
+        : mu === 0
+          ? '饱和点（Q=5, MU=0）：边际效用降为零，此时总效用 TU 达到最大值 25。'
+          : `MU=${fmt(mu, 1)} < 0：过度消费产生负效用，总效用 TU 反而开始下降。`;
+    }
+    qIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { qIn.value = b.dataset.jump; draw(); }));
+    draw();
+  }
+
+  // 2. Chapter 06: Long-run Average Cost Envelope (static)
+  function mountLACEnvelope(root) {
+    root.innerHTML = wrapStatic(
+      '长期平均成本（LAC）包络线与规模经济',
+      '长期内厂商可自由调整工厂规模，LAC 是无数条短期平均成本曲线（SAC）的下包络线；只有在最低点 E，LAC 才与 SAC 的最低点相切。',
+      `<svg viewBox="0 0 660 280" role="img" aria-label="长期平均成本包络线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M62 28V230H618 M57 35l5-7 5 7 M611 225l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">平均成本 AC</text>
+        <text x="340" y="268" text-anchor="middle" class="axis-label">产量 Q</text>
+        <!-- Vertical split at optimal scale -->
+        <line x1="340" y1="36" x2="340" y2="230" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="200" y="54" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="650">规模经济（LAC 下降）</text>
+        <text x="480" y="54" text-anchor="middle" fill="var(--mv-c2)" font-size="13" font-weight="650">规模不经济（LAC 上升）</text>
+        <!-- SAC curves -->
+        <path d="M110 72 Q175 186 245 104" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="128" y="88" class="tick-label">SAC₁</text>
+        <path d="M250 112 Q340 226 430 112" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="340" y="128" text-anchor="middle" class="tick-label">SAC₂（最优规模）</text>
+        <path d="M435 104 Q505 186 570 72" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="546" y="88" class="tick-label">SAC₃</text>
+        <!-- LAC envelope -->
+        <path d="M96 96 Q340 246 584 96" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="592" y="102" fill="var(--accent)" font-size="13.5" font-weight="700">LAC</text>
+        <!-- Tangent point -->
+        <circle cx="340" cy="171" r="6" class="mv-dot-eq"/>
+        <text x="352" y="190" class="point-label">E（最低点相切）</text>
+      </svg>`
+    );
+  }
+
+  // 3. Chapter 08: Interactive Prisoner's Dilemma Matrix
+  function mountPrisonersMatrix(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>囚徒困境 2×2 支付矩阵（点击任意格子体验纳什均衡）</h4>
+        <p>括号内为（甲的刑期年数，乙的刑期年数），数字越小越好。点击不同策略组合，看双方有没有单方面改选的动机。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart" style="padding:16px">
+          <div class="game-matrix" role="grid" aria-label="囚徒困境支付矩阵">
+            <div class="gm-corner">甲 \\ 乙</div>
+            <div class="gm-head">乙：坦白</div>
+            <div class="gm-head">乙：抵赖</div>
+            <div class="gm-head">甲：坦白</div>
+            <button type="button" class="gm-cell active" data-cell="cc"><strong>(-8年, -8年)</strong><small>纳什均衡 ★</small></button>
+            <button type="button" class="gm-cell" data-cell="cd"><strong>(0年, -10年)</strong><small>甲占便宜</small></button>
+            <div class="gm-head">甲：抵赖</div>
+            <button type="button" class="gm-cell" data-cell="dc"><strong>(-10年, 0年)</strong><small>乙占便宜</small></button>
+            <button type="button" class="gm-cell" data-cell="dd"><strong>(-1年, -1年)</strong><small>帕累托最优</small></button>
+          </div>
+        </div>
+        <div class="ppf-controls">
+          <h5>策略稳定性分析</h5>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const notes = {
+      cc: '【(坦白, 坦白) → 唯一纳什均衡】无论对方选什么，自己选「坦白」刑期都更短（0>-1 且 -8>-10），因此「坦白」是双方的严格占优策略，任何一方单方面改选抵赖都会从 -8 年恶化到 -10 年。',
+      cd: '【(坦白, 抵赖) → 不稳定】此时乙判 10 年；只要乙单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此乙有强烈动机偏离，最终滑向 (坦白, 坦白)。',
+      dc: '【(抵赖, 坦白) → 不稳定】此时甲判 10 年；只要甲单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此甲会立刻偏离，滑向 (坦白, 坦白)。',
+      dd: '【(抵赖, 抵赖) → 帕累托最优但不稳定】虽然两人各判 1 年集体总福利最好，但给定对方抵赖，自己单方面背叛改为坦白可以无罪释放（0 年），所以缺乏约束机制时合作会瓦解。',
+    };
+    const cells = [...root.querySelectorAll('[data-cell]')];
+    function select(key) {
+      cells.forEach(c => c.classList.toggle('active', c.dataset.cell === key));
+      root.querySelector('[data-role="msg"]').textContent = notes[key];
+    }
+    cells.forEach(c => c.addEventListener('click', () => select(c.dataset.cell)));
+    select('cc');
+  }
+
+  // 4. Chapter 09: Lorenz Curve & Gini Coefficient
+  function mountLorenzGini(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>洛伦兹曲线与基尼系数（G = A / (A + B)）</h4>
+        <p>拖动收入分配不平等程度，观察洛伦兹曲线弯曲幅度与阴影面积 A 的变化，直观理解基尼系数 0.4 警戒线。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>绝对平等线（45°）</span>
+            <span><i class="chart-line mv-c1-line"></i>洛伦兹曲线</span>
+            <span><i class="mv-swatch mv-cs"></i>不平等面积 A</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="洛伦兹曲线与基尼系数交互图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">累计收入占比 (%)</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">累计人口占比（从低收入到高收入 %）</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0%</text><text x="171" y="316">25%</text><text x="276" y="316">50%</text><text x="381" y="316">75%</text><text x="486" y="316">100%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">25%</text><text x="56" y="172">50%</text><text x="56" y="109">75%</text><text x="56" y="46">100%</text></g>
+            <path class="mv-fill-cs" data-role="area-a"/>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-1" data-role="curve"/>
+            <text x="248" y="196" class="point-label" data-role="lbl-a">A</text>
+            <text x="382" y="246" class="tick-label" style="font-size:14px">B</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">弯曲指数 k（1=绝对平等，越大越不平等）<output data-role="k-out">2.3</output></label>
+          <input type="range" data-role="k" min="1" max="5" step="0.1" value="2.3">
+          <div class="ppf-outputs">
+            <div><span>基尼系数 G</span><strong data-role="g-val">0.39</strong></div>
+            <div><span>后 50% 人口收入占比</span><strong data-role="b50-val">20%</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // L(p) = p^k => Gini = (k - 1)/(k + 1)
+    const x = p => X0 + p * W;
+    const y = v => Y0 - v * H;
+    const kIn = root.querySelector('[data-role="k"]');
+    function draw() {
+      const k = kIn.valueAsNumber;
+      const gini = (k - 1) / (k + 1);
+      const b50 = Math.pow(0.5, k) * 100;
+      const curveD = samplePath(p => Math.pow(p, k), 0, 1, 50, x, y);
+      root.querySelector('[data-role="curve"]').setAttribute('d', curveD);
+      root.querySelector('[data-role="area-a"]').setAttribute('d', curveD + ` L${x(0)} ${y(0)} Z`);
+      root.querySelector('[data-role="k-out"]').value = fmt(k, 1);
+      root.querySelector('[data-role="g-val"]').textContent = fmt(gini, 2);
+      root.querySelector('[data-role="b50-val"]').textContent = fmt(b50, 0) + '%';
+      root.querySelector('[data-role="msg"]').textContent = gini < 0.2
+        ? 'G < 0.2：收入分配高度平均，洛伦兹曲线紧贴 45° 绝对平等线。'
+        : gini < 0.4
+          ? `G = ${fmt(gini, 2)}（0.2~0.4）：处于相对合理区间；收入较低的一半人口占总收入的 ${fmt(b50, 0)}%。`
+          : `G = ${fmt(gini, 2)} ≥ 0.4：超过国际常用的收入差距警戒线，洛伦兹曲线明显向右下方弯曲。`;
+    }
+    kIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 5. Chapter 09: Backward-bending Labour Supply Curve (static)
+  function mountLabourSupply(root) {
+    root.innerHTML = wrapStatic(
+      '向后弯曲的个人劳动供给曲线',
+      '工资上涨同时产生「替代效应（多干活）」与「收入效应（多买闲暇）」；当工资高过拐点 W* 后，收入效应压过替代效应，劳动供给反向减少。',
+      `<svg viewBox="0 0 640 270" role="img" aria-label="向后弯曲的劳动供给曲线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V224H580 M61 35l5-7 5 7 M573 219l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">工资率 W</text>
+        <text x="323" y="258" text-anchor="middle" class="axis-label">劳动供给时间 L</text>
+        <path d="M130 210 C250 184 320 156 320 124 C320 88 265 64 210 42" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="66" y1="124" x2="320" y2="124" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <circle cx="320" cy="124" r="6" class="mv-dot-eq"/>
+        <text x="48" y="128" text-anchor="end" class="tick-label">W*</text>
+        <text x="336" y="128" class="point-label">拐点（替代效应 = 收入效应）</text>
+        <text x="336" y="76" fill="var(--mv-c2)" font-size="13" font-weight="650">W &gt; W*：收入效应 &gt; 替代效应（高薪更愿享受闲暇，曲线后弯）</text>
+        <text x="336" y="182" fill="var(--accent)" font-size="13" font-weight="650">W &lt; W*：替代效应 &gt; 收入效应（加薪吸引增加工时，曲线右倾）</text>
+      </svg>`
+    );
+  }
+
+  // 6. Chapter 10: Negative Externality & Pigouvian Tax
+  function mountExternality(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>负外部性与庇古税：私人成本（MPC）vs 社会成本（MSC）</h4>
+        <p>拖动“庇古税税率 t”，看如何将外部污染成本内部化，使市场产量从过度生产的 Qm 收敛到社会最优产量 Q*。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>需求 D = MSB</span>
+            <span><i class="chart-line mv-base-line"></i>私人成本 MPC</span>
+            <span><i class="chart-line mv-c2-line"></i>社会成本 MSC</span>
+            <span><i class="mv-swatch mv-dwl"></i>剩余无谓损失</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="负外部性与庇古税纠正图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 / 成本</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">产量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">20</text><text x="276" y="316">40</text><text x="381" y="316">60</text><text x="486" y="316">80</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="248">10</text><text x="56" y="197">20</text><text x="56" y="147">30</text><text x="56" y="96">40</text><text x="56" y="46">50</text></g>
+            <polygon class="mv-fill-dwl" data-role="dwl"/>
+            <path class="mv-curve-1" data-role="d"/>
+            <path class="mv-base-curve" data-role="mpc"/>
+            <path class="mv-curve-2" data-role="msc"/>
+            <path class="mv-curve-3" data-role="tax-s"/>
+            <circle r="5.5" class="mv-dot-2" data-role="opt"/>
+            <circle r="6" class="mv-dot-eq" data-role="cur"/>
+            <text class="point-label" data-role="lbl-opt">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">庇古税税率 t（单位外部成本 = 10）<output data-role="t-out">0</output></label>
+          <input type="range" data-role="t" min="0" max="14" step="1" value="0">
+          <div class="ppf-outputs">
+            <div><span>实际产量 Q</span><strong data-role="q-val">40</strong></div>
+            <div><span>社会最优 Q*</span><strong>30</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row"><button type="button" class="button button-primary" data-role="best">设为最优庇古税 (t=10)</button></div>
+        </div>
+      </div>`;
+    // D: P = 50 - 0.5Q; MPC: P = 10 + 0.5Q (Qm=40, Pm=30); MSC: P = 20 + 0.5Q (Q*=30, P*=35)
+    const x = q => X0 + (q / 80) * W;
+    const y = p => Y0 - (p / 50) * H;
+    root.querySelector('[data-role="d"]').setAttribute('d', `M${x(0)} ${y(50)} L${x(80)} ${y(10)}`);
+    root.querySelector('[data-role="mpc"]').setAttribute('d', `M${x(0)} ${y(10)} L${x(80)} ${y(50)}`);
+    root.querySelector('[data-role="msc"]').setAttribute('d', `M${x(0)} ${y(20)} L${x(60)} ${y(50)}`);
+    root.querySelector('[data-role="opt"]').setAttribute('cx', x(30));
+    root.querySelector('[data-role="opt"]').setAttribute('cy', y(35));
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('x', x(30) - 18);
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('y', y(35) - 10);
+    const tIn = root.querySelector('[data-role="t"]');
+    function draw() {
+      const t = tIn.valueAsNumber;
+      const q = 40 - t;
+      const p = 50 - 0.5 * q;
+      const mscAtQ = 20 + 0.5 * q;
+      root.querySelector('[data-role="tax-s"]').setAttribute('d', `M${x(0)} ${y(10 + t)} L${x(Math.min(80, 80 - 2 * t))} ${y(Math.min(50, 50 + t - Math.max(0, t)))}`);
+      root.querySelector('[data-role="cur"]').setAttribute('cx', x(q).toFixed(1));
+      root.querySelector('[data-role="cur"]').setAttribute('cy', y(p).toFixed(1));
+      root.querySelector('[data-role="dwl"]').setAttribute('points', Math.abs(q - 30) < 0.1 ? '' : `${x(30).toFixed(1)},${y(35).toFixed(1)} ${x(q).toFixed(1)},${y(p).toFixed(1)} ${x(q).toFixed(1)},${y(mscAtQ).toFixed(1)}`);
+      root.querySelector('[data-role="t-out"]').value = String(t);
+      root.querySelector('[data-role="q-val"]').textContent = String(q);
+      root.querySelector('[data-role="msg"]').textContent = t === 0
+        ? '未征税时，厂商只考虑私人成本 MPC，市场过度生产（Q=40 > Q*=30），红色三角为负外部性造成的社会无谓损失。'
+        : t === 10
+          ? '庇古税 t=10 恰好等于边际外部成本：税后供给曲线与 MSC 重合，市场自动收敛到社会最优产量 Q*=30，无谓损失清零！'
+          : t < 10
+            ? `税率 t=${t} 偏低：产量降至 ${q}，无谓损失明显缩小，但仍高于社会最优产量 30。`
+            : `税率 t=${t} 过高：过度征税导致产量降至 ${q}（低于社会最优 30），反而产生新的效率损失。`;
+    }
+    tIn.addEventListener('input', draw);
+    root.querySelector('[data-role="best"]').addEventListener('click', () => { tIn.value = '10'; draw(); });
+    draw();
+  }
+
+  // 7. Chapter 11: Keynesian 45-degree Cross & Multiplier
+  function mountKeynesCross(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>凯恩斯 45° 交叉图与支出乘数效应（k = 1 / (1 − MPC)）</h4>
+        <p>增加自发支出 ΔA 或调高边际消费倾向 MPC，观察计划支出线 AE 上移后均衡产出 Y* 被成倍放大的效果。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>45° 均衡线（AE = Y）</span>
+            <span><i class="chart-line mv-c1-line"></i>当前计划支出 AE</span>
+            <span><i class="chart-line mv-c3-line"></i>初始 AE₀</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="凯恩斯45度交叉图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">计划支出 AE</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">100</text><text x="276" y="316">200</text><text x="381" y="316">300</text><text x="486" y="316">400</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">100</text><text x="56" y="172">200</text><text x="56" y="109">300</text><text x="56" y="46">400</text></g>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-3" data-role="ae0"/>
+            <path class="mv-curve-1" data-role="ae1"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">新增自发支出 ΔA（基准 A₀=50）<output data-role="a-out">+0</output></label>
+          <input type="range" data-role="da" min="0" max="40" step="5" value="0">
+          <label class="range-label">边际消费倾向 MPC <output data-role="c-out">0.75</output></label>
+          <input type="range" data-role="mpc" min="0.5" max="0.8" step="0.05" value="0.75">
+          <div class="ppf-outputs">
+            <div><span>支出乘数 k</span><strong data-role="k-val">4.0×</strong></div>
+            <div><span>均衡产出 Y*</span><strong data-role="y-val">200</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const x = v => X0 + (v / 400) * W;
+    const y = v => Y0 - (v / 400) * H;
+    const daIn = root.querySelector('[data-role="da"]');
+    const cIn = root.querySelector('[data-role="mpc"]');
+    function draw() {
+      const da = daIn.valueAsNumber, c = cIn.valueAsNumber;
+      const k = 1 / (1 - c);
+      const y0 = 50 * k;
+      const ys = (50 + da) * k;
+      const aePath = a => `M${x(0).toFixed(1)} ${y(a).toFixed(1)} L${x(400).toFixed(1)} ${y(Math.min(400, a + c * 400)).toFixed(1)}`;
+      root.querySelector('[data-role="ae0"]').setAttribute('d', aePath(50));
+      root.querySelector('[data-role="ae1"]').setAttribute('d', aePath(50 + da));
+      const yc = Math.min(400, ys);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(yc).toFixed(1)} H${x(yc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(yc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(yc).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(yc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(yc) - 10).toFixed(1));
+      root.querySelector('[data-role="a-out"]').value = '+' + da;
+      root.querySelector('[data-role="c-out"]').value = fmt(c, 2);
+      root.querySelector('[data-role="k-val"]').textContent = fmt(k, 1) + '×';
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 0);
+      root.querySelector('[data-role="msg"]').textContent = da === 0
+        ? `当前 MPC=${fmt(c, 2)}，支出乘数 k=${fmt(k, 1)}。试着增加自发支出 ΔA，观察产出增量如何等于 ΔA × ${fmt(k, 1)}。`
+        : `自发支出仅增加 +${da}，经过乘数 k=${fmt(k, 1)} 放大后，均衡产出从 ${fmt(y0, 0)} 跃升至 ${fmt(ys, 0)}（净增 +${fmt(ys - y0, 0)}）。`;
+    }
+    daIn.addEventListener('input', draw);
+    cIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 8. Chapter 15: LM Three Regions Policy Effectiveness
+  function mountLMRegions(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>LM 三区间：财政政策与货币政策的有效性对比</h4>
+        <p>切换经济所处的 LM 区间（凯恩斯陷阱 / 中间区域 / 古典区域），对比扩张性财政政策（IS 右移）的效果与挤出程度。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c2-line"></i>完整 LM 曲线</span>
+            <span><i class="chart-line mv-base-line"></i>初始 IS₀</span>
+            <span><i class="chart-line mv-c1-line"></i>扩张财政后 IS₁</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="LM三区间政策有效性对比图">
+            <rect x="66" y="42" width="140" height="252" fill="var(--accent-soft)" opacity=".45"/>
+            <rect x="376" y="42" width="110" height="252" fill="var(--warning-soft)" opacity=".45"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">利率 r</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle">
+              <text x="136" y="316">凯恩斯区（水平）</text>
+              <text x="291" y="316">中间区（右倾）</text>
+              <text x="431" y="316">古典区（垂直）</text>
+            </g>
+            <!-- Full LM: horizontal [66..206] at y=248, sloped [206..416] to y=110, vertical at x=416 up to y=48 -->
+            <path d="M66 248 L206 248 L416 110 L416 48" fill="none" class="mv-curve-2"/>
+            <path class="mv-base-curve" data-role="is0"/>
+            <path class="mv-curve-1" data-role="is1"/>
+            <circle r="5" class="mv-dot-3" data-role="e0"/>
+            <circle r="6.5" class="mv-dot-1" data-role="e1"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择当前所处 LM 区间</legend>
+            <label><input type="radio" name="lmr" value="keynes" checked> 凯恩斯区域（流动性陷阱）</label>
+            <label><input type="radio" name="lmr" value="mid"> 中间区域（常态经济）</label>
+            <label><input type="radio" name="lmr" value="classic"> 古典区域（充分就业上限）</label>
+          </fieldset>
+          <div class="ppf-outputs">
+            <div><span>财政政策效果</span><strong data-role="f-val">极有效</strong></div>
+            <div><span>货币政策效果</span><strong data-role="m-val">完全无效</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const cfg = {
+      keynes: { is0: 'M92 174 L164 276', is1: 'M128 174 L200 276', e0: [144, 248], e1: [180, 248], f: '完全有效', m: '无效', msg: '凯恩斯区域（流动性陷阱）：利率已低至底线，增发货币全被持有为现金（货币政策无效）；扩张财政使 IS 右移不推高利率，无挤出效应，财政政策完全有效。' },
+      mid: { is0: 'M216 96 L356 264', is1: 'M260 96 L400 264', e0: [292, 191], e1: [324, 170], f: '部分有效', m: '部分有效', msg: '中间区域：扩张财政使产出上升、利率温和上行，存在「部分挤出效应」；财政政策与货币政策均有效，适合搭配使用。' },
+      classic: { is0: 'M348 106 L466 218', is1: 'M366 64 L484 176', e0: [416, 171], e1: [416, 111], f: '完全无效', m: '完全有效', msg: '古典区域（垂直 LM）：产出已达上限，扩张财政只会把利率推高，导致私人投资被「100% 完全挤出」（财政无效）；此时货币政策完全有效。' },
+    };
+    const radios = [...root.querySelectorAll('input[name="lmr"]')];
+    function draw() {
+      const c = cfg[radios.find(r => r.checked).value];
+      root.querySelector('[data-role="is0"]').setAttribute('d', c.is0);
+      root.querySelector('[data-role="is1"]').setAttribute('d', c.is1);
+      root.querySelector('[data-role="e0"]').setAttribute('cx', c.e0[0]);
+      root.querySelector('[data-role="e0"]').setAttribute('cy', c.e0[1]);
+      root.querySelector('[data-role="e1"]').setAttribute('cx', c.e1[0]);
+      root.querySelector('[data-role="e1"]').setAttribute('cy', c.e1[1]);
+      root.querySelector('[data-role="f-val"]').textContent = c.f;
+      root.querySelector('[data-role="m-val"]').textContent = c.m;
+      root.querySelector('[data-role="msg"]').textContent = c.msg;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    draw();
+  }
+
+  // 9. Chapter 17: Solow Growth Model Steady State
+  function mountSolow(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>索罗增长模型：储蓄率、折旧率与人均资本稳态 k*</h4>
+        <p>调节储蓄率 s 或折旧率 δ，观察实际投资曲线 s·f(k) 与持平投资线 δ·k 的交点（稳态 k*）如何移动。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>人均产出 y = f(k)</span>
+            <span><i class="chart-line mv-c1-line"></i>人均投资 s·f(k)</span>
+            <span><i class="chart-line mv-c2-line"></i>折旧线 δ·k</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="索罗增长模型稳态互动图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">人均产出 / 投资</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">人均资本存量 k</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">25</text><text x="276" y="316">50</text><text x="381" y="316">75</text><text x="486" y="316">100</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">3</text><text x="56" y="172">6</text><text x="56" y="109">9</text><text x="56" y="46">12</text></g>
+            <path class="mv-base-curve" data-role="yk"/>
+            <path class="mv-curve-1" data-role="sfk"/>
+            <path class="mv-curve-2" data-role="dk"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">k*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">储蓄率 s <output data-role="s-out">35%</output></label>
+          <input type="range" data-role="s" min="15" max="60" step="5" value="35">
+          <label class="range-label">折旧率 δ <output data-role="d-out">5%</output></label>
+          <input type="range" data-role="d" min="3" max="10" step="1" value="5">
+          <div class="ppf-outputs">
+            <div><span>稳态人均资本 k*</span><strong data-role="k-val">49</strong></div>
+            <div><span>稳态人均产出 y*</span><strong data-role="y-val">7.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // y = sqrt(k), s*sqrt(k) = d*k => k* = (s/d)^2, y* = s/d
+    const x = k => X0 + (k / 100) * W;
+    const y = v => Y0 - (Math.min(12, v) / 12) * H;
+    root.querySelector('[data-role="yk"]').setAttribute('d', samplePath(k => Math.sqrt(k), 0, 100, 60, x, y));
+    const sIn = root.querySelector('[data-role="s"]');
+    const dIn = root.querySelector('[data-role="d"]');
+    function draw() {
+      const s = sIn.valueAsNumber / 100, d = dIn.valueAsNumber / 100;
+      const ks = Math.pow(s / d, 2);
+      const ys = s / d;
+      const inv = d * ks;
+      root.querySelector('[data-role="sfk"]').setAttribute('d', samplePath(k => s * Math.sqrt(k), 0, 100, 60, x, y));
+      const kEnd = Math.min(100, 12 / d);
+      root.querySelector('[data-role="dk"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(kEnd).toFixed(1)} ${y(d * kEnd).toFixed(1)}`);
+      const kc = Math.min(100, ks), ic = Math.min(12, inv);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(ic).toFixed(1)} H${x(kc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(kc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(ic).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(kc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(ic) - 10).toFixed(1));
+      root.querySelector('[data-role="s-out"]').value = sIn.value + '%';
+      root.querySelector('[data-role="d-out"]').value = dIn.value + '%';
+      root.querySelector('[data-role="k-val"]').textContent = fmt(ks, 0);
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 1);
+      root.querySelector('[data-role="msg"]').textContent = `稳态 k* = (s/δ)² = ${fmt(ks, 0)}，人均产出 y* = ${fmt(ys, 1)}。提高储蓄率 s 只能提升稳态「水平」，在无技术进步时无法永久提高长期「增长率」。`;
+    }
+    sIn.addEventListener('input', draw);
+    dIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 10. Chapter 23: Balance of Payments Account Structure (static)
+  function mountBOPStructure(root) {
+    root.innerHTML = wrapStatic(
+      '国际收支平衡表（BOP）账户结构与恒等关系',
+      '按复式记账法编制，账面总额恒等于 0：经常账户 + 资本和金融账户（不含储备） + 储备资产变动 + 净误差与遗漏 = 0。',
+      `<svg viewBox="0 0 680 236" role="img" aria-label="国际收支平衡表账户结构图" style="width:100%;height:auto;display:block">
+        <g text-anchor="middle">
+          <rect x="16" y="16" width="154" height="132" rx="9" fill="var(--accent-soft)" stroke="var(--accent-line)" stroke-width="1.6"/>
+          <text x="93" y="42" fill="var(--accent)" font-size="13.5" font-weight="700">经常账户</text>
+          <text x="93" y="68" fill="var(--text)" font-size="12">• 货物贸易</text>
+          <text x="93" y="90" fill="var(--text)" font-size="12">• 服务贸易</text>
+          <text x="93" y="112" fill="var(--text)" font-size="12">• 初次收入(股息/利息)</text>
+          <text x="93" y="134" fill="var(--text)" font-size="12">• 二次收入(无偿转移)</text>
+
+          <text x="182" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="194" y="16" width="154" height="132" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="271" y="42" fill="var(--heading)" font-size="13.5" font-weight="700">资本与金融账户</text>
+          <text x="271" y="68" fill="var(--text)" font-size="12">• 直接投资（FDI）</text>
+          <text x="271" y="90" fill="var(--text)" font-size="12">• 证券投资（股/债）</text>
+          <text x="271" y="112" fill="var(--text)" font-size="12">• 金融衍生品</text>
+          <text x="271" y="134" fill="var(--text)" font-size="12">• 贷款与其他投资</text>
+
+          <text x="360" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="372" y="16" width="144" height="132" rx="9" fill="var(--surface)" stroke="var(--mv-c2)" stroke-width="1.5"/>
+          <text x="444" y="42" fill="var(--mv-c2)" font-size="13.5" font-weight="700">储备资产变动</text>
+          <text x="444" y="68" fill="var(--text)" font-size="12">• 外汇储备</text>
+          <text x="444" y="90" fill="var(--text)" font-size="12">• 货币黄金</text>
+          <text x="444" y="112" fill="var(--text)" font-size="12">• 特别提款权 SDR</text>
+          <text x="444" y="134" fill="var(--text)" font-size="12">• IMF 储备头寸</text>
+
+          <text x="528" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="540" y="16" width="124" height="132" rx="9" fill="var(--surface-subtle)" stroke="var(--control-line)" stroke-dasharray="4 3"/>
+          <text x="602" y="64" fill="var(--heading)" font-size="13" font-weight="680">净误差与遗漏</text>
+          <text x="602" y="90" fill="var(--muted)" font-size="11.5">统计口径差异</text>
+          <text x="602" y="110" fill="var(--muted)" font-size="11.5">与漏报轧平项</text>
+        </g>
+        <rect x="16" y="164" width="648" height="54" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+        <text x="340" y="187" text-anchor="middle" fill="var(--heading)" font-size="12.5" font-weight="650">高频考点：国际收支「顺差 / 逆差」通常指前两项（自主性交易）之和；</text>
+        <text x="340" y="207" text-anchor="middle" fill="var(--muted)" font-size="12">顺差导致外汇储备增加（在储备资产项下记为借方负号），从而使整张平衡表借贷轧平为 0。</text>
+      </svg>`
+    );
+  }
+
+  // 11. Chapter 25: Financial Repression Interest Ceiling Gap (static)
+  function mountRepressionGap(root) {
+    root.innerHTML = wrapStatic(
+      '金融抑制：人为利率上限导致的储蓄萎缩与信贷配给缺口',
+      '麦金农—肖模型核心图示：政府将实际利率压低在均衡利率 r* 以下（r₀），导致实际储蓄不足、投资需求过剩，只能依靠非市场信贷配给。',
+      `<svg viewBox="0 0 640 276" role="img" aria-label="金融抑制利率上限与资金缺口图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V226H580 M61 35l5-7 5 7 M573 221l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">实际利率 r</text>
+        <text x="323" y="262" text-anchor="middle" class="axis-label">储蓄 S / 投资 I</text>
+        <!-- I curve downward, S curve upward -->
+        <path d="M126 52 L506 208" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+        <text x="514" y="212" fill="var(--accent)" font-size="13" font-weight="680">投资需求 I(r)</text>
+        <path d="M126 208 L506 52" fill="none" stroke="var(--mv-c2)" stroke-width="2.6"/>
+        <text x="514" y="56" fill="var(--mv-c2)" font-size="13" font-weight="680">储蓄供给 S(r)</text>
+        <!-- Equilibrium -->
+        <circle cx="316" cy="130" r="5.5" class="mv-dot-eq"/>
+        <line x1="66" y1="130" x2="316" y2="130" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="56" y="134" text-anchor="end" class="tick-label">r*</text>
+        <text x="326" y="122" class="point-label">E*（市场均衡）</text>
+        <!-- Ceiling r0 -->
+        <line x1="66" y1="176" x2="540" y2="176" stroke="var(--error)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="56" y="180" text-anchor="end" fill="var(--error)" font-size="12.5" font-weight="680">r₀</text>
+        <line x1="204" y1="176" x2="204" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <line x1="428" y1="176" x2="428" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <text x="204" y="242" text-anchor="middle" class="tick-label">实际储蓄 S₀</text>
+        <text x="428" y="242" text-anchor="middle" class="tick-label">投资需求 I₀</text>
+        <line x1="208" y1="176" x2="424" y2="176" stroke="var(--error)" stroke-width="4.5" opacity=".45"/>
+        <text x="316" y="168" text-anchor="middle" fill="var(--error)" font-size="12.5" font-weight="680">资金短缺 / 非价格信贷配给区</text>
+      </svg>`
+    );
+  }
+
+  // 12. Chapter 26: Risk Management 4-Quadrant Matrix (static)
+  function mountRiskMatrix(root) {
+    root.innerHTML = wrapStatic(
+      '风险管理四象限矩阵：按「损失频率 × 损失程度」选工具',
+      '保险最适合处理「低频率、高损失」的风险；高频低损靠自留与防损，高频高损则应直接回避。',
+      `<svg viewBox="0 0 660 272" role="img" aria-label="风险管理四象限矩阵图" style="width:100%;height:auto;display:block">
+        <text x="364" y="20" text-anchor="middle" class="axis-label">损失频率（发生可能性）</text>
+        <text x="234" y="42" text-anchor="middle" class="tick-label">低频率</text>
+        <text x="494" y="42" text-anchor="middle" class="tick-label">高频率</text>
+        <text x="26" y="156" text-anchor="middle" class="axis-label" transform="rotate(-90 26 156)">损失程度</text>
+        <text x="80" y="106" text-anchor="end" class="tick-label">高损失</text>
+        <text x="80" y="212" text-anchor="end" class="tick-label">低损失</text>
+
+        <!-- Q1: Low freq, High severity -> Insurance -->
+        <rect x="94" y="52" width="268" height="100" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+        <text x="228" y="84" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">风险转移（商业保险 ★）</text>
+        <text x="228" y="108" text-anchor="middle" fill="var(--text)" font-size="12">低频高损：火灾、重疾、重大车祸</text>
+        <text x="228" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">保险最核心的适用场景（杠杆高）</text>
+
+        <!-- Q2: High freq, High severity -> Avoidance -->
+        <rect x="374" y="52" width="268" height="100" rx="9" fill="var(--error-soft)" stroke="var(--error-line)" stroke-width="1.5"/>
+        <text x="508" y="84" text-anchor="middle" fill="var(--error)" font-size="14" font-weight="700">风险回避</text>
+        <text x="508" y="108" text-anchor="middle" fill="var(--text)" font-size="12">高频高损：危房施工、高危违规作业</text>
+        <text x="508" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">直接放弃或退出该项活动</text>
+
+        <!-- Q3: Low freq, Low severity -> Retention -->
+        <rect x="94" y="162" width="268" height="96" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="228" y="194" text-anchor="middle" fill="var(--heading)" font-size="14" font-weight="700">风险自留</text>
+        <text x="228" y="218" text-anchor="middle" fill="var(--text)" font-size="12">低频低损：小额日常磕碰、小件遗失</text>
+        <text x="228" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">自行承担更经济，无需额外投保</text>
+
+        <!-- Q4: High freq, Low severity -> Loss control / Prevention -->
+        <rect x="374" y="162" width="268" height="96" rx="9" fill="var(--warning-soft)" stroke="var(--warning)" stroke-width="1.5"/>
+        <text x="508" y="194" text-anchor="middle" fill="var(--warning)" font-size="14" font-weight="700">损失控制（预防与抑制）</text>
+        <text x="508" y="218" text-anchor="middle" fill="var(--text)" font-size="12">高频低损：装防盗门、定期消防检查</text>
+        <text x="508" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">降低发生概率 + 控制损失规模</text>
+      </svg>`
+    );
+  }
+
+  const registry = {
+    'tu-mu': mountTUMU,
+    'lac-envelope': mountLACEnvelope,
+    'prisoners-matrix': mountPrisonersMatrix,
+    'lorenz-gini': mountLorenzGini,
+    'labour-supply': mountLabourSupply,
+    externality: mountExternality,
+    'keynes-cross': mountKeynesCross,
+    'lm-regions': mountLMRegions,
+    solow: mountSolow,
+    'bop-structure': mountBOPStructure,
+    'repression-gap': mountRepressionGap,
+    'risk-matrix': mountRiskMatrix,
+  };
+
+  document.querySelectorAll('[data-micro-visual]').forEach(container => {
+    const fn = registry[container.dataset.microVisual];
+    if (fn) fn(container);
+  });
 })();
 </script>
 </body>

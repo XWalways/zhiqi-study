@@ -960,6 +960,14 @@ dialog::backdrop { background: var(--backdrop); }
 .micro-panel .axis-label, .market-panel .axis-label { font-size: 13px; font-weight: 600; }
 .micro-panel .tick-label, .market-panel .tick-label { font-size: 12px; }
 .micro-panel .point-label { font-size: 14px; }
+.game-matrix { display: grid; grid-template-columns: 96px repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gm-corner, .gm-head { display: grid; place-items: center; padding: 10px 8px; border-radius: 8px; background: var(--surface-subtle); color: var(--heading); font-size: 13px; font-weight: 650; text-align: center; }
+.gm-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 82px; padding: 10px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--heading); transition: border-color .15s ease, background .15s ease; }
+.gm-cell strong { font: 680 16px var(--font-number); }
+.gm-cell small { font-size: 12px; color: var(--muted); }
+.gm-cell:hover { border-color: var(--control-line); }
+.gm-cell.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.gm-cell.active small { color: var(--accent); font-weight: 620; }
 </style>
 </head>
 <body data-page="chapter" data-offline="true" data-flat-downloads="true">
@@ -1104,7 +1112,7 @@ dialog::backdrop { background: var(--backdrop); }
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter09","number":9,"title":"生产要素市场理论","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-09-生产要素市场理论-离线学习.html","visuals":[]},"lessons":{"title":"生产要素市场理论","subtitle":"用边际价值理解雇佣决策，比较要素供给和收入分配。","sections":[{"id":"factor-demand","title":"生产要素的派生需求","summary":"用边际产品价值比较追加一单位投入的成本。","bodyHtml":"\u003cp>厂商需要劳动、土地或资本，是因为投入能生产有需求的产品，所以要素需求是\u003cstrong>派生需求\u003c/strong>。边际产品 MP 表示多用一单位投入增加的产量；边际产品价值 \u003cvar>VMP\u003c/var>＝\u003cvar>P\u003c/var>×\u003cvar>MP\u003c/var>。\u003c/p>\u003cp>产品和要素市场均完全竞争时，单家厂商接受产出价格 P 和要素价格 w，内部最优满足 \u003cmark>VMP＝w\u003c/mark>。更一般地，比较边际收益产品 MRP＝MR×MP 与要素边际支出。其他投入和产品价格固定且 MP 递减时，竞争厂商的要素需求曲线与 VMP 曲线重合，向右下倾斜。\u003c/p>","keyTakeaway":"先看给定的是产品市场价格还是投入市场价格，再匹配边际收益与边际支出。","pitfall":"MP 是产量，VMP 是货币价值。行业要素需求还可能因产品价格变化而调整。","example":"工资为 80 元，新增工时多产 5 件且每件卖 20 元，VMP 为 100 元，追加该工时有利。"},{"id":"labour-supply","title":"劳动供给与闲暇","summary":"工资上涨同时改变闲暇的机会成本和购买力。","bodyHtml":"\u003cp>在可选择工时的模型中，工时和闲暇加起来等于可支配时间。工资率提高，少工作一小时放弃的工资更多，\u003cstrong>替代效应\u003c/strong>使人以工作替代闲暇。当闲暇为正常品时，购买力提高带来的\u003cstrong>收入效应\u003c/strong>则使人希望享受更多闲暇。\u003c/p>\u003cp>替代效应较强时，工资上涨使工时增加。收入效应较强时，工资上涨使工时减少，个人劳动供给可能出现\u003cmark>向后弯曲\u003c/mark>的部分。常见示意图在较低工资时向右上、较高工资时向左上。个人的曲线不能直接代表整个市场。\u003c/p>","keyTakeaway":"由周收入和小时工资先求工时，再看工时如何随工资变化。","pitfall":"工资总收入上升不意味着工时上升。","example":"周收入从 80 元增至 135 元，小时工资从 2 元增至 3 元，工时从 40 增至 45。"},{"id":"capital-land","title":"资本和土地的供给","summary":"资本供给涉及跨期储蓄，土地总量常视为固定。","bodyHtml":"\u003cp>资本供给可从储蓄选择理解。利率提高使放弃当前消费的未来回报增加，替代效应推动储蓄；对于净储蓄者，收入效应可能反向。常见图形在较低利率向右上、较高利率可能后弯，实际形状依赖储蓄者的选择及市场条件。\u003c/p>\u003cp>在把土地总量视为给定时，土地供给曲线为竖直线，需求变化主要反映在地租。考虑某种用途的土地时，土地可以跨用途转移，该用途的供给可能随租金变化。\u003c/p>","keyTakeaway":"区分土地总量与某一用途的土地供给，也要区分储蓄的替代与收入效应。","pitfall":"利率提高并不能在任意模型中保证资本供给增加。","example":"某地土地总量固定，但住宅租金提高后，一些原作商业用途的地块可能转作住宅。"},{"id":"factor-rent","title":"租金、准租金与经济租金","summary":"区分固定供给所得、短期固定投入所得和机会成本以上所得。","bodyHtml":"\u003cp>\u003cstrong>经济租金\u003c/strong>等于某要素的实际收入减去使它留在当前用途的最低必要收入，也就是相对于最佳替代用途的机会成本之上的部分。经济租金和企业经济利润分别对应要素和整个厂商。地租是固定供给土地的典型回报。\u003c/p>\u003cp>\u003cstrong>准租金\u003c/strong>讨论短期暂时固定的投入。生产时总收益扣除总可变成本后，留给固定投入的收入为 \u003cmark>TR−TVC＝TFC＋经济利润\u003c/mark>；若经济利润为负，也可写成固定成本减经济亏损。\u003c/p>\u003cp>在要素供给完全有弹性且价格等于保留价格时，经济租金为零。供给数量固定的简单模型中，超过保留收入的支付形成租金。\u003c/p>","keyTakeaway":"经济租金看机会成本，准租金看短期收益扣除可变成本。","pitfall":"企业有经济利润不等于某一要素一定有经济租金，短期准租金也不保证长期经济利润。","example":"一台短期无法转用的设备参与生产，收益 120、可变成本 90、固定成本 25。准租金为 30，经济利润为 5。"},{"id":"lorenz-gini","title":"洛伦兹曲线与基尼系数","summary":"用累计收入份额和面积比描述分配均等程度。","bodyHtml":"\u003cp>将人群按收入由低到高排列。横轴累计人口比重，纵轴累计收入比重。每个累计人口组获得同等比例的收入时，洛伦兹曲线与 45° 平等线重合。在相同人口比例处，洛伦兹曲线越低，说明该人群得到的收入份额越少。\u003c/p>\u003cp>令平等线与洛伦兹曲线之间面积为 A，曲线下方面积为 B，\u003cmark>基尼系数 G＝A/(A＋B)\u003c/mark>。常见非负收入模型下 G 处于 0 到 1 之间，0 表示完全平等，1 是极端不平等的理论上界。比较时使用相同的统计口径。\u003c/p>","keyTakeaway":"曲线表示整个累计分布，基尼系数把它概括为一个数。","pitfall":"基尼系数不直接反映收入水平，也不能把收入分布与财富存量分布等同。","example":"若收入最低的 50% 人群合计获得收入的 20%，曲线上有一点（50%，20%），低于平等线上的（50%，50%）。"}],"mindmap":[{"label":"生产要素需求","target":"factor-demand","children":[{"label":"由产品需求派生","target":"factor-demand"},{"label":"竞争厂商的使用原则 VMP＝要素价格","target":"factor-demand"},{"label":"边际产量递减时需求向右下方倾斜","target":"factor-demand"}]},{"label":"生产要素供给","target":"labour-supply","children":[{"label":"劳动供给","target":"labour-supply","children":[{"label":"替代效应增加工时","target":"labour-supply"},{"label":"正常闲暇的收入效应减少工时","target":"labour-supply"},{"label":"收入效应主导时个人供给可后弯","target":"labour-supply"}]},{"label":"资本供给","target":"capital-land","children":[{"label":"较低利率常见正向斜率","target":"capital-land"},{"label":"较高利率可能向左弯曲","target":"capital-land"}]},{"label":"土地供给","target":"capital-land","children":[{"label":"总量固定时供给为竖线","target":"capital-land"}]},{"label":"租金与准租金","target":"factor-rent","children":[{"label":"固定供给与地租","target":"factor-rent"},{"label":"暂时固定投入与准租金","target":"factor-rent"},{"label":"准租金＝TR−TVC","target":"factor-rent"}]},{"label":"经济租金","target":"factor-rent","children":[{"label":"要素收入超过机会成本的部分","target":"factor-rent"},{"label":"完全弹性供给时经济租金为零","target":"factor-rent"}]},{"label":"洛伦兹曲线与基尼系数","target":"lorenz-gini","children":[{"label":"45° 线代表完全平等","target":"lorenz-gini"},{"label":"基尼系数越小，收入越均等","target":"lorenz-gini"},{"label":"理论范围 0 到 1","target":"lorenz-gini"}]}]}]},"questions":[{"id":"eco-09-q01","number":1,"group":"生产要素的需求曲线","type":"single","stem":"完全竞争厂商的要素使用原则是（　　）。","options":{"A":"边际产品价值等于要素价格","B":"边际收益等于边际成本","C":"边际产量等于边际成本","D":"边际技术替代率等于要素价格之比"},"answer":["A"],"explanationSupplement":"新增一单位要素带来的收入要和该要素的新增支出比较。在产品和要素市场均完全竞争时，产品边际收益等于价格，要素边际支出等于要素价格，所以内点条件为 VMP＝w。","optionExplanations":{"A":"是竞争厂商的直接要素使用条件。","B":"这是用产量单位比较的通用最优条件。","C":"边际产量以产品单位计，不能直接与货币成本相等。","D":"说明给定产量的两种投入配比，未给出最优投入数量。"},"conceptId":"factor-demand"},{"id":"eco-09-q02","number":2,"group":"生产要素的需求曲线","type":"single","stem":"关于生产要素的需求曲线的说法，正确的是（　　）。","options":{"A":"生产要素的需求曲线向右下方倾斜","B":"生产要素的需求曲线是一条水平线","C":"生产要素的需求曲线向右上方倾斜","D":"生产要素的需求和价格成正向变化"},"answer":["A"],"explanationSupplement":"其他投入和产品价格给定且边际产量递减时，新增要素的价值随用量增加而下降。要素价格较低时，厂商才愿意用到边际价值较低的单位。","optionExplanations":{"A":"标准的要素需求曲线向右下倾斜。","B":"在竞争市场中单家厂商面对的要素供给可以是水平线。","C":"和边际产量递减下的方向相反。","D":"要素价格提高通常使同一需求曲线上的需求量减少。"},"conceptId":"factor-demand"},{"id":"eco-09-q03","number":3,"group":"生产要素的供给","type":"single","stem":"某工人在工资率为每小时2美元的时候每周挣80美元，每小时3美元的时候每周挣135美元，由此可以断定（　　）。","options":{"A":"收入效应起着主要作用","B":"替代效应起着主要作用","C":"收入效应和替代效应都没有发生作用","D":"无法确定"},"answer":["B"],"explanationSupplement":"每周工时等于周工资除以小时工资。提薪前 80÷2＝40 小时，提薪后 135÷3＝45 小时。工时增加，说明替代效应超过收入效应。","optionExplanations":{"A":"收入效应主导时，正常闲暇的消费增加，工时下降。","B":"工时从40升到45，支持替代效应主导。","C":"工时改变，不能得出两者均无作用。","D":"给定条件足以判断净效应的方向。"},"conceptId":"labour-supply"},{"id":"eco-09-q04","number":4,"group":"生产要素的供给","type":"single","stem":"某工人在工资率为每小时20元时每周挣800元，在工资率为每小时30元时每周挣1000元，由此可以断定（　　）。","options":{"A":"收入效应起着主要作用","B":"替代效应起着主要作用","C":"收入效应与替代效应发挥同等作用","D":"收入效应与替代效应都未发挥作用"},"answer":["A"],"explanationSupplement":"用周收入除以小时工资：先为 800÷20＝40 小时，后为 1000÷30≈33.3 小时。小时工资提高而工作时间下降，说明收入效应主导。","optionExplanations":{"A":"较高工资带来的收入效应促使该工人增加闲暇。","B":"替代效应主导应表现为工时增加。","C":"两效应大小相同且方向相反时，工时应保持不变。","D":"题目可观察到工时下降。"},"conceptId":"labour-supply"},{"id":"eco-09-q05","number":5,"group":"生产要素的供给","type":"single","stem":"关于租金，以下表述错误的是（　　）。","options":{"A":"准租金为总固定成本与经济利润之和","B":"经济租金为要素收入与其机会成本之差","C":"当要素供给曲线垂直时，经济租金为 0","D":"租金是一般化的地租"},"answer":["C"],"explanationSupplement":"经济租金是要素收入超过保留它所需的机会成本的部分。垂直的市场供给在简单图形中表示数量固定，因而额外支付不会增加数量；水平供给时，价格等于保留价格，没有经济租金。","optionExplanations":{"A":"TR−TVC＝TFC＋经济利润，是短期准租金的表达。","B":"是经济租金的定义。","C":"垂直供给不能推出经济租金为零。","D":"租金可把固定供给土地的地租概念推广到其他要素。"},"conceptId":"factor-rent"},{"id":"eco-09-q06","number":6,"group":"生产要素的供给","type":"discussion","stem":"下列判断哪一句是错误的（　　）。","options":{"A":"经济租金属于长期分析，而准租金属于短期分析","B":"经济租金系对某些特定要素而言，而经济利润则是对整个厂商来说的","C":"厂商存在经济利润，则其要素存在经济租金","D":"一种要素在短期内存在准租金，并不意味着在长期中也存在经济利润"},"answer":[],"explanationSupplement":"企业经济利润与特定要素的经济租金是不同概念，前者为正不能推出后者为正。准租金强调短期固定投入；经济租金定义本身可以在给定短期或长期机会成本下使用，所以 A 的绝对表述也有问题。","optionExplanations":{"A":"在比较长期固定供给的地租和短期准租金时可这样区分。一般经济租金并非仅能用于长期。","B":"经济租金属于特定要素，经济利润按整个厂商收支计算。","C":"二者没有这种必然关系。","D":"长期可调整投入、进入退出，不能由短期准租金推出长期经济利润。"},"conceptId":"factor-rent"},{"id":"eco-09-q07","number":7,"group":"生产要素的供给","type":"single","stem":"根据基尼系数的大小，比较下列四个国家中分配最为平均的是（　　）。","options":{"A":"甲国的基尼系数为0.1","B":"乙国的基尼系数为 0.15","C":"丙国的基尼系数为 0.2","D":"丁国的基尼系数为0.18"},"answer":["A"],"explanationSupplement":"在收入定义与样本口径一致时，基尼系数越小表示收入分配越接近完全平等。四个选项中 0.1 最小。","optionExplanations":{"A":"0.1 为最小值。","B":"0.15 大于 0.1。","C":"0.2 为四项最大。","D":"0.18 大于 0.1。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q08","number":8,"group":"生产要素的供给","type":"multiple","stem":"（多选题）表示社会分配公平程度的分析工具是（　　）。","options":{"A":"菲利普斯曲线","B":"洛伦兹曲线","C":"基尼系数","D":"国民消费曲线"},"answer":["B","C"],"explanationSupplement":"洛伦兹曲线画出累计人口和累计收入的对应关系；基尼系数把曲线与完全平等线间的差异汇总为一个数值。二者度量收入分布的均等程度。","optionExplanations":{"A":"研究失业率和通胀率之间的关系。","B":"是分布不平等的图形工具。","C":"是分布不平等的数值指标。","D":"分析收入与消费的关系。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q09","number":9,"group":"生产要素的供给","type":"single","stem":"美国统计学家 M.O洛伦兹提出的洛伦兹曲线反映了国民收入在国民之间的分配状况。一国收入分配越不平等，洛伦兹曲线就越（　　）。","options":{"A":"向横轴凸出","B":"向纵轴凸出","C":"接近原点","D":"远离原点"},"answer":["A"],"explanationSupplement":"横轴是按收入从低到高排列的累计人口比例，纵轴是累计收入比例。如果较低收入群体分得的收入更少，曲线在相同人口比例处更低，向横轴弯曲。若两条曲线相交，不能仅凭某一点比较整体不平等。","optionExplanations":{"A":"在通常的图形比较中，向横轴弯曲意味着累计收入份额更低。","B":"向纵轴凸出并非通常的洛伦兹曲线比较。","C":"原点始终是曲线端点。","D":"另一端也固定为（100%，100%）。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q10","number":10,"group":"生产要素的供给","type":"single","stem":"当基尼系数等于（　　）时，收入分配完全平等，国家没有贫富差距。","options":{"A":"0","B":"0.4","C":"1","D":"100"},"answer":["A"],"explanationSupplement":"基尼系数为 0，意味着洛伦兹曲线与完全平等线重合，每个人的收入相同。这里衡量的是所选的收入指标，收入相同不意味着财富存量也完全相等。","optionExplanations":{"A":"完全平等的基尼系数为 0。","B":"0.4 表示存在收入差距。","C":"1 是理论上的极端不平等上界。","D":"以 0–1 为尺度时，100 不在范围内。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q11","number":11,"group":"生产要素的供给","type":"single","stem":"表示社会分配公平程度的分析工具是（　　）。","options":{"A":"菲利普斯曲线","B":"生产可能性曲线","C":"基尼系数","D":"国民消费曲线"},"answer":["C"],"explanationSupplement":"在四项里，基尼系数是直接反映收入分布差异的量化指标。它需要和收入概念、样本及统计口径一并理解。","optionExplanations":{"A":"菲利普斯曲线处理失业和通胀。","B":"生产可能性曲线处理生产能力和机会成本。","C":"是收入分配均等程度的量化指标。","D":"消费曲线处理收入与消费支出。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q12","number":12,"group":"生产要素的供给","type":"single","stem":"基尼系数是衡量一个国家贫富差距的标准。若设G为基尼系数，G的数值范围为（　　）。","options":{"A":"0≤G≤1","B":"−1≤G≤0","C":"0.5≤G≤1","D":"−1≤G≤−0.5"},"answer":["A"],"explanationSupplement":"在非负收入的标准洛伦兹图形中，基尼系数是平等线与洛伦兹曲线之间面积除以平等线下三角形面积，因此 0≤G≤1。","optionExplanations":{"A":"包含完全平等 0 与极端不平等的理论上界 1。","B":"标准系数不为负。","C":"漏掉 0 到 0.5 的常见取值。","D":"为负数区间，不符合标准定义。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q13","number":13,"group":"生产要素的供给","type":"single","stem":"洛伦兹曲线是用来（　　）。","options":{"A":"表示社会收入分配平均程度的曲线","B":"表示 GDP 与失业率之间关系的曲线","C":"表示税收与税率之间关系的曲线","D":"表示失业与通货膨胀之间关系的曲线"},"answer":["A"],"explanationSupplement":"洛伦兹曲线把人群按收入排序，再画出各累计人口份额获得的累计收入。越远离完全平等线，反映出越强的分配不均等。","optionExplanations":{"A":"直接描述收入分配的均等程度。","B":"与奥肯定律研究的产出和失业更接近。","C":"是拉弗曲线研究的问题。","D":"是菲利普斯曲线研究的问题。"},"conceptId":"lorenz-gini"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter09","number":9,"title":"生产要素市场理论","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-09-生产要素市场理论-离线学习.html","visual":"labour-supply","visualSectionId":"labour-supply","visuals":[{"type":"labour-supply","sectionId":"labour-supply"},{"type":"lorenz-gini","sectionId":"lorenz-gini"}]},"lessons":{"title":"生产要素市场理论","subtitle":"用边际价值理解雇佣决策，比较要素供给和收入分配。","sections":[{"id":"factor-demand","title":"生产要素的派生需求","summary":"用边际产品价值比较追加一单位投入的成本。","bodyHtml":"\u003cp>厂商需要劳动、土地或资本，是因为投入能生产有需求的产品，所以要素需求是\u003cstrong>派生需求\u003c/strong>。边际产品 MP 表示多用一单位投入增加的产量；边际产品价值 \u003cvar>VMP\u003c/var>＝\u003cvar>P\u003c/var>×\u003cvar>MP\u003c/var>。\u003c/p>\u003cp>产品和要素市场均完全竞争时，单家厂商接受产出价格 P 和要素价格 w，内部最优满足 \u003cmark>VMP＝w\u003c/mark>。更一般地，比较边际收益产品 MRP＝MR×MP 与要素边际支出。其他投入和产品价格固定且 MP 递减时，竞争厂商的要素需求曲线与 VMP 曲线重合，向右下倾斜。\u003c/p>","keyTakeaway":"先看给定的是产品市场价格还是投入市场价格，再匹配边际收益与边际支出。","pitfall":"MP 是产量，VMP 是货币价值。行业要素需求还可能因产品价格变化而调整。","example":"工资为 80 元，新增工时多产 5 件且每件卖 20 元，VMP 为 100 元，追加该工时有利。"},{"id":"labour-supply","title":"劳动供给与闲暇","summary":"工资上涨同时改变闲暇的机会成本和购买力。","bodyHtml":"\u003cp>在可选择工时的模型中，工时和闲暇加起来等于可支配时间。工资率提高，少工作一小时放弃的工资更多，\u003cstrong>替代效应\u003c/strong>使人以工作替代闲暇。当闲暇为正常品时，购买力提高带来的\u003cstrong>收入效应\u003c/strong>则使人希望享受更多闲暇。\u003c/p>\u003cp>替代效应较强时，工资上涨使工时增加。收入效应较强时，工资上涨使工时减少，个人劳动供给可能出现\u003cmark>向后弯曲\u003c/mark>的部分。常见示意图在较低工资时向右上、较高工资时向左上。个人的曲线不能直接代表整个市场。\u003c/p>","keyTakeaway":"由周收入和小时工资先求工时，再看工时如何随工资变化。","pitfall":"工资总收入上升不意味着工时上升。","example":"周收入从 80 元增至 135 元，小时工资从 2 元增至 3 元，工时从 40 增至 45。"},{"id":"capital-land","title":"资本和土地的供给","summary":"资本供给涉及跨期储蓄，土地总量常视为固定。","bodyHtml":"\u003cp>资本供给可从储蓄选择理解。利率提高使放弃当前消费的未来回报增加，替代效应推动储蓄；对于净储蓄者，收入效应可能反向。常见图形在较低利率向右上、较高利率可能后弯，实际形状依赖储蓄者的选择及市场条件。\u003c/p>\u003cp>在把土地总量视为给定时，土地供给曲线为竖直线，需求变化主要反映在地租。考虑某种用途的土地时，土地可以跨用途转移，该用途的供给可能随租金变化。\u003c/p>","keyTakeaway":"区分土地总量与某一用途的土地供给，也要区分储蓄的替代与收入效应。","pitfall":"利率提高并不能在任意模型中保证资本供给增加。","example":"某地土地总量固定，但住宅租金提高后，一些原作商业用途的地块可能转作住宅。"},{"id":"factor-rent","title":"租金、准租金与经济租金","summary":"区分固定供给所得、短期固定投入所得和机会成本以上所得。","bodyHtml":"\u003cp>\u003cstrong>经济租金\u003c/strong>等于某要素的实际收入减去使它留在当前用途的最低必要收入，也就是相对于最佳替代用途的机会成本之上的部分。经济租金和企业经济利润分别对应要素和整个厂商。地租是固定供给土地的典型回报。\u003c/p>\u003cp>\u003cstrong>准租金\u003c/strong>讨论短期暂时固定的投入。生产时总收益扣除总可变成本后，留给固定投入的收入为 \u003cmark>TR−TVC＝TFC＋经济利润\u003c/mark>；若经济利润为负，也可写成固定成本减经济亏损。\u003c/p>\u003cp>在要素供给完全有弹性且价格等于保留价格时，经济租金为零。供给数量固定的简单模型中，超过保留收入的支付形成租金。\u003c/p>","keyTakeaway":"经济租金看机会成本，准租金看短期收益扣除可变成本。","pitfall":"企业有经济利润不等于某一要素一定有经济租金，短期准租金也不保证长期经济利润。","example":"一台短期无法转用的设备参与生产，收益 120、可变成本 90、固定成本 25。准租金为 30，经济利润为 5。"},{"id":"lorenz-gini","title":"洛伦兹曲线与基尼系数","summary":"用累计收入份额和面积比描述分配均等程度。","bodyHtml":"\u003cp>将人群按收入由低到高排列。横轴累计人口比重，纵轴累计收入比重。每个累计人口组获得同等比例的收入时，洛伦兹曲线与 45° 平等线重合。在相同人口比例处，洛伦兹曲线越低，说明该人群得到的收入份额越少。\u003c/p>\u003cp>令平等线与洛伦兹曲线之间面积为 A，曲线下方面积为 B，\u003cmark>基尼系数 G＝A/(A＋B)\u003c/mark>。常见非负收入模型下 G 处于 0 到 1 之间，0 表示完全平等，1 是极端不平等的理论上界。比较时使用相同的统计口径。\u003c/p>","keyTakeaway":"曲线表示整个累计分布，基尼系数把它概括为一个数。","pitfall":"基尼系数不直接反映收入水平，也不能把收入分布与财富存量分布等同。","example":"若收入最低的 50% 人群合计获得收入的 20%，曲线上有一点（50%，20%），低于平等线上的（50%，50%）。"}],"mindmap":[{"label":"生产要素需求","target":"factor-demand","children":[{"label":"由产品需求派生","target":"factor-demand"},{"label":"竞争厂商的使用原则 VMP＝要素价格","target":"factor-demand"},{"label":"边际产量递减时需求向右下方倾斜","target":"factor-demand"}]},{"label":"生产要素供给","target":"labour-supply","children":[{"label":"劳动供给","target":"labour-supply","children":[{"label":"替代效应增加工时","target":"labour-supply"},{"label":"正常闲暇的收入效应减少工时","target":"labour-supply"},{"label":"收入效应主导时个人供给可后弯","target":"labour-supply"}]},{"label":"资本供给","target":"capital-land","children":[{"label":"较低利率常见正向斜率","target":"capital-land"},{"label":"较高利率可能向左弯曲","target":"capital-land"}]},{"label":"土地供给","target":"capital-land","children":[{"label":"总量固定时供给为竖线","target":"capital-land"}]},{"label":"租金与准租金","target":"factor-rent","children":[{"label":"固定供给与地租","target":"factor-rent"},{"label":"暂时固定投入与准租金","target":"factor-rent"},{"label":"准租金＝TR−TVC","target":"factor-rent"}]},{"label":"经济租金","target":"factor-rent","children":[{"label":"要素收入超过机会成本的部分","target":"factor-rent"},{"label":"完全弹性供给时经济租金为零","target":"factor-rent"}]},{"label":"洛伦兹曲线与基尼系数","target":"lorenz-gini","children":[{"label":"45° 线代表完全平等","target":"lorenz-gini"},{"label":"基尼系数越小，收入越均等","target":"lorenz-gini"},{"label":"理论范围 0 到 1","target":"lorenz-gini"}]}]}]},"questions":[{"id":"eco-09-q01","number":1,"group":"生产要素的需求曲线","type":"single","stem":"完全竞争厂商的要素使用原则是（　　）。","options":{"A":"边际产品价值等于要素价格","B":"边际收益等于边际成本","C":"边际产量等于边际成本","D":"边际技术替代率等于要素价格之比"},"answer":["A"],"explanationSupplement":"新增一单位要素带来的收入要和该要素的新增支出比较。在产品和要素市场均完全竞争时，产品边际收益等于价格，要素边际支出等于要素价格，所以内点条件为 VMP＝w。","optionExplanations":{"A":"是竞争厂商的直接要素使用条件。","B":"这是用产量单位比较的通用最优条件。","C":"边际产量以产品单位计，不能直接与货币成本相等。","D":"说明给定产量的两种投入配比，未给出最优投入数量。"},"conceptId":"factor-demand"},{"id":"eco-09-q02","number":2,"group":"生产要素的需求曲线","type":"single","stem":"关于生产要素的需求曲线的说法，正确的是（　　）。","options":{"A":"生产要素的需求曲线向右下方倾斜","B":"生产要素的需求曲线是一条水平线","C":"生产要素的需求曲线向右上方倾斜","D":"生产要素的需求和价格成正向变化"},"answer":["A"],"explanationSupplement":"其他投入和产品价格给定且边际产量递减时，新增要素的价值随用量增加而下降。要素价格较低时，厂商才愿意用到边际价值较低的单位。","optionExplanations":{"A":"标准的要素需求曲线向右下倾斜。","B":"在竞争市场中单家厂商面对的要素供给可以是水平线。","C":"和边际产量递减下的方向相反。","D":"要素价格提高通常使同一需求曲线上的需求量减少。"},"conceptId":"factor-demand"},{"id":"eco-09-q03","number":3,"group":"生产要素的供给","type":"single","stem":"某工人在工资率为每小时2美元的时候每周挣80美元，每小时3美元的时候每周挣135美元，由此可以断定（　　）。","options":{"A":"收入效应起着主要作用","B":"替代效应起着主要作用","C":"收入效应和替代效应都没有发生作用","D":"无法确定"},"answer":["B"],"explanationSupplement":"每周工时等于周工资除以小时工资。提薪前 80÷2＝40 小时，提薪后 135÷3＝45 小时。工时增加，说明替代效应超过收入效应。","optionExplanations":{"A":"收入效应主导时，正常闲暇的消费增加，工时下降。","B":"工时从40升到45，支持替代效应主导。","C":"工时改变，不能得出两者均无作用。","D":"给定条件足以判断净效应的方向。"},"conceptId":"labour-supply"},{"id":"eco-09-q04","number":4,"group":"生产要素的供给","type":"single","stem":"某工人在工资率为每小时20元时每周挣800元，在工资率为每小时30元时每周挣1000元，由此可以断定（　　）。","options":{"A":"收入效应起着主要作用","B":"替代效应起着主要作用","C":"收入效应与替代效应发挥同等作用","D":"收入效应与替代效应都未发挥作用"},"answer":["A"],"explanationSupplement":"用周收入除以小时工资：先为 800÷20＝40 小时，后为 1000÷30≈33.3 小时。小时工资提高而工作时间下降，说明收入效应主导。","optionExplanations":{"A":"较高工资带来的收入效应促使该工人增加闲暇。","B":"替代效应主导应表现为工时增加。","C":"两效应大小相同且方向相反时，工时应保持不变。","D":"题目可观察到工时下降。"},"conceptId":"labour-supply"},{"id":"eco-09-q05","number":5,"group":"生产要素的供给","type":"single","stem":"关于租金，以下表述错误的是（　　）。","options":{"A":"准租金为总固定成本与经济利润之和","B":"经济租金为要素收入与其机会成本之差","C":"当要素供给曲线垂直时，经济租金为 0","D":"租金是一般化的地租"},"answer":["C"],"explanationSupplement":"经济租金是要素收入超过保留它所需的机会成本的部分。垂直的市场供给在简单图形中表示数量固定，因而额外支付不会增加数量；水平供给时，价格等于保留价格，没有经济租金。","optionExplanations":{"A":"TR−TVC＝TFC＋经济利润，是短期准租金的表达。","B":"是经济租金的定义。","C":"垂直供给不能推出经济租金为零。","D":"租金可把固定供给土地的地租概念推广到其他要素。"},"conceptId":"factor-rent"},{"id":"eco-09-q06","number":6,"group":"生产要素的供给","type":"discussion","stem":"下列判断哪一句是错误的（　　）。","options":{"A":"经济租金属于长期分析，而准租金属于短期分析","B":"经济租金系对某些特定要素而言，而经济利润则是对整个厂商来说的","C":"厂商存在经济利润，则其要素存在经济租金","D":"一种要素在短期内存在准租金，并不意味着在长期中也存在经济利润"},"answer":[],"explanationSupplement":"企业经济利润与特定要素的经济租金是不同概念，前者为正不能推出后者为正。准租金强调短期固定投入；经济租金定义本身可以在给定短期或长期机会成本下使用，所以 A 的绝对表述也有问题。","optionExplanations":{"A":"在比较长期固定供给的地租和短期准租金时可这样区分。一般经济租金并非仅能用于长期。","B":"经济租金属于特定要素，经济利润按整个厂商收支计算。","C":"二者没有这种必然关系。","D":"长期可调整投入、进入退出，不能由短期准租金推出长期经济利润。"},"conceptId":"factor-rent"},{"id":"eco-09-q07","number":7,"group":"生产要素的供给","type":"single","stem":"根据基尼系数的大小，比较下列四个国家中分配最为平均的是（　　）。","options":{"A":"甲国的基尼系数为0.1","B":"乙国的基尼系数为 0.15","C":"丙国的基尼系数为 0.2","D":"丁国的基尼系数为0.18"},"answer":["A"],"explanationSupplement":"在收入定义与样本口径一致时，基尼系数越小表示收入分配越接近完全平等。四个选项中 0.1 最小。","optionExplanations":{"A":"0.1 为最小值。","B":"0.15 大于 0.1。","C":"0.2 为四项最大。","D":"0.18 大于 0.1。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q08","number":8,"group":"生产要素的供给","type":"multiple","stem":"（多选题）表示社会分配公平程度的分析工具是（　　）。","options":{"A":"菲利普斯曲线","B":"洛伦兹曲线","C":"基尼系数","D":"国民消费曲线"},"answer":["B","C"],"explanationSupplement":"洛伦兹曲线画出累计人口和累计收入的对应关系；基尼系数把曲线与完全平等线间的差异汇总为一个数值。二者度量收入分布的均等程度。","optionExplanations":{"A":"研究失业率和通胀率之间的关系。","B":"是分布不平等的图形工具。","C":"是分布不平等的数值指标。","D":"分析收入与消费的关系。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q09","number":9,"group":"生产要素的供给","type":"single","stem":"美国统计学家 M.O洛伦兹提出的洛伦兹曲线反映了国民收入在国民之间的分配状况。一国收入分配越不平等，洛伦兹曲线就越（　　）。","options":{"A":"向横轴凸出","B":"向纵轴凸出","C":"接近原点","D":"远离原点"},"answer":["A"],"explanationSupplement":"横轴是按收入从低到高排列的累计人口比例，纵轴是累计收入比例。如果较低收入群体分得的收入更少，曲线在相同人口比例处更低，向横轴弯曲。若两条曲线相交，不能仅凭某一点比较整体不平等。","optionExplanations":{"A":"在通常的图形比较中，向横轴弯曲意味着累计收入份额更低。","B":"向纵轴凸出并非通常的洛伦兹曲线比较。","C":"原点始终是曲线端点。","D":"另一端也固定为（100%，100%）。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q10","number":10,"group":"生产要素的供给","type":"single","stem":"当基尼系数等于（　　）时，收入分配完全平等，国家没有贫富差距。","options":{"A":"0","B":"0.4","C":"1","D":"100"},"answer":["A"],"explanationSupplement":"基尼系数为 0，意味着洛伦兹曲线与完全平等线重合，每个人的收入相同。这里衡量的是所选的收入指标，收入相同不意味着财富存量也完全相等。","optionExplanations":{"A":"完全平等的基尼系数为 0。","B":"0.4 表示存在收入差距。","C":"1 是理论上的极端不平等上界。","D":"以 0–1 为尺度时，100 不在范围内。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q11","number":11,"group":"生产要素的供给","type":"single","stem":"表示社会分配公平程度的分析工具是（　　）。","options":{"A":"菲利普斯曲线","B":"生产可能性曲线","C":"基尼系数","D":"国民消费曲线"},"answer":["C"],"explanationSupplement":"在四项里，基尼系数是直接反映收入分布差异的量化指标。它需要和收入概念、样本及统计口径一并理解。","optionExplanations":{"A":"菲利普斯曲线处理失业和通胀。","B":"生产可能性曲线处理生产能力和机会成本。","C":"是收入分配均等程度的量化指标。","D":"消费曲线处理收入与消费支出。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q12","number":12,"group":"生产要素的供给","type":"single","stem":"基尼系数是衡量一个国家贫富差距的标准。若设G为基尼系数，G的数值范围为（　　）。","options":{"A":"0≤G≤1","B":"−1≤G≤0","C":"0.5≤G≤1","D":"−1≤G≤−0.5"},"answer":["A"],"explanationSupplement":"在非负收入的标准洛伦兹图形中，基尼系数是平等线与洛伦兹曲线之间面积除以平等线下三角形面积，因此 0≤G≤1。","optionExplanations":{"A":"包含完全平等 0 与极端不平等的理论上界 1。","B":"标准系数不为负。","C":"漏掉 0 到 0.5 的常见取值。","D":"为负数区间，不符合标准定义。"},"conceptId":"lorenz-gini"},{"id":"eco-09-q13","number":13,"group":"生产要素的供给","type":"single","stem":"洛伦兹曲线是用来（　　）。","options":{"A":"表示社会收入分配平均程度的曲线","B":"表示 GDP 与失业率之间关系的曲线","C":"表示税收与税率之间关系的曲线","D":"表示失业与通货膨胀之间关系的曲线"},"answer":["A"],"explanationSupplement":"洛伦兹曲线把人群按收入排序，再画出各累计人口份额获得的累计收入。越远离完全平等线，反映出越强的分配不均等。","optionExplanations":{"A":"直接描述收入分配的均等程度。","B":"与奥肯定律研究的产出和失业更接近。","C":"是拉弗曲线研究的问题。","D":"是菲利普斯曲线研究的问题。"},"conceptId":"lorenz-gini"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -2260,6 +2268,696 @@ dialog::backdrop { background: var(--backdrop); }
    if(target){ e.preventDefault(); target.focus(); target.select(); }
   }
  });
+})();
+
+(() => {
+  'use strict';
+
+  const fmt = (n, d = 1) => Number(n.toFixed(d)).toString();
+  const samplePath = (fn, start, end, steps, xMap, yMap) => {
+    let d = '';
+    for (let i = 0; i <= steps; i++) {
+      const t = start + (end - start) * (i / steps);
+      const val = fn(t);
+      if (!Number.isFinite(val)) continue;
+      d += (d ? ' L' : 'M') + xMap(t).toFixed(1) + ' ' + yMap(val).toFixed(1);
+    }
+    return d;
+  };
+  const X0 = 66, W = 420, Y0 = 294, H = 252;
+  const wrapStatic = (title, desc, svg) => `
+    <div class="inline-visual-header">
+      <span class="inline-visual-badge">图解示意</span>
+      <h4>${title}</h4>
+      <p>${desc}</p>
+    </div>
+    <div class="static-svg-wrap micro-panel">${svg}</div>`;
+
+  // 1. Chapter 04: Total Utility & Marginal Utility
+  function mountTUMU(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>总效用（TU）与边际效用（MU）递减联动图</h4>
+        <p>拖动消费数量 Q，观察每多消费 1 单位带来的边际效用 MU 递减过程，以及 MU = 0 时总效用 TU 达到最大值。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>总效用 TU</span>
+            <span><i class="chart-line mv-c2-line"></i>边际效用 MU</span>
+          </div>
+          <svg viewBox="0 0 540 390" role="img" aria-label="总效用与边际效用联动图">
+            <path class="chart-axis" d="M66 26V170H498" fill="none" stroke-width="1.4"/>
+            <text x="14" y="18" class="axis-label">总效用 TU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="174">0</text><text x="56" y="106">20</text><text x="56" y="40">40</text></g>
+            <path class="mv-curve-1" data-role="tu"/>
+
+            <path class="chart-axis" d="M66 206V346H498" fill="none" stroke-width="1.4"/>
+            <line class="mv-zero-line" x1="66" x2="498" y1="306" y2="306"/>
+            <text x="14" y="198" class="axis-label">边际效用 MU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="310">0</text><text x="56" y="264">5</text><text x="56" y="218">10</text></g>
+            <path class="mv-curve-2" data-role="mu"/>
+            <line class="mv-guide" data-role="vline" y1="26" y2="346"/>
+            <circle r="5.5" class="mv-dot-1" data-role="pt-tu"/>
+            <circle r="5.5" class="mv-dot-2" data-role="pt-mu"/>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="364">0</text><text x="171" y="364">2</text><text x="276" y="364">4</text><text x="381" y="364">6</text><text x="486" y="364">8</text></g>
+            <text x="276" y="384" text-anchor="middle" class="axis-label">消费数量 Q</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">消费数量 Q <output data-role="q-out">5</output></label>
+          <input type="range" data-role="q" min="0.5" max="8" step="0.5" value="5">
+          <div class="ppf-outputs">
+            <div><span>总效用 TU</span><strong data-role="tu-val">25.0</strong></div>
+            <div><span>边际效用 MU</span><strong data-role="mu-val">0.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-jump="2">递增区间</button>
+            <button type="button" class="button button-secondary" data-jump="5">饱和点(MU=0)</button>
+            <button type="button" class="button button-secondary" data-jump="7">负效用区</button>
+          </div>
+        </div>
+      </div>`;
+    // TU = 10Q - Q^2 (max 25 at Q=5); MU = 10 - 2Q
+    const tuFn = q => 10 * q - q * q;
+    const muFn = q => 10 - 2 * q;
+    const x = q => X0 + (q / 8) * W;
+    const yTU = v => 170 - (v / 32) * 130;
+    const yMU = v => 306 - (v / 10) * 90;
+    root.querySelector('[data-role="tu"]').setAttribute('d', samplePath(tuFn, 0, 8, 60, x, yTU));
+    root.querySelector('[data-role="mu"]').setAttribute('d', samplePath(muFn, 0, 8, 40, x, yMU));
+    const qIn = root.querySelector('[data-role="q"]');
+    function draw() {
+      const q = qIn.valueAsNumber, tu = tuFn(q), mu = muFn(q), xq = x(q).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xq); vl.setAttribute('x2', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cy', yTU(tu).toFixed(1));
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cy', yMU(mu).toFixed(1));
+      root.querySelector('[data-role="q-out"]').value = fmt(q, 1);
+      root.querySelector('[data-role="tu-val"]').textContent = fmt(tu, 1);
+      root.querySelector('[data-role="mu-val"]').textContent = fmt(mu, 1);
+      root.querySelector('[data-role="msg"]').textContent = mu > 0
+        ? `MU=${fmt(mu, 1)} > 0：每多消费 1 单位仍带来正满足，总效用 TU 持续上升，但增速逐渐放缓。`
+        : mu === 0
+          ? '饱和点（Q=5, MU=0）：边际效用降为零，此时总效用 TU 达到最大值 25。'
+          : `MU=${fmt(mu, 1)} < 0：过度消费产生负效用，总效用 TU 反而开始下降。`;
+    }
+    qIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { qIn.value = b.dataset.jump; draw(); }));
+    draw();
+  }
+
+  // 2. Chapter 06: Long-run Average Cost Envelope (static)
+  function mountLACEnvelope(root) {
+    root.innerHTML = wrapStatic(
+      '长期平均成本（LAC）包络线与规模经济',
+      '长期内厂商可自由调整工厂规模，LAC 是无数条短期平均成本曲线（SAC）的下包络线；只有在最低点 E，LAC 才与 SAC 的最低点相切。',
+      `<svg viewBox="0 0 660 280" role="img" aria-label="长期平均成本包络线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M62 28V230H618 M57 35l5-7 5 7 M611 225l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">平均成本 AC</text>
+        <text x="340" y="268" text-anchor="middle" class="axis-label">产量 Q</text>
+        <!-- Vertical split at optimal scale -->
+        <line x1="340" y1="36" x2="340" y2="230" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="200" y="54" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="650">规模经济（LAC 下降）</text>
+        <text x="480" y="54" text-anchor="middle" fill="var(--mv-c2)" font-size="13" font-weight="650">规模不经济（LAC 上升）</text>
+        <!-- SAC curves -->
+        <path d="M110 72 Q175 186 245 104" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="128" y="88" class="tick-label">SAC₁</text>
+        <path d="M250 112 Q340 226 430 112" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="340" y="128" text-anchor="middle" class="tick-label">SAC₂（最优规模）</text>
+        <path d="M435 104 Q505 186 570 72" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="546" y="88" class="tick-label">SAC₃</text>
+        <!-- LAC envelope -->
+        <path d="M96 96 Q340 246 584 96" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="592" y="102" fill="var(--accent)" font-size="13.5" font-weight="700">LAC</text>
+        <!-- Tangent point -->
+        <circle cx="340" cy="171" r="6" class="mv-dot-eq"/>
+        <text x="352" y="190" class="point-label">E（最低点相切）</text>
+      </svg>`
+    );
+  }
+
+  // 3. Chapter 08: Interactive Prisoner's Dilemma Matrix
+  function mountPrisonersMatrix(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>囚徒困境 2×2 支付矩阵（点击任意格子体验纳什均衡）</h4>
+        <p>括号内为（甲的刑期年数，乙的刑期年数），数字越小越好。点击不同策略组合，看双方有没有单方面改选的动机。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart" style="padding:16px">
+          <div class="game-matrix" role="grid" aria-label="囚徒困境支付矩阵">
+            <div class="gm-corner">甲 \\ 乙</div>
+            <div class="gm-head">乙：坦白</div>
+            <div class="gm-head">乙：抵赖</div>
+            <div class="gm-head">甲：坦白</div>
+            <button type="button" class="gm-cell active" data-cell="cc"><strong>(-8年, -8年)</strong><small>纳什均衡 ★</small></button>
+            <button type="button" class="gm-cell" data-cell="cd"><strong>(0年, -10年)</strong><small>甲占便宜</small></button>
+            <div class="gm-head">甲：抵赖</div>
+            <button type="button" class="gm-cell" data-cell="dc"><strong>(-10年, 0年)</strong><small>乙占便宜</small></button>
+            <button type="button" class="gm-cell" data-cell="dd"><strong>(-1年, -1年)</strong><small>帕累托最优</small></button>
+          </div>
+        </div>
+        <div class="ppf-controls">
+          <h5>策略稳定性分析</h5>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const notes = {
+      cc: '【(坦白, 坦白) → 唯一纳什均衡】无论对方选什么，自己选「坦白」刑期都更短（0>-1 且 -8>-10），因此「坦白」是双方的严格占优策略，任何一方单方面改选抵赖都会从 -8 年恶化到 -10 年。',
+      cd: '【(坦白, 抵赖) → 不稳定】此时乙判 10 年；只要乙单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此乙有强烈动机偏离，最终滑向 (坦白, 坦白)。',
+      dc: '【(抵赖, 坦白) → 不稳定】此时甲判 10 年；只要甲单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此甲会立刻偏离，滑向 (坦白, 坦白)。',
+      dd: '【(抵赖, 抵赖) → 帕累托最优但不稳定】虽然两人各判 1 年集体总福利最好，但给定对方抵赖，自己单方面背叛改为坦白可以无罪释放（0 年），所以缺乏约束机制时合作会瓦解。',
+    };
+    const cells = [...root.querySelectorAll('[data-cell]')];
+    function select(key) {
+      cells.forEach(c => c.classList.toggle('active', c.dataset.cell === key));
+      root.querySelector('[data-role="msg"]').textContent = notes[key];
+    }
+    cells.forEach(c => c.addEventListener('click', () => select(c.dataset.cell)));
+    select('cc');
+  }
+
+  // 4. Chapter 09: Lorenz Curve & Gini Coefficient
+  function mountLorenzGini(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>洛伦兹曲线与基尼系数（G = A / (A + B)）</h4>
+        <p>拖动收入分配不平等程度，观察洛伦兹曲线弯曲幅度与阴影面积 A 的变化，直观理解基尼系数 0.4 警戒线。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>绝对平等线（45°）</span>
+            <span><i class="chart-line mv-c1-line"></i>洛伦兹曲线</span>
+            <span><i class="mv-swatch mv-cs"></i>不平等面积 A</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="洛伦兹曲线与基尼系数交互图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">累计收入占比 (%)</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">累计人口占比（从低收入到高收入 %）</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0%</text><text x="171" y="316">25%</text><text x="276" y="316">50%</text><text x="381" y="316">75%</text><text x="486" y="316">100%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">25%</text><text x="56" y="172">50%</text><text x="56" y="109">75%</text><text x="56" y="46">100%</text></g>
+            <path class="mv-fill-cs" data-role="area-a"/>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-1" data-role="curve"/>
+            <text x="248" y="196" class="point-label" data-role="lbl-a">A</text>
+            <text x="382" y="246" class="tick-label" style="font-size:14px">B</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">弯曲指数 k（1=绝对平等，越大越不平等）<output data-role="k-out">2.3</output></label>
+          <input type="range" data-role="k" min="1" max="5" step="0.1" value="2.3">
+          <div class="ppf-outputs">
+            <div><span>基尼系数 G</span><strong data-role="g-val">0.39</strong></div>
+            <div><span>后 50% 人口收入占比</span><strong data-role="b50-val">20%</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // L(p) = p^k => Gini = (k - 1)/(k + 1)
+    const x = p => X0 + p * W;
+    const y = v => Y0 - v * H;
+    const kIn = root.querySelector('[data-role="k"]');
+    function draw() {
+      const k = kIn.valueAsNumber;
+      const gini = (k - 1) / (k + 1);
+      const b50 = Math.pow(0.5, k) * 100;
+      const curveD = samplePath(p => Math.pow(p, k), 0, 1, 50, x, y);
+      root.querySelector('[data-role="curve"]').setAttribute('d', curveD);
+      root.querySelector('[data-role="area-a"]').setAttribute('d', curveD + ` L${x(0)} ${y(0)} Z`);
+      root.querySelector('[data-role="k-out"]').value = fmt(k, 1);
+      root.querySelector('[data-role="g-val"]').textContent = fmt(gini, 2);
+      root.querySelector('[data-role="b50-val"]').textContent = fmt(b50, 0) + '%';
+      root.querySelector('[data-role="msg"]').textContent = gini < 0.2
+        ? 'G < 0.2：收入分配高度平均，洛伦兹曲线紧贴 45° 绝对平等线。'
+        : gini < 0.4
+          ? `G = ${fmt(gini, 2)}（0.2~0.4）：处于相对合理区间；收入较低的一半人口占总收入的 ${fmt(b50, 0)}%。`
+          : `G = ${fmt(gini, 2)} ≥ 0.4：超过国际常用的收入差距警戒线，洛伦兹曲线明显向右下方弯曲。`;
+    }
+    kIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 5. Chapter 09: Backward-bending Labour Supply Curve (static)
+  function mountLabourSupply(root) {
+    root.innerHTML = wrapStatic(
+      '向后弯曲的个人劳动供给曲线',
+      '工资上涨同时产生「替代效应（多干活）」与「收入效应（多买闲暇）」；当工资高过拐点 W* 后，收入效应压过替代效应，劳动供给反向减少。',
+      `<svg viewBox="0 0 640 270" role="img" aria-label="向后弯曲的劳动供给曲线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V224H580 M61 35l5-7 5 7 M573 219l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">工资率 W</text>
+        <text x="323" y="258" text-anchor="middle" class="axis-label">劳动供给时间 L</text>
+        <path d="M130 210 C250 184 320 156 320 124 C320 88 265 64 210 42" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="66" y1="124" x2="320" y2="124" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <circle cx="320" cy="124" r="6" class="mv-dot-eq"/>
+        <text x="48" y="128" text-anchor="end" class="tick-label">W*</text>
+        <text x="336" y="128" class="point-label">拐点（替代效应 = 收入效应）</text>
+        <text x="336" y="76" fill="var(--mv-c2)" font-size="13" font-weight="650">W &gt; W*：收入效应 &gt; 替代效应（高薪更愿享受闲暇，曲线后弯）</text>
+        <text x="336" y="182" fill="var(--accent)" font-size="13" font-weight="650">W &lt; W*：替代效应 &gt; 收入效应（加薪吸引增加工时，曲线右倾）</text>
+      </svg>`
+    );
+  }
+
+  // 6. Chapter 10: Negative Externality & Pigouvian Tax
+  function mountExternality(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>负外部性与庇古税：私人成本（MPC）vs 社会成本（MSC）</h4>
+        <p>拖动“庇古税税率 t”，看如何将外部污染成本内部化，使市场产量从过度生产的 Qm 收敛到社会最优产量 Q*。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>需求 D = MSB</span>
+            <span><i class="chart-line mv-base-line"></i>私人成本 MPC</span>
+            <span><i class="chart-line mv-c2-line"></i>社会成本 MSC</span>
+            <span><i class="mv-swatch mv-dwl"></i>剩余无谓损失</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="负外部性与庇古税纠正图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 / 成本</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">产量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">20</text><text x="276" y="316">40</text><text x="381" y="316">60</text><text x="486" y="316">80</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="248">10</text><text x="56" y="197">20</text><text x="56" y="147">30</text><text x="56" y="96">40</text><text x="56" y="46">50</text></g>
+            <polygon class="mv-fill-dwl" data-role="dwl"/>
+            <path class="mv-curve-1" data-role="d"/>
+            <path class="mv-base-curve" data-role="mpc"/>
+            <path class="mv-curve-2" data-role="msc"/>
+            <path class="mv-curve-3" data-role="tax-s"/>
+            <circle r="5.5" class="mv-dot-2" data-role="opt"/>
+            <circle r="6" class="mv-dot-eq" data-role="cur"/>
+            <text class="point-label" data-role="lbl-opt">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">庇古税税率 t（单位外部成本 = 10）<output data-role="t-out">0</output></label>
+          <input type="range" data-role="t" min="0" max="14" step="1" value="0">
+          <div class="ppf-outputs">
+            <div><span>实际产量 Q</span><strong data-role="q-val">40</strong></div>
+            <div><span>社会最优 Q*</span><strong>30</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row"><button type="button" class="button button-primary" data-role="best">设为最优庇古税 (t=10)</button></div>
+        </div>
+      </div>`;
+    // D: P = 50 - 0.5Q; MPC: P = 10 + 0.5Q (Qm=40, Pm=30); MSC: P = 20 + 0.5Q (Q*=30, P*=35)
+    const x = q => X0 + (q / 80) * W;
+    const y = p => Y0 - (p / 50) * H;
+    root.querySelector('[data-role="d"]').setAttribute('d', `M${x(0)} ${y(50)} L${x(80)} ${y(10)}`);
+    root.querySelector('[data-role="mpc"]').setAttribute('d', `M${x(0)} ${y(10)} L${x(80)} ${y(50)}`);
+    root.querySelector('[data-role="msc"]').setAttribute('d', `M${x(0)} ${y(20)} L${x(60)} ${y(50)}`);
+    root.querySelector('[data-role="opt"]').setAttribute('cx', x(30));
+    root.querySelector('[data-role="opt"]').setAttribute('cy', y(35));
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('x', x(30) - 18);
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('y', y(35) - 10);
+    const tIn = root.querySelector('[data-role="t"]');
+    function draw() {
+      const t = tIn.valueAsNumber;
+      const q = 40 - t;
+      const p = 50 - 0.5 * q;
+      const mscAtQ = 20 + 0.5 * q;
+      root.querySelector('[data-role="tax-s"]').setAttribute('d', `M${x(0)} ${y(10 + t)} L${x(Math.min(80, 80 - 2 * t))} ${y(Math.min(50, 50 + t - Math.max(0, t)))}`);
+      root.querySelector('[data-role="cur"]').setAttribute('cx', x(q).toFixed(1));
+      root.querySelector('[data-role="cur"]').setAttribute('cy', y(p).toFixed(1));
+      root.querySelector('[data-role="dwl"]').setAttribute('points', Math.abs(q - 30) < 0.1 ? '' : `${x(30).toFixed(1)},${y(35).toFixed(1)} ${x(q).toFixed(1)},${y(p).toFixed(1)} ${x(q).toFixed(1)},${y(mscAtQ).toFixed(1)}`);
+      root.querySelector('[data-role="t-out"]').value = String(t);
+      root.querySelector('[data-role="q-val"]').textContent = String(q);
+      root.querySelector('[data-role="msg"]').textContent = t === 0
+        ? '未征税时，厂商只考虑私人成本 MPC，市场过度生产（Q=40 > Q*=30），红色三角为负外部性造成的社会无谓损失。'
+        : t === 10
+          ? '庇古税 t=10 恰好等于边际外部成本：税后供给曲线与 MSC 重合，市场自动收敛到社会最优产量 Q*=30，无谓损失清零！'
+          : t < 10
+            ? `税率 t=${t} 偏低：产量降至 ${q}，无谓损失明显缩小，但仍高于社会最优产量 30。`
+            : `税率 t=${t} 过高：过度征税导致产量降至 ${q}（低于社会最优 30），反而产生新的效率损失。`;
+    }
+    tIn.addEventListener('input', draw);
+    root.querySelector('[data-role="best"]').addEventListener('click', () => { tIn.value = '10'; draw(); });
+    draw();
+  }
+
+  // 7. Chapter 11: Keynesian 45-degree Cross & Multiplier
+  function mountKeynesCross(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>凯恩斯 45° 交叉图与支出乘数效应（k = 1 / (1 − MPC)）</h4>
+        <p>增加自发支出 ΔA 或调高边际消费倾向 MPC，观察计划支出线 AE 上移后均衡产出 Y* 被成倍放大的效果。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>45° 均衡线（AE = Y）</span>
+            <span><i class="chart-line mv-c1-line"></i>当前计划支出 AE</span>
+            <span><i class="chart-line mv-c3-line"></i>初始 AE₀</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="凯恩斯45度交叉图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">计划支出 AE</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">100</text><text x="276" y="316">200</text><text x="381" y="316">300</text><text x="486" y="316">400</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">100</text><text x="56" y="172">200</text><text x="56" y="109">300</text><text x="56" y="46">400</text></g>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-3" data-role="ae0"/>
+            <path class="mv-curve-1" data-role="ae1"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">新增自发支出 ΔA（基准 A₀=50）<output data-role="a-out">+0</output></label>
+          <input type="range" data-role="da" min="0" max="40" step="5" value="0">
+          <label class="range-label">边际消费倾向 MPC <output data-role="c-out">0.75</output></label>
+          <input type="range" data-role="mpc" min="0.5" max="0.8" step="0.05" value="0.75">
+          <div class="ppf-outputs">
+            <div><span>支出乘数 k</span><strong data-role="k-val">4.0×</strong></div>
+            <div><span>均衡产出 Y*</span><strong data-role="y-val">200</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const x = v => X0 + (v / 400) * W;
+    const y = v => Y0 - (v / 400) * H;
+    const daIn = root.querySelector('[data-role="da"]');
+    const cIn = root.querySelector('[data-role="mpc"]');
+    function draw() {
+      const da = daIn.valueAsNumber, c = cIn.valueAsNumber;
+      const k = 1 / (1 - c);
+      const y0 = 50 * k;
+      const ys = (50 + da) * k;
+      const aePath = a => `M${x(0).toFixed(1)} ${y(a).toFixed(1)} L${x(400).toFixed(1)} ${y(Math.min(400, a + c * 400)).toFixed(1)}`;
+      root.querySelector('[data-role="ae0"]').setAttribute('d', aePath(50));
+      root.querySelector('[data-role="ae1"]').setAttribute('d', aePath(50 + da));
+      const yc = Math.min(400, ys);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(yc).toFixed(1)} H${x(yc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(yc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(yc).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(yc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(yc) - 10).toFixed(1));
+      root.querySelector('[data-role="a-out"]').value = '+' + da;
+      root.querySelector('[data-role="c-out"]').value = fmt(c, 2);
+      root.querySelector('[data-role="k-val"]').textContent = fmt(k, 1) + '×';
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 0);
+      root.querySelector('[data-role="msg"]').textContent = da === 0
+        ? `当前 MPC=${fmt(c, 2)}，支出乘数 k=${fmt(k, 1)}。试着增加自发支出 ΔA，观察产出增量如何等于 ΔA × ${fmt(k, 1)}。`
+        : `自发支出仅增加 +${da}，经过乘数 k=${fmt(k, 1)} 放大后，均衡产出从 ${fmt(y0, 0)} 跃升至 ${fmt(ys, 0)}（净增 +${fmt(ys - y0, 0)}）。`;
+    }
+    daIn.addEventListener('input', draw);
+    cIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 8. Chapter 15: LM Three Regions Policy Effectiveness
+  function mountLMRegions(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>LM 三区间：财政政策与货币政策的有效性对比</h4>
+        <p>切换经济所处的 LM 区间（凯恩斯陷阱 / 中间区域 / 古典区域），对比扩张性财政政策（IS 右移）的效果与挤出程度。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c2-line"></i>完整 LM 曲线</span>
+            <span><i class="chart-line mv-base-line"></i>初始 IS₀</span>
+            <span><i class="chart-line mv-c1-line"></i>扩张财政后 IS₁</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="LM三区间政策有效性对比图">
+            <rect x="66" y="42" width="140" height="252" fill="var(--accent-soft)" opacity=".45"/>
+            <rect x="376" y="42" width="110" height="252" fill="var(--warning-soft)" opacity=".45"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">利率 r</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle">
+              <text x="136" y="316">凯恩斯区（水平）</text>
+              <text x="291" y="316">中间区（右倾）</text>
+              <text x="431" y="316">古典区（垂直）</text>
+            </g>
+            <!-- Full LM: horizontal [66..206] at y=248, sloped [206..416] to y=110, vertical at x=416 up to y=48 -->
+            <path d="M66 248 L206 248 L416 110 L416 48" fill="none" class="mv-curve-2"/>
+            <path class="mv-base-curve" data-role="is0"/>
+            <path class="mv-curve-1" data-role="is1"/>
+            <circle r="5" class="mv-dot-3" data-role="e0"/>
+            <circle r="6.5" class="mv-dot-1" data-role="e1"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择当前所处 LM 区间</legend>
+            <label><input type="radio" name="lmr" value="keynes" checked> 凯恩斯区域（流动性陷阱）</label>
+            <label><input type="radio" name="lmr" value="mid"> 中间区域（常态经济）</label>
+            <label><input type="radio" name="lmr" value="classic"> 古典区域（充分就业上限）</label>
+          </fieldset>
+          <div class="ppf-outputs">
+            <div><span>财政政策效果</span><strong data-role="f-val">极有效</strong></div>
+            <div><span>货币政策效果</span><strong data-role="m-val">完全无效</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const cfg = {
+      keynes: { is0: 'M92 174 L164 276', is1: 'M128 174 L200 276', e0: [144, 248], e1: [180, 248], f: '完全有效', m: '无效', msg: '凯恩斯区域（流动性陷阱）：利率已低至底线，增发货币全被持有为现金（货币政策无效）；扩张财政使 IS 右移不推高利率，无挤出效应，财政政策完全有效。' },
+      mid: { is0: 'M216 96 L356 264', is1: 'M260 96 L400 264', e0: [292, 191], e1: [324, 170], f: '部分有效', m: '部分有效', msg: '中间区域：扩张财政使产出上升、利率温和上行，存在「部分挤出效应」；财政政策与货币政策均有效，适合搭配使用。' },
+      classic: { is0: 'M348 106 L466 218', is1: 'M366 64 L484 176', e0: [416, 171], e1: [416, 111], f: '完全无效', m: '完全有效', msg: '古典区域（垂直 LM）：产出已达上限，扩张财政只会把利率推高，导致私人投资被「100% 完全挤出」（财政无效）；此时货币政策完全有效。' },
+    };
+    const radios = [...root.querySelectorAll('input[name="lmr"]')];
+    function draw() {
+      const c = cfg[radios.find(r => r.checked).value];
+      root.querySelector('[data-role="is0"]').setAttribute('d', c.is0);
+      root.querySelector('[data-role="is1"]').setAttribute('d', c.is1);
+      root.querySelector('[data-role="e0"]').setAttribute('cx', c.e0[0]);
+      root.querySelector('[data-role="e0"]').setAttribute('cy', c.e0[1]);
+      root.querySelector('[data-role="e1"]').setAttribute('cx', c.e1[0]);
+      root.querySelector('[data-role="e1"]').setAttribute('cy', c.e1[1]);
+      root.querySelector('[data-role="f-val"]').textContent = c.f;
+      root.querySelector('[data-role="m-val"]').textContent = c.m;
+      root.querySelector('[data-role="msg"]').textContent = c.msg;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    draw();
+  }
+
+  // 9. Chapter 17: Solow Growth Model Steady State
+  function mountSolow(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>索罗增长模型：储蓄率、折旧率与人均资本稳态 k*</h4>
+        <p>调节储蓄率 s 或折旧率 δ，观察实际投资曲线 s·f(k) 与持平投资线 δ·k 的交点（稳态 k*）如何移动。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>人均产出 y = f(k)</span>
+            <span><i class="chart-line mv-c1-line"></i>人均投资 s·f(k)</span>
+            <span><i class="chart-line mv-c2-line"></i>折旧线 δ·k</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="索罗增长模型稳态互动图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">人均产出 / 投资</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">人均资本存量 k</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">25</text><text x="276" y="316">50</text><text x="381" y="316">75</text><text x="486" y="316">100</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">3</text><text x="56" y="172">6</text><text x="56" y="109">9</text><text x="56" y="46">12</text></g>
+            <path class="mv-base-curve" data-role="yk"/>
+            <path class="mv-curve-1" data-role="sfk"/>
+            <path class="mv-curve-2" data-role="dk"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">k*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">储蓄率 s <output data-role="s-out">35%</output></label>
+          <input type="range" data-role="s" min="15" max="60" step="5" value="35">
+          <label class="range-label">折旧率 δ <output data-role="d-out">5%</output></label>
+          <input type="range" data-role="d" min="3" max="10" step="1" value="5">
+          <div class="ppf-outputs">
+            <div><span>稳态人均资本 k*</span><strong data-role="k-val">49</strong></div>
+            <div><span>稳态人均产出 y*</span><strong data-role="y-val">7.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // y = sqrt(k), s*sqrt(k) = d*k => k* = (s/d)^2, y* = s/d
+    const x = k => X0 + (k / 100) * W;
+    const y = v => Y0 - (Math.min(12, v) / 12) * H;
+    root.querySelector('[data-role="yk"]').setAttribute('d', samplePath(k => Math.sqrt(k), 0, 100, 60, x, y));
+    const sIn = root.querySelector('[data-role="s"]');
+    const dIn = root.querySelector('[data-role="d"]');
+    function draw() {
+      const s = sIn.valueAsNumber / 100, d = dIn.valueAsNumber / 100;
+      const ks = Math.pow(s / d, 2);
+      const ys = s / d;
+      const inv = d * ks;
+      root.querySelector('[data-role="sfk"]').setAttribute('d', samplePath(k => s * Math.sqrt(k), 0, 100, 60, x, y));
+      const kEnd = Math.min(100, 12 / d);
+      root.querySelector('[data-role="dk"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(kEnd).toFixed(1)} ${y(d * kEnd).toFixed(1)}`);
+      const kc = Math.min(100, ks), ic = Math.min(12, inv);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(ic).toFixed(1)} H${x(kc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(kc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(ic).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(kc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(ic) - 10).toFixed(1));
+      root.querySelector('[data-role="s-out"]').value = sIn.value + '%';
+      root.querySelector('[data-role="d-out"]').value = dIn.value + '%';
+      root.querySelector('[data-role="k-val"]').textContent = fmt(ks, 0);
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 1);
+      root.querySelector('[data-role="msg"]').textContent = `稳态 k* = (s/δ)² = ${fmt(ks, 0)}，人均产出 y* = ${fmt(ys, 1)}。提高储蓄率 s 只能提升稳态「水平」，在无技术进步时无法永久提高长期「增长率」。`;
+    }
+    sIn.addEventListener('input', draw);
+    dIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 10. Chapter 23: Balance of Payments Account Structure (static)
+  function mountBOPStructure(root) {
+    root.innerHTML = wrapStatic(
+      '国际收支平衡表（BOP）账户结构与恒等关系',
+      '按复式记账法编制，账面总额恒等于 0：经常账户 + 资本和金融账户（不含储备） + 储备资产变动 + 净误差与遗漏 = 0。',
+      `<svg viewBox="0 0 680 236" role="img" aria-label="国际收支平衡表账户结构图" style="width:100%;height:auto;display:block">
+        <g text-anchor="middle">
+          <rect x="16" y="16" width="154" height="132" rx="9" fill="var(--accent-soft)" stroke="var(--accent-line)" stroke-width="1.6"/>
+          <text x="93" y="42" fill="var(--accent)" font-size="13.5" font-weight="700">经常账户</text>
+          <text x="93" y="68" fill="var(--text)" font-size="12">• 货物贸易</text>
+          <text x="93" y="90" fill="var(--text)" font-size="12">• 服务贸易</text>
+          <text x="93" y="112" fill="var(--text)" font-size="12">• 初次收入(股息/利息)</text>
+          <text x="93" y="134" fill="var(--text)" font-size="12">• 二次收入(无偿转移)</text>
+
+          <text x="182" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="194" y="16" width="154" height="132" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="271" y="42" fill="var(--heading)" font-size="13.5" font-weight="700">资本与金融账户</text>
+          <text x="271" y="68" fill="var(--text)" font-size="12">• 直接投资（FDI）</text>
+          <text x="271" y="90" fill="var(--text)" font-size="12">• 证券投资（股/债）</text>
+          <text x="271" y="112" fill="var(--text)" font-size="12">• 金融衍生品</text>
+          <text x="271" y="134" fill="var(--text)" font-size="12">• 贷款与其他投资</text>
+
+          <text x="360" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="372" y="16" width="144" height="132" rx="9" fill="var(--surface)" stroke="var(--mv-c2)" stroke-width="1.5"/>
+          <text x="444" y="42" fill="var(--mv-c2)" font-size="13.5" font-weight="700">储备资产变动</text>
+          <text x="444" y="68" fill="var(--text)" font-size="12">• 外汇储备</text>
+          <text x="444" y="90" fill="var(--text)" font-size="12">• 货币黄金</text>
+          <text x="444" y="112" fill="var(--text)" font-size="12">• 特别提款权 SDR</text>
+          <text x="444" y="134" fill="var(--text)" font-size="12">• IMF 储备头寸</text>
+
+          <text x="528" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="540" y="16" width="124" height="132" rx="9" fill="var(--surface-subtle)" stroke="var(--control-line)" stroke-dasharray="4 3"/>
+          <text x="602" y="64" fill="var(--heading)" font-size="13" font-weight="680">净误差与遗漏</text>
+          <text x="602" y="90" fill="var(--muted)" font-size="11.5">统计口径差异</text>
+          <text x="602" y="110" fill="var(--muted)" font-size="11.5">与漏报轧平项</text>
+        </g>
+        <rect x="16" y="164" width="648" height="54" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+        <text x="340" y="187" text-anchor="middle" fill="var(--heading)" font-size="12.5" font-weight="650">高频考点：国际收支「顺差 / 逆差」通常指前两项（自主性交易）之和；</text>
+        <text x="340" y="207" text-anchor="middle" fill="var(--muted)" font-size="12">顺差导致外汇储备增加（在储备资产项下记为借方负号），从而使整张平衡表借贷轧平为 0。</text>
+      </svg>`
+    );
+  }
+
+  // 11. Chapter 25: Financial Repression Interest Ceiling Gap (static)
+  function mountRepressionGap(root) {
+    root.innerHTML = wrapStatic(
+      '金融抑制：人为利率上限导致的储蓄萎缩与信贷配给缺口',
+      '麦金农—肖模型核心图示：政府将实际利率压低在均衡利率 r* 以下（r₀），导致实际储蓄不足、投资需求过剩，只能依靠非市场信贷配给。',
+      `<svg viewBox="0 0 640 276" role="img" aria-label="金融抑制利率上限与资金缺口图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V226H580 M61 35l5-7 5 7 M573 221l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">实际利率 r</text>
+        <text x="323" y="262" text-anchor="middle" class="axis-label">储蓄 S / 投资 I</text>
+        <!-- I curve downward, S curve upward -->
+        <path d="M126 52 L506 208" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+        <text x="514" y="212" fill="var(--accent)" font-size="13" font-weight="680">投资需求 I(r)</text>
+        <path d="M126 208 L506 52" fill="none" stroke="var(--mv-c2)" stroke-width="2.6"/>
+        <text x="514" y="56" fill="var(--mv-c2)" font-size="13" font-weight="680">储蓄供给 S(r)</text>
+        <!-- Equilibrium -->
+        <circle cx="316" cy="130" r="5.5" class="mv-dot-eq"/>
+        <line x1="66" y1="130" x2="316" y2="130" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="56" y="134" text-anchor="end" class="tick-label">r*</text>
+        <text x="326" y="122" class="point-label">E*（市场均衡）</text>
+        <!-- Ceiling r0 -->
+        <line x1="66" y1="176" x2="540" y2="176" stroke="var(--error)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="56" y="180" text-anchor="end" fill="var(--error)" font-size="12.5" font-weight="680">r₀</text>
+        <line x1="204" y1="176" x2="204" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <line x1="428" y1="176" x2="428" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <text x="204" y="242" text-anchor="middle" class="tick-label">实际储蓄 S₀</text>
+        <text x="428" y="242" text-anchor="middle" class="tick-label">投资需求 I₀</text>
+        <line x1="208" y1="176" x2="424" y2="176" stroke="var(--error)" stroke-width="4.5" opacity=".45"/>
+        <text x="316" y="168" text-anchor="middle" fill="var(--error)" font-size="12.5" font-weight="680">资金短缺 / 非价格信贷配给区</text>
+      </svg>`
+    );
+  }
+
+  // 12. Chapter 26: Risk Management 4-Quadrant Matrix (static)
+  function mountRiskMatrix(root) {
+    root.innerHTML = wrapStatic(
+      '风险管理四象限矩阵：按「损失频率 × 损失程度」选工具',
+      '保险最适合处理「低频率、高损失」的风险；高频低损靠自留与防损，高频高损则应直接回避。',
+      `<svg viewBox="0 0 660 272" role="img" aria-label="风险管理四象限矩阵图" style="width:100%;height:auto;display:block">
+        <text x="364" y="20" text-anchor="middle" class="axis-label">损失频率（发生可能性）</text>
+        <text x="234" y="42" text-anchor="middle" class="tick-label">低频率</text>
+        <text x="494" y="42" text-anchor="middle" class="tick-label">高频率</text>
+        <text x="26" y="156" text-anchor="middle" class="axis-label" transform="rotate(-90 26 156)">损失程度</text>
+        <text x="80" y="106" text-anchor="end" class="tick-label">高损失</text>
+        <text x="80" y="212" text-anchor="end" class="tick-label">低损失</text>
+
+        <!-- Q1: Low freq, High severity -> Insurance -->
+        <rect x="94" y="52" width="268" height="100" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+        <text x="228" y="84" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">风险转移（商业保险 ★）</text>
+        <text x="228" y="108" text-anchor="middle" fill="var(--text)" font-size="12">低频高损：火灾、重疾、重大车祸</text>
+        <text x="228" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">保险最核心的适用场景（杠杆高）</text>
+
+        <!-- Q2: High freq, High severity -> Avoidance -->
+        <rect x="374" y="52" width="268" height="100" rx="9" fill="var(--error-soft)" stroke="var(--error-line)" stroke-width="1.5"/>
+        <text x="508" y="84" text-anchor="middle" fill="var(--error)" font-size="14" font-weight="700">风险回避</text>
+        <text x="508" y="108" text-anchor="middle" fill="var(--text)" font-size="12">高频高损：危房施工、高危违规作业</text>
+        <text x="508" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">直接放弃或退出该项活动</text>
+
+        <!-- Q3: Low freq, Low severity -> Retention -->
+        <rect x="94" y="162" width="268" height="96" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="228" y="194" text-anchor="middle" fill="var(--heading)" font-size="14" font-weight="700">风险自留</text>
+        <text x="228" y="218" text-anchor="middle" fill="var(--text)" font-size="12">低频低损：小额日常磕碰、小件遗失</text>
+        <text x="228" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">自行承担更经济，无需额外投保</text>
+
+        <!-- Q4: High freq, Low severity -> Loss control / Prevention -->
+        <rect x="374" y="162" width="268" height="96" rx="9" fill="var(--warning-soft)" stroke="var(--warning)" stroke-width="1.5"/>
+        <text x="508" y="194" text-anchor="middle" fill="var(--warning)" font-size="14" font-weight="700">损失控制（预防与抑制）</text>
+        <text x="508" y="218" text-anchor="middle" fill="var(--text)" font-size="12">高频低损：装防盗门、定期消防检查</text>
+        <text x="508" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">降低发生概率 + 控制损失规模</text>
+      </svg>`
+    );
+  }
+
+  const registry = {
+    'tu-mu': mountTUMU,
+    'lac-envelope': mountLACEnvelope,
+    'prisoners-matrix': mountPrisonersMatrix,
+    'lorenz-gini': mountLorenzGini,
+    'labour-supply': mountLabourSupply,
+    externality: mountExternality,
+    'keynes-cross': mountKeynesCross,
+    'lm-regions': mountLMRegions,
+    solow: mountSolow,
+    'bop-structure': mountBOPStructure,
+    'repression-gap': mountRepressionGap,
+    'risk-matrix': mountRiskMatrix,
+  };
+
+  document.querySelectorAll('[data-micro-visual]').forEach(container => {
+    const fn = registry[container.dataset.microVisual];
+    if (fn) fn(container);
+  });
 })();
 </script>
 </body>

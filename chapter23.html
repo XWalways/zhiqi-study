@@ -960,6 +960,14 @@ dialog::backdrop { background: var(--backdrop); }
 .micro-panel .axis-label, .market-panel .axis-label { font-size: 13px; font-weight: 600; }
 .micro-panel .tick-label, .market-panel .tick-label { font-size: 12px; }
 .micro-panel .point-label { font-size: 14px; }
+.game-matrix { display: grid; grid-template-columns: 96px repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gm-corner, .gm-head { display: grid; place-items: center; padding: 10px 8px; border-radius: 8px; background: var(--surface-subtle); color: var(--heading); font-size: 13px; font-weight: 650; text-align: center; }
+.gm-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 82px; padding: 10px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--heading); transition: border-color .15s ease, background .15s ease; }
+.gm-cell strong { font: 680 16px var(--font-number); }
+.gm-cell small { font-size: 12px; color: var(--muted); }
+.gm-cell:hover { border-color: var(--control-line); }
+.gm-cell.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.gm-cell.active small { color: var(--accent); font-weight: 620; }
 </style>
 </head>
 <body data-page="chapter" data-offline="false" data-flat-downloads="true">
@@ -1104,7 +1112,7 @@ dialog::backdrop { background: var(--backdrop); }
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 <script src="catalog.js"></script>
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter23","number":6,"title":"国际金融","moduleId":"finance","moduleTitle":"金融基础","downloadName":"金融基础-06-国际金融-离线学习.html","visuals":[]},"lessons":{"title":"国际金融","subtitle":"理解国际收支怎样记账、汇率怎样标价，以及官方储备如何使用。","sections":[{"id":"bop-accounts","title":"国际收支与账户结构","summary":"国际收支平衡表记录居民与非居民在一段时间内的经济交易。","bodyHtml":"\u003cp>\u003cstrong>居民身份\u003c/strong>按经济利益中心等统计标准判断。交易按统一货币估值并采用复式记账，资料不完全一致形成的差额列为净误差与遗漏。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>账户\u003c/th>\u003cth>主要内容\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>经常账户\u003c/td>\u003ctd>货物、服务、初次收入、二次收入。跨境投资利润通常属于初次收入。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>资本账户\u003c/td>\u003ctd>资本转移，非生产非金融资产取得与处置。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>金融账户\u003c/td>\u003ctd>直接投资、证券投资、金融衍生品、其他投资、储备资产等。\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>国家外汇管理局公布人民币、美元和 SDR 计值表。人民币和 SDR 季度数据由美元计值数据按相应平均汇率折算。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.safe.gov.cn/safe/2026/0929/27942.html\">国家外汇管理局国际收支平衡表\u003c/a>\u003c/p>","keyTakeaway":"跨境货物交易记经常账户，交易对应的金融资产变动记金融账户。","pitfall":"“经常转移”对应二次收入，利润通常属于初次收入。账户一级分类与下属明细的范围不同。","example":"居民企业购买境外企业股票并达到证券投资分类条件，交易记金融账户。后续收到股息通常记经常账户初次收入。"},{"id":"bop-balances","title":"顺差、逆差与国际收支调节","summary":"先识别是贸易余额、经常账户余额还是综合差额。","bodyHtml":"\u003cp>货物进出口差额形成货物贸易余额，货物和服务再加初次及二次收入构成经常账户。基本差额等分析指标的口径要结合定义。狭义资本账户与含金融流动的合并项目也要分开。\u003c/p>\u003cp>持续逆差可能带来汇率贬值、外汇储备下降或融资压力，具体取决于汇率制度、资本流动和央行操作。逆差可以由外来融资弥补，也可能随着信心下降出现外流。资本流动、储备和估值必须分别判断。\u003c/p>\u003cp>支出变更政策调节总支出，汇率等支出转换政策影响支出在本国与外国产品间的分配。储备或国际融资可以缓冲短期缺口，长期结构性失衡还需要调整生产率或外贸结构。\u003c/p>","keyTakeaway":"经常账户有顺差时，仍需检查金融账户和储备资产。","pitfall":"复式记账的账面总额轧平，某一分析账户仍可呈现顺差或逆差。贸易逆差也可能与资本流入同时发生。","example":"国内需求减弱、进口下降时，其他项目稳定可使贸易余额改善。若同时外需下降，出口减少可能抵销这一作用。"},{"id":"fx-quotes","title":"汇率标价与汇率制度","summary":"先认清单位货币，再判断报价变动意味着谁升值。","bodyHtml":"\u003cp>汇率是两种货币的相对价格。\u003cstrong>直接标价\u003c/strong>用本币计量单位外币，\u003cstrong>间接标价\u003c/strong>用外币计量单位本币。两者互为倒数。在直接标价下，报价提高表示买同一单位外币需更多本币，即本币贬值。\u003c/p>\u003cp>可按形成机制区分官方汇率和市场汇率，按交割期限区分即期和远期，按参照范围区分双边和多边汇率。浮动汇率主要受外汇市场供求影响。人民币实行参考一篮子货币、有管理的浮动汇率制度，以市场供求为基础。核验于 2026 年 11 月 11 日。\u003ca href=\"https://xining.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/f5c4690f2cbd40918bf24c2d39ac58af/b3e8c1a2b07d4facb38f4a7426415252/2025081819132397368.pdf\">中国人民银行货币政策执行报告\u003c/a>\u003c/p>","keyTakeaway":"1 个百分比基点为 0.01 个百分点，写成小数是 0.0001。外汇报价最小点位还看货币对惯例。","pitfall":"买入价与卖出价按交易方视角区分，与直接或间接标价属于不同分类。","example":"1 美元从 7.20 元变为 7.00 元时，直接标价下降，人民币对美元升值。"},{"id":"fx-effects","title":"汇率变动及其经济影响","summary":"从贸易价格、资本流动、物价和资产负债表判断传导。","bodyHtml":"\u003cp>汇率受国际收支、利率差、通胀差、央行操作、宏观政策和市场预期等影响。其他条件给定，本币升值可降低进口品本币价格，抑制输入性通胀，并提高出口品的外币价格。出口量、进口量和贸易余额还取决于计价、价格传递、需求弹性与合同调整。\u003c/p>\u003cp>汇率也改变外币资产和负债的本币价值，可通过资产负债表、投资和资本流动影响增长、就业及外债压力。\u003c/p>","keyTakeaway":"先换算价格，再分析数量和总金额。","pitfall":"升值只能给出特定渠道的方向，资本流动还要考虑预期回报、风险和资金配置。","example":"商品售价 100 美元且美元价格固定时，汇率由 1 美元兑 6 元变为兑 5 元，进口商支付的人民币从 600 元降到 500 元。"},{"id":"reserve-assets","title":"外汇与国际储备","summary":"外汇是可用于国际清偿的资产和支付工具，官方储备是货币当局可支配的储备资产。","bodyHtml":"\u003cp>《外汇管理条例》列举了外币现钞、外币支付凭证或工具、外币证券、特别提款权和其他外汇资产。国际储备通常包括\u003cstrong>货币性黄金、外汇储备、IMF 储备头寸与 SDR\u003c/strong>。备用信用额度可以提供融资来源，未支用额度本身不构成已经持有的储备资产。\u003c/p>\u003cp>储备可用于国际支付、支持汇率操作和维持融资信心。外债期限、外部融资能力、进口规模和汇率制度会影响所需储备水平。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.safe.gov.cn/heilongjiang/file/file/20170728/c8dd4cfd7f9b432faa691b7d23395809.pdf\">《中华人民共和国外汇管理条例》\u003c/a> · \u003ca href=\"https://www.imf.org/external/pubs/ft/ar/2025/pdfs/imf-annual-report-2025-appendices.pdf\">IMF 国际储备统计\u003c/a>\u003c/p>","keyTakeaway":"外汇储备是国际储备的一个组成部分。","pitfall":"私人持有的外币证券不自动成为官方储备。顺差是否转化为外汇储备，取决于货币当局是否取得相关资产。","example":"若央行用外汇储备向市场供给美元、换回本币，该笔操作会减少央行外汇资产。"},{"id":"sdr","title":"特别提款权与货币篮子","summary":"SDR 是 IMF 创设的国际储备资产和记账单位，合资格持有者可以按规则使用。","bodyHtml":"\u003cp>IMF 会员和获准的官方机构可以持有 SDR。会员可以按规则将 SDR 换取可自由使用货币，也可用于部分 IMF 相关支付。私人商户不能像使用日常货币一样直接收取 SDR。\u003c/p>\u003cp>人民币于 2016 年 10 月 1 日加入 SDR 货币篮子。自 2022 年 8 月起的估值权重为美元 43.38%、欧元 29.31%、人民币 12.28%、日元 7.59%、英镑 7.44%。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.imf.org/en/About/Factsheets/Sheets/2023/Special-Drawing-Rights-SDR\">IMF 特别提款权说明\u003c/a> · \u003ca href=\"https://www.elibrary.imf.org/display/book/9798229008341/CH027.xml\">IMF 估值决议与历史\u003c/a>\u003c/p>","keyTakeaway":"区分估值篮子货币、SDR 持有资格和实际支付用途。","pitfall":"篮子权重用于估值调整，固定货币数量按每日市场汇率计值，因此日常价值占比会变化。","example":"央行可按规则将所持 SDR 兑换为美元，再用于对外支付。"}],"mindmap":[{"label":"国际收支与汇率变动","target":"bop-accounts","children":[{"label":"国际收支平衡表","target":"bop-accounts","children":[{"label":"经常账户","target":"bop-accounts"},{"label":"资本账户","target":"bop-accounts"},{"label":"金融账户","target":"bop-accounts"},{"label":"净误差与遗漏","target":"bop-accounts"}]},{"label":"主要差额","target":"bop-balances","children":[{"label":"贸易差额","target":"bop-balances"},{"label":"经常账户差额","target":"bop-balances"},{"label":"基本账户差额","target":"bop-balances"},{"label":"综合账户差额","target":"bop-balances"}]},{"label":"持续失衡的影响","target":"bop-balances","children":[{"label":"外汇储备","target":"bop-balances"},{"label":"对外支付与债务","target":"bop-balances"},{"label":"进口、增长与就业","target":"bop-balances"},{"label":"资本流动","target":"bop-balances"}]},{"label":"失衡调节","target":"bop-balances","children":[{"label":"支出变更","target":"bop-balances"},{"label":"汇率与支出转换","target":"bop-balances"},{"label":"储备缓冲","target":"bop-balances"},{"label":"直接管理与国际金融合作","target":"bop-balances"}]},{"label":"汇率与变动因素","target":"fx-quotes","children":[{"label":"直接与间接标价","target":"fx-quotes"},{"label":"汇率制度","target":"fx-quotes"},{"label":"国际收支与通胀、利差","target":"fx-quotes"},{"label":"政策操作与市场预期","target":"fx-quotes"}]},{"label":"汇率变化的影响","target":"fx-effects","children":[{"label":"贸易收支","target":"fx-effects"},{"label":"外债压力","target":"fx-effects"},{"label":"资本流动","target":"fx-effects"},{"label":"物价、增长与就业","target":"fx-effects"}]}]},{"label":"外汇与国际储备","target":"reserve-assets","children":[{"label":"外汇类型","target":"reserve-assets","children":[{"label":"外国货币","target":"reserve-assets"},{"label":"外币支付凭证和工具","target":"reserve-assets"},{"label":"外币证券","target":"reserve-assets"},{"label":"特别提款权","target":"sdr"},{"label":"其他外汇资产","target":"reserve-assets"}]},{"label":"官方储备的构成","target":"reserve-assets","children":[{"label":"货币性黄金","target":"reserve-assets"},{"label":"外汇储备","target":"reserve-assets"},{"label":"IMF 储备头寸","target":"reserve-assets"},{"label":"特别提款权","target":"sdr","children":[{"label":"可使用的主体","target":"sdr"},{"label":"SDR 货币篮子","target":"sdr"}]}]},{"label":"国际储备的作用","target":"reserve-assets","children":[{"label":"弥补国际支付缺口","target":"reserve-assets"},{"label":"支持汇率操作","target":"reserve-assets"},{"label":"维护国际信用与投资环境","target":"reserve-assets"}]}]}]},"questions":[{"id":"fin-06-q01","number":1,"group":"国际收支与汇率变动","type":"single","stem":"以汇率形成机制为标准，汇率可分为（　　）。","options":{"A":"基本汇率与套算汇率","B":"官方汇率与市场汇率","C":"即期汇率与远期汇率","D":"双边汇率与多边汇率"},"answer":["B"],"explanationSupplement":"按形成机制区分官方报价和市场形成的汇率。","optionExplanations":{"A":"按是否经交叉换算区分。","B":"按交割期限区分。","C":"对应形成机制。","D":"按比较范围区分。"},"conceptId":"fx-quotes"},{"id":"fin-06-q02","number":2,"group":"国际收支与汇率变动","type":"single","stem":"外汇交易报价中，1个基点（BP）是指（　　）。","options":{"A":"0.001","B":"0.0001","C":"0.00001","D":"0.000001"},"answer":["B"],"explanationSupplement":"一个基点是百分之一百分点，写成小数为 0.0001。","optionExplanations":{"A":"等于 10 个基点。","B":"等于 1 个基点。","C":"等于 0.1 个基点。","D":"等于 0.01 个基点。"},"conceptId":"fx-quotes"},{"id":"fin-06-q03","number":3,"group":"国际收支与汇率变动","type":"single","stem":"在浮动汇率制度下，汇率是由（　　）。","options":{"A":"外汇市场上的供求关系自发决定的","B":"两个国家的央行之间约定的","C":"两个国家的法定货币的币值决定的","D":"外汇市场上货币流通呈自发决定的"},"answer":["A"],"explanationSupplement":"浮动汇率下，外币供求变化主要通过市场价格反映。","optionExplanations":{"A":"是一般机制。","B":"共同约定更接近固定安排。","C":"法定货币身份不决定市场价格。","D":"流通量只是可能影响供求的因素。"},"conceptId":"fx-quotes"},{"id":"fin-06-q04","number":4,"group":"国际收支与汇率变动","type":"single","stem":"对外证券投资属于国际收支平衡表的（　　）。","options":{"A":"经常项目","B":"贸易项目","C":"资本项目","D":"金融项目"},"answer":["D"],"explanationSupplement":"对外证券投资涉及股票或债券等金融资产变动，计入金融账户。","optionExplanations":{"A":"记录货物、服务和收入等。","B":"主要记录货物和服务的贸易。","C":"狭义资本账户主要记录资本转移等。","D":"证券投资是金融账户子项。"},"conceptId":"bop-accounts"},{"id":"fin-06-q05","number":5,"group":"国际收支与汇率变动","type":"single","stem":"国际收支平衡表根据（　　）编制，每笔经济交易同时在两方反映，原则上借贷方恒等。","options":{"A":"复式记账原理","B":"业务核算","C":"单式记账原理","D":"统计原理"},"answer":["A"],"explanationSupplement":"每笔跨境交易同时记录两方面的经济价值，采用复式记账。","optionExplanations":{"A":"能实现两方同时反映。","B":"未指明借贷配对方法。","C":"单式记录没有对应分录。","D":"未指明具体方法。"},"conceptId":"bop-accounts"},{"id":"fin-06-q06","number":6,"group":"国际收支与汇率变动","type":"discussion","stem":"下列关于国际收支逆差对经济的影响的说法错误的是（　　）。","options":{"A":"逆差导致该国贸易条件恶化","B":"可能导致该国对外支付能力增加","C":"本国收入下降和失业增加","D":"资本外流"},"answer":[],"explanationSupplement":"持续逆差若消耗储备，可能削弱对外支付能力。贸易条件、收入和资本流向还取决于冲击来源及政策，不能由逆差单独推出。","optionExplanations":{"A":"贸易条件取决于进出口相对价格。","B":"逆差并不会普遍提高对外支付能力，融资流入时储备仍可能改善。","C":"逆差可能与强劲内需同时出现。","D":"资本流入可为经常账户逆差融资，外流也可能在其他条件下发生。"},"conceptId":"bop-balances"},{"id":"fin-06-q07","number":7,"group":"国际收支与汇率变动","type":"single","stem":"本国货币对外币升值后会引起的经济现象是（　　）。","options":{"A":"本国出口商品量增加","B":"国内物价水平下降","C":"资本外流","D":"国内通货膨胀压力增加"},"answer":["B"],"explanationSupplement":"本币升值会降低固定外币价格的进口品本币成本，有助于缓和输入性物价压力。","optionExplanations":{"A":"出口商品对外国消费者可能变贵。","B":"符合题设常见价格传导。","C":"资本流动取决于预期和收益。","D":"进口价格渠道通常缓和压力。"},"conceptId":"fx-effects"},{"id":"fin-06-q08","number":8,"group":"国际收支与汇率变动","type":"single","stem":"直接标价法是以本国货币表示外国货币的价格，因此可以称为（　　）。","options":{"A":"本币汇率","B":"外汇汇率","C":"买入汇率","D":"卖出汇率"},"answer":["B"],"explanationSupplement":"直接标价用一定数量本币购买一单位外币，表示外币的本币价格。","optionExplanations":{"A":"本币的外币价格对应间接标价。","B":"对应外币价格。","C":"买入价按交易者方向区分。","D":"卖出价也按交易者方向区分。"},"conceptId":"fx-quotes"},{"id":"fin-06-q09","number":9,"group":"国际收支与汇率变动","type":"single","stem":"在直接标价法下，一定单位的外币折算的本国货币增多，说明本币汇率（　　）。","options":{"A":"上升","B":"下降","C":"不变","D":"难以确定"},"answer":["B"],"explanationSupplement":"同样数量外币需要更多本币，表示本币对外币贬值。题中“本币汇率”按本币价值理解。","optionExplanations":{"A":"外币的本币报价上升。","B":"本币价值下降。","C":"购买同额外币所需本币变多。","D":"给定报价单位，方向确定。"},"conceptId":"fx-quotes"},{"id":"fin-06-q10","number":10,"group":"国际收支与汇率变动","type":"single","stem":"以下关于汇率的说法中错误的是（　　）。","options":{"A":"汇率是两种货币之间的相对价格","B":"汇率的直接标价法可以表示为1单位外币等于多少本币","C":"我国的汇率报价一般采用直接标价法","D":"我国的汇率报价一般采用间接标价法"},"answer":["D"],"explanationSupplement":"在常见人民币直接标价中，外币单位固定，用人民币表示它的价格。","optionExplanations":{"A":"汇率是相对价格。","B":"符合直接标价定义。","C":"常见人民币报价可用直接标价。","D":"将通常标价方向写反。"},"conceptId":"fx-quotes"},{"id":"fin-06-q11","number":11,"group":"国际收支与汇率变动","type":"single","stem":"在经济萧条时期，由于国内需求不足，进出口业务会发生相应的变动，则国际收支可能出现（　　）。","options":{"A":"平衡","B":"逆差","C":"不确定","D":"顺差"},"answer":["D"],"explanationSupplement":"国内需求不足可能减少进口，其他条件不变时贸易余额可改善，因而存在顺差的可能。","optionExplanations":{"A":"可能出现，但未体现进口收缩的典型方向。","B":"若出口或资本流入下降更多也可能出现。","C":"要推断实际余额仍需其他信息。","D":"是题目关注的进口下降情形。"},"conceptId":"bop-balances"},{"id":"fin-06-q12","number":12,"group":"国际收支与汇率变动","type":"single","stem":"在实践中，由于资料来源不一、不全以及错漏等原因，借贷两方无法轧平。为了轧平起见，就在国际收支平衡表中设立了（　　）。","options":{"A":"经常项目","B":"资本项目","C":"净误差与遗漏项目","D":"国际储备变动额"},"answer":["C"],"explanationSupplement":"净误差与遗漏是实务编表中的平衡项，反映数据来源、记录时点和统计覆盖等差异。","optionExplanations":{"A":"是主要实质账户。","B":"记录资本转移等。","C":"用于平衡独立统计产生的差异。","D":"储备变化有单独的金融账户项目。"},"conceptId":"bop-accounts"},{"id":"fin-06-q13","number":13,"group":"国际收支与汇率变动","type":"single","stem":"A 国与B 国进行自由贸易，A国从B国进口汽车，向B国出口粮食，如果从现在开始A 国对进口汽车征收关税，那么该征税行为将导致（　　）。","options":{"A":"A 国的进口增加","B":"A 国的进口减少","C":"B 国的出口增加","D":"B 国的进口减少"},"answer":["B"],"explanationSupplement":"给定其他条件，关税提高进口汽车的本国价格，通常压低被征税汽车的进口需求。","optionExplanations":{"A":"与该品需求变化方向相反。","B":"符合对进口汽车的直接影响。","C":"B 国向 A 国出口汽车通常减少。","D":"B 国进口粮食的变化需另作分析。"},"conceptId":"fx-effects"},{"id":"fin-06-q14","number":14,"group":"国际收支与汇率变动","type":"single","stem":"一般而言，由（　　）引起的国际收支失衡是长期的且持久的。","options":{"A":"经济周期更迭","B":"货币价值变动","C":"预期目标改变","D":"经济结构滞后"},"answer":["D"],"explanationSupplement":"产业与贸易结构长期不适应外部变化，可能造成持续失衡。","optionExplanations":{"A":"主要描述周期性波动。","B":"持续性取决于冲击和调整。","C":"预期可能迅速变化。","D":"结构调整通常耗时较长。"},"conceptId":"bop-balances"},{"id":"fin-06-q15","number":15,"group":"国际收支与汇率变动","type":"single","stem":"一国国际收支顺差会使（　　）。","options":{"A":"外国对该国货币需求增加，该国货币汇率上升","B":"外国对该国货币需求减少，该国货币汇率下跌","C":"外国对该国货币需求增加，该国货币汇率下跌","D":"外国对该国货币需求减少，该国货币汇率上升"},"answer":["A"],"explanationSupplement":"在简化外汇供求框架下，顺差可能增加本币需求和本币升值压力。实际汇率也受资本流动和干预影响。","optionExplanations":{"A":"符合该市场压力。","B":"两个方向和题设机制相反。","C":"需求增加通常提高本币价值。","D":"需求减少通常降低本币价值。"},"conceptId":"bop-balances"},{"id":"fin-06-q16","number":16,"group":"国际收支与汇率变动","type":"discussion","stem":"国际收支出现巨额逆差时，会导致（　　）。","options":{"A":"本币汇率贬值，资本流入","B":"本币汇率升值，资本流出","C":"本币汇率升值，资本流入","D":"本币汇率贬值，资本流出"},"answer":[],"explanationSupplement":"逆差可能产生贬值压力。资本流动仍取决于融资渠道、收益预期与风险，经常账户逆差也可与资本净流入并存。","optionExplanations":{"A":"外来融资弥补经常账户缺口时可能出现。","B":"逆差本身不支持升值方向。","C":"升值和流入都需额外条件。","D":"资本外流冲击时可能出现。"},"conceptId":"bop-balances"},{"id":"fin-06-q17","number":17,"group":"国际收支与汇率变动","type":"single","stem":"将一国货币币值的升高定义升值，那么对该国来说，将导致（　　）。","options":{"A":"直接标价法汇率值将减小，间接标价法下汇率值将减小","B":"直接标价法汇率值将减小，间接标价法下汇率值将增大","C":"直接标价法汇率值将增大，间接标价法下汇率值将减小","D":"直接标价法汇率值将增大，间接标价法下汇率值将增大"},"answer":["B"],"explanationSupplement":"本币升值后，一单位外币能换到的本币变少，一单位本币能换到的外币变多。","optionExplanations":{"A":"间接报价会上升。","B":"直接报价下降、间接报价上升。","C":"两个方向都写反。","D":"直接报价会下降。"},"conceptId":"fx-quotes"},{"id":"fin-06-q18","number":18,"group":"国际收支与汇率变动","type":"discussion","stem":"在我国的国际收支平衡表中，各种实物和资产的往来均以（　　）作为计算单位。","options":{"A":"人民币","B":"美元","C":"欧元","D":"英镑"},"answer":[],"explanationSupplement":"国家外汇管理局以美元计值编制，并公布人民币与 SDR 折算表。题目询问计算单位，未区分编制基础与发布口径。","optionExplanations":{"A":"是公布口径之一。","B":"是季度折算所依据的基础计值。","C":"表中所列其他单位为 SDR。","D":"该公布表未列英镑。"},"conceptId":"bop-accounts"},{"id":"fin-06-q19","number":19,"group":"国际收支与汇率变动","type":"discussion","stem":"目前，我国的国际收支中，所占比重最大的是（　　）。","options":{"A":"贸易收支","B":"经常转移","C":"资本项目收支","D":"无偿转让"},"answer":[],"explanationSupplement":"货物贸易是我国国际收支的重要部分。比较所占比重要指定统计期间、具体项目和分母。2026 年上半年可用外汇局公布表核算。","optionExplanations":{"A":"在相关期间及比较口径下可占较大比重。","B":"属经常账户相关收入类别。","C":"狭义资本账户和金融账户需区分。","D":"属于无对价转移的概念，可能与其他选项口径重叠。"},"conceptId":"bop-balances"},{"id":"fin-06-q20","number":20,"group":"国际收支与汇率变动","type":"single","stem":"假设美元和人民币的汇率从1美元兑换6元人民币变为1美元兑换5元人民币，那么（　　）。","options":{"A":"美国商品在中国变得相对便宜，增加了中国的进口需求","B":"中国商品在美国变得相对便宜，增加了美国的进口需求","C":"美国商品在中国变得相对昂贵，降低了中国的进口需求","D":"中国商品在美国变得相对昂贵，增加了美国的进口需求"},"answer":["A"],"explanationSupplement":"人民币升值，给定美元价格的美国商品在中国更便宜。价格下降通常提高中国的进口需求。","optionExplanations":{"A":"符合进口价格和需求方向。","B":"中国商品的美元价格通常上升。","C":"美国商品的人民币价格下降。","D":"中国商品变贵通常压低美国进口需求。"},"conceptId":"fx-effects"},{"id":"fin-06-q21","number":21,"group":"国际收支与汇率变动","type":"single","stem":"经常账户是指反映一国与他国之间的实际资产的流动，与该国的国民收入账户有密切联系，也是国际收支平衡表中最基本、最重要的部分。所包含的四个项目中不包含（　　）。","options":{"A":"服务","B":"经常转移","C":"货物","D":"利润"},"answer":["D"],"explanationSupplement":"经常账户包括货物、服务、初次收入和二次收入。利润可纳入初次收入，但不独立作为与这四类同级的项目。","optionExplanations":{"A":"是服务类。","B":"常对应二次收入。","C":"是货物类。","D":"利润可能记作初次收入的明细，题目询问一级项目。"},"conceptId":"bop-accounts"},{"id":"fin-06-q22","number":22,"group":"国际收支与汇率变动","type":"single","stem":"关于国际收支，下列说法正确的是（　　）。","options":{"A":"国际收支反映的内容是以货币记录的交易","B":"一国的领事馆在所在国的消费不计入国际收支","C":"国际收支记录的是一国居民之间的交易","D":"依据交易双方的国籍可以判断该项交易是否应该包含在国际收支的范围内"},"answer":["A"],"explanationSupplement":"国际收支在一定时期内以货币价值记录居民与非居民的交易，实物交易也可估价入账。","optionExplanations":{"A":"是统一计值的记录。","B":"领事机构与驻在地居民的交易可计入国际收支。","C":"主体是居民与非居民。","D":"通常按经济居住地标准判断。"},"conceptId":"bop-accounts"},{"id":"fin-06-q23","number":23,"group":"外汇与国际储备","type":"single","stem":"SDR 是（　　）。","options":{"A":"欧洲经济货币联盟创设的货币","B":"IMF 创设的储备资产和记账单位","C":"欧洲货币体系的中心货币","D":"世界银行创设的一种特别使用资金的权利"},"answer":["B"],"explanationSupplement":"SDR 是 IMF 创设的储备资产，并用作 IMF 等机构的记账单位。","optionExplanations":{"A":"欧洲经济货币联盟的共同货币是欧元。","B":"符合 SDR 的用途和创设机构。","C":"SDR 的用途不限于欧洲。","D":"创设机构是 IMF。"},"conceptId":"sdr"},{"id":"fin-06-q24","number":24,"group":"外汇与国际储备","type":"discussion","stem":"仅限于会员国政府之间和 IMF 与会员国之间使用的储备资产是（　　）。","options":{"A":"黄金储备","B":"外汇储备","C":"特别提款权","D":"普通提款权"},"answer":[],"explanationSupplement":"SDR 可以由 IMF 会员及获准的官方机构持有，私人实体不能持有。","optionExplanations":{"A":"黄金可在更广泛的市场交易。","B":"外汇储备由货币当局持有，也可在市场使用。","C":"对应题目指向，但 IMF 也有获准持有人。","D":"通常指 IMF 相关融资安排。"},"conceptId":"sdr"},{"id":"fin-06-q25","number":25,"group":"外汇与国际储备","type":"single","stem":"下列表述中不正确的是（　　）。","options":{"A":"外汇是以外币表示的一种支付手段","B":"汇率是两种货币之间的相对价格","C":"欧洲债券是由欧洲国家发行的以美元为计价单位的债券","D":"国际储备是一国持有的各种形式的流动资产的综合"},"answer":["C"],"explanationSupplement":"欧洲债券按发行市场和计价货币关系区分，发行人不必来自欧洲，币种也不限于美元。","optionExplanations":{"A":"外汇可作为国际清偿工具。","B":"是汇率基本定义。","C":"同时错误限定发行人和币种。","D":"指货币当局控制的可用外部资产。"},"conceptId":"reserve-assets"},{"id":"fin-06-q26","number":26,"group":"外汇与国际储备","type":"discussion","stem":"在不考虑干预因素的情况下，某国连续5年处于国际收支顺差的状态，那么该国应出现的情况是（　　）。","options":{"A":"外汇储备减少，本国货币升值压力增大","B":"外汇储备减少，本国货币升值压力减少","C":"外汇储备增加，本国货币升值压力增大","D":"外汇储备增加，本国货币升值压力减少"},"answer":[],"explanationSupplement":"持续顺差可能带来本币升值压力。外汇储备是否增加还要看央行买汇、资金配置及估值，题中排除了干预。","optionExplanations":{"A":"方向不能由顺差单独推出。","B":"两个方向都需更多条件。","C":"央行购汇时可能出现储备增加，题设没有这个条件。","D":"仍需考虑当局操作和市场预期。"},"conceptId":"reserve-assets"},{"id":"fin-06-q27","number":27,"group":"外汇与国际储备","type":"single","stem":"2016年10月1日，（　　）正式纳入 SDR 货币篮子。","options":{"A":"美元","B":"日元","C":"英镑","D":"人民币"},"answer":["D"],"explanationSupplement":"IMF 于 2016 年 10 月 1 日启用含人民币的 SDR 篮子。","optionExplanations":{"A":"在此次调整前已在篮子中。","B":"在此次调整前已在篮子中。","C":"在此次调整前已在篮子中。","D":"此次新纳入人民币。"},"conceptId":"sdr"},{"id":"fin-06-q28","number":28,"group":"外汇与国际储备","type":"single","stem":"目前，世界各国的国际储备中，最重要的组成部分是（　　）。","options":{"A":"黄金储备","B":"外汇储备","C":"特别提款权","D":"在国际货币基金组织（IMF）的储备头寸"},"answer":["B"],"explanationSupplement":"IMF 全球汇总中，外汇储备是国际储备的主要组成。具体国家的储备结构会有所不同。","optionExplanations":{"A":"货币性黄金也是储备资产。","B":"在全球汇总中占主要地位。","C":"SDR 是 IMF 创设的储备资产。","D":"是对 IMF 的储备头寸。"},"conceptId":"reserve-assets"},{"id":"fin-06-q29","number":29,"group":"外汇与国际储备","type":"single","stem":"下列关于特别提款权的表述中，不正确的一项是（　　）。","options":{"A":"可以起到国际储备的作用","B":"可以直接用于国际贸易支付","C":"由国际货币基金组织创设","D":"是一种记账单位"},"answer":["B"],"explanationSupplement":"SDR 可以作为官方储备和记账单位，合资格持有者可换取可自由使用货币，通常不能直接用于私人货物贸易付款。","optionExplanations":{"A":"符合储备资产功能。","B":"贸易支付通常用实际货币。","C":"创设机构是 IMF。","D":"IMF 等机构可用作记账单位。"},"conceptId":"sdr"},{"id":"fin-06-q30","number":30,"group":"外汇与国际储备","type":"single","stem":"以下不属于自有储备的是（　　）。","options":{"A":"黄金储备","B":"外汇储备","C":"在 IMF 的储备头寸","D":"备用信贷"},"answer":["D"],"explanationSupplement":"未支用的备用信贷属于可能取得的融资，不能作为已持有的自有储备。","optionExplanations":{"A":"货币性黄金属于自有储备。","B":"外汇储备属于自有储备。","C":"IMF 储备头寸可计入。","D":"是可用的融资安排。"},"conceptId":"reserve-assets"},{"id":"fin-06-q31","number":31,"group":"外汇与国际储备","type":"single","stem":"在科学确定国际储备总量时，国际储备量要与（　　）。","options":{"A":"经济规模成反比","B":"外债规模成正比","C":"短期国际融资能力成正比","D":"对外开放度成反比"},"answer":["B"],"explanationSupplement":"其他条件相同时，外债偿付压力越大，储备缓冲需求通常越高。这里的正向关系不要求严格固定比例。","optionExplanations":{"A":"较大的经济规模常需更大的流动性缓冲。","B":"外债越多可能需要更高缓冲。","C":"更强的融资能力可能减少自有储备需求。","D":"开放程度提高可能增加外部流动性需求。"},"conceptId":"reserve-assets"},{"id":"fin-06-q32","number":32,"group":"外汇与国际储备","type":"single","stem":"在特别提款权中占权数最大的货币是（　　）。","options":{"A":"美元","B":"欧元","C":"日元","D":"英镑"},"answer":["A"],"explanationSupplement":"IMF 自 2022 年 8 月启用的估值权重中，美元占 43.38%，在篮子中最大。","optionExplanations":{"A":"设定权重最大。","B":"为 29.31%。","C":"为 7.59%。","D":"为 7.44%。"},"conceptId":"sdr"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter23","number":6,"title":"国际金融","moduleId":"finance","moduleTitle":"金融基础","downloadName":"金融基础-06-国际金融-离线学习.html","visual":"bop-structure","visualSectionId":"bop-accounts","visuals":[{"type":"bop-structure","sectionId":"bop-accounts"}]},"lessons":{"title":"国际金融","subtitle":"理解国际收支怎样记账、汇率怎样标价，以及官方储备如何使用。","sections":[{"id":"bop-accounts","title":"国际收支与账户结构","summary":"国际收支平衡表记录居民与非居民在一段时间内的经济交易。","bodyHtml":"\u003cp>\u003cstrong>居民身份\u003c/strong>按经济利益中心等统计标准判断。交易按统一货币估值并采用复式记账，资料不完全一致形成的差额列为净误差与遗漏。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>账户\u003c/th>\u003cth>主要内容\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>经常账户\u003c/td>\u003ctd>货物、服务、初次收入、二次收入。跨境投资利润通常属于初次收入。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>资本账户\u003c/td>\u003ctd>资本转移，非生产非金融资产取得与处置。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>金融账户\u003c/td>\u003ctd>直接投资、证券投资、金融衍生品、其他投资、储备资产等。\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>国家外汇管理局公布人民币、美元和 SDR 计值表。人民币和 SDR 季度数据由美元计值数据按相应平均汇率折算。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.safe.gov.cn/safe/2026/0929/27942.html\">国家外汇管理局国际收支平衡表\u003c/a>\u003c/p>","keyTakeaway":"跨境货物交易记经常账户，交易对应的金融资产变动记金融账户。","pitfall":"“经常转移”对应二次收入，利润通常属于初次收入。账户一级分类与下属明细的范围不同。","example":"居民企业购买境外企业股票并达到证券投资分类条件，交易记金融账户。后续收到股息通常记经常账户初次收入。"},{"id":"bop-balances","title":"顺差、逆差与国际收支调节","summary":"先识别是贸易余额、经常账户余额还是综合差额。","bodyHtml":"\u003cp>货物进出口差额形成货物贸易余额，货物和服务再加初次及二次收入构成经常账户。基本差额等分析指标的口径要结合定义。狭义资本账户与含金融流动的合并项目也要分开。\u003c/p>\u003cp>持续逆差可能带来汇率贬值、外汇储备下降或融资压力，具体取决于汇率制度、资本流动和央行操作。逆差可以由外来融资弥补，也可能随着信心下降出现外流。资本流动、储备和估值必须分别判断。\u003c/p>\u003cp>支出变更政策调节总支出，汇率等支出转换政策影响支出在本国与外国产品间的分配。储备或国际融资可以缓冲短期缺口，长期结构性失衡还需要调整生产率或外贸结构。\u003c/p>","keyTakeaway":"经常账户有顺差时，仍需检查金融账户和储备资产。","pitfall":"复式记账的账面总额轧平，某一分析账户仍可呈现顺差或逆差。贸易逆差也可能与资本流入同时发生。","example":"国内需求减弱、进口下降时，其他项目稳定可使贸易余额改善。若同时外需下降，出口减少可能抵销这一作用。"},{"id":"fx-quotes","title":"汇率标价与汇率制度","summary":"先认清单位货币，再判断报价变动意味着谁升值。","bodyHtml":"\u003cp>汇率是两种货币的相对价格。\u003cstrong>直接标价\u003c/strong>用本币计量单位外币，\u003cstrong>间接标价\u003c/strong>用外币计量单位本币。两者互为倒数。在直接标价下，报价提高表示买同一单位外币需更多本币，即本币贬值。\u003c/p>\u003cp>可按形成机制区分官方汇率和市场汇率，按交割期限区分即期和远期，按参照范围区分双边和多边汇率。浮动汇率主要受外汇市场供求影响。人民币实行参考一篮子货币、有管理的浮动汇率制度，以市场供求为基础。核验于 2026 年 11 月 11 日。\u003ca href=\"https://xining.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/f5c4690f2cbd40918bf24c2d39ac58af/b3e8c1a2b07d4facb38f4a7426415252/2025081819132397368.pdf\">中国人民银行货币政策执行报告\u003c/a>\u003c/p>","keyTakeaway":"1 个百分比基点为 0.01 个百分点，写成小数是 0.0001。外汇报价最小点位还看货币对惯例。","pitfall":"买入价与卖出价按交易方视角区分，与直接或间接标价属于不同分类。","example":"1 美元从 7.20 元变为 7.00 元时，直接标价下降，人民币对美元升值。"},{"id":"fx-effects","title":"汇率变动及其经济影响","summary":"从贸易价格、资本流动、物价和资产负债表判断传导。","bodyHtml":"\u003cp>汇率受国际收支、利率差、通胀差、央行操作、宏观政策和市场预期等影响。其他条件给定，本币升值可降低进口品本币价格，抑制输入性通胀，并提高出口品的外币价格。出口量、进口量和贸易余额还取决于计价、价格传递、需求弹性与合同调整。\u003c/p>\u003cp>汇率也改变外币资产和负债的本币价值，可通过资产负债表、投资和资本流动影响增长、就业及外债压力。\u003c/p>","keyTakeaway":"先换算价格，再分析数量和总金额。","pitfall":"升值只能给出特定渠道的方向，资本流动还要考虑预期回报、风险和资金配置。","example":"商品售价 100 美元且美元价格固定时，汇率由 1 美元兑 6 元变为兑 5 元，进口商支付的人民币从 600 元降到 500 元。"},{"id":"reserve-assets","title":"外汇与国际储备","summary":"外汇是可用于国际清偿的资产和支付工具，官方储备是货币当局可支配的储备资产。","bodyHtml":"\u003cp>《外汇管理条例》列举了外币现钞、外币支付凭证或工具、外币证券、特别提款权和其他外汇资产。国际储备通常包括\u003cstrong>货币性黄金、外汇储备、IMF 储备头寸与 SDR\u003c/strong>。备用信用额度可以提供融资来源，未支用额度本身不构成已经持有的储备资产。\u003c/p>\u003cp>储备可用于国际支付、支持汇率操作和维持融资信心。外债期限、外部融资能力、进口规模和汇率制度会影响所需储备水平。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.safe.gov.cn/heilongjiang/file/file/20170728/c8dd4cfd7f9b432faa691b7d23395809.pdf\">《中华人民共和国外汇管理条例》\u003c/a> · \u003ca href=\"https://www.imf.org/external/pubs/ft/ar/2025/pdfs/imf-annual-report-2025-appendices.pdf\">IMF 国际储备统计\u003c/a>\u003c/p>","keyTakeaway":"外汇储备是国际储备的一个组成部分。","pitfall":"私人持有的外币证券不自动成为官方储备。顺差是否转化为外汇储备，取决于货币当局是否取得相关资产。","example":"若央行用外汇储备向市场供给美元、换回本币，该笔操作会减少央行外汇资产。"},{"id":"sdr","title":"特别提款权与货币篮子","summary":"SDR 是 IMF 创设的国际储备资产和记账单位，合资格持有者可以按规则使用。","bodyHtml":"\u003cp>IMF 会员和获准的官方机构可以持有 SDR。会员可以按规则将 SDR 换取可自由使用货币，也可用于部分 IMF 相关支付。私人商户不能像使用日常货币一样直接收取 SDR。\u003c/p>\u003cp>人民币于 2016 年 10 月 1 日加入 SDR 货币篮子。自 2022 年 8 月起的估值权重为美元 43.38%、欧元 29.31%、人民币 12.28%、日元 7.59%、英镑 7.44%。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.imf.org/en/About/Factsheets/Sheets/2023/Special-Drawing-Rights-SDR\">IMF 特别提款权说明\u003c/a> · \u003ca href=\"https://www.elibrary.imf.org/display/book/9798229008341/CH027.xml\">IMF 估值决议与历史\u003c/a>\u003c/p>","keyTakeaway":"区分估值篮子货币、SDR 持有资格和实际支付用途。","pitfall":"篮子权重用于估值调整，固定货币数量按每日市场汇率计值，因此日常价值占比会变化。","example":"央行可按规则将所持 SDR 兑换为美元，再用于对外支付。"}],"mindmap":[{"label":"国际收支与汇率变动","target":"bop-accounts","children":[{"label":"国际收支平衡表","target":"bop-accounts","children":[{"label":"经常账户","target":"bop-accounts"},{"label":"资本账户","target":"bop-accounts"},{"label":"金融账户","target":"bop-accounts"},{"label":"净误差与遗漏","target":"bop-accounts"}]},{"label":"主要差额","target":"bop-balances","children":[{"label":"贸易差额","target":"bop-balances"},{"label":"经常账户差额","target":"bop-balances"},{"label":"基本账户差额","target":"bop-balances"},{"label":"综合账户差额","target":"bop-balances"}]},{"label":"持续失衡的影响","target":"bop-balances","children":[{"label":"外汇储备","target":"bop-balances"},{"label":"对外支付与债务","target":"bop-balances"},{"label":"进口、增长与就业","target":"bop-balances"},{"label":"资本流动","target":"bop-balances"}]},{"label":"失衡调节","target":"bop-balances","children":[{"label":"支出变更","target":"bop-balances"},{"label":"汇率与支出转换","target":"bop-balances"},{"label":"储备缓冲","target":"bop-balances"},{"label":"直接管理与国际金融合作","target":"bop-balances"}]},{"label":"汇率与变动因素","target":"fx-quotes","children":[{"label":"直接与间接标价","target":"fx-quotes"},{"label":"汇率制度","target":"fx-quotes"},{"label":"国际收支与通胀、利差","target":"fx-quotes"},{"label":"政策操作与市场预期","target":"fx-quotes"}]},{"label":"汇率变化的影响","target":"fx-effects","children":[{"label":"贸易收支","target":"fx-effects"},{"label":"外债压力","target":"fx-effects"},{"label":"资本流动","target":"fx-effects"},{"label":"物价、增长与就业","target":"fx-effects"}]}]},{"label":"外汇与国际储备","target":"reserve-assets","children":[{"label":"外汇类型","target":"reserve-assets","children":[{"label":"外国货币","target":"reserve-assets"},{"label":"外币支付凭证和工具","target":"reserve-assets"},{"label":"外币证券","target":"reserve-assets"},{"label":"特别提款权","target":"sdr"},{"label":"其他外汇资产","target":"reserve-assets"}]},{"label":"官方储备的构成","target":"reserve-assets","children":[{"label":"货币性黄金","target":"reserve-assets"},{"label":"外汇储备","target":"reserve-assets"},{"label":"IMF 储备头寸","target":"reserve-assets"},{"label":"特别提款权","target":"sdr","children":[{"label":"可使用的主体","target":"sdr"},{"label":"SDR 货币篮子","target":"sdr"}]}]},{"label":"国际储备的作用","target":"reserve-assets","children":[{"label":"弥补国际支付缺口","target":"reserve-assets"},{"label":"支持汇率操作","target":"reserve-assets"},{"label":"维护国际信用与投资环境","target":"reserve-assets"}]}]}]},"questions":[{"id":"fin-06-q01","number":1,"group":"国际收支与汇率变动","type":"single","stem":"以汇率形成机制为标准，汇率可分为（　　）。","options":{"A":"基本汇率与套算汇率","B":"官方汇率与市场汇率","C":"即期汇率与远期汇率","D":"双边汇率与多边汇率"},"answer":["B"],"explanationSupplement":"按形成机制区分官方报价和市场形成的汇率。","optionExplanations":{"A":"按是否经交叉换算区分。","B":"按交割期限区分。","C":"对应形成机制。","D":"按比较范围区分。"},"conceptId":"fx-quotes"},{"id":"fin-06-q02","number":2,"group":"国际收支与汇率变动","type":"single","stem":"外汇交易报价中，1个基点（BP）是指（　　）。","options":{"A":"0.001","B":"0.0001","C":"0.00001","D":"0.000001"},"answer":["B"],"explanationSupplement":"一个基点是百分之一百分点，写成小数为 0.0001。","optionExplanations":{"A":"等于 10 个基点。","B":"等于 1 个基点。","C":"等于 0.1 个基点。","D":"等于 0.01 个基点。"},"conceptId":"fx-quotes"},{"id":"fin-06-q03","number":3,"group":"国际收支与汇率变动","type":"single","stem":"在浮动汇率制度下，汇率是由（　　）。","options":{"A":"外汇市场上的供求关系自发决定的","B":"两个国家的央行之间约定的","C":"两个国家的法定货币的币值决定的","D":"外汇市场上货币流通呈自发决定的"},"answer":["A"],"explanationSupplement":"浮动汇率下，外币供求变化主要通过市场价格反映。","optionExplanations":{"A":"是一般机制。","B":"共同约定更接近固定安排。","C":"法定货币身份不决定市场价格。","D":"流通量只是可能影响供求的因素。"},"conceptId":"fx-quotes"},{"id":"fin-06-q04","number":4,"group":"国际收支与汇率变动","type":"single","stem":"对外证券投资属于国际收支平衡表的（　　）。","options":{"A":"经常项目","B":"贸易项目","C":"资本项目","D":"金融项目"},"answer":["D"],"explanationSupplement":"对外证券投资涉及股票或债券等金融资产变动，计入金融账户。","optionExplanations":{"A":"记录货物、服务和收入等。","B":"主要记录货物和服务的贸易。","C":"狭义资本账户主要记录资本转移等。","D":"证券投资是金融账户子项。"},"conceptId":"bop-accounts"},{"id":"fin-06-q05","number":5,"group":"国际收支与汇率变动","type":"single","stem":"国际收支平衡表根据（　　）编制，每笔经济交易同时在两方反映，原则上借贷方恒等。","options":{"A":"复式记账原理","B":"业务核算","C":"单式记账原理","D":"统计原理"},"answer":["A"],"explanationSupplement":"每笔跨境交易同时记录两方面的经济价值，采用复式记账。","optionExplanations":{"A":"能实现两方同时反映。","B":"未指明借贷配对方法。","C":"单式记录没有对应分录。","D":"未指明具体方法。"},"conceptId":"bop-accounts"},{"id":"fin-06-q06","number":6,"group":"国际收支与汇率变动","type":"discussion","stem":"下列关于国际收支逆差对经济的影响的说法错误的是（　　）。","options":{"A":"逆差导致该国贸易条件恶化","B":"可能导致该国对外支付能力增加","C":"本国收入下降和失业增加","D":"资本外流"},"answer":[],"explanationSupplement":"持续逆差若消耗储备，可能削弱对外支付能力。贸易条件、收入和资本流向还取决于冲击来源及政策，不能由逆差单独推出。","optionExplanations":{"A":"贸易条件取决于进出口相对价格。","B":"逆差并不会普遍提高对外支付能力，融资流入时储备仍可能改善。","C":"逆差可能与强劲内需同时出现。","D":"资本流入可为经常账户逆差融资，外流也可能在其他条件下发生。"},"conceptId":"bop-balances"},{"id":"fin-06-q07","number":7,"group":"国际收支与汇率变动","type":"single","stem":"本国货币对外币升值后会引起的经济现象是（　　）。","options":{"A":"本国出口商品量增加","B":"国内物价水平下降","C":"资本外流","D":"国内通货膨胀压力增加"},"answer":["B"],"explanationSupplement":"本币升值会降低固定外币价格的进口品本币成本，有助于缓和输入性物价压力。","optionExplanations":{"A":"出口商品对外国消费者可能变贵。","B":"符合题设常见价格传导。","C":"资本流动取决于预期和收益。","D":"进口价格渠道通常缓和压力。"},"conceptId":"fx-effects"},{"id":"fin-06-q08","number":8,"group":"国际收支与汇率变动","type":"single","stem":"直接标价法是以本国货币表示外国货币的价格，因此可以称为（　　）。","options":{"A":"本币汇率","B":"外汇汇率","C":"买入汇率","D":"卖出汇率"},"answer":["B"],"explanationSupplement":"直接标价用一定数量本币购买一单位外币，表示外币的本币价格。","optionExplanations":{"A":"本币的外币价格对应间接标价。","B":"对应外币价格。","C":"买入价按交易者方向区分。","D":"卖出价也按交易者方向区分。"},"conceptId":"fx-quotes"},{"id":"fin-06-q09","number":9,"group":"国际收支与汇率变动","type":"single","stem":"在直接标价法下，一定单位的外币折算的本国货币增多，说明本币汇率（　　）。","options":{"A":"上升","B":"下降","C":"不变","D":"难以确定"},"answer":["B"],"explanationSupplement":"同样数量外币需要更多本币，表示本币对外币贬值。题中“本币汇率”按本币价值理解。","optionExplanations":{"A":"外币的本币报价上升。","B":"本币价值下降。","C":"购买同额外币所需本币变多。","D":"给定报价单位，方向确定。"},"conceptId":"fx-quotes"},{"id":"fin-06-q10","number":10,"group":"国际收支与汇率变动","type":"single","stem":"以下关于汇率的说法中错误的是（　　）。","options":{"A":"汇率是两种货币之间的相对价格","B":"汇率的直接标价法可以表示为1单位外币等于多少本币","C":"我国的汇率报价一般采用直接标价法","D":"我国的汇率报价一般采用间接标价法"},"answer":["D"],"explanationSupplement":"在常见人民币直接标价中，外币单位固定，用人民币表示它的价格。","optionExplanations":{"A":"汇率是相对价格。","B":"符合直接标价定义。","C":"常见人民币报价可用直接标价。","D":"将通常标价方向写反。"},"conceptId":"fx-quotes"},{"id":"fin-06-q11","number":11,"group":"国际收支与汇率变动","type":"single","stem":"在经济萧条时期，由于国内需求不足，进出口业务会发生相应的变动，则国际收支可能出现（　　）。","options":{"A":"平衡","B":"逆差","C":"不确定","D":"顺差"},"answer":["D"],"explanationSupplement":"国内需求不足可能减少进口，其他条件不变时贸易余额可改善，因而存在顺差的可能。","optionExplanations":{"A":"可能出现，但未体现进口收缩的典型方向。","B":"若出口或资本流入下降更多也可能出现。","C":"要推断实际余额仍需其他信息。","D":"是题目关注的进口下降情形。"},"conceptId":"bop-balances"},{"id":"fin-06-q12","number":12,"group":"国际收支与汇率变动","type":"single","stem":"在实践中，由于资料来源不一、不全以及错漏等原因，借贷两方无法轧平。为了轧平起见，就在国际收支平衡表中设立了（　　）。","options":{"A":"经常项目","B":"资本项目","C":"净误差与遗漏项目","D":"国际储备变动额"},"answer":["C"],"explanationSupplement":"净误差与遗漏是实务编表中的平衡项，反映数据来源、记录时点和统计覆盖等差异。","optionExplanations":{"A":"是主要实质账户。","B":"记录资本转移等。","C":"用于平衡独立统计产生的差异。","D":"储备变化有单独的金融账户项目。"},"conceptId":"bop-accounts"},{"id":"fin-06-q13","number":13,"group":"国际收支与汇率变动","type":"single","stem":"A 国与B 国进行自由贸易，A国从B国进口汽车，向B国出口粮食，如果从现在开始A 国对进口汽车征收关税，那么该征税行为将导致（　　）。","options":{"A":"A 国的进口增加","B":"A 国的进口减少","C":"B 国的出口增加","D":"B 国的进口减少"},"answer":["B"],"explanationSupplement":"给定其他条件，关税提高进口汽车的本国价格，通常压低被征税汽车的进口需求。","optionExplanations":{"A":"与该品需求变化方向相反。","B":"符合对进口汽车的直接影响。","C":"B 国向 A 国出口汽车通常减少。","D":"B 国进口粮食的变化需另作分析。"},"conceptId":"fx-effects"},{"id":"fin-06-q14","number":14,"group":"国际收支与汇率变动","type":"single","stem":"一般而言，由（　　）引起的国际收支失衡是长期的且持久的。","options":{"A":"经济周期更迭","B":"货币价值变动","C":"预期目标改变","D":"经济结构滞后"},"answer":["D"],"explanationSupplement":"产业与贸易结构长期不适应外部变化，可能造成持续失衡。","optionExplanations":{"A":"主要描述周期性波动。","B":"持续性取决于冲击和调整。","C":"预期可能迅速变化。","D":"结构调整通常耗时较长。"},"conceptId":"bop-balances"},{"id":"fin-06-q15","number":15,"group":"国际收支与汇率变动","type":"single","stem":"一国国际收支顺差会使（　　）。","options":{"A":"外国对该国货币需求增加，该国货币汇率上升","B":"外国对该国货币需求减少，该国货币汇率下跌","C":"外国对该国货币需求增加，该国货币汇率下跌","D":"外国对该国货币需求减少，该国货币汇率上升"},"answer":["A"],"explanationSupplement":"在简化外汇供求框架下，顺差可能增加本币需求和本币升值压力。实际汇率也受资本流动和干预影响。","optionExplanations":{"A":"符合该市场压力。","B":"两个方向和题设机制相反。","C":"需求增加通常提高本币价值。","D":"需求减少通常降低本币价值。"},"conceptId":"bop-balances"},{"id":"fin-06-q16","number":16,"group":"国际收支与汇率变动","type":"discussion","stem":"国际收支出现巨额逆差时，会导致（　　）。","options":{"A":"本币汇率贬值，资本流入","B":"本币汇率升值，资本流出","C":"本币汇率升值，资本流入","D":"本币汇率贬值，资本流出"},"answer":[],"explanationSupplement":"逆差可能产生贬值压力。资本流动仍取决于融资渠道、收益预期与风险，经常账户逆差也可与资本净流入并存。","optionExplanations":{"A":"外来融资弥补经常账户缺口时可能出现。","B":"逆差本身不支持升值方向。","C":"升值和流入都需额外条件。","D":"资本外流冲击时可能出现。"},"conceptId":"bop-balances"},{"id":"fin-06-q17","number":17,"group":"国际收支与汇率变动","type":"single","stem":"将一国货币币值的升高定义升值，那么对该国来说，将导致（　　）。","options":{"A":"直接标价法汇率值将减小，间接标价法下汇率值将减小","B":"直接标价法汇率值将减小，间接标价法下汇率值将增大","C":"直接标价法汇率值将增大，间接标价法下汇率值将减小","D":"直接标价法汇率值将增大，间接标价法下汇率值将增大"},"answer":["B"],"explanationSupplement":"本币升值后，一单位外币能换到的本币变少，一单位本币能换到的外币变多。","optionExplanations":{"A":"间接报价会上升。","B":"直接报价下降、间接报价上升。","C":"两个方向都写反。","D":"直接报价会下降。"},"conceptId":"fx-quotes"},{"id":"fin-06-q18","number":18,"group":"国际收支与汇率变动","type":"discussion","stem":"在我国的国际收支平衡表中，各种实物和资产的往来均以（　　）作为计算单位。","options":{"A":"人民币","B":"美元","C":"欧元","D":"英镑"},"answer":[],"explanationSupplement":"国家外汇管理局以美元计值编制，并公布人民币与 SDR 折算表。题目询问计算单位，未区分编制基础与发布口径。","optionExplanations":{"A":"是公布口径之一。","B":"是季度折算所依据的基础计值。","C":"表中所列其他单位为 SDR。","D":"该公布表未列英镑。"},"conceptId":"bop-accounts"},{"id":"fin-06-q19","number":19,"group":"国际收支与汇率变动","type":"discussion","stem":"目前，我国的国际收支中，所占比重最大的是（　　）。","options":{"A":"贸易收支","B":"经常转移","C":"资本项目收支","D":"无偿转让"},"answer":[],"explanationSupplement":"货物贸易是我国国际收支的重要部分。比较所占比重要指定统计期间、具体项目和分母。2026 年上半年可用外汇局公布表核算。","optionExplanations":{"A":"在相关期间及比较口径下可占较大比重。","B":"属经常账户相关收入类别。","C":"狭义资本账户和金融账户需区分。","D":"属于无对价转移的概念，可能与其他选项口径重叠。"},"conceptId":"bop-balances"},{"id":"fin-06-q20","number":20,"group":"国际收支与汇率变动","type":"single","stem":"假设美元和人民币的汇率从1美元兑换6元人民币变为1美元兑换5元人民币，那么（　　）。","options":{"A":"美国商品在中国变得相对便宜，增加了中国的进口需求","B":"中国商品在美国变得相对便宜，增加了美国的进口需求","C":"美国商品在中国变得相对昂贵，降低了中国的进口需求","D":"中国商品在美国变得相对昂贵，增加了美国的进口需求"},"answer":["A"],"explanationSupplement":"人民币升值，给定美元价格的美国商品在中国更便宜。价格下降通常提高中国的进口需求。","optionExplanations":{"A":"符合进口价格和需求方向。","B":"中国商品的美元价格通常上升。","C":"美国商品的人民币价格下降。","D":"中国商品变贵通常压低美国进口需求。"},"conceptId":"fx-effects"},{"id":"fin-06-q21","number":21,"group":"国际收支与汇率变动","type":"single","stem":"经常账户是指反映一国与他国之间的实际资产的流动，与该国的国民收入账户有密切联系，也是国际收支平衡表中最基本、最重要的部分。所包含的四个项目中不包含（　　）。","options":{"A":"服务","B":"经常转移","C":"货物","D":"利润"},"answer":["D"],"explanationSupplement":"经常账户包括货物、服务、初次收入和二次收入。利润可纳入初次收入，但不独立作为与这四类同级的项目。","optionExplanations":{"A":"是服务类。","B":"常对应二次收入。","C":"是货物类。","D":"利润可能记作初次收入的明细，题目询问一级项目。"},"conceptId":"bop-accounts"},{"id":"fin-06-q22","number":22,"group":"国际收支与汇率变动","type":"single","stem":"关于国际收支，下列说法正确的是（　　）。","options":{"A":"国际收支反映的内容是以货币记录的交易","B":"一国的领事馆在所在国的消费不计入国际收支","C":"国际收支记录的是一国居民之间的交易","D":"依据交易双方的国籍可以判断该项交易是否应该包含在国际收支的范围内"},"answer":["A"],"explanationSupplement":"国际收支在一定时期内以货币价值记录居民与非居民的交易，实物交易也可估价入账。","optionExplanations":{"A":"是统一计值的记录。","B":"领事机构与驻在地居民的交易可计入国际收支。","C":"主体是居民与非居民。","D":"通常按经济居住地标准判断。"},"conceptId":"bop-accounts"},{"id":"fin-06-q23","number":23,"group":"外汇与国际储备","type":"single","stem":"SDR 是（　　）。","options":{"A":"欧洲经济货币联盟创设的货币","B":"IMF 创设的储备资产和记账单位","C":"欧洲货币体系的中心货币","D":"世界银行创设的一种特别使用资金的权利"},"answer":["B"],"explanationSupplement":"SDR 是 IMF 创设的储备资产，并用作 IMF 等机构的记账单位。","optionExplanations":{"A":"欧洲经济货币联盟的共同货币是欧元。","B":"符合 SDR 的用途和创设机构。","C":"SDR 的用途不限于欧洲。","D":"创设机构是 IMF。"},"conceptId":"sdr"},{"id":"fin-06-q24","number":24,"group":"外汇与国际储备","type":"discussion","stem":"仅限于会员国政府之间和 IMF 与会员国之间使用的储备资产是（　　）。","options":{"A":"黄金储备","B":"外汇储备","C":"特别提款权","D":"普通提款权"},"answer":[],"explanationSupplement":"SDR 可以由 IMF 会员及获准的官方机构持有，私人实体不能持有。","optionExplanations":{"A":"黄金可在更广泛的市场交易。","B":"外汇储备由货币当局持有，也可在市场使用。","C":"对应题目指向，但 IMF 也有获准持有人。","D":"通常指 IMF 相关融资安排。"},"conceptId":"sdr"},{"id":"fin-06-q25","number":25,"group":"外汇与国际储备","type":"single","stem":"下列表述中不正确的是（　　）。","options":{"A":"外汇是以外币表示的一种支付手段","B":"汇率是两种货币之间的相对价格","C":"欧洲债券是由欧洲国家发行的以美元为计价单位的债券","D":"国际储备是一国持有的各种形式的流动资产的综合"},"answer":["C"],"explanationSupplement":"欧洲债券按发行市场和计价货币关系区分，发行人不必来自欧洲，币种也不限于美元。","optionExplanations":{"A":"外汇可作为国际清偿工具。","B":"是汇率基本定义。","C":"同时错误限定发行人和币种。","D":"指货币当局控制的可用外部资产。"},"conceptId":"reserve-assets"},{"id":"fin-06-q26","number":26,"group":"外汇与国际储备","type":"discussion","stem":"在不考虑干预因素的情况下，某国连续5年处于国际收支顺差的状态，那么该国应出现的情况是（　　）。","options":{"A":"外汇储备减少，本国货币升值压力增大","B":"外汇储备减少，本国货币升值压力减少","C":"外汇储备增加，本国货币升值压力增大","D":"外汇储备增加，本国货币升值压力减少"},"answer":[],"explanationSupplement":"持续顺差可能带来本币升值压力。外汇储备是否增加还要看央行买汇、资金配置及估值，题中排除了干预。","optionExplanations":{"A":"方向不能由顺差单独推出。","B":"两个方向都需更多条件。","C":"央行购汇时可能出现储备增加，题设没有这个条件。","D":"仍需考虑当局操作和市场预期。"},"conceptId":"reserve-assets"},{"id":"fin-06-q27","number":27,"group":"外汇与国际储备","type":"single","stem":"2016年10月1日，（　　）正式纳入 SDR 货币篮子。","options":{"A":"美元","B":"日元","C":"英镑","D":"人民币"},"answer":["D"],"explanationSupplement":"IMF 于 2016 年 10 月 1 日启用含人民币的 SDR 篮子。","optionExplanations":{"A":"在此次调整前已在篮子中。","B":"在此次调整前已在篮子中。","C":"在此次调整前已在篮子中。","D":"此次新纳入人民币。"},"conceptId":"sdr"},{"id":"fin-06-q28","number":28,"group":"外汇与国际储备","type":"single","stem":"目前，世界各国的国际储备中，最重要的组成部分是（　　）。","options":{"A":"黄金储备","B":"外汇储备","C":"特别提款权","D":"在国际货币基金组织（IMF）的储备头寸"},"answer":["B"],"explanationSupplement":"IMF 全球汇总中，外汇储备是国际储备的主要组成。具体国家的储备结构会有所不同。","optionExplanations":{"A":"货币性黄金也是储备资产。","B":"在全球汇总中占主要地位。","C":"SDR 是 IMF 创设的储备资产。","D":"是对 IMF 的储备头寸。"},"conceptId":"reserve-assets"},{"id":"fin-06-q29","number":29,"group":"外汇与国际储备","type":"single","stem":"下列关于特别提款权的表述中，不正确的一项是（　　）。","options":{"A":"可以起到国际储备的作用","B":"可以直接用于国际贸易支付","C":"由国际货币基金组织创设","D":"是一种记账单位"},"answer":["B"],"explanationSupplement":"SDR 可以作为官方储备和记账单位，合资格持有者可换取可自由使用货币，通常不能直接用于私人货物贸易付款。","optionExplanations":{"A":"符合储备资产功能。","B":"贸易支付通常用实际货币。","C":"创设机构是 IMF。","D":"IMF 等机构可用作记账单位。"},"conceptId":"sdr"},{"id":"fin-06-q30","number":30,"group":"外汇与国际储备","type":"single","stem":"以下不属于自有储备的是（　　）。","options":{"A":"黄金储备","B":"外汇储备","C":"在 IMF 的储备头寸","D":"备用信贷"},"answer":["D"],"explanationSupplement":"未支用的备用信贷属于可能取得的融资，不能作为已持有的自有储备。","optionExplanations":{"A":"货币性黄金属于自有储备。","B":"外汇储备属于自有储备。","C":"IMF 储备头寸可计入。","D":"是可用的融资安排。"},"conceptId":"reserve-assets"},{"id":"fin-06-q31","number":31,"group":"外汇与国际储备","type":"single","stem":"在科学确定国际储备总量时，国际储备量要与（　　）。","options":{"A":"经济规模成反比","B":"外债规模成正比","C":"短期国际融资能力成正比","D":"对外开放度成反比"},"answer":["B"],"explanationSupplement":"其他条件相同时，外债偿付压力越大，储备缓冲需求通常越高。这里的正向关系不要求严格固定比例。","optionExplanations":{"A":"较大的经济规模常需更大的流动性缓冲。","B":"外债越多可能需要更高缓冲。","C":"更强的融资能力可能减少自有储备需求。","D":"开放程度提高可能增加外部流动性需求。"},"conceptId":"reserve-assets"},{"id":"fin-06-q32","number":32,"group":"外汇与国际储备","type":"single","stem":"在特别提款权中占权数最大的货币是（　　）。","options":{"A":"美元","B":"欧元","C":"日元","D":"英镑"},"answer":["A"],"explanationSupplement":"IMF 自 2022 年 8 月启用的估值权重中，美元占 43.38%，在篮子中最大。","optionExplanations":{"A":"设定权重最大。","B":"为 29.31%。","C":"为 7.59%。","D":"为 7.44%。"},"conceptId":"sdr"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -2260,6 +2268,696 @@ dialog::backdrop { background: var(--backdrop); }
    if(target){ e.preventDefault(); target.focus(); target.select(); }
   }
  });
+})();
+
+(() => {
+  'use strict';
+
+  const fmt = (n, d = 1) => Number(n.toFixed(d)).toString();
+  const samplePath = (fn, start, end, steps, xMap, yMap) => {
+    let d = '';
+    for (let i = 0; i <= steps; i++) {
+      const t = start + (end - start) * (i / steps);
+      const val = fn(t);
+      if (!Number.isFinite(val)) continue;
+      d += (d ? ' L' : 'M') + xMap(t).toFixed(1) + ' ' + yMap(val).toFixed(1);
+    }
+    return d;
+  };
+  const X0 = 66, W = 420, Y0 = 294, H = 252;
+  const wrapStatic = (title, desc, svg) => `
+    <div class="inline-visual-header">
+      <span class="inline-visual-badge">图解示意</span>
+      <h4>${title}</h4>
+      <p>${desc}</p>
+    </div>
+    <div class="static-svg-wrap micro-panel">${svg}</div>`;
+
+  // 1. Chapter 04: Total Utility & Marginal Utility
+  function mountTUMU(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>总效用（TU）与边际效用（MU）递减联动图</h4>
+        <p>拖动消费数量 Q，观察每多消费 1 单位带来的边际效用 MU 递减过程，以及 MU = 0 时总效用 TU 达到最大值。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>总效用 TU</span>
+            <span><i class="chart-line mv-c2-line"></i>边际效用 MU</span>
+          </div>
+          <svg viewBox="0 0 540 390" role="img" aria-label="总效用与边际效用联动图">
+            <path class="chart-axis" d="M66 26V170H498" fill="none" stroke-width="1.4"/>
+            <text x="14" y="18" class="axis-label">总效用 TU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="174">0</text><text x="56" y="106">20</text><text x="56" y="40">40</text></g>
+            <path class="mv-curve-1" data-role="tu"/>
+
+            <path class="chart-axis" d="M66 206V346H498" fill="none" stroke-width="1.4"/>
+            <line class="mv-zero-line" x1="66" x2="498" y1="306" y2="306"/>
+            <text x="14" y="198" class="axis-label">边际效用 MU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="310">0</text><text x="56" y="264">5</text><text x="56" y="218">10</text></g>
+            <path class="mv-curve-2" data-role="mu"/>
+            <line class="mv-guide" data-role="vline" y1="26" y2="346"/>
+            <circle r="5.5" class="mv-dot-1" data-role="pt-tu"/>
+            <circle r="5.5" class="mv-dot-2" data-role="pt-mu"/>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="364">0</text><text x="171" y="364">2</text><text x="276" y="364">4</text><text x="381" y="364">6</text><text x="486" y="364">8</text></g>
+            <text x="276" y="384" text-anchor="middle" class="axis-label">消费数量 Q</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">消费数量 Q <output data-role="q-out">5</output></label>
+          <input type="range" data-role="q" min="0.5" max="8" step="0.5" value="5">
+          <div class="ppf-outputs">
+            <div><span>总效用 TU</span><strong data-role="tu-val">25.0</strong></div>
+            <div><span>边际效用 MU</span><strong data-role="mu-val">0.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-jump="2">递增区间</button>
+            <button type="button" class="button button-secondary" data-jump="5">饱和点(MU=0)</button>
+            <button type="button" class="button button-secondary" data-jump="7">负效用区</button>
+          </div>
+        </div>
+      </div>`;
+    // TU = 10Q - Q^2 (max 25 at Q=5); MU = 10 - 2Q
+    const tuFn = q => 10 * q - q * q;
+    const muFn = q => 10 - 2 * q;
+    const x = q => X0 + (q / 8) * W;
+    const yTU = v => 170 - (v / 32) * 130;
+    const yMU = v => 306 - (v / 10) * 90;
+    root.querySelector('[data-role="tu"]').setAttribute('d', samplePath(tuFn, 0, 8, 60, x, yTU));
+    root.querySelector('[data-role="mu"]').setAttribute('d', samplePath(muFn, 0, 8, 40, x, yMU));
+    const qIn = root.querySelector('[data-role="q"]');
+    function draw() {
+      const q = qIn.valueAsNumber, tu = tuFn(q), mu = muFn(q), xq = x(q).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xq); vl.setAttribute('x2', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cy', yTU(tu).toFixed(1));
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cy', yMU(mu).toFixed(1));
+      root.querySelector('[data-role="q-out"]').value = fmt(q, 1);
+      root.querySelector('[data-role="tu-val"]').textContent = fmt(tu, 1);
+      root.querySelector('[data-role="mu-val"]').textContent = fmt(mu, 1);
+      root.querySelector('[data-role="msg"]').textContent = mu > 0
+        ? `MU=${fmt(mu, 1)} > 0：每多消费 1 单位仍带来正满足，总效用 TU 持续上升，但增速逐渐放缓。`
+        : mu === 0
+          ? '饱和点（Q=5, MU=0）：边际效用降为零，此时总效用 TU 达到最大值 25。'
+          : `MU=${fmt(mu, 1)} < 0：过度消费产生负效用，总效用 TU 反而开始下降。`;
+    }
+    qIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { qIn.value = b.dataset.jump; draw(); }));
+    draw();
+  }
+
+  // 2. Chapter 06: Long-run Average Cost Envelope (static)
+  function mountLACEnvelope(root) {
+    root.innerHTML = wrapStatic(
+      '长期平均成本（LAC）包络线与规模经济',
+      '长期内厂商可自由调整工厂规模，LAC 是无数条短期平均成本曲线（SAC）的下包络线；只有在最低点 E，LAC 才与 SAC 的最低点相切。',
+      `<svg viewBox="0 0 660 280" role="img" aria-label="长期平均成本包络线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M62 28V230H618 M57 35l5-7 5 7 M611 225l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">平均成本 AC</text>
+        <text x="340" y="268" text-anchor="middle" class="axis-label">产量 Q</text>
+        <!-- Vertical split at optimal scale -->
+        <line x1="340" y1="36" x2="340" y2="230" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="200" y="54" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="650">规模经济（LAC 下降）</text>
+        <text x="480" y="54" text-anchor="middle" fill="var(--mv-c2)" font-size="13" font-weight="650">规模不经济（LAC 上升）</text>
+        <!-- SAC curves -->
+        <path d="M110 72 Q175 186 245 104" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="128" y="88" class="tick-label">SAC₁</text>
+        <path d="M250 112 Q340 226 430 112" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="340" y="128" text-anchor="middle" class="tick-label">SAC₂（最优规模）</text>
+        <path d="M435 104 Q505 186 570 72" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="546" y="88" class="tick-label">SAC₃</text>
+        <!-- LAC envelope -->
+        <path d="M96 96 Q340 246 584 96" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="592" y="102" fill="var(--accent)" font-size="13.5" font-weight="700">LAC</text>
+        <!-- Tangent point -->
+        <circle cx="340" cy="171" r="6" class="mv-dot-eq"/>
+        <text x="352" y="190" class="point-label">E（最低点相切）</text>
+      </svg>`
+    );
+  }
+
+  // 3. Chapter 08: Interactive Prisoner's Dilemma Matrix
+  function mountPrisonersMatrix(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>囚徒困境 2×2 支付矩阵（点击任意格子体验纳什均衡）</h4>
+        <p>括号内为（甲的刑期年数，乙的刑期年数），数字越小越好。点击不同策略组合，看双方有没有单方面改选的动机。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart" style="padding:16px">
+          <div class="game-matrix" role="grid" aria-label="囚徒困境支付矩阵">
+            <div class="gm-corner">甲 \\ 乙</div>
+            <div class="gm-head">乙：坦白</div>
+            <div class="gm-head">乙：抵赖</div>
+            <div class="gm-head">甲：坦白</div>
+            <button type="button" class="gm-cell active" data-cell="cc"><strong>(-8年, -8年)</strong><small>纳什均衡 ★</small></button>
+            <button type="button" class="gm-cell" data-cell="cd"><strong>(0年, -10年)</strong><small>甲占便宜</small></button>
+            <div class="gm-head">甲：抵赖</div>
+            <button type="button" class="gm-cell" data-cell="dc"><strong>(-10年, 0年)</strong><small>乙占便宜</small></button>
+            <button type="button" class="gm-cell" data-cell="dd"><strong>(-1年, -1年)</strong><small>帕累托最优</small></button>
+          </div>
+        </div>
+        <div class="ppf-controls">
+          <h5>策略稳定性分析</h5>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const notes = {
+      cc: '【(坦白, 坦白) → 唯一纳什均衡】无论对方选什么，自己选「坦白」刑期都更短（0>-1 且 -8>-10），因此「坦白」是双方的严格占优策略，任何一方单方面改选抵赖都会从 -8 年恶化到 -10 年。',
+      cd: '【(坦白, 抵赖) → 不稳定】此时乙判 10 年；只要乙单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此乙有强烈动机偏离，最终滑向 (坦白, 坦白)。',
+      dc: '【(抵赖, 坦白) → 不稳定】此时甲判 10 年；只要甲单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此甲会立刻偏离，滑向 (坦白, 坦白)。',
+      dd: '【(抵赖, 抵赖) → 帕累托最优但不稳定】虽然两人各判 1 年集体总福利最好，但给定对方抵赖，自己单方面背叛改为坦白可以无罪释放（0 年），所以缺乏约束机制时合作会瓦解。',
+    };
+    const cells = [...root.querySelectorAll('[data-cell]')];
+    function select(key) {
+      cells.forEach(c => c.classList.toggle('active', c.dataset.cell === key));
+      root.querySelector('[data-role="msg"]').textContent = notes[key];
+    }
+    cells.forEach(c => c.addEventListener('click', () => select(c.dataset.cell)));
+    select('cc');
+  }
+
+  // 4. Chapter 09: Lorenz Curve & Gini Coefficient
+  function mountLorenzGini(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>洛伦兹曲线与基尼系数（G = A / (A + B)）</h4>
+        <p>拖动收入分配不平等程度，观察洛伦兹曲线弯曲幅度与阴影面积 A 的变化，直观理解基尼系数 0.4 警戒线。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>绝对平等线（45°）</span>
+            <span><i class="chart-line mv-c1-line"></i>洛伦兹曲线</span>
+            <span><i class="mv-swatch mv-cs"></i>不平等面积 A</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="洛伦兹曲线与基尼系数交互图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">累计收入占比 (%)</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">累计人口占比（从低收入到高收入 %）</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0%</text><text x="171" y="316">25%</text><text x="276" y="316">50%</text><text x="381" y="316">75%</text><text x="486" y="316">100%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">25%</text><text x="56" y="172">50%</text><text x="56" y="109">75%</text><text x="56" y="46">100%</text></g>
+            <path class="mv-fill-cs" data-role="area-a"/>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-1" data-role="curve"/>
+            <text x="248" y="196" class="point-label" data-role="lbl-a">A</text>
+            <text x="382" y="246" class="tick-label" style="font-size:14px">B</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">弯曲指数 k（1=绝对平等，越大越不平等）<output data-role="k-out">2.3</output></label>
+          <input type="range" data-role="k" min="1" max="5" step="0.1" value="2.3">
+          <div class="ppf-outputs">
+            <div><span>基尼系数 G</span><strong data-role="g-val">0.39</strong></div>
+            <div><span>后 50% 人口收入占比</span><strong data-role="b50-val">20%</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // L(p) = p^k => Gini = (k - 1)/(k + 1)
+    const x = p => X0 + p * W;
+    const y = v => Y0 - v * H;
+    const kIn = root.querySelector('[data-role="k"]');
+    function draw() {
+      const k = kIn.valueAsNumber;
+      const gini = (k - 1) / (k + 1);
+      const b50 = Math.pow(0.5, k) * 100;
+      const curveD = samplePath(p => Math.pow(p, k), 0, 1, 50, x, y);
+      root.querySelector('[data-role="curve"]').setAttribute('d', curveD);
+      root.querySelector('[data-role="area-a"]').setAttribute('d', curveD + ` L${x(0)} ${y(0)} Z`);
+      root.querySelector('[data-role="k-out"]').value = fmt(k, 1);
+      root.querySelector('[data-role="g-val"]').textContent = fmt(gini, 2);
+      root.querySelector('[data-role="b50-val"]').textContent = fmt(b50, 0) + '%';
+      root.querySelector('[data-role="msg"]').textContent = gini < 0.2
+        ? 'G < 0.2：收入分配高度平均，洛伦兹曲线紧贴 45° 绝对平等线。'
+        : gini < 0.4
+          ? `G = ${fmt(gini, 2)}（0.2~0.4）：处于相对合理区间；收入较低的一半人口占总收入的 ${fmt(b50, 0)}%。`
+          : `G = ${fmt(gini, 2)} ≥ 0.4：超过国际常用的收入差距警戒线，洛伦兹曲线明显向右下方弯曲。`;
+    }
+    kIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 5. Chapter 09: Backward-bending Labour Supply Curve (static)
+  function mountLabourSupply(root) {
+    root.innerHTML = wrapStatic(
+      '向后弯曲的个人劳动供给曲线',
+      '工资上涨同时产生「替代效应（多干活）」与「收入效应（多买闲暇）」；当工资高过拐点 W* 后，收入效应压过替代效应，劳动供给反向减少。',
+      `<svg viewBox="0 0 640 270" role="img" aria-label="向后弯曲的劳动供给曲线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V224H580 M61 35l5-7 5 7 M573 219l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">工资率 W</text>
+        <text x="323" y="258" text-anchor="middle" class="axis-label">劳动供给时间 L</text>
+        <path d="M130 210 C250 184 320 156 320 124 C320 88 265 64 210 42" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="66" y1="124" x2="320" y2="124" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <circle cx="320" cy="124" r="6" class="mv-dot-eq"/>
+        <text x="48" y="128" text-anchor="end" class="tick-label">W*</text>
+        <text x="336" y="128" class="point-label">拐点（替代效应 = 收入效应）</text>
+        <text x="336" y="76" fill="var(--mv-c2)" font-size="13" font-weight="650">W &gt; W*：收入效应 &gt; 替代效应（高薪更愿享受闲暇，曲线后弯）</text>
+        <text x="336" y="182" fill="var(--accent)" font-size="13" font-weight="650">W &lt; W*：替代效应 &gt; 收入效应（加薪吸引增加工时，曲线右倾）</text>
+      </svg>`
+    );
+  }
+
+  // 6. Chapter 10: Negative Externality & Pigouvian Tax
+  function mountExternality(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>负外部性与庇古税：私人成本（MPC）vs 社会成本（MSC）</h4>
+        <p>拖动“庇古税税率 t”，看如何将外部污染成本内部化，使市场产量从过度生产的 Qm 收敛到社会最优产量 Q*。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>需求 D = MSB</span>
+            <span><i class="chart-line mv-base-line"></i>私人成本 MPC</span>
+            <span><i class="chart-line mv-c2-line"></i>社会成本 MSC</span>
+            <span><i class="mv-swatch mv-dwl"></i>剩余无谓损失</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="负外部性与庇古税纠正图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 / 成本</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">产量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">20</text><text x="276" y="316">40</text><text x="381" y="316">60</text><text x="486" y="316">80</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="248">10</text><text x="56" y="197">20</text><text x="56" y="147">30</text><text x="56" y="96">40</text><text x="56" y="46">50</text></g>
+            <polygon class="mv-fill-dwl" data-role="dwl"/>
+            <path class="mv-curve-1" data-role="d"/>
+            <path class="mv-base-curve" data-role="mpc"/>
+            <path class="mv-curve-2" data-role="msc"/>
+            <path class="mv-curve-3" data-role="tax-s"/>
+            <circle r="5.5" class="mv-dot-2" data-role="opt"/>
+            <circle r="6" class="mv-dot-eq" data-role="cur"/>
+            <text class="point-label" data-role="lbl-opt">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">庇古税税率 t（单位外部成本 = 10）<output data-role="t-out">0</output></label>
+          <input type="range" data-role="t" min="0" max="14" step="1" value="0">
+          <div class="ppf-outputs">
+            <div><span>实际产量 Q</span><strong data-role="q-val">40</strong></div>
+            <div><span>社会最优 Q*</span><strong>30</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row"><button type="button" class="button button-primary" data-role="best">设为最优庇古税 (t=10)</button></div>
+        </div>
+      </div>`;
+    // D: P = 50 - 0.5Q; MPC: P = 10 + 0.5Q (Qm=40, Pm=30); MSC: P = 20 + 0.5Q (Q*=30, P*=35)
+    const x = q => X0 + (q / 80) * W;
+    const y = p => Y0 - (p / 50) * H;
+    root.querySelector('[data-role="d"]').setAttribute('d', `M${x(0)} ${y(50)} L${x(80)} ${y(10)}`);
+    root.querySelector('[data-role="mpc"]').setAttribute('d', `M${x(0)} ${y(10)} L${x(80)} ${y(50)}`);
+    root.querySelector('[data-role="msc"]').setAttribute('d', `M${x(0)} ${y(20)} L${x(60)} ${y(50)}`);
+    root.querySelector('[data-role="opt"]').setAttribute('cx', x(30));
+    root.querySelector('[data-role="opt"]').setAttribute('cy', y(35));
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('x', x(30) - 18);
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('y', y(35) - 10);
+    const tIn = root.querySelector('[data-role="t"]');
+    function draw() {
+      const t = tIn.valueAsNumber;
+      const q = 40 - t;
+      const p = 50 - 0.5 * q;
+      const mscAtQ = 20 + 0.5 * q;
+      root.querySelector('[data-role="tax-s"]').setAttribute('d', `M${x(0)} ${y(10 + t)} L${x(Math.min(80, 80 - 2 * t))} ${y(Math.min(50, 50 + t - Math.max(0, t)))}`);
+      root.querySelector('[data-role="cur"]').setAttribute('cx', x(q).toFixed(1));
+      root.querySelector('[data-role="cur"]').setAttribute('cy', y(p).toFixed(1));
+      root.querySelector('[data-role="dwl"]').setAttribute('points', Math.abs(q - 30) < 0.1 ? '' : `${x(30).toFixed(1)},${y(35).toFixed(1)} ${x(q).toFixed(1)},${y(p).toFixed(1)} ${x(q).toFixed(1)},${y(mscAtQ).toFixed(1)}`);
+      root.querySelector('[data-role="t-out"]').value = String(t);
+      root.querySelector('[data-role="q-val"]').textContent = String(q);
+      root.querySelector('[data-role="msg"]').textContent = t === 0
+        ? '未征税时，厂商只考虑私人成本 MPC，市场过度生产（Q=40 > Q*=30），红色三角为负外部性造成的社会无谓损失。'
+        : t === 10
+          ? '庇古税 t=10 恰好等于边际外部成本：税后供给曲线与 MSC 重合，市场自动收敛到社会最优产量 Q*=30，无谓损失清零！'
+          : t < 10
+            ? `税率 t=${t} 偏低：产量降至 ${q}，无谓损失明显缩小，但仍高于社会最优产量 30。`
+            : `税率 t=${t} 过高：过度征税导致产量降至 ${q}（低于社会最优 30），反而产生新的效率损失。`;
+    }
+    tIn.addEventListener('input', draw);
+    root.querySelector('[data-role="best"]').addEventListener('click', () => { tIn.value = '10'; draw(); });
+    draw();
+  }
+
+  // 7. Chapter 11: Keynesian 45-degree Cross & Multiplier
+  function mountKeynesCross(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>凯恩斯 45° 交叉图与支出乘数效应（k = 1 / (1 − MPC)）</h4>
+        <p>增加自发支出 ΔA 或调高边际消费倾向 MPC，观察计划支出线 AE 上移后均衡产出 Y* 被成倍放大的效果。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>45° 均衡线（AE = Y）</span>
+            <span><i class="chart-line mv-c1-line"></i>当前计划支出 AE</span>
+            <span><i class="chart-line mv-c3-line"></i>初始 AE₀</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="凯恩斯45度交叉图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">计划支出 AE</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">100</text><text x="276" y="316">200</text><text x="381" y="316">300</text><text x="486" y="316">400</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">100</text><text x="56" y="172">200</text><text x="56" y="109">300</text><text x="56" y="46">400</text></g>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-3" data-role="ae0"/>
+            <path class="mv-curve-1" data-role="ae1"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">新增自发支出 ΔA（基准 A₀=50）<output data-role="a-out">+0</output></label>
+          <input type="range" data-role="da" min="0" max="40" step="5" value="0">
+          <label class="range-label">边际消费倾向 MPC <output data-role="c-out">0.75</output></label>
+          <input type="range" data-role="mpc" min="0.5" max="0.8" step="0.05" value="0.75">
+          <div class="ppf-outputs">
+            <div><span>支出乘数 k</span><strong data-role="k-val">4.0×</strong></div>
+            <div><span>均衡产出 Y*</span><strong data-role="y-val">200</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const x = v => X0 + (v / 400) * W;
+    const y = v => Y0 - (v / 400) * H;
+    const daIn = root.querySelector('[data-role="da"]');
+    const cIn = root.querySelector('[data-role="mpc"]');
+    function draw() {
+      const da = daIn.valueAsNumber, c = cIn.valueAsNumber;
+      const k = 1 / (1 - c);
+      const y0 = 50 * k;
+      const ys = (50 + da) * k;
+      const aePath = a => `M${x(0).toFixed(1)} ${y(a).toFixed(1)} L${x(400).toFixed(1)} ${y(Math.min(400, a + c * 400)).toFixed(1)}`;
+      root.querySelector('[data-role="ae0"]').setAttribute('d', aePath(50));
+      root.querySelector('[data-role="ae1"]').setAttribute('d', aePath(50 + da));
+      const yc = Math.min(400, ys);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(yc).toFixed(1)} H${x(yc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(yc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(yc).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(yc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(yc) - 10).toFixed(1));
+      root.querySelector('[data-role="a-out"]').value = '+' + da;
+      root.querySelector('[data-role="c-out"]').value = fmt(c, 2);
+      root.querySelector('[data-role="k-val"]').textContent = fmt(k, 1) + '×';
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 0);
+      root.querySelector('[data-role="msg"]').textContent = da === 0
+        ? `当前 MPC=${fmt(c, 2)}，支出乘数 k=${fmt(k, 1)}。试着增加自发支出 ΔA，观察产出增量如何等于 ΔA × ${fmt(k, 1)}。`
+        : `自发支出仅增加 +${da}，经过乘数 k=${fmt(k, 1)} 放大后，均衡产出从 ${fmt(y0, 0)} 跃升至 ${fmt(ys, 0)}（净增 +${fmt(ys - y0, 0)}）。`;
+    }
+    daIn.addEventListener('input', draw);
+    cIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 8. Chapter 15: LM Three Regions Policy Effectiveness
+  function mountLMRegions(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>LM 三区间：财政政策与货币政策的有效性对比</h4>
+        <p>切换经济所处的 LM 区间（凯恩斯陷阱 / 中间区域 / 古典区域），对比扩张性财政政策（IS 右移）的效果与挤出程度。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c2-line"></i>完整 LM 曲线</span>
+            <span><i class="chart-line mv-base-line"></i>初始 IS₀</span>
+            <span><i class="chart-line mv-c1-line"></i>扩张财政后 IS₁</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="LM三区间政策有效性对比图">
+            <rect x="66" y="42" width="140" height="252" fill="var(--accent-soft)" opacity=".45"/>
+            <rect x="376" y="42" width="110" height="252" fill="var(--warning-soft)" opacity=".45"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">利率 r</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle">
+              <text x="136" y="316">凯恩斯区（水平）</text>
+              <text x="291" y="316">中间区（右倾）</text>
+              <text x="431" y="316">古典区（垂直）</text>
+            </g>
+            <!-- Full LM: horizontal [66..206] at y=248, sloped [206..416] to y=110, vertical at x=416 up to y=48 -->
+            <path d="M66 248 L206 248 L416 110 L416 48" fill="none" class="mv-curve-2"/>
+            <path class="mv-base-curve" data-role="is0"/>
+            <path class="mv-curve-1" data-role="is1"/>
+            <circle r="5" class="mv-dot-3" data-role="e0"/>
+            <circle r="6.5" class="mv-dot-1" data-role="e1"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择当前所处 LM 区间</legend>
+            <label><input type="radio" name="lmr" value="keynes" checked> 凯恩斯区域（流动性陷阱）</label>
+            <label><input type="radio" name="lmr" value="mid"> 中间区域（常态经济）</label>
+            <label><input type="radio" name="lmr" value="classic"> 古典区域（充分就业上限）</label>
+          </fieldset>
+          <div class="ppf-outputs">
+            <div><span>财政政策效果</span><strong data-role="f-val">极有效</strong></div>
+            <div><span>货币政策效果</span><strong data-role="m-val">完全无效</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const cfg = {
+      keynes: { is0: 'M92 174 L164 276', is1: 'M128 174 L200 276', e0: [144, 248], e1: [180, 248], f: '完全有效', m: '无效', msg: '凯恩斯区域（流动性陷阱）：利率已低至底线，增发货币全被持有为现金（货币政策无效）；扩张财政使 IS 右移不推高利率，无挤出效应，财政政策完全有效。' },
+      mid: { is0: 'M216 96 L356 264', is1: 'M260 96 L400 264', e0: [292, 191], e1: [324, 170], f: '部分有效', m: '部分有效', msg: '中间区域：扩张财政使产出上升、利率温和上行，存在「部分挤出效应」；财政政策与货币政策均有效，适合搭配使用。' },
+      classic: { is0: 'M348 106 L466 218', is1: 'M366 64 L484 176', e0: [416, 171], e1: [416, 111], f: '完全无效', m: '完全有效', msg: '古典区域（垂直 LM）：产出已达上限，扩张财政只会把利率推高，导致私人投资被「100% 完全挤出」（财政无效）；此时货币政策完全有效。' },
+    };
+    const radios = [...root.querySelectorAll('input[name="lmr"]')];
+    function draw() {
+      const c = cfg[radios.find(r => r.checked).value];
+      root.querySelector('[data-role="is0"]').setAttribute('d', c.is0);
+      root.querySelector('[data-role="is1"]').setAttribute('d', c.is1);
+      root.querySelector('[data-role="e0"]').setAttribute('cx', c.e0[0]);
+      root.querySelector('[data-role="e0"]').setAttribute('cy', c.e0[1]);
+      root.querySelector('[data-role="e1"]').setAttribute('cx', c.e1[0]);
+      root.querySelector('[data-role="e1"]').setAttribute('cy', c.e1[1]);
+      root.querySelector('[data-role="f-val"]').textContent = c.f;
+      root.querySelector('[data-role="m-val"]').textContent = c.m;
+      root.querySelector('[data-role="msg"]').textContent = c.msg;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    draw();
+  }
+
+  // 9. Chapter 17: Solow Growth Model Steady State
+  function mountSolow(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>索罗增长模型：储蓄率、折旧率与人均资本稳态 k*</h4>
+        <p>调节储蓄率 s 或折旧率 δ，观察实际投资曲线 s·f(k) 与持平投资线 δ·k 的交点（稳态 k*）如何移动。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>人均产出 y = f(k)</span>
+            <span><i class="chart-line mv-c1-line"></i>人均投资 s·f(k)</span>
+            <span><i class="chart-line mv-c2-line"></i>折旧线 δ·k</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="索罗增长模型稳态互动图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">人均产出 / 投资</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">人均资本存量 k</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">25</text><text x="276" y="316">50</text><text x="381" y="316">75</text><text x="486" y="316">100</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">3</text><text x="56" y="172">6</text><text x="56" y="109">9</text><text x="56" y="46">12</text></g>
+            <path class="mv-base-curve" data-role="yk"/>
+            <path class="mv-curve-1" data-role="sfk"/>
+            <path class="mv-curve-2" data-role="dk"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">k*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">储蓄率 s <output data-role="s-out">35%</output></label>
+          <input type="range" data-role="s" min="15" max="60" step="5" value="35">
+          <label class="range-label">折旧率 δ <output data-role="d-out">5%</output></label>
+          <input type="range" data-role="d" min="3" max="10" step="1" value="5">
+          <div class="ppf-outputs">
+            <div><span>稳态人均资本 k*</span><strong data-role="k-val">49</strong></div>
+            <div><span>稳态人均产出 y*</span><strong data-role="y-val">7.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // y = sqrt(k), s*sqrt(k) = d*k => k* = (s/d)^2, y* = s/d
+    const x = k => X0 + (k / 100) * W;
+    const y = v => Y0 - (Math.min(12, v) / 12) * H;
+    root.querySelector('[data-role="yk"]').setAttribute('d', samplePath(k => Math.sqrt(k), 0, 100, 60, x, y));
+    const sIn = root.querySelector('[data-role="s"]');
+    const dIn = root.querySelector('[data-role="d"]');
+    function draw() {
+      const s = sIn.valueAsNumber / 100, d = dIn.valueAsNumber / 100;
+      const ks = Math.pow(s / d, 2);
+      const ys = s / d;
+      const inv = d * ks;
+      root.querySelector('[data-role="sfk"]').setAttribute('d', samplePath(k => s * Math.sqrt(k), 0, 100, 60, x, y));
+      const kEnd = Math.min(100, 12 / d);
+      root.querySelector('[data-role="dk"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(kEnd).toFixed(1)} ${y(d * kEnd).toFixed(1)}`);
+      const kc = Math.min(100, ks), ic = Math.min(12, inv);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(ic).toFixed(1)} H${x(kc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(kc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(ic).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(kc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(ic) - 10).toFixed(1));
+      root.querySelector('[data-role="s-out"]').value = sIn.value + '%';
+      root.querySelector('[data-role="d-out"]').value = dIn.value + '%';
+      root.querySelector('[data-role="k-val"]').textContent = fmt(ks, 0);
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 1);
+      root.querySelector('[data-role="msg"]').textContent = `稳态 k* = (s/δ)² = ${fmt(ks, 0)}，人均产出 y* = ${fmt(ys, 1)}。提高储蓄率 s 只能提升稳态「水平」，在无技术进步时无法永久提高长期「增长率」。`;
+    }
+    sIn.addEventListener('input', draw);
+    dIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 10. Chapter 23: Balance of Payments Account Structure (static)
+  function mountBOPStructure(root) {
+    root.innerHTML = wrapStatic(
+      '国际收支平衡表（BOP）账户结构与恒等关系',
+      '按复式记账法编制，账面总额恒等于 0：经常账户 + 资本和金融账户（不含储备） + 储备资产变动 + 净误差与遗漏 = 0。',
+      `<svg viewBox="0 0 680 236" role="img" aria-label="国际收支平衡表账户结构图" style="width:100%;height:auto;display:block">
+        <g text-anchor="middle">
+          <rect x="16" y="16" width="154" height="132" rx="9" fill="var(--accent-soft)" stroke="var(--accent-line)" stroke-width="1.6"/>
+          <text x="93" y="42" fill="var(--accent)" font-size="13.5" font-weight="700">经常账户</text>
+          <text x="93" y="68" fill="var(--text)" font-size="12">• 货物贸易</text>
+          <text x="93" y="90" fill="var(--text)" font-size="12">• 服务贸易</text>
+          <text x="93" y="112" fill="var(--text)" font-size="12">• 初次收入(股息/利息)</text>
+          <text x="93" y="134" fill="var(--text)" font-size="12">• 二次收入(无偿转移)</text>
+
+          <text x="182" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="194" y="16" width="154" height="132" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="271" y="42" fill="var(--heading)" font-size="13.5" font-weight="700">资本与金融账户</text>
+          <text x="271" y="68" fill="var(--text)" font-size="12">• 直接投资（FDI）</text>
+          <text x="271" y="90" fill="var(--text)" font-size="12">• 证券投资（股/债）</text>
+          <text x="271" y="112" fill="var(--text)" font-size="12">• 金融衍生品</text>
+          <text x="271" y="134" fill="var(--text)" font-size="12">• 贷款与其他投资</text>
+
+          <text x="360" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="372" y="16" width="144" height="132" rx="9" fill="var(--surface)" stroke="var(--mv-c2)" stroke-width="1.5"/>
+          <text x="444" y="42" fill="var(--mv-c2)" font-size="13.5" font-weight="700">储备资产变动</text>
+          <text x="444" y="68" fill="var(--text)" font-size="12">• 外汇储备</text>
+          <text x="444" y="90" fill="var(--text)" font-size="12">• 货币黄金</text>
+          <text x="444" y="112" fill="var(--text)" font-size="12">• 特别提款权 SDR</text>
+          <text x="444" y="134" fill="var(--text)" font-size="12">• IMF 储备头寸</text>
+
+          <text x="528" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="540" y="16" width="124" height="132" rx="9" fill="var(--surface-subtle)" stroke="var(--control-line)" stroke-dasharray="4 3"/>
+          <text x="602" y="64" fill="var(--heading)" font-size="13" font-weight="680">净误差与遗漏</text>
+          <text x="602" y="90" fill="var(--muted)" font-size="11.5">统计口径差异</text>
+          <text x="602" y="110" fill="var(--muted)" font-size="11.5">与漏报轧平项</text>
+        </g>
+        <rect x="16" y="164" width="648" height="54" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+        <text x="340" y="187" text-anchor="middle" fill="var(--heading)" font-size="12.5" font-weight="650">高频考点：国际收支「顺差 / 逆差」通常指前两项（自主性交易）之和；</text>
+        <text x="340" y="207" text-anchor="middle" fill="var(--muted)" font-size="12">顺差导致外汇储备增加（在储备资产项下记为借方负号），从而使整张平衡表借贷轧平为 0。</text>
+      </svg>`
+    );
+  }
+
+  // 11. Chapter 25: Financial Repression Interest Ceiling Gap (static)
+  function mountRepressionGap(root) {
+    root.innerHTML = wrapStatic(
+      '金融抑制：人为利率上限导致的储蓄萎缩与信贷配给缺口',
+      '麦金农—肖模型核心图示：政府将实际利率压低在均衡利率 r* 以下（r₀），导致实际储蓄不足、投资需求过剩，只能依靠非市场信贷配给。',
+      `<svg viewBox="0 0 640 276" role="img" aria-label="金融抑制利率上限与资金缺口图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V226H580 M61 35l5-7 5 7 M573 221l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">实际利率 r</text>
+        <text x="323" y="262" text-anchor="middle" class="axis-label">储蓄 S / 投资 I</text>
+        <!-- I curve downward, S curve upward -->
+        <path d="M126 52 L506 208" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+        <text x="514" y="212" fill="var(--accent)" font-size="13" font-weight="680">投资需求 I(r)</text>
+        <path d="M126 208 L506 52" fill="none" stroke="var(--mv-c2)" stroke-width="2.6"/>
+        <text x="514" y="56" fill="var(--mv-c2)" font-size="13" font-weight="680">储蓄供给 S(r)</text>
+        <!-- Equilibrium -->
+        <circle cx="316" cy="130" r="5.5" class="mv-dot-eq"/>
+        <line x1="66" y1="130" x2="316" y2="130" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="56" y="134" text-anchor="end" class="tick-label">r*</text>
+        <text x="326" y="122" class="point-label">E*（市场均衡）</text>
+        <!-- Ceiling r0 -->
+        <line x1="66" y1="176" x2="540" y2="176" stroke="var(--error)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="56" y="180" text-anchor="end" fill="var(--error)" font-size="12.5" font-weight="680">r₀</text>
+        <line x1="204" y1="176" x2="204" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <line x1="428" y1="176" x2="428" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <text x="204" y="242" text-anchor="middle" class="tick-label">实际储蓄 S₀</text>
+        <text x="428" y="242" text-anchor="middle" class="tick-label">投资需求 I₀</text>
+        <line x1="208" y1="176" x2="424" y2="176" stroke="var(--error)" stroke-width="4.5" opacity=".45"/>
+        <text x="316" y="168" text-anchor="middle" fill="var(--error)" font-size="12.5" font-weight="680">资金短缺 / 非价格信贷配给区</text>
+      </svg>`
+    );
+  }
+
+  // 12. Chapter 26: Risk Management 4-Quadrant Matrix (static)
+  function mountRiskMatrix(root) {
+    root.innerHTML = wrapStatic(
+      '风险管理四象限矩阵：按「损失频率 × 损失程度」选工具',
+      '保险最适合处理「低频率、高损失」的风险；高频低损靠自留与防损，高频高损则应直接回避。',
+      `<svg viewBox="0 0 660 272" role="img" aria-label="风险管理四象限矩阵图" style="width:100%;height:auto;display:block">
+        <text x="364" y="20" text-anchor="middle" class="axis-label">损失频率（发生可能性）</text>
+        <text x="234" y="42" text-anchor="middle" class="tick-label">低频率</text>
+        <text x="494" y="42" text-anchor="middle" class="tick-label">高频率</text>
+        <text x="26" y="156" text-anchor="middle" class="axis-label" transform="rotate(-90 26 156)">损失程度</text>
+        <text x="80" y="106" text-anchor="end" class="tick-label">高损失</text>
+        <text x="80" y="212" text-anchor="end" class="tick-label">低损失</text>
+
+        <!-- Q1: Low freq, High severity -> Insurance -->
+        <rect x="94" y="52" width="268" height="100" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+        <text x="228" y="84" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">风险转移（商业保险 ★）</text>
+        <text x="228" y="108" text-anchor="middle" fill="var(--text)" font-size="12">低频高损：火灾、重疾、重大车祸</text>
+        <text x="228" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">保险最核心的适用场景（杠杆高）</text>
+
+        <!-- Q2: High freq, High severity -> Avoidance -->
+        <rect x="374" y="52" width="268" height="100" rx="9" fill="var(--error-soft)" stroke="var(--error-line)" stroke-width="1.5"/>
+        <text x="508" y="84" text-anchor="middle" fill="var(--error)" font-size="14" font-weight="700">风险回避</text>
+        <text x="508" y="108" text-anchor="middle" fill="var(--text)" font-size="12">高频高损：危房施工、高危违规作业</text>
+        <text x="508" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">直接放弃或退出该项活动</text>
+
+        <!-- Q3: Low freq, Low severity -> Retention -->
+        <rect x="94" y="162" width="268" height="96" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="228" y="194" text-anchor="middle" fill="var(--heading)" font-size="14" font-weight="700">风险自留</text>
+        <text x="228" y="218" text-anchor="middle" fill="var(--text)" font-size="12">低频低损：小额日常磕碰、小件遗失</text>
+        <text x="228" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">自行承担更经济，无需额外投保</text>
+
+        <!-- Q4: High freq, Low severity -> Loss control / Prevention -->
+        <rect x="374" y="162" width="268" height="96" rx="9" fill="var(--warning-soft)" stroke="var(--warning)" stroke-width="1.5"/>
+        <text x="508" y="194" text-anchor="middle" fill="var(--warning)" font-size="14" font-weight="700">损失控制（预防与抑制）</text>
+        <text x="508" y="218" text-anchor="middle" fill="var(--text)" font-size="12">高频低损：装防盗门、定期消防检查</text>
+        <text x="508" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">降低发生概率 + 控制损失规模</text>
+      </svg>`
+    );
+  }
+
+  const registry = {
+    'tu-mu': mountTUMU,
+    'lac-envelope': mountLACEnvelope,
+    'prisoners-matrix': mountPrisonersMatrix,
+    'lorenz-gini': mountLorenzGini,
+    'labour-supply': mountLabourSupply,
+    externality: mountExternality,
+    'keynes-cross': mountKeynesCross,
+    'lm-regions': mountLMRegions,
+    solow: mountSolow,
+    'bop-structure': mountBOPStructure,
+    'repression-gap': mountRepressionGap,
+    'risk-matrix': mountRiskMatrix,
+  };
+
+  document.querySelectorAll('[data-micro-visual]').forEach(container => {
+    const fn = registry[container.dataset.microVisual];
+    if (fn) fn(container);
+  });
 })();
 </script>
 </body>

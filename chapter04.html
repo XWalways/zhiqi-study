@@ -960,6 +960,14 @@ dialog::backdrop { background: var(--backdrop); }
 .micro-panel .axis-label, .market-panel .axis-label { font-size: 13px; font-weight: 600; }
 .micro-panel .tick-label, .market-panel .tick-label { font-size: 12px; }
 .micro-panel .point-label { font-size: 14px; }
+.game-matrix { display: grid; grid-template-columns: 96px repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gm-corner, .gm-head { display: grid; place-items: center; padding: 10px 8px; border-radius: 8px; background: var(--surface-subtle); color: var(--heading); font-size: 13px; font-weight: 650; text-align: center; }
+.gm-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 82px; padding: 10px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--heading); transition: border-color .15s ease, background .15s ease; }
+.gm-cell strong { font: 680 16px var(--font-number); }
+.gm-cell small { font-size: 12px; color: var(--muted); }
+.gm-cell:hover { border-color: var(--control-line); }
+.gm-cell.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.gm-cell.active small { color: var(--accent); font-weight: 620; }
 </style>
 </head>
 <body data-page="chapter" data-offline="false" data-flat-downloads="true">
@@ -1104,7 +1112,7 @@ dialog::backdrop { background: var(--backdrop); }
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 <script src="catalog.js"></script>
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter04","number":4,"title":"消费者行为理论","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-04-消费者行为理论-离线学习.html","visual":"consumer","visualSectionId":"consumer-equilibrium","visuals":[{"type":"consumer","sectionId":"consumer-equilibrium"}]},"lessons":{"title":"消费者行为理论","subtitle":"用偏好和预算理解购买选择，再看收入或价格变化如何改变选择。","sections":[{"id":"utility","title":"效用与两种度量方法","summary":"效用表示消费者对商品组合的主观评价。","bodyHtml":"\u003cp>\u003cstrong>效用\u003c/strong>描述消费者从消费中得到的满足程度。消费者可用效用表达对商品组合的偏好，同一物品在不同人或不同场合下可能带来不同效用。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>方法\u003c/th>\u003cth>效用如何表示\u003c/th>\u003cth>常用分析工具\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>基数效用论\u003c/td>\u003ctd>假定效用可用数值直接度量，效用增量可以相加\u003c/td>\u003ctd>总效用和边际效用\u003c/td>\u003c/tr>\u003ctr>\u003ctd>序数效用论\u003c/td>\u003ctd>数值只用来表示偏好顺序\u003c/td>\u003ctd>无差异曲线与预算线\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"基数效用论关注效用大小。序数效用论关注哪个组合更受偏好。","pitfall":"序数效用函数也可以赋予商品组合数字。效用值 20 和 10 可表示排序，不能据此判断满足程度刚好相差一倍。","example":"甲在同一价格下更喜欢茶，乙更喜欢咖啡。两人可以分别给饮品排序，效用表示会随消费者的偏好改变。"},{"id":"marginal-utility","title":"总效用与边际效用","summary":"新增一个单位商品带来的满足程度通常随消费量上升而减少。","bodyHtml":"\u003cp>\u003cstrong>总效用\u003c/strong>是消费一定数量商品所获的效用水平。其他商品消费量不变时，\u003cstrong>边际效用\u003c/strong>是额外增加一单位该商品带来的效用增量。连续情形下，边际效用是总效用对该商品数量的导数。\u003c/p>\u003cp>\u003cmark>边际效用递减规律\u003c/mark>描述在一定时期内，随着同一商品的消费量增加，额外一单位提供的效用趋于下降。增加的边际效用仍为正时，总效用继续增加。若边际效用由正转负，总效用在转折处达到峰值。\u003c/p>\u003cp>货币通过购买商品与服务带来效用。货币的边际效用也可能递减。分析小额支出变化时，可用边际效用近似不变来简化比较。\u003c/p>","keyTakeaway":"比较总效用的增减时看边际效用的正负。比较总效用增长的快慢时看边际效用的大小。","pitfall":"边际效用下降期间，只要边际效用大于零，总效用仍会增加。","example":"三片面包依次带来 12、7、3 单位新增效用。边际效用逐片下降，总效用依次为 12、19、22。"},{"id":"preference","title":"偏好的基本假定","summary":"完整的排序规则使不同商品组合能够比较。","bodyHtml":"\u003cul>\u003cli>\u003cstrong>完全性\u003c/strong>要求任意两个组合都可以比较，允许偏好其中之一或无差异。\u003c/li>\u003cli>\u003cstrong>传递性\u003c/strong>要求比较保持一致。若 A 至少与 B 一样好，且 B 至少与 C 一样好，则 A 至少与 C 一样好。\u003c/li>\u003cli>\u003cstrong>非饱和性\u003c/strong>在通常的两种有益商品模型中表现为多多益善，其他数量不减时，多消费有益商品使组合更受偏好。\u003c/li>\u003c/ul>\u003cp>假定消费者偏好凸时，消费者通常愿意搭配消费，偏好相同的两种极端组合之间的平均组合至少同样好。\u003c/p>","keyTakeaway":"完全性保证可比较，传递性保证比较一致，非饱和性解释为何通常追求更高可达效用。","pitfall":"偏好排序属于特定消费者。改变收入和价格会改变其可选集合，分析时可继续将偏好保持不变。","example":"若某人更喜欢 A 而不是 B，又更喜欢 B 而不是 C，传递性要求他也更喜欢 A 而不是 C。"},{"id":"indifference-curves","title":"无差异曲线与边际替代率","summary":"效用相同的组合连成曲线，斜率反映消费者愿意交换的比例。","bodyHtml":"\u003cp>\u003cstrong>无差异曲线\u003c/strong>连接使同一消费者获得相同效用水平的所有商品组合。不同效用水平的曲线不相交。两种商品都多多益善时，曲线向右下倾斜，位于东北方向的更高曲线代表更高效用。\u003c/p>\u003cp>令 X 为横轴、Y 为纵轴。固定效用，额外获得一单位 X 时，愿放弃的 Y 数量是 X 对 Y 的\u003cstrong>边际替代率\u003c/strong>。在可微且边际效用为正的情形，\u003cmark>MRS = MU\u003csub>X\u003c/sub> / MU\u003csub>Y\u003c/sub>\u003c/mark>，等于无差异曲线斜率的绝对值。\u003c/p>\u003cp>在边际替代率递减的标准情形，X 越多，消费者越少愿用 Y 换取额外的 X，曲线凸向原点。完全替代品的曲线是斜率不变的直线。完全互补品的曲线呈直角。\u003c/p>","keyTakeaway":"同一条曲线上效用相同。曲线斜率的绝对值表示保持效用不变时的边际交换比例。","pitfall":"横纵轴互换后，边际替代率的分子与分母也会互换。比较效用高低应比较曲线位置，避免用两条曲线上任意点到原点的直线距离判断。","example":"若额外 1 杯咖啡恰好能补偿少喝 2 杯茶，当前咖啡对茶的边际替代率约为 2。"},{"id":"budget-line","title":"预算线与消费可行集","summary":"预算线的截距由收入和价格决定，斜率由相对价格决定。","bodyHtml":"\u003cp>以 X 为横轴、Y 为纵轴，收入 \u003cvar>I\u003c/var>、两种商品的正价格分别为 \u003cvar>P\u003csub>X\u003c/sub>\u003c/var>、\u003cvar>P\u003csub>Y\u003c/sub>\u003c/var>。\u003cstrong>预算线\u003c/strong>满足 \u003cmark>P\u003csub>X\u003c/sub>X + P\u003csub>Y\u003c/sub>Y = I\u003c/mark>。线内和线上的非负组合满足支出不超过收入。\u003c/p>\u003cp>横轴截距为 I/P\u003csub>X\u003c/sub>，纵轴截距为 I/P\u003csub>Y\u003c/sub>，斜率为 −P\u003csub>X\u003c/sub>/P\u003csub>Y\u003c/sub>。斜率的绝对值是多买一单位 X 在市场上需要放弃的 Y 数量。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>变化\u003c/th>\u003cth>图形变化\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>价格不变、收入增加\u003c/td>\u003ctd>平行外移\u003c/td>\u003c/tr>\u003ctr>\u003ctd>只有 X 降价\u003c/td>\u003ctd>绕纵轴截距旋转，横轴截距增大\u003c/td>\u003c/tr>\u003ctr>\u003ctd>收入不变、两种价格同比例上升\u003c/td>\u003ctd>平行内移\u003c/td>\u003c/tr>\u003ctr>\u003ctd>收入和两种价格均乘以同一正数\u003c/td>\u003ctd>截距与斜率保持不变\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"先算两轴截距，再看相对价格有没有变化。相对价格不变时，预算线斜率不变。","pitfall":"两种价格同向变动也可能改变价格比。需要确认它们是否同比例变化，才能判断预算线是否平移。","example":"收入 60 元，X 每单位 6 元，Y 每单位 3 元。截距分别为 10 和 20，斜率为 −2。若只有 X 降到 4 元，横轴截距变为 15，纵轴截距仍是 20。"},{"id":"consumer-equilibrium","title":"消费者均衡","summary":"在预算约束下，找到可达的最高效用。","bodyHtml":"\u003cp>\u003cstrong>消费者均衡\u003c/strong>是在给定偏好、收入和价格下选择效用最高的可行组合。对通常的光滑凸偏好，当两种商品的最优购买量均为正时，预算线与最高可达的无差异曲线相切。\u003c/p>\u003cp>内点切点条件为 \u003cmark>MU\u003csub>X\u003c/sub>/MU\u003csub>Y\u003c/sub> = P\u003csub>X\u003c/sub>/P\u003csub>Y\u003c/sub>\u003c/mark>，等价于 \u003cmark>MU\u003csub>X\u003c/sub>/P\u003csub>X\u003c/sub> = MU\u003csub>Y\u003c/sub>/P\u003csub>Y\u003c/sub>\u003c/mark>。右边的形式比较将一元钱分别花在两种商品上的边际效用。某种商品每元边际效用更高时，从另一种商品转移少量支出可改善效用，直至达到均衡或碰到边界。\u003c/p>\u003cp>检查两种商品是否都购买、偏好是否可微、预算是否用完。角点和拐点也可能是最优组合，应按偏好与可行集判断。\u003c/p>","keyTakeaway":"有内点时，主观交换比等于市场交换比，同时组合满足预算约束。","pitfall":"边际效用的高低需要结合商品价格。比较每元边际效用可以避免遗漏预算约束。","example":"X 每元带来 2 单位边际效用，Y 每元带来 3 单位边际效用，两者均有购买。把部分支出从 X 转到 Y 有助于提高效用。"},{"id":"consumer-paths","title":"价格—消费曲线、收入—消费曲线与恩格尔曲线","summary":"改变一个条件，跟踪每次最优选择，再换一组坐标。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>曲线\u003c/th>\u003cth>变动的条件\u003c/th>\u003cth>坐标和用途\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>价格—消费曲线\u003c/td>\u003ctd>一种商品的价格，收入、偏好和另一种价格固定\u003c/td>\u003ctd>在 X、Y 数量图上连接最优点。取变化的价格与其最优购买量，得到该商品的个人需求曲线\u003c/td>\u003c/tr>\u003ctr>\u003ctd>收入—消费曲线\u003c/td>\u003ctd>收入，价格与偏好固定\u003c/td>\u003ctd>在 X、Y 数量图上连接最优点。两种商品均为正常品时，曲线向右上方延伸\u003c/td>\u003c/tr>\u003ctr>\u003ctd>恩格尔曲线\u003c/td>\u003ctd>收入，价格与偏好固定\u003c/td>\u003ctd>把收入与一种商品的最优购买量对应起来。正常品收入与数量同向，低档品反向\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"价格—消费曲线通向个人需求曲线。收入—消费曲线通向恩格尔曲线。","pitfall":"收入—消费曲线的两根轴都是商品数量。两种商品中有一种是低档品时，收入上升可能使其购买量下降，曲线因而向该商品数量减少的方向弯折。","example":"收入从 100 增加到 120 元，价格不变，米的购买量从 5 增加到 6 千克。收入和米购买量的两对数值可作为恩格尔曲线上的点。"},{"id":"consumer-effects","title":"替代效应与收入效应","summary":"把本品降价对需求量的影响分解为相对价格和购买力的作用。","bodyHtml":"\u003cp>\u003cstrong>替代效应\u003c/strong>表示在对购买力变化作补偿后，相对价格变化造成的需求量变动。X 降价，消费者倾向于用相对便宜的 X 替代 Y。\u003cstrong>收入效应\u003c/strong>表示名义收入不变时，价格变动使实际购买力变化并影响购买选择。两者相加得到需求量的总变化。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>X 降价时\u003c/th>\u003cth>替代效应\u003c/th>\u003cth>收入效应\u003c/th>\u003cth>总效果\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>正常品，包括通常的必需品与高档品\u003c/td>\u003ctd>X 需求量增加或不变\u003c/td>\u003ctd>增加\u003c/td>\u003ctd>需求量增加\u003c/td>\u003c/tr>\u003ctr>\u003ctd>一般低档品\u003c/td>\u003ctd>增加\u003c/td>\u003ctd>减少，幅度较小\u003c/td>\u003ctd>需求量增加\u003c/td>\u003c/tr>\u003ctr>\u003ctd>吉芬品\u003c/td>\u003ctd>增加\u003c/td>\u003ctd>减少，幅度较大\u003c/td>\u003ctd>需求量减少\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>在通常的局部非饱和模型中，一种商品降价且其他条件不变，原消费组合仍然可负担，预算机会扩大。新最优效用至少与原来一样高。\u003c/p>","keyTakeaway":"低档品的两个效应反向。只有收入效应压过替代效应，才会出现吉芬情形。","pitfall":"仅凭低档品或正常品的标签，无法比较两种商品需求曲线斜率的大小。","example":"某低档品降价后，替代效应使需求量增加 6 单位，收入效应使需求量减少 2 单位，净增 4 单位，需求量仍与价格反向。"},{"id":"consumer-surplus","title":"消费者剩余","summary":"每单位最高愿付价与实际支付价的差额可加总。","bodyHtml":"\u003cp>\u003cstrong>消费者剩余\u003c/strong>是购买一定数量时的总支付意愿减去实际支出。若每单位按同一市场价格成交，图上可用\u003cstrong>需求曲线下方、价格线以上\u003c/strong>且截至成交量的面积表示。\u003c/p>\u003cp>分单位报价时，按单位逐项求差。连续线性需求且需求曲线与成交价线相交时，可用三角形面积，即成交量乘以最高愿付价与市场价格的差，再除以二。\u003c/p>","keyTakeaway":"消费者剩余衡量交易为买方带来的净收益，单位与价格和支出相同。","pitfall":"消费者购买多件商品时，前几单位的最高愿付价可能更高。应加总各单位的愿付价格。","example":"买方对两本书分别最多愿付 40 元和 25 元，均以 20 元买下。消费者剩余为 (40 − 20) + (25 − 20) = 25 元。"}],"mindmap":[{"label":"效用论概述","target":"utility","children":[{"label":"效用的概念与度量","target":"utility","children":[{"label":"效用表示消费者的主观满足程度","target":"utility"},{"label":"基数效用论假定效用可直接度量","target":"utility"},{"label":"序数效用论用等级表示偏好顺序","target":"utility"}]},{"label":"边际效用递减规律","target":"marginal-utility","children":[{"label":"其他商品消费量不变，额外消费带来的效用增量通常递减","target":"marginal-utility"}]},{"label":"货币的边际效用也可能递减","target":"marginal-utility"},{"label":"偏好的基本假定","target":"preference","children":[{"label":"完全性","target":"preference"},{"label":"传递性","target":"preference"},{"label":"非饱和性","target":"preference"}]},{"label":"无差异曲线的特征","target":"indifference-curves","children":[{"label":"同一曲线上偏好相同","target":"indifference-curves"},{"label":"不同效用水平的曲线不相交","target":"indifference-curves"},{"label":"在两种商品均多多益善时，东北方向的曲线效用更高","target":"indifference-curves"},{"label":"常见情形下斜率为负，凸向原点","target":"indifference-curves"}]},{"label":"边际替代率递减","target":"indifference-curves","children":[{"label":"保持效用不变，已有的 X 越多，每单位新增 X 可替代的 Y 越少","target":"indifference-curves"}]},{"label":"影响预算线变动的因素","target":"budget-line","children":[{"label":"收入变动时，预算线平移","target":"budget-line"},{"label":"一种商品价格变动时，预算线旋转","target":"budget-line"},{"label":"两种商品价格同比例变化时，预算线平移","target":"budget-line"},{"label":"两种价格与收入同倍数变化时，预算线不变","target":"budget-line"}]}]},{"label":"消费者均衡","target":"consumer-equilibrium","children":[{"label":"消费者均衡条件","target":"consumer-equilibrium","children":[{"label":"两种商品的边际效用比等于价格比","target":"consumer-equilibrium"},{"label":"光滑凸偏好的内点最优处，边际替代率等于价格比","target":"consumer-equilibrium"}]},{"label":"价格—消费曲线","target":"consumer-paths","children":[{"label":"收入及偏好不变，改变单种商品价格并连接最优点","target":"consumer-paths"},{"label":"由价格—消费曲线可推导个人需求曲线","target":"consumer-paths"}]},{"label":"收入—消费曲线","target":"consumer-paths","children":[{"label":"两种商品均为正常品时，收入增加使曲线向右上方延伸","target":"consumer-paths"},{"label":"若一种是低档品，可能向该商品数量减少的方向弯折","target":"consumer-paths"},{"label":"由收入—消费曲线可推导恩格尔曲线","target":"consumer-paths"}]},{"label":"恩格尔曲线","target":"consumer-paths","children":[{"label":"正常品的收入和需求量同向，低档品反向","target":"consumer-paths"}]},{"label":"替代效应与收入效应","target":"consumer-effects","children":[{"label":"替代效应来自相对价格变化","target":"consumer-effects"},{"label":"收入效应来自实际购买力变化","target":"consumer-effects"},{"label":"正常品的两种效应均与本品价格反向","target":"consumer-effects"},{"label":"低档品的两种效应反向，吉芬品的收入效应占优","target":"consumer-effects"}]},{"label":"消费者剩余","target":"consumer-surplus","children":[{"label":"总支付意愿减实际支出","target":"consumer-surplus"},{"label":"需求曲线下方、价格线上方的面积","target":"consumer-surplus"}]}]}]},"questions":[{"id":"eco-04-q01","number":1,"group":"效用论概述","type":"single","stem":"当消费者对商品 X 的消费达到总效用最大时，则边际效用 MUx 为（　）。","options":{"A":"正值","B":"负值","C":"零","D":"不确定"},"answer":["C"],"explanationSupplement":"在总效用曲线光滑的内点最大值处，切线水平，边际效用 MUx=dTU/dX=0。","optionExplanations":{"A":"正的边际效用表示再增加少量 X 能提高总效用。","B":"负的边际效用表示再增加少量 X 会降低总效用。","C":"光滑内点的极大值具有零斜率。","D":"本题用可微总效用曲线的内点极大值模型。"},"conceptId":"marginal-utility"},{"id":"eco-04-q02","number":2,"group":"效用论概述","type":"single","stem":"在消费者行为理论中，能够描述消费者偏好的曲线是（　）。","options":{"A":"无差异曲线","B":"需求曲线","C":"预算约束线","D":"消费者均衡曲线"},"answer":["A"],"explanationSupplement":"无差异曲线上的每个商品组合给消费者带来相同的满足程度。整组无差异曲线用来表示消费组合之间的偏好排序。","optionExplanations":{"A":"它直接体现消费者对各个消费组合的偏好。","B":"它描述某商品价格与需求量之间的对应关系。","C":"它表示价格和收入给定时消费者能买到的商品组合边界。","D":"均衡点随外部条件变化可形成不同轨迹，偏好本身由无差异曲线表示。"},"conceptId":"indifference-curves"},{"id":"eco-04-q03","number":3,"group":"效用论概述","type":"single","stem":"认为可以用绝对数值的大小表示效用大小的理论是（　）。","options":{"A":"序数效用论","B":"总效用论","C":"边际效用论","D":"基数效用论"},"answer":["D"],"explanationSupplement":"基数效用论将效用视作可以用具体数值度量的满足程度。序数效用论只保留消费组合的偏好排序。","optionExplanations":{"A":"序数效用使用排序。","B":"总效用描述消费带来的全部满足程度。","C":"边际效用描述增加一单位消费带来的效用增量。","D":"基数效用论允许对效用数值进行度量和加总。"},"conceptId":"utility"},{"id":"eco-04-q04","number":4,"group":"效用论概述","type":"single","stem":"在分析消费者行为时，无差异曲线的形状是由（　）决定的。","options":{"A":"消费者收入","B":"所购买商品的价格","C":"相关商品的价格","D":"消费者偏好"},"answer":["D"],"explanationSupplement":"曲线的斜率体现维持相同效用时愿意用多少 Y 换取一单位 X。愿意替代的程度由偏好决定。","optionExplanations":{"A":"收入影响购买组合的可行范围。","B":"商品价格影响预算线的斜率和截距。","C":"相关品价格会影响预算与需求行为，题设所画的偏好曲线由偏好决定。","D":"偏好决定哪些组合具有相同的效用，也决定曲线的形状。"},"conceptId":"indifference-curves"},{"id":"eco-04-q05","number":5,"group":"效用论概述","type":"single","stem":"基数效用论和序数效用论的主要区别是（　）。","options":{"A":"效用是否客观","B":"效用是否可以加总","C":"效用函数是否是线性的","D":"边际效用是否是递减的"},"answer":["B"],"explanationSupplement":"基数效用保留效用量及其差值的意义。序数效用只用数值标记排序，在保持排序的变换后仍表示同一偏好。","optionExplanations":{"A":"两种方法都用于表示消费者的主观满足程度。","B":"可以度量与加总是基数效用论的处理方式。","C":"是否线性取决于模型与效用函数。","D":"边际效用递减是额外假设，区别在于效用的度量尺度。"},"conceptId":"utility"},{"id":"eco-04-q06","number":6,"group":"效用论概述","type":"single","stem":"基数效用理论运用（　）来分析消费者行为。","options":{"A":"成本曲线","B":"预算约束线","C":"无差异曲线","D":"边际效用论"},"answer":["D"],"explanationSupplement":"当效用增量可度量时，可用多购买一单位商品带来的边际效用分析消费选择，并比较每单位货币对应的边际效用。","optionExplanations":{"A":"成本曲线主要用于分析厂商成本。","B":"预算约束描述可行组合，可和两种效用框架配合使用。","C":"无差异曲线是序数效用分析的典型工具。","D":"边际效用分析使用效用增量的度量。"},"conceptId":"marginal-utility"},{"id":"eco-04-q07","number":7,"group":"效用论概述","type":"single","stem":"当商品消费量达到一定程度后，总效用达到最大值时，边际效用（　）。","options":{"A":"为零","B":"达到最大","C":"达到最小","D":"变为负值"},"answer":["A"],"explanationSupplement":"边际效用衡量总效用曲线的斜率。可微的内点最大值处斜率为零，若继续消费且边际效用为负，总效用会下降。","optionExplanations":{"A":"总效用最大值对应光滑曲线的水平切线。","B":"边际效用最大代表总效用增长最快。","C":"边际效用达到最小描述的是斜率的最低值。","D":"负边际效用表示继续增加消费会降低总效用。"},"conceptId":"marginal-utility"},{"id":"eco-04-q08","number":8,"group":"效用论概述","type":"single","stem":"关于无差异曲线的说法，错误的是（　）。","options":{"A":"消费者对于同一无差异曲线上各个点的偏好程度是无差异的","B":"任意两条无差异曲线都可能相交","C":"离原点越远的无差异曲线，消费者的偏好程度越高","D":"无差异曲线从左向右下方倾斜，凸向原点"},"answer":["B"],"explanationSupplement":"若两条不同效用水平的曲线相交，交点就必须同时属于两个不同的效用等级。这与偏好的传递性矛盾。","optionExplanations":{"A":"同一条无差异曲线表示相同效用。","B":"不同无差异曲线不能相交，这是题目要选的错误说法。","C":"两种商品都越多越好时，东北方向的曲线对应较高的效用。","D":"通常的单调偏好和递减边际替代率得到这种形状。"},"conceptId":"indifference-curves"},{"id":"eco-04-q09","number":9,"group":"效用论概述","type":"single","stem":"在相对价格不变的情况下，如果消费者的收入减少，会使预算线（　）。","options":{"A":"向右平移","B":"向左平移","C":"向上旋转","D":"向下旋转"},"answer":["B"],"explanationSupplement":"按通常题设，价格保持原水平。预算线斜率 −Px/Py 固定，收入 I 减少使两个截距 I/Px、I/Py 同时缩小，预算线向原点平移。","optionExplanations":{"A":"向外平移对应实际购买力增加。","B":"向左平移即向原点收缩。","C":"旋转需要相对价格改变。","D":"相对价格保持不变时斜率固定。"},"conceptId":"budget-line"},{"id":"eco-04-q10","number":10,"group":"效用论概述","type":"single","stem":"对预算线的斜率说法错误的是（　）。","options":{"A":"预算线斜率是两种商品价格比率的负值","B":"预算线斜率是两种商品价格的负比率","C":"预算线斜率是两种商品需求量比率的负值","D":"预算线斜率的大小表明在不改变总支出总量的前提下，两种商品可以相互替代的比率"},"answer":["C"],"explanationSupplement":"把 PxX+PyY=I 改写成 Y=I/Py−(Px/Py)X，斜率为 −Px/Py。预算线上的不同点可有不同的数量比。","optionExplanations":{"A":"将横轴商品价格除以纵轴商品价格并取负，得到预算线斜率。","B":"此项同 A，是相对价格比率的另一种表达。","C":"预算线斜率由相对价格确定，因此本项错误。","D":"以一单位 X 的价格可买 Px/Py 单位 Y，体现保持支出不变时的市场交换比率。"},"conceptId":"budget-line"},{"id":"eco-04-q11","number":11,"group":"效用论概述","type":"single","stem":"预算线的斜率取决于（　）。","options":{"A":"商品的价格","B":"消费者收入大小","C":"消费者偏好变化","D":"无差异曲线的走势"},"answer":["A"],"explanationSupplement":"预算线斜率是 −Px/Py。收入变化改变截距，偏好变化影响消费者愿意如何选择组合。","optionExplanations":{"A":"两种商品的相对价格决定预算线斜率。","B":"收入决定预算线的截距。","C":"偏好决定无差异曲线。","D":"无差异曲线的斜率描述消费者愿意替代的比率。"},"conceptId":"budget-line"},{"id":"eco-04-q12","number":12,"group":"效用论概述","type":"single","stem":"以下（　）项指的是边际效用。","options":{"A":"张某吃了第二个面包，满足程度从 10 个效用单位增加到了 15 个单位，增加了 5 个效用单位","B":"张某吃了两个面包，共获得满足 15 个效用单位","C":"张某吃了四个面包后再不想吃了","D":"张某吃了两个面包，平均每个面包带给张某的满足程度为 7.5 个效用单位"},"answer":["A"],"explanationSupplement":"从一个面包吃到两个面包，总效用从 10 升为 15，增加的 5 单位就是第二个面包的边际效用。","optionExplanations":{"A":"该项明确指出新增一个面包带来的效用增量。","B":"15 是两个面包的总效用。","C":"停止吃面包描述了选择行为，未给出新增单位带来的效用。","D":"7.5 是总效用除以数量得到的平均效用。"},"conceptId":"marginal-utility"},{"id":"eco-04-q13","number":13,"group":"效用论概述","type":"single","stem":"同一条无差异曲线上的不同点表示（　）。","options":{"A":"效用水平不同，所消费的两种商品组合比例相同","B":"效用水平相同，所消费的两种商品组合比例不同","C":"效用水平不同，所消费的两种商品组合比例却相同","D":"效用水平相同，所消费的两种商品组合比例也相同"},"answer":["B"],"explanationSupplement":"在两种商品都更受偏好的常规模型下，同一条无差异曲线上的不同点具有相同效用。沿曲线增加一种商品，就需要减少另一种商品。","optionExplanations":{"A":"曲线上的效用水平相同。","B":"两种商品的组合随点的位置而变，总效用保持相同。","C":"不同效用对应不同的无差异曲线。","D":"同一条通常向右下倾斜的曲线上的不同点具有不同的消费比例。"},"conceptId":"indifference-curves"},{"id":"eco-04-q14","number":14,"group":"效用论概述","type":"single","stem":"某消费者偏好 X 商品甚于 Y 商品，是因为（　）。","options":{"A":"商品 X 的效用大","B":"商品 X 价格低","C":"商品 X 稀缺","D":"商品 X 是满足精神需要的"},"answer":["A"],"explanationSupplement":"在消费者的偏好排序中，较偏好的选择具有较高的效用。价格影响能买到哪些组合，偏好决定想选哪个组合。","optionExplanations":{"A":"该项与 X 在偏好排序中位于 Y 之前一致。","B":"价格低可能提高购买意愿或可负担性，无法直接推出偏好排序。","C":"稀缺描述商品数量或获得条件。","D":"效用来自消费者重视的各种需要，题目未说明需要的类型。"},"conceptId":"preference"},{"id":"eco-04-q15","number":15,"group":"效用论概述","type":"single","stem":"预算线反映了（　）。","options":{"A":"消费者的收入约束","B":"消费者的偏好","C":"消费者人数","D":"货币的购买力"},"answer":["A"],"explanationSupplement":"预算线写作 PxX+PyY=I，表示刚好用完可支配预算的组合。线上与线内合起来是可负担范围。","optionExplanations":{"A":"给定价格时，收入限制了能买到的组合。","B":"偏好通过无差异曲线表达。","C":"预算线分析一个消费者的约束。","D":"购买力会影响可负担范围，预算线的定义是给定收入和价格下的约束边界。"},"conceptId":"budget-line"},{"id":"eco-04-q16","number":16,"group":"效用论概述","type":"single","stem":"下列哪项不是无差异曲线特征？（　）。","options":{"A":"离原点越远的无差异曲线的效用水平越低","B":"无差异曲线向右下方倾斜","C":"无差异曲线凸向原点","D":"任意两条无差异曲线不能相交"},"answer":["A"],"explanationSupplement":"题目要求找出错误特征。两种商品都越多越好时，东北方向的无差异曲线对应更高的效用水平。","optionExplanations":{"A":"该项把通常的效用排序方向说反。","B":"增加一种商品并相应减少另一种，可以保持效用水平。","C":"边际替代率递减时会形成凸向原点的曲线。","D":"不同效用水平的曲线不能交于同一个组合。"},"conceptId":"indifference-curves"},{"id":"eco-04-q17","number":17,"group":"效用论概述","type":"discussion","stem":"当总效用增加时，边际效用应该（　）。","options":{"A":"为正值，且不断增加","B":"为正值，但不断减少","C":"为负值，且不断减少","D":"为正值，可能增加也可能减少"},"answer":[],"explanationSupplement":"只知道总效用正在增加，可判断相应单位的边际效用为正。边际效用的走势需要另给条件。若加上边际效用递减假设，B 成立；仅按题干给出的信息，D 表述更充分。","optionExplanations":{"A":"边际效用为正能解释总效用增加，是否递增还需条件。","B":"再加上边际效用递减假设，该项成立。","C":"负的边际效用会使总效用下降。","D":"仅根据总效用增加这一条件，边际效用仍可有不同走势。"},"conceptId":"marginal-utility"},{"id":"eco-04-q18","number":18,"group":"效用论概述","type":"single","stem":"无差异曲线为斜率不变的直线时，表示相结合的两种商品是（　）。","options":{"A":"可以替代的","B":"完全替代的","C":"互补的","D":"互不相关的"},"answer":["B"],"explanationSupplement":"在本题的通常模型中，斜率为恒定的负数意味着消费者在所有组合上都愿意按同一比率交换两种商品。完全替代是对此类偏好的专称。","optionExplanations":{"A":"一般的可替代还包括边际替代率随组合而改变的情形。","B":"固定边际替代率对应完全替代品。","C":"典型的完全互补品形成直角无差异曲线。","D":"固定替代比率本身表明两种商品的偏好存在明确的替代关系。"},"conceptId":"indifference-curves"},{"id":"eco-04-q19","number":19,"group":"效用论概述","type":"single","stem":"消费者的预算线反映了（　）。","options":{"A":"消费者的收入约束","B":"消费者的需求趋势","C":"消费者的支出计划","D":"消费者获得的总效用"},"answer":["A"],"explanationSupplement":"沿预算线移动时购买组合不同，但总花费都等于收入 I。线外的组合超过给定收入。","optionExplanations":{"A":"预算线反映给定价格条件下的收入约束。","B":"需求趋势对应价格等条件变化时的购买量。","C":"预算线列出可负担的边界组合，实际计划还需结合偏好。","D":"总效用取决于实际选择的消费组合。"},"conceptId":"budget-line"},{"id":"eco-04-q20","number":20,"group":"消费者均衡","type":"single","stem":"预算线和无差异曲线（　）时的商品组合，能够满足消费者的效用最大化。","options":{"A":"重合","B":"相交","C":"相切","D":"相离"},"answer":["C"],"explanationSupplement":"在平滑、凸偏好且最优组合包含两种商品的通常模型中，预算线与能达到的最高无差异曲线相切。边际替代率等于相对价格。角点选择需要直接比较可行效用。","optionExplanations":{"A":"整段重合可能出现在完全替代等特殊情况下。","B":"一般的穿越交点附近仍可找到更高效用的可行组合。","C":"内点最优时，两条曲线在可达最高效用处相切。","D":"两条线相离表示该无差异曲线与预算线没有共同的消费组合。"},"conceptId":"consumer-equilibrium"},{"id":"eco-04-q21","number":21,"group":"消费者均衡","type":"single","stem":"若消费者张某只准备买两种商品 X 和 Y，X 的价格为 10，Y 的价格为 2。若张某买了 7 个单位 X 和 3 个单位 Y，所获得的边际效用值分别为 30 个单位和 20 个单位，则（　）。","options":{"A":"张某获得了最大效用","B":"张某应当增加 X 的购买，减少 Y 的购买","C":"张某应当增加 Y 的购买，减少 X 的购买","D":"张某想要获得最大效用，需要借钱"},"answer":["C"],"explanationSupplement":"每元购买 X 的边际效用为 30÷10=3，每元购买 Y 的边际效用为 20÷2=10。在当前组合附近，把少量支出从 X 转向 Y 可以提高总效用。","optionExplanations":{"A":"两种商品的每元边际效用不同，当前组合有改进空间。","B":"将资金从 Y 转到 X 会从边际效用较高的用途转向较低的用途。","C":"将资金从 X 转到 Y 可增加总效用。","D":"在既定预算内重新分配支出即可改进选择。"},"conceptId":"consumer-equilibrium"},{"id":"eco-04-q22","number":22,"group":"消费者均衡","type":"single","stem":"消费者剩余是（　）。","options":{"A":"消费者购买能力超出实际购买额的差额","B":"消费者得到的总效用","C":"消费者购买某一商品时愿意支付的总价格和实际支付的总价格之间的差额","D":"支出的货币的总效用"},"answer":["C"],"explanationSupplement":"如果一个消费者愿意为某件商品最多支付 20 元，实际按 15 元买到，那么该笔购买的消费者剩余是 5 元。购买多件时可加总各单位的剩余。","optionExplanations":{"A":"购买能力与实际购买额之差是剩余预算的概念。","B":"消费者剩余以货币差额表示。","C":"给出了消费者剩余的定义。","D":"货币本身的效用和最高支付意愿与实际支出的差额属于不同概念。"},"conceptId":"consumer-surplus"},{"id":"eco-04-q23","number":23,"group":"消费者均衡","type":"discussion","stem":"随着收入和价格的变化，消费者的均衡也发生变化。假如在新均衡下，各种商品的边际效用均低于原均衡状态的边际效用，这意味着（　）。","options":{"A":"消费者生活状况有了改善","B":"消费者生活状况恶化了","C":"消费者生活状况没有变化","D":"不确定"},"answer":[],"explanationSupplement":"比较福利要看两组消费组合的总效用或偏好排序。若两种商品的边际效用分别只取决于各自消费量、均为正且严格递减，边际效用同时下降可推出两种消费量增加，支持 A。在一般偏好中，某种商品的边际效用也可能受另一种商品消费量影响，因此题设不足以判断福利变化。","optionExplanations":{"A":"在边际效用各自只受本商品消费量影响等附加条件下可成立。","B":"边际效用下降本身无法推出总效用下降。","C":"总效用相同需要两组组合属于同一无差异曲线。","D":"没有给定效用函数或偏好排序时，一般情形下无法判断。"},"conceptId":"consumer-equilibrium"},{"id":"eco-04-q24","number":24,"group":"消费者均衡","type":"single","stem":"消费者均衡的实现条件是（　）。","options":{"A":"偏好不变、收入不变、价格不变","B":"效用不变、价格不变、偏好不变","C":"价格不变、价值不变、效用不变","D":"时间不变、收入不变、需求不变"},"answer":["A"],"explanationSupplement":"题目考查求均衡时给定的条件。消费者在给定偏好、收入与价格下，选择可负担的最高效用组合。内点解的最优条件还需满足预算约束和边际替代率等于相对价格。","optionExplanations":{"A":"包含偏好和构成预算约束的收入、价格。","B":"没有给定可用收入，无法确定预算线。","C":"没有给出偏好和收入，效用应由最优选择得到。","D":"需求量是消费者选择的结果，商品价格和偏好需要给定。"},"conceptId":"consumer-equilibrium"},{"id":"eco-04-q25","number":25,"group":"消费者均衡","type":"single","stem":"恩格尔曲线表示消费者在每一（　）水平对某商品的需求量。","options":{"A":"价格","B":"收入","C":"效用","D":"偏好"},"answer":["B"],"explanationSupplement":"固定偏好和各商品价格，依次改变收入并求出每一收入下的最优需求量。以收入与某一种商品的数量作图，即得恩格尔曲线。","optionExplanations":{"A":"价格与需求量的对应关系通常用需求曲线表示。","B":"恩格尔曲线以收入作为影响需求量的变量。","C":"效用等级由消费组合和偏好决定。","D":"推导恩格尔曲线时，消费者偏好保持给定。"},"conceptId":"consumer-paths"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter04","number":4,"title":"消费者行为理论","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-04-消费者行为理论-离线学习.html","visual":"tu-mu","visualSectionId":"marginal-utility","visuals":[{"type":"tu-mu","sectionId":"marginal-utility"},{"type":"consumer","sectionId":"consumer-equilibrium"}]},"lessons":{"title":"消费者行为理论","subtitle":"用偏好和预算理解购买选择，再看收入或价格变化如何改变选择。","sections":[{"id":"utility","title":"效用与两种度量方法","summary":"效用表示消费者对商品组合的主观评价。","bodyHtml":"\u003cp>\u003cstrong>效用\u003c/strong>描述消费者从消费中得到的满足程度。消费者可用效用表达对商品组合的偏好，同一物品在不同人或不同场合下可能带来不同效用。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>方法\u003c/th>\u003cth>效用如何表示\u003c/th>\u003cth>常用分析工具\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>基数效用论\u003c/td>\u003ctd>假定效用可用数值直接度量，效用增量可以相加\u003c/td>\u003ctd>总效用和边际效用\u003c/td>\u003c/tr>\u003ctr>\u003ctd>序数效用论\u003c/td>\u003ctd>数值只用来表示偏好顺序\u003c/td>\u003ctd>无差异曲线与预算线\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"基数效用论关注效用大小。序数效用论关注哪个组合更受偏好。","pitfall":"序数效用函数也可以赋予商品组合数字。效用值 20 和 10 可表示排序，不能据此判断满足程度刚好相差一倍。","example":"甲在同一价格下更喜欢茶，乙更喜欢咖啡。两人可以分别给饮品排序，效用表示会随消费者的偏好改变。"},{"id":"marginal-utility","title":"总效用与边际效用","summary":"新增一个单位商品带来的满足程度通常随消费量上升而减少。","bodyHtml":"\u003cp>\u003cstrong>总效用\u003c/strong>是消费一定数量商品所获的效用水平。其他商品消费量不变时，\u003cstrong>边际效用\u003c/strong>是额外增加一单位该商品带来的效用增量。连续情形下，边际效用是总效用对该商品数量的导数。\u003c/p>\u003cp>\u003cmark>边际效用递减规律\u003c/mark>描述在一定时期内，随着同一商品的消费量增加，额外一单位提供的效用趋于下降。增加的边际效用仍为正时，总效用继续增加。若边际效用由正转负，总效用在转折处达到峰值。\u003c/p>\u003cp>货币通过购买商品与服务带来效用。货币的边际效用也可能递减。分析小额支出变化时，可用边际效用近似不变来简化比较。\u003c/p>","keyTakeaway":"比较总效用的增减时看边际效用的正负。比较总效用增长的快慢时看边际效用的大小。","pitfall":"边际效用下降期间，只要边际效用大于零，总效用仍会增加。","example":"三片面包依次带来 12、7、3 单位新增效用。边际效用逐片下降，总效用依次为 12、19、22。"},{"id":"preference","title":"偏好的基本假定","summary":"完整的排序规则使不同商品组合能够比较。","bodyHtml":"\u003cul>\u003cli>\u003cstrong>完全性\u003c/strong>要求任意两个组合都可以比较，允许偏好其中之一或无差异。\u003c/li>\u003cli>\u003cstrong>传递性\u003c/strong>要求比较保持一致。若 A 至少与 B 一样好，且 B 至少与 C 一样好，则 A 至少与 C 一样好。\u003c/li>\u003cli>\u003cstrong>非饱和性\u003c/strong>在通常的两种有益商品模型中表现为多多益善，其他数量不减时，多消费有益商品使组合更受偏好。\u003c/li>\u003c/ul>\u003cp>假定消费者偏好凸时，消费者通常愿意搭配消费，偏好相同的两种极端组合之间的平均组合至少同样好。\u003c/p>","keyTakeaway":"完全性保证可比较，传递性保证比较一致，非饱和性解释为何通常追求更高可达效用。","pitfall":"偏好排序属于特定消费者。改变收入和价格会改变其可选集合，分析时可继续将偏好保持不变。","example":"若某人更喜欢 A 而不是 B，又更喜欢 B 而不是 C，传递性要求他也更喜欢 A 而不是 C。"},{"id":"indifference-curves","title":"无差异曲线与边际替代率","summary":"效用相同的组合连成曲线，斜率反映消费者愿意交换的比例。","bodyHtml":"\u003cp>\u003cstrong>无差异曲线\u003c/strong>连接使同一消费者获得相同效用水平的所有商品组合。不同效用水平的曲线不相交。两种商品都多多益善时，曲线向右下倾斜，位于东北方向的更高曲线代表更高效用。\u003c/p>\u003cp>令 X 为横轴、Y 为纵轴。固定效用，额外获得一单位 X 时，愿放弃的 Y 数量是 X 对 Y 的\u003cstrong>边际替代率\u003c/strong>。在可微且边际效用为正的情形，\u003cmark>MRS = MU\u003csub>X\u003c/sub> / MU\u003csub>Y\u003c/sub>\u003c/mark>，等于无差异曲线斜率的绝对值。\u003c/p>\u003cp>在边际替代率递减的标准情形，X 越多，消费者越少愿用 Y 换取额外的 X，曲线凸向原点。完全替代品的曲线是斜率不变的直线。完全互补品的曲线呈直角。\u003c/p>","keyTakeaway":"同一条曲线上效用相同。曲线斜率的绝对值表示保持效用不变时的边际交换比例。","pitfall":"横纵轴互换后，边际替代率的分子与分母也会互换。比较效用高低应比较曲线位置，避免用两条曲线上任意点到原点的直线距离判断。","example":"若额外 1 杯咖啡恰好能补偿少喝 2 杯茶，当前咖啡对茶的边际替代率约为 2。"},{"id":"budget-line","title":"预算线与消费可行集","summary":"预算线的截距由收入和价格决定，斜率由相对价格决定。","bodyHtml":"\u003cp>以 X 为横轴、Y 为纵轴，收入 \u003cvar>I\u003c/var>、两种商品的正价格分别为 \u003cvar>P\u003csub>X\u003c/sub>\u003c/var>、\u003cvar>P\u003csub>Y\u003c/sub>\u003c/var>。\u003cstrong>预算线\u003c/strong>满足 \u003cmark>P\u003csub>X\u003c/sub>X + P\u003csub>Y\u003c/sub>Y = I\u003c/mark>。线内和线上的非负组合满足支出不超过收入。\u003c/p>\u003cp>横轴截距为 I/P\u003csub>X\u003c/sub>，纵轴截距为 I/P\u003csub>Y\u003c/sub>，斜率为 −P\u003csub>X\u003c/sub>/P\u003csub>Y\u003c/sub>。斜率的绝对值是多买一单位 X 在市场上需要放弃的 Y 数量。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>变化\u003c/th>\u003cth>图形变化\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>价格不变、收入增加\u003c/td>\u003ctd>平行外移\u003c/td>\u003c/tr>\u003ctr>\u003ctd>只有 X 降价\u003c/td>\u003ctd>绕纵轴截距旋转，横轴截距增大\u003c/td>\u003c/tr>\u003ctr>\u003ctd>收入不变、两种价格同比例上升\u003c/td>\u003ctd>平行内移\u003c/td>\u003c/tr>\u003ctr>\u003ctd>收入和两种价格均乘以同一正数\u003c/td>\u003ctd>截距与斜率保持不变\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"先算两轴截距，再看相对价格有没有变化。相对价格不变时，预算线斜率不变。","pitfall":"两种价格同向变动也可能改变价格比。需要确认它们是否同比例变化，才能判断预算线是否平移。","example":"收入 60 元，X 每单位 6 元，Y 每单位 3 元。截距分别为 10 和 20，斜率为 −2。若只有 X 降到 4 元，横轴截距变为 15，纵轴截距仍是 20。"},{"id":"consumer-equilibrium","title":"消费者均衡","summary":"在预算约束下，找到可达的最高效用。","bodyHtml":"\u003cp>\u003cstrong>消费者均衡\u003c/strong>是在给定偏好、收入和价格下选择效用最高的可行组合。对通常的光滑凸偏好，当两种商品的最优购买量均为正时，预算线与最高可达的无差异曲线相切。\u003c/p>\u003cp>内点切点条件为 \u003cmark>MU\u003csub>X\u003c/sub>/MU\u003csub>Y\u003c/sub> = P\u003csub>X\u003c/sub>/P\u003csub>Y\u003c/sub>\u003c/mark>，等价于 \u003cmark>MU\u003csub>X\u003c/sub>/P\u003csub>X\u003c/sub> = MU\u003csub>Y\u003c/sub>/P\u003csub>Y\u003c/sub>\u003c/mark>。右边的形式比较将一元钱分别花在两种商品上的边际效用。某种商品每元边际效用更高时，从另一种商品转移少量支出可改善效用，直至达到均衡或碰到边界。\u003c/p>\u003cp>检查两种商品是否都购买、偏好是否可微、预算是否用完。角点和拐点也可能是最优组合，应按偏好与可行集判断。\u003c/p>","keyTakeaway":"有内点时，主观交换比等于市场交换比，同时组合满足预算约束。","pitfall":"边际效用的高低需要结合商品价格。比较每元边际效用可以避免遗漏预算约束。","example":"X 每元带来 2 单位边际效用，Y 每元带来 3 单位边际效用，两者均有购买。把部分支出从 X 转到 Y 有助于提高效用。"},{"id":"consumer-paths","title":"价格—消费曲线、收入—消费曲线与恩格尔曲线","summary":"改变一个条件，跟踪每次最优选择，再换一组坐标。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>曲线\u003c/th>\u003cth>变动的条件\u003c/th>\u003cth>坐标和用途\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>价格—消费曲线\u003c/td>\u003ctd>一种商品的价格，收入、偏好和另一种价格固定\u003c/td>\u003ctd>在 X、Y 数量图上连接最优点。取变化的价格与其最优购买量，得到该商品的个人需求曲线\u003c/td>\u003c/tr>\u003ctr>\u003ctd>收入—消费曲线\u003c/td>\u003ctd>收入，价格与偏好固定\u003c/td>\u003ctd>在 X、Y 数量图上连接最优点。两种商品均为正常品时，曲线向右上方延伸\u003c/td>\u003c/tr>\u003ctr>\u003ctd>恩格尔曲线\u003c/td>\u003ctd>收入，价格与偏好固定\u003c/td>\u003ctd>把收入与一种商品的最优购买量对应起来。正常品收入与数量同向，低档品反向\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"价格—消费曲线通向个人需求曲线。收入—消费曲线通向恩格尔曲线。","pitfall":"收入—消费曲线的两根轴都是商品数量。两种商品中有一种是低档品时，收入上升可能使其购买量下降，曲线因而向该商品数量减少的方向弯折。","example":"收入从 100 增加到 120 元，价格不变，米的购买量从 5 增加到 6 千克。收入和米购买量的两对数值可作为恩格尔曲线上的点。"},{"id":"consumer-effects","title":"替代效应与收入效应","summary":"把本品降价对需求量的影响分解为相对价格和购买力的作用。","bodyHtml":"\u003cp>\u003cstrong>替代效应\u003c/strong>表示在对购买力变化作补偿后，相对价格变化造成的需求量变动。X 降价，消费者倾向于用相对便宜的 X 替代 Y。\u003cstrong>收入效应\u003c/strong>表示名义收入不变时，价格变动使实际购买力变化并影响购买选择。两者相加得到需求量的总变化。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>X 降价时\u003c/th>\u003cth>替代效应\u003c/th>\u003cth>收入效应\u003c/th>\u003cth>总效果\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>正常品，包括通常的必需品与高档品\u003c/td>\u003ctd>X 需求量增加或不变\u003c/td>\u003ctd>增加\u003c/td>\u003ctd>需求量增加\u003c/td>\u003c/tr>\u003ctr>\u003ctd>一般低档品\u003c/td>\u003ctd>增加\u003c/td>\u003ctd>减少，幅度较小\u003c/td>\u003ctd>需求量增加\u003c/td>\u003c/tr>\u003ctr>\u003ctd>吉芬品\u003c/td>\u003ctd>增加\u003c/td>\u003ctd>减少，幅度较大\u003c/td>\u003ctd>需求量减少\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>在通常的局部非饱和模型中，一种商品降价且其他条件不变，原消费组合仍然可负担，预算机会扩大。新最优效用至少与原来一样高。\u003c/p>","keyTakeaway":"低档品的两个效应反向。只有收入效应压过替代效应，才会出现吉芬情形。","pitfall":"仅凭低档品或正常品的标签，无法比较两种商品需求曲线斜率的大小。","example":"某低档品降价后，替代效应使需求量增加 6 单位，收入效应使需求量减少 2 单位，净增 4 单位，需求量仍与价格反向。"},{"id":"consumer-surplus","title":"消费者剩余","summary":"每单位最高愿付价与实际支付价的差额可加总。","bodyHtml":"\u003cp>\u003cstrong>消费者剩余\u003c/strong>是购买一定数量时的总支付意愿减去实际支出。若每单位按同一市场价格成交，图上可用\u003cstrong>需求曲线下方、价格线以上\u003c/strong>且截至成交量的面积表示。\u003c/p>\u003cp>分单位报价时，按单位逐项求差。连续线性需求且需求曲线与成交价线相交时，可用三角形面积，即成交量乘以最高愿付价与市场价格的差，再除以二。\u003c/p>","keyTakeaway":"消费者剩余衡量交易为买方带来的净收益，单位与价格和支出相同。","pitfall":"消费者购买多件商品时，前几单位的最高愿付价可能更高。应加总各单位的愿付价格。","example":"买方对两本书分别最多愿付 40 元和 25 元，均以 20 元买下。消费者剩余为 (40 − 20) + (25 − 20) = 25 元。"}],"mindmap":[{"label":"效用论概述","target":"utility","children":[{"label":"效用的概念与度量","target":"utility","children":[{"label":"效用表示消费者的主观满足程度","target":"utility"},{"label":"基数效用论假定效用可直接度量","target":"utility"},{"label":"序数效用论用等级表示偏好顺序","target":"utility"}]},{"label":"边际效用递减规律","target":"marginal-utility","children":[{"label":"其他商品消费量不变，额外消费带来的效用增量通常递减","target":"marginal-utility"}]},{"label":"货币的边际效用也可能递减","target":"marginal-utility"},{"label":"偏好的基本假定","target":"preference","children":[{"label":"完全性","target":"preference"},{"label":"传递性","target":"preference"},{"label":"非饱和性","target":"preference"}]},{"label":"无差异曲线的特征","target":"indifference-curves","children":[{"label":"同一曲线上偏好相同","target":"indifference-curves"},{"label":"不同效用水平的曲线不相交","target":"indifference-curves"},{"label":"在两种商品均多多益善时，东北方向的曲线效用更高","target":"indifference-curves"},{"label":"常见情形下斜率为负，凸向原点","target":"indifference-curves"}]},{"label":"边际替代率递减","target":"indifference-curves","children":[{"label":"保持效用不变，已有的 X 越多，每单位新增 X 可替代的 Y 越少","target":"indifference-curves"}]},{"label":"影响预算线变动的因素","target":"budget-line","children":[{"label":"收入变动时，预算线平移","target":"budget-line"},{"label":"一种商品价格变动时，预算线旋转","target":"budget-line"},{"label":"两种商品价格同比例变化时，预算线平移","target":"budget-line"},{"label":"两种价格与收入同倍数变化时，预算线不变","target":"budget-line"}]}]},{"label":"消费者均衡","target":"consumer-equilibrium","children":[{"label":"消费者均衡条件","target":"consumer-equilibrium","children":[{"label":"两种商品的边际效用比等于价格比","target":"consumer-equilibrium"},{"label":"光滑凸偏好的内点最优处，边际替代率等于价格比","target":"consumer-equilibrium"}]},{"label":"价格—消费曲线","target":"consumer-paths","children":[{"label":"收入及偏好不变，改变单种商品价格并连接最优点","target":"consumer-paths"},{"label":"由价格—消费曲线可推导个人需求曲线","target":"consumer-paths"}]},{"label":"收入—消费曲线","target":"consumer-paths","children":[{"label":"两种商品均为正常品时，收入增加使曲线向右上方延伸","target":"consumer-paths"},{"label":"若一种是低档品，可能向该商品数量减少的方向弯折","target":"consumer-paths"},{"label":"由收入—消费曲线可推导恩格尔曲线","target":"consumer-paths"}]},{"label":"恩格尔曲线","target":"consumer-paths","children":[{"label":"正常品的收入和需求量同向，低档品反向","target":"consumer-paths"}]},{"label":"替代效应与收入效应","target":"consumer-effects","children":[{"label":"替代效应来自相对价格变化","target":"consumer-effects"},{"label":"收入效应来自实际购买力变化","target":"consumer-effects"},{"label":"正常品的两种效应均与本品价格反向","target":"consumer-effects"},{"label":"低档品的两种效应反向，吉芬品的收入效应占优","target":"consumer-effects"}]},{"label":"消费者剩余","target":"consumer-surplus","children":[{"label":"总支付意愿减实际支出","target":"consumer-surplus"},{"label":"需求曲线下方、价格线上方的面积","target":"consumer-surplus"}]}]}]},"questions":[{"id":"eco-04-q01","number":1,"group":"效用论概述","type":"single","stem":"当消费者对商品 X 的消费达到总效用最大时，则边际效用 MUx 为（　）。","options":{"A":"正值","B":"负值","C":"零","D":"不确定"},"answer":["C"],"explanationSupplement":"在总效用曲线光滑的内点最大值处，切线水平，边际效用 MUx=dTU/dX=0。","optionExplanations":{"A":"正的边际效用表示再增加少量 X 能提高总效用。","B":"负的边际效用表示再增加少量 X 会降低总效用。","C":"光滑内点的极大值具有零斜率。","D":"本题用可微总效用曲线的内点极大值模型。"},"conceptId":"marginal-utility"},{"id":"eco-04-q02","number":2,"group":"效用论概述","type":"single","stem":"在消费者行为理论中，能够描述消费者偏好的曲线是（　）。","options":{"A":"无差异曲线","B":"需求曲线","C":"预算约束线","D":"消费者均衡曲线"},"answer":["A"],"explanationSupplement":"无差异曲线上的每个商品组合给消费者带来相同的满足程度。整组无差异曲线用来表示消费组合之间的偏好排序。","optionExplanations":{"A":"它直接体现消费者对各个消费组合的偏好。","B":"它描述某商品价格与需求量之间的对应关系。","C":"它表示价格和收入给定时消费者能买到的商品组合边界。","D":"均衡点随外部条件变化可形成不同轨迹，偏好本身由无差异曲线表示。"},"conceptId":"indifference-curves"},{"id":"eco-04-q03","number":3,"group":"效用论概述","type":"single","stem":"认为可以用绝对数值的大小表示效用大小的理论是（　）。","options":{"A":"序数效用论","B":"总效用论","C":"边际效用论","D":"基数效用论"},"answer":["D"],"explanationSupplement":"基数效用论将效用视作可以用具体数值度量的满足程度。序数效用论只保留消费组合的偏好排序。","optionExplanations":{"A":"序数效用使用排序。","B":"总效用描述消费带来的全部满足程度。","C":"边际效用描述增加一单位消费带来的效用增量。","D":"基数效用论允许对效用数值进行度量和加总。"},"conceptId":"utility"},{"id":"eco-04-q04","number":4,"group":"效用论概述","type":"single","stem":"在分析消费者行为时，无差异曲线的形状是由（　）决定的。","options":{"A":"消费者收入","B":"所购买商品的价格","C":"相关商品的价格","D":"消费者偏好"},"answer":["D"],"explanationSupplement":"曲线的斜率体现维持相同效用时愿意用多少 Y 换取一单位 X。愿意替代的程度由偏好决定。","optionExplanations":{"A":"收入影响购买组合的可行范围。","B":"商品价格影响预算线的斜率和截距。","C":"相关品价格会影响预算与需求行为，题设所画的偏好曲线由偏好决定。","D":"偏好决定哪些组合具有相同的效用，也决定曲线的形状。"},"conceptId":"indifference-curves"},{"id":"eco-04-q05","number":5,"group":"效用论概述","type":"single","stem":"基数效用论和序数效用论的主要区别是（　）。","options":{"A":"效用是否客观","B":"效用是否可以加总","C":"效用函数是否是线性的","D":"边际效用是否是递减的"},"answer":["B"],"explanationSupplement":"基数效用保留效用量及其差值的意义。序数效用只用数值标记排序，在保持排序的变换后仍表示同一偏好。","optionExplanations":{"A":"两种方法都用于表示消费者的主观满足程度。","B":"可以度量与加总是基数效用论的处理方式。","C":"是否线性取决于模型与效用函数。","D":"边际效用递减是额外假设，区别在于效用的度量尺度。"},"conceptId":"utility"},{"id":"eco-04-q06","number":6,"group":"效用论概述","type":"single","stem":"基数效用理论运用（　）来分析消费者行为。","options":{"A":"成本曲线","B":"预算约束线","C":"无差异曲线","D":"边际效用论"},"answer":["D"],"explanationSupplement":"当效用增量可度量时，可用多购买一单位商品带来的边际效用分析消费选择，并比较每单位货币对应的边际效用。","optionExplanations":{"A":"成本曲线主要用于分析厂商成本。","B":"预算约束描述可行组合，可和两种效用框架配合使用。","C":"无差异曲线是序数效用分析的典型工具。","D":"边际效用分析使用效用增量的度量。"},"conceptId":"marginal-utility"},{"id":"eco-04-q07","number":7,"group":"效用论概述","type":"single","stem":"当商品消费量达到一定程度后，总效用达到最大值时，边际效用（　）。","options":{"A":"为零","B":"达到最大","C":"达到最小","D":"变为负值"},"answer":["A"],"explanationSupplement":"边际效用衡量总效用曲线的斜率。可微的内点最大值处斜率为零，若继续消费且边际效用为负，总效用会下降。","optionExplanations":{"A":"总效用最大值对应光滑曲线的水平切线。","B":"边际效用最大代表总效用增长最快。","C":"边际效用达到最小描述的是斜率的最低值。","D":"负边际效用表示继续增加消费会降低总效用。"},"conceptId":"marginal-utility"},{"id":"eco-04-q08","number":8,"group":"效用论概述","type":"single","stem":"关于无差异曲线的说法，错误的是（　）。","options":{"A":"消费者对于同一无差异曲线上各个点的偏好程度是无差异的","B":"任意两条无差异曲线都可能相交","C":"离原点越远的无差异曲线，消费者的偏好程度越高","D":"无差异曲线从左向右下方倾斜，凸向原点"},"answer":["B"],"explanationSupplement":"若两条不同效用水平的曲线相交，交点就必须同时属于两个不同的效用等级。这与偏好的传递性矛盾。","optionExplanations":{"A":"同一条无差异曲线表示相同效用。","B":"不同无差异曲线不能相交，这是题目要选的错误说法。","C":"两种商品都越多越好时，东北方向的曲线对应较高的效用。","D":"通常的单调偏好和递减边际替代率得到这种形状。"},"conceptId":"indifference-curves"},{"id":"eco-04-q09","number":9,"group":"效用论概述","type":"single","stem":"在相对价格不变的情况下，如果消费者的收入减少，会使预算线（　）。","options":{"A":"向右平移","B":"向左平移","C":"向上旋转","D":"向下旋转"},"answer":["B"],"explanationSupplement":"按通常题设，价格保持原水平。预算线斜率 −Px/Py 固定，收入 I 减少使两个截距 I/Px、I/Py 同时缩小，预算线向原点平移。","optionExplanations":{"A":"向外平移对应实际购买力增加。","B":"向左平移即向原点收缩。","C":"旋转需要相对价格改变。","D":"相对价格保持不变时斜率固定。"},"conceptId":"budget-line"},{"id":"eco-04-q10","number":10,"group":"效用论概述","type":"single","stem":"对预算线的斜率说法错误的是（　）。","options":{"A":"预算线斜率是两种商品价格比率的负值","B":"预算线斜率是两种商品价格的负比率","C":"预算线斜率是两种商品需求量比率的负值","D":"预算线斜率的大小表明在不改变总支出总量的前提下，两种商品可以相互替代的比率"},"answer":["C"],"explanationSupplement":"把 PxX+PyY=I 改写成 Y=I/Py−(Px/Py)X，斜率为 −Px/Py。预算线上的不同点可有不同的数量比。","optionExplanations":{"A":"将横轴商品价格除以纵轴商品价格并取负，得到预算线斜率。","B":"此项同 A，是相对价格比率的另一种表达。","C":"预算线斜率由相对价格确定，因此本项错误。","D":"以一单位 X 的价格可买 Px/Py 单位 Y，体现保持支出不变时的市场交换比率。"},"conceptId":"budget-line"},{"id":"eco-04-q11","number":11,"group":"效用论概述","type":"single","stem":"预算线的斜率取决于（　）。","options":{"A":"商品的价格","B":"消费者收入大小","C":"消费者偏好变化","D":"无差异曲线的走势"},"answer":["A"],"explanationSupplement":"预算线斜率是 −Px/Py。收入变化改变截距，偏好变化影响消费者愿意如何选择组合。","optionExplanations":{"A":"两种商品的相对价格决定预算线斜率。","B":"收入决定预算线的截距。","C":"偏好决定无差异曲线。","D":"无差异曲线的斜率描述消费者愿意替代的比率。"},"conceptId":"budget-line"},{"id":"eco-04-q12","number":12,"group":"效用论概述","type":"single","stem":"以下（　）项指的是边际效用。","options":{"A":"张某吃了第二个面包，满足程度从 10 个效用单位增加到了 15 个单位，增加了 5 个效用单位","B":"张某吃了两个面包，共获得满足 15 个效用单位","C":"张某吃了四个面包后再不想吃了","D":"张某吃了两个面包，平均每个面包带给张某的满足程度为 7.5 个效用单位"},"answer":["A"],"explanationSupplement":"从一个面包吃到两个面包，总效用从 10 升为 15，增加的 5 单位就是第二个面包的边际效用。","optionExplanations":{"A":"该项明确指出新增一个面包带来的效用增量。","B":"15 是两个面包的总效用。","C":"停止吃面包描述了选择行为，未给出新增单位带来的效用。","D":"7.5 是总效用除以数量得到的平均效用。"},"conceptId":"marginal-utility"},{"id":"eco-04-q13","number":13,"group":"效用论概述","type":"single","stem":"同一条无差异曲线上的不同点表示（　）。","options":{"A":"效用水平不同，所消费的两种商品组合比例相同","B":"效用水平相同，所消费的两种商品组合比例不同","C":"效用水平不同，所消费的两种商品组合比例却相同","D":"效用水平相同，所消费的两种商品组合比例也相同"},"answer":["B"],"explanationSupplement":"在两种商品都更受偏好的常规模型下，同一条无差异曲线上的不同点具有相同效用。沿曲线增加一种商品，就需要减少另一种商品。","optionExplanations":{"A":"曲线上的效用水平相同。","B":"两种商品的组合随点的位置而变，总效用保持相同。","C":"不同效用对应不同的无差异曲线。","D":"同一条通常向右下倾斜的曲线上的不同点具有不同的消费比例。"},"conceptId":"indifference-curves"},{"id":"eco-04-q14","number":14,"group":"效用论概述","type":"single","stem":"某消费者偏好 X 商品甚于 Y 商品，是因为（　）。","options":{"A":"商品 X 的效用大","B":"商品 X 价格低","C":"商品 X 稀缺","D":"商品 X 是满足精神需要的"},"answer":["A"],"explanationSupplement":"在消费者的偏好排序中，较偏好的选择具有较高的效用。价格影响能买到哪些组合，偏好决定想选哪个组合。","optionExplanations":{"A":"该项与 X 在偏好排序中位于 Y 之前一致。","B":"价格低可能提高购买意愿或可负担性，无法直接推出偏好排序。","C":"稀缺描述商品数量或获得条件。","D":"效用来自消费者重视的各种需要，题目未说明需要的类型。"},"conceptId":"preference"},{"id":"eco-04-q15","number":15,"group":"效用论概述","type":"single","stem":"预算线反映了（　）。","options":{"A":"消费者的收入约束","B":"消费者的偏好","C":"消费者人数","D":"货币的购买力"},"answer":["A"],"explanationSupplement":"预算线写作 PxX+PyY=I，表示刚好用完可支配预算的组合。线上与线内合起来是可负担范围。","optionExplanations":{"A":"给定价格时，收入限制了能买到的组合。","B":"偏好通过无差异曲线表达。","C":"预算线分析一个消费者的约束。","D":"购买力会影响可负担范围，预算线的定义是给定收入和价格下的约束边界。"},"conceptId":"budget-line"},{"id":"eco-04-q16","number":16,"group":"效用论概述","type":"single","stem":"下列哪项不是无差异曲线特征？（　）。","options":{"A":"离原点越远的无差异曲线的效用水平越低","B":"无差异曲线向右下方倾斜","C":"无差异曲线凸向原点","D":"任意两条无差异曲线不能相交"},"answer":["A"],"explanationSupplement":"题目要求找出错误特征。两种商品都越多越好时，东北方向的无差异曲线对应更高的效用水平。","optionExplanations":{"A":"该项把通常的效用排序方向说反。","B":"增加一种商品并相应减少另一种，可以保持效用水平。","C":"边际替代率递减时会形成凸向原点的曲线。","D":"不同效用水平的曲线不能交于同一个组合。"},"conceptId":"indifference-curves"},{"id":"eco-04-q17","number":17,"group":"效用论概述","type":"discussion","stem":"当总效用增加时，边际效用应该（　）。","options":{"A":"为正值，且不断增加","B":"为正值，但不断减少","C":"为负值，且不断减少","D":"为正值，可能增加也可能减少"},"answer":[],"explanationSupplement":"只知道总效用正在增加，可判断相应单位的边际效用为正。边际效用的走势需要另给条件。若加上边际效用递减假设，B 成立；仅按题干给出的信息，D 表述更充分。","optionExplanations":{"A":"边际效用为正能解释总效用增加，是否递增还需条件。","B":"再加上边际效用递减假设，该项成立。","C":"负的边际效用会使总效用下降。","D":"仅根据总效用增加这一条件，边际效用仍可有不同走势。"},"conceptId":"marginal-utility"},{"id":"eco-04-q18","number":18,"group":"效用论概述","type":"single","stem":"无差异曲线为斜率不变的直线时，表示相结合的两种商品是（　）。","options":{"A":"可以替代的","B":"完全替代的","C":"互补的","D":"互不相关的"},"answer":["B"],"explanationSupplement":"在本题的通常模型中，斜率为恒定的负数意味着消费者在所有组合上都愿意按同一比率交换两种商品。完全替代是对此类偏好的专称。","optionExplanations":{"A":"一般的可替代还包括边际替代率随组合而改变的情形。","B":"固定边际替代率对应完全替代品。","C":"典型的完全互补品形成直角无差异曲线。","D":"固定替代比率本身表明两种商品的偏好存在明确的替代关系。"},"conceptId":"indifference-curves"},{"id":"eco-04-q19","number":19,"group":"效用论概述","type":"single","stem":"消费者的预算线反映了（　）。","options":{"A":"消费者的收入约束","B":"消费者的需求趋势","C":"消费者的支出计划","D":"消费者获得的总效用"},"answer":["A"],"explanationSupplement":"沿预算线移动时购买组合不同，但总花费都等于收入 I。线外的组合超过给定收入。","optionExplanations":{"A":"预算线反映给定价格条件下的收入约束。","B":"需求趋势对应价格等条件变化时的购买量。","C":"预算线列出可负担的边界组合，实际计划还需结合偏好。","D":"总效用取决于实际选择的消费组合。"},"conceptId":"budget-line"},{"id":"eco-04-q20","number":20,"group":"消费者均衡","type":"single","stem":"预算线和无差异曲线（　）时的商品组合，能够满足消费者的效用最大化。","options":{"A":"重合","B":"相交","C":"相切","D":"相离"},"answer":["C"],"explanationSupplement":"在平滑、凸偏好且最优组合包含两种商品的通常模型中，预算线与能达到的最高无差异曲线相切。边际替代率等于相对价格。角点选择需要直接比较可行效用。","optionExplanations":{"A":"整段重合可能出现在完全替代等特殊情况下。","B":"一般的穿越交点附近仍可找到更高效用的可行组合。","C":"内点最优时，两条曲线在可达最高效用处相切。","D":"两条线相离表示该无差异曲线与预算线没有共同的消费组合。"},"conceptId":"consumer-equilibrium"},{"id":"eco-04-q21","number":21,"group":"消费者均衡","type":"single","stem":"若消费者张某只准备买两种商品 X 和 Y，X 的价格为 10，Y 的价格为 2。若张某买了 7 个单位 X 和 3 个单位 Y，所获得的边际效用值分别为 30 个单位和 20 个单位，则（　）。","options":{"A":"张某获得了最大效用","B":"张某应当增加 X 的购买，减少 Y 的购买","C":"张某应当增加 Y 的购买，减少 X 的购买","D":"张某想要获得最大效用，需要借钱"},"answer":["C"],"explanationSupplement":"每元购买 X 的边际效用为 30÷10=3，每元购买 Y 的边际效用为 20÷2=10。在当前组合附近，把少量支出从 X 转向 Y 可以提高总效用。","optionExplanations":{"A":"两种商品的每元边际效用不同，当前组合有改进空间。","B":"将资金从 Y 转到 X 会从边际效用较高的用途转向较低的用途。","C":"将资金从 X 转到 Y 可增加总效用。","D":"在既定预算内重新分配支出即可改进选择。"},"conceptId":"consumer-equilibrium"},{"id":"eco-04-q22","number":22,"group":"消费者均衡","type":"single","stem":"消费者剩余是（　）。","options":{"A":"消费者购买能力超出实际购买额的差额","B":"消费者得到的总效用","C":"消费者购买某一商品时愿意支付的总价格和实际支付的总价格之间的差额","D":"支出的货币的总效用"},"answer":["C"],"explanationSupplement":"如果一个消费者愿意为某件商品最多支付 20 元，实际按 15 元买到，那么该笔购买的消费者剩余是 5 元。购买多件时可加总各单位的剩余。","optionExplanations":{"A":"购买能力与实际购买额之差是剩余预算的概念。","B":"消费者剩余以货币差额表示。","C":"给出了消费者剩余的定义。","D":"货币本身的效用和最高支付意愿与实际支出的差额属于不同概念。"},"conceptId":"consumer-surplus"},{"id":"eco-04-q23","number":23,"group":"消费者均衡","type":"discussion","stem":"随着收入和价格的变化，消费者的均衡也发生变化。假如在新均衡下，各种商品的边际效用均低于原均衡状态的边际效用，这意味着（　）。","options":{"A":"消费者生活状况有了改善","B":"消费者生活状况恶化了","C":"消费者生活状况没有变化","D":"不确定"},"answer":[],"explanationSupplement":"比较福利要看两组消费组合的总效用或偏好排序。若两种商品的边际效用分别只取决于各自消费量、均为正且严格递减，边际效用同时下降可推出两种消费量增加，支持 A。在一般偏好中，某种商品的边际效用也可能受另一种商品消费量影响，因此题设不足以判断福利变化。","optionExplanations":{"A":"在边际效用各自只受本商品消费量影响等附加条件下可成立。","B":"边际效用下降本身无法推出总效用下降。","C":"总效用相同需要两组组合属于同一无差异曲线。","D":"没有给定效用函数或偏好排序时，一般情形下无法判断。"},"conceptId":"consumer-equilibrium"},{"id":"eco-04-q24","number":24,"group":"消费者均衡","type":"single","stem":"消费者均衡的实现条件是（　）。","options":{"A":"偏好不变、收入不变、价格不变","B":"效用不变、价格不变、偏好不变","C":"价格不变、价值不变、效用不变","D":"时间不变、收入不变、需求不变"},"answer":["A"],"explanationSupplement":"题目考查求均衡时给定的条件。消费者在给定偏好、收入与价格下，选择可负担的最高效用组合。内点解的最优条件还需满足预算约束和边际替代率等于相对价格。","optionExplanations":{"A":"包含偏好和构成预算约束的收入、价格。","B":"没有给定可用收入，无法确定预算线。","C":"没有给出偏好和收入，效用应由最优选择得到。","D":"需求量是消费者选择的结果，商品价格和偏好需要给定。"},"conceptId":"consumer-equilibrium"},{"id":"eco-04-q25","number":25,"group":"消费者均衡","type":"single","stem":"恩格尔曲线表示消费者在每一（　）水平对某商品的需求量。","options":{"A":"价格","B":"收入","C":"效用","D":"偏好"},"answer":["B"],"explanationSupplement":"固定偏好和各商品价格，依次改变收入并求出每一收入下的最优需求量。以收入与某一种商品的数量作图，即得恩格尔曲线。","optionExplanations":{"A":"价格与需求量的对应关系通常用需求曲线表示。","B":"恩格尔曲线以收入作为影响需求量的变量。","C":"效用等级由消费组合和偏好决定。","D":"推导恩格尔曲线时，消费者偏好保持给定。"},"conceptId":"consumer-paths"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -3283,6 +3291,696 @@ dialog::backdrop { background: var(--backdrop); }
     isoquant: mountIsoquant,
     cost: mountCost,
     'market-structure': mountMarketStructure,
+  };
+
+  document.querySelectorAll('[data-micro-visual]').forEach(container => {
+    const fn = registry[container.dataset.microVisual];
+    if (fn) fn(container);
+  });
+})();
+
+(() => {
+  'use strict';
+
+  const fmt = (n, d = 1) => Number(n.toFixed(d)).toString();
+  const samplePath = (fn, start, end, steps, xMap, yMap) => {
+    let d = '';
+    for (let i = 0; i <= steps; i++) {
+      const t = start + (end - start) * (i / steps);
+      const val = fn(t);
+      if (!Number.isFinite(val)) continue;
+      d += (d ? ' L' : 'M') + xMap(t).toFixed(1) + ' ' + yMap(val).toFixed(1);
+    }
+    return d;
+  };
+  const X0 = 66, W = 420, Y0 = 294, H = 252;
+  const wrapStatic = (title, desc, svg) => `
+    <div class="inline-visual-header">
+      <span class="inline-visual-badge">图解示意</span>
+      <h4>${title}</h4>
+      <p>${desc}</p>
+    </div>
+    <div class="static-svg-wrap micro-panel">${svg}</div>`;
+
+  // 1. Chapter 04: Total Utility & Marginal Utility
+  function mountTUMU(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>总效用（TU）与边际效用（MU）递减联动图</h4>
+        <p>拖动消费数量 Q，观察每多消费 1 单位带来的边际效用 MU 递减过程，以及 MU = 0 时总效用 TU 达到最大值。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>总效用 TU</span>
+            <span><i class="chart-line mv-c2-line"></i>边际效用 MU</span>
+          </div>
+          <svg viewBox="0 0 540 390" role="img" aria-label="总效用与边际效用联动图">
+            <path class="chart-axis" d="M66 26V170H498" fill="none" stroke-width="1.4"/>
+            <text x="14" y="18" class="axis-label">总效用 TU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="174">0</text><text x="56" y="106">20</text><text x="56" y="40">40</text></g>
+            <path class="mv-curve-1" data-role="tu"/>
+
+            <path class="chart-axis" d="M66 206V346H498" fill="none" stroke-width="1.4"/>
+            <line class="mv-zero-line" x1="66" x2="498" y1="306" y2="306"/>
+            <text x="14" y="198" class="axis-label">边际效用 MU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="310">0</text><text x="56" y="264">5</text><text x="56" y="218">10</text></g>
+            <path class="mv-curve-2" data-role="mu"/>
+            <line class="mv-guide" data-role="vline" y1="26" y2="346"/>
+            <circle r="5.5" class="mv-dot-1" data-role="pt-tu"/>
+            <circle r="5.5" class="mv-dot-2" data-role="pt-mu"/>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="364">0</text><text x="171" y="364">2</text><text x="276" y="364">4</text><text x="381" y="364">6</text><text x="486" y="364">8</text></g>
+            <text x="276" y="384" text-anchor="middle" class="axis-label">消费数量 Q</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">消费数量 Q <output data-role="q-out">5</output></label>
+          <input type="range" data-role="q" min="0.5" max="8" step="0.5" value="5">
+          <div class="ppf-outputs">
+            <div><span>总效用 TU</span><strong data-role="tu-val">25.0</strong></div>
+            <div><span>边际效用 MU</span><strong data-role="mu-val">0.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-jump="2">递增区间</button>
+            <button type="button" class="button button-secondary" data-jump="5">饱和点(MU=0)</button>
+            <button type="button" class="button button-secondary" data-jump="7">负效用区</button>
+          </div>
+        </div>
+      </div>`;
+    // TU = 10Q - Q^2 (max 25 at Q=5); MU = 10 - 2Q
+    const tuFn = q => 10 * q - q * q;
+    const muFn = q => 10 - 2 * q;
+    const x = q => X0 + (q / 8) * W;
+    const yTU = v => 170 - (v / 32) * 130;
+    const yMU = v => 306 - (v / 10) * 90;
+    root.querySelector('[data-role="tu"]').setAttribute('d', samplePath(tuFn, 0, 8, 60, x, yTU));
+    root.querySelector('[data-role="mu"]').setAttribute('d', samplePath(muFn, 0, 8, 40, x, yMU));
+    const qIn = root.querySelector('[data-role="q"]');
+    function draw() {
+      const q = qIn.valueAsNumber, tu = tuFn(q), mu = muFn(q), xq = x(q).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xq); vl.setAttribute('x2', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cy', yTU(tu).toFixed(1));
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cy', yMU(mu).toFixed(1));
+      root.querySelector('[data-role="q-out"]').value = fmt(q, 1);
+      root.querySelector('[data-role="tu-val"]').textContent = fmt(tu, 1);
+      root.querySelector('[data-role="mu-val"]').textContent = fmt(mu, 1);
+      root.querySelector('[data-role="msg"]').textContent = mu > 0
+        ? `MU=${fmt(mu, 1)} > 0：每多消费 1 单位仍带来正满足，总效用 TU 持续上升，但增速逐渐放缓。`
+        : mu === 0
+          ? '饱和点（Q=5, MU=0）：边际效用降为零，此时总效用 TU 达到最大值 25。'
+          : `MU=${fmt(mu, 1)} < 0：过度消费产生负效用，总效用 TU 反而开始下降。`;
+    }
+    qIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { qIn.value = b.dataset.jump; draw(); }));
+    draw();
+  }
+
+  // 2. Chapter 06: Long-run Average Cost Envelope (static)
+  function mountLACEnvelope(root) {
+    root.innerHTML = wrapStatic(
+      '长期平均成本（LAC）包络线与规模经济',
+      '长期内厂商可自由调整工厂规模，LAC 是无数条短期平均成本曲线（SAC）的下包络线；只有在最低点 E，LAC 才与 SAC 的最低点相切。',
+      `<svg viewBox="0 0 660 280" role="img" aria-label="长期平均成本包络线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M62 28V230H618 M57 35l5-7 5 7 M611 225l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">平均成本 AC</text>
+        <text x="340" y="268" text-anchor="middle" class="axis-label">产量 Q</text>
+        <!-- Vertical split at optimal scale -->
+        <line x1="340" y1="36" x2="340" y2="230" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="200" y="54" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="650">规模经济（LAC 下降）</text>
+        <text x="480" y="54" text-anchor="middle" fill="var(--mv-c2)" font-size="13" font-weight="650">规模不经济（LAC 上升）</text>
+        <!-- SAC curves -->
+        <path d="M110 72 Q175 186 245 104" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="128" y="88" class="tick-label">SAC₁</text>
+        <path d="M250 112 Q340 226 430 112" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="340" y="128" text-anchor="middle" class="tick-label">SAC₂（最优规模）</text>
+        <path d="M435 104 Q505 186 570 72" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="546" y="88" class="tick-label">SAC₃</text>
+        <!-- LAC envelope -->
+        <path d="M96 96 Q340 246 584 96" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="592" y="102" fill="var(--accent)" font-size="13.5" font-weight="700">LAC</text>
+        <!-- Tangent point -->
+        <circle cx="340" cy="171" r="6" class="mv-dot-eq"/>
+        <text x="352" y="190" class="point-label">E（最低点相切）</text>
+      </svg>`
+    );
+  }
+
+  // 3. Chapter 08: Interactive Prisoner's Dilemma Matrix
+  function mountPrisonersMatrix(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>囚徒困境 2×2 支付矩阵（点击任意格子体验纳什均衡）</h4>
+        <p>括号内为（甲的刑期年数，乙的刑期年数），数字越小越好。点击不同策略组合，看双方有没有单方面改选的动机。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart" style="padding:16px">
+          <div class="game-matrix" role="grid" aria-label="囚徒困境支付矩阵">
+            <div class="gm-corner">甲 \\ 乙</div>
+            <div class="gm-head">乙：坦白</div>
+            <div class="gm-head">乙：抵赖</div>
+            <div class="gm-head">甲：坦白</div>
+            <button type="button" class="gm-cell active" data-cell="cc"><strong>(-8年, -8年)</strong><small>纳什均衡 ★</small></button>
+            <button type="button" class="gm-cell" data-cell="cd"><strong>(0年, -10年)</strong><small>甲占便宜</small></button>
+            <div class="gm-head">甲：抵赖</div>
+            <button type="button" class="gm-cell" data-cell="dc"><strong>(-10年, 0年)</strong><small>乙占便宜</small></button>
+            <button type="button" class="gm-cell" data-cell="dd"><strong>(-1年, -1年)</strong><small>帕累托最优</small></button>
+          </div>
+        </div>
+        <div class="ppf-controls">
+          <h5>策略稳定性分析</h5>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const notes = {
+      cc: '【(坦白, 坦白) → 唯一纳什均衡】无论对方选什么，自己选「坦白」刑期都更短（0>-1 且 -8>-10），因此「坦白」是双方的严格占优策略，任何一方单方面改选抵赖都会从 -8 年恶化到 -10 年。',
+      cd: '【(坦白, 抵赖) → 不稳定】此时乙判 10 年；只要乙单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此乙有强烈动机偏离，最终滑向 (坦白, 坦白)。',
+      dc: '【(抵赖, 坦白) → 不稳定】此时甲判 10 年；只要甲单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此甲会立刻偏离，滑向 (坦白, 坦白)。',
+      dd: '【(抵赖, 抵赖) → 帕累托最优但不稳定】虽然两人各判 1 年集体总福利最好，但给定对方抵赖，自己单方面背叛改为坦白可以无罪释放（0 年），所以缺乏约束机制时合作会瓦解。',
+    };
+    const cells = [...root.querySelectorAll('[data-cell]')];
+    function select(key) {
+      cells.forEach(c => c.classList.toggle('active', c.dataset.cell === key));
+      root.querySelector('[data-role="msg"]').textContent = notes[key];
+    }
+    cells.forEach(c => c.addEventListener('click', () => select(c.dataset.cell)));
+    select('cc');
+  }
+
+  // 4. Chapter 09: Lorenz Curve & Gini Coefficient
+  function mountLorenzGini(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>洛伦兹曲线与基尼系数（G = A / (A + B)）</h4>
+        <p>拖动收入分配不平等程度，观察洛伦兹曲线弯曲幅度与阴影面积 A 的变化，直观理解基尼系数 0.4 警戒线。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>绝对平等线（45°）</span>
+            <span><i class="chart-line mv-c1-line"></i>洛伦兹曲线</span>
+            <span><i class="mv-swatch mv-cs"></i>不平等面积 A</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="洛伦兹曲线与基尼系数交互图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">累计收入占比 (%)</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">累计人口占比（从低收入到高收入 %）</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0%</text><text x="171" y="316">25%</text><text x="276" y="316">50%</text><text x="381" y="316">75%</text><text x="486" y="316">100%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">25%</text><text x="56" y="172">50%</text><text x="56" y="109">75%</text><text x="56" y="46">100%</text></g>
+            <path class="mv-fill-cs" data-role="area-a"/>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-1" data-role="curve"/>
+            <text x="248" y="196" class="point-label" data-role="lbl-a">A</text>
+            <text x="382" y="246" class="tick-label" style="font-size:14px">B</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">弯曲指数 k（1=绝对平等，越大越不平等）<output data-role="k-out">2.3</output></label>
+          <input type="range" data-role="k" min="1" max="5" step="0.1" value="2.3">
+          <div class="ppf-outputs">
+            <div><span>基尼系数 G</span><strong data-role="g-val">0.39</strong></div>
+            <div><span>后 50% 人口收入占比</span><strong data-role="b50-val">20%</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // L(p) = p^k => Gini = (k - 1)/(k + 1)
+    const x = p => X0 + p * W;
+    const y = v => Y0 - v * H;
+    const kIn = root.querySelector('[data-role="k"]');
+    function draw() {
+      const k = kIn.valueAsNumber;
+      const gini = (k - 1) / (k + 1);
+      const b50 = Math.pow(0.5, k) * 100;
+      const curveD = samplePath(p => Math.pow(p, k), 0, 1, 50, x, y);
+      root.querySelector('[data-role="curve"]').setAttribute('d', curveD);
+      root.querySelector('[data-role="area-a"]').setAttribute('d', curveD + ` L${x(0)} ${y(0)} Z`);
+      root.querySelector('[data-role="k-out"]').value = fmt(k, 1);
+      root.querySelector('[data-role="g-val"]').textContent = fmt(gini, 2);
+      root.querySelector('[data-role="b50-val"]').textContent = fmt(b50, 0) + '%';
+      root.querySelector('[data-role="msg"]').textContent = gini < 0.2
+        ? 'G < 0.2：收入分配高度平均，洛伦兹曲线紧贴 45° 绝对平等线。'
+        : gini < 0.4
+          ? `G = ${fmt(gini, 2)}（0.2~0.4）：处于相对合理区间；收入较低的一半人口占总收入的 ${fmt(b50, 0)}%。`
+          : `G = ${fmt(gini, 2)} ≥ 0.4：超过国际常用的收入差距警戒线，洛伦兹曲线明显向右下方弯曲。`;
+    }
+    kIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 5. Chapter 09: Backward-bending Labour Supply Curve (static)
+  function mountLabourSupply(root) {
+    root.innerHTML = wrapStatic(
+      '向后弯曲的个人劳动供给曲线',
+      '工资上涨同时产生「替代效应（多干活）」与「收入效应（多买闲暇）」；当工资高过拐点 W* 后，收入效应压过替代效应，劳动供给反向减少。',
+      `<svg viewBox="0 0 640 270" role="img" aria-label="向后弯曲的劳动供给曲线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V224H580 M61 35l5-7 5 7 M573 219l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">工资率 W</text>
+        <text x="323" y="258" text-anchor="middle" class="axis-label">劳动供给时间 L</text>
+        <path d="M130 210 C250 184 320 156 320 124 C320 88 265 64 210 42" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="66" y1="124" x2="320" y2="124" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <circle cx="320" cy="124" r="6" class="mv-dot-eq"/>
+        <text x="48" y="128" text-anchor="end" class="tick-label">W*</text>
+        <text x="336" y="128" class="point-label">拐点（替代效应 = 收入效应）</text>
+        <text x="336" y="76" fill="var(--mv-c2)" font-size="13" font-weight="650">W &gt; W*：收入效应 &gt; 替代效应（高薪更愿享受闲暇，曲线后弯）</text>
+        <text x="336" y="182" fill="var(--accent)" font-size="13" font-weight="650">W &lt; W*：替代效应 &gt; 收入效应（加薪吸引增加工时，曲线右倾）</text>
+      </svg>`
+    );
+  }
+
+  // 6. Chapter 10: Negative Externality & Pigouvian Tax
+  function mountExternality(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>负外部性与庇古税：私人成本（MPC）vs 社会成本（MSC）</h4>
+        <p>拖动“庇古税税率 t”，看如何将外部污染成本内部化，使市场产量从过度生产的 Qm 收敛到社会最优产量 Q*。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>需求 D = MSB</span>
+            <span><i class="chart-line mv-base-line"></i>私人成本 MPC</span>
+            <span><i class="chart-line mv-c2-line"></i>社会成本 MSC</span>
+            <span><i class="mv-swatch mv-dwl"></i>剩余无谓损失</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="负外部性与庇古税纠正图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 / 成本</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">产量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">20</text><text x="276" y="316">40</text><text x="381" y="316">60</text><text x="486" y="316">80</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="248">10</text><text x="56" y="197">20</text><text x="56" y="147">30</text><text x="56" y="96">40</text><text x="56" y="46">50</text></g>
+            <polygon class="mv-fill-dwl" data-role="dwl"/>
+            <path class="mv-curve-1" data-role="d"/>
+            <path class="mv-base-curve" data-role="mpc"/>
+            <path class="mv-curve-2" data-role="msc"/>
+            <path class="mv-curve-3" data-role="tax-s"/>
+            <circle r="5.5" class="mv-dot-2" data-role="opt"/>
+            <circle r="6" class="mv-dot-eq" data-role="cur"/>
+            <text class="point-label" data-role="lbl-opt">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">庇古税税率 t（单位外部成本 = 10）<output data-role="t-out">0</output></label>
+          <input type="range" data-role="t" min="0" max="14" step="1" value="0">
+          <div class="ppf-outputs">
+            <div><span>实际产量 Q</span><strong data-role="q-val">40</strong></div>
+            <div><span>社会最优 Q*</span><strong>30</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row"><button type="button" class="button button-primary" data-role="best">设为最优庇古税 (t=10)</button></div>
+        </div>
+      </div>`;
+    // D: P = 50 - 0.5Q; MPC: P = 10 + 0.5Q (Qm=40, Pm=30); MSC: P = 20 + 0.5Q (Q*=30, P*=35)
+    const x = q => X0 + (q / 80) * W;
+    const y = p => Y0 - (p / 50) * H;
+    root.querySelector('[data-role="d"]').setAttribute('d', `M${x(0)} ${y(50)} L${x(80)} ${y(10)}`);
+    root.querySelector('[data-role="mpc"]').setAttribute('d', `M${x(0)} ${y(10)} L${x(80)} ${y(50)}`);
+    root.querySelector('[data-role="msc"]').setAttribute('d', `M${x(0)} ${y(20)} L${x(60)} ${y(50)}`);
+    root.querySelector('[data-role="opt"]').setAttribute('cx', x(30));
+    root.querySelector('[data-role="opt"]').setAttribute('cy', y(35));
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('x', x(30) - 18);
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('y', y(35) - 10);
+    const tIn = root.querySelector('[data-role="t"]');
+    function draw() {
+      const t = tIn.valueAsNumber;
+      const q = 40 - t;
+      const p = 50 - 0.5 * q;
+      const mscAtQ = 20 + 0.5 * q;
+      root.querySelector('[data-role="tax-s"]').setAttribute('d', `M${x(0)} ${y(10 + t)} L${x(Math.min(80, 80 - 2 * t))} ${y(Math.min(50, 50 + t - Math.max(0, t)))}`);
+      root.querySelector('[data-role="cur"]').setAttribute('cx', x(q).toFixed(1));
+      root.querySelector('[data-role="cur"]').setAttribute('cy', y(p).toFixed(1));
+      root.querySelector('[data-role="dwl"]').setAttribute('points', Math.abs(q - 30) < 0.1 ? '' : `${x(30).toFixed(1)},${y(35).toFixed(1)} ${x(q).toFixed(1)},${y(p).toFixed(1)} ${x(q).toFixed(1)},${y(mscAtQ).toFixed(1)}`);
+      root.querySelector('[data-role="t-out"]').value = String(t);
+      root.querySelector('[data-role="q-val"]').textContent = String(q);
+      root.querySelector('[data-role="msg"]').textContent = t === 0
+        ? '未征税时，厂商只考虑私人成本 MPC，市场过度生产（Q=40 > Q*=30），红色三角为负外部性造成的社会无谓损失。'
+        : t === 10
+          ? '庇古税 t=10 恰好等于边际外部成本：税后供给曲线与 MSC 重合，市场自动收敛到社会最优产量 Q*=30，无谓损失清零！'
+          : t < 10
+            ? `税率 t=${t} 偏低：产量降至 ${q}，无谓损失明显缩小，但仍高于社会最优产量 30。`
+            : `税率 t=${t} 过高：过度征税导致产量降至 ${q}（低于社会最优 30），反而产生新的效率损失。`;
+    }
+    tIn.addEventListener('input', draw);
+    root.querySelector('[data-role="best"]').addEventListener('click', () => { tIn.value = '10'; draw(); });
+    draw();
+  }
+
+  // 7. Chapter 11: Keynesian 45-degree Cross & Multiplier
+  function mountKeynesCross(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>凯恩斯 45° 交叉图与支出乘数效应（k = 1 / (1 − MPC)）</h4>
+        <p>增加自发支出 ΔA 或调高边际消费倾向 MPC，观察计划支出线 AE 上移后均衡产出 Y* 被成倍放大的效果。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>45° 均衡线（AE = Y）</span>
+            <span><i class="chart-line mv-c1-line"></i>当前计划支出 AE</span>
+            <span><i class="chart-line mv-c3-line"></i>初始 AE₀</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="凯恩斯45度交叉图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">计划支出 AE</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">100</text><text x="276" y="316">200</text><text x="381" y="316">300</text><text x="486" y="316">400</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">100</text><text x="56" y="172">200</text><text x="56" y="109">300</text><text x="56" y="46">400</text></g>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-3" data-role="ae0"/>
+            <path class="mv-curve-1" data-role="ae1"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">新增自发支出 ΔA（基准 A₀=50）<output data-role="a-out">+0</output></label>
+          <input type="range" data-role="da" min="0" max="40" step="5" value="0">
+          <label class="range-label">边际消费倾向 MPC <output data-role="c-out">0.75</output></label>
+          <input type="range" data-role="mpc" min="0.5" max="0.8" step="0.05" value="0.75">
+          <div class="ppf-outputs">
+            <div><span>支出乘数 k</span><strong data-role="k-val">4.0×</strong></div>
+            <div><span>均衡产出 Y*</span><strong data-role="y-val">200</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const x = v => X0 + (v / 400) * W;
+    const y = v => Y0 - (v / 400) * H;
+    const daIn = root.querySelector('[data-role="da"]');
+    const cIn = root.querySelector('[data-role="mpc"]');
+    function draw() {
+      const da = daIn.valueAsNumber, c = cIn.valueAsNumber;
+      const k = 1 / (1 - c);
+      const y0 = 50 * k;
+      const ys = (50 + da) * k;
+      const aePath = a => `M${x(0).toFixed(1)} ${y(a).toFixed(1)} L${x(400).toFixed(1)} ${y(Math.min(400, a + c * 400)).toFixed(1)}`;
+      root.querySelector('[data-role="ae0"]').setAttribute('d', aePath(50));
+      root.querySelector('[data-role="ae1"]').setAttribute('d', aePath(50 + da));
+      const yc = Math.min(400, ys);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(yc).toFixed(1)} H${x(yc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(yc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(yc).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(yc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(yc) - 10).toFixed(1));
+      root.querySelector('[data-role="a-out"]').value = '+' + da;
+      root.querySelector('[data-role="c-out"]').value = fmt(c, 2);
+      root.querySelector('[data-role="k-val"]').textContent = fmt(k, 1) + '×';
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 0);
+      root.querySelector('[data-role="msg"]').textContent = da === 0
+        ? `当前 MPC=${fmt(c, 2)}，支出乘数 k=${fmt(k, 1)}。试着增加自发支出 ΔA，观察产出增量如何等于 ΔA × ${fmt(k, 1)}。`
+        : `自发支出仅增加 +${da}，经过乘数 k=${fmt(k, 1)} 放大后，均衡产出从 ${fmt(y0, 0)} 跃升至 ${fmt(ys, 0)}（净增 +${fmt(ys - y0, 0)}）。`;
+    }
+    daIn.addEventListener('input', draw);
+    cIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 8. Chapter 15: LM Three Regions Policy Effectiveness
+  function mountLMRegions(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>LM 三区间：财政政策与货币政策的有效性对比</h4>
+        <p>切换经济所处的 LM 区间（凯恩斯陷阱 / 中间区域 / 古典区域），对比扩张性财政政策（IS 右移）的效果与挤出程度。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c2-line"></i>完整 LM 曲线</span>
+            <span><i class="chart-line mv-base-line"></i>初始 IS₀</span>
+            <span><i class="chart-line mv-c1-line"></i>扩张财政后 IS₁</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="LM三区间政策有效性对比图">
+            <rect x="66" y="42" width="140" height="252" fill="var(--accent-soft)" opacity=".45"/>
+            <rect x="376" y="42" width="110" height="252" fill="var(--warning-soft)" opacity=".45"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">利率 r</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle">
+              <text x="136" y="316">凯恩斯区（水平）</text>
+              <text x="291" y="316">中间区（右倾）</text>
+              <text x="431" y="316">古典区（垂直）</text>
+            </g>
+            <!-- Full LM: horizontal [66..206] at y=248, sloped [206..416] to y=110, vertical at x=416 up to y=48 -->
+            <path d="M66 248 L206 248 L416 110 L416 48" fill="none" class="mv-curve-2"/>
+            <path class="mv-base-curve" data-role="is0"/>
+            <path class="mv-curve-1" data-role="is1"/>
+            <circle r="5" class="mv-dot-3" data-role="e0"/>
+            <circle r="6.5" class="mv-dot-1" data-role="e1"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择当前所处 LM 区间</legend>
+            <label><input type="radio" name="lmr" value="keynes" checked> 凯恩斯区域（流动性陷阱）</label>
+            <label><input type="radio" name="lmr" value="mid"> 中间区域（常态经济）</label>
+            <label><input type="radio" name="lmr" value="classic"> 古典区域（充分就业上限）</label>
+          </fieldset>
+          <div class="ppf-outputs">
+            <div><span>财政政策效果</span><strong data-role="f-val">极有效</strong></div>
+            <div><span>货币政策效果</span><strong data-role="m-val">完全无效</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const cfg = {
+      keynes: { is0: 'M92 174 L164 276', is1: 'M128 174 L200 276', e0: [144, 248], e1: [180, 248], f: '完全有效', m: '无效', msg: '凯恩斯区域（流动性陷阱）：利率已低至底线，增发货币全被持有为现金（货币政策无效）；扩张财政使 IS 右移不推高利率，无挤出效应，财政政策完全有效。' },
+      mid: { is0: 'M216 96 L356 264', is1: 'M260 96 L400 264', e0: [292, 191], e1: [324, 170], f: '部分有效', m: '部分有效', msg: '中间区域：扩张财政使产出上升、利率温和上行，存在「部分挤出效应」；财政政策与货币政策均有效，适合搭配使用。' },
+      classic: { is0: 'M348 106 L466 218', is1: 'M366 64 L484 176', e0: [416, 171], e1: [416, 111], f: '完全无效', m: '完全有效', msg: '古典区域（垂直 LM）：产出已达上限，扩张财政只会把利率推高，导致私人投资被「100% 完全挤出」（财政无效）；此时货币政策完全有效。' },
+    };
+    const radios = [...root.querySelectorAll('input[name="lmr"]')];
+    function draw() {
+      const c = cfg[radios.find(r => r.checked).value];
+      root.querySelector('[data-role="is0"]').setAttribute('d', c.is0);
+      root.querySelector('[data-role="is1"]').setAttribute('d', c.is1);
+      root.querySelector('[data-role="e0"]').setAttribute('cx', c.e0[0]);
+      root.querySelector('[data-role="e0"]').setAttribute('cy', c.e0[1]);
+      root.querySelector('[data-role="e1"]').setAttribute('cx', c.e1[0]);
+      root.querySelector('[data-role="e1"]').setAttribute('cy', c.e1[1]);
+      root.querySelector('[data-role="f-val"]').textContent = c.f;
+      root.querySelector('[data-role="m-val"]').textContent = c.m;
+      root.querySelector('[data-role="msg"]').textContent = c.msg;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    draw();
+  }
+
+  // 9. Chapter 17: Solow Growth Model Steady State
+  function mountSolow(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>索罗增长模型：储蓄率、折旧率与人均资本稳态 k*</h4>
+        <p>调节储蓄率 s 或折旧率 δ，观察实际投资曲线 s·f(k) 与持平投资线 δ·k 的交点（稳态 k*）如何移动。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>人均产出 y = f(k)</span>
+            <span><i class="chart-line mv-c1-line"></i>人均投资 s·f(k)</span>
+            <span><i class="chart-line mv-c2-line"></i>折旧线 δ·k</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="索罗增长模型稳态互动图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">人均产出 / 投资</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">人均资本存量 k</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">25</text><text x="276" y="316">50</text><text x="381" y="316">75</text><text x="486" y="316">100</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">3</text><text x="56" y="172">6</text><text x="56" y="109">9</text><text x="56" y="46">12</text></g>
+            <path class="mv-base-curve" data-role="yk"/>
+            <path class="mv-curve-1" data-role="sfk"/>
+            <path class="mv-curve-2" data-role="dk"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">k*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">储蓄率 s <output data-role="s-out">35%</output></label>
+          <input type="range" data-role="s" min="15" max="60" step="5" value="35">
+          <label class="range-label">折旧率 δ <output data-role="d-out">5%</output></label>
+          <input type="range" data-role="d" min="3" max="10" step="1" value="5">
+          <div class="ppf-outputs">
+            <div><span>稳态人均资本 k*</span><strong data-role="k-val">49</strong></div>
+            <div><span>稳态人均产出 y*</span><strong data-role="y-val">7.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // y = sqrt(k), s*sqrt(k) = d*k => k* = (s/d)^2, y* = s/d
+    const x = k => X0 + (k / 100) * W;
+    const y = v => Y0 - (Math.min(12, v) / 12) * H;
+    root.querySelector('[data-role="yk"]').setAttribute('d', samplePath(k => Math.sqrt(k), 0, 100, 60, x, y));
+    const sIn = root.querySelector('[data-role="s"]');
+    const dIn = root.querySelector('[data-role="d"]');
+    function draw() {
+      const s = sIn.valueAsNumber / 100, d = dIn.valueAsNumber / 100;
+      const ks = Math.pow(s / d, 2);
+      const ys = s / d;
+      const inv = d * ks;
+      root.querySelector('[data-role="sfk"]').setAttribute('d', samplePath(k => s * Math.sqrt(k), 0, 100, 60, x, y));
+      const kEnd = Math.min(100, 12 / d);
+      root.querySelector('[data-role="dk"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(kEnd).toFixed(1)} ${y(d * kEnd).toFixed(1)}`);
+      const kc = Math.min(100, ks), ic = Math.min(12, inv);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(ic).toFixed(1)} H${x(kc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(kc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(ic).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(kc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(ic) - 10).toFixed(1));
+      root.querySelector('[data-role="s-out"]').value = sIn.value + '%';
+      root.querySelector('[data-role="d-out"]').value = dIn.value + '%';
+      root.querySelector('[data-role="k-val"]').textContent = fmt(ks, 0);
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 1);
+      root.querySelector('[data-role="msg"]').textContent = `稳态 k* = (s/δ)² = ${fmt(ks, 0)}，人均产出 y* = ${fmt(ys, 1)}。提高储蓄率 s 只能提升稳态「水平」，在无技术进步时无法永久提高长期「增长率」。`;
+    }
+    sIn.addEventListener('input', draw);
+    dIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 10. Chapter 23: Balance of Payments Account Structure (static)
+  function mountBOPStructure(root) {
+    root.innerHTML = wrapStatic(
+      '国际收支平衡表（BOP）账户结构与恒等关系',
+      '按复式记账法编制，账面总额恒等于 0：经常账户 + 资本和金融账户（不含储备） + 储备资产变动 + 净误差与遗漏 = 0。',
+      `<svg viewBox="0 0 680 236" role="img" aria-label="国际收支平衡表账户结构图" style="width:100%;height:auto;display:block">
+        <g text-anchor="middle">
+          <rect x="16" y="16" width="154" height="132" rx="9" fill="var(--accent-soft)" stroke="var(--accent-line)" stroke-width="1.6"/>
+          <text x="93" y="42" fill="var(--accent)" font-size="13.5" font-weight="700">经常账户</text>
+          <text x="93" y="68" fill="var(--text)" font-size="12">• 货物贸易</text>
+          <text x="93" y="90" fill="var(--text)" font-size="12">• 服务贸易</text>
+          <text x="93" y="112" fill="var(--text)" font-size="12">• 初次收入(股息/利息)</text>
+          <text x="93" y="134" fill="var(--text)" font-size="12">• 二次收入(无偿转移)</text>
+
+          <text x="182" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="194" y="16" width="154" height="132" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="271" y="42" fill="var(--heading)" font-size="13.5" font-weight="700">资本与金融账户</text>
+          <text x="271" y="68" fill="var(--text)" font-size="12">• 直接投资（FDI）</text>
+          <text x="271" y="90" fill="var(--text)" font-size="12">• 证券投资（股/债）</text>
+          <text x="271" y="112" fill="var(--text)" font-size="12">• 金融衍生品</text>
+          <text x="271" y="134" fill="var(--text)" font-size="12">• 贷款与其他投资</text>
+
+          <text x="360" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="372" y="16" width="144" height="132" rx="9" fill="var(--surface)" stroke="var(--mv-c2)" stroke-width="1.5"/>
+          <text x="444" y="42" fill="var(--mv-c2)" font-size="13.5" font-weight="700">储备资产变动</text>
+          <text x="444" y="68" fill="var(--text)" font-size="12">• 外汇储备</text>
+          <text x="444" y="90" fill="var(--text)" font-size="12">• 货币黄金</text>
+          <text x="444" y="112" fill="var(--text)" font-size="12">• 特别提款权 SDR</text>
+          <text x="444" y="134" fill="var(--text)" font-size="12">• IMF 储备头寸</text>
+
+          <text x="528" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="540" y="16" width="124" height="132" rx="9" fill="var(--surface-subtle)" stroke="var(--control-line)" stroke-dasharray="4 3"/>
+          <text x="602" y="64" fill="var(--heading)" font-size="13" font-weight="680">净误差与遗漏</text>
+          <text x="602" y="90" fill="var(--muted)" font-size="11.5">统计口径差异</text>
+          <text x="602" y="110" fill="var(--muted)" font-size="11.5">与漏报轧平项</text>
+        </g>
+        <rect x="16" y="164" width="648" height="54" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+        <text x="340" y="187" text-anchor="middle" fill="var(--heading)" font-size="12.5" font-weight="650">高频考点：国际收支「顺差 / 逆差」通常指前两项（自主性交易）之和；</text>
+        <text x="340" y="207" text-anchor="middle" fill="var(--muted)" font-size="12">顺差导致外汇储备增加（在储备资产项下记为借方负号），从而使整张平衡表借贷轧平为 0。</text>
+      </svg>`
+    );
+  }
+
+  // 11. Chapter 25: Financial Repression Interest Ceiling Gap (static)
+  function mountRepressionGap(root) {
+    root.innerHTML = wrapStatic(
+      '金融抑制：人为利率上限导致的储蓄萎缩与信贷配给缺口',
+      '麦金农—肖模型核心图示：政府将实际利率压低在均衡利率 r* 以下（r₀），导致实际储蓄不足、投资需求过剩，只能依靠非市场信贷配给。',
+      `<svg viewBox="0 0 640 276" role="img" aria-label="金融抑制利率上限与资金缺口图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V226H580 M61 35l5-7 5 7 M573 221l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">实际利率 r</text>
+        <text x="323" y="262" text-anchor="middle" class="axis-label">储蓄 S / 投资 I</text>
+        <!-- I curve downward, S curve upward -->
+        <path d="M126 52 L506 208" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+        <text x="514" y="212" fill="var(--accent)" font-size="13" font-weight="680">投资需求 I(r)</text>
+        <path d="M126 208 L506 52" fill="none" stroke="var(--mv-c2)" stroke-width="2.6"/>
+        <text x="514" y="56" fill="var(--mv-c2)" font-size="13" font-weight="680">储蓄供给 S(r)</text>
+        <!-- Equilibrium -->
+        <circle cx="316" cy="130" r="5.5" class="mv-dot-eq"/>
+        <line x1="66" y1="130" x2="316" y2="130" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="56" y="134" text-anchor="end" class="tick-label">r*</text>
+        <text x="326" y="122" class="point-label">E*（市场均衡）</text>
+        <!-- Ceiling r0 -->
+        <line x1="66" y1="176" x2="540" y2="176" stroke="var(--error)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="56" y="180" text-anchor="end" fill="var(--error)" font-size="12.5" font-weight="680">r₀</text>
+        <line x1="204" y1="176" x2="204" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <line x1="428" y1="176" x2="428" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <text x="204" y="242" text-anchor="middle" class="tick-label">实际储蓄 S₀</text>
+        <text x="428" y="242" text-anchor="middle" class="tick-label">投资需求 I₀</text>
+        <line x1="208" y1="176" x2="424" y2="176" stroke="var(--error)" stroke-width="4.5" opacity=".45"/>
+        <text x="316" y="168" text-anchor="middle" fill="var(--error)" font-size="12.5" font-weight="680">资金短缺 / 非价格信贷配给区</text>
+      </svg>`
+    );
+  }
+
+  // 12. Chapter 26: Risk Management 4-Quadrant Matrix (static)
+  function mountRiskMatrix(root) {
+    root.innerHTML = wrapStatic(
+      '风险管理四象限矩阵：按「损失频率 × 损失程度」选工具',
+      '保险最适合处理「低频率、高损失」的风险；高频低损靠自留与防损，高频高损则应直接回避。',
+      `<svg viewBox="0 0 660 272" role="img" aria-label="风险管理四象限矩阵图" style="width:100%;height:auto;display:block">
+        <text x="364" y="20" text-anchor="middle" class="axis-label">损失频率（发生可能性）</text>
+        <text x="234" y="42" text-anchor="middle" class="tick-label">低频率</text>
+        <text x="494" y="42" text-anchor="middle" class="tick-label">高频率</text>
+        <text x="26" y="156" text-anchor="middle" class="axis-label" transform="rotate(-90 26 156)">损失程度</text>
+        <text x="80" y="106" text-anchor="end" class="tick-label">高损失</text>
+        <text x="80" y="212" text-anchor="end" class="tick-label">低损失</text>
+
+        <!-- Q1: Low freq, High severity -> Insurance -->
+        <rect x="94" y="52" width="268" height="100" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+        <text x="228" y="84" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">风险转移（商业保险 ★）</text>
+        <text x="228" y="108" text-anchor="middle" fill="var(--text)" font-size="12">低频高损：火灾、重疾、重大车祸</text>
+        <text x="228" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">保险最核心的适用场景（杠杆高）</text>
+
+        <!-- Q2: High freq, High severity -> Avoidance -->
+        <rect x="374" y="52" width="268" height="100" rx="9" fill="var(--error-soft)" stroke="var(--error-line)" stroke-width="1.5"/>
+        <text x="508" y="84" text-anchor="middle" fill="var(--error)" font-size="14" font-weight="700">风险回避</text>
+        <text x="508" y="108" text-anchor="middle" fill="var(--text)" font-size="12">高频高损：危房施工、高危违规作业</text>
+        <text x="508" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">直接放弃或退出该项活动</text>
+
+        <!-- Q3: Low freq, Low severity -> Retention -->
+        <rect x="94" y="162" width="268" height="96" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="228" y="194" text-anchor="middle" fill="var(--heading)" font-size="14" font-weight="700">风险自留</text>
+        <text x="228" y="218" text-anchor="middle" fill="var(--text)" font-size="12">低频低损：小额日常磕碰、小件遗失</text>
+        <text x="228" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">自行承担更经济，无需额外投保</text>
+
+        <!-- Q4: High freq, Low severity -> Loss control / Prevention -->
+        <rect x="374" y="162" width="268" height="96" rx="9" fill="var(--warning-soft)" stroke="var(--warning)" stroke-width="1.5"/>
+        <text x="508" y="194" text-anchor="middle" fill="var(--warning)" font-size="14" font-weight="700">损失控制（预防与抑制）</text>
+        <text x="508" y="218" text-anchor="middle" fill="var(--text)" font-size="12">高频低损：装防盗门、定期消防检查</text>
+        <text x="508" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">降低发生概率 + 控制损失规模</text>
+      </svg>`
+    );
+  }
+
+  const registry = {
+    'tu-mu': mountTUMU,
+    'lac-envelope': mountLACEnvelope,
+    'prisoners-matrix': mountPrisonersMatrix,
+    'lorenz-gini': mountLorenzGini,
+    'labour-supply': mountLabourSupply,
+    externality: mountExternality,
+    'keynes-cross': mountKeynesCross,
+    'lm-regions': mountLMRegions,
+    solow: mountSolow,
+    'bop-structure': mountBOPStructure,
+    'repression-gap': mountRepressionGap,
+    'risk-matrix': mountRiskMatrix,
   };
 
   document.querySelectorAll('[data-micro-visual]').forEach(container => {

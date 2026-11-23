@@ -960,6 +960,14 @@ dialog::backdrop { background: var(--backdrop); }
 .micro-panel .axis-label, .market-panel .axis-label { font-size: 13px; font-weight: 600; }
 .micro-panel .tick-label, .market-panel .tick-label { font-size: 12px; }
 .micro-panel .point-label { font-size: 14px; }
+.game-matrix { display: grid; grid-template-columns: 96px repeat(2, minmax(0, 1fr)); gap: 8px; }
+.gm-corner, .gm-head { display: grid; place-items: center; padding: 10px 8px; border-radius: 8px; background: var(--surface-subtle); color: var(--heading); font-size: 13px; font-weight: 650; text-align: center; }
+.gm-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 82px; padding: 10px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--heading); transition: border-color .15s ease, background .15s ease; }
+.gm-cell strong { font: 680 16px var(--font-number); }
+.gm-cell small { font-size: 12px; color: var(--muted); }
+.gm-cell:hover { border-color: var(--control-line); }
+.gm-cell.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+.gm-cell.active small { color: var(--accent); font-weight: 620; }
 </style>
 </head>
 <body data-page="chapter" data-offline="true" data-flat-downloads="true">
@@ -1104,7 +1112,7 @@ dialog::backdrop { background: var(--backdrop); }
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter10","number":10,"title":"资源配置和市场失灵","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-10-资源配置和市场失灵-离线学习.html","visuals":[]},"lessons":{"title":"资源配置和市场失灵","subtitle":"以帕累托效率为基准，区分价格机制的四类局限。","sections":[{"id":"pareto","title":"帕累托改进和帕累托最优","summary":"看是否有人能在无人受损的条件下得到改善。","bodyHtml":"\u003cp>在可行的配置变动中，如果至少一人严格受益，且所有其他人都不受损，这种变动就是\u003cmark>帕累托改进\u003c/mark>。不存在任何可行的帕累托改进时，当前配置具有\u003cstrong>帕累托效率\u003c/strong>，也称帕累托最优。\u003c/p>\u003cp>帕累托标准是逐人比较，不需要也不允许直接把不同人的效用数字相加。可以同时存在多个有效配置，其中有的分配很不均等。\u003c/p>","keyTakeaway":"改进描述一次变动，最优描述没有可行改进的状态。","pitfall":"有效配置仍可能通过重新分配使某个人更好，但此时会有人受损。","example":"从（10，20）到（10，30）是帕累托改进；从（10，20）到（8，30）无法通过这一检验。"},{"id":"allocation-conditions","title":"交换、生产与产品组合的效率","summary":"用 MRS、MRTS、MRT 分别比较三类边际取舍。","bodyHtml":"\u003cp>在平滑、内点等标准条件下，\u003cstrong>交换效率\u003c/strong>要求不同消费者对两种产品的边际替代率相同，如 \u003cvar>MRS\u003csub>XY\u003c/sub>\u003csup>A\u003c/sup>\u003c/var>＝\u003cvar>MRS\u003csub>XY\u003c/sub>\u003csup>B\u003c/sup>\u003c/var>。若边际替代率不同，仍可通过调整商品交换改善配置。\u003c/p>\u003cp>\u003cstrong>生产效率\u003c/strong>要求两种产品的生产者对同两种投入的边际技术替代率相同，如 \u003cvar>MRTS\u003csub>LK\u003c/sub>\u003csup>C\u003c/sup>\u003c/var>＝\u003cvar>MRTS\u003csub>LK\u003c/sub>\u003csup>D\u003c/sup>\u003c/var>。在生产可能性边界上，增加 X 需要放弃一定的 Y，绝对斜率是产品的边际转换率 MRT。边际转换率递增时，边界通常向外弯曲，增加 X 的边际机会成本越来越高。\u003c/p>\u003cp>\u003cstrong>产品组合效率\u003c/strong>还要求 \u003cmark>MRS\u003csub>XY\u003c/sub>＝MRT\u003csub>XY\u003c/sub>\u003c/mark>，让消费者愿意进行的边际交换与生产技术允许的转换一致。\u003c/p>","keyTakeaway":"MRS 比商品，MRTS 比投入，MRT 比可生产的商品组合。","pitfall":"这些等式对应光滑的内点解。遇到角点、约束或不可分割投入时，要回到可行改进本身判断。","example":"消费者愿以 3 单位 Y 换 1 单位 X，生产 1 单位 X 只需要放弃 2 单位 Y 时，产品组合还可向多生产 X 的方向调整。"},{"id":"welfare-theorems","title":"福利经济学的两个定理","summary":"区分从竞争均衡推出效率，和用竞争价格实现有效配置。","bodyHtml":"\u003cp>\u003cstrong>第一定理\u003c/strong>：在价格接受、相关市场完备、偏好局部非饱和等条件下，竞争均衡具有帕累托效率。未被价格反映的外部性、信息不对称等问题会破坏这些条件。\u003c/p>\u003cp>\u003cstrong>第二定理\u003c/strong>：在凸性等进一步条件下，适当调整初始禀赋后，可以用竞争价格支持相应的帕累托有效配置。理论上可以将初始资源分配的目标和后续市场交易的效率分开分析。\u003c/p>","keyTakeaway":"第一定理是竞争均衡推出效率；第二定理讨论如何用价格支持有效配置。","pitfall":"这两个定理各有前提，也不会从效率推出分配公平。","example":"比较两个都处在效率边界上的分配时，需要另外说明为什么更偏好其中一种分配。"},{"id":"market-failure","title":"市场失灵与市场力量","summary":"判断价格和私人激励能否反映社会边际成本及收益。","bodyHtml":"\u003cp>市场机制有时无法有效配置资源。常见来源包括\u003cstrong>市场力量、外部性、公共物品和信息不对称\u003c/strong>。标准效率基准常假定行为者理性、信息充分、价格接受且没有遗漏的外部影响。\u003c/p>\u003cp>对统一定价、面对向下倾斜需求的垄断者，内部最优满足 MR＝MC，同时 P＞MR，所以 \u003cmark>P＞MC\u003c/mark>。此时市场少生产了一些买者支付意愿高于边际成本的单位，产生无谓损失。在金融市场中，隐藏风险和风险外溢也可能使市场配置低效。\u003c/p>\u003cp>反垄断制度、公共监管、公共服务提供和信息规则分别对应不同问题。是否干预以及如何干预，需要比较可改善的效果与执行成本。\u003c/p>","keyTakeaway":"先识别失灵的机制，再选对应该机制的工具。","pitfall":"垄断加成是统一定价模型的结果。不能把同一价格条件套到所有现实制度和定价方式上。","example":"边际成本为 20 元，某消费者愿付 30 元，而垄断价格为 40 元。这一可创造净收益的交易没有发生。"},{"id":"externalities","title":"外部经济与外部不经济","summary":"识别第三方的收益或损害是否进入行为人的决策。","bodyHtml":"\u003cp>\u003cstrong>外部性\u003c/strong>是生产或消费对交易之外的人造成的影响，且该影响没有通过价格、合同或赔偿完整反映。给第三方带来好处是正外部性，造成损害是负外部性。按影响来源还可分生产外部性和消费外部性。\u003c/p>\u003cp>若生产造成未支付的边际外部损害，\u003cmark>边际社会成本＝边际私人成本＋边际外部损害\u003c/mark>，私人市场倾向于生产过多。若给第三方带来未获得补偿的边际收益，边际社会收益高于私人收益，市场倾向于生产过少。\u003c/p>","keyTakeaway":"先看第三方是否受影响和是否获得补偿，再看来源与正负。","pitfall":"生产成本已经包含损害赔偿时，相关外部成本可能已经内部化。","example":"工厂排污让附近农户减产且没有赔偿，是生产负外部性。蜜蜂为邻近果园免费授粉，是生产正外部性。"},{"id":"externality-tools","title":"把外部影响纳入决策","summary":"区分矫正性税费、补贴、合并和规则约束。","bodyHtml":"\u003cp>对负外部性，可用排放标准或矫正性税费使行为人承担更多外部成本。理想的\u003cmark>庇古税\u003c/mark>按社会有效数量处的边际外部损害征收。对正外部性，可用补贴使提供者获得未计入价格的社会收益。\u003c/p>\u003cp>还可以由相关方整合经营，使外部影响在同一主体内部结算。例如合并经营养蜂与果园，使授粉收益计入经营者自身决策。\u003c/p>","keyTakeaway":"矫正工具要对准外部成本或外部收益。","pitfall":"庇古税的理论税率对应有效数量处的边际损害，不等于整个项目的总治理费用。","example":"若某厂在有效产量上多生产一件造成 4 元外部损害，基准模型中的单位矫正税为 4 元。"},{"id":"coase","title":"科斯定理与产权协商","summary":"产权明确、协商足够便宜时，相关方可能自行内部化外部性。","bodyHtml":"\u003cp>在产权可明确界定和执行、交易成本为零或可忽略的理想条件下，相关方可以通过协商、转让和补偿实现有效配置。无论初始权利归谁，双方都有机会谈到没有共同改进空间的结果。\u003cmark>初始权利的分配会影响各方收入与补偿\u003c/mark>。若有收入效应等变化，具体的有效配置也可能不同。\u003c/p>\u003cp>谈判、信息获取、组织许多当事人和执行协议都会产生成本。成本高时，即使权利很明确，协商也可能失败。\u003c/p>","keyTakeaway":"产权明确与低交易成本须同时考虑。","pitfall":"定理给出理想化的效率条件，不说明现实中某一种障碍最常见，也不保证任何一方获利。","example":"一家商铺的噪声让邻店每天损失 100 元，隔音成本为 60 元。权利清楚且可低成本协商时，隔音带来的 40 元净收益可以由双方分配。"},{"id":"public-goods","title":"公共物品、搭便车与需求加总","summary":"分别判断能否排除使用者，以及额外使用者是否挤占服务。","bodyHtml":"\u003cp>\u003cstrong>非排他性\u003c/strong>表示难以阻止某人享用。\u003cstrong>非竞争性\u003c/strong>表示一个人的使用不会减少别人可以使用的数量。两项均充分成立时是纯公共物品，典型例子是国防；其中一项部分成立或受容量、收费限制时，可用准公共物品等分类进一步辨认。\u003c/p>\u003cp>非排他性产生\u003cstrong>搭便车\u003c/strong>：个人希望他人出资而自己也能享用。私下筹资可能低于社会有效水平，公共筹资或其他协调安排可提供共同服务。判断物品性质看排他性与竞争性，政府也可提供私人物品。\u003c/p>\u003cp>每个人共享纯公共物品的同一数量，所以在每个数量上\u003cmark>垂直相加所有人的边际支付意愿\u003c/mark>。私人物品通常在给定价格上水平加总各人的需求量。\u003c/p>","keyTakeaway":"先画两个维度，再决定物品类型、筹资问题与需求加总方向。","pitfall":"收费或拥堵会改变性质。道路、桥梁、铁路和广播需要按具体服务比较。","example":"同一盏路灯下，甲愿为多一单位照明付 3 元、乙愿付 2 元，合计边际支付意愿是 5 元。"},{"id":"information","title":"逆向选择与道德风险","summary":"用交易前的隐藏类型和交易后的隐藏行为区分两类问题。","bodyHtml":"\u003cp>\u003cstrong>信息不对称\u003c/strong>表示交易一方比另一方更了解与交易有关的风险、质量或行为。\u003cmark>逆向选择\u003c/mark>通常指交易前隐藏类型改变参与者构成，例如高风险人群更愿按统一费率投保。\u003cmark>道德风险\u003c/mark>通常指签约后行为难以观察，而合同改变其激励，例如投保后降低防盗投入。\u003c/p>\u003cp>质量信号包括信誉、可兑现的保修、认证。筛选可以利用合同选项区分隐藏类型。免赔额或激励合同可减轻某些隐藏行为问题。质量标准、信息披露与公共信息服务也能降低信息获取成本。\u003c/p>","keyTakeaway":"先确定信息在何时、关于什么不对称，再辨认机制。","pitfall":"低价格本身不能可靠反映质量。质保只有在可兑现且差异化的成本足够时才是可信信号。","example":"二手车买家按平均质量出价，优质卖家不愿低价卖，低质车更容易留下。这是逆向选择。"}],"mindmap":[{"label":"资源配置最优","target":"pareto","children":[{"label":"帕累托标准","target":"pareto","children":[{"label":"至少一人改善且无人受损是帕累托改进","target":"pareto"},{"label":"不存在改进时为帕累托最优","target":"pareto"}]},{"label":"边际效率条件","target":"allocation-conditions","children":[{"label":"交换：两人的 MRS 相等","target":"allocation-conditions"},{"label":"生产：两种生产的 MRTS 相等","target":"allocation-conditions"},{"label":"生产可能性边界向下倾斜，边际转换率递增时向外弯曲","target":"allocation-conditions"},{"label":"产品组合：MRS＝MRT","target":"allocation-conditions"}]},{"label":"福利经济学定理","target":"welfare-theorems","children":[{"label":"第一定理：竞争均衡在一定条件下有效","target":"welfare-theorems"},{"label":"第二定理：适当初始禀赋和竞争价格可支持有效配置","target":"welfare-theorems"}]}]},{"label":"市场失灵","target":"market-failure","children":[{"label":"效率分析的常见假定","target":"welfare-theorems","children":[{"label":"理性决策","target":"welfare-theorems"},{"label":"信息充分","target":"welfare-theorems"},{"label":"价格接受","target":"welfare-theorems"},{"label":"无未计价的外部影响","target":"welfare-theorems"}]},{"label":"市场力量","target":"market-failure","children":[{"label":"统一定价垄断的价格加成","target":"market-failure"},{"label":"竞争规则与公共监管","target":"market-failure"}]},{"label":"外部性","target":"externalities","children":[{"label":"生产或消费的正、负外部性","target":"externalities"},{"label":"税费、补贴、合并","target":"externality-tools","children":[{"label":"矫正私人与社会成本或收益的差距","target":"externality-tools"}]},{"label":"明确产权与科斯定理","target":"coase","children":[{"label":"交易成本很低时可协商","target":"coase"}]}]},{"label":"公共物品","target":"public-goods","children":[{"label":"非竞争性与非排他性","target":"public-goods"},{"label":"纯公共物品与准公共物品","target":"public-goods"},{"label":"搭便车与公共筹资","target":"public-goods"},{"label":"在共同数量上垂直相加支付意愿","target":"public-goods"}]},{"label":"信息不对称","target":"information","children":[{"label":"逆向选择","target":"information"},{"label":"道德风险","target":"information"},{"label":"披露、质量标准和信息服务","target":"information"}]}]}]},"questions":[{"id":"eco-10-q01","number":1,"group":"资源配置最优","type":"single","stem":"下面哪种情况是帕累托最优？（　　）（2019）","options":{"A":"收入分配公平","B":"不使社会中的某些成员福利变差，就无法使其他成员福利改善","C":"企业内部化其所有外部性","D":"不损害他人福利而改善部分人的福利"},"answer":["B"],"explanationSupplement":"检验是否存在可行的帕累托改进。如果任何提高某个人福利的重新分配都会使至少另一人变差，当前配置就已经帕累托有效。","optionExplanations":{"A":"公平与效率是不同维度。","B":"准确表述不能在无人受损时再改善。","C":"只处理一种失灵机制，未检验其他改进可能。","D":"描述帕累托改进。"},"conceptId":"pareto"},{"id":"eco-10-q02","number":2,"group":"资源配置最优","type":"single","stem":"市场失灵是指（　　）。","options":{"A":"市场在私人部门和公共部门之间配置资源的不均","B":"市场不能产生任何有用的成果","C":"市场不能有效地配置稀缺资源","D":"收入分配所出现的不平等现象"},"answer":["C"],"explanationSupplement":"市场失灵是指依赖市场交易得到的配置缺乏效率。市场仍可能产生许多有用成果，但存在能够改善的资源配置。","optionExplanations":{"A":"两类部门配置数量不同本身不表示无效率。","B":"失灵不意味着市场完全无作用。","C":"体现稀缺资源配置缺乏效率。","D":"不平等本身不同于帕累托无效率。"},"conceptId":"market-failure"},{"id":"eco-10-q03","number":3,"group":"资源配置最优","type":"single","stem":"政府进行金融监管的理论依据的核心假定是（　　）。","options":{"A":"政府失灵","B":"市场竞争","C":"市场失灵","D":"混业经营"},"answer":["C"],"explanationSupplement":"金融市场中的信息不对称或风险外溢可使私人成本、收益与社会成本、收益不一致。纠正这类市场失灵是解释监管需求的一种基础理论。","optionExplanations":{"A":"政府失灵强调干预本身也有成本或局限。","B":"充分竞争是某些效率结论的前提。","C":"信息与外部性等失灵机制提供监管理由。","D":"经营范围不是一般性的理论依据。"},"conceptId":"market-failure"},{"id":"eco-10-q04","number":4,"group":"资源配置最优","type":"single","stem":"既定的配置状态能够在其他人福利水平不下降的情况下，资源重新配置使至少一个人的福利水平有所提高，这种资源重新配置被称为（　　）。","options":{"A":"一般均衡状态","B":"帕累托改进","C":"瓦尔拉斯均衡","D":"帕累托最优"},"answer":["B"],"explanationSupplement":"从原状态到新状态，至少一人的福利严格提高，其他人的福利都不下降，这是一个帕累托改进。","optionExplanations":{"A":"一般均衡描述市场同时出清等条件。","B":"此项准确命名这种配置变动。","C":"瓦尔拉斯均衡依赖价格和市场出清。","D":"最优是不存在这类可行改进的状态。"},"conceptId":"pareto"},{"id":"eco-10-q05","number":5,"group":"资源配置最优","type":"single","stem":"具有经济效率特征的资源配置状态是（　　）。","options":{"A":"不存在帕累托改进的状态","B":"市场处于寡头垄断的状态","C":"市场处于垄断竞争的状态","D":"市场存在外部影响的状态"},"answer":["A"],"explanationSupplement":"在这里经济效率按帕累托标准判断。若没有可行变动能让至少一人变好且无人变差，就已达到帕累托效率。","optionExplanations":{"A":"无可行的帕累托改进正是效率条件。","B":"仅知道寡头结构不能直接给出效率。","C":"差异化竞争未必能实现有效产量。","D":"外部影响通常造成私人和社会激励不一致。"},"conceptId":"pareto"},{"id":"eco-10-q06","number":6,"group":"资源配置最优","type":"single","stem":"资源配置达到帕累托最优状态的标准是（　　）。","options":{"A":"还存在帕累托改进的资源配置状态","B":"收入在不同居民之间分配公平","C":"可能由重新组合生产和分配来使一个人或多个人的福利增加，而不使其他任何人的福利减少","D":"不可能由重新组合生产和分配来使一个人或多个人的福利增加，而不使其他任何人的福利减少"},"answer":["D"],"explanationSupplement":"判别词是「不可能」。只要能在无人受损的条件下提高任何一人的福利，原配置就还有改进空间。","optionExplanations":{"A":"还有改进空间就未达帕累托最优。","B":"公平无法替代效率检验。","C":"这是帕累托改进的存在条件。","D":"否定所有这类可行改进，符合最优定义。"},"conceptId":"pareto"},{"id":"eco-10-q07","number":7,"group":"资源配置最优","type":"single","stem":"甲、乙两人现有的效用水平分别为10和20，资源的再配置使得两人的效用发生了变化，属于帕累托改进的一种变动是（　　）。","options":{"A":"甲的效用变为10，乙的效用变为15","B":"甲的效用变为8，乙的效用变为25","C":"甲的效用变为8，乙的效用变为30","D":"甲的效用变为10，乙的效用变为30"},"answer":["D"],"explanationSupplement":"按人的效用逐项与原来的（10，20）比较。至少一项上升、其他项均不下降才是改进，不能只加总效用。","optionExplanations":{"A":"乙从20降为15。","B":"乙虽提高，甲从10降为8。","C":"甲仍然受损，乙的增益不能替代这一检验。","D":"甲维持10，乙从20升为30。"},"conceptId":"pareto"},{"id":"eco-10-q08","number":8,"group":"资源配置最优","type":"single","stem":"西方经济学家认为，所谓的市场失灵就是指市场失去（　　）。","options":{"A":"效率","B":"合作","C":"竞争","D":"公平"},"answer":["A"],"explanationSupplement":"本题中的失灵指配置低效。市场力量、外部性、公共物品和信息不对称等都是可能使市场低效的机制。","optionExplanations":{"A":"指资源配置的效率。","B":"市场失灵没有要求合作完全消失。","C":"竞争不足只是一类可能原因。","D":"公平是另一项评价标准。"},"conceptId":"market-failure"},{"id":"eco-10-q09","number":9,"group":"资源配置最优","type":"single","stem":"在市场经济条件下，资源实现最优配置的标准是（　　）。","options":{"A":"不存在帕累托改进配置状态","B":"对于某种既定的资源配置状态，还存在帕累托改进","C":"财政收入持续增长","D":"区域间经济协调增长"},"answer":["A"],"explanationSupplement":"标准是不存在可行的帕累托改进。财政收入、地区增长等变量可以影响结果，但不能代替效率标准。","optionExplanations":{"A":"没有能让至少一人变好且无人变差的配置。","B":"若仍有改进，说明未达到最优。","C":"财政收入增长与帕累托效率无直接等价关系。","D":"区域间增长协调与帕累托效率无直接等价关系。"},"conceptId":"pareto"},{"id":"eco-10-q10","number":10,"group":"资源配置最优","type":"single","stem":"如果两人之间关于两种物品的最初分配是帕累托最优的，则（　　）表述正确。","options":{"A":"可能在两人之间重新配置物品，使两人都能提高效用","B":"可能在两人之间重新配置物品，提高一人的效用而不降低另一人的效用","C":"可能在两人之间重新配置物品，提高一人的效用以降低另一人的效用为代价","D":"不可能在两人之间重新配置物品以提高其中一个人的效用"},"answer":["C"],"explanationSupplement":"从帕累托最优点再提高一人的效用，必须有人承受损失。在通常偏好和存在可重新分配物品的情况下，仍可以让一方获得更多，只是需要牺牲另一方。","optionExplanations":{"A":"两人同时改善与帕累托最优冲突。","B":"一人改善、另一人不降也是被排除的改进。","C":"一方获益一方受损与帕累托最优相容。","D":"最优排除无人受损的改善，未普遍禁止任何人的效用提高。"},"conceptId":"pareto"},{"id":"eco-10-q11","number":11,"group":"市场失灵","type":"discussion","stem":"某一经济活动存在外部不经济是指该活动（　　）。（2019）","options":{"A":"私人成本大于社会成本","B":"私人成本小于社会成本","C":"私人利益大于社会利益","D":"私人利益小于社会利益"},"answer":[],"explanationSupplement":"负外部性是未被行为者承担的第三方损害。若把损害列为额外成本，社会成本大于私人成本；若从净利益扣减同一损害，也可表述为社会净利益低于私人净利益。题目没有限定会计表述。","optionExplanations":{"A":"把外部损害计作成本时，方向相反。","B":"按常见成本口径，社会成本含第三方损害。","C":"若这里的利益指扣除损害后的净利益，也能表达负外部性。","D":"利益口径下，这更接近正的外部收益。"},"conceptId":"externalities"},{"id":"eco-10-q12","number":12,"group":"市场失灵","type":"single","stem":"按照科斯定理，分配私人产权（　　）。","options":{"A":"意味着产权不能交易","B":"赋予的是责任而不是权利","C":"确保决策者考虑社会收益和成本","D":"确保获得利润"},"answer":["C"],"explanationSupplement":"产权清晰且可以转让、协商成本足够低时，相关方有动力通过谈判把外部影响纳入决策。C 是这种理想条件下的表述。","optionExplanations":{"A":"可执行的协商常依赖转让或补偿。","B":"产权赋予可主张的权利，也可能确定应承担的成本。","C":"在低交易成本等前提下，协商促使双方考虑外部影响。","D":"效率并不保证某一方盈利。"},"conceptId":"coase"},{"id":"eco-10-q13","number":13,"group":"市场失灵","type":"single","stem":"在其他条件相同的情况下，最愿意购买保险的人是那些最可能需要它的人，该现象属于（　　）。","options":{"A":"逆向选择","B":"道德风险","C":"搭便车","D":"收益递减"},"answer":["A"],"explanationSupplement":"题目发生在购买保险前：买家比保险人更了解自己的风险，而高风险者更愿意加入。这会改变投保人构成，属于逆向选择。","optionExplanations":{"A":"是签约前隐藏类型带来的参保选择。","B":"通常指签约后隐藏行为改变。","C":"指不付费也享受某些不可排除的利益。","D":"描述投入回报变化。"},"conceptId":"information"},{"id":"eco-10-q14","number":14,"group":"市场失灵","type":"single","stem":"最典型的纯公共物品是（　　）。","options":{"A":"教育","B":"国防","C":"医疗卫生","D":"交通运输"},"answer":["B"],"explanationSupplement":"纯公共物品同时具有非竞争性和非排他性。国防对覆盖地区内居民提供共同保护，多保护一名居民一般不会减少他人的保护。","optionExplanations":{"A":"教育有容量约束，也可限制入学。","B":"是标准的纯公共物品例子。","C":"诊疗会占用人员、床位等资源，可设置准入。","D":"交通设施可拥挤、收费或限制使用。"},"conceptId":"public-goods"},{"id":"eco-10-q15","number":15,"group":"市场失灵","type":"single","stem":"政府通过罚款或增税来抑制的经济波动属于（　　）。","options":{"A":"准公共物品生产","B":"产生外部不经济的活动","C":"纯公共物品生产","D":"产生外部经济的活动"},"answer":["B"],"explanationSupplement":"按题目考查的治理场景，罚款、矫正性税费可提高产生第三方损害的活动的私人成本，减少这类活动。宏观经济波动通常使用另一套政策工具分析。","optionExplanations":{"A":"是否准公共物品取决于消费性质。","B":"增加行为者承担的成本可抑制负外部性活动。","C":"纯公共物品典型问题是供给不足。","D":"正外部性通常讨论如何增加有效供给。"},"conceptId":"externality-tools"},{"id":"eco-10-q16","number":16,"group":"市场失灵","type":"single","stem":"关于生产的外部经济的说法，正确的是（　　）。","options":{"A":"生产者的社会收益等于私人成本","B":"生产者的社会成本等于私人成本","C":"生产者的私人成本小于社会成本","D":"生产者的私人收益小于社会收益"},"answer":["D"],"explanationSupplement":"生产的外部经济表示生产带来的部分好处由未付相应报酬的第三方享有。把这些收益加到私人收益上，社会收益更高。","optionExplanations":{"A":"收益和成本的相等并不是定义。","B":"是否存在额外外部成本由具体场景决定。","C":"通常用来说明负的生产外部性。","D":"社会收益含私人收益及外部收益。"},"conceptId":"externalities"},{"id":"eco-10-q17","number":17,"group":"市场失灵","type":"single","stem":"某造纸厂在其生产过程中，向附近的河流排放了大量的污水，并因此导致了附近某粮食产量大幅度下降，但该厂却又不对附近种粮农民进行相应的赔偿。这种现象通常被称为（　　）。","options":{"A":"生产的外部经济","B":"生产的外部不经济","C":"消费的外部经济","D":"消费的外部不经济"},"answer":["B"],"explanationSupplement":"先判断来源，再判断效果。污水来自造纸生产，降低未得到补偿的农户收益，因此属于生产活动对第三方造成的负外部性。","optionExplanations":{"A":"农户受到损害，没有得到正外部收益。","B":"生产过程造成未计价的外部损害。","C":"外部影响来自生产，不来自消费。","D":"虽是负效应，但来源不是消费。"},"conceptId":"externalities"},{"id":"eco-10-q18","number":18,"group":"市场失灵","type":"single","stem":"从经济理论上说，生产的外部不经济会造成（　　）。","options":{"A":"资源均衡配置","B":"资源有效配置","C":"产品供给过少","D":"产品供给过多"},"answer":["D"],"explanationSupplement":"在标准竞争模型中，生产者若只承担私人成本，选择私人边际成本等于需求的产量。负外部性使社会边际成本更高，社会最优产量更少。","optionExplanations":{"A":"市场可能有私人均衡，但该均衡未计入外部损害。","B":"产量通常偏离社会最优。","C":"常见于未获补偿的正外部性。","D":"相对于社会有效数量，私人市场产量偏多。"},"conceptId":"externalities"},{"id":"eco-10-q19","number":19,"group":"市场失灵","type":"single","stem":"根据科斯定理，可以通过市场机制解决外部性问题的前提是（　　）。","options":{"A":"交易成本为零或很小","B":"财产权明确","C":"财产权明确且交易成本为零或很小","D":"财产权明确且交易成本足够大"},"answer":["C"],"explanationSupplement":"协商解决外部性需要两项核心条件：产权明确、交易成本为零或足够低。低成本使达成并执行补偿协议具有可行性。","optionExplanations":{"A":"还要明确有哪些可主张的权利。","B":"高交易成本可能阻碍协商。","C":"完整列出两项条件。","D":"足够高的交易成本会削弱可行性。"},"conceptId":"coase"},{"id":"eco-10-q20","number":20,"group":"市场失灵","type":"single","stem":"具有有限的非竞争性和非排他性的物品通常称为（　　）。","options":{"A":"纯公共物品","B":"准公共物品","C":"自然垄断产品","D":"私人物品"},"answer":["B"],"explanationSupplement":"排他性与竞争性有时只在一定范围内成立。比如路面车辆少时，多一辆车几乎不影响其他人；拥堵后会相互挤占。这类情形可以用准公共物品来描述。","optionExplanations":{"A":"要求充分的非竞争性和非排他性。","B":"这两种性质只部分成立，符合准公共物品。","C":"自然垄断按成本结构界定。","D":"纯私人物品通常同时可排他且有竞争性。"},"conceptId":"public-goods"},{"id":"eco-10-q21","number":21,"group":"市场失灵","type":"single","stem":"可以由任何消费者进行消费，任何一个消费者都不会被排斥在外，这是公共物品的（　　）。","options":{"A":"非竞争性","B":"公共性","C":"非排他性","D":"排他性"},"answer":["C"],"explanationSupplement":"能不能阻止别人享用，是排他性的问题。无法把未付费的人排除在外，表示非排他性。","optionExplanations":{"A":"非竞争性指多一个使用者是否减少别人得到的服务。","B":"公共性太宽泛，无法准确命名这里的性质。","C":"无法排除消费者。","D":"可排他时可以阻止使用。"},"conceptId":"public-goods"},{"id":"eco-10-q22","number":22,"group":"市场失灵","type":"single","stem":"购买财产保险后不注意防盗从而造成保险公司的损失，这属于（　　）。","options":{"A":"操作风险","B":"顺向选择","C":"逆向选择","D":"道德风险"},"answer":["D"],"explanationSupplement":"保险已买，之后被保险人降低了防盗投入。合同改变了行为激励，而保险人不能完全观察，这属于道德风险。","optionExplanations":{"A":"常用于流程、人员或系统造成损失的分类。","B":"不是这里使用的信息经济学分类。","C":"逆向选择关注购买前已存在的风险类型。","D":"符合签约后的隐藏行动机制。"},"conceptId":"information"},{"id":"eco-10-q23","number":23,"group":"市场失灵","type":"single","stem":"由于买方和卖方之间信息不对称，市场机制会导致某些商品或服务的需求曲线向左下方弯曲，最终结果是劣质商品或服务驱逐优质商品或服务，以致市场萎缩甚至消失的现象，称为（　　）。","options":{"A":"道德风险","B":"优胜劣汰","C":"逆向选择","D":"外部性"},"answer":["C"],"explanationSupplement":"交易前买家难以区分质量，就只愿按平均质量支付。优质卖家退出后，市场上平均质量降低，可能形成劣质驱逐优质。这是逆向选择。","optionExplanations":{"A":"道德风险对应交易后隐藏行为。","B":"题目是优质品被挤出，方向相反。","C":"交易前隐藏质量改变卖家构成。","D":"题目直接机制是双方信息不对称。"},"conceptId":"information"},{"id":"eco-10-q24","number":24,"group":"市场失灵","type":"single","stem":"对于可能产生（　　）的行为，政府一般应通过征税或收费的措施予以限制。","options":{"A":"搭便车","B":"外部不经济","C":"道德风险","D":"逆向选择"},"answer":["B"],"explanationSupplement":"对造成第三方损害的行为征收矫正性税费，可以让行为者面对更接近社会边际成本的私人价格。","optionExplanations":{"A":"公共物品搭便车更常通过共同筹资处理。","B":"矫正性税费用于纳入外部损害。","C":"道德风险常用合同激励和监督处理。","D":"逆向选择常用筛选或可信信号处理。"},"conceptId":"externality-tools"},{"id":"eco-10-q25","number":25,"group":"市场失灵","type":"discussion","stem":"科斯定理认为，外部性之所以存在并且导致资源配置失当，在多数情况下是因为（　　）。","options":{"A":"交易成本过大","B":"市场垄断者的存在","C":"信息不对称","D":"产权界定不明晰"},"answer":[],"explanationSupplement":"科斯定理说明产权明确与交易成本足够低时协商可能实现有效结果。产权模糊和高交易成本均可能使协商失败，定理没有说明哪一项是现实中的多数原因。","optionExplanations":{"A":"是使协商失败的一种机制。","B":"市场力量可能造成失灵，但非本题所问的产权协商条件。","C":"会增加协商成本，未必能概括所有情形。","D":"产权不明晰也可能阻碍协商，不能据定理排序频率。"},"conceptId":"coase"},{"id":"eco-10-q26","number":26,"group":"市场失灵","type":"single","stem":"“三废”（废气、废水、废渣），对社会产生的效应属于（　　）。","options":{"A":"消费的正外部性","B":"生产的正外部性","C":"生产的负外部性","D":"消费的负外部性"},"answer":["C"],"explanationSupplement":"典型的工业废气、废水和废渣来自生产，若未被生产者充分处理或承担会对第三方造成损害，属于生产负外部性。","optionExplanations":{"A":"来源不是消费，影响也不是正的。","B":"负面损害与正外部性相反。","C":"生产造成未完全承担的损害。","D":"负效应正确，活动来源应归于生产。"},"conceptId":"externalities"},{"id":"eco-10-q27","number":27,"group":"市场失灵","type":"single","stem":"公共物品具有消费上的非排他性特征，是理性的个人在消费时倾向于由他人付费而自己坐享其成，这种现象称为（　　）。","options":{"A":"消费拥挤","B":"生产者付费","C":"免费搭车","D":"逆向选择"},"answer":["C"],"explanationSupplement":"非排他性使个人即使不付费也能获得公共物品的好处。希望依靠他人出资而自己享用，就是搭便车。","optionExplanations":{"A":"拥挤指使用者增加时其他人获得的服务减少。","B":"题目描述的是使用者逃避出资。","C":"符合不承担支付却享用好处。","D":"逆向选择是签约前的隐藏信息问题。"},"conceptId":"public-goods"},{"id":"eco-10-q28","number":28,"group":"市场失灵","type":"discussion","stem":"在市场经济条件下，公路、铁路、无线电视大多数由国家而不是私人来投资的，其合理的经济学解释是，上述部门（　　）。","options":{"A":"属于垄断行业","B":"具有负外部性的特征","C":"属于公共物品的生产部门","D":"关系着国计民生"},"answer":[],"explanationSupplement":"基础设施和广播可能产生广泛的社会收益，部分场景还具有公共物品属性。但铁路可验票、道路可拥挤或收费、广播也可能加密。是否属于公共物品以及谁来投资都依赖具体制度与服务，题目信息不足以给出唯一解释。","optionExplanations":{"A":"有的网络设施会涉及自然垄断，不能由行业名称一概推出。","B":"广泛公共服务可能有外部收益，负外部性并非这里的通用解释。","C":"部分设施有公共物品特征，但不同设施的排他性和竞争性不一。","D":"社会重要性本身不是经济分类标准。"},"conceptId":"public-goods"},{"id":"eco-10-q29","number":29,"group":"市场失灵","type":"single","stem":"公共物品的市场需求曲线是消费者个人需求曲线的（　　）。","options":{"A":"水平相加","B":"垂直相加","C":"算术平均数","D":"加权平均数"},"answer":["B"],"explanationSupplement":"纯公共物品供给同一个数量时，每个人都可共同享用。对这个给定数量，要相加所有人的边际支付意愿，也就是沿价格方向垂直相加。","optionExplanations":{"A":"私人商品通常固定价格后加总个人需求量。","B":"在共同数量上加总各人的支付意愿。","C":"要得到总边际收益应求和。","D":"这里没有用加权平均。"},"conceptId":"public-goods"},{"id":"eco-10-q30","number":30,"group":"市场失灵","type":"single","stem":"可用下面哪一个术语来描述一个养蜂人与其邻近的经营果园的农场主之间的影响？（　　）","options":{"A":"外部不经济","B":"外部经济","C":"外部有害","D":"以上都不是"},"answer":["B"],"explanationSupplement":"在典型模型中，蜜蜂为果树授粉，果园给蜜蜂提供花蜜。如果双方未通过合同结算这些好处，就有未计价的正外部收益。","optionExplanations":{"A":"互相受益的例子不属于外部不经济。","B":"未计价的有利影响属于外部经济。","C":"题目通常考查授粉与花蜜带来的正效应。","D":"B 与题设常见机制相符。"},"conceptId":"externalities"},{"id":"eco-10-q31","number":31,"group":"市场失灵","type":"single","stem":"科斯定理指的是（　　）。","options":{"A":"若交易成本为0，则只要财产权明确，市场交易的结果都是有效率的","B":"若交易成本为0，则财产权明确与否不影响市场交易效率","C":"只有当交易成本为0时，市场交易才是有效率","D":"以上各项都对"},"answer":["A"],"explanationSupplement":"理想条件下，明确产权和零交易成本允许当事人通过交易重新安排权利，获得有效配置。产权初始归属仍会影响利益分配。","optionExplanations":{"A":"列出关键条件和有效配置结果。","B":"产权明确是使协商可执行的关键。","C":"交易成本为零是理想化的充分条件之一，不能反推出有正成本就一定无效率。","D":"B、C 不符合定理。"},"conceptId":"coase"},{"id":"eco-10-q32","number":32,"group":"市场失灵","type":"single","stem":"以下表述中，正确的是（　　）。","options":{"A":"公共物品的市场需求曲线是由各个消费者需求曲线横向加总求得的","B":"政府提供的产品都是公共物品","C":"像公路、桥梁及电视广播等是纯公共物品","D":"“庇古税”的实质是社会成本的内在化"},"answer":["D"],"explanationSupplement":"庇古税旨在把外部损害转为行为者面对的成本。理想税额等于社会有效数量处的单位边际外部损害。","optionExplanations":{"A":"纯公共物品需求应在同一数量上垂直加总支付意愿。","B":"生产主体与商品的排他性、竞争性是两回事。","C":"公路桥梁可拥挤或收费，广播也可设访问门槛。","D":"使私人决策计入原来由社会承担的损害。"},"conceptId":"externality-tools"},{"id":"eco-10-q33","number":33,"group":"市场失灵","type":"single","stem":"以下哪一项不能够帮助消费者有效减少信息不对称的问题？（　　）","options":{"A":"品牌","B":"低价格","C":"产品保证","D":"长期质量保证书"},"answer":["B"],"explanationSupplement":"能否缓解信息差，要看信号是否能区分高质量与低质量。可兑现的质保和有成本的品牌声誉能提供线索，单独的低价可由多种原因造成。","optionExplanations":{"A":"长期声誉会使隐瞒质量变得昂贵。","B":"低价本身无法可靠说明质量。","C":"可兑现的产品保证有助于传递信息。","D":"长期质保若可执行，可使低质量卖方承担较高预期成本。"},"conceptId":"information"},{"id":"eco-10-q34","number":34,"group":"市场失灵","type":"single","stem":"“搭便车”现象是对（　　）问题的一种形象比喻。","options":{"A":"社会福利","B":"市场失灵","C":"公共物品","D":"信息不对称"},"answer":["C"],"explanationSupplement":"搭便车最直接描述公共物品的筹资问题。有人因难以被排除而等待他人付费，导致私人筹资水平可能低于社会有效水平。","optionExplanations":{"A":"社会福利是更广的评价领域。","B":"搭便车可造成市场失灵，但这里问最直接对应的问题。","C":"非排他性使未出资者也能受益。","D":"隐藏类型和隐藏行动是另一类机制。"},"conceptId":"public-goods"},{"id":"eco-10-q35","number":35,"group":"市场失灵","type":"single","stem":"不完全竞争市场中出现低效率的资源配置是因为产品价格（　　）边际成本。","options":{"A":"大于","B":"小于","C":"等于","D":"可能不等于"},"answer":["A"],"explanationSupplement":"在统一定价的标准垄断模型中，向下倾斜的需求使 P＞MR，利润最大化有 MR＝MC，所以 P＞MC。边际支付意愿仍高于生产成本，存在未实现的有益交易。","optionExplanations":{"A":"符合这一基本模型的严格方向。","B":"与标准单一定价垄断的边际条件相反。","C":"P＝MC 是竞争基准中的配置效率条件。","D":"只说可能不等，没有给出本题模型的价格加成方向。"},"conceptId":"market-failure"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter10","number":10,"title":"资源配置和市场失灵","moduleId":"economics","moduleTitle":"经济基础","downloadName":"经济基础-10-资源配置和市场失灵-离线学习.html","visual":"externality","visualSectionId":"externalities","visuals":[{"type":"externality","sectionId":"externalities"}]},"lessons":{"title":"资源配置和市场失灵","subtitle":"以帕累托效率为基准，区分价格机制的四类局限。","sections":[{"id":"pareto","title":"帕累托改进和帕累托最优","summary":"看是否有人能在无人受损的条件下得到改善。","bodyHtml":"\u003cp>在可行的配置变动中，如果至少一人严格受益，且所有其他人都不受损，这种变动就是\u003cmark>帕累托改进\u003c/mark>。不存在任何可行的帕累托改进时，当前配置具有\u003cstrong>帕累托效率\u003c/strong>，也称帕累托最优。\u003c/p>\u003cp>帕累托标准是逐人比较，不需要也不允许直接把不同人的效用数字相加。可以同时存在多个有效配置，其中有的分配很不均等。\u003c/p>","keyTakeaway":"改进描述一次变动，最优描述没有可行改进的状态。","pitfall":"有效配置仍可能通过重新分配使某个人更好，但此时会有人受损。","example":"从（10，20）到（10，30）是帕累托改进；从（10，20）到（8，30）无法通过这一检验。"},{"id":"allocation-conditions","title":"交换、生产与产品组合的效率","summary":"用 MRS、MRTS、MRT 分别比较三类边际取舍。","bodyHtml":"\u003cp>在平滑、内点等标准条件下，\u003cstrong>交换效率\u003c/strong>要求不同消费者对两种产品的边际替代率相同，如 \u003cvar>MRS\u003csub>XY\u003c/sub>\u003csup>A\u003c/sup>\u003c/var>＝\u003cvar>MRS\u003csub>XY\u003c/sub>\u003csup>B\u003c/sup>\u003c/var>。若边际替代率不同，仍可通过调整商品交换改善配置。\u003c/p>\u003cp>\u003cstrong>生产效率\u003c/strong>要求两种产品的生产者对同两种投入的边际技术替代率相同，如 \u003cvar>MRTS\u003csub>LK\u003c/sub>\u003csup>C\u003c/sup>\u003c/var>＝\u003cvar>MRTS\u003csub>LK\u003c/sub>\u003csup>D\u003c/sup>\u003c/var>。在生产可能性边界上，增加 X 需要放弃一定的 Y，绝对斜率是产品的边际转换率 MRT。边际转换率递增时，边界通常向外弯曲，增加 X 的边际机会成本越来越高。\u003c/p>\u003cp>\u003cstrong>产品组合效率\u003c/strong>还要求 \u003cmark>MRS\u003csub>XY\u003c/sub>＝MRT\u003csub>XY\u003c/sub>\u003c/mark>，让消费者愿意进行的边际交换与生产技术允许的转换一致。\u003c/p>","keyTakeaway":"MRS 比商品，MRTS 比投入，MRT 比可生产的商品组合。","pitfall":"这些等式对应光滑的内点解。遇到角点、约束或不可分割投入时，要回到可行改进本身判断。","example":"消费者愿以 3 单位 Y 换 1 单位 X，生产 1 单位 X 只需要放弃 2 单位 Y 时，产品组合还可向多生产 X 的方向调整。"},{"id":"welfare-theorems","title":"福利经济学的两个定理","summary":"区分从竞争均衡推出效率，和用竞争价格实现有效配置。","bodyHtml":"\u003cp>\u003cstrong>第一定理\u003c/strong>：在价格接受、相关市场完备、偏好局部非饱和等条件下，竞争均衡具有帕累托效率。未被价格反映的外部性、信息不对称等问题会破坏这些条件。\u003c/p>\u003cp>\u003cstrong>第二定理\u003c/strong>：在凸性等进一步条件下，适当调整初始禀赋后，可以用竞争价格支持相应的帕累托有效配置。理论上可以将初始资源分配的目标和后续市场交易的效率分开分析。\u003c/p>","keyTakeaway":"第一定理是竞争均衡推出效率；第二定理讨论如何用价格支持有效配置。","pitfall":"这两个定理各有前提，也不会从效率推出分配公平。","example":"比较两个都处在效率边界上的分配时，需要另外说明为什么更偏好其中一种分配。"},{"id":"market-failure","title":"市场失灵与市场力量","summary":"判断价格和私人激励能否反映社会边际成本及收益。","bodyHtml":"\u003cp>市场机制有时无法有效配置资源。常见来源包括\u003cstrong>市场力量、外部性、公共物品和信息不对称\u003c/strong>。标准效率基准常假定行为者理性、信息充分、价格接受且没有遗漏的外部影响。\u003c/p>\u003cp>对统一定价、面对向下倾斜需求的垄断者，内部最优满足 MR＝MC，同时 P＞MR，所以 \u003cmark>P＞MC\u003c/mark>。此时市场少生产了一些买者支付意愿高于边际成本的单位，产生无谓损失。在金融市场中，隐藏风险和风险外溢也可能使市场配置低效。\u003c/p>\u003cp>反垄断制度、公共监管、公共服务提供和信息规则分别对应不同问题。是否干预以及如何干预，需要比较可改善的效果与执行成本。\u003c/p>","keyTakeaway":"先识别失灵的机制，再选对应该机制的工具。","pitfall":"垄断加成是统一定价模型的结果。不能把同一价格条件套到所有现实制度和定价方式上。","example":"边际成本为 20 元，某消费者愿付 30 元，而垄断价格为 40 元。这一可创造净收益的交易没有发生。"},{"id":"externalities","title":"外部经济与外部不经济","summary":"识别第三方的收益或损害是否进入行为人的决策。","bodyHtml":"\u003cp>\u003cstrong>外部性\u003c/strong>是生产或消费对交易之外的人造成的影响，且该影响没有通过价格、合同或赔偿完整反映。给第三方带来好处是正外部性，造成损害是负外部性。按影响来源还可分生产外部性和消费外部性。\u003c/p>\u003cp>若生产造成未支付的边际外部损害，\u003cmark>边际社会成本＝边际私人成本＋边际外部损害\u003c/mark>，私人市场倾向于生产过多。若给第三方带来未获得补偿的边际收益，边际社会收益高于私人收益，市场倾向于生产过少。\u003c/p>","keyTakeaway":"先看第三方是否受影响和是否获得补偿，再看来源与正负。","pitfall":"生产成本已经包含损害赔偿时，相关外部成本可能已经内部化。","example":"工厂排污让附近农户减产且没有赔偿，是生产负外部性。蜜蜂为邻近果园免费授粉，是生产正外部性。"},{"id":"externality-tools","title":"把外部影响纳入决策","summary":"区分矫正性税费、补贴、合并和规则约束。","bodyHtml":"\u003cp>对负外部性，可用排放标准或矫正性税费使行为人承担更多外部成本。理想的\u003cmark>庇古税\u003c/mark>按社会有效数量处的边际外部损害征收。对正外部性，可用补贴使提供者获得未计入价格的社会收益。\u003c/p>\u003cp>还可以由相关方整合经营，使外部影响在同一主体内部结算。例如合并经营养蜂与果园，使授粉收益计入经营者自身决策。\u003c/p>","keyTakeaway":"矫正工具要对准外部成本或外部收益。","pitfall":"庇古税的理论税率对应有效数量处的边际损害，不等于整个项目的总治理费用。","example":"若某厂在有效产量上多生产一件造成 4 元外部损害，基准模型中的单位矫正税为 4 元。"},{"id":"coase","title":"科斯定理与产权协商","summary":"产权明确、协商足够便宜时，相关方可能自行内部化外部性。","bodyHtml":"\u003cp>在产权可明确界定和执行、交易成本为零或可忽略的理想条件下，相关方可以通过协商、转让和补偿实现有效配置。无论初始权利归谁，双方都有机会谈到没有共同改进空间的结果。\u003cmark>初始权利的分配会影响各方收入与补偿\u003c/mark>。若有收入效应等变化，具体的有效配置也可能不同。\u003c/p>\u003cp>谈判、信息获取、组织许多当事人和执行协议都会产生成本。成本高时，即使权利很明确，协商也可能失败。\u003c/p>","keyTakeaway":"产权明确与低交易成本须同时考虑。","pitfall":"定理给出理想化的效率条件，不说明现实中某一种障碍最常见，也不保证任何一方获利。","example":"一家商铺的噪声让邻店每天损失 100 元，隔音成本为 60 元。权利清楚且可低成本协商时，隔音带来的 40 元净收益可以由双方分配。"},{"id":"public-goods","title":"公共物品、搭便车与需求加总","summary":"分别判断能否排除使用者，以及额外使用者是否挤占服务。","bodyHtml":"\u003cp>\u003cstrong>非排他性\u003c/strong>表示难以阻止某人享用。\u003cstrong>非竞争性\u003c/strong>表示一个人的使用不会减少别人可以使用的数量。两项均充分成立时是纯公共物品，典型例子是国防；其中一项部分成立或受容量、收费限制时，可用准公共物品等分类进一步辨认。\u003c/p>\u003cp>非排他性产生\u003cstrong>搭便车\u003c/strong>：个人希望他人出资而自己也能享用。私下筹资可能低于社会有效水平，公共筹资或其他协调安排可提供共同服务。判断物品性质看排他性与竞争性，政府也可提供私人物品。\u003c/p>\u003cp>每个人共享纯公共物品的同一数量，所以在每个数量上\u003cmark>垂直相加所有人的边际支付意愿\u003c/mark>。私人物品通常在给定价格上水平加总各人的需求量。\u003c/p>","keyTakeaway":"先画两个维度，再决定物品类型、筹资问题与需求加总方向。","pitfall":"收费或拥堵会改变性质。道路、桥梁、铁路和广播需要按具体服务比较。","example":"同一盏路灯下，甲愿为多一单位照明付 3 元、乙愿付 2 元，合计边际支付意愿是 5 元。"},{"id":"information","title":"逆向选择与道德风险","summary":"用交易前的隐藏类型和交易后的隐藏行为区分两类问题。","bodyHtml":"\u003cp>\u003cstrong>信息不对称\u003c/strong>表示交易一方比另一方更了解与交易有关的风险、质量或行为。\u003cmark>逆向选择\u003c/mark>通常指交易前隐藏类型改变参与者构成，例如高风险人群更愿按统一费率投保。\u003cmark>道德风险\u003c/mark>通常指签约后行为难以观察，而合同改变其激励，例如投保后降低防盗投入。\u003c/p>\u003cp>质量信号包括信誉、可兑现的保修、认证。筛选可以利用合同选项区分隐藏类型。免赔额或激励合同可减轻某些隐藏行为问题。质量标准、信息披露与公共信息服务也能降低信息获取成本。\u003c/p>","keyTakeaway":"先确定信息在何时、关于什么不对称，再辨认机制。","pitfall":"低价格本身不能可靠反映质量。质保只有在可兑现且差异化的成本足够时才是可信信号。","example":"二手车买家按平均质量出价，优质卖家不愿低价卖，低质车更容易留下。这是逆向选择。"}],"mindmap":[{"label":"资源配置最优","target":"pareto","children":[{"label":"帕累托标准","target":"pareto","children":[{"label":"至少一人改善且无人受损是帕累托改进","target":"pareto"},{"label":"不存在改进时为帕累托最优","target":"pareto"}]},{"label":"边际效率条件","target":"allocation-conditions","children":[{"label":"交换：两人的 MRS 相等","target":"allocation-conditions"},{"label":"生产：两种生产的 MRTS 相等","target":"allocation-conditions"},{"label":"生产可能性边界向下倾斜，边际转换率递增时向外弯曲","target":"allocation-conditions"},{"label":"产品组合：MRS＝MRT","target":"allocation-conditions"}]},{"label":"福利经济学定理","target":"welfare-theorems","children":[{"label":"第一定理：竞争均衡在一定条件下有效","target":"welfare-theorems"},{"label":"第二定理：适当初始禀赋和竞争价格可支持有效配置","target":"welfare-theorems"}]}]},{"label":"市场失灵","target":"market-failure","children":[{"label":"效率分析的常见假定","target":"welfare-theorems","children":[{"label":"理性决策","target":"welfare-theorems"},{"label":"信息充分","target":"welfare-theorems"},{"label":"价格接受","target":"welfare-theorems"},{"label":"无未计价的外部影响","target":"welfare-theorems"}]},{"label":"市场力量","target":"market-failure","children":[{"label":"统一定价垄断的价格加成","target":"market-failure"},{"label":"竞争规则与公共监管","target":"market-failure"}]},{"label":"外部性","target":"externalities","children":[{"label":"生产或消费的正、负外部性","target":"externalities"},{"label":"税费、补贴、合并","target":"externality-tools","children":[{"label":"矫正私人与社会成本或收益的差距","target":"externality-tools"}]},{"label":"明确产权与科斯定理","target":"coase","children":[{"label":"交易成本很低时可协商","target":"coase"}]}]},{"label":"公共物品","target":"public-goods","children":[{"label":"非竞争性与非排他性","target":"public-goods"},{"label":"纯公共物品与准公共物品","target":"public-goods"},{"label":"搭便车与公共筹资","target":"public-goods"},{"label":"在共同数量上垂直相加支付意愿","target":"public-goods"}]},{"label":"信息不对称","target":"information","children":[{"label":"逆向选择","target":"information"},{"label":"道德风险","target":"information"},{"label":"披露、质量标准和信息服务","target":"information"}]}]}]},"questions":[{"id":"eco-10-q01","number":1,"group":"资源配置最优","type":"single","stem":"下面哪种情况是帕累托最优？（　　）（2019）","options":{"A":"收入分配公平","B":"不使社会中的某些成员福利变差，就无法使其他成员福利改善","C":"企业内部化其所有外部性","D":"不损害他人福利而改善部分人的福利"},"answer":["B"],"explanationSupplement":"检验是否存在可行的帕累托改进。如果任何提高某个人福利的重新分配都会使至少另一人变差，当前配置就已经帕累托有效。","optionExplanations":{"A":"公平与效率是不同维度。","B":"准确表述不能在无人受损时再改善。","C":"只处理一种失灵机制，未检验其他改进可能。","D":"描述帕累托改进。"},"conceptId":"pareto"},{"id":"eco-10-q02","number":2,"group":"资源配置最优","type":"single","stem":"市场失灵是指（　　）。","options":{"A":"市场在私人部门和公共部门之间配置资源的不均","B":"市场不能产生任何有用的成果","C":"市场不能有效地配置稀缺资源","D":"收入分配所出现的不平等现象"},"answer":["C"],"explanationSupplement":"市场失灵是指依赖市场交易得到的配置缺乏效率。市场仍可能产生许多有用成果，但存在能够改善的资源配置。","optionExplanations":{"A":"两类部门配置数量不同本身不表示无效率。","B":"失灵不意味着市场完全无作用。","C":"体现稀缺资源配置缺乏效率。","D":"不平等本身不同于帕累托无效率。"},"conceptId":"market-failure"},{"id":"eco-10-q03","number":3,"group":"资源配置最优","type":"single","stem":"政府进行金融监管的理论依据的核心假定是（　　）。","options":{"A":"政府失灵","B":"市场竞争","C":"市场失灵","D":"混业经营"},"answer":["C"],"explanationSupplement":"金融市场中的信息不对称或风险外溢可使私人成本、收益与社会成本、收益不一致。纠正这类市场失灵是解释监管需求的一种基础理论。","optionExplanations":{"A":"政府失灵强调干预本身也有成本或局限。","B":"充分竞争是某些效率结论的前提。","C":"信息与外部性等失灵机制提供监管理由。","D":"经营范围不是一般性的理论依据。"},"conceptId":"market-failure"},{"id":"eco-10-q04","number":4,"group":"资源配置最优","type":"single","stem":"既定的配置状态能够在其他人福利水平不下降的情况下，资源重新配置使至少一个人的福利水平有所提高，这种资源重新配置被称为（　　）。","options":{"A":"一般均衡状态","B":"帕累托改进","C":"瓦尔拉斯均衡","D":"帕累托最优"},"answer":["B"],"explanationSupplement":"从原状态到新状态，至少一人的福利严格提高，其他人的福利都不下降，这是一个帕累托改进。","optionExplanations":{"A":"一般均衡描述市场同时出清等条件。","B":"此项准确命名这种配置变动。","C":"瓦尔拉斯均衡依赖价格和市场出清。","D":"最优是不存在这类可行改进的状态。"},"conceptId":"pareto"},{"id":"eco-10-q05","number":5,"group":"资源配置最优","type":"single","stem":"具有经济效率特征的资源配置状态是（　　）。","options":{"A":"不存在帕累托改进的状态","B":"市场处于寡头垄断的状态","C":"市场处于垄断竞争的状态","D":"市场存在外部影响的状态"},"answer":["A"],"explanationSupplement":"在这里经济效率按帕累托标准判断。若没有可行变动能让至少一人变好且无人变差，就已达到帕累托效率。","optionExplanations":{"A":"无可行的帕累托改进正是效率条件。","B":"仅知道寡头结构不能直接给出效率。","C":"差异化竞争未必能实现有效产量。","D":"外部影响通常造成私人和社会激励不一致。"},"conceptId":"pareto"},{"id":"eco-10-q06","number":6,"group":"资源配置最优","type":"single","stem":"资源配置达到帕累托最优状态的标准是（　　）。","options":{"A":"还存在帕累托改进的资源配置状态","B":"收入在不同居民之间分配公平","C":"可能由重新组合生产和分配来使一个人或多个人的福利增加，而不使其他任何人的福利减少","D":"不可能由重新组合生产和分配来使一个人或多个人的福利增加，而不使其他任何人的福利减少"},"answer":["D"],"explanationSupplement":"判别词是「不可能」。只要能在无人受损的条件下提高任何一人的福利，原配置就还有改进空间。","optionExplanations":{"A":"还有改进空间就未达帕累托最优。","B":"公平无法替代效率检验。","C":"这是帕累托改进的存在条件。","D":"否定所有这类可行改进，符合最优定义。"},"conceptId":"pareto"},{"id":"eco-10-q07","number":7,"group":"资源配置最优","type":"single","stem":"甲、乙两人现有的效用水平分别为10和20，资源的再配置使得两人的效用发生了变化，属于帕累托改进的一种变动是（　　）。","options":{"A":"甲的效用变为10，乙的效用变为15","B":"甲的效用变为8，乙的效用变为25","C":"甲的效用变为8，乙的效用变为30","D":"甲的效用变为10，乙的效用变为30"},"answer":["D"],"explanationSupplement":"按人的效用逐项与原来的（10，20）比较。至少一项上升、其他项均不下降才是改进，不能只加总效用。","optionExplanations":{"A":"乙从20降为15。","B":"乙虽提高，甲从10降为8。","C":"甲仍然受损，乙的增益不能替代这一检验。","D":"甲维持10，乙从20升为30。"},"conceptId":"pareto"},{"id":"eco-10-q08","number":8,"group":"资源配置最优","type":"single","stem":"西方经济学家认为，所谓的市场失灵就是指市场失去（　　）。","options":{"A":"效率","B":"合作","C":"竞争","D":"公平"},"answer":["A"],"explanationSupplement":"本题中的失灵指配置低效。市场力量、外部性、公共物品和信息不对称等都是可能使市场低效的机制。","optionExplanations":{"A":"指资源配置的效率。","B":"市场失灵没有要求合作完全消失。","C":"竞争不足只是一类可能原因。","D":"公平是另一项评价标准。"},"conceptId":"market-failure"},{"id":"eco-10-q09","number":9,"group":"资源配置最优","type":"single","stem":"在市场经济条件下，资源实现最优配置的标准是（　　）。","options":{"A":"不存在帕累托改进配置状态","B":"对于某种既定的资源配置状态，还存在帕累托改进","C":"财政收入持续增长","D":"区域间经济协调增长"},"answer":["A"],"explanationSupplement":"标准是不存在可行的帕累托改进。财政收入、地区增长等变量可以影响结果，但不能代替效率标准。","optionExplanations":{"A":"没有能让至少一人变好且无人变差的配置。","B":"若仍有改进，说明未达到最优。","C":"财政收入增长与帕累托效率无直接等价关系。","D":"区域间增长协调与帕累托效率无直接等价关系。"},"conceptId":"pareto"},{"id":"eco-10-q10","number":10,"group":"资源配置最优","type":"single","stem":"如果两人之间关于两种物品的最初分配是帕累托最优的，则（　　）表述正确。","options":{"A":"可能在两人之间重新配置物品，使两人都能提高效用","B":"可能在两人之间重新配置物品，提高一人的效用而不降低另一人的效用","C":"可能在两人之间重新配置物品，提高一人的效用以降低另一人的效用为代价","D":"不可能在两人之间重新配置物品以提高其中一个人的效用"},"answer":["C"],"explanationSupplement":"从帕累托最优点再提高一人的效用，必须有人承受损失。在通常偏好和存在可重新分配物品的情况下，仍可以让一方获得更多，只是需要牺牲另一方。","optionExplanations":{"A":"两人同时改善与帕累托最优冲突。","B":"一人改善、另一人不降也是被排除的改进。","C":"一方获益一方受损与帕累托最优相容。","D":"最优排除无人受损的改善，未普遍禁止任何人的效用提高。"},"conceptId":"pareto"},{"id":"eco-10-q11","number":11,"group":"市场失灵","type":"discussion","stem":"某一经济活动存在外部不经济是指该活动（　　）。（2019）","options":{"A":"私人成本大于社会成本","B":"私人成本小于社会成本","C":"私人利益大于社会利益","D":"私人利益小于社会利益"},"answer":[],"explanationSupplement":"负外部性是未被行为者承担的第三方损害。若把损害列为额外成本，社会成本大于私人成本；若从净利益扣减同一损害，也可表述为社会净利益低于私人净利益。题目没有限定会计表述。","optionExplanations":{"A":"把外部损害计作成本时，方向相反。","B":"按常见成本口径，社会成本含第三方损害。","C":"若这里的利益指扣除损害后的净利益，也能表达负外部性。","D":"利益口径下，这更接近正的外部收益。"},"conceptId":"externalities"},{"id":"eco-10-q12","number":12,"group":"市场失灵","type":"single","stem":"按照科斯定理，分配私人产权（　　）。","options":{"A":"意味着产权不能交易","B":"赋予的是责任而不是权利","C":"确保决策者考虑社会收益和成本","D":"确保获得利润"},"answer":["C"],"explanationSupplement":"产权清晰且可以转让、协商成本足够低时，相关方有动力通过谈判把外部影响纳入决策。C 是这种理想条件下的表述。","optionExplanations":{"A":"可执行的协商常依赖转让或补偿。","B":"产权赋予可主张的权利，也可能确定应承担的成本。","C":"在低交易成本等前提下，协商促使双方考虑外部影响。","D":"效率并不保证某一方盈利。"},"conceptId":"coase"},{"id":"eco-10-q13","number":13,"group":"市场失灵","type":"single","stem":"在其他条件相同的情况下，最愿意购买保险的人是那些最可能需要它的人，该现象属于（　　）。","options":{"A":"逆向选择","B":"道德风险","C":"搭便车","D":"收益递减"},"answer":["A"],"explanationSupplement":"题目发生在购买保险前：买家比保险人更了解自己的风险，而高风险者更愿意加入。这会改变投保人构成，属于逆向选择。","optionExplanations":{"A":"是签约前隐藏类型带来的参保选择。","B":"通常指签约后隐藏行为改变。","C":"指不付费也享受某些不可排除的利益。","D":"描述投入回报变化。"},"conceptId":"information"},{"id":"eco-10-q14","number":14,"group":"市场失灵","type":"single","stem":"最典型的纯公共物品是（　　）。","options":{"A":"教育","B":"国防","C":"医疗卫生","D":"交通运输"},"answer":["B"],"explanationSupplement":"纯公共物品同时具有非竞争性和非排他性。国防对覆盖地区内居民提供共同保护，多保护一名居民一般不会减少他人的保护。","optionExplanations":{"A":"教育有容量约束，也可限制入学。","B":"是标准的纯公共物品例子。","C":"诊疗会占用人员、床位等资源，可设置准入。","D":"交通设施可拥挤、收费或限制使用。"},"conceptId":"public-goods"},{"id":"eco-10-q15","number":15,"group":"市场失灵","type":"single","stem":"政府通过罚款或增税来抑制的经济波动属于（　　）。","options":{"A":"准公共物品生产","B":"产生外部不经济的活动","C":"纯公共物品生产","D":"产生外部经济的活动"},"answer":["B"],"explanationSupplement":"按题目考查的治理场景，罚款、矫正性税费可提高产生第三方损害的活动的私人成本，减少这类活动。宏观经济波动通常使用另一套政策工具分析。","optionExplanations":{"A":"是否准公共物品取决于消费性质。","B":"增加行为者承担的成本可抑制负外部性活动。","C":"纯公共物品典型问题是供给不足。","D":"正外部性通常讨论如何增加有效供给。"},"conceptId":"externality-tools"},{"id":"eco-10-q16","number":16,"group":"市场失灵","type":"single","stem":"关于生产的外部经济的说法，正确的是（　　）。","options":{"A":"生产者的社会收益等于私人成本","B":"生产者的社会成本等于私人成本","C":"生产者的私人成本小于社会成本","D":"生产者的私人收益小于社会收益"},"answer":["D"],"explanationSupplement":"生产的外部经济表示生产带来的部分好处由未付相应报酬的第三方享有。把这些收益加到私人收益上，社会收益更高。","optionExplanations":{"A":"收益和成本的相等并不是定义。","B":"是否存在额外外部成本由具体场景决定。","C":"通常用来说明负的生产外部性。","D":"社会收益含私人收益及外部收益。"},"conceptId":"externalities"},{"id":"eco-10-q17","number":17,"group":"市场失灵","type":"single","stem":"某造纸厂在其生产过程中，向附近的河流排放了大量的污水，并因此导致了附近某粮食产量大幅度下降，但该厂却又不对附近种粮农民进行相应的赔偿。这种现象通常被称为（　　）。","options":{"A":"生产的外部经济","B":"生产的外部不经济","C":"消费的外部经济","D":"消费的外部不经济"},"answer":["B"],"explanationSupplement":"先判断来源，再判断效果。污水来自造纸生产，降低未得到补偿的农户收益，因此属于生产活动对第三方造成的负外部性。","optionExplanations":{"A":"农户受到损害，没有得到正外部收益。","B":"生产过程造成未计价的外部损害。","C":"外部影响来自生产，不来自消费。","D":"虽是负效应，但来源不是消费。"},"conceptId":"externalities"},{"id":"eco-10-q18","number":18,"group":"市场失灵","type":"single","stem":"从经济理论上说，生产的外部不经济会造成（　　）。","options":{"A":"资源均衡配置","B":"资源有效配置","C":"产品供给过少","D":"产品供给过多"},"answer":["D"],"explanationSupplement":"在标准竞争模型中，生产者若只承担私人成本，选择私人边际成本等于需求的产量。负外部性使社会边际成本更高，社会最优产量更少。","optionExplanations":{"A":"市场可能有私人均衡，但该均衡未计入外部损害。","B":"产量通常偏离社会最优。","C":"常见于未获补偿的正外部性。","D":"相对于社会有效数量，私人市场产量偏多。"},"conceptId":"externalities"},{"id":"eco-10-q19","number":19,"group":"市场失灵","type":"single","stem":"根据科斯定理，可以通过市场机制解决外部性问题的前提是（　　）。","options":{"A":"交易成本为零或很小","B":"财产权明确","C":"财产权明确且交易成本为零或很小","D":"财产权明确且交易成本足够大"},"answer":["C"],"explanationSupplement":"协商解决外部性需要两项核心条件：产权明确、交易成本为零或足够低。低成本使达成并执行补偿协议具有可行性。","optionExplanations":{"A":"还要明确有哪些可主张的权利。","B":"高交易成本可能阻碍协商。","C":"完整列出两项条件。","D":"足够高的交易成本会削弱可行性。"},"conceptId":"coase"},{"id":"eco-10-q20","number":20,"group":"市场失灵","type":"single","stem":"具有有限的非竞争性和非排他性的物品通常称为（　　）。","options":{"A":"纯公共物品","B":"准公共物品","C":"自然垄断产品","D":"私人物品"},"answer":["B"],"explanationSupplement":"排他性与竞争性有时只在一定范围内成立。比如路面车辆少时，多一辆车几乎不影响其他人；拥堵后会相互挤占。这类情形可以用准公共物品来描述。","optionExplanations":{"A":"要求充分的非竞争性和非排他性。","B":"这两种性质只部分成立，符合准公共物品。","C":"自然垄断按成本结构界定。","D":"纯私人物品通常同时可排他且有竞争性。"},"conceptId":"public-goods"},{"id":"eco-10-q21","number":21,"group":"市场失灵","type":"single","stem":"可以由任何消费者进行消费，任何一个消费者都不会被排斥在外，这是公共物品的（　　）。","options":{"A":"非竞争性","B":"公共性","C":"非排他性","D":"排他性"},"answer":["C"],"explanationSupplement":"能不能阻止别人享用，是排他性的问题。无法把未付费的人排除在外，表示非排他性。","optionExplanations":{"A":"非竞争性指多一个使用者是否减少别人得到的服务。","B":"公共性太宽泛，无法准确命名这里的性质。","C":"无法排除消费者。","D":"可排他时可以阻止使用。"},"conceptId":"public-goods"},{"id":"eco-10-q22","number":22,"group":"市场失灵","type":"single","stem":"购买财产保险后不注意防盗从而造成保险公司的损失，这属于（　　）。","options":{"A":"操作风险","B":"顺向选择","C":"逆向选择","D":"道德风险"},"answer":["D"],"explanationSupplement":"保险已买，之后被保险人降低了防盗投入。合同改变了行为激励，而保险人不能完全观察，这属于道德风险。","optionExplanations":{"A":"常用于流程、人员或系统造成损失的分类。","B":"不是这里使用的信息经济学分类。","C":"逆向选择关注购买前已存在的风险类型。","D":"符合签约后的隐藏行动机制。"},"conceptId":"information"},{"id":"eco-10-q23","number":23,"group":"市场失灵","type":"single","stem":"由于买方和卖方之间信息不对称，市场机制会导致某些商品或服务的需求曲线向左下方弯曲，最终结果是劣质商品或服务驱逐优质商品或服务，以致市场萎缩甚至消失的现象，称为（　　）。","options":{"A":"道德风险","B":"优胜劣汰","C":"逆向选择","D":"外部性"},"answer":["C"],"explanationSupplement":"交易前买家难以区分质量，就只愿按平均质量支付。优质卖家退出后，市场上平均质量降低，可能形成劣质驱逐优质。这是逆向选择。","optionExplanations":{"A":"道德风险对应交易后隐藏行为。","B":"题目是优质品被挤出，方向相反。","C":"交易前隐藏质量改变卖家构成。","D":"题目直接机制是双方信息不对称。"},"conceptId":"information"},{"id":"eco-10-q24","number":24,"group":"市场失灵","type":"single","stem":"对于可能产生（　　）的行为，政府一般应通过征税或收费的措施予以限制。","options":{"A":"搭便车","B":"外部不经济","C":"道德风险","D":"逆向选择"},"answer":["B"],"explanationSupplement":"对造成第三方损害的行为征收矫正性税费，可以让行为者面对更接近社会边际成本的私人价格。","optionExplanations":{"A":"公共物品搭便车更常通过共同筹资处理。","B":"矫正性税费用于纳入外部损害。","C":"道德风险常用合同激励和监督处理。","D":"逆向选择常用筛选或可信信号处理。"},"conceptId":"externality-tools"},{"id":"eco-10-q25","number":25,"group":"市场失灵","type":"discussion","stem":"科斯定理认为，外部性之所以存在并且导致资源配置失当，在多数情况下是因为（　　）。","options":{"A":"交易成本过大","B":"市场垄断者的存在","C":"信息不对称","D":"产权界定不明晰"},"answer":[],"explanationSupplement":"科斯定理说明产权明确与交易成本足够低时协商可能实现有效结果。产权模糊和高交易成本均可能使协商失败，定理没有说明哪一项是现实中的多数原因。","optionExplanations":{"A":"是使协商失败的一种机制。","B":"市场力量可能造成失灵，但非本题所问的产权协商条件。","C":"会增加协商成本，未必能概括所有情形。","D":"产权不明晰也可能阻碍协商，不能据定理排序频率。"},"conceptId":"coase"},{"id":"eco-10-q26","number":26,"group":"市场失灵","type":"single","stem":"“三废”（废气、废水、废渣），对社会产生的效应属于（　　）。","options":{"A":"消费的正外部性","B":"生产的正外部性","C":"生产的负外部性","D":"消费的负外部性"},"answer":["C"],"explanationSupplement":"典型的工业废气、废水和废渣来自生产，若未被生产者充分处理或承担会对第三方造成损害，属于生产负外部性。","optionExplanations":{"A":"来源不是消费，影响也不是正的。","B":"负面损害与正外部性相反。","C":"生产造成未完全承担的损害。","D":"负效应正确，活动来源应归于生产。"},"conceptId":"externalities"},{"id":"eco-10-q27","number":27,"group":"市场失灵","type":"single","stem":"公共物品具有消费上的非排他性特征，是理性的个人在消费时倾向于由他人付费而自己坐享其成，这种现象称为（　　）。","options":{"A":"消费拥挤","B":"生产者付费","C":"免费搭车","D":"逆向选择"},"answer":["C"],"explanationSupplement":"非排他性使个人即使不付费也能获得公共物品的好处。希望依靠他人出资而自己享用，就是搭便车。","optionExplanations":{"A":"拥挤指使用者增加时其他人获得的服务减少。","B":"题目描述的是使用者逃避出资。","C":"符合不承担支付却享用好处。","D":"逆向选择是签约前的隐藏信息问题。"},"conceptId":"public-goods"},{"id":"eco-10-q28","number":28,"group":"市场失灵","type":"discussion","stem":"在市场经济条件下，公路、铁路、无线电视大多数由国家而不是私人来投资的，其合理的经济学解释是，上述部门（　　）。","options":{"A":"属于垄断行业","B":"具有负外部性的特征","C":"属于公共物品的生产部门","D":"关系着国计民生"},"answer":[],"explanationSupplement":"基础设施和广播可能产生广泛的社会收益，部分场景还具有公共物品属性。但铁路可验票、道路可拥挤或收费、广播也可能加密。是否属于公共物品以及谁来投资都依赖具体制度与服务，题目信息不足以给出唯一解释。","optionExplanations":{"A":"有的网络设施会涉及自然垄断，不能由行业名称一概推出。","B":"广泛公共服务可能有外部收益，负外部性并非这里的通用解释。","C":"部分设施有公共物品特征，但不同设施的排他性和竞争性不一。","D":"社会重要性本身不是经济分类标准。"},"conceptId":"public-goods"},{"id":"eco-10-q29","number":29,"group":"市场失灵","type":"single","stem":"公共物品的市场需求曲线是消费者个人需求曲线的（　　）。","options":{"A":"水平相加","B":"垂直相加","C":"算术平均数","D":"加权平均数"},"answer":["B"],"explanationSupplement":"纯公共物品供给同一个数量时，每个人都可共同享用。对这个给定数量，要相加所有人的边际支付意愿，也就是沿价格方向垂直相加。","optionExplanations":{"A":"私人商品通常固定价格后加总个人需求量。","B":"在共同数量上加总各人的支付意愿。","C":"要得到总边际收益应求和。","D":"这里没有用加权平均。"},"conceptId":"public-goods"},{"id":"eco-10-q30","number":30,"group":"市场失灵","type":"single","stem":"可用下面哪一个术语来描述一个养蜂人与其邻近的经营果园的农场主之间的影响？（　　）","options":{"A":"外部不经济","B":"外部经济","C":"外部有害","D":"以上都不是"},"answer":["B"],"explanationSupplement":"在典型模型中，蜜蜂为果树授粉，果园给蜜蜂提供花蜜。如果双方未通过合同结算这些好处，就有未计价的正外部收益。","optionExplanations":{"A":"互相受益的例子不属于外部不经济。","B":"未计价的有利影响属于外部经济。","C":"题目通常考查授粉与花蜜带来的正效应。","D":"B 与题设常见机制相符。"},"conceptId":"externalities"},{"id":"eco-10-q31","number":31,"group":"市场失灵","type":"single","stem":"科斯定理指的是（　　）。","options":{"A":"若交易成本为0，则只要财产权明确，市场交易的结果都是有效率的","B":"若交易成本为0，则财产权明确与否不影响市场交易效率","C":"只有当交易成本为0时，市场交易才是有效率","D":"以上各项都对"},"answer":["A"],"explanationSupplement":"理想条件下，明确产权和零交易成本允许当事人通过交易重新安排权利，获得有效配置。产权初始归属仍会影响利益分配。","optionExplanations":{"A":"列出关键条件和有效配置结果。","B":"产权明确是使协商可执行的关键。","C":"交易成本为零是理想化的充分条件之一，不能反推出有正成本就一定无效率。","D":"B、C 不符合定理。"},"conceptId":"coase"},{"id":"eco-10-q32","number":32,"group":"市场失灵","type":"single","stem":"以下表述中，正确的是（　　）。","options":{"A":"公共物品的市场需求曲线是由各个消费者需求曲线横向加总求得的","B":"政府提供的产品都是公共物品","C":"像公路、桥梁及电视广播等是纯公共物品","D":"“庇古税”的实质是社会成本的内在化"},"answer":["D"],"explanationSupplement":"庇古税旨在把外部损害转为行为者面对的成本。理想税额等于社会有效数量处的单位边际外部损害。","optionExplanations":{"A":"纯公共物品需求应在同一数量上垂直加总支付意愿。","B":"生产主体与商品的排他性、竞争性是两回事。","C":"公路桥梁可拥挤或收费，广播也可设访问门槛。","D":"使私人决策计入原来由社会承担的损害。"},"conceptId":"externality-tools"},{"id":"eco-10-q33","number":33,"group":"市场失灵","type":"single","stem":"以下哪一项不能够帮助消费者有效减少信息不对称的问题？（　　）","options":{"A":"品牌","B":"低价格","C":"产品保证","D":"长期质量保证书"},"answer":["B"],"explanationSupplement":"能否缓解信息差，要看信号是否能区分高质量与低质量。可兑现的质保和有成本的品牌声誉能提供线索，单独的低价可由多种原因造成。","optionExplanations":{"A":"长期声誉会使隐瞒质量变得昂贵。","B":"低价本身无法可靠说明质量。","C":"可兑现的产品保证有助于传递信息。","D":"长期质保若可执行，可使低质量卖方承担较高预期成本。"},"conceptId":"information"},{"id":"eco-10-q34","number":34,"group":"市场失灵","type":"single","stem":"“搭便车”现象是对（　　）问题的一种形象比喻。","options":{"A":"社会福利","B":"市场失灵","C":"公共物品","D":"信息不对称"},"answer":["C"],"explanationSupplement":"搭便车最直接描述公共物品的筹资问题。有人因难以被排除而等待他人付费，导致私人筹资水平可能低于社会有效水平。","optionExplanations":{"A":"社会福利是更广的评价领域。","B":"搭便车可造成市场失灵，但这里问最直接对应的问题。","C":"非排他性使未出资者也能受益。","D":"隐藏类型和隐藏行动是另一类机制。"},"conceptId":"public-goods"},{"id":"eco-10-q35","number":35,"group":"市场失灵","type":"single","stem":"不完全竞争市场中出现低效率的资源配置是因为产品价格（　　）边际成本。","options":{"A":"大于","B":"小于","C":"等于","D":"可能不等于"},"answer":["A"],"explanationSupplement":"在统一定价的标准垄断模型中，向下倾斜的需求使 P＞MR，利润最大化有 MR＝MC，所以 P＞MC。边际支付意愿仍高于生产成本，存在未实现的有益交易。","optionExplanations":{"A":"符合这一基本模型的严格方向。","B":"与标准单一定价垄断的边际条件相反。","C":"P＝MC 是竞争基准中的配置效率条件。","D":"只说可能不等，没有给出本题模型的价格加成方向。"},"conceptId":"market-failure"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -2260,6 +2268,696 @@ dialog::backdrop { background: var(--backdrop); }
    if(target){ e.preventDefault(); target.focus(); target.select(); }
   }
  });
+})();
+
+(() => {
+  'use strict';
+
+  const fmt = (n, d = 1) => Number(n.toFixed(d)).toString();
+  const samplePath = (fn, start, end, steps, xMap, yMap) => {
+    let d = '';
+    for (let i = 0; i <= steps; i++) {
+      const t = start + (end - start) * (i / steps);
+      const val = fn(t);
+      if (!Number.isFinite(val)) continue;
+      d += (d ? ' L' : 'M') + xMap(t).toFixed(1) + ' ' + yMap(val).toFixed(1);
+    }
+    return d;
+  };
+  const X0 = 66, W = 420, Y0 = 294, H = 252;
+  const wrapStatic = (title, desc, svg) => `
+    <div class="inline-visual-header">
+      <span class="inline-visual-badge">图解示意</span>
+      <h4>${title}</h4>
+      <p>${desc}</p>
+    </div>
+    <div class="static-svg-wrap micro-panel">${svg}</div>`;
+
+  // 1. Chapter 04: Total Utility & Marginal Utility
+  function mountTUMU(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>总效用（TU）与边际效用（MU）递减联动图</h4>
+        <p>拖动消费数量 Q，观察每多消费 1 单位带来的边际效用 MU 递减过程，以及 MU = 0 时总效用 TU 达到最大值。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>总效用 TU</span>
+            <span><i class="chart-line mv-c2-line"></i>边际效用 MU</span>
+          </div>
+          <svg viewBox="0 0 540 390" role="img" aria-label="总效用与边际效用联动图">
+            <path class="chart-axis" d="M66 26V170H498" fill="none" stroke-width="1.4"/>
+            <text x="14" y="18" class="axis-label">总效用 TU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="174">0</text><text x="56" y="106">20</text><text x="56" y="40">40</text></g>
+            <path class="mv-curve-1" data-role="tu"/>
+
+            <path class="chart-axis" d="M66 206V346H498" fill="none" stroke-width="1.4"/>
+            <line class="mv-zero-line" x1="66" x2="498" y1="306" y2="306"/>
+            <text x="14" y="198" class="axis-label">边际效用 MU</text>
+            <g class="tick-label" text-anchor="end"><text x="56" y="310">0</text><text x="56" y="264">5</text><text x="56" y="218">10</text></g>
+            <path class="mv-curve-2" data-role="mu"/>
+            <line class="mv-guide" data-role="vline" y1="26" y2="346"/>
+            <circle r="5.5" class="mv-dot-1" data-role="pt-tu"/>
+            <circle r="5.5" class="mv-dot-2" data-role="pt-mu"/>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="364">0</text><text x="171" y="364">2</text><text x="276" y="364">4</text><text x="381" y="364">6</text><text x="486" y="364">8</text></g>
+            <text x="276" y="384" text-anchor="middle" class="axis-label">消费数量 Q</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">消费数量 Q <output data-role="q-out">5</output></label>
+          <input type="range" data-role="q" min="0.5" max="8" step="0.5" value="5">
+          <div class="ppf-outputs">
+            <div><span>总效用 TU</span><strong data-role="tu-val">25.0</strong></div>
+            <div><span>边际效用 MU</span><strong data-role="mu-val">0.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-jump="2">递增区间</button>
+            <button type="button" class="button button-secondary" data-jump="5">饱和点(MU=0)</button>
+            <button type="button" class="button button-secondary" data-jump="7">负效用区</button>
+          </div>
+        </div>
+      </div>`;
+    // TU = 10Q - Q^2 (max 25 at Q=5); MU = 10 - 2Q
+    const tuFn = q => 10 * q - q * q;
+    const muFn = q => 10 - 2 * q;
+    const x = q => X0 + (q / 8) * W;
+    const yTU = v => 170 - (v / 32) * 130;
+    const yMU = v => 306 - (v / 10) * 90;
+    root.querySelector('[data-role="tu"]').setAttribute('d', samplePath(tuFn, 0, 8, 60, x, yTU));
+    root.querySelector('[data-role="mu"]').setAttribute('d', samplePath(muFn, 0, 8, 40, x, yMU));
+    const qIn = root.querySelector('[data-role="q"]');
+    function draw() {
+      const q = qIn.valueAsNumber, tu = tuFn(q), mu = muFn(q), xq = x(q).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xq); vl.setAttribute('x2', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-tu"]').setAttribute('cy', yTU(tu).toFixed(1));
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cx', xq);
+      root.querySelector('[data-role="pt-mu"]').setAttribute('cy', yMU(mu).toFixed(1));
+      root.querySelector('[data-role="q-out"]').value = fmt(q, 1);
+      root.querySelector('[data-role="tu-val"]').textContent = fmt(tu, 1);
+      root.querySelector('[data-role="mu-val"]').textContent = fmt(mu, 1);
+      root.querySelector('[data-role="msg"]').textContent = mu > 0
+        ? `MU=${fmt(mu, 1)} > 0：每多消费 1 单位仍带来正满足，总效用 TU 持续上升，但增速逐渐放缓。`
+        : mu === 0
+          ? '饱和点（Q=5, MU=0）：边际效用降为零，此时总效用 TU 达到最大值 25。'
+          : `MU=${fmt(mu, 1)} < 0：过度消费产生负效用，总效用 TU 反而开始下降。`;
+    }
+    qIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-jump]').forEach(b => b.addEventListener('click', () => { qIn.value = b.dataset.jump; draw(); }));
+    draw();
+  }
+
+  // 2. Chapter 06: Long-run Average Cost Envelope (static)
+  function mountLACEnvelope(root) {
+    root.innerHTML = wrapStatic(
+      '长期平均成本（LAC）包络线与规模经济',
+      '长期内厂商可自由调整工厂规模，LAC 是无数条短期平均成本曲线（SAC）的下包络线；只有在最低点 E，LAC 才与 SAC 的最低点相切。',
+      `<svg viewBox="0 0 660 280" role="img" aria-label="长期平均成本包络线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M62 28V230H618 M57 35l5-7 5 7 M611 225l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">平均成本 AC</text>
+        <text x="340" y="268" text-anchor="middle" class="axis-label">产量 Q</text>
+        <!-- Vertical split at optimal scale -->
+        <line x1="340" y1="36" x2="340" y2="230" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="200" y="54" text-anchor="middle" fill="var(--accent)" font-size="13" font-weight="650">规模经济（LAC 下降）</text>
+        <text x="480" y="54" text-anchor="middle" fill="var(--mv-c2)" font-size="13" font-weight="650">规模不经济（LAC 上升）</text>
+        <!-- SAC curves -->
+        <path d="M110 72 Q175 186 245 104" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="128" y="88" class="tick-label">SAC₁</text>
+        <path d="M250 112 Q340 226 430 112" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="340" y="128" text-anchor="middle" class="tick-label">SAC₂（最优规模）</text>
+        <path d="M435 104 Q505 186 570 72" fill="none" stroke="var(--control-line)" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="546" y="88" class="tick-label">SAC₃</text>
+        <!-- LAC envelope -->
+        <path d="M96 96 Q340 246 584 96" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <text x="592" y="102" fill="var(--accent)" font-size="13.5" font-weight="700">LAC</text>
+        <!-- Tangent point -->
+        <circle cx="340" cy="171" r="6" class="mv-dot-eq"/>
+        <text x="352" y="190" class="point-label">E（最低点相切）</text>
+      </svg>`
+    );
+  }
+
+  // 3. Chapter 08: Interactive Prisoner's Dilemma Matrix
+  function mountPrisonersMatrix(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>囚徒困境 2×2 支付矩阵（点击任意格子体验纳什均衡）</h4>
+        <p>括号内为（甲的刑期年数，乙的刑期年数），数字越小越好。点击不同策略组合，看双方有没有单方面改选的动机。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart" style="padding:16px">
+          <div class="game-matrix" role="grid" aria-label="囚徒困境支付矩阵">
+            <div class="gm-corner">甲 \\ 乙</div>
+            <div class="gm-head">乙：坦白</div>
+            <div class="gm-head">乙：抵赖</div>
+            <div class="gm-head">甲：坦白</div>
+            <button type="button" class="gm-cell active" data-cell="cc"><strong>(-8年, -8年)</strong><small>纳什均衡 ★</small></button>
+            <button type="button" class="gm-cell" data-cell="cd"><strong>(0年, -10年)</strong><small>甲占便宜</small></button>
+            <div class="gm-head">甲：抵赖</div>
+            <button type="button" class="gm-cell" data-cell="dc"><strong>(-10年, 0年)</strong><small>乙占便宜</small></button>
+            <button type="button" class="gm-cell" data-cell="dd"><strong>(-1年, -1年)</strong><small>帕累托最优</small></button>
+          </div>
+        </div>
+        <div class="ppf-controls">
+          <h5>策略稳定性分析</h5>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const notes = {
+      cc: '【(坦白, 坦白) → 唯一纳什均衡】无论对方选什么，自己选「坦白」刑期都更短（0>-1 且 -8>-10），因此「坦白」是双方的严格占优策略，任何一方单方面改选抵赖都会从 -8 年恶化到 -10 年。',
+      cd: '【(坦白, 抵赖) → 不稳定】此时乙判 10 年；只要乙单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此乙有强烈动机偏离，最终滑向 (坦白, 坦白)。',
+      dc: '【(抵赖, 坦白) → 不稳定】此时甲判 10 年；只要甲单方面改成「坦白」，就能把刑期从 10 年减到 8 年，因此甲会立刻偏离，滑向 (坦白, 坦白)。',
+      dd: '【(抵赖, 抵赖) → 帕累托最优但不稳定】虽然两人各判 1 年集体总福利最好，但给定对方抵赖，自己单方面背叛改为坦白可以无罪释放（0 年），所以缺乏约束机制时合作会瓦解。',
+    };
+    const cells = [...root.querySelectorAll('[data-cell]')];
+    function select(key) {
+      cells.forEach(c => c.classList.toggle('active', c.dataset.cell === key));
+      root.querySelector('[data-role="msg"]').textContent = notes[key];
+    }
+    cells.forEach(c => c.addEventListener('click', () => select(c.dataset.cell)));
+    select('cc');
+  }
+
+  // 4. Chapter 09: Lorenz Curve & Gini Coefficient
+  function mountLorenzGini(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>洛伦兹曲线与基尼系数（G = A / (A + B)）</h4>
+        <p>拖动收入分配不平等程度，观察洛伦兹曲线弯曲幅度与阴影面积 A 的变化，直观理解基尼系数 0.4 警戒线。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>绝对平等线（45°）</span>
+            <span><i class="chart-line mv-c1-line"></i>洛伦兹曲线</span>
+            <span><i class="mv-swatch mv-cs"></i>不平等面积 A</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="洛伦兹曲线与基尼系数交互图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">累计收入占比 (%)</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">累计人口占比（从低收入到高收入 %）</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0%</text><text x="171" y="316">25%</text><text x="276" y="316">50%</text><text x="381" y="316">75%</text><text x="486" y="316">100%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">25%</text><text x="56" y="172">50%</text><text x="56" y="109">75%</text><text x="56" y="46">100%</text></g>
+            <path class="mv-fill-cs" data-role="area-a"/>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-1" data-role="curve"/>
+            <text x="248" y="196" class="point-label" data-role="lbl-a">A</text>
+            <text x="382" y="246" class="tick-label" style="font-size:14px">B</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">弯曲指数 k（1=绝对平等，越大越不平等）<output data-role="k-out">2.3</output></label>
+          <input type="range" data-role="k" min="1" max="5" step="0.1" value="2.3">
+          <div class="ppf-outputs">
+            <div><span>基尼系数 G</span><strong data-role="g-val">0.39</strong></div>
+            <div><span>后 50% 人口收入占比</span><strong data-role="b50-val">20%</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // L(p) = p^k => Gini = (k - 1)/(k + 1)
+    const x = p => X0 + p * W;
+    const y = v => Y0 - v * H;
+    const kIn = root.querySelector('[data-role="k"]');
+    function draw() {
+      const k = kIn.valueAsNumber;
+      const gini = (k - 1) / (k + 1);
+      const b50 = Math.pow(0.5, k) * 100;
+      const curveD = samplePath(p => Math.pow(p, k), 0, 1, 50, x, y);
+      root.querySelector('[data-role="curve"]').setAttribute('d', curveD);
+      root.querySelector('[data-role="area-a"]').setAttribute('d', curveD + ` L${x(0)} ${y(0)} Z`);
+      root.querySelector('[data-role="k-out"]').value = fmt(k, 1);
+      root.querySelector('[data-role="g-val"]').textContent = fmt(gini, 2);
+      root.querySelector('[data-role="b50-val"]').textContent = fmt(b50, 0) + '%';
+      root.querySelector('[data-role="msg"]').textContent = gini < 0.2
+        ? 'G < 0.2：收入分配高度平均，洛伦兹曲线紧贴 45° 绝对平等线。'
+        : gini < 0.4
+          ? `G = ${fmt(gini, 2)}（0.2~0.4）：处于相对合理区间；收入较低的一半人口占总收入的 ${fmt(b50, 0)}%。`
+          : `G = ${fmt(gini, 2)} ≥ 0.4：超过国际常用的收入差距警戒线，洛伦兹曲线明显向右下方弯曲。`;
+    }
+    kIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 5. Chapter 09: Backward-bending Labour Supply Curve (static)
+  function mountLabourSupply(root) {
+    root.innerHTML = wrapStatic(
+      '向后弯曲的个人劳动供给曲线',
+      '工资上涨同时产生「替代效应（多干活）」与「收入效应（多买闲暇）」；当工资高过拐点 W* 后，收入效应压过替代效应，劳动供给反向减少。',
+      `<svg viewBox="0 0 640 270" role="img" aria-label="向后弯曲的劳动供给曲线示意图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V224H580 M61 35l5-7 5 7 M573 219l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">工资率 W</text>
+        <text x="323" y="258" text-anchor="middle" class="axis-label">劳动供给时间 L</text>
+        <path d="M130 210 C250 184 320 156 320 124 C320 88 265 64 210 42" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="66" y1="124" x2="320" y2="124" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <circle cx="320" cy="124" r="6" class="mv-dot-eq"/>
+        <text x="48" y="128" text-anchor="end" class="tick-label">W*</text>
+        <text x="336" y="128" class="point-label">拐点（替代效应 = 收入效应）</text>
+        <text x="336" y="76" fill="var(--mv-c2)" font-size="13" font-weight="650">W &gt; W*：收入效应 &gt; 替代效应（高薪更愿享受闲暇，曲线后弯）</text>
+        <text x="336" y="182" fill="var(--accent)" font-size="13" font-weight="650">W &lt; W*：替代效应 &gt; 收入效应（加薪吸引增加工时，曲线右倾）</text>
+      </svg>`
+    );
+  }
+
+  // 6. Chapter 10: Negative Externality & Pigouvian Tax
+  function mountExternality(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>负外部性与庇古税：私人成本（MPC）vs 社会成本（MSC）</h4>
+        <p>拖动“庇古税税率 t”，看如何将外部污染成本内部化，使市场产量从过度生产的 Qm 收敛到社会最优产量 Q*。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>需求 D = MSB</span>
+            <span><i class="chart-line mv-base-line"></i>私人成本 MPC</span>
+            <span><i class="chart-line mv-c2-line"></i>社会成本 MSC</span>
+            <span><i class="mv-swatch mv-dwl"></i>剩余无谓损失</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="负外部性与庇古税纠正图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 / 成本</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">产量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">20</text><text x="276" y="316">40</text><text x="381" y="316">60</text><text x="486" y="316">80</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="248">10</text><text x="56" y="197">20</text><text x="56" y="147">30</text><text x="56" y="96">40</text><text x="56" y="46">50</text></g>
+            <polygon class="mv-fill-dwl" data-role="dwl"/>
+            <path class="mv-curve-1" data-role="d"/>
+            <path class="mv-base-curve" data-role="mpc"/>
+            <path class="mv-curve-2" data-role="msc"/>
+            <path class="mv-curve-3" data-role="tax-s"/>
+            <circle r="5.5" class="mv-dot-2" data-role="opt"/>
+            <circle r="6" class="mv-dot-eq" data-role="cur"/>
+            <text class="point-label" data-role="lbl-opt">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">庇古税税率 t（单位外部成本 = 10）<output data-role="t-out">0</output></label>
+          <input type="range" data-role="t" min="0" max="14" step="1" value="0">
+          <div class="ppf-outputs">
+            <div><span>实际产量 Q</span><strong data-role="q-val">40</strong></div>
+            <div><span>社会最优 Q*</span><strong>30</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row"><button type="button" class="button button-primary" data-role="best">设为最优庇古税 (t=10)</button></div>
+        </div>
+      </div>`;
+    // D: P = 50 - 0.5Q; MPC: P = 10 + 0.5Q (Qm=40, Pm=30); MSC: P = 20 + 0.5Q (Q*=30, P*=35)
+    const x = q => X0 + (q / 80) * W;
+    const y = p => Y0 - (p / 50) * H;
+    root.querySelector('[data-role="d"]').setAttribute('d', `M${x(0)} ${y(50)} L${x(80)} ${y(10)}`);
+    root.querySelector('[data-role="mpc"]').setAttribute('d', `M${x(0)} ${y(10)} L${x(80)} ${y(50)}`);
+    root.querySelector('[data-role="msc"]').setAttribute('d', `M${x(0)} ${y(20)} L${x(60)} ${y(50)}`);
+    root.querySelector('[data-role="opt"]').setAttribute('cx', x(30));
+    root.querySelector('[data-role="opt"]').setAttribute('cy', y(35));
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('x', x(30) - 18);
+    root.querySelector('[data-role="lbl-opt"]').setAttribute('y', y(35) - 10);
+    const tIn = root.querySelector('[data-role="t"]');
+    function draw() {
+      const t = tIn.valueAsNumber;
+      const q = 40 - t;
+      const p = 50 - 0.5 * q;
+      const mscAtQ = 20 + 0.5 * q;
+      root.querySelector('[data-role="tax-s"]').setAttribute('d', `M${x(0)} ${y(10 + t)} L${x(Math.min(80, 80 - 2 * t))} ${y(Math.min(50, 50 + t - Math.max(0, t)))}`);
+      root.querySelector('[data-role="cur"]').setAttribute('cx', x(q).toFixed(1));
+      root.querySelector('[data-role="cur"]').setAttribute('cy', y(p).toFixed(1));
+      root.querySelector('[data-role="dwl"]').setAttribute('points', Math.abs(q - 30) < 0.1 ? '' : `${x(30).toFixed(1)},${y(35).toFixed(1)} ${x(q).toFixed(1)},${y(p).toFixed(1)} ${x(q).toFixed(1)},${y(mscAtQ).toFixed(1)}`);
+      root.querySelector('[data-role="t-out"]').value = String(t);
+      root.querySelector('[data-role="q-val"]').textContent = String(q);
+      root.querySelector('[data-role="msg"]').textContent = t === 0
+        ? '未征税时，厂商只考虑私人成本 MPC，市场过度生产（Q=40 > Q*=30），红色三角为负外部性造成的社会无谓损失。'
+        : t === 10
+          ? '庇古税 t=10 恰好等于边际外部成本：税后供给曲线与 MSC 重合，市场自动收敛到社会最优产量 Q*=30，无谓损失清零！'
+          : t < 10
+            ? `税率 t=${t} 偏低：产量降至 ${q}，无谓损失明显缩小，但仍高于社会最优产量 30。`
+            : `税率 t=${t} 过高：过度征税导致产量降至 ${q}（低于社会最优 30），反而产生新的效率损失。`;
+    }
+    tIn.addEventListener('input', draw);
+    root.querySelector('[data-role="best"]').addEventListener('click', () => { tIn.value = '10'; draw(); });
+    draw();
+  }
+
+  // 7. Chapter 11: Keynesian 45-degree Cross & Multiplier
+  function mountKeynesCross(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>凯恩斯 45° 交叉图与支出乘数效应（k = 1 / (1 − MPC)）</h4>
+        <p>增加自发支出 ΔA 或调高边际消费倾向 MPC，观察计划支出线 AE 上移后均衡产出 Y* 被成倍放大的效果。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>45° 均衡线（AE = Y）</span>
+            <span><i class="chart-line mv-c1-line"></i>当前计划支出 AE</span>
+            <span><i class="chart-line mv-c3-line"></i>初始 AE₀</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="凯恩斯45度交叉图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">计划支出 AE</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">100</text><text x="276" y="316">200</text><text x="381" y="316">300</text><text x="486" y="316">400</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">100</text><text x="56" y="172">200</text><text x="56" y="109">300</text><text x="56" y="46">400</text></g>
+            <line class="mv-base-curve" x1="66" y1="294" x2="486" y2="42"/>
+            <path class="mv-curve-3" data-role="ae0"/>
+            <path class="mv-curve-1" data-role="ae1"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">E*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">新增自发支出 ΔA（基准 A₀=50）<output data-role="a-out">+0</output></label>
+          <input type="range" data-role="da" min="0" max="40" step="5" value="0">
+          <label class="range-label">边际消费倾向 MPC <output data-role="c-out">0.75</output></label>
+          <input type="range" data-role="mpc" min="0.5" max="0.8" step="0.05" value="0.75">
+          <div class="ppf-outputs">
+            <div><span>支出乘数 k</span><strong data-role="k-val">4.0×</strong></div>
+            <div><span>均衡产出 Y*</span><strong data-role="y-val">200</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const x = v => X0 + (v / 400) * W;
+    const y = v => Y0 - (v / 400) * H;
+    const daIn = root.querySelector('[data-role="da"]');
+    const cIn = root.querySelector('[data-role="mpc"]');
+    function draw() {
+      const da = daIn.valueAsNumber, c = cIn.valueAsNumber;
+      const k = 1 / (1 - c);
+      const y0 = 50 * k;
+      const ys = (50 + da) * k;
+      const aePath = a => `M${x(0).toFixed(1)} ${y(a).toFixed(1)} L${x(400).toFixed(1)} ${y(Math.min(400, a + c * 400)).toFixed(1)}`;
+      root.querySelector('[data-role="ae0"]').setAttribute('d', aePath(50));
+      root.querySelector('[data-role="ae1"]').setAttribute('d', aePath(50 + da));
+      const yc = Math.min(400, ys);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(yc).toFixed(1)} H${x(yc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(yc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(yc).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(yc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(yc) - 10).toFixed(1));
+      root.querySelector('[data-role="a-out"]').value = '+' + da;
+      root.querySelector('[data-role="c-out"]').value = fmt(c, 2);
+      root.querySelector('[data-role="k-val"]').textContent = fmt(k, 1) + '×';
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 0);
+      root.querySelector('[data-role="msg"]').textContent = da === 0
+        ? `当前 MPC=${fmt(c, 2)}，支出乘数 k=${fmt(k, 1)}。试着增加自发支出 ΔA，观察产出增量如何等于 ΔA × ${fmt(k, 1)}。`
+        : `自发支出仅增加 +${da}，经过乘数 k=${fmt(k, 1)} 放大后，均衡产出从 ${fmt(y0, 0)} 跃升至 ${fmt(ys, 0)}（净增 +${fmt(ys - y0, 0)}）。`;
+    }
+    daIn.addEventListener('input', draw);
+    cIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 8. Chapter 15: LM Three Regions Policy Effectiveness
+  function mountLMRegions(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>LM 三区间：财政政策与货币政策的有效性对比</h4>
+        <p>切换经济所处的 LM 区间（凯恩斯陷阱 / 中间区域 / 古典区域），对比扩张性财政政策（IS 右移）的效果与挤出程度。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c2-line"></i>完整 LM 曲线</span>
+            <span><i class="chart-line mv-base-line"></i>初始 IS₀</span>
+            <span><i class="chart-line mv-c1-line"></i>扩张财政后 IS₁</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="LM三区间政策有效性对比图">
+            <rect x="66" y="42" width="140" height="252" fill="var(--accent-soft)" opacity=".45"/>
+            <rect x="376" y="42" width="110" height="252" fill="var(--warning-soft)" opacity=".45"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">利率 r</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle">
+              <text x="136" y="316">凯恩斯区（水平）</text>
+              <text x="291" y="316">中间区（右倾）</text>
+              <text x="431" y="316">古典区（垂直）</text>
+            </g>
+            <!-- Full LM: horizontal [66..206] at y=248, sloped [206..416] to y=110, vertical at x=416 up to y=48 -->
+            <path d="M66 248 L206 248 L416 110 L416 48" fill="none" class="mv-curve-2"/>
+            <path class="mv-base-curve" data-role="is0"/>
+            <path class="mv-curve-1" data-role="is1"/>
+            <circle r="5" class="mv-dot-3" data-role="e0"/>
+            <circle r="6.5" class="mv-dot-1" data-role="e1"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择当前所处 LM 区间</legend>
+            <label><input type="radio" name="lmr" value="keynes" checked> 凯恩斯区域（流动性陷阱）</label>
+            <label><input type="radio" name="lmr" value="mid"> 中间区域（常态经济）</label>
+            <label><input type="radio" name="lmr" value="classic"> 古典区域（充分就业上限）</label>
+          </fieldset>
+          <div class="ppf-outputs">
+            <div><span>财政政策效果</span><strong data-role="f-val">极有效</strong></div>
+            <div><span>货币政策效果</span><strong data-role="m-val">完全无效</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const cfg = {
+      keynes: { is0: 'M92 174 L164 276', is1: 'M128 174 L200 276', e0: [144, 248], e1: [180, 248], f: '完全有效', m: '无效', msg: '凯恩斯区域（流动性陷阱）：利率已低至底线，增发货币全被持有为现金（货币政策无效）；扩张财政使 IS 右移不推高利率，无挤出效应，财政政策完全有效。' },
+      mid: { is0: 'M216 96 L356 264', is1: 'M260 96 L400 264', e0: [292, 191], e1: [324, 170], f: '部分有效', m: '部分有效', msg: '中间区域：扩张财政使产出上升、利率温和上行，存在「部分挤出效应」；财政政策与货币政策均有效，适合搭配使用。' },
+      classic: { is0: 'M348 106 L466 218', is1: 'M366 64 L484 176', e0: [416, 171], e1: [416, 111], f: '完全无效', m: '完全有效', msg: '古典区域（垂直 LM）：产出已达上限，扩张财政只会把利率推高，导致私人投资被「100% 完全挤出」（财政无效）；此时货币政策完全有效。' },
+    };
+    const radios = [...root.querySelectorAll('input[name="lmr"]')];
+    function draw() {
+      const c = cfg[radios.find(r => r.checked).value];
+      root.querySelector('[data-role="is0"]').setAttribute('d', c.is0);
+      root.querySelector('[data-role="is1"]').setAttribute('d', c.is1);
+      root.querySelector('[data-role="e0"]').setAttribute('cx', c.e0[0]);
+      root.querySelector('[data-role="e0"]').setAttribute('cy', c.e0[1]);
+      root.querySelector('[data-role="e1"]').setAttribute('cx', c.e1[0]);
+      root.querySelector('[data-role="e1"]').setAttribute('cy', c.e1[1]);
+      root.querySelector('[data-role="f-val"]').textContent = c.f;
+      root.querySelector('[data-role="m-val"]').textContent = c.m;
+      root.querySelector('[data-role="msg"]').textContent = c.msg;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    draw();
+  }
+
+  // 9. Chapter 17: Solow Growth Model Steady State
+  function mountSolow(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>索罗增长模型：储蓄率、折旧率与人均资本稳态 k*</h4>
+        <p>调节储蓄率 s 或折旧率 δ，观察实际投资曲线 s·f(k) 与持平投资线 δ·k 的交点（稳态 k*）如何移动。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-base-line"></i>人均产出 y = f(k)</span>
+            <span><i class="chart-line mv-c1-line"></i>人均投资 s·f(k)</span>
+            <span><i class="chart-line mv-c2-line"></i>折旧线 δ·k</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="索罗增长模型稳态互动图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">人均产出 / 投资</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">人均资本存量 k</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">25</text><text x="276" y="316">50</text><text x="381" y="316">75</text><text x="486" y="316">100</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">3</text><text x="56" y="172">6</text><text x="56" y="109">9</text><text x="56" y="46">12</text></g>
+            <path class="mv-base-curve" data-role="yk"/>
+            <path class="mv-curve-1" data-role="sfk"/>
+            <path class="mv-curve-2" data-role="dk"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6" class="mv-dot-eq" data-role="pt"/>
+            <text class="point-label" data-role="lbl">k*</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">储蓄率 s <output data-role="s-out">35%</output></label>
+          <input type="range" data-role="s" min="15" max="60" step="5" value="35">
+          <label class="range-label">折旧率 δ <output data-role="d-out">5%</output></label>
+          <input type="range" data-role="d" min="3" max="10" step="1" value="5">
+          <div class="ppf-outputs">
+            <div><span>稳态人均资本 k*</span><strong data-role="k-val">49</strong></div>
+            <div><span>稳态人均产出 y*</span><strong data-role="y-val">7.0</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // y = sqrt(k), s*sqrt(k) = d*k => k* = (s/d)^2, y* = s/d
+    const x = k => X0 + (k / 100) * W;
+    const y = v => Y0 - (Math.min(12, v) / 12) * H;
+    root.querySelector('[data-role="yk"]').setAttribute('d', samplePath(k => Math.sqrt(k), 0, 100, 60, x, y));
+    const sIn = root.querySelector('[data-role="s"]');
+    const dIn = root.querySelector('[data-role="d"]');
+    function draw() {
+      const s = sIn.valueAsNumber / 100, d = dIn.valueAsNumber / 100;
+      const ks = Math.pow(s / d, 2);
+      const ys = s / d;
+      const inv = d * ks;
+      root.querySelector('[data-role="sfk"]').setAttribute('d', samplePath(k => s * Math.sqrt(k), 0, 100, 60, x, y));
+      const kEnd = Math.min(100, 12 / d);
+      root.querySelector('[data-role="dk"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(kEnd).toFixed(1)} ${y(d * kEnd).toFixed(1)}`);
+      const kc = Math.min(100, ks), ic = Math.min(12, inv);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(ic).toFixed(1)} H${x(kc).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(kc).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(ic).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(kc) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(ic) - 10).toFixed(1));
+      root.querySelector('[data-role="s-out"]').value = sIn.value + '%';
+      root.querySelector('[data-role="d-out"]').value = dIn.value + '%';
+      root.querySelector('[data-role="k-val"]').textContent = fmt(ks, 0);
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 1);
+      root.querySelector('[data-role="msg"]').textContent = `稳态 k* = (s/δ)² = ${fmt(ks, 0)}，人均产出 y* = ${fmt(ys, 1)}。提高储蓄率 s 只能提升稳态「水平」，在无技术进步时无法永久提高长期「增长率」。`;
+    }
+    sIn.addEventListener('input', draw);
+    dIn.addEventListener('input', draw);
+    draw();
+  }
+
+  // 10. Chapter 23: Balance of Payments Account Structure (static)
+  function mountBOPStructure(root) {
+    root.innerHTML = wrapStatic(
+      '国际收支平衡表（BOP）账户结构与恒等关系',
+      '按复式记账法编制，账面总额恒等于 0：经常账户 + 资本和金融账户（不含储备） + 储备资产变动 + 净误差与遗漏 = 0。',
+      `<svg viewBox="0 0 680 236" role="img" aria-label="国际收支平衡表账户结构图" style="width:100%;height:auto;display:block">
+        <g text-anchor="middle">
+          <rect x="16" y="16" width="154" height="132" rx="9" fill="var(--accent-soft)" stroke="var(--accent-line)" stroke-width="1.6"/>
+          <text x="93" y="42" fill="var(--accent)" font-size="13.5" font-weight="700">经常账户</text>
+          <text x="93" y="68" fill="var(--text)" font-size="12">• 货物贸易</text>
+          <text x="93" y="90" fill="var(--text)" font-size="12">• 服务贸易</text>
+          <text x="93" y="112" fill="var(--text)" font-size="12">• 初次收入(股息/利息)</text>
+          <text x="93" y="134" fill="var(--text)" font-size="12">• 二次收入(无偿转移)</text>
+
+          <text x="182" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="194" y="16" width="154" height="132" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+          <text x="271" y="42" fill="var(--heading)" font-size="13.5" font-weight="700">资本与金融账户</text>
+          <text x="271" y="68" fill="var(--text)" font-size="12">• 直接投资（FDI）</text>
+          <text x="271" y="90" fill="var(--text)" font-size="12">• 证券投资（股/债）</text>
+          <text x="271" y="112" fill="var(--text)" font-size="12">• 金融衍生品</text>
+          <text x="271" y="134" fill="var(--text)" font-size="12">• 贷款与其他投资</text>
+
+          <text x="360" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="372" y="16" width="144" height="132" rx="9" fill="var(--surface)" stroke="var(--mv-c2)" stroke-width="1.5"/>
+          <text x="444" y="42" fill="var(--mv-c2)" font-size="13.5" font-weight="700">储备资产变动</text>
+          <text x="444" y="68" fill="var(--text)" font-size="12">• 外汇储备</text>
+          <text x="444" y="90" fill="var(--text)" font-size="12">• 货币黄金</text>
+          <text x="444" y="112" fill="var(--text)" font-size="12">• 特别提款权 SDR</text>
+          <text x="444" y="134" fill="var(--text)" font-size="12">• IMF 储备头寸</text>
+
+          <text x="528" y="88" fill="var(--heading)" font-size="18" font-weight="700">+</text>
+
+          <rect x="540" y="16" width="124" height="132" rx="9" fill="var(--surface-subtle)" stroke="var(--control-line)" stroke-dasharray="4 3"/>
+          <text x="602" y="64" fill="var(--heading)" font-size="13" font-weight="680">净误差与遗漏</text>
+          <text x="602" y="90" fill="var(--muted)" font-size="11.5">统计口径差异</text>
+          <text x="602" y="110" fill="var(--muted)" font-size="11.5">与漏报轧平项</text>
+        </g>
+        <rect x="16" y="164" width="648" height="54" rx="8" fill="var(--surface)" stroke="var(--line)"/>
+        <text x="340" y="187" text-anchor="middle" fill="var(--heading)" font-size="12.5" font-weight="650">高频考点：国际收支「顺差 / 逆差」通常指前两项（自主性交易）之和；</text>
+        <text x="340" y="207" text-anchor="middle" fill="var(--muted)" font-size="12">顺差导致外汇储备增加（在储备资产项下记为借方负号），从而使整张平衡表借贷轧平为 0。</text>
+      </svg>`
+    );
+  }
+
+  // 11. Chapter 25: Financial Repression Interest Ceiling Gap (static)
+  function mountRepressionGap(root) {
+    root.innerHTML = wrapStatic(
+      '金融抑制：人为利率上限导致的储蓄萎缩与信贷配给缺口',
+      '麦金农—肖模型核心图示：政府将实际利率压低在均衡利率 r* 以下（r₀），导致实际储蓄不足、投资需求过剩，只能依靠非市场信贷配给。',
+      `<svg viewBox="0 0 640 276" role="img" aria-label="金融抑制利率上限与资金缺口图" style="width:100%;height:auto;display:block">
+        <path class="chart-axis" d="M66 28V226H580 M61 35l5-7 5 7 M573 221l7 5-7 5" fill="none" stroke-width="1.5"/>
+        <text x="14" y="18" class="axis-label">实际利率 r</text>
+        <text x="323" y="262" text-anchor="middle" class="axis-label">储蓄 S / 投资 I</text>
+        <!-- I curve downward, S curve upward -->
+        <path d="M126 52 L506 208" fill="none" stroke="var(--accent)" stroke-width="2.6"/>
+        <text x="514" y="212" fill="var(--accent)" font-size="13" font-weight="680">投资需求 I(r)</text>
+        <path d="M126 208 L506 52" fill="none" stroke="var(--mv-c2)" stroke-width="2.6"/>
+        <text x="514" y="56" fill="var(--mv-c2)" font-size="13" font-weight="680">储蓄供给 S(r)</text>
+        <!-- Equilibrium -->
+        <circle cx="316" cy="130" r="5.5" class="mv-dot-eq"/>
+        <line x1="66" y1="130" x2="316" y2="130" stroke="var(--control-line)" stroke-dasharray="4 4"/>
+        <text x="56" y="134" text-anchor="end" class="tick-label">r*</text>
+        <text x="326" y="122" class="point-label">E*（市场均衡）</text>
+        <!-- Ceiling r0 -->
+        <line x1="66" y1="176" x2="540" y2="176" stroke="var(--error)" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="56" y="180" text-anchor="end" fill="var(--error)" font-size="12.5" font-weight="680">r₀</text>
+        <line x1="204" y1="176" x2="204" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <line x1="428" y1="176" x2="428" y2="226" stroke="var(--control-line)" stroke-dasharray="3 3"/>
+        <text x="204" y="242" text-anchor="middle" class="tick-label">实际储蓄 S₀</text>
+        <text x="428" y="242" text-anchor="middle" class="tick-label">投资需求 I₀</text>
+        <line x1="208" y1="176" x2="424" y2="176" stroke="var(--error)" stroke-width="4.5" opacity=".45"/>
+        <text x="316" y="168" text-anchor="middle" fill="var(--error)" font-size="12.5" font-weight="680">资金短缺 / 非价格信贷配给区</text>
+      </svg>`
+    );
+  }
+
+  // 12. Chapter 26: Risk Management 4-Quadrant Matrix (static)
+  function mountRiskMatrix(root) {
+    root.innerHTML = wrapStatic(
+      '风险管理四象限矩阵：按「损失频率 × 损失程度」选工具',
+      '保险最适合处理「低频率、高损失」的风险；高频低损靠自留与防损，高频高损则应直接回避。',
+      `<svg viewBox="0 0 660 272" role="img" aria-label="风险管理四象限矩阵图" style="width:100%;height:auto;display:block">
+        <text x="364" y="20" text-anchor="middle" class="axis-label">损失频率（发生可能性）</text>
+        <text x="234" y="42" text-anchor="middle" class="tick-label">低频率</text>
+        <text x="494" y="42" text-anchor="middle" class="tick-label">高频率</text>
+        <text x="26" y="156" text-anchor="middle" class="axis-label" transform="rotate(-90 26 156)">损失程度</text>
+        <text x="80" y="106" text-anchor="end" class="tick-label">高损失</text>
+        <text x="80" y="212" text-anchor="end" class="tick-label">低损失</text>
+
+        <!-- Q1: Low freq, High severity -> Insurance -->
+        <rect x="94" y="52" width="268" height="100" rx="9" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+        <text x="228" y="84" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700">风险转移（商业保险 ★）</text>
+        <text x="228" y="108" text-anchor="middle" fill="var(--text)" font-size="12">低频高损：火灾、重疾、重大车祸</text>
+        <text x="228" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">保险最核心的适用场景（杠杆高）</text>
+
+        <!-- Q2: High freq, High severity -> Avoidance -->
+        <rect x="374" y="52" width="268" height="100" rx="9" fill="var(--error-soft)" stroke="var(--error-line)" stroke-width="1.5"/>
+        <text x="508" y="84" text-anchor="middle" fill="var(--error)" font-size="14" font-weight="700">风险回避</text>
+        <text x="508" y="108" text-anchor="middle" fill="var(--text)" font-size="12">高频高损：危房施工、高危违规作业</text>
+        <text x="508" y="128" text-anchor="middle" fill="var(--muted)" font-size="11.5">直接放弃或退出该项活动</text>
+
+        <!-- Q3: Low freq, Low severity -> Retention -->
+        <rect x="94" y="162" width="268" height="96" rx="9" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+        <text x="228" y="194" text-anchor="middle" fill="var(--heading)" font-size="14" font-weight="700">风险自留</text>
+        <text x="228" y="218" text-anchor="middle" fill="var(--text)" font-size="12">低频低损：小额日常磕碰、小件遗失</text>
+        <text x="228" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">自行承担更经济，无需额外投保</text>
+
+        <!-- Q4: High freq, Low severity -> Loss control / Prevention -->
+        <rect x="374" y="162" width="268" height="96" rx="9" fill="var(--warning-soft)" stroke="var(--warning)" stroke-width="1.5"/>
+        <text x="508" y="194" text-anchor="middle" fill="var(--warning)" font-size="14" font-weight="700">损失控制（预防与抑制）</text>
+        <text x="508" y="218" text-anchor="middle" fill="var(--text)" font-size="12">高频低损：装防盗门、定期消防检查</text>
+        <text x="508" y="238" text-anchor="middle" fill="var(--muted)" font-size="11.5">降低发生概率 + 控制损失规模</text>
+      </svg>`
+    );
+  }
+
+  const registry = {
+    'tu-mu': mountTUMU,
+    'lac-envelope': mountLACEnvelope,
+    'prisoners-matrix': mountPrisonersMatrix,
+    'lorenz-gini': mountLorenzGini,
+    'labour-supply': mountLabourSupply,
+    externality: mountExternality,
+    'keynes-cross': mountKeynesCross,
+    'lm-regions': mountLMRegions,
+    solow: mountSolow,
+    'bop-structure': mountBOPStructure,
+    'repression-gap': mountRepressionGap,
+    'risk-matrix': mountRiskMatrix,
+  };
+
+  document.querySelectorAll('[data-micro-visual]').forEach(container => {
+    const fn = registry[container.dataset.microVisual];
+    if (fn) fn(container);
+  });
 })();
 </script>
 </body>
