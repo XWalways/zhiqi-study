@@ -1101,7 +1101,7 @@ dialog::backdrop { background: var(--backdrop); }
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 <script src="catalog.js"></script>
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter22","number":5,"title":"货币供求与货币政策","moduleId":"finance","moduleTitle":"金融基础","downloadName":"金融基础-05-货币供求与货币政策-离线学习.html","visuals":[]},"lessons":{"title":"货币供求与货币政策","subtitle":"从持币动机、存款创造和中央银行操作理解货币如何影响经济。","sections":[{"id":"quantity-theory","title":"货币需求与数量论","summary":"货币需求是一个存量，通常随名义交易额增加而增加。","bodyHtml":"\u003cp>在简化的流通货币量分析中，商品价格总额除以货币流通速度给出所需货币量。马克思还分析了赊销、到期支付和债务抵销对货币需要量的影响。\u003c/p>\u003cp>\u003cstrong>费雪方程式 MV = PT\u003c/strong>把货币存量 M、周转速度 V 和交易总额 PT 联系起来。若用名义产出近似交易额，可写成 MV = PY。\u003cstrong>剑桥方程式 Mᵈ = kPY\u003c/strong>从公众愿意持有的货币余额出发，k 为希望以货币保有的名义收入比例。定义一致且处于均衡时，可以把 k 理解为收入流通速度的倒数。\u003c/p>","keyTakeaway":"费雪侧重交易与流通，剑桥侧重现金余额。","pitfall":"比较 P、Y 或 V 的影响时固定其他变量。MV = PY 本身是恒等关系，因果推论还需假设。","example":"名义产出为 1,000，V 为 5，按简化方程计算需要的货币量为 200。"},{"id":"liquidity-preference","title":"凯恩斯与弗里德曼的货币需求","summary":"分清当前利率的机会成本、预期未来利率的价格风险与恒久收入。","bodyHtml":"\u003cp>凯恩斯将持币分为\u003cstrong>交易、预防、投机\u003c/strong>三种动机。基础模型中交易和预防需求随收入增加，投机需求随当前利率上升而减少，因为持有货币放弃的利息增加。若预期未来利率上升，现有债券未来售价可能下降，持币意愿反而上升。\u003c/p>\u003cp>当前利率很低时，若人们预期利率回升和债券价格下跌，可能愿意持有更多新增货币，形成流动性陷阱。弗里德曼把货币视为资产组合的一部分，强调恒久性收入及货币与债券、股票、实物等资产的相对回报。\u003c/p>","keyTakeaway":"先辨认变化的是当前利率还是预期未来利率。","pitfall":"恒久性收入是对长期收入能力的估计，临时收入变化未必带来同幅货币需求变化。","example":"若交易者预期明年市场利率上升，可能减少持有现有固定息债券，等待更高收益率的买入机会。"},{"id":"base-and-aggregates","title":"基础货币与货币供应量层次","summary":"基础货币把公众持有的现金和银行准备金相加，M1 按可支付性统计。","bodyHtml":"\u003cp>\u003cstrong>基础货币 B = C + R\u003c/strong>，C 是公众持有的现金，R 是银行准备金，含法定和超额部分。央行向银行贷款、买入证券或买入外汇并支付本币，可形成基础货币投放。反向交易可回笼，净变化要合并其他操作。\u003c/p>\u003cp>按中国人民银行自 2025 年 1 月启用的 M1 统计口径，\u003cstrong>M1 = M0 + 单位活期存款 + 个人活期存款 + 非银行支付机构客户备付金\u003c/strong>。M0 是流通中货币，M2 的范围更广。统计口径核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.pbc.gov.cn/chubanwu/fileDir/resource/cms/2025/06/2025062416082199683.pdf\">中国人民银行公告〔2024〕第 17 号\u003c/a>\u003c/p>","keyTakeaway":"央行准备金与公众持有的活期存款属于不同账户层次。","pitfall":"统计题先辨认给出的货币层次和适用年份。","example":"某银行活期和定期法定准备金分别为 12 万元和 5 万元，另有超额准备金 3 万元，实际准备金共 20 万元。"},{"id":"deposit-multiplier","title":"派生存款与货币乘数","summary":"先确认分母中的准备金率、漏损率和定活比使用同一基准。","bodyHtml":"\u003cp>在简化模型中，原始存款可以来自存入现金或央行投放形成的资金。商业银行发放贷款通常在借款人账户上形成存款，银行间付款可能把存款与准备金转移到另一家银行。\u003c/p>\u003cp>以活期存款为基准，令 c 为现金漏损率，e 为超额准备率，r\u003csub>d\u003c/sub> 为活期法定准备率，r\u003csub>t\u003c/sub> 为定期法定准备率，t 为定期与活期存款之比。活期存款扩张倍数 \u003cstrong>K = 1 ÷ (r\u003csub>d\u003c/sub> + e + c + r\u003csub>t\u003c/sub>t)\u003c/strong>。若货币口径取现金和活期存款之和，则货币乘数 \u003cstrong>m = (1 + c) ÷ (r\u003csub>d\u003c/sub> + e + c + r\u003csub>t\u003c/sub>t)\u003c/strong>。\u003c/p>\u003cp>模型假设各比率固定。现实中，信用需求、资本约束、风险管理与政策利率都会影响信贷和存款。\u003c/p>","keyTakeaway":"货币乘数分子计入现金，简单存款乘数的分子为 1。","pitfall":"公式对应简化的货币口径。若题目把定期存款也计入货币供应量，分子需要按定义调整。","example":"若 c = 0.38、r = 0.18、e = 0，且忽略定期存款，基础货币增加 100 亿美元，货币供应量约增加 246 亿美元。"},{"id":"policy-targets","title":"货币政策的目标与传导","summary":"顺着工具、操作目标、中介目标到最终目标判断变量。","bodyHtml":"\u003cp>货币政策是中央银行运用政策工具调节货币、信贷和金融条件的政策。宏观目标常涉及物价稳定、充分就业、经济增长和国际收支平衡。增长与就业通常同向，短期内价格稳定与就业之间可能出现权衡。\u003c/p>\u003cp>工具直接影响短期市场利率或准备金等\u003cstrong>操作目标\u003c/strong>，并可通过货币供应量、市场利率或信贷等\u003cstrong>中介指标\u003c/strong>传导。具体变量属于哪一层，取决于政策框架。\u003c/p>\u003cp>《中国人民银行法》第三条规定，目标是稳定货币币值，并以此促进经济增长。我国货币政策实践中，公开市场 7 天期逆回购操作利率发挥主要政策利率作用。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202308/t20230810_3219571.html\">《中华人民共和国中国人民银行法》\u003c/a> · \u003ca href=\"https://www.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/5347949/afbfa5df25ee45889d916a2819b60a43/2024110815410752868.pdf\">中国人民银行货币政策执行报告\u003c/a>\u003c/p>","keyTakeaway":"工具是采取的措施，目标是传导中的变量或最终结果。","pitfall":"央行设定的政策利率与受其引导的银行间市场利率可以同时出现，作用不同。","example":"央行通过公开市场工具引导短期市场利率，进而影响融资成本、企业投资和居民支出。"},{"id":"open-market","title":"公开市场操作与流动性","summary":"从央行视角区分现券、正回购和逆回购的起始与到期现金流。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>操作\u003c/th>\u003cth>起始时\u003c/th>\u003cth>到期时\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>现券买入\u003c/td>\u003ctd>央行支付资金，投放\u003c/td>\u003ctd>无约定反向操作\u003c/td>\u003c/tr>\u003ctr>\u003ctd>现券卖出\u003c/td>\u003ctd>央行收取资金，回笼\u003c/td>\u003ctd>无约定反向操作\u003c/td>\u003c/tr>\u003ctr>\u003ctd>央行正回购\u003c/td>\u003ctd>卖出证券并收取资金，回笼\u003c/td>\u003ctd>买回证券并支付资金，投放\u003c/td>\u003c/tr>\u003ctr>\u003ctd>央行逆回购\u003c/td>\u003ctd>买入证券并支付资金，投放\u003c/td>\u003ctd>卖回证券并收取资金，回笼\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>公开市场操作可按金额与期限灵活调节。其有效运行依赖有深度的市场和合格交易对手。从银行流动性传导到总支出、就业和通胀需要时间。政策工具说明核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.stats.gov.cn/zs/tjws/zytjzbqs/hbgyl/202502/t20250226_1958808.html\">国家统计局《货币供应量分析》\u003c/a>\u003c/p>","keyTakeaway":"央行当期付出资金是投放，收到资金是回笼。","pitfall":"看净流动性时合并当日新作和到期量。逆回购起始增加银行体系流动性，广义货币还取决于信贷与存款反应。","example":"当天开展逆回购 500 亿元，同时有 300 亿元逆回购到期，两项合并净投放 200 亿元。"},{"id":"reserve-rediscount","title":"存款准备金与再贴现","summary":"区分通过准备金约束调整流动性和通过票据改变银行融资条件。","bodyHtml":"\u003cp>\u003cstrong>存款准备金政策\u003c/strong>直接调整法定准备金要求，覆盖范围较广，影响可能较大。降低要求通常提高银行可用资金和扩张能力，实际贷款还取决于需求、资本和风险。\u003c/p>\u003cp>\u003cstrong>再贴现\u003c/strong>是符合条件的金融机构把已贴现、未到期的票据向央行办理贴现以取得资金。央行可调节再贴现率和票据条件，银行决定是否申请，因此工具使用受机构融资需求影响。符合票据规则可控制部分风险，仍需管理信用、操作和合规风险。\u003c/p>\u003cp>法定工具核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202308/t20230810_3219571.html\">《中华人民共和国中国人民银行法》第二十三条\u003c/a>\u003c/p>","keyTakeaway":"降准调节约束，再贴现调节取得央行资金的条件。","pitfall":"商业银行主动申请再贴现，央行仍设定利率和受理条件。","example":"若商业银行持有符合条件的未到期票据，再贴现率下降可能降低其取得央行资金的成本。"},{"id":"credit-controls","title":"选择性工具与信用控制","summary":"按影响范围和传导手段区分定向支持、直接约束与沟通引导。","bodyHtml":"\u003cp>传统分类把证券、消费和不动产信用控制、优惠利率与预缴进口保证金列为选择性工具。直接信用控制包括贷款限额、利率限制、流动性比率和直接干预。间接信用指导包括道义劝告、窗口指导。不同年代和制度框架的分类可有区别。\u003c/p>\u003cp>历史上的行政利率管制曾限制存款利率上浮和贷款利率下浮。我国 2013 年放开金融机构贷款利率管制，2015 年取消商业银行等机构的存款利率浮动上限。现行利率框架不能直接套用历史考法。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/5427706/2024080916563291755.pdf\">中国人民银行利率市场化改革说明\u003c/a>\u003c/p>","keyTakeaway":"先看措施针对全局还是特定领域，再看依靠行政约束还是引导。","pitfall":"宏观审慎流动性指标与传统信用控制分类属于不同分析框架。","example":"只调节某类证券的保证金比例，主要影响相应信用交易，可作为选择性工具的例子。"}],"mindmap":[{"label":"货币供求","target":"quantity-theory","children":[{"label":"货币需求理论","target":"quantity-theory","children":[{"label":"马克思流通货币量理论","target":"quantity-theory"},{"label":"传统货币数量论","target":"quantity-theory","children":[{"label":"费雪方程式","target":"quantity-theory"},{"label":"剑桥方程式","target":"quantity-theory"}]},{"label":"凯恩斯流动性偏好","target":"liquidity-preference","children":[{"label":"交易、预防与投机","target":"liquidity-preference"},{"label":"流动性陷阱","target":"liquidity-preference"}]},{"label":"弗里德曼货币需求","target":"liquidity-preference","children":[{"label":"恒久性收入","target":"liquidity-preference"},{"label":"相对资产收益","target":"liquidity-preference"}]}]},{"label":"货币供给理论","target":"base-and-aggregates","children":[{"label":"基础货币","target":"base-and-aggregates","children":[{"label":"流通中现金、法定和超额准备金","target":"base-and-aggregates"},{"label":"央行投放与回笼渠道","target":"base-and-aggregates"},{"label":"与 M0、M1 的区别","target":"base-and-aggregates"}]},{"label":"存款乘数","target":"deposit-multiplier","children":[{"label":"存款乘数的含义","target":"deposit-multiplier"},{"label":"原始存款","target":"deposit-multiplier"},{"label":"派生存款","target":"deposit-multiplier"},{"label":"准备金率、现金漏损与定活比","target":"deposit-multiplier"}]},{"label":"货币乘数","target":"deposit-multiplier","children":[{"label":"现金和存款的口径","target":"deposit-multiplier"},{"label":"分子与分母","target":"deposit-multiplier"}]}]}]},{"label":"货币政策","target":"policy-targets","children":[{"label":"政策含义与特征","target":"policy-targets"},{"label":"货币政策目标","target":"policy-targets","children":[{"label":"最终目标","target":"policy-targets","children":[{"label":"物价稳定、充分就业、增长与国际收支","target":"policy-targets"},{"label":"我国货币政策法定目标","target":"policy-targets"},{"label":"就业与增长的联系","target":"policy-targets"},{"label":"短期就业与物价权衡","target":"policy-targets"}]},{"label":"中介目标","target":"policy-targets","children":[{"label":"货币供应量、利率和信贷","target":"policy-targets"}]},{"label":"操作目标","target":"policy-targets","children":[{"label":"短期利率、基础货币与准备金","target":"policy-targets"}]}]},{"label":"货币政策工具","target":"open-market","children":[{"label":"一般性工具","target":"reserve-rediscount","children":[{"label":"存款准备金政策","target":"reserve-rediscount","children":[{"label":"影响与局限","target":"reserve-rediscount"}]},{"label":"再贴现政策","target":"reserve-rediscount","children":[{"label":"银行申请与央行条件","target":"reserve-rediscount"}]},{"label":"公开市场业务","target":"open-market","children":[{"label":"现券买卖","target":"open-market"},{"label":"正回购、逆回购与到期流向","target":"open-market"},{"label":"影响与局限","target":"open-market"}]}]},{"label":"选择性工具","target":"credit-controls","children":[{"label":"证券市场信用控制","target":"credit-controls"},{"label":"消费信用控制","target":"credit-controls"},{"label":"不动产信用控制","target":"credit-controls"},{"label":"优惠利率与预缴进口保证金","target":"credit-controls"}]},{"label":"直接信用控制","target":"credit-controls","children":[{"label":"贷款限额","target":"credit-controls"},{"label":"利率限制","target":"credit-controls"},{"label":"流动性比率","target":"credit-controls"},{"label":"直接干预","target":"credit-controls"}]},{"label":"间接信用指导","target":"credit-controls","children":[{"label":"道义劝告","target":"credit-controls"},{"label":"窗口指导","target":"credit-controls"}]}]}]}]},"questions":[{"id":"fin-05-q01","number":1,"group":"货币供求","type":"single","stem":"在我国，收入变动与货币需求量变动之间的关系是（　　）。","options":{"A":"同方向","B":"反方向","C":"无任何直接关系","D":"A 与B 都可能"},"answer":["A"],"explanationSupplement":"其他条件给定，收入提高通常增加交易和预防性持币需求。","optionExplanations":{"A":"与基础模型一致。","B":"方向相反。","C":"收入会影响交易规模。","D":"题目考察收入的单独影响。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q02","number":2,"group":"货币供求","type":"single","stem":"当预期利率上升时，根据凯恩斯流动偏好理论，人们就会（　　）。","options":{"A":"增加消费","B":"抛出货币而持有债券","C":"增加投资","D":"抛出债券而持有货币"},"answer":["D"],"explanationSupplement":"预期未来利率上升意味着已有固定息债券的价格可能下降，持有现金可避免预期资本损失。","optionExplanations":{"A":"题目考察资产组合。","B":"预期旧债券降价时不利于持债。","C":"未给出投资项目的信息。","D":"卖债持币符合预期价格变化。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q03","number":3,"group":"货币供求","type":"single","stem":"关于货币需求的描述不准确的是（　　）。","options":{"A":"货币需求量与收入水平成正比","B":"利息率上升，货币需求增加","C":"货币流通速度与货币需求成反比","D":"物价水平同货币需求成正比"},"answer":["B"],"explanationSupplement":"固定收入与其他条件，当前利率上升增加持币的机会成本，压低投机性货币需求。","optionExplanations":{"A":"固定其他条件，交易需求随收入提高。","B":"当前利率上升通常减少投机性持币。","C":"固定名义交易额，周转快则所需余额少。","D":"固定产出和速度，名义需求随价格提高。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q04","number":4,"group":"货币供求","type":"single","stem":"凯恩斯货币需求理论下列说法错误的是（　　）。","options":{"A":"实际货币需求量与国民收入成正相关，与市场利率反相关","B":"实际货币需求量与国民收入成反相关，与市场利率正相关","C":"市场利率很低时，存在流动性陷阱","D":"之所以有货币需求，是因为交易、预防及投机动机的存在"},"answer":["B"],"explanationSupplement":"实际货币需求通常随收入增加，随当前市场利率上升而减少。","optionExplanations":{"A":"符合基础模型。","B":"两个方向都写反。","C":"极低利率可伴随流动性陷阱。","D":"三种动机符合模型。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q05","number":5,"group":"货币供求","type":"single","stem":"弗里德曼认为，决定货币需求的收入因素是（　　）。","options":{"A":"现期收入","B":"恒久性收入","C":"生命周期收入","D":"可支配收入"},"answer":["B"],"explanationSupplement":"弗里德曼用恒久性收入概括长期收入能力，并比较货币与其他资产的收益。","optionExplanations":{"A":"现期收入可能受临时冲击。","B":"是该理论的收入变量。","C":"常用于生命周期消费分析。","D":"描述税收转移后的可用收入。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q06","number":6,"group":"货币供求","type":"discussion","stem":"凯恩斯认为，当利率极低时，人们会认为这种利率不太可能上升而只会下跌，从而选择持币在手这种现象称为（　　）。","options":{"A":"流动偏好陷阱","B":"资产泡沫","C":"边际消费倾向","D":"交易动机陷阱"},"answer":[],"explanationSupplement":"流动性陷阱的经典解释是利率已很低，市场预期利率回升、债券价格下降，因而更愿意持有货币。题干把预期利率方向写反。","optionExplanations":{"A":"术语对应低利率下的高度持币倾向。","B":"资产价格超过基本面价值属于另一问题。","C":"边际消费倾向衡量收入增加后消费的变化。","D":"交易动机与日常支付有关。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q07","number":7,"group":"货币供求","type":"single","stem":"从货币形式保有资产存量的角度分析货币需求，重视存量占收入比例的货币需求理论是（　　）。","options":{"A":"剑桥方程式","B":"费雪方程式","C":"现金交易说","D":"凯恩斯的货币需求函数"},"answer":["A"],"explanationSupplement":"剑桥方程式从持有余额的角度分析，k 代表愿以货币形式持有的名义收入比例。","optionExplanations":{"A":"直接描述资产余额。","B":"着眼于交易额与货币流通速度。","C":"通常用来称呼费雪的交易分析。","D":"强调交易、预防和投机动机。"},"conceptId":"quantity-theory"},{"id":"fin-05-q08","number":8,"group":"货币供求","type":"single","stem":"在持币动机中，凯恩斯认为对利率反应最为敏感的是（　　）。","options":{"A":"交易动机","B":"预防动机","C":"投机动机","D":"储藏动机"},"answer":["C"],"explanationSupplement":"基础模型中，交易和预防持币主要随收入变化，投机持币对利率最敏感。","optionExplanations":{"A":"主要对应交易规模。","B":"主要为意外支付留储备。","C":"利率改变货币和债券的相对吸引力。","D":"不属于该模型列出的三种标准动机。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q09","number":9,"group":"货币供求","type":"single","stem":"通过派生存款机制向流通领域供给货币的金融机构是（　　）。","options":{"A":"商业银行","B":"中央银行","C":"证券公司","D":"投资公司"},"answer":["A"],"explanationSupplement":"商业银行发放贷款可以在借款人账户形成存款，银行体系由此创造存款货币。","optionExplanations":{"A":"通过贷款形成存款。","B":"主要提供基础货币。","C":"证券交易撮合不等于创造银行存款。","D":"通常不承担商业银行的存款创造功能。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q10","number":10,"group":"货币供求","type":"single","stem":"关于基础货币构成的说法，正确的是（　　）。","options":{"A":"流通中的现金加上银行准备金","B":"流通中的现金加上活期存款","C":"流通中的现金加上定期存款","D":"流通中的现金加上储蓄存款"},"answer":["A"],"explanationSupplement":"基础货币是公众持有的现金和银行准备金之和。","optionExplanations":{"A":"符合基础货币口径。","B":"活期存款属于公众的银行存款。","C":"定期存款不属于央行准备金。","D":"储蓄存款是商业银行负债。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q11","number":11,"group":"货币供求","type":"single","stem":"关于基础货币的说法，正确的是（　　）。","options":{"A":"它是单位定期存款和单位其他存款之和","B":"中央银行通过其他资产业务创造基础货币","C":"它是中央银行的非货币性负债","D":"中央银行通过卖出黄金投放基础货币"},"answer":["B"],"explanationSupplement":"央行购入资产或向银行贷款、同时贷记准备金账户，可以增加基础货币。","optionExplanations":{"A":"单位存款不是基础货币。","B":"符合央行资产操作的会计机制。","C":"基础货币是货币性负债。","D":"卖出资产并收取本币通常回笼货币。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q12","number":12,"group":"货币供求","type":"discussion","stem":"根据我国货币供应量层次的划分，M1 包括流通中的现金和（　　）。","options":{"A":"单位定期存款","B":"单位活期存款","C":"大额可转让定期存单","D":"储蓄存款"},"answer":[],"explanationSupplement":"单位活期存款仍计入 M1。自统计 2025 年 1 月数据起，口径还纳入个人活期存款和非银行支付机构客户备付金。","optionExplanations":{"A":"单位定期存款不属于 M1。","B":"单位活期属于 M1，现行范围比选项表述更广。","C":"定期存单一般不属于狭义货币。","D":"应区分个人活期与定期，笼统写储蓄存款不够准确。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q13","number":13,"group":"货币供求","type":"single","stem":"如果某商业银行的活期存款准备金为12万元，定期存款准备金为5万元，超额存款准备金为3万元，则该商业银行实际缴存的存款准备金（　　）万元。","options":{"A":"8","B":"12","C":"17","D":"20"},"answer":["D"],"explanationSupplement":"实际准备金包括题目给出的两类法定准备金和超额准备金，12 + 5 + 3 = 20 万元。","optionExplanations":{"A":"只加了定期与超额。","B":"只计活期法定准备金。","C":"未计超额准备金。","D":"三项合计为 20。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q14","number":14,"group":"货币供求","type":"single","stem":"假定现金漏损率为 0.38，法定存款准备金率为 0.18，超额存款准备金率为0。若增加基础货币投放100亿美元，则货币供给增加（　　）亿美元。","options":{"A":"179","B":"246","C":"363","D":"767"},"answer":["B"],"explanationSupplement":"给定现金漏损 c=0.38、法定准备率 r=0.18、超额准备率 e=0。货币乘数 1.38÷0.56 约为 2.464，乘以 100 约得 246 亿美元。","optionExplanations":{"A":"约是分子未计现金时的结果。","B":"含现金的货币乘数计算正确。","C":"不符合给定比例。","D":"不符合给定比例。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q15","number":15,"group":"货币供求","type":"single","stem":"在影响货币乘数的因素中，现金漏损率的变动主要取决于（　　）。","options":{"A":"储户","B":"商业银行","C":"中央银行","D":"非银行金融机构"},"answer":["A"],"explanationSupplement":"现金漏损率反映公众在现金和存款之间的选择。","optionExplanations":{"A":"储户决定如何持有资金。","B":"银行主要决定超额准备金偏好。","C":"央行设定法定准备要求。","D":"不直接决定存款人持现比例。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q16","number":16,"group":"货币供求","type":"single","stem":"在货币政策的传导机制中，既可以作为操作目标，又可以是中介目标的是（　　）。 （2019）","options":{"A":"基础货币","B":"货币供应量","C":"短期利率","D":"长期利率"},"answer":["C"],"explanationSupplement":"短期利率可作为日常操作要引导的目标，也可在另一框架中作为中介利率指标。","optionExplanations":{"A":"通常是数量框架下的操作指标。","B":"常作为中介指标。","C":"两类框架均可使用短期利率。","D":"长期利率一般不是直接操作目标。"},"conceptId":"policy-targets"},{"id":"fin-05-q17","number":17,"group":"货币供求","type":"single","stem":"存款准备金率越高，则货币乘数（　　）。","options":{"A":"越大","B":"越小","C":"不相关","D":"不一定"},"answer":["B"],"explanationSupplement":"在其他比率给定的简化模型中，法定准备金率提高使乘数分母增大，货币乘数降低。","optionExplanations":{"A":"方向相反。","B":"符合固定其他条件时的关系。","C":"准备金率进入乘数公式。","D":"允许其他比率同时改变时才可能难以判断。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q18","number":18,"group":"货币供求","type":"single","stem":"中央银行通过调节（　　）来调节利率和价格，进而影响投资和经济。","options":{"A":"现金","B":"货币供应量","C":"存款准备金","D":"中间业务"},"answer":["B"],"explanationSupplement":"数量传导模型中，央行通过货币供应量影响利率和支出，继而影响投资、总需求和物价。","optionExplanations":{"A":"现金是供应量的一部分。","B":"符合题目给定的数量渠道。","C":"准备金通常是更靠近工具的变量。","D":"银行中间业务不是该传导链的变量。"},"conceptId":"policy-targets"},{"id":"fin-05-q19","number":19,"group":"货币供求","type":"single","stem":"中国人民银行从银行间外汇市场购入外汇时相应会（　　）。","options":{"A":"回笼基础货币","B":"投放基础货币","C":"购入基础货币","D":"买断基础货币"},"answer":["B"],"explanationSupplement":"央行购入外汇并以人民币支付时，交易本身投放基础货币。净投放还要考虑冲销或其他操作。","optionExplanations":{"A":"央行卖出外汇收人民币时可回笼。","B":"人民币结算形成投放。","C":"央行买的是外汇。","D":"买断基础货币不是这笔交易的表述。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q20","number":20,"group":"货币供求","type":"single","stem":"降低存款准备金比率，就可以改变货币乘数，（　　）。","options":{"A":"提高商业银行的信用扩张能力，起到收缩货币供应量的效果","B":"限制商业银行的信用扩张能力，起到收缩货币供应量的效果","C":"降低商业银行的信用扩张能力，起到扩张货币供应量的效果","D":"提高商业银行的信用扩张能力，起到扩张货币供应量的效果"},"answer":["D"],"explanationSupplement":"固定其他因素，降低法定准备率提高货币乘数并增加银行可用流动性。信贷和货币扩张幅度仍取决于需求和银行行为。","optionExplanations":{"A":"扩张能力上升，与供应收缩搭配不符。","B":"降低准备率一般缓解约束。","C":"降低准备率一般提高扩张能力。","D":"符合简化模型的方向。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q21","number":21,"group":"货币供求","type":"single","stem":"现券买断为央行直接从二级市场买入债券，一次性地（　　）。","options":{"A":"投放基础货币","B":"回笼基础货币","C":"增加货币需求量","D":"减少货币需求量"},"answer":["A"],"explanationSupplement":"现券买入由央行向交易对手支付资金，结算时投放基础货币。","optionExplanations":{"A":"对应资金流向市场。","B":"现券卖出通常回笼。","C":"未直接改变持币偏好。","D":"未直接改变持币偏好。"},"conceptId":"open-market"},{"id":"fin-05-q22","number":22,"group":"货币供求","type":"single","stem":"下列变量中，属于中央银行货币政策中介目标的是（　　）。","options":{"A":"超额准备金","B":"货币供应量","C":"法定存款准备金","D":"国际收支"},"answer":["B"],"explanationSupplement":"常见数量调控框架将货币供应量列为中介目标，操作变量在其之前，最终结果在其之后。","optionExplanations":{"A":"超额准备金更接近操作层。","B":"是典型的中介目标。","C":"法定准备金率属于工具，准备金量更接近操作层。","D":"可作为宏观最终目标。"},"conceptId":"policy-targets"},{"id":"fin-05-q23","number":23,"group":"货币供求","type":"single","stem":"下列金融变量中，直接受制于商业银行行为的是（　　）。","options":{"A":"超额存款准备金率","B":"储蓄存款比率","C":"定期存款比率","D":"通货比率"},"answer":["A"],"explanationSupplement":"商业银行根据流动性和风险管理安排超额准备金。公众的资产配置更直接决定现金和存款结构。","optionExplanations":{"A":"由银行自主留存的准备金决定。","B":"主要涉及存款人的选择。","C":"还取决于客户期限配置。","D":"反映公众持现偏好。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q24","number":24,"group":"货币供求","type":"single","stem":"关于货币政策操作目标的说法，正确的是（　　）。","options":{"A":"介于货币中介目标与终极目标政策之间","B":"介于货币政策工具与中介目标之间","C":"货币政策实施的远期操作目标","D":"货币政策工具操作的远期目标"},"answer":["B"],"explanationSupplement":"政策操作目标是央行使用工具后能够较直接影响的变量，并向中介目标传导。","optionExplanations":{"A":"这一位置描述中介目标。","B":"符合传导顺序。","C":"操作目标通常对应短期调节。","D":"远期对应中介或最终结果。"},"conceptId":"policy-targets"},{"id":"fin-05-q25","number":25,"group":"货币政策","type":"single","stem":"货币政策四大目标之间存在矛盾，同时实现是很困难的，但其中一致的是（　　）。","options":{"A":"充分就业与经济增长","B":"经济增长与国际收支平衡","C":"物价稳定与经济增长","D":"充分就业与物价稳定"},"answer":["A"],"explanationSupplement":"有闲置资源时，实际产出增长通常增加用工，增长与充分就业具有一致性。","optionExplanations":{"A":"是常见的同向关系。","B":"需求扩张可能增加进口，影响外部平衡。","C":"短期需求过旺时，增长和物价稳定可能有权衡。","D":"短期菲利普斯关系下可能有权衡。"},"conceptId":"policy-targets"},{"id":"fin-05-q26","number":26,"group":"货币政策","type":"single","stem":"下列货币政策工具中，属于直接信用控制类货币政策工具的是（　　）。","options":{"A":"优惠利率","B":"流动性比率","C":"准备金率","D":"再贴现利率"},"answer":["B"],"explanationSupplement":"按传统分类，直接规定金融机构的流动性比率可归入直接信用控制。","optionExplanations":{"A":"优惠利率常用于定向支持。","B":"属于传统直接信用控制。","C":"属于一般性准备金工具。","D":"属于一般性再贴现工具。"},"conceptId":"credit-controls"},{"id":"fin-05-q27","number":27,"group":"货币政策","type":"single","stem":"我国货币政策的最终目标是保持货币币值的稳定，并（　　）。","options":{"A":"以此促进经济增长","B":"以此促进国际收支平衡","C":"以此促进充分就业","D":"以此促进金融稳定"},"answer":["A"],"explanationSupplement":"《中国人民银行法》第三条把稳定货币币值与促进经济增长联系起来。","optionExplanations":{"A":"符合法律规定。","B":"是常见宏观目标，非该条后半句。","C":"是常见宏观目标，非该条后半句。","D":"金融稳定是央行职责之一，该条后半句指增长。"},"conceptId":"policy-targets"},{"id":"fin-05-q28","number":28,"group":"货币政策","type":"single","stem":"以下不属于公开市场业务优点的是（　　）。","options":{"A":"能够稳定证券市场","B":"易于逆向修正货币政策","C":"政策时滞较长","D":"对货币供应量的调节富有弹性"},"answer":["C"],"explanationSupplement":"央行可灵活改变交易量、期限和方向。传导至实体经济所需的时间属于局限。","optionExplanations":{"A":"通过管理流动性可缓和部分市场波动。","B":"可用反方向交易调整。","C":"时滞长描述局限。","D":"金额和期限可灵活选择。"},"conceptId":"open-market"},{"id":"fin-05-q29","number":29,"group":"货币政策","type":"single","stem":"中央银行在公开市场上买进政府债券的结果将是（　　）。","options":{"A":"银行贷款能力减弱","B":"市场利率上升","C":"公众手里的货币减少","D":"以上都不是"},"answer":["D"],"explanationSupplement":"央行买入债券直接投放流动性。在简化模型中，这可增强放贷能力并使利率承受下行压力。","optionExplanations":{"A":"银行可用资金一般增加。","B":"通常有向下压力。","C":"没有直接减少公众货币余额的机制。","D":"A 至 C 均不符合给定操作的一般方向。"},"conceptId":"open-market"},{"id":"fin-05-q30","number":30,"group":"货币政策","type":"single","stem":"中央银行为实现特定的经济目标而采取的各种控制、调节货币供应量或信用量的方针、政策、措施的总称是（　　）。","options":{"A":"货币政策","B":"货币政策工具","C":"信贷政策","D":"信贷政策工具"},"answer":["A"],"explanationSupplement":"调节货币、信贷和金融条件以实现宏观目标的总体措施属于货币政策。","optionExplanations":{"A":"涵盖题中各项手段。","B":"是政策使用的具体手段。","C":"范围主要集中在信贷。","D":"只指调整信贷的手段。"},"conceptId":"policy-targets"},{"id":"fin-05-q31","number":31,"group":"货币政策","type":"single","stem":"货币政策的制定者和执行者是（　　）。","options":{"A":"中央政府","B":"商业银行","C":"财政部","D":"中央银行"},"answer":["D"],"explanationSupplement":"我国中央银行是中国人民银行，在国务院领导下制定和执行货币政策。","optionExplanations":{"A":"国务院领导相关工作，具体制定执行主体是央行。","B":"商业银行是政策传导参与者。","C":"财政部门负责财政事务。","D":"符合央行职责。"},"conceptId":"policy-targets"},{"id":"fin-05-q32","number":32,"group":"货币政策","type":"single","stem":"在公开市场业务操作中，当正回购到期时，中国人民银行要进行的操作是向市场（　　）。","options":{"A":"现券买断","B":"投放流动性","C":"收回流动性","D":"现券卖断"},"answer":["B"],"explanationSupplement":"正回购起始时央行卖出证券回笼资金，到期时买回证券并支付资金。","optionExplanations":{"A":"现券买断不包含到期反向操作。","B":"到期支付对应流动性投放。","C":"是起始操作的方向。","D":"现券卖断不包含到期反向操作。"},"conceptId":"open-market"},{"id":"fin-05-q33","number":33,"group":"货币政策","type":"single","stem":"中央银行的逆回购操作对短期内货币供应量的影响是（　　）。","options":{"A":"增加货币供应量","B":"减少货币供应量","C":"不影响货币供应量","D":"不确定"},"answer":["A"],"explanationSupplement":"央行逆回购起始直接增加银行体系流动性，在基础传导模型中对货币供应量有扩张作用。广义货币能否及扩张多少仍要看信贷和其他操作。","optionExplanations":{"A":"符合基础模型的扩张方向。","B":"逆回购到期时通常是回笼。","C":"起始操作会改变银行准备金。","D":"广义货币增量取决于后续传导。"},"conceptId":"open-market"},{"id":"fin-05-q34","number":34,"group":"货币政策","type":"single","stem":"菲利普斯曲线说明了货币政策之间存在矛盾的是（　　）。","options":{"A":"经济增长与充分就业","B":"经济增长与稳定物价","C":"稳定物价与充分就业","D":"经济增长与国际收支平衡"},"answer":["C"],"explanationSupplement":"预期和供给条件给定时，短期菲利普斯曲线说明失业率降低可能伴随通胀上升，形成就业和物价稳定之间的权衡。","optionExplanations":{"A":"该曲线不直接涉及增长率。","B":"该曲线直接变量为失业率与通胀。","C":"与曲线变量对应。","D":"国际收支不在曲线坐标中。"},"conceptId":"policy-targets"},{"id":"fin-05-q35","number":35,"group":"货币政策","type":"single","stem":"一般而言，中央银行货币政策的首要目标是（　　）。","options":{"A":"稳定物价","B":"充分就业","C":"经济增长","D":"国际收支平衡"},"answer":["A"],"explanationSupplement":"稳定物价是多数货币政策框架的重要目标。具体目标及优先顺序需按当地法律和制度理解。","optionExplanations":{"A":"是常见的首要目标。","B":"部分制度明确纳入就业目标。","C":"政策可通过稳定金融和物价条件支持增长。","D":"可属于开放经济宏观目标。"},"conceptId":"policy-targets"},{"id":"fin-05-q36","number":36,"group":"货币政策","type":"single","stem":"2021年春节前夕，中国人民银行开展了500亿元 14天期逆回购操作，该操作起到的主要效果是（　　）。","options":{"A":"缓解市场上出现的短期流动性紧张局面","B":"提高人民币币值，降低汇率以促进出口","C":"提升银行间市场货币利率，增加贷款成本","D":"缓解股市上发生的短时间内暴跌走势"},"answer":["A"],"explanationSupplement":"题设的 14 天期逆回购起始向市场投放短期资金，主要缓解节前的流动性需求。","optionExplanations":{"A":"符合工具的期限和直接作用。","B":"汇率和出口并非该笔操作的直接目标。","C":"流动性投放通常缓和短端融资压力。","D":"工具作用于金融市场流动性，并不直接决定股价。"},"conceptId":"open-market"},{"id":"fin-05-q37","number":37,"group":"货币政策","type":"single","stem":"一般性货币政策工具中，主动权在商业银行而不在中央银行的工具是（　　）。","options":{"A":"存款准备金政策","B":"再贴现","C":"公开市场业务","D":"道义劝告"},"answer":["B"],"explanationSupplement":"再贴现需要商业银行携合格票据提出申请，央行设定利率和办理条件。","optionExplanations":{"A":"准备金要求由央行制定。","B":"银行决定是否申请。","C":"央行选择何时如何操作。","D":"道义劝告属于间接指导。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q38","number":38,"group":"货币政策","type":"single","stem":"货币政策是中央银行为实现特定经济目标而采取的各种方针、政策、措施的总称。关于货币政策基本特征的说法，错误的是（　　）。","options":{"A":"货币政策是宏观经济政策","B":"货币政策是调节社会总供给的政策","C":"货币政策主要是间接调控政策","D":"货币政策是长期连续的经济政策"},"answer":["B"],"explanationSupplement":"总需求管理模型中，货币政策主要通过融资条件影响消费、投资和总需求。","optionExplanations":{"A":"货币政策调节宏观经济。","B":"总供给不是该框架中的主要直接传导对象。","C":"通常经金融市场和银行传导。","D":"政策操作连续开展，具体力度可变化。"},"conceptId":"policy-targets"},{"id":"fin-05-q39","number":39,"group":"货币政策","type":"single","stem":"在银行贷款和投资收益不变的情况下，若中央银行降低再贴现率，商业银行就会（　　）信用。","options":{"A":"紧缩","B":"扩张","C":"稳定","D":"不确定"},"answer":["B"],"explanationSupplement":"降低再贴现率在给定贷款与投资回报时降低银行向央行融资的成本，支持信用扩张。","optionExplanations":{"A":"提高再贴现率才有紧缩方向。","B":"符合资金成本下降的激励。","C":"成本下降会改变放贷激励。","D":"题中其他条件给定，可以判断通常方向。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q40","number":40,"group":"货币政策","type":"single","stem":"作为一种直接信用控制的货币政策工具，利率限制是指中央银行规定（　　）。","options":{"A":"存款利率和贷款利率的下限","B":"存款利率和贷款利率的上限","C":"存款利率的上限和贷款利率的下限","D":"存款利率的下限和贷款利率的上限"},"answer":["C"],"explanationSupplement":"历史上的行政利率限制曾体现为存款利率上限和贷款利率下限。我国已推进利率市场化，实际定价规则参见讲解。","optionExplanations":{"A":"历史组合并非两类利率都设下限。","B":"历史组合并非两类利率都设上限。","C":"符合该题考察的历史组合。","D":"把两类历史限制方向调换了。"},"conceptId":"credit-controls"},{"id":"fin-05-q41","number":41,"group":"货币政策","type":"single","stem":"我国的公开市场操作中，中国人民银行向一级交易商卖出有价证券，并约定在未来特定日期买回有价证券，这种交易行为称为（　　）。","options":{"A":"现券买断","B":"现券卖断","C":"正回购","D":"逆回购"},"answer":["C"],"explanationSupplement":"从央行视角，先卖出证券并承诺未来买回属于正回购，起始吸收资金。","optionExplanations":{"A":"央行买入且无后续买回安排。","B":"没有到期买回安排。","C":"起始卖出、到期买回。","D":"央行先买入，再卖回。"},"conceptId":"open-market"},{"id":"fin-05-q42","number":42,"group":"货币政策","type":"single","stem":"无论是货币政策还是财政政策，都是通过影响利率、消费、投资进而影响（　　）。","options":{"A":"总收入","B":"总供给","C":"总需求","D":"总价格"},"answer":["C"],"explanationSupplement":"消费与投资都是总需求组成部分。利率和政策变化可通过这些支出影响总需求。","optionExplanations":{"A":"收入是均衡结果之一。","B":"题目列出的消费和投资属于需求组成。","C":"符合政策的支出传导。","D":"价格水平需结合总供给判断。"},"conceptId":"policy-targets"},{"id":"fin-05-q43","number":43,"group":"货币政策","type":"single","stem":"为了减少货币供应量，中央银行可采取（　　）。","options":{"A":"降低法定存款准备金率","B":"降低再贴现率","C":"提高再贴现率","D":"公开市场上买入债券"},"answer":["C"],"explanationSupplement":"提高再贴现率增加银行利用央行融资的成本，通常是紧缩方向。","optionExplanations":{"A":"降准通常释放流动性。","B":"降低再贴现率通常放松融资。","C":"提高再贴现率可收紧融资。","D":"买入债券通常投放流动性。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q44","number":44,"group":"货币政策","type":"discussion","stem":"当一个国家（或地区）市场货币供应量偏多时，中央银行应该采取的最有力、最见效的措施是（　　）。","options":{"A":"缩小再贴现标准","B":"放宽贴现标准","C":"提高再贴现率","D":"降低再贴现率"},"answer":[],"explanationSupplement":"提高再贴现率可能收紧信用，但政策效果受银行对再贴现的依赖、市场条件和配套工具影响。题目缺少判断何种手段最快、最强的条件。","optionExplanations":{"A":"若意指缩小合格票据范围，也可能收紧融资。","B":"放宽资格一般有扩张方向。","C":"提高融资成本，通常有紧缩方向。","D":"降低融资成本，一般有扩张方向。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q45","number":45,"group":"货币政策","type":"single","stem":"下列货币政策工具中，通过调节货币和信贷的供给影响货币供应量，进而对经济活动的各个方面都产生影响的是（　　）。","options":{"A":"利率限制","B":"窗口指导","C":"公开市场业务","D":"证券市场信用控制"},"answer":["C"],"explanationSupplement":"公开市场业务是总量工具，可通过准备金、利率和信贷条件影响整体经济。","optionExplanations":{"A":"利率限制在传统分类中属于直接信用控制。","B":"窗口指导属于间接信用引导。","C":"属于一般性工具。","D":"主要针对证券市场信用。"},"conceptId":"open-market"},{"id":"fin-05-q46","number":46,"group":"货币政策","type":"single","stem":"中央银行货币政策工具中，再贴现政策的优点不包括（　　）。","options":{"A":"政策效果猛烈","B":"调整机动、灵活","C":"以票据融资，风险极小","D":"有利于中央银行发挥最后贷款人职能"},"answer":["A"],"explanationSupplement":"再贴现的规模受银行申请与合格票据约束，因此影响可相对灵活。票据有助于风控，仍有信用、操作与合规风险。","optionExplanations":{"A":"效果猛烈一般不列为优点。","B":"利率、条件和业务规模可调整。","C":"合格票据可降低部分风险，“极小”取决于具体风控。","D":"可提供央行流动性支持。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q47","number":47,"group":"货币政策","type":"single","stem":"在其他条件不变的情况下，中央银行提高再贴现率时，会使商业银行（　　）。","options":{"A":"提高贷款利率","B":"降低贷款利率","C":"贷款利率升降不受影响","D":"贷款利率升降不好判断"},"answer":["A"],"explanationSupplement":"给定其他条件，提高再贴现率增加银行资金成本，若成本向客户传导，贷款利率有上升压力。","optionExplanations":{"A":"符合通常的资金成本传导。","B":"与融资成本上升的常见方向相反。","C":"银行仍可受央行融资价格影响。","D":"题目采用其他条件给定的方向判断。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q48","number":48,"group":"货币政策","type":"single","stem":"通货膨胀对策中，通过公开市场业务出售政府债券属于（　　）。","options":{"A":"控制需求","B":"改善供给","C":"减少政府转移支付","D":"收入指数化政策"},"answer":["A"],"explanationSupplement":"央行卖出政府债券并收取资金，从需求管理角度属于回笼流动性、抑制过旺需求的措施。","optionExplanations":{"A":"符合政策渠道。","B":"不会直接增加生产能力。","C":"转移支付属于财政工具。","D":"指数化调整合同名义金额。"},"conceptId":"open-market"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter22","number":5,"title":"货币供求与货币政策","moduleId":"finance","moduleTitle":"金融基础","downloadName":"金融基础-05-货币供求与货币政策-离线学习.html","visual":"multiplier","visualSectionId":"deposit-multiplier","visuals":[{"type":"multiplier","sectionId":"deposit-multiplier"}]},"lessons":{"title":"货币供求与货币政策","subtitle":"从持币动机、存款创造和中央银行操作理解货币如何影响经济。","sections":[{"id":"quantity-theory","title":"货币需求与数量论","summary":"货币需求是一个存量，通常随名义交易额增加而增加。","bodyHtml":"\u003cp>在简化的流通货币量分析中，商品价格总额除以货币流通速度给出所需货币量。马克思还分析了赊销、到期支付和债务抵销对货币需要量的影响。\u003c/p>\u003cp>\u003cstrong>费雪方程式 MV = PT\u003c/strong>把货币存量 M、周转速度 V 和交易总额 PT 联系起来。若用名义产出近似交易额，可写成 MV = PY。\u003cstrong>剑桥方程式 Mᵈ = kPY\u003c/strong>从公众愿意持有的货币余额出发，k 为希望以货币保有的名义收入比例。定义一致且处于均衡时，可以把 k 理解为收入流通速度的倒数。\u003c/p>","keyTakeaway":"费雪侧重交易与流通，剑桥侧重现金余额。","pitfall":"比较 P、Y 或 V 的影响时固定其他变量。MV = PY 本身是恒等关系，因果推论还需假设。","example":"名义产出为 1,000，V 为 5，按简化方程计算需要的货币量为 200。"},{"id":"liquidity-preference","title":"凯恩斯与弗里德曼的货币需求","summary":"分清当前利率的机会成本、预期未来利率的价格风险与恒久收入。","bodyHtml":"\u003cp>凯恩斯将持币分为\u003cstrong>交易、预防、投机\u003c/strong>三种动机。基础模型中交易和预防需求随收入增加，投机需求随当前利率上升而减少，因为持有货币放弃的利息增加。若预期未来利率上升，现有债券未来售价可能下降，持币意愿反而上升。\u003c/p>\u003cp>当前利率很低时，若人们预期利率回升和债券价格下跌，可能愿意持有更多新增货币，形成流动性陷阱。弗里德曼把货币视为资产组合的一部分，强调恒久性收入及货币与债券、股票、实物等资产的相对回报。\u003c/p>","keyTakeaway":"先辨认变化的是当前利率还是预期未来利率。","pitfall":"恒久性收入是对长期收入能力的估计，临时收入变化未必带来同幅货币需求变化。","example":"若交易者预期明年市场利率上升，可能减少持有现有固定息债券，等待更高收益率的买入机会。"},{"id":"base-and-aggregates","title":"基础货币与货币供应量层次","summary":"基础货币把公众持有的现金和银行准备金相加，M1 按可支付性统计。","bodyHtml":"\u003cp>\u003cstrong>基础货币 B = C + R\u003c/strong>，C 是公众持有的现金，R 是银行准备金，含法定和超额部分。央行向银行贷款、买入证券或买入外汇并支付本币，可形成基础货币投放。反向交易可回笼，净变化要合并其他操作。\u003c/p>\u003cp>按中国人民银行自 2025 年 1 月启用的 M1 统计口径，\u003cstrong>M1 = M0 + 单位活期存款 + 个人活期存款 + 非银行支付机构客户备付金\u003c/strong>。M0 是流通中货币，M2 的范围更广。统计口径核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.pbc.gov.cn/chubanwu/fileDir/resource/cms/2025/06/2025062416082199683.pdf\">中国人民银行公告〔2024〕第 17 号\u003c/a>\u003c/p>","keyTakeaway":"央行准备金与公众持有的活期存款属于不同账户层次。","pitfall":"统计题先辨认给出的货币层次和适用年份。","example":"某银行活期和定期法定准备金分别为 12 万元和 5 万元，另有超额准备金 3 万元，实际准备金共 20 万元。"},{"id":"deposit-multiplier","title":"派生存款与货币乘数","summary":"先确认分母中的准备金率、漏损率和定活比使用同一基准。","bodyHtml":"\u003cp>在简化模型中，原始存款可以来自存入现金或央行投放形成的资金。商业银行发放贷款通常在借款人账户上形成存款，银行间付款可能把存款与准备金转移到另一家银行。\u003c/p>\u003cp>以活期存款为基准，令 c 为现金漏损率，e 为超额准备率，r\u003csub>d\u003c/sub> 为活期法定准备率，r\u003csub>t\u003c/sub> 为定期法定准备率，t 为定期与活期存款之比。活期存款扩张倍数 \u003cstrong>K = 1 ÷ (r\u003csub>d\u003c/sub> + e + c + r\u003csub>t\u003c/sub>t)\u003c/strong>。若货币口径取现金和活期存款之和，则货币乘数 \u003cstrong>m = (1 + c) ÷ (r\u003csub>d\u003c/sub> + e + c + r\u003csub>t\u003c/sub>t)\u003c/strong>。\u003c/p>\u003cp>模型假设各比率固定。现实中，信用需求、资本约束、风险管理与政策利率都会影响信贷和存款。\u003c/p>","keyTakeaway":"货币乘数分子计入现金，简单存款乘数的分子为 1。","pitfall":"公式对应简化的货币口径。若题目把定期存款也计入货币供应量，分子需要按定义调整。","example":"若 c = 0.38、r = 0.18、e = 0，且忽略定期存款，基础货币增加 100 亿美元，货币供应量约增加 246 亿美元。"},{"id":"policy-targets","title":"货币政策的目标与传导","summary":"顺着工具、操作目标、中介目标到最终目标判断变量。","bodyHtml":"\u003cp>货币政策是中央银行运用政策工具调节货币、信贷和金融条件的政策。宏观目标常涉及物价稳定、充分就业、经济增长和国际收支平衡。增长与就业通常同向，短期内价格稳定与就业之间可能出现权衡。\u003c/p>\u003cp>工具直接影响短期市场利率或准备金等\u003cstrong>操作目标\u003c/strong>，并可通过货币供应量、市场利率或信贷等\u003cstrong>中介指标\u003c/strong>传导。具体变量属于哪一层，取决于政策框架。\u003c/p>\u003cp>《中国人民银行法》第三条规定，目标是稳定货币币值，并以此促进经济增长。我国货币政策实践中，公开市场 7 天期逆回购操作利率发挥主要政策利率作用。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202308/t20230810_3219571.html\">《中华人民共和国中国人民银行法》\u003c/a> · \u003ca href=\"https://www.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/5347949/afbfa5df25ee45889d916a2819b60a43/2024110815410752868.pdf\">中国人民银行货币政策执行报告\u003c/a>\u003c/p>","keyTakeaway":"工具是采取的措施，目标是传导中的变量或最终结果。","pitfall":"央行设定的政策利率与受其引导的银行间市场利率可以同时出现，作用不同。","example":"央行通过公开市场工具引导短期市场利率，进而影响融资成本、企业投资和居民支出。"},{"id":"open-market","title":"公开市场操作与流动性","summary":"从央行视角区分现券、正回购和逆回购的起始与到期现金流。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>操作\u003c/th>\u003cth>起始时\u003c/th>\u003cth>到期时\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>现券买入\u003c/td>\u003ctd>央行支付资金，投放\u003c/td>\u003ctd>无约定反向操作\u003c/td>\u003c/tr>\u003ctr>\u003ctd>现券卖出\u003c/td>\u003ctd>央行收取资金，回笼\u003c/td>\u003ctd>无约定反向操作\u003c/td>\u003c/tr>\u003ctr>\u003ctd>央行正回购\u003c/td>\u003ctd>卖出证券并收取资金，回笼\u003c/td>\u003ctd>买回证券并支付资金，投放\u003c/td>\u003c/tr>\u003ctr>\u003ctd>央行逆回购\u003c/td>\u003ctd>买入证券并支付资金，投放\u003c/td>\u003ctd>卖回证券并收取资金，回笼\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>公开市场操作可按金额与期限灵活调节。其有效运行依赖有深度的市场和合格交易对手。从银行流动性传导到总支出、就业和通胀需要时间。政策工具说明核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.stats.gov.cn/zs/tjws/zytjzbqs/hbgyl/202502/t20250226_1958808.html\">国家统计局《货币供应量分析》\u003c/a>\u003c/p>","keyTakeaway":"央行当期付出资金是投放，收到资金是回笼。","pitfall":"看净流动性时合并当日新作和到期量。逆回购起始增加银行体系流动性，广义货币还取决于信贷与存款反应。","example":"当天开展逆回购 500 亿元，同时有 300 亿元逆回购到期，两项合并净投放 200 亿元。"},{"id":"reserve-rediscount","title":"存款准备金与再贴现","summary":"区分通过准备金约束调整流动性和通过票据改变银行融资条件。","bodyHtml":"\u003cp>\u003cstrong>存款准备金政策\u003c/strong>直接调整法定准备金要求，覆盖范围较广，影响可能较大。降低要求通常提高银行可用资金和扩张能力，实际贷款还取决于需求、资本和风险。\u003c/p>\u003cp>\u003cstrong>再贴现\u003c/strong>是符合条件的金融机构把已贴现、未到期的票据向央行办理贴现以取得资金。央行可调节再贴现率和票据条件，银行决定是否申请，因此工具使用受机构融资需求影响。符合票据规则可控制部分风险，仍需管理信用、操作和合规风险。\u003c/p>\u003cp>法定工具核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202308/t20230810_3219571.html\">《中华人民共和国中国人民银行法》第二十三条\u003c/a>\u003c/p>","keyTakeaway":"降准调节约束，再贴现调节取得央行资金的条件。","pitfall":"商业银行主动申请再贴现，央行仍设定利率和受理条件。","example":"若商业银行持有符合条件的未到期票据，再贴现率下降可能降低其取得央行资金的成本。"},{"id":"credit-controls","title":"选择性工具与信用控制","summary":"按影响范围和传导手段区分定向支持、直接约束与沟通引导。","bodyHtml":"\u003cp>传统分类把证券、消费和不动产信用控制、优惠利率与预缴进口保证金列为选择性工具。直接信用控制包括贷款限额、利率限制、流动性比率和直接干预。间接信用指导包括道义劝告、窗口指导。不同年代和制度框架的分类可有区别。\u003c/p>\u003cp>历史上的行政利率管制曾限制存款利率上浮和贷款利率下浮。我国 2013 年放开金融机构贷款利率管制，2015 年取消商业银行等机构的存款利率浮动上限。现行利率框架不能直接套用历史考法。核验于 2026 年 11 月 11 日。\u003ca href=\"https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/5427706/2024080916563291755.pdf\">中国人民银行利率市场化改革说明\u003c/a>\u003c/p>","keyTakeaway":"先看措施针对全局还是特定领域，再看依靠行政约束还是引导。","pitfall":"宏观审慎流动性指标与传统信用控制分类属于不同分析框架。","example":"只调节某类证券的保证金比例，主要影响相应信用交易，可作为选择性工具的例子。"}],"mindmap":[{"label":"货币供求","target":"quantity-theory","children":[{"label":"货币需求理论","target":"quantity-theory","children":[{"label":"马克思流通货币量理论","target":"quantity-theory"},{"label":"传统货币数量论","target":"quantity-theory","children":[{"label":"费雪方程式","target":"quantity-theory"},{"label":"剑桥方程式","target":"quantity-theory"}]},{"label":"凯恩斯流动性偏好","target":"liquidity-preference","children":[{"label":"交易、预防与投机","target":"liquidity-preference"},{"label":"流动性陷阱","target":"liquidity-preference"}]},{"label":"弗里德曼货币需求","target":"liquidity-preference","children":[{"label":"恒久性收入","target":"liquidity-preference"},{"label":"相对资产收益","target":"liquidity-preference"}]}]},{"label":"货币供给理论","target":"base-and-aggregates","children":[{"label":"基础货币","target":"base-and-aggregates","children":[{"label":"流通中现金、法定和超额准备金","target":"base-and-aggregates"},{"label":"央行投放与回笼渠道","target":"base-and-aggregates"},{"label":"与 M0、M1 的区别","target":"base-and-aggregates"}]},{"label":"存款乘数","target":"deposit-multiplier","children":[{"label":"存款乘数的含义","target":"deposit-multiplier"},{"label":"原始存款","target":"deposit-multiplier"},{"label":"派生存款","target":"deposit-multiplier"},{"label":"准备金率、现金漏损与定活比","target":"deposit-multiplier"}]},{"label":"货币乘数","target":"deposit-multiplier","children":[{"label":"现金和存款的口径","target":"deposit-multiplier"},{"label":"分子与分母","target":"deposit-multiplier"}]}]}]},{"label":"货币政策","target":"policy-targets","children":[{"label":"政策含义与特征","target":"policy-targets"},{"label":"货币政策目标","target":"policy-targets","children":[{"label":"最终目标","target":"policy-targets","children":[{"label":"物价稳定、充分就业、增长与国际收支","target":"policy-targets"},{"label":"我国货币政策法定目标","target":"policy-targets"},{"label":"就业与增长的联系","target":"policy-targets"},{"label":"短期就业与物价权衡","target":"policy-targets"}]},{"label":"中介目标","target":"policy-targets","children":[{"label":"货币供应量、利率和信贷","target":"policy-targets"}]},{"label":"操作目标","target":"policy-targets","children":[{"label":"短期利率、基础货币与准备金","target":"policy-targets"}]}]},{"label":"货币政策工具","target":"open-market","children":[{"label":"一般性工具","target":"reserve-rediscount","children":[{"label":"存款准备金政策","target":"reserve-rediscount","children":[{"label":"影响与局限","target":"reserve-rediscount"}]},{"label":"再贴现政策","target":"reserve-rediscount","children":[{"label":"银行申请与央行条件","target":"reserve-rediscount"}]},{"label":"公开市场业务","target":"open-market","children":[{"label":"现券买卖","target":"open-market"},{"label":"正回购、逆回购与到期流向","target":"open-market"},{"label":"影响与局限","target":"open-market"}]}]},{"label":"选择性工具","target":"credit-controls","children":[{"label":"证券市场信用控制","target":"credit-controls"},{"label":"消费信用控制","target":"credit-controls"},{"label":"不动产信用控制","target":"credit-controls"},{"label":"优惠利率与预缴进口保证金","target":"credit-controls"}]},{"label":"直接信用控制","target":"credit-controls","children":[{"label":"贷款限额","target":"credit-controls"},{"label":"利率限制","target":"credit-controls"},{"label":"流动性比率","target":"credit-controls"},{"label":"直接干预","target":"credit-controls"}]},{"label":"间接信用指导","target":"credit-controls","children":[{"label":"道义劝告","target":"credit-controls"},{"label":"窗口指导","target":"credit-controls"}]}]}]}]},"questions":[{"id":"fin-05-q01","number":1,"group":"货币供求","type":"single","stem":"在我国，收入变动与货币需求量变动之间的关系是（　　）。","options":{"A":"同方向","B":"反方向","C":"无任何直接关系","D":"A 与B 都可能"},"answer":["A"],"explanationSupplement":"其他条件给定，收入提高通常增加交易和预防性持币需求。","optionExplanations":{"A":"与基础模型一致。","B":"方向相反。","C":"收入会影响交易规模。","D":"题目考察收入的单独影响。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q02","number":2,"group":"货币供求","type":"single","stem":"当预期利率上升时，根据凯恩斯流动偏好理论，人们就会（　　）。","options":{"A":"增加消费","B":"抛出货币而持有债券","C":"增加投资","D":"抛出债券而持有货币"},"answer":["D"],"explanationSupplement":"预期未来利率上升意味着已有固定息债券的价格可能下降，持有现金可避免预期资本损失。","optionExplanations":{"A":"题目考察资产组合。","B":"预期旧债券降价时不利于持债。","C":"未给出投资项目的信息。","D":"卖债持币符合预期价格变化。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q03","number":3,"group":"货币供求","type":"single","stem":"关于货币需求的描述不准确的是（　　）。","options":{"A":"货币需求量与收入水平成正比","B":"利息率上升，货币需求增加","C":"货币流通速度与货币需求成反比","D":"物价水平同货币需求成正比"},"answer":["B"],"explanationSupplement":"固定收入与其他条件，当前利率上升增加持币的机会成本，压低投机性货币需求。","optionExplanations":{"A":"固定其他条件，交易需求随收入提高。","B":"当前利率上升通常减少投机性持币。","C":"固定名义交易额，周转快则所需余额少。","D":"固定产出和速度，名义需求随价格提高。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q04","number":4,"group":"货币供求","type":"single","stem":"凯恩斯货币需求理论下列说法错误的是（　　）。","options":{"A":"实际货币需求量与国民收入成正相关，与市场利率反相关","B":"实际货币需求量与国民收入成反相关，与市场利率正相关","C":"市场利率很低时，存在流动性陷阱","D":"之所以有货币需求，是因为交易、预防及投机动机的存在"},"answer":["B"],"explanationSupplement":"实际货币需求通常随收入增加，随当前市场利率上升而减少。","optionExplanations":{"A":"符合基础模型。","B":"两个方向都写反。","C":"极低利率可伴随流动性陷阱。","D":"三种动机符合模型。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q05","number":5,"group":"货币供求","type":"single","stem":"弗里德曼认为，决定货币需求的收入因素是（　　）。","options":{"A":"现期收入","B":"恒久性收入","C":"生命周期收入","D":"可支配收入"},"answer":["B"],"explanationSupplement":"弗里德曼用恒久性收入概括长期收入能力，并比较货币与其他资产的收益。","optionExplanations":{"A":"现期收入可能受临时冲击。","B":"是该理论的收入变量。","C":"常用于生命周期消费分析。","D":"描述税收转移后的可用收入。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q06","number":6,"group":"货币供求","type":"discussion","stem":"凯恩斯认为，当利率极低时，人们会认为这种利率不太可能上升而只会下跌，从而选择持币在手这种现象称为（　　）。","options":{"A":"流动偏好陷阱","B":"资产泡沫","C":"边际消费倾向","D":"交易动机陷阱"},"answer":[],"explanationSupplement":"流动性陷阱的经典解释是利率已很低，市场预期利率回升、债券价格下降，因而更愿意持有货币。题干把预期利率方向写反。","optionExplanations":{"A":"术语对应低利率下的高度持币倾向。","B":"资产价格超过基本面价值属于另一问题。","C":"边际消费倾向衡量收入增加后消费的变化。","D":"交易动机与日常支付有关。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q07","number":7,"group":"货币供求","type":"single","stem":"从货币形式保有资产存量的角度分析货币需求，重视存量占收入比例的货币需求理论是（　　）。","options":{"A":"剑桥方程式","B":"费雪方程式","C":"现金交易说","D":"凯恩斯的货币需求函数"},"answer":["A"],"explanationSupplement":"剑桥方程式从持有余额的角度分析，k 代表愿以货币形式持有的名义收入比例。","optionExplanations":{"A":"直接描述资产余额。","B":"着眼于交易额与货币流通速度。","C":"通常用来称呼费雪的交易分析。","D":"强调交易、预防和投机动机。"},"conceptId":"quantity-theory"},{"id":"fin-05-q08","number":8,"group":"货币供求","type":"single","stem":"在持币动机中，凯恩斯认为对利率反应最为敏感的是（　　）。","options":{"A":"交易动机","B":"预防动机","C":"投机动机","D":"储藏动机"},"answer":["C"],"explanationSupplement":"基础模型中，交易和预防持币主要随收入变化，投机持币对利率最敏感。","optionExplanations":{"A":"主要对应交易规模。","B":"主要为意外支付留储备。","C":"利率改变货币和债券的相对吸引力。","D":"不属于该模型列出的三种标准动机。"},"conceptId":"liquidity-preference"},{"id":"fin-05-q09","number":9,"group":"货币供求","type":"single","stem":"通过派生存款机制向流通领域供给货币的金融机构是（　　）。","options":{"A":"商业银行","B":"中央银行","C":"证券公司","D":"投资公司"},"answer":["A"],"explanationSupplement":"商业银行发放贷款可以在借款人账户形成存款，银行体系由此创造存款货币。","optionExplanations":{"A":"通过贷款形成存款。","B":"主要提供基础货币。","C":"证券交易撮合不等于创造银行存款。","D":"通常不承担商业银行的存款创造功能。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q10","number":10,"group":"货币供求","type":"single","stem":"关于基础货币构成的说法，正确的是（　　）。","options":{"A":"流通中的现金加上银行准备金","B":"流通中的现金加上活期存款","C":"流通中的现金加上定期存款","D":"流通中的现金加上储蓄存款"},"answer":["A"],"explanationSupplement":"基础货币是公众持有的现金和银行准备金之和。","optionExplanations":{"A":"符合基础货币口径。","B":"活期存款属于公众的银行存款。","C":"定期存款不属于央行准备金。","D":"储蓄存款是商业银行负债。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q11","number":11,"group":"货币供求","type":"single","stem":"关于基础货币的说法，正确的是（　　）。","options":{"A":"它是单位定期存款和单位其他存款之和","B":"中央银行通过其他资产业务创造基础货币","C":"它是中央银行的非货币性负债","D":"中央银行通过卖出黄金投放基础货币"},"answer":["B"],"explanationSupplement":"央行购入资产或向银行贷款、同时贷记准备金账户，可以增加基础货币。","optionExplanations":{"A":"单位存款不是基础货币。","B":"符合央行资产操作的会计机制。","C":"基础货币是货币性负债。","D":"卖出资产并收取本币通常回笼货币。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q12","number":12,"group":"货币供求","type":"discussion","stem":"根据我国货币供应量层次的划分，M1 包括流通中的现金和（　　）。","options":{"A":"单位定期存款","B":"单位活期存款","C":"大额可转让定期存单","D":"储蓄存款"},"answer":[],"explanationSupplement":"单位活期存款仍计入 M1。自统计 2025 年 1 月数据起，口径还纳入个人活期存款和非银行支付机构客户备付金。","optionExplanations":{"A":"单位定期存款不属于 M1。","B":"单位活期属于 M1，现行范围比选项表述更广。","C":"定期存单一般不属于狭义货币。","D":"应区分个人活期与定期，笼统写储蓄存款不够准确。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q13","number":13,"group":"货币供求","type":"single","stem":"如果某商业银行的活期存款准备金为12万元，定期存款准备金为5万元，超额存款准备金为3万元，则该商业银行实际缴存的存款准备金（　　）万元。","options":{"A":"8","B":"12","C":"17","D":"20"},"answer":["D"],"explanationSupplement":"实际准备金包括题目给出的两类法定准备金和超额准备金，12 + 5 + 3 = 20 万元。","optionExplanations":{"A":"只加了定期与超额。","B":"只计活期法定准备金。","C":"未计超额准备金。","D":"三项合计为 20。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q14","number":14,"group":"货币供求","type":"single","stem":"假定现金漏损率为 0.38，法定存款准备金率为 0.18，超额存款准备金率为0。若增加基础货币投放100亿美元，则货币供给增加（　　）亿美元。","options":{"A":"179","B":"246","C":"363","D":"767"},"answer":["B"],"explanationSupplement":"给定现金漏损 c=0.38、法定准备率 r=0.18、超额准备率 e=0。货币乘数 1.38÷0.56 约为 2.464，乘以 100 约得 246 亿美元。","optionExplanations":{"A":"约是分子未计现金时的结果。","B":"含现金的货币乘数计算正确。","C":"不符合给定比例。","D":"不符合给定比例。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q15","number":15,"group":"货币供求","type":"single","stem":"在影响货币乘数的因素中，现金漏损率的变动主要取决于（　　）。","options":{"A":"储户","B":"商业银行","C":"中央银行","D":"非银行金融机构"},"answer":["A"],"explanationSupplement":"现金漏损率反映公众在现金和存款之间的选择。","optionExplanations":{"A":"储户决定如何持有资金。","B":"银行主要决定超额准备金偏好。","C":"央行设定法定准备要求。","D":"不直接决定存款人持现比例。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q16","number":16,"group":"货币供求","type":"single","stem":"在货币政策的传导机制中，既可以作为操作目标，又可以是中介目标的是（　　）。 （2019）","options":{"A":"基础货币","B":"货币供应量","C":"短期利率","D":"长期利率"},"answer":["C"],"explanationSupplement":"短期利率可作为日常操作要引导的目标，也可在另一框架中作为中介利率指标。","optionExplanations":{"A":"通常是数量框架下的操作指标。","B":"常作为中介指标。","C":"两类框架均可使用短期利率。","D":"长期利率一般不是直接操作目标。"},"conceptId":"policy-targets"},{"id":"fin-05-q17","number":17,"group":"货币供求","type":"single","stem":"存款准备金率越高，则货币乘数（　　）。","options":{"A":"越大","B":"越小","C":"不相关","D":"不一定"},"answer":["B"],"explanationSupplement":"在其他比率给定的简化模型中，法定准备金率提高使乘数分母增大，货币乘数降低。","optionExplanations":{"A":"方向相反。","B":"符合固定其他条件时的关系。","C":"准备金率进入乘数公式。","D":"允许其他比率同时改变时才可能难以判断。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q18","number":18,"group":"货币供求","type":"single","stem":"中央银行通过调节（　　）来调节利率和价格，进而影响投资和经济。","options":{"A":"现金","B":"货币供应量","C":"存款准备金","D":"中间业务"},"answer":["B"],"explanationSupplement":"数量传导模型中，央行通过货币供应量影响利率和支出，继而影响投资、总需求和物价。","optionExplanations":{"A":"现金是供应量的一部分。","B":"符合题目给定的数量渠道。","C":"准备金通常是更靠近工具的变量。","D":"银行中间业务不是该传导链的变量。"},"conceptId":"policy-targets"},{"id":"fin-05-q19","number":19,"group":"货币供求","type":"single","stem":"中国人民银行从银行间外汇市场购入外汇时相应会（　　）。","options":{"A":"回笼基础货币","B":"投放基础货币","C":"购入基础货币","D":"买断基础货币"},"answer":["B"],"explanationSupplement":"央行购入外汇并以人民币支付时，交易本身投放基础货币。净投放还要考虑冲销或其他操作。","optionExplanations":{"A":"央行卖出外汇收人民币时可回笼。","B":"人民币结算形成投放。","C":"央行买的是外汇。","D":"买断基础货币不是这笔交易的表述。"},"conceptId":"base-and-aggregates"},{"id":"fin-05-q20","number":20,"group":"货币供求","type":"single","stem":"降低存款准备金比率，就可以改变货币乘数，（　　）。","options":{"A":"提高商业银行的信用扩张能力，起到收缩货币供应量的效果","B":"限制商业银行的信用扩张能力，起到收缩货币供应量的效果","C":"降低商业银行的信用扩张能力，起到扩张货币供应量的效果","D":"提高商业银行的信用扩张能力，起到扩张货币供应量的效果"},"answer":["D"],"explanationSupplement":"固定其他因素，降低法定准备率提高货币乘数并增加银行可用流动性。信贷和货币扩张幅度仍取决于需求和银行行为。","optionExplanations":{"A":"扩张能力上升，与供应收缩搭配不符。","B":"降低准备率一般缓解约束。","C":"降低准备率一般提高扩张能力。","D":"符合简化模型的方向。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q21","number":21,"group":"货币供求","type":"single","stem":"现券买断为央行直接从二级市场买入债券，一次性地（　　）。","options":{"A":"投放基础货币","B":"回笼基础货币","C":"增加货币需求量","D":"减少货币需求量"},"answer":["A"],"explanationSupplement":"现券买入由央行向交易对手支付资金，结算时投放基础货币。","optionExplanations":{"A":"对应资金流向市场。","B":"现券卖出通常回笼。","C":"未直接改变持币偏好。","D":"未直接改变持币偏好。"},"conceptId":"open-market"},{"id":"fin-05-q22","number":22,"group":"货币供求","type":"single","stem":"下列变量中，属于中央银行货币政策中介目标的是（　　）。","options":{"A":"超额准备金","B":"货币供应量","C":"法定存款准备金","D":"国际收支"},"answer":["B"],"explanationSupplement":"常见数量调控框架将货币供应量列为中介目标，操作变量在其之前，最终结果在其之后。","optionExplanations":{"A":"超额准备金更接近操作层。","B":"是典型的中介目标。","C":"法定准备金率属于工具，准备金量更接近操作层。","D":"可作为宏观最终目标。"},"conceptId":"policy-targets"},{"id":"fin-05-q23","number":23,"group":"货币供求","type":"single","stem":"下列金融变量中，直接受制于商业银行行为的是（　　）。","options":{"A":"超额存款准备金率","B":"储蓄存款比率","C":"定期存款比率","D":"通货比率"},"answer":["A"],"explanationSupplement":"商业银行根据流动性和风险管理安排超额准备金。公众的资产配置更直接决定现金和存款结构。","optionExplanations":{"A":"由银行自主留存的准备金决定。","B":"主要涉及存款人的选择。","C":"还取决于客户期限配置。","D":"反映公众持现偏好。"},"conceptId":"deposit-multiplier"},{"id":"fin-05-q24","number":24,"group":"货币供求","type":"single","stem":"关于货币政策操作目标的说法，正确的是（　　）。","options":{"A":"介于货币中介目标与终极目标政策之间","B":"介于货币政策工具与中介目标之间","C":"货币政策实施的远期操作目标","D":"货币政策工具操作的远期目标"},"answer":["B"],"explanationSupplement":"政策操作目标是央行使用工具后能够较直接影响的变量，并向中介目标传导。","optionExplanations":{"A":"这一位置描述中介目标。","B":"符合传导顺序。","C":"操作目标通常对应短期调节。","D":"远期对应中介或最终结果。"},"conceptId":"policy-targets"},{"id":"fin-05-q25","number":25,"group":"货币政策","type":"single","stem":"货币政策四大目标之间存在矛盾，同时实现是很困难的，但其中一致的是（　　）。","options":{"A":"充分就业与经济增长","B":"经济增长与国际收支平衡","C":"物价稳定与经济增长","D":"充分就业与物价稳定"},"answer":["A"],"explanationSupplement":"有闲置资源时，实际产出增长通常增加用工，增长与充分就业具有一致性。","optionExplanations":{"A":"是常见的同向关系。","B":"需求扩张可能增加进口，影响外部平衡。","C":"短期需求过旺时，增长和物价稳定可能有权衡。","D":"短期菲利普斯关系下可能有权衡。"},"conceptId":"policy-targets"},{"id":"fin-05-q26","number":26,"group":"货币政策","type":"single","stem":"下列货币政策工具中，属于直接信用控制类货币政策工具的是（　　）。","options":{"A":"优惠利率","B":"流动性比率","C":"准备金率","D":"再贴现利率"},"answer":["B"],"explanationSupplement":"按传统分类，直接规定金融机构的流动性比率可归入直接信用控制。","optionExplanations":{"A":"优惠利率常用于定向支持。","B":"属于传统直接信用控制。","C":"属于一般性准备金工具。","D":"属于一般性再贴现工具。"},"conceptId":"credit-controls"},{"id":"fin-05-q27","number":27,"group":"货币政策","type":"single","stem":"我国货币政策的最终目标是保持货币币值的稳定，并（　　）。","options":{"A":"以此促进经济增长","B":"以此促进国际收支平衡","C":"以此促进充分就业","D":"以此促进金融稳定"},"answer":["A"],"explanationSupplement":"《中国人民银行法》第三条把稳定货币币值与促进经济增长联系起来。","optionExplanations":{"A":"符合法律规定。","B":"是常见宏观目标，非该条后半句。","C":"是常见宏观目标，非该条后半句。","D":"金融稳定是央行职责之一，该条后半句指增长。"},"conceptId":"policy-targets"},{"id":"fin-05-q28","number":28,"group":"货币政策","type":"single","stem":"以下不属于公开市场业务优点的是（　　）。","options":{"A":"能够稳定证券市场","B":"易于逆向修正货币政策","C":"政策时滞较长","D":"对货币供应量的调节富有弹性"},"answer":["C"],"explanationSupplement":"央行可灵活改变交易量、期限和方向。传导至实体经济所需的时间属于局限。","optionExplanations":{"A":"通过管理流动性可缓和部分市场波动。","B":"可用反方向交易调整。","C":"时滞长描述局限。","D":"金额和期限可灵活选择。"},"conceptId":"open-market"},{"id":"fin-05-q29","number":29,"group":"货币政策","type":"single","stem":"中央银行在公开市场上买进政府债券的结果将是（　　）。","options":{"A":"银行贷款能力减弱","B":"市场利率上升","C":"公众手里的货币减少","D":"以上都不是"},"answer":["D"],"explanationSupplement":"央行买入债券直接投放流动性。在简化模型中，这可增强放贷能力并使利率承受下行压力。","optionExplanations":{"A":"银行可用资金一般增加。","B":"通常有向下压力。","C":"没有直接减少公众货币余额的机制。","D":"A 至 C 均不符合给定操作的一般方向。"},"conceptId":"open-market"},{"id":"fin-05-q30","number":30,"group":"货币政策","type":"single","stem":"中央银行为实现特定的经济目标而采取的各种控制、调节货币供应量或信用量的方针、政策、措施的总称是（　　）。","options":{"A":"货币政策","B":"货币政策工具","C":"信贷政策","D":"信贷政策工具"},"answer":["A"],"explanationSupplement":"调节货币、信贷和金融条件以实现宏观目标的总体措施属于货币政策。","optionExplanations":{"A":"涵盖题中各项手段。","B":"是政策使用的具体手段。","C":"范围主要集中在信贷。","D":"只指调整信贷的手段。"},"conceptId":"policy-targets"},{"id":"fin-05-q31","number":31,"group":"货币政策","type":"single","stem":"货币政策的制定者和执行者是（　　）。","options":{"A":"中央政府","B":"商业银行","C":"财政部","D":"中央银行"},"answer":["D"],"explanationSupplement":"我国中央银行是中国人民银行，在国务院领导下制定和执行货币政策。","optionExplanations":{"A":"国务院领导相关工作，具体制定执行主体是央行。","B":"商业银行是政策传导参与者。","C":"财政部门负责财政事务。","D":"符合央行职责。"},"conceptId":"policy-targets"},{"id":"fin-05-q32","number":32,"group":"货币政策","type":"single","stem":"在公开市场业务操作中，当正回购到期时，中国人民银行要进行的操作是向市场（　　）。","options":{"A":"现券买断","B":"投放流动性","C":"收回流动性","D":"现券卖断"},"answer":["B"],"explanationSupplement":"正回购起始时央行卖出证券回笼资金，到期时买回证券并支付资金。","optionExplanations":{"A":"现券买断不包含到期反向操作。","B":"到期支付对应流动性投放。","C":"是起始操作的方向。","D":"现券卖断不包含到期反向操作。"},"conceptId":"open-market"},{"id":"fin-05-q33","number":33,"group":"货币政策","type":"single","stem":"中央银行的逆回购操作对短期内货币供应量的影响是（　　）。","options":{"A":"增加货币供应量","B":"减少货币供应量","C":"不影响货币供应量","D":"不确定"},"answer":["A"],"explanationSupplement":"央行逆回购起始直接增加银行体系流动性，在基础传导模型中对货币供应量有扩张作用。广义货币能否及扩张多少仍要看信贷和其他操作。","optionExplanations":{"A":"符合基础模型的扩张方向。","B":"逆回购到期时通常是回笼。","C":"起始操作会改变银行准备金。","D":"广义货币增量取决于后续传导。"},"conceptId":"open-market"},{"id":"fin-05-q34","number":34,"group":"货币政策","type":"single","stem":"菲利普斯曲线说明了货币政策之间存在矛盾的是（　　）。","options":{"A":"经济增长与充分就业","B":"经济增长与稳定物价","C":"稳定物价与充分就业","D":"经济增长与国际收支平衡"},"answer":["C"],"explanationSupplement":"预期和供给条件给定时，短期菲利普斯曲线说明失业率降低可能伴随通胀上升，形成就业和物价稳定之间的权衡。","optionExplanations":{"A":"该曲线不直接涉及增长率。","B":"该曲线直接变量为失业率与通胀。","C":"与曲线变量对应。","D":"国际收支不在曲线坐标中。"},"conceptId":"policy-targets"},{"id":"fin-05-q35","number":35,"group":"货币政策","type":"single","stem":"一般而言，中央银行货币政策的首要目标是（　　）。","options":{"A":"稳定物价","B":"充分就业","C":"经济增长","D":"国际收支平衡"},"answer":["A"],"explanationSupplement":"稳定物价是多数货币政策框架的重要目标。具体目标及优先顺序需按当地法律和制度理解。","optionExplanations":{"A":"是常见的首要目标。","B":"部分制度明确纳入就业目标。","C":"政策可通过稳定金融和物价条件支持增长。","D":"可属于开放经济宏观目标。"},"conceptId":"policy-targets"},{"id":"fin-05-q36","number":36,"group":"货币政策","type":"single","stem":"2021年春节前夕，中国人民银行开展了500亿元 14天期逆回购操作，该操作起到的主要效果是（　　）。","options":{"A":"缓解市场上出现的短期流动性紧张局面","B":"提高人民币币值，降低汇率以促进出口","C":"提升银行间市场货币利率，增加贷款成本","D":"缓解股市上发生的短时间内暴跌走势"},"answer":["A"],"explanationSupplement":"题设的 14 天期逆回购起始向市场投放短期资金，主要缓解节前的流动性需求。","optionExplanations":{"A":"符合工具的期限和直接作用。","B":"汇率和出口并非该笔操作的直接目标。","C":"流动性投放通常缓和短端融资压力。","D":"工具作用于金融市场流动性，并不直接决定股价。"},"conceptId":"open-market"},{"id":"fin-05-q37","number":37,"group":"货币政策","type":"single","stem":"一般性货币政策工具中，主动权在商业银行而不在中央银行的工具是（　　）。","options":{"A":"存款准备金政策","B":"再贴现","C":"公开市场业务","D":"道义劝告"},"answer":["B"],"explanationSupplement":"再贴现需要商业银行携合格票据提出申请，央行设定利率和办理条件。","optionExplanations":{"A":"准备金要求由央行制定。","B":"银行决定是否申请。","C":"央行选择何时如何操作。","D":"道义劝告属于间接指导。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q38","number":38,"group":"货币政策","type":"single","stem":"货币政策是中央银行为实现特定经济目标而采取的各种方针、政策、措施的总称。关于货币政策基本特征的说法，错误的是（　　）。","options":{"A":"货币政策是宏观经济政策","B":"货币政策是调节社会总供给的政策","C":"货币政策主要是间接调控政策","D":"货币政策是长期连续的经济政策"},"answer":["B"],"explanationSupplement":"总需求管理模型中，货币政策主要通过融资条件影响消费、投资和总需求。","optionExplanations":{"A":"货币政策调节宏观经济。","B":"总供给不是该框架中的主要直接传导对象。","C":"通常经金融市场和银行传导。","D":"政策操作连续开展，具体力度可变化。"},"conceptId":"policy-targets"},{"id":"fin-05-q39","number":39,"group":"货币政策","type":"single","stem":"在银行贷款和投资收益不变的情况下，若中央银行降低再贴现率，商业银行就会（　　）信用。","options":{"A":"紧缩","B":"扩张","C":"稳定","D":"不确定"},"answer":["B"],"explanationSupplement":"降低再贴现率在给定贷款与投资回报时降低银行向央行融资的成本，支持信用扩张。","optionExplanations":{"A":"提高再贴现率才有紧缩方向。","B":"符合资金成本下降的激励。","C":"成本下降会改变放贷激励。","D":"题中其他条件给定，可以判断通常方向。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q40","number":40,"group":"货币政策","type":"single","stem":"作为一种直接信用控制的货币政策工具，利率限制是指中央银行规定（　　）。","options":{"A":"存款利率和贷款利率的下限","B":"存款利率和贷款利率的上限","C":"存款利率的上限和贷款利率的下限","D":"存款利率的下限和贷款利率的上限"},"answer":["C"],"explanationSupplement":"历史上的行政利率限制曾体现为存款利率上限和贷款利率下限。我国已推进利率市场化，实际定价规则参见讲解。","optionExplanations":{"A":"历史组合并非两类利率都设下限。","B":"历史组合并非两类利率都设上限。","C":"符合该题考察的历史组合。","D":"把两类历史限制方向调换了。"},"conceptId":"credit-controls"},{"id":"fin-05-q41","number":41,"group":"货币政策","type":"single","stem":"我国的公开市场操作中，中国人民银行向一级交易商卖出有价证券，并约定在未来特定日期买回有价证券，这种交易行为称为（　　）。","options":{"A":"现券买断","B":"现券卖断","C":"正回购","D":"逆回购"},"answer":["C"],"explanationSupplement":"从央行视角，先卖出证券并承诺未来买回属于正回购，起始吸收资金。","optionExplanations":{"A":"央行买入且无后续买回安排。","B":"没有到期买回安排。","C":"起始卖出、到期买回。","D":"央行先买入，再卖回。"},"conceptId":"open-market"},{"id":"fin-05-q42","number":42,"group":"货币政策","type":"single","stem":"无论是货币政策还是财政政策，都是通过影响利率、消费、投资进而影响（　　）。","options":{"A":"总收入","B":"总供给","C":"总需求","D":"总价格"},"answer":["C"],"explanationSupplement":"消费与投资都是总需求组成部分。利率和政策变化可通过这些支出影响总需求。","optionExplanations":{"A":"收入是均衡结果之一。","B":"题目列出的消费和投资属于需求组成。","C":"符合政策的支出传导。","D":"价格水平需结合总供给判断。"},"conceptId":"policy-targets"},{"id":"fin-05-q43","number":43,"group":"货币政策","type":"single","stem":"为了减少货币供应量，中央银行可采取（　　）。","options":{"A":"降低法定存款准备金率","B":"降低再贴现率","C":"提高再贴现率","D":"公开市场上买入债券"},"answer":["C"],"explanationSupplement":"提高再贴现率增加银行利用央行融资的成本，通常是紧缩方向。","optionExplanations":{"A":"降准通常释放流动性。","B":"降低再贴现率通常放松融资。","C":"提高再贴现率可收紧融资。","D":"买入债券通常投放流动性。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q44","number":44,"group":"货币政策","type":"discussion","stem":"当一个国家（或地区）市场货币供应量偏多时，中央银行应该采取的最有力、最见效的措施是（　　）。","options":{"A":"缩小再贴现标准","B":"放宽贴现标准","C":"提高再贴现率","D":"降低再贴现率"},"answer":[],"explanationSupplement":"提高再贴现率可能收紧信用，但政策效果受银行对再贴现的依赖、市场条件和配套工具影响。题目缺少判断何种手段最快、最强的条件。","optionExplanations":{"A":"若意指缩小合格票据范围，也可能收紧融资。","B":"放宽资格一般有扩张方向。","C":"提高融资成本，通常有紧缩方向。","D":"降低融资成本，一般有扩张方向。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q45","number":45,"group":"货币政策","type":"single","stem":"下列货币政策工具中，通过调节货币和信贷的供给影响货币供应量，进而对经济活动的各个方面都产生影响的是（　　）。","options":{"A":"利率限制","B":"窗口指导","C":"公开市场业务","D":"证券市场信用控制"},"answer":["C"],"explanationSupplement":"公开市场业务是总量工具，可通过准备金、利率和信贷条件影响整体经济。","optionExplanations":{"A":"利率限制在传统分类中属于直接信用控制。","B":"窗口指导属于间接信用引导。","C":"属于一般性工具。","D":"主要针对证券市场信用。"},"conceptId":"open-market"},{"id":"fin-05-q46","number":46,"group":"货币政策","type":"single","stem":"中央银行货币政策工具中，再贴现政策的优点不包括（　　）。","options":{"A":"政策效果猛烈","B":"调整机动、灵活","C":"以票据融资，风险极小","D":"有利于中央银行发挥最后贷款人职能"},"answer":["A"],"explanationSupplement":"再贴现的规模受银行申请与合格票据约束，因此影响可相对灵活。票据有助于风控，仍有信用、操作与合规风险。","optionExplanations":{"A":"效果猛烈一般不列为优点。","B":"利率、条件和业务规模可调整。","C":"合格票据可降低部分风险，“极小”取决于具体风控。","D":"可提供央行流动性支持。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q47","number":47,"group":"货币政策","type":"single","stem":"在其他条件不变的情况下，中央银行提高再贴现率时，会使商业银行（　　）。","options":{"A":"提高贷款利率","B":"降低贷款利率","C":"贷款利率升降不受影响","D":"贷款利率升降不好判断"},"answer":["A"],"explanationSupplement":"给定其他条件，提高再贴现率增加银行资金成本，若成本向客户传导，贷款利率有上升压力。","optionExplanations":{"A":"符合通常的资金成本传导。","B":"与融资成本上升的常见方向相反。","C":"银行仍可受央行融资价格影响。","D":"题目采用其他条件给定的方向判断。"},"conceptId":"reserve-rediscount"},{"id":"fin-05-q48","number":48,"group":"货币政策","type":"single","stem":"通货膨胀对策中，通过公开市场业务出售政府债券属于（　　）。","options":{"A":"控制需求","B":"改善供给","C":"减少政府转移支付","D":"收入指数化政策"},"answer":["A"],"explanationSupplement":"央行卖出政府债券并收取资金，从需求管理角度属于回笼流动性、抑制过旺需求的措施。","optionExplanations":{"A":"符合政策渠道。","B":"不会直接增加生产能力。","C":"转移支付属于财政工具。","D":"指数化调整合同名义金额。"},"conceptId":"open-market"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -2257,6 +2257,650 @@ dialog::backdrop { background: var(--backdrop); }
    if(target){ e.preventDefault(); target.focus(); target.select(); }
   }
  });
+})();
+
+(() => {
+  'use strict';
+
+  const fmt = (n, d = 1) => Number(n.toFixed(d)).toString();
+  const samplePath = (fn, start, end, steps, xMap, yMap) => {
+    let d = '';
+    for (let i = 0; i <= steps; i++) {
+      const t = start + (end - start) * (i / steps);
+      const val = fn(t);
+      if (!Number.isFinite(val)) continue;
+      d += (d ? ' L' : 'M') + xMap(t).toFixed(1) + ' ' + yMap(val).toFixed(1);
+    }
+    return d;
+  };
+
+  function mountISLM(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>IS-LM 共同均衡：财政政策、货币政策与挤出效应</h4>
+        <p>调节财政与货币政策力度，观察 IS 与 LM 曲线移动后均衡产出 Y* 与均衡利率 r* 的共同变化。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>IS（产品市场）</span>
+            <span><i class="chart-line mv-c2-line"></i>LM（货币市场）</span>
+            <span><i class="chart-line mv-base-line"></i>变动前 IS₀ / LM₀</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="IS-LM 共同均衡交互图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="12" y="18" class="axis-label">利率 r%</text>
+            <text x="450" y="322" class="axis-label">产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">40</text><text x="196" y="308">80</text><text x="336" y="308">120</text><text x="476" y="308">160</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="244">2</text><text x="46" y="191">4</text><text x="46" y="138">6</text><text x="46" y="85">8</text><text x="46" y="32">10</text></g>
+            <path class="mv-base-curve" data-role="is0"/>
+            <path class="mv-base-curve" data-role="lm0"/>
+            <path class="mv-curve-1" data-role="is"/>
+            <path class="mv-curve-2" data-role="lm"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="4.5" class="mv-dot-3" data-role="e0"/>
+            <circle r="6.5" class="mv-dot-eq" data-role="e1"/>
+            <text class="point-label" data-role="lbl">E₁</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">财政政策 ΔIS（增支/减税为正）<output data-role="g-out">0</output></label>
+          <input type="range" data-role="g" min="-24" max="24" step="4" value="0">
+          <label class="range-label">货币政策 ΔLM（增发货币为正）<output data-role="m-out">0</output></label>
+          <input type="range" data-role="m" min="-24" max="24" step="4" value="0">
+          <div class="ppf-outputs">
+            <div><span>均衡产出 Y*</span><strong data-role="y-val">100</strong></div>
+            <div><span>均衡利率 r*</span><strong data-role="r-val">5.0%</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-preset="fiscal">扩张财政</button>
+            <button type="button" class="button button-secondary" data-preset="monetary">扩张货币</button>
+            <button type="button" class="button button-secondary" data-preset="mix">双松配合</button>
+            <button type="button" class="button button-secondary" data-preset="reset">重置</button>
+          </div>
+        </div>
+      </div>`;
+    // IS: r = 15 - 0.1*(Y - dg); LM: r = -5 + 0.1*(Y - dm) => Eq: Y* = 100 + (dg + dm)/2, r* = 5 + (dg - dm)/20
+    const x = yv => 56 + ((yv - 40) / 120) * 420;
+    const y = rv => 288 - (rv / 10) * 264;
+    const isLine = dg => {
+      const y1 = Math.max(40, 50 + dg), y2 = Math.min(160, 150 + dg);
+      return `M${x(y1).toFixed(1)} ${y(15 - 0.1 * (y1 - dg)).toFixed(1)} L${x(y2).toFixed(1)} ${y(15 - 0.1 * (y2 - dg)).toFixed(1)}`;
+    };
+    const lmLine = dm => {
+      const y1 = Math.max(40, 50 + dm), y2 = Math.min(160, 150 + dm);
+      return `M${x(y1).toFixed(1)} ${y(-5 + 0.1 * (y1 - dm)).toFixed(1)} L${x(y2).toFixed(1)} ${y(-5 + 0.1 * (y2 - dm)).toFixed(1)}`;
+    };
+    root.querySelector('[data-role="is0"]').setAttribute('d', isLine(0));
+    root.querySelector('[data-role="lm0"]').setAttribute('d', lmLine(0));
+    root.querySelector('[data-role="e0"]').setAttribute('cx', x(100));
+    root.querySelector('[data-role="e0"]').setAttribute('cy', y(5));
+    const gIn = root.querySelector('[data-role="g"]');
+    const mIn = root.querySelector('[data-role="m"]');
+
+    function draw() {
+      const dg = gIn.valueAsNumber, dm = mIn.valueAsNumber;
+      const ys = 100 + (dg + dm) / 2;
+      const rs = 5 + (dg - dm) / 20;
+      root.querySelector('[data-role="is"]').setAttribute('d', isLine(dg));
+      root.querySelector('[data-role="lm"]').setAttribute('d', lmLine(dm));
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(rs).toFixed(1)} H${x(ys).toFixed(1)} V288`);
+      root.querySelector('[data-role="e1"]').setAttribute('cx', x(ys).toFixed(1));
+      root.querySelector('[data-role="e1"]').setAttribute('cy', y(rs).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(ys) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(rs) - 10).toFixed(1));
+      root.querySelector('[data-role="g-out"]').value = (dg > 0 ? '+' : '') + dg;
+      root.querySelector('[data-role="m-out"]').value = (dm > 0 ? '+' : '') + dm;
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 0);
+      root.querySelector('[data-role="r-val"]').textContent = fmt(rs, 1) + '%';
+      let msg = '初始共同均衡 E₀（Y*=100, r*=5.0%）：产品市场与货币市场同时出清。';
+      if (dg > 0 && dm === 0) msg = `扩张财政使 IS 右移 ${dg}：利率被推高至 ${fmt(rs, 1)}%，部分挤出私人投资，最终产出仅增加 +${fmt(ys - 100, 0)}（小于无挤出时的 +${dg}）。`;
+      else if (dg === 0 && dm > 0) msg = `扩张货币使 LM 右移 ${dm}：利率降至 ${fmt(rs, 1)}%，刺激投资使产出扩大至 ${fmt(ys, 0)}。`;
+      else if (dg > 0 && dm > 0) msg = `「双松」政策配合：财政与货币同步扩张，利率维持在 ${fmt(rs, 1)}%，有效抵消挤出效应，产出大幅增至 ${fmt(ys, 0)}。`;
+      else if (dg !== 0 || dm !== 0) msg = `政策组合后新均衡：产出 Y*=${fmt(ys, 0)}（较初始 ${ys >= 100 ? '+' : ''}${fmt(ys - 100, 0)}），利率 r*=${fmt(rs, 1)}%。`;
+      root.querySelector('[data-role="msg"]').textContent = msg;
+    }
+    gIn.addEventListener('input', draw);
+    mIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-preset]').forEach(b => b.addEventListener('click', () => {
+      const p = b.dataset.preset;
+      gIn.value = p === 'fiscal' || p === 'mix' ? '20' : '0';
+      mIn.value = p === 'monetary' || p === 'mix' ? '20' : '0';
+      draw();
+    }));
+    draw();
+  }
+
+  function mountADAS(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>AD-AS 模型：需求拉动通胀 vs 成本推动滞胀</h4>
+        <p>调节总需求与短期总供给冲击，对比「经济过热通胀」与「产出下滑 + 物价上涨（滞胀）」的差异。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>总需求 AD</span>
+            <span><i class="chart-line mv-c2-line"></i>短期总供给 SRAS</span>
+            <span><i class="chart-line mv-c3-line"></i>长期总供给 LRAS（Yf=100）</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="AD-AS 总需求总供给模型图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="12" y="18" class="axis-label">物价 P</text>
+            <text x="450" y="322" class="axis-label">产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">60</text><text x="161" y="308">80</text><text x="266" y="308">100</text><text x="371" y="308">120</text><text x="476" y="308">140</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="244">80</text><text x="46" y="160">100</text><text x="46" y="76">120</text></g>
+            <line class="mv-curve-3" x1="266" x2="266" y1="24" y2="288"/>
+            <path class="mv-base-curve" data-role="ad0"/>
+            <path class="mv-base-curve" data-role="as0"/>
+            <path class="mv-curve-1" data-role="ad"/>
+            <path class="mv-curve-2" data-role="as"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6.5" class="mv-dot-eq" data-role="eq"/>
+            <text class="point-label" data-role="lbl">E</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">总需求冲击 ΔAD <output data-role="ad-out">0</output></label>
+          <input type="range" data-role="ad-in" min="-20" max="20" step="4" value="0">
+          <label class="range-label">供给冲击 ΔSRAS（负值为成本上涨）<output data-role="as-out">0</output></label>
+          <input type="range" data-role="as-in" min="-20" max="20" step="4" value="0">
+          <div class="ppf-outputs">
+            <div><span>实际产出 Y</span><strong data-role="y-val">100</strong></div>
+            <div><span>物价水平 P</span><strong data-role="p-val">100</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-preset="demand">需求拉动通胀</button>
+            <button type="button" class="button button-secondary" data-preset="stagflation">成本推动滞胀</button>
+            <button type="button" class="button button-secondary" data-preset="reset">恢复均衡</button>
+          </div>
+        </div>
+      </div>`;
+    // AD: P = 200 + dad - Y; SRAS: P = Y - das => Eq: Y* = 100 + (dad + das)/2, P* = 100 + (dad - das)/2
+    const x = yv => 56 + ((yv - 60) / 80) * 420;
+    const y = pv => 288 - ((pv - 70) / 60) * 264;
+    const adLine = dad => {
+      const y1 = Math.max(62, 74 + dad), y2 = Math.min(138, 128 + dad);
+      return `M${x(y1).toFixed(1)} ${y(200 + dad - y1).toFixed(1)} L${x(y2).toFixed(1)} ${y(200 + dad - y2).toFixed(1)}`;
+    };
+    const asLine = das => {
+      const y1 = Math.max(62, 74 + das), y2 = Math.min(138, 128 + das);
+      return `M${x(y1).toFixed(1)} ${y(y1 - das).toFixed(1)} L${x(y2).toFixed(1)} ${y(y2 - das).toFixed(1)}`;
+    };
+    root.querySelector('[data-role="ad0"]').setAttribute('d', adLine(0));
+    root.querySelector('[data-role="as0"]').setAttribute('d', asLine(0));
+    const adIn = root.querySelector('[data-role="ad-in"]');
+    const asIn = root.querySelector('[data-role="as-in"]');
+
+    function draw() {
+      const dad = adIn.valueAsNumber, das = asIn.valueAsNumber;
+      const ys = 100 + (dad + das) / 2;
+      const ps = 100 + (dad - das) / 2;
+      root.querySelector('[data-role="ad"]').setAttribute('d', adLine(dad));
+      root.querySelector('[data-role="as"]').setAttribute('d', asLine(das));
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(ps).toFixed(1)} H${x(ys).toFixed(1)} V288`);
+      root.querySelector('[data-role="eq"]').setAttribute('cx', x(ys).toFixed(1));
+      root.querySelector('[data-role="eq"]').setAttribute('cy', y(ps).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('x', (x(ys) + 10).toFixed(1));
+      root.querySelector('[data-role="lbl"]').setAttribute('y', (y(ps) - 10).toFixed(1));
+      root.querySelector('[data-role="ad-out"]').value = (dad > 0 ? '+' : '') + dad;
+      root.querySelector('[data-role="as-out"]').value = (das > 0 ? '+' : '') + das;
+      root.querySelector('[data-role="y-val"]').textContent = fmt(ys, 0);
+      root.querySelector('[data-role="p-val"]').textContent = fmt(ps, 0);
+      let msg = '处于充分就业长期均衡（Y=Yf=100, P=100）。';
+      if (ys > 100 && ps > 100) msg = `需求拉动型通胀（过热）：产出高于潜在水平（Y=${fmt(ys, 0)}），物价升至 ${fmt(ps, 0)}。长期工资上涨将推高 SRAS 回到 Yf。`;
+      else if (ys < 100 && ps > 100) msg = `典型「滞胀」（成本推动冲击）：产出萎缩至 ${fmt(ys, 0)}（失业上升），同时物价涨至 ${fmt(ps, 0)}，单纯需求政策面临两难。`;
+      else if (ys < 100 && ps <= 100) msg = `需求不足型衰退：产出低于潜在水平（Y=${fmt(ys, 0)}），物价回落至 ${fmt(ps, 0)}，扩张性政策可助经济回归 Yf。`;
+      else if (ys > 100 && ps <= 100) msg = `正向供给冲击（如技术进步/成本下降）：产出扩大至 ${fmt(ys, 0)} 且物价降至 ${fmt(ps, 0)}。`;
+      root.querySelector('[data-role="msg"]').textContent = msg;
+    }
+    adIn.addEventListener('input', draw);
+    asIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-preset]').forEach(b => b.addEventListener('click', () => {
+      const p = b.dataset.preset;
+      adIn.value = p === 'demand' ? '16' : '0';
+      asIn.value = p === 'stagflation' ? '-16' : '0';
+      draw();
+    }));
+    draw();
+  }
+
+  function mountPhillips(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>短期 vs 长期菲利普斯曲线（通胀预期移动）</h4>
+        <p>拖动通胀预期观察短期曲线 SRPC 整体上移；对比短期失业—通胀权衡与长期垂直于自然失业率（u*=5%）。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>短期 SRPC</span>
+            <span><i class="chart-line mv-c3-line"></i>长期 LRPC（u*=5%）</span>
+            <span><i class="chart-line mv-base-line"></i>基准 SRPC（πᵉ=2%）</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="短期与长期菲利普斯曲线图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="10" y="18" class="axis-label">通胀 π%</text>
+            <text x="436" y="322" class="axis-label">失业率 u%</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">2%</text><text x="161" y="308">4%</text><text x="213.5" y="308">5%</text><text x="266" y="308">6%</text><text x="371" y="308">8%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="264">0</text><text x="46" y="204">3</text><text x="46" y="144">6</text><text x="46" y="84">9</text><text x="46" y="28">12</text></g>
+            <line class="mv-curve-3" x1="213.5" x2="213.5" y1="24" y2="288"/>
+            <path class="mv-base-curve" data-role="sr0"/>
+            <path class="mv-curve-1" data-role="sr"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6.5" class="mv-dot-1" data-role="pt"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">通胀预期 πᵉ <output data-role="pe-out">2%</output></label>
+          <input type="range" data-role="pe" min="0" max="8" step="1" value="2">
+          <label class="range-label">当前失业率 u <output data-role="u-out">5.0%</output></label>
+          <input type="range" data-role="u" min="2.5" max="8" step="0.5" value="5">
+          <div class="ppf-outputs">
+            <div><span>实际通胀率 π</span><strong data-role="pi-val">2.0%</strong></div>
+            <div><span>失业率 u</span><strong data-role="u-val">5.0%</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    // pi = pe - 1.5*(u - 5)
+    const x = u => 56 + ((u - 2) / 8) * 420;
+    const y = pi => 264 - (pi / 12) * 236;
+    const curve = pe => samplePath(u => Math.max(-1, Math.min(12.5, pe - 1.5 * (u - 5))), 2.2, 8.8, 40, x, y);
+    root.querySelector('[data-role="sr0"]').setAttribute('d', curve(2));
+    const peIn = root.querySelector('[data-role="pe"]');
+    const uIn = root.querySelector('[data-role="u"]');
+
+    function draw() {
+      const pe = peIn.valueAsNumber, u = uIn.valueAsNumber;
+      const pi = pe - 1.5 * (u - 5);
+      root.querySelector('[data-role="sr"]').setAttribute('d', curve(pe));
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(pi).toFixed(1)} H${x(u).toFixed(1)} V288`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(u).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(pi).toFixed(1));
+      root.querySelector('[data-role="pe-out"]').value = pe + '%';
+      root.querySelector('[data-role="u-out"]').value = fmt(u, 1) + '%';
+      root.querySelector('[data-role="pi-val"]').textContent = fmt(pi, 1) + '%';
+      root.querySelector('[data-role="u-val"]').textContent = fmt(u, 1) + '%';
+      root.querySelector('[data-role="msg"]').textContent = u === 5
+        ? `失业率等于自然失业率 5%，实际通胀率恰好等于预期通胀率（${pe}%），落在垂直的长期菲利普斯曲线 LRPC 上。`
+        : u < 5
+          ? `短期内压低失业率至 ${fmt(u, 1)}%（低于自然失业率）会推高通胀至 ${fmt(pi, 1)}%；一旦公众上调通胀预期，SRPC 将上移，最终只留下更高通胀。`
+          : `失业率高于自然失业率（${fmt(u, 1)}% > 5%），短期通胀回落至 ${fmt(pi, 1)}%（通缩压力）。`;
+    }
+    peIn.addEventListener('input', draw);
+    uIn.addEventListener('input', draw);
+    draw();
+  }
+
+  function mountTrilemma(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>蒙代尔不可能三角：任选两项政策目标</h4>
+        <p>点击下方任意两个目标组合，观察开放经济体为什么无法同时实现三者，以及对应的典型制度安排。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <svg viewBox="0 0 460 320" role="img" aria-label="蒙代尔不可能三角交互图">
+            <polygon points="230,44 74,264 386,264" fill="none" stroke="var(--line)" stroke-width="2"/>
+            <line data-edge="ab" x1="230" y1="44" x2="74" y2="264" stroke-width="5" stroke-linecap="round"/>
+            <line data-edge="ac" x1="230" y1="44" x2="386" y2="264" stroke-width="5" stroke-linecap="round"/>
+            <line data-edge="bc" x1="74" y1="264" x2="386" y2="264" stroke-width="5" stroke-linecap="round"/>
+            <g data-node="a"><circle cx="230" cy="44" r="16"/><text x="230" y="20" text-anchor="middle" class="axis-label" style="font-size:14px">货币政策独立性</text></g>
+            <g data-node="b"><circle cx="74" cy="264" r="16"/><text x="74" y="298" text-anchor="middle" class="axis-label" style="font-size:14px">固定汇率稳定</text></g>
+            <g data-node="c"><circle cx="386" cy="264" r="16"/><text x="386" y="298" text-anchor="middle" class="axis-label" style="font-size:14px">资本自由流动</text></g>
+            <text x="230" y="182" text-anchor="middle" class="point-label" data-role="center" style="font-size:15px"></text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择想要保留的两个目标</legend>
+            <label><input type="radio" name="tri-pair" value="ac" checked> 货币独立 + 资本自由流动（放弃固定汇率）</label>
+            <label><input type="radio" name="tri-pair" value="bc"> 固定汇率 + 资本自由流动（放弃货币独立）</label>
+            <label><input type="radio" name="tri-pair" value="ab"> 货币独立 + 固定汇率（放弃资本自由流动）</label>
+          </fieldset>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const info = {
+      ac: { label: '浮动汇率制', keep: ['a', 'c'], msg: '保留「货币政策独立性 + 资本自由流动」，必须放弃固定汇率，实行浮动汇率制（典型代表：美国、日本、欧元区）。' },
+      bc: { label: '货币局 / 货币联盟', keep: ['b', 'c'], msg: '保留「固定汇率 + 资本自由流动」，必须放弃独立的货币政策，利率跟随锚定货币变动（典型代表：中国香港联系汇率制）。' },
+      ab: { label: '资本管制', keep: ['a', 'b'], msg: '保留「货币政策独立性 + 汇率稳定」，必须对跨境资本流动实施管制（典型代表：布雷顿森林体系时期及部分新兴市场）。' },
+    };
+    const radios = [...root.querySelectorAll('input[name="tri-pair"]')];
+    function draw() {
+      const pair = radios.find(r => r.checked).value;
+      const cur = info[pair];
+      root.querySelectorAll('[data-edge]').forEach(line => {
+        const active = line.dataset.edge === pair;
+        line.setAttribute('stroke', active ? 'var(--accent)' : 'transparent');
+      });
+      root.querySelectorAll('[data-node]').forEach(g => {
+        const active = cur.keep.includes(g.dataset.node);
+        const c = g.querySelector('circle');
+        c.setAttribute('fill', active ? 'var(--accent)' : 'var(--surface-subtle)');
+        c.setAttribute('stroke', active ? 'var(--accent)' : 'var(--control-line)');
+        c.setAttribute('stroke-width', '2.5');
+        g.style.opacity = active ? '1' : '0.45';
+      });
+      root.querySelector('[data-role="center"]').textContent = cur.label;
+      root.querySelector('[data-role="msg"]').textContent = cur.msg;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    draw();
+  }
+
+  function mountBond(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>债券价格与市场利率（到期收益率）反向联动</h4>
+        <p>拖动市场利率 y、票面利率 c 与剩余期限 n，直观感受折价/平价/溢价发行以及“期限越长、利率敏感度越高”。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>债券价格曲线 P(y)</span>
+            <span><i class="chart-line mv-base-line"></i>面值平价线（1000 元）</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="债券价格与市场利率关系曲线图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="10" y="18" class="axis-label">价格 元</text>
+            <text x="424" y="322" class="axis-label">市场利率 y%</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">1%</text><text x="196" y="308">4%</text><text x="336" y="308">7%</text><text x="476" y="308">10%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="255">600</text><text x="46" y="178">1000</text><text x="46" y="102">1400</text><text x="46" y="32">1800</text></g>
+            <line class="mv-base-curve" x1="56" x2="476" y1="178" y2="178"/>
+            <path class="mv-curve-1" data-role="curve"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6.5" class="mv-dot-1" data-role="pt"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">市场利率（到期收益率 y）<output data-role="y-out">5.0%</output></label>
+          <input type="range" data-role="y" min="1" max="10" step="0.5" value="5">
+          <label class="range-label">票面利率 c <output data-role="c-out">5.0%</output></label>
+          <input type="range" data-role="c" min="2" max="8" step="0.5" value="5">
+          <label class="range-label">剩余期限 n（年）<output data-role="n-out">10 年</output></label>
+          <input type="range" data-role="n" min="2" max="20" step="2" value="10">
+          <div class="ppf-outputs">
+            <div><span>债券现价</span><strong data-role="p-val">1000</strong></div>
+            <div><span>发行状态</span><strong data-role="st-val">平价</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const price = (yPct, cPct, n) => {
+      const y = yPct / 100, c = cPct / 100;
+      const pvC = y === 0 ? c * 1000 * n : c * 1000 * (1 - Math.pow(1 + y, -n)) / y;
+      return pvC + 1000 / Math.pow(1 + y, n);
+    };
+    const x = yv => 56 + ((yv - 1) / 9) * 420;
+    const y = pv => 288 - ((Math.max(450, Math.min(1850, pv)) - 420) / 1430) * 264;
+    const yIn = root.querySelector('[data-role="y"]');
+    const cIn = root.querySelector('[data-role="c"]');
+    const nIn = root.querySelector('[data-role="n"]');
+
+    function draw() {
+      const yv = yIn.valueAsNumber, cv = cIn.valueAsNumber, nv = nIn.valueAsNumber;
+      const pv = price(yv, cv, nv);
+      root.querySelector('[data-role="curve"]').setAttribute('d', samplePath(t => price(t, cv, nv), 1, 10, 60, x, y));
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(pv).toFixed(1)} H${x(yv).toFixed(1)} V288`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(yv).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(pv).toFixed(1));
+      root.querySelector('[data-role="y-out"]').value = fmt(yv, 1) + '%';
+      root.querySelector('[data-role="c-out"]').value = fmt(cv, 1) + '%';
+      root.querySelector('[data-role="n-out"]').value = nv + ' 年';
+      root.querySelector('[data-role="p-val"]').textContent = fmt(pv, 1);
+      const st = Math.abs(pv - 1000) < 0.5 ? '平价' : pv > 1000 ? '溢价' : '折价';
+      root.querySelector('[data-role="st-val"]').textContent = st;
+      root.querySelector('[data-role="msg"]').textContent = st === '平价'
+        ? `市场利率（${fmt(yv, 1)}%）等于票面利率（${fmt(cv, 1)}%），债券按面值 1000 元平价交易。`
+        : st === '溢价'
+          ? `市场利率（${fmt(yv, 1)}%）低于票面利率（${fmt(cv, 1)}%），票息更有吸引力，债券溢价至 ${fmt(pv, 1)} 元。`
+          : `市场利率（${fmt(yv, 1)}%）高于票面利率（${fmt(cv, 1)}%），债券折价至 ${fmt(pv, 1)} 元。试着拉长剩余期限，曲线会更陡峭。`;
+    }
+    [yIn, cIn, nIn].forEach(i => i.addEventListener('input', draw));
+    draw();
+  }
+
+  function mountMultiplier(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>商业银行派生存款创造与货币乘数（1 / r）</h4>
+        <p>调节法定存款准备金率 r，观察原始存款在银行体系中前 6 轮逐级放贷扩张的过程。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="mv-swatch mv-cs"></i>新增贷款/派生存款</span>
+            <span><i class="mv-swatch mv-dwl"></i>缴存法定准备金</span>
+          </div>
+          <svg viewBox="0 0 520 310" role="img" aria-label="派生存款创造阶梯柱状图">
+            <path class="chart-axis" d="M52 20V264H490" fill="none" stroke-width="1.5"/>
+            <text x="8" y="20" class="axis-label" style="font-size:14px">万元</text>
+            <g data-role="bars"></g>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">法定准备金率 r <output data-role="r-out">10%</output></label>
+          <input type="range" data-role="r" min="5" max="25" step="1" value="10">
+          <label class="range-label">初始原始存款 D₀（万元）<output data-role="d-out">100</output></label>
+          <input type="range" data-role="d" min="100" max="500" step="50" value="100">
+          <div class="ppf-outputs">
+            <div><span>理论乘数 1/r</span><strong data-role="k-val">10.0×</strong></div>
+            <div><span>存款总额</span><strong data-role="tot-val">1000</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const rIn = root.querySelector('[data-role="r"]');
+    const dIn = root.querySelector('[data-role="d"]');
+
+    function draw() {
+      const r = rIn.valueAsNumber / 100;
+      const d0 = dIn.valueAsNumber;
+      const k = 1 / r;
+      const total = d0 * k;
+      const bars = root.querySelector('[data-role="bars"]');
+      let html = '';
+      for (let i = 0; i < 6; i++) {
+        const dep = d0 * Math.pow(1 - r, i);
+        const res = dep * r;
+        const loan = dep - res;
+        const bx = 72 + i * 68;
+        const hTotal = (dep / d0) * 210;
+        const hRes = (res / d0) * 210;
+        const hLoan = hTotal - hRes;
+        html += `<rect x="${bx}" y="${(264 - hLoan).toFixed(1)}" width="40" height="${hLoan.toFixed(1)}" rx="3" class="mv-fill-cs" stroke="var(--mv-c1)" stroke-width="1.2"/>`;
+        html += `<rect x="${bx}" y="${(264 - hTotal).toFixed(1)}" width="40" height="${hRes.toFixed(1)}" rx="3" class="mv-fill-dwl" stroke="var(--error)" stroke-width="1.2"/>`;
+        html += `<text x="${bx + 20}" y="${(258 - hTotal).toFixed(1)}" text-anchor="middle" class="tick-label" style="font-size:12px">${fmt(dep, 0)}</text>`;
+        html += `<text x="${bx + 20}" y="284" text-anchor="middle" class="tick-label" style="font-size:12px">第${i + 1}轮</text>`;
+      }
+      bars.innerHTML = html;
+      root.querySelector('[data-role="r-out"]').value = rIn.value + '%';
+      root.querySelector('[data-role="d-out"]').value = String(d0);
+      root.querySelector('[data-role="k-val"]').textContent = fmt(k, 1) + '×';
+      root.querySelector('[data-role="tot-val"]').textContent = fmt(total, 0);
+      root.querySelector('[data-role="msg"]').textContent = `在无现金漏损和超额准备金假设下，原始存款 ${d0} 万元最终放大为 ${fmt(total, 0)} 万元（其中净派生存款 ${fmt(total - d0, 0)} 万元）。准备金率 r 越低，乘数越大。`;
+    }
+    rIn.addEventListener('input', draw);
+    dIn.addEventListener('input', draw);
+    draw();
+  }
+
+  function mountDeductible(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>绝对免赔额 vs 相对免赔额赔付对比</h4>
+        <p>拖动损失金额与免赔额，直观对比“超过免赔额后是否扣除免赔额”导致的赔付跳变差异。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c1-line"></i>绝对免赔额赔付</span>
+            <span><i class="chart-line mv-c2-line"></i>相对免赔额赔付</span>
+          </div>
+          <svg viewBox="0 0 520 340" role="img" aria-label="绝对免赔额与相对免赔额赔付折线图">
+            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
+            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="10" y="18" class="axis-label">赔付 元</text>
+            <text x="436" y="322" class="axis-label">损失 元</text>
+            <g class="tick-label" text-anchor="middle"><text x="56" y="308">0</text><text x="196" y="308">2000</text><text x="336" y="308">4000</text><text x="476" y="308">6000</text></g>
+            <g class="tick-label" text-anchor="end"><text x="46" y="204">2000</text><text x="46" y="116">4000</text><text x="46" y="28">6000</text></g>
+            <path class="mv-curve-2" data-role="rel"/>
+            <path class="mv-curve-1" data-role="abs"/>
+            <line class="mv-guide" data-role="vline" y1="24" y2="288"/>
+            <circle r="5.5" class="mv-dot-1" data-role="pt-abs"/>
+            <circle r="5.5" class="mv-dot-2" data-role="pt-rel"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">约定免赔额 M（元）<output data-role="m-out">1000</output></label>
+          <input type="range" data-role="m" min="500" max="3000" step="500" value="1000">
+          <label class="range-label">实际损失金额 L（元）<output data-role="l-out">2000</output></label>
+          <input type="range" data-role="l" min="0" max="6000" step="200" value="2000">
+          <div class="ppf-outputs">
+            <div><span>绝对免赔赔付</span><strong data-role="abs-val">1000</strong></div>
+            <div><span>相对免赔赔付</span><strong data-role="rel-val">2000</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const x = v => 56 + (v / 6000) * 420;
+    const y = v => 288 - (v / 6000) * 264;
+    const mIn = root.querySelector('[data-role="m"]');
+    const lIn = root.querySelector('[data-role="l"]');
+
+    function draw() {
+      const m = mIn.valueAsNumber, l = lIn.valueAsNumber;
+      const absPay = l > m ? l - m : 0;
+      const relPay = l > m ? l : 0;
+      root.querySelector('[data-role="abs"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(m)} ${y(0)} L${x(6000)} ${y(6000 - m)}`);
+      root.querySelector('[data-role="rel"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(m)} ${y(0)} M${x(m)} ${y(m)} L${x(6000)} ${y(6000)}`);
+      const xl = x(l).toFixed(1);
+      const vl = root.querySelector('[data-role="vline"]');
+      vl.setAttribute('x1', xl); vl.setAttribute('x2', xl);
+      root.querySelector('[data-role="pt-abs"]').setAttribute('cx', xl);
+      root.querySelector('[data-role="pt-abs"]').setAttribute('cy', y(absPay).toFixed(1));
+      root.querySelector('[data-role="pt-rel"]').setAttribute('cx', xl);
+      root.querySelector('[data-role="pt-rel"]').setAttribute('cy', y(relPay).toFixed(1));
+      root.querySelector('[data-role="m-out"]').value = String(m);
+      root.querySelector('[data-role="l-out"]').value = String(l);
+      root.querySelector('[data-role="abs-val"]').textContent = String(absPay);
+      root.querySelector('[data-role="rel-val"]').textContent = String(relPay);
+      root.querySelector('[data-role="msg"]').textContent = l <= m
+        ? `损失 ${l} 元未超过免赔额 ${m} 元：绝对免赔额与相对免赔额均不赔付（0 元）。`
+        : `损失 ${l} 元超过免赔额 ${m} 元：绝对免赔额须先扣除 ${m} 元，仅赔 ${absPay} 元；相对免赔额达到门槛即全额赔付 ${relPay} 元（多赔 ${m} 元）。`;
+    }
+    mIn.addEventListener('input', draw);
+    lIn.addEventListener('input', draw);
+    draw();
+  }
+
+  function mountLiabilityTimeline(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>责任保险：期内发生式 vs 期内索赔式时间轴判定</h4>
+        <p>拖动「事故发生时间」与「提出索赔时间」，秒懂两种承保基础的理赔边界。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <svg viewBox="0 0 520 230" role="img" aria-label="期内发生式与期内索赔式时间轴对比图">
+            <rect x="44" y="42" width="136" height="106" fill="var(--surface)" stroke="var(--line)" stroke-dasharray="4 3"/>
+            <rect x="180" y="42" width="160" height="106" class="mv-stage-band" stroke="var(--accent)" stroke-width="1.5"/>
+            <rect x="340" y="42" width="136" height="106" fill="var(--surface)" stroke="var(--line)" stroke-dasharray="4 3"/>
+            <g class="tick-label" style="font-size:12px" text-anchor="middle">
+              <text x="112" y="34">追溯期（2025）</text>
+              <text x="260" y="34" fill="var(--accent)" font-weight="650">保单有效期（2026）</text>
+              <text x="408" y="34">保单到期后（2027）</text>
+              <text x="44" y="168">25.01</text><text x="180" y="168">26.01</text><text x="340" y="168">27.01</text><text x="476" y="168">27.12</text>
+            </g>
+            <line x1="36" y1="95" x2="486" y2="95" class="chart-axis" stroke-width="1.6"/>
+            <line data-role="span" y1="95" y2="95" stroke="var(--accent)" stroke-width="4" opacity=".45"/>
+            <circle r="7.5" class="mv-dot-1" data-role="occ-pt" cy="95"/>
+            <text class="point-label" data-role="occ-lbl" y="76" text-anchor="middle" style="font-size:12px">事故</text>
+            <circle r="7.5" class="mv-dot-2" data-role="clm-pt" cy="95"/>
+            <text class="point-label" data-role="clm-lbl" y="124" text-anchor="middle" style="font-size:12px;fill:var(--mv-c2)">索赔</text>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <label class="range-label">事故发生月份（1-12 追溯期，13-24 有效期）<output data-role="occ-out">2026.06</output></label>
+          <input type="range" data-role="occ" min="2" max="34" step="1" value="18">
+          <label class="range-label">提出索赔月份（须不早于事故）<output data-role="clm-out">2027.04</output></label>
+          <input type="range" data-role="clm" min="2" max="36" step="1" value="28">
+          <div class="ppf-outputs">
+            <div><span>期内发生式</span><strong data-role="occ-res">承保</strong></div>
+            <div><span>期内索赔式</span><strong data-role="clm-res">不赔</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+          <div class="button-row">
+            <button type="button" class="button button-secondary" data-sc="18,28">期内发生+期后索赔</button>
+            <button type="button" class="button button-secondary" data-sc="8,19">追溯期发生+期内索赔</button>
+          </div>
+        </div>
+      </div>`;
+    // Months 1..12 = 2025 (retro), 13..24 = 2026 (policy), 25..36 = 2027 (post)
+    const x = m => 44 + ((m - 1) / 35) * 432;
+    const mLabel = m => `${2025 + Math.floor((m - 1) / 12)}.${String(((m - 1) % 12) + 1).padStart(2, '0')}`;
+    const occIn = root.querySelector('[data-role="occ"]');
+    const clmIn = root.querySelector('[data-role="clm"]');
+
+    function draw() {
+      let o = occIn.valueAsNumber, c = clmIn.valueAsNumber;
+      if (c < o) { c = o; clmIn.value = String(c); }
+      const xo = x(o).toFixed(1), xc = x(c).toFixed(1);
+      root.querySelector('[data-role="occ-pt"]').setAttribute('cx', xo);
+      root.querySelector('[data-role="occ-lbl"]').setAttribute('x', xo);
+      root.querySelector('[data-role="clm-pt"]').setAttribute('cx', xc);
+      root.querySelector('[data-role="clm-lbl"]').setAttribute('x', xc);
+      const span = root.querySelector('[data-role="span"]');
+      span.setAttribute('x1', xo); span.setAttribute('x2', xc);
+      root.querySelector('[data-role="occ-out"]').value = mLabel(o);
+      root.querySelector('[data-role="clm-out"]').value = mLabel(c);
+      const occCovered = o >= 13 && o <= 24;
+      const clmCovered = o >= 1 && c >= 13 && c <= 24;
+      root.querySelector('[data-role="occ-res"]').textContent = occCovered ? '✓ 承保' : '× 不赔';
+      root.querySelector('[data-role="clm-res"]').textContent = clmCovered ? '✓ 承保' : '× 不赔';
+      root.querySelector('[data-role="msg"]').textContent =
+        `期内发生式只看「事故是否落在 2026 保单期内」（当前${occCovered ? '满足' : '不满足'}）；期内索赔式要求「事故在追溯日后且索赔落在 2026 保单期内」（当前${clmCovered ? '满足' : '不满足'}）。`;
+    }
+    occIn.addEventListener('input', draw);
+    clmIn.addEventListener('input', draw);
+    root.querySelectorAll('[data-sc]').forEach(b => b.addEventListener('click', () => {
+      const [o, c] = b.dataset.sc.split(',');
+      occIn.value = o; clmIn.value = c; draw();
+    }));
+    draw();
+  }
+
+  const registry = {
+    'is-lm': mountISLM,
+    'ad-as': mountADAS,
+    phillips: mountPhillips,
+    trilemma: mountTrilemma,
+    bond: mountBond,
+    multiplier: mountMultiplier,
+    deductible: mountDeductible,
+    'liability-timeline': mountLiabilityTimeline,
+  };
+
+  document.querySelectorAll('[data-micro-visual]').forEach(container => {
+    const fn = registry[container.dataset.microVisual];
+    if (fn) fn(container);
+  });
 })();
 </script>
 </body>
