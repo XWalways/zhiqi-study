@@ -27,7 +27,7 @@
         const dark = mode === 'dark' || (mode === 'system' && systemTheme.matches);
         document.documentElement.dataset.theme = dark ? 'dark' : 'light';
         document.documentElement.dataset.themeMode = mode;
-        themeColor.content = dark ? '#182427' : '#fbfdfd';
+        themeColor.content = dark ? '#151b1e' : '#fbfdfd';
       }
 
       applyAppearance();
@@ -68,7 +68,7 @@
   --text: #21363c;
   --heading: #172d34;
   --muted: #4e656c;
-  --line: #cddbdd;
+  --line: #dbe5e7;
   --control-line: #7d9297;
   --accent: #1a665b;
   --accent-hover: #144f47;
@@ -98,26 +98,26 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --background: #111b1e;
-  --surface: #182427;
-  --surface-subtle: #202e31;
-  --text: #dbe8e7;
-  --heading: #edf5f4;
-  --muted: #acbfc1;
-  --line: #384a4e;
-  --control-line: #738c90;
-  --accent: #92d1c0;
-  --accent-hover: #b1e3d5;
-  --accent-on: #132a25;
-  --accent-soft: #233b36;
-  --accent-line: #608f84;
-  --warning: #edd09c;
-  --warning-soft: #362e22;
-  --error: #f2a9b0;
-  --error-soft: #3b252a;
-  --error-line: #a46772;
-  --backdrop: rgb(9 17 20 / .75);
-  --shadow: 0 18px 48px rgb(7 14 17 / .44);
+  --background: #0e1315;
+  --surface: #151b1e;
+  --surface-subtle: #1b2226;
+  --text: #dce4e6;
+  --heading: #f0f4f5;
+  --muted: #8fa0a5;
+  --line: #273135;
+  --control-line: #4d5d63;
+  --accent: #7ecbb7;
+  --accent-hover: #9cdac9;
+  --accent-on: #0f241f;
+  --accent-soft: rgb(126 203 183 / .12);
+  --accent-line: rgb(126 203 183 / .36);
+  --warning: #e8c98e;
+  --warning-soft: rgb(232 201 142 / .12);
+  --error: #f0a1a9;
+  --error-soft: rgb(240 161 169 / .12);
+  --error-line: rgb(240 161 169 / .38);
+  --backdrop: rgb(6 10 12 / .78);
+  --shadow: 0 18px 48px rgb(0 0 0 / .48);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -176,50 +176,77 @@ mark { background: var(--accent-soft); color: var(--accent); padding: 0 .12em; }
 .brand-mark { width: 31px; height: 31px; color: var(--accent); flex: none; }
 .brand-mark svg { width: 100%; height: 100%; }
 .brand small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; font-weight: 460; letter-spacing: .06em; }
-.top-actions { display: flex; gap: clamp(12px, 2vw, 27px); align-items: center; }
+.top-actions { display: flex; gap: clamp(10px, 1.8vw, 22px); align-items: center; }
 .header-link { padding: 8px 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
 .header-link:hover { color: var(--accent); }
+.github-link {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface-subtle);
+  color: var(--muted);
+  transition: color .16s ease, border-color .16s ease, background .16s ease;
+}
+.github-link:hover {
+  color: var(--heading);
+  border-color: var(--control-line);
+  background: var(--accent-soft);
+}
 .theme-control {
-  --theme-slot: 66px;
+  --theme-slot: 32px;
   --theme-position: 1;
   position: relative;
   display: inline-grid;
   grid-template-columns: repeat(3, var(--theme-slot));
   flex: none;
-  align-items: stretch;
+  align-items: center;
   padding: 3px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface-subtle);
 }
-:root[data-theme-mode="light"] .theme-control { --theme-position: 0; }
-:root[data-theme-mode="dark"] .theme-control { --theme-position: 2; }
+:root[data-theme-mode="dark"] .theme-control { --theme-position: 0; }
+:root[data-theme-mode="system"] .theme-control { --theme-position: 1; }
+:root[data-theme-mode="light"] .theme-control { --theme-position: 2; }
 .theme-thumb {
   position: absolute;
-  inset: 3px auto 3px 3px;
+  top: 3px;
+  left: 3px;
   width: var(--theme-slot);
-  border-radius: 999px;
-  background: var(--accent);
+  height: var(--theme-slot);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgb(0 0 0 / .14);
   transform: translateX(calc(100% * var(--theme-position)));
   pointer-events: none;
+}
+:root[data-theme="dark"] .theme-thumb {
+  border-color: var(--control-line);
+  background: #252e33;
+  box-shadow: 0 1px 4px rgb(0 0 0 / .42);
 }
 .theme-option {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 35px;
+  width: var(--theme-slot);
+  height: var(--theme-slot);
   color: var(--muted);
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 630;
-  line-height: 1.2;
-  white-space: nowrap;
+  border-radius: 50%;
   cursor: pointer;
   touch-action: manipulation;
+  transition: color .16s ease;
 }
-.theme-option:hover { color: var(--accent); }
-.theme-control input:checked + .theme-option { color: var(--accent-on); }
-.theme-control input:focus-visible + .theme-option { outline: 2px solid var(--heading); outline-offset: 1px; }
+.theme-option svg { display: block; }
+.theme-option:hover { color: var(--heading); }
+.theme-control input:checked + .theme-option { color: var(--heading); }
+:root[data-theme="light"] .theme-control input:checked + .theme-option { color: var(--accent); }
+.theme-control input:focus-visible + .theme-option { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 .button, .download-button {
   display: inline-flex;
@@ -319,8 +346,10 @@ main:focus { outline: none; }
 .view-tabs button.active, .view-tabs button:hover { color: var(--accent); }
 .view-tabs button.active { font-weight: 700; }
 .view-tabs button.active::after { content: ''; position: absolute; inset: auto 0 -1px; height: 3px; background: var(--accent); }
-.section-intro { margin: 0 0 18px; }
+.section-intro { margin: 0 0 14px; }
 .section-intro p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+.chapter-mindmap { margin-bottom: 26px; scroll-margin-top: calc(var(--header-height) + var(--tabs-height) + 13px); }
+.map-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
 /* A continuous reading surface with a separate index in the margin. */
 .reading-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 190px); align-items: start; gap: 25px; }
@@ -341,6 +370,112 @@ main:focus { outline: none; }
 .lesson-head h3 { font-size: clamp(1.23rem, 2vw, 1.57rem); letter-spacing: -.025em; }
 .lesson-number { color: var(--accent); font-size: 13px; font-weight: 660; margin-top: 6px; }
 .lesson-summary { margin-top: 4px; color: var(--muted); font-size: 14px; }
+.lesson-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 560;
+  line-height: 1.5;
+}
+.status-pill.is-done {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+.status-pill.is-visual {
+  border-color: var(--control-line);
+  color: var(--heading);
+}
+.learn-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 14px;
+  flex-wrap: wrap;
+  padding: 14px clamp(24px, 3.4vw, 46px);
+  border-bottom: 1px solid var(--line);
+}
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 220px;
+  max-width: 340px;
+}
+.search-box svg {
+  position: absolute;
+  left: 11px;
+  color: var(--muted);
+  pointer-events: none;
+}
+.search-box input {
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 34px 6px 33px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+  color: var(--text);
+  font-size: 13.5px;
+}
+.search-box input::placeholder { color: var(--muted); }
+.search-box input:focus { outline: none; border-color: var(--accent); background: var(--surface); }
+.search-kbd {
+  position: absolute;
+  right: 10px;
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--muted);
+  font: 600 11px/1 var(--font-number);
+  pointer-events: none;
+}
+.search-box input:focus + .search-kbd { opacity: 0; }
+.filter-pills { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.filter-pill {
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 560;
+  transition: background .14s ease, color .14s ease, border-color .14s ease;
+}
+.filter-pill:hover { color: var(--heading); border-color: var(--control-line); }
+.filter-pill.active {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent);
+  font-weight: 650;
+}
+.learn-empty {
+  padding: 36px 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+.home-search-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
 .lesson-head .icon-button { margin: -6px -6px 0 0; }
 .lesson-body { font-size: 16px; line-height: 1.95; overflow-wrap: anywhere; }
 .lesson-body > :where(p, ul, ol, h4, blockquote) { margin-block: 0 13px; }
@@ -360,6 +495,60 @@ main:focus { outline: none; }
 .lesson-extra { border-top: 1px solid var(--line); padding: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
 .lesson-extra strong { display: block; color: var(--heading); font-size: 13px; margin-bottom: 4px; }
 .lesson-extra.pitfall strong { color: var(--warning); }
+.inline-visual {
+  margin: 22px 0;
+  padding: 18px;
+  border-top: 2px solid var(--accent-line);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  scroll-margin-top: calc(var(--header-height) + var(--tabs-height) + 16px);
+}
+.inline-visual .ppf-panel {
+  border: 0;
+  background: transparent;
+}
+.inline-visual-header { margin-bottom: 14px; }
+.inline-visual-badge, .inline-practice-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.inline-visual-header h4 { margin-top: 7px; font-size: 1.08rem; }
+.inline-visual-header p { margin-top: 4px; color: var(--muted); font-size: 13.5px; line-height: 1.65; }
+.inline-visual .ppf-controls h5 { margin: 4px 0 2px; color: var(--heading); font-size: 15px; font-weight: 650; }
+.inline-visual .visual-notes { margin: 14px 0 0; }
+.inline-visual .visual-notes > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.inline-practice {
+  margin-top: 26px;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--line);
+}
+.inline-practice-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.inline-practice-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.inline-practice-body { margin-top: 12px; }
+.inline-quiz-grid { margin-bottom: 12px; }
+.inline-quiz-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+}
+.inline-quiz-stem { font-size: clamp(16px, 1.5vw, 18px); line-height: 1.65; margin-bottom: 13px; }
+.inline-quiz-card .quiz-feedback h4 { margin: 0 0 8px; font-size: 16px; }
+.inline-quiz-card .quiz-feedback h5 { margin: 14px 0 5px; font-size: 14px; color: var(--heading); }
 .next-step { border-top: 1px solid var(--line); padding: 20px clamp(24px, 3.4vw, 46px); }
 
 /* Topic map and the interactive production chart */
@@ -540,9 +729,11 @@ input[type=range] { width: 100%; min-height: 25px; margin: 0; cursor: pointer; }
 .catalog-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
 .catalog-heading span { color: var(--muted); font-size: 13px; white-space: nowrap; }
 .catalog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 23px; }
-.catalog-card { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 8px; min-height: 48px; padding: 8px 4px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.catalog-card { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 8px; min-height: 48px; padding: 8px 6px; border-bottom: 1px solid var(--line); color: var(--muted); border-radius: 6px; }
 .catalog-card h3 { color: inherit; font-size: 14px; font-weight: 520; }
 .catalog-card .chapter-no, .catalog-status { font-size: 12px; }
+.catalog-meta { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.catalog-progress { padding: 1px 7px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font: 560 11px/1.5 var(--font-number); }
 .catalog-status { white-space: nowrap; }
 .catalog-card.ready { color: var(--accent); font-weight: 650; }
 .catalog-card.ready:hover { background: var(--accent-soft); }
@@ -643,9 +834,9 @@ dialog::backdrop { background: var(--backdrop); }
   .brand small { font-size: 10px; }
   .top-actions { margin-left: auto; gap: 7px; }
   .top-actions .header-link { display: none; }
-  .theme-control { --theme-slot: 49px; }
-  .theme-option { min-height: 30px; font-size: 12px; }
-  .download-button { min-height: 38px; padding: 6px 10px; font-size: 13px; }
+  .github-link { width: 34px; height: 34px; }
+  .theme-control { --theme-slot: 28px; }
+  .download-button { min-height: 36px; padding: 6px 10px; font-size: 13px; }
   .mobile-menu { display: grid; place-items: center; width: 38px; height: 38px; border-radius: var(--radius); color: var(--heading); }
   .mobile-menu span { position: relative; display: block; height: 1.5px; width: 16px; background: currentColor; }
   .mobile-menu span::before, .mobile-menu span::after { content: ''; position: absolute; left: 0; width: 100%; height: 100%; background: currentColor; }
@@ -691,13 +882,14 @@ dialog::backdrop { background: var(--backdrop); }
   .brand { font-size: 15px; gap: 5px; }
   .brand-mark { width: 22px; height: 22px; }
   .mobile-menu { width: 34px; }
+  .github-link { width: 32px; height: 32px; }
+  .theme-control { --theme-slot: 26px; }
   .download-button { padding-inline: 7px; font-size: 12px; }
 }
 
 @media (max-width: 360px) {
-  .theme-control { --theme-slot: 30px; }
-  .theme-option-system span { position: absolute; width: 1px; height: 1px; clip-path: inset(50%); overflow: hidden; }
-  .theme-option-system::after { content: '系统'; }
+  .theme-control { --theme-slot: 24px; }
+  .inline-visual, .inline-practice, .inline-quiz-card { padding: 12px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -745,14 +937,26 @@ dialog::backdrop { background: var(--backdrop); }
     <a href="index.html" class="header-link">学习目录</a>
     <button class="header-link" data-action="favorites">我的收藏</button>
     <button class="header-link" data-action="records">学习记录</button>
+    <a class="github-link" href="https://github.com/XWalways/zhiqi-finance-study" target="_blank" rel="noopener noreferrer" aria-label="查看 GitHub 仓库" title="GitHub 仓库">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg>
+    </a>
     <div class="theme-control" id="theme-mode" role="radiogroup" aria-label="外观模式">
       <span class="theme-thumb" aria-hidden="true"></span>
-      <input class="visually-hidden" id="theme-light" type="radio" name="appearance" value="light">
-      <label class="theme-option" for="theme-light">白天</label>
-      <input class="visually-hidden" id="theme-system" type="radio" name="appearance" value="system" aria-label="跟随系统" checked>
-      <label class="theme-option theme-option-system" for="theme-system" title="跟随系统"><span>跟随系统</span></label>
       <input class="visually-hidden" id="theme-dark" type="radio" name="appearance" value="dark">
-      <label class="theme-option" for="theme-dark">黑夜</label>
+      <label class="theme-option" for="theme-dark" title="黑夜模式">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <span class="visually-hidden">黑夜</span>
+      </label>
+      <input class="visually-hidden" id="theme-system" type="radio" name="appearance" value="system" aria-label="跟随系统" checked>
+      <label class="theme-option theme-option-system" for="theme-system" title="跟随系统">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <span class="visually-hidden">跟随系统</span>
+      </label>
+      <input class="visually-hidden" id="theme-light" type="radio" name="appearance" value="light">
+      <label class="theme-option" for="theme-light" title="白天模式">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <span class="visually-hidden">白天</span>
+      </label>
     </div>
     <button class="download-button" data-action="download">离线学习</button>
   </nav>
@@ -779,11 +983,32 @@ dialog::backdrop { background: var(--backdrop); }
       </div>
       <nav class="view-tabs" aria-label="章节内容">
         <button data-view="learn" class="active" aria-current="page">考点精讲</button>
-        <button data-view="map">思维导图</button>
-        <button data-view="visual">交互图解</button>
         <button data-view="practice">章节练习</button>
       </nav>
       <section id="view-learn" class="content-view" aria-labelledby="learn-heading">
+        <section class="chapter-mindmap" id="chapter-mindmap" aria-labelledby="map-heading">
+          <div class="section-intro map-intro">
+            <div>
+              <h2 id="map-heading">本章思维导图</h2>
+              <p id="map-help">先看全章脉络再读考点：点击节点直达对应讲解，用节点旁按钮展开或收起分支。</p>
+            </div>
+            <button type="button" class="text-button" id="map-collapse-panel" aria-expanded="true" aria-controls="map-panel-body">收起导图</button>
+          </div>
+          <div class="map-panel" id="map-panel-body">
+            <div class="map-toolbar">
+              <div class="map-zoom" role="group" aria-label="导图缩放">
+                <button type="button" id="map-zoom-out" aria-label="缩小导图">−</button>
+                <button type="button" id="map-size" aria-label="恢复阅读比例" title="恢复阅读比例">100%</button>
+                <button type="button" id="map-zoom-in" aria-label="放大导图">+</button>
+              </div>
+              <button type="button" id="map-fit">适应宽度</button>
+              <button type="button" id="map-expand">收起分支</button>
+            </div>
+            <div class="map-viewport" tabindex="0" role="region" aria-labelledby="map-heading" aria-describedby="map-help">
+              <ul id="mindmap" class="mindmap"></ul>
+            </div>
+          </div>
+        </section>
         <div class="reading-layout">
           <aside class="topic-index" aria-labelledby="topic-heading">
             <h2 id="topic-heading">知识点索引</h2>
@@ -791,32 +1016,24 @@ dialog::backdrop { background: var(--backdrop); }
           </aside>
           <div class="reading-column">
             <h2 id="learn-heading" class="visually-hidden">考点精讲</h2>
-            <div id="lessons"></div>
-            <div class="next-step"><button class="button button-primary" data-switch="practice">开始本章练习 <span aria-hidden="true">→</span></button></div>
-          </div>
-        </div>
-      </section>
-      <section id="view-map" class="content-view" hidden aria-labelledby="map-heading">
-        <div class="section-intro">
-          <h2 id="map-heading">思维导图</h2>
-          <p id="map-help">点击节点查看讲解，用节点旁的按钮展开或收起分支。图超出屏幕时可横向滑动。</p>
-        </div>
-        <div class="map-panel">
-          <div class="map-toolbar">
-            <div class="map-zoom" role="group" aria-label="导图缩放">
-              <button type="button" id="map-zoom-out" aria-label="缩小导图">−</button>
-              <button type="button" id="map-size" aria-label="恢复阅读比例" title="恢复阅读比例">100%</button>
-              <button type="button" id="map-zoom-in" aria-label="放大导图">+</button>
+            <div class="learn-toolbar" id="learn-toolbar">
+              <div class="search-box">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="search" id="lesson-search" placeholder="搜索本章节知识点…" aria-label="搜索本章节知识点">
+                <span class="search-kbd" aria-hidden="true">/</span>
+              </div>
+              <div class="filter-pills" role="group" aria-label="知识点筛选">
+                <button type="button" class="filter-pill active" data-lesson-filter="all" aria-pressed="true">全部</button>
+                <button type="button" class="filter-pill" data-lesson-filter="unread" aria-pressed="false">只看未读</button>
+                <button type="button" class="filter-pill" data-lesson-filter="favorites" aria-pressed="false">只看收藏</button>
+              </div>
             </div>
-            <button type="button" id="map-fit">适应宽度</button>
-            <button type="button" id="map-expand">收起分支</button>
-          </div>
-          <div class="map-viewport" tabindex="0" role="region" aria-labelledby="map-heading" aria-describedby="map-help">
-            <ul id="mindmap" class="mindmap"></ul>
+            <div id="lessons"></div>
+            <div class="learn-empty" id="learn-empty" hidden>没有符合当前筛选或搜索条件的知识点。</div>
+            <div class="next-step"><button class="button button-primary" data-switch="practice">进入整章练习与测试 <span aria-hidden="true">→</span></button></div>
           </div>
         </div>
       </section>
-      <section id="view-visual" class="content-view" hidden></section>
       <section id="view-practice" class="content-view" hidden aria-labelledby="practice-heading">
         <h2 id="practice-heading" class="visually-hidden">章节练习</h2>
         <div id="quiz"></div>
@@ -824,6 +1041,29 @@ dialog::backdrop { background: var(--backdrop); }
     </article>
   </main>
 </div>
+<nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="移动端快捷导航" hidden>
+  <a href="index.html">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    <span>目录</span>
+  </a>
+  <button type="button" data-view="map">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h4l4-5M12 12l4 5"/></svg>
+    <span>导图</span>
+  </button>
+  <button type="button" data-view="learn" class="active">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <span>精讲</span>
+  </button>
+  <button type="button" data-view="practice">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    <span>练习</span>
+  </button>
+  <button type="button" data-action="records">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+    <span>记录</span>
+  </button>
+</nav>
+<template id="visual-template"></template>
 <dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
@@ -1098,7 +1338,240 @@ dialog::backdrop { background: var(--backdrop); }
     root.addEventListener('click', handleClick); root.addEventListener('change', handleChange); render();
     return function cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); if (activeController === controller) activeController = null; };
   }
-  const api = { mount, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
+  function mountInline(root, config) {
+    if (!root) throw new Error('Inline quiz root is required');
+    const { sectionId, questions, store } = config;
+    const openDiscussions = new Set();
+    let currentId = questions[0] && questions[0].id;
+    let statusText = '';
+    let collapsed = false;
+    let destroyed = false;
+    const el = (tag, cls, text) => {
+      const node = document.createElement(tag);
+      if (cls) node.className = cls;
+      if (text !== undefined && text !== null) node.textContent = text;
+      return node;
+    };
+    const button = (text, action, cls) => {
+      const node = el('button', cls || 'button button-secondary', text);
+      node.type = 'button'; node.dataset.action = action;
+      return node;
+    };
+    function state() {
+      const s = store.get();
+      return { ...s, answers: s.answers || {}, drafts: s.drafts || {}, favorites: s.favorites || [] };
+    }
+    function update(mutator) {
+      store.update((s) => {
+        s.answers ||= {}; s.drafts ||= {}; s.favorites ||= [];
+        mutator(s);
+      });
+    }
+    function chosen(q, s) {
+      if (Object.hasOwn(s.drafts, q.id)) return s.drafts[q.id];
+      return s.answers[q.id] ? s.answers[q.id].selected : [];
+    }
+    function revealed(q, s) {
+      return !!(s.answers[q.id] && s.answers[q.id].submitted && !Object.hasOwn(s.drafts, q.id));
+    }
+    function render() {
+      if (destroyed) return;
+      const s = state();
+      if (!questions.some((q) => q.id === currentId)) currentId = questions[0] && questions[0].id;
+      const q = questions.find((item) => item.id === currentId);
+      root.replaceChildren();
+      if (!q) return;
+
+      const graded = questions.filter((item) => item.type !== 'discussion');
+      const doneCount = graded.filter((item) => s.answers[item.id]?.submitted).length;
+      const correctCount = graded.filter((item) => s.answers[item.id]?.correct).length;
+
+      const header = el('div', 'inline-practice-head');
+      const titleGroup = el('div', 'inline-practice-title');
+      titleGroup.append(el('span', 'inline-practice-badge', '即学即练'));
+      const summaryText = graded.length
+        ? `本知识点 ${questions.length} 道配套题 · 已答 ${doneCount}/${graded.length}${doneCount ? `（答对 ${correctCount}）` : ''}`
+        : `本知识点 ${questions.length} 道讨论题`;
+      titleGroup.append(el('span', 'muted', summaryText));
+      const toggleBtn = button(collapsed ? '展开练习' : '收起练习', 'toggle-collapse', 'text-button');
+      toggleBtn.setAttribute('aria-expanded', String(!collapsed));
+      header.append(titleGroup, toggleBtn);
+      root.append(header);
+
+      if (collapsed) return;
+
+      const body = el('div', 'inline-practice-body');
+      if (questions.length > 1) {
+        const nav = el('nav', 'quiz-grid inline-quiz-grid');
+        nav.setAttribute('aria-label', '本知识点练习题号');
+        questions.forEach((item, idx) => {
+          const n = button(String(idx + 1), 'question', 'quiz-number');
+          n.dataset.qid = item.id;
+          const rec = s.answers[item.id];
+          let result = 'unanswered';
+          if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) result = 'draft';
+          else if (rec) result = rec.correct ? 'correct' : 'wrong';
+          n.dataset.state = result;
+          if (result === 'correct' || result === 'wrong') n.classList.add(result);
+          if (result === 'draft') n.classList.add('answered');
+          if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
+          n.setAttribute('aria-label', `本知识点第 ${idx + 1} 题（全章第 ${item.number} 题）`);
+          nav.append(n);
+        });
+        body.append(nav);
+      }
+
+      const card = el('div', 'inline-quiz-card');
+      const cardHead = el('div', 'quiz-card-header');
+      const discussion = q.type === 'discussion';
+      const types = { multiple: '多项选择题 · 全部选对得分', single: '单项选择题', discussion: '讨论题 · 不计分' };
+      const qIdx = questions.findIndex((item) => item.id === q.id);
+      const posLabel = questions.length > 1 ? `第 ${qIdx + 1}/${questions.length} 题（全章第 ${q.number} 题）` : `全章第 ${q.number} 题`;
+      cardHead.append(el('span', '', [posLabel, types[q.type]].join(' · ')));
+      const favorite = button(s.favorites.includes(q.id) ? '★ 已收藏' : '☆ 收藏此题', 'favorite', 'button button-secondary quiz-favorite');
+      favorite.setAttribute('aria-pressed', String(s.favorites.includes(q.id)));
+      cardHead.append(favorite);
+      card.append(cardHead);
+
+      const stem = el('h4', 'quiz-stem inline-quiz-stem', q.stem);
+      stem.id = `inline-stem-${sectionId}-${q.id}`;
+      card.append(stem);
+
+      const field = el('fieldset', 'quiz-options');
+      field.setAttribute('aria-labelledby', stem.id);
+      field.append(el('legend', '', discussion ? '讨论选项' : q.type === 'multiple' ? '请选择所有符合题意的选项' : '请选择一个选项'));
+      const selected = chosen(q, s);
+      const show = revealed(q, s);
+      const inputName = `inline-quiz-${sectionId}-${q.id}`;
+      Object.entries(q.options).forEach(([key, text]) => {
+        if (discussion) {
+          field.append(el('div', 'quiz-option', `${key}. ${text}`));
+          return;
+        }
+        const label = el('label', 'quiz-option');
+        const input = el('input');
+        input.type = q.type === 'multiple' ? 'checkbox' : 'radio';
+        input.name = inputName;
+        input.value = key;
+        input.checked = selected.includes(key);
+        input.disabled = show;
+        input.dataset.qid = q.id;
+        if (show && q.answer.includes(key)) label.classList.add('correct');
+        if (show && selected.includes(key) && !q.answer.includes(key)) label.classList.add('wrong');
+        label.append(input, el('span', '', `${key}. ${text}`));
+        field.append(label);
+      });
+      card.append(field);
+
+      const actions = el('div', 'quiz-actions');
+      if (questions.length > 1) {
+        const nav = el('div', 'quiz-nav');
+        const prev = button('上一题', 'previous'); prev.disabled = qIdx <= 0;
+        const next = button('下一题', 'next'); next.disabled = qIdx >= questions.length - 1;
+        nav.append(prev, next);
+        actions.append(nav);
+      }
+      if (discussion) {
+        const open = openDiscussions.has(q.id);
+        const toggle = button(open ? '收起讨论解析' : '查看讨论解析', 'discussion', 'button button-primary');
+        toggle.setAttribute('aria-expanded', String(open));
+        actions.append(toggle);
+      } else {
+        const submit = button(show ? '重新作答' : '提交答案', show ? 'retry' : 'submit', 'button button-primary');
+        submit.disabled = !show && !selected.length;
+        actions.append(submit);
+      }
+      card.append(actions);
+
+      const status = el('p', 'quiz-status', statusText);
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      card.append(status);
+
+      if (show || openDiscussions.has(q.id)) {
+        const feedback = el('div', 'quiz-feedback quiz-explanation');
+        if (q.type === 'discussion') {
+          feedback.append(el('h4', '', '讨论解析'));
+        } else {
+          const correct = grade(q, selected);
+          feedback.append(el('h4', correct ? 'quiz-correct' : 'quiz-incorrect', correct ? '回答正确' : '回答错误'));
+          feedback.append(el('p', '', `你选择了 ${selected.join('、')}。正确答案是 ${q.answer.join('、')}。`));
+        }
+        if (q.type === 'multiple' && selected.length && !grade(q, selected)) {
+          const missing = q.answer.filter((key) => !selected.includes(key));
+          const extra = selected.filter((key) => !q.answer.includes(key));
+          const details = [];
+          if (missing.length) details.push(`漏选了 ${missing.join('、')}。`);
+          if (extra.length) details.push(`错选了 ${extra.join('、')}。`);
+          feedback.append(el('p', '', details.join('')));
+        }
+        feedback.append(el('h5', '', '解题思路'), el('p', '', q.explanationSupplement || '请结合上方知识点复习。'));
+        if (q.optionExplanations && Object.keys(q.optionExplanations).length) {
+          feedback.append(el('h5', '', '选项辨析'));
+          const reasons = el('ul', 'quiz-rationale-list');
+          Object.entries(q.optionExplanations).forEach(([key, text]) => reasons.append(el('li', '', `${key}　${text}`)));
+          feedback.append(reasons);
+        }
+        card.append(feedback);
+      }
+
+      body.append(card);
+      root.append(body);
+    }
+    function handleClick(event) {
+      const target = event.target.closest('button[data-action]');
+      if (!target || !root.contains(target)) return;
+      const action = target.dataset.action;
+      const s = state();
+      const q = questions.find((item) => item.id === currentId);
+      statusText = '';
+      if (action === 'toggle-collapse') { collapsed = !collapsed; }
+      else if (action === 'question') { currentId = target.dataset.qid; }
+      else if (action === 'discussion' && q?.type === 'discussion') {
+        if (openDiscussions.has(q.id)) openDiscussions.delete(q.id);
+        else openDiscussions.add(q.id);
+      } else if (action === 'previous' || action === 'next') {
+        const idx = questions.findIndex((item) => item.id === currentId);
+        const nextItem = questions[idx + (action === 'next' ? 1 : -1)];
+        if (nextItem) currentId = nextItem.id;
+      } else if (action === 'favorite' && q) {
+        update((draft) => { const i = draft.favorites.indexOf(q.id); if (i >= 0) draft.favorites.splice(i, 1); else draft.favorites.push(q.id); });
+      } else if (action === 'retry' && q) {
+        update((draft) => { draft.drafts[q.id] = []; });
+        statusText = '已开始重新作答，历史记录保留。';
+      } else if (action === 'submit' && q) {
+        const selected = chosen(q, s);
+        if (!selected.length) { statusText = '请先选择答案。'; }
+        else {
+          update((draft) => { recordAttempt(draft, q, selected); delete draft.drafts[q.id]; });
+          statusText = grade(q, selected) ? '答案已保存，回答正确。' : '答案已保存，已加入错题本。';
+        }
+      }
+      render();
+    }
+    function handleChange(event) {
+      const input = event.target;
+      if (!input.matches('input[data-qid]')) return;
+      const s = state();
+      const q = questions.find((item) => item.id === input.dataset.qid);
+      if (!q || revealed(q, s)) return;
+      const selected = [...root.querySelectorAll(`input[name="${input.name}"]:checked`)].map((node) => node.value);
+      update((draft) => { draft.drafts[q.id] = selected; });
+      statusText = '选项已暂存，提交后判题。';
+      const value = input.value;
+      render();
+      const focus = [...root.querySelectorAll(`input[name="${input.name}"]`)].find((node) => node.value === value);
+      if (focus) focus.focus({ preventScroll: true });
+    }
+    root.addEventListener('click', handleClick);
+    root.addEventListener('change', handleChange);
+    render();
+    return {
+      render,
+      cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); },
+    };
+  }
+  const api = { mount, mountInline, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   if (global) global.StudyQuiz = api;
 })(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this);
@@ -1116,7 +1589,8 @@ dialog::backdrop { background: var(--backdrop); }
  const questionIds=new Set(C.questions?.map(q=>q.id));
  const empty=()=>({version:1,answers:{},drafts:{},favorites:[],reading:{seen:[],lastConcept:'',scrollY:0},test:{drafts:{},submitted:false}});
  let storageAvailable=true,state=empty(),quizCleanup=null,view='learn',toastTimer,ppfTimer=null;
- let readingTimer, readingTracking=false, readingChanged=false;
+ let readingTimer, readingTracking=false, readingChanged=false, lessonFilter='all', lessonQuery='';
+ const inlineQuizzes=[];
  const clone=o=>JSON.parse(JSON.stringify(o));
  function cleanSelected(value,q){if(!Array.isArray(value)||!value.every(v=>typeof v==='string'&&Object.hasOwn(q.options,v)))throw Error('备份中的作答选项无效');const out=[...new Set(value)].sort();if(q.type==='single'&&out.length>1)throw Error('单选题备份含多个选项');return out;}
  function validateState(raw){
@@ -1165,6 +1639,7 @@ dialog::backdrop { background: var(--backdrop); }
  function openModal(title,content){$('#modal-title').textContent=title;$('#modal-content').replaceChildren();if(typeof content==='string')$('#modal-content').innerHTML=content;else if(content)$('#modal-content').append(content);if(!$('#modal').open)$('#modal').showModal();}
  $('#modal-close').addEventListener('click',()=>$('#modal').close());
  $('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
+ function syncInlineQuizzes(){inlineQuizzes.forEach(item=>item.render());}
  function jumpConcept(id) {
   if(!sectionIds.has(id))return;
   showChapter();
@@ -1182,10 +1657,54 @@ dialog::backdrop { background: var(--backdrop); }
   });
  }
  function mountQuiz(){if(quizCleanup)quizCleanup();quizCleanup=window.StudyQuiz.mount($('#quiz'),{questions:C.questions,store,onConceptJump:jumpConcept});}
- function updateProgress(){const count=state.reading?.seen?.length||0;$('#reading-label').textContent=`已读 ${count} / ${C.lessons.sections.length} 个知识点`;$('#continue-reading').hidden=!state.reading?.lastConcept;$$('#lesson-jump a').forEach(link=>{if(link.dataset.concept===state.reading.lastConcept)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});$$('[data-favorite-concept]').forEach(b=>{const yes=state.favorites.includes('concept:'+b.dataset.favoriteConcept);b.classList.toggle('selected',yes);b.textContent=yes?'★':'☆';b.setAttribute('aria-pressed',String(yes));});}
+ function applyLessonFilter(){
+  if(!chapter)return;
+  const q=lessonQuery.trim().toLowerCase();
+  let visible=0;
+  $$('#lessons .lesson-card').forEach(card=>{
+   const id=card.id;
+   const isSeen=state.reading?.seen?.includes(id);
+   const isFav=state.favorites.includes('concept:'+id);
+   const matchFilter=lessonFilter==='all'||(lessonFilter==='unread'&&!isSeen)||(lessonFilter==='favorites'&&isFav);
+   const matchQuery=!q||card.dataset.searchText.includes(q);
+   const show=matchFilter&&matchQuery;
+   card.hidden=!show;
+   if(show)visible++;
+  });
+  const emptyBox=$('#learn-empty');
+  if(emptyBox)emptyBox.hidden=visible>0;
+ }
+ function updateProgress(){
+  const seenSet=new Set(state.reading?.seen||[]);
+  const count=seenSet.size;
+  $('#reading-label').textContent=`已读 ${count} / ${C.lessons.sections.length} 个知识点`;
+  $('#continue-reading').hidden=!state.reading?.lastConcept;
+  $$('#lesson-jump a').forEach(link=>{if(link.dataset.concept===state.reading.lastConcept)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});
+  $$('[data-favorite-concept]').forEach(b=>{const yes=state.favorites.includes('concept:'+b.dataset.favoriteConcept);b.classList.toggle('selected',yes);b.textContent=yes?'★':'☆';b.setAttribute('aria-pressed',String(yes));});
+  $$('[data-read-badge]').forEach(badge=>{
+   const seen=seenSet.has(badge.dataset.readBadge);
+   badge.textContent=seen?'已读':'未读';
+   badge.classList.toggle('is-done',seen);
+  });
+  applyLessonFilter();
+ }
  function toggleFavorite(id){store.update(s=>{const i=s.favorites.indexOf(id);if(i===-1)s.favorites.push(id);else s.favorites.splice(i,1);});}
  function chapterLink(entry) {
   return offline ? (entry.id === chapter?.id ? '#learn' : null) : entry.href;
+ }
+ function readChapterProgress(chapterId) {
+  try {
+   const k = chapterId === 'chapter01' ? keyBase : `${keyBase}:${chapterId}`;
+   const raw = localStorage.getItem(k);
+   if (!raw) return null;
+   const parsed = JSON.parse(raw);
+   const seen = Array.isArray(parsed?.reading?.seen) ? parsed.reading.seen.length : 0;
+   const answered = parsed?.answers && typeof parsed.answers === 'object' ? Object.keys(parsed.answers).length : 0;
+   if (!seen && !answered) return null;
+   return { seen, answered };
+  } catch {
+   return null;
+  }
  }
  function renderSidebar() {
   const openCount = catalog.flatMap(module => module.chapters).filter(chapterLink).length;
@@ -1220,7 +1739,14 @@ dialog::backdrop { background: var(--backdrop); }
   const root = $('#home-view');
   const introduction = el('div', 'home-hero');
   introduction.innerHTML = `<h1>经济金融保险基础</h1>
-   <p>按章节学习概念、操作图解、练习做题。</p>`;
+   <p>按章节学习概念、操作图解、练习做题。</p>
+   <div class="home-search-row">
+     <div class="search-box">
+       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+       <input type="search" id="home-search" placeholder="搜索章节标题或编号…" aria-label="搜索章节标题或编号">
+       <span class="search-kbd" aria-hidden="true">/</span>
+     </div>
+   </div>`;
   root.append(introduction);
 
   catalog.forEach(module => {
@@ -1232,25 +1758,60 @@ dialog::backdrop { background: var(--backdrop); }
    module.chapters.forEach(entry => {
     const href = chapterLink(entry);
     const row = el(href ? 'a' : 'div', 'catalog-card' + (href ? ' ready' : ''));
+    row.dataset.searchText = `${String(entry.number).padStart(2, '0')} ${entry.title} ${module.title}`.toLowerCase();
     const name = el('h3', '', entry.title);
     row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), name);
+    const meta = el('span', 'catalog-meta');
     if (href) {
      row.href = href;
      row.dataset.openChapter = 'true';
-     row.append(el('span', 'catalog-status', '开始学习 →'));
+     const prog = readChapterProgress(entry.id);
+     if (prog) {
+      const parts = [];
+      if (prog.seen) parts.push(`已读 ${prog.seen}`);
+      if (prog.answered) parts.push(`已答 ${prog.answered}`);
+      if (parts.length) meta.append(el('span', 'catalog-progress', parts.join(' · ')));
+     }
+     meta.append(el('span', 'catalog-status', '开始学习 →'));
     } else {
-     row.append(el('span', 'catalog-status', offline ? '其他章节' : '待开放'));
+     meta.append(el('span', 'catalog-status', offline ? '其他章节' : '待开放'));
     }
+    row.append(meta);
     chapters.append(row);
    });
    section.append(chapters);
    root.append(section);
   });
+
+  const emptyHome = el('div', 'learn-empty', '没有找到匹配的章节。');
+  emptyHome.id = 'home-empty';
+  emptyHome.hidden = true;
+  root.append(emptyHome);
+
+  $('#home-search')?.addEventListener('input', event => {
+   const q = event.target.value.trim().toLowerCase();
+   let totalVisible = 0;
+   $$('#home-view .catalog-section').forEach(section => {
+    let sectionVisible = 0;
+    $$('.catalog-card', section).forEach(card => {
+     const match = !q || card.dataset.searchText.includes(q);
+     card.hidden = !match;
+     if (match) sectionVisible++;
+    });
+    section.hidden = sectionVisible === 0;
+    totalVisible += sectionVisible;
+   });
+   emptyHome.hidden = totalVisible > 0;
+  });
  }
 
  function renderLessons() {
+  const visualTpl = $('#visual-template');
   C.lessons.sections.forEach((section, index) => {
    const number = String(index + 1).padStart(2, '0');
+   const sectionQuestions = C.questions.filter(q => q.conceptId === section.id);
+   const hasVisual = Boolean(chapter.visual && chapter.visualSectionId === section.id && visualTpl && visualTpl.content.childNodes.length);
+
    const jump = el('a');
    jump.href = '#' + section.id;
    jump.dataset.concept = section.id;
@@ -1259,9 +1820,18 @@ dialog::backdrop { background: var(--backdrop); }
 
    const card = el('section', 'lesson-card');
    card.id = section.id;
+   card.dataset.searchText = `${number} ${section.title} ${section.summary} ${section.keyTakeaway}`.toLowerCase();
    const head = el('div', 'lesson-head');
    const heading = el('div');
    heading.append(el('h3', '', section.title), el('p', 'lesson-summary', section.summary));
+   const badges = el('div', 'lesson-badges');
+   const readBadge = el('span', 'status-pill', '未读');
+   readBadge.dataset.readBadge = section.id;
+   badges.append(readBadge);
+   if (sectionQuestions.length) badges.append(el('span', 'status-pill', `配套 ${sectionQuestions.length} 题`));
+   if (hasVisual) badges.append(el('span', 'status-pill is-visual', '含交互图解'));
+   heading.append(badges);
+
    const favorite = button('☆', 'icon-button', () => toggleFavorite('concept:' + section.id));
    favorite.dataset.favoriteConcept = section.id;
    favorite.setAttribute('aria-label', '收藏知识点：' + section.title);
@@ -1275,6 +1845,14 @@ dialog::backdrop { background: var(--backdrop); }
     table.replaceWith(wrap);
     wrap.append(table);
    });
+
+   if (chapter.visual && chapter.visualSectionId === section.id && visualTpl && visualTpl.content.childNodes.length) {
+    const visualBox = el('div', 'inline-visual');
+    visualBox.id = 'inline-visual';
+    visualBox.append(visualTpl.content.cloneNode(true));
+    body.append(visualBox);
+   }
+
    const takeaway = el('div', 'concept-takeaway');
    takeaway.append(el('strong', '', '考点'), document.createTextNode(section.keyTakeaway));
    body.append(takeaway);
@@ -1290,6 +1868,19 @@ dialog::backdrop { background: var(--backdrop); }
    }
    body.append(extras);
    card.append(head, body);
+
+   if (sectionQuestions.length) {
+    const practiceBox = el('section', 'inline-practice');
+    practiceBox.dataset.conceptPractice = section.id;
+    practiceBox.setAttribute('aria-label', section.title + ' · 即学即练');
+    card.append(practiceBox);
+    inlineQuizzes.push(window.StudyQuiz.mountInline(practiceBox, {
+     sectionId: section.id,
+     questions: sectionQuestions,
+     store,
+    }));
+   }
+
    $('#lessons').append(card);
   });
  }
@@ -1331,6 +1922,8 @@ dialog::backdrop { background: var(--backdrop); }
   const zoomIn = $('#map-zoom-in');
   const zoomOut = $('#map-zoom-out');
   const size = $('#map-size');
+  const collapsePanel = $('#map-collapse-panel');
+  const panelBody = $('#map-panel-body');
   const branches = [];
   const startExpanded = !matchMedia('(max-width: 767px)').matches;
   const readingSize = 14;
@@ -1413,6 +2006,15 @@ dialog::backdrop { background: var(--backdrop); }
   zoomOut.addEventListener('click', () => setScale(scale / 1.2));
   size.addEventListener('click', () => setScale(1));
   $('#map-fit').addEventListener('click', fitWidth);
+  if (collapsePanel && panelBody) {
+   collapsePanel.addEventListener('click', () => {
+    const nextHidden = !panelBody.hidden;
+    panelBody.hidden = nextHidden;
+    collapsePanel.setAttribute('aria-expanded', String(!nextHidden));
+    collapsePanel.textContent = nextHidden ? '展开导图' : '收起导图';
+    if (!nextHidden) requestAnimationFrame(fitWidth);
+   });
+  }
 
   return () => {
    if (hasOpened) return;
@@ -1420,9 +2022,11 @@ dialog::backdrop { background: var(--backdrop); }
    fitWidth();
   };
  }
- const chapterViews = chapter?.visual ? ['learn', 'map', 'visual', 'practice'] : ['learn', 'map', 'practice'];
+ const chapterViews = ['learn', 'practice'];
  function chapterActions(visible) {
   $$('[data-action="favorites"], [data-action="records"], [data-action="download"], .sidebar-quick-actions').forEach(node => node.hidden = !visible);
+  const mobileNav = $('#mobile-bottom-nav');
+  if (mobileNav) mobileNav.hidden = !visible;
  }
  function showHome() {
   saveReadingPosition();
@@ -1440,24 +2044,41 @@ dialog::backdrop { background: var(--backdrop); }
   document.title=chapter.title+' · 知其所以';
  }
  function switchView(next, scroll=true) {
+  const requested = next;
   if (!chapterViews.includes(next)) next='learn';
   saveReadingPosition();
   pausePPF();
   view=next;
   $$('.content-view').forEach(v=>v.hidden=v.id!=='view-'+next);
   $$('[data-view]').forEach(b=>{
-   const active=b.dataset.view===next;
+   const matchKey = requested === 'map' ? 'map' : next;
+   const active = b.closest('#mobile-bottom-nav') ? b.dataset.view === matchKey : b.dataset.view === next;
    b.classList.toggle('active',active);
    if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
   });
-  if(scroll) {
+  if(next==='learn') {
+   fitMapOnFirstOpen();
+   syncInlineQuizzes();
+  }
+  if(next==='practice') mountQuiz();
+  if(requested==='map') {
+   readingTracking=false;
+   requestAnimationFrame(()=>{
+    $('#chapter-mindmap')?.scrollIntoView({behavior:'instant',block:'start'});
+    requestAnimationFrame(()=>{readingTracking=true;});
+   });
+  } else if(requested==='visual' && $('#inline-visual')) {
+   readingTracking=false;
+   requestAnimationFrame(()=>{
+    $('#inline-visual').scrollIntoView({behavior:'instant',block:'start'});
+    requestAnimationFrame(()=>{readingTracking=true;});
+   });
+  } else if(scroll) {
    readingTracking=false;
    $('.view-tabs').scrollIntoView({behavior:'instant',block:'start'});
    requestAnimationFrame(()=>requestAnimationFrame(()=>{readingTracking=true;}));
   }
-  if(next==='map')fitMapOnFirstOpen();
-  if(next==='practice')mountQuiz();
-  history.replaceState(null,'','#'+next);
+  history.replaceState(null,'','#'+(requested==='map'||requested==='visual'?requested:next));
  }
  $('#continue-reading').addEventListener('click',()=>jumpConcept(state.reading.lastConcept));
  function records() {
@@ -1495,7 +2116,7 @@ dialog::backdrop { background: var(--backdrop); }
     confirm.append(el('p','',`已检查备份，含 ${Object.keys(next.answers).length} 道作答记录、${next.reading.seen.length} 个已读知识点。导入将替换本章记录。`),
      button('确认导入并替换','button button-primary',()=>{
       store.update(record=>Object.assign(record,next));
-      mountQuiz();records();toast('学习记录已恢复');
+      mountQuiz();syncInlineQuizzes();records();toast('学习记录已恢复');
      }));
     status.replaceChildren(confirm);
    } catch(e) {
@@ -1509,7 +2130,7 @@ dialog::backdrop { background: var(--backdrop); }
   openModal('学习记录与备份',wrap);
  }
  function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
- function favorites(){const wrap=el('div');if(!state.favorites.length)wrap.append(el('p','muted','还没有收藏。阅读时点击知识点右侧的 ☆，或在答题时收藏题目。'));state.favorites.forEach(id=>{const isConcept=id.startsWith('concept:'),item=isConcept?C.lessons.sections.find(s=>s.id===id.slice(8)):C.questions.find(q=>q.id===id);if(!item)return;const row=el('div','favorite-item');const b=button(isConcept?item.title:`第 ${item.number} 题 · ${item.stem}`,'',()=>{$('#modal').close();if(isConcept)jumpConcept(item.id);else{showChapter();switchView('practice');window.StudyQuiz.openQuestion?.(item.id);}});b.append(el('small','',isConcept?'知识点':'练习题'));row.append(b,button('移除','text-button',()=>{toggleFavorite(id);favorites();}));wrap.append(row);});openModal('我的收藏',wrap);}
+ function favorites(){const wrap=el('div');if(!state.favorites.length)wrap.append(el('p','muted','还没有收藏。阅读时点击知识点右侧的 ☆，或在答题时收藏题目。'));state.favorites.forEach(id=>{const isConcept=id.startsWith('concept:'),item=isConcept?C.lessons.sections.find(s=>s.id===id.slice(8)):C.questions.find(q=>q.id===id);if(!item)return;const row=el('div','favorite-item');const b=button(isConcept?item.title:`第 ${item.number} 题 · ${item.stem}`,'',()=>{$('#modal').close();if(isConcept)jumpConcept(item.id);else{showChapter();switchView('practice');window.StudyQuiz.openQuestion?.(item.id);}});b.append(el('small','',isConcept?'知识点':'练习题'));row.append(b,button('移除','text-button',()=>{toggleFavorite(id);syncInlineQuizzes();favorites();}));wrap.append(row);});openModal('我的收藏',wrap);}
  function download() {
   if(offline) {
    openModal('你正在使用离线学习版','<p>本文件包含本章的讲解、思维导图和练习。保存好这份 HTML，断网后双击即可继续学习。</p><p>可在「学习记录」中导出、导入本章备份。</p>');
@@ -1525,7 +2146,7 @@ dialog::backdrop { background: var(--backdrop); }
  }
  document.addEventListener('click',e=>{const target=e.target.closest('button,a');if(!target)return;if(target.dataset.concept){e.preventDefault();jumpConcept(target.dataset.concept);return;}if(target.dataset.view){switchView(target.dataset.view);return;}if(target.dataset.switch){switchView(target.dataset.switch);return;}if(offline&&target.hasAttribute('data-open-chapter')){e.preventDefault();showChapter();switchView('learn');window.scrollTo({top:0,behavior:'instant'});return;}if(offline&&target.getAttribute('href')==='index.html'){e.preventDefault();showHome();history.replaceState(null,'','#home');return;}switch(target.dataset.action){case'favorites':favorites();break;case'records':records();break;case'download':download();break;case'sidebar':{const open=$('#sidebar').classList.toggle('open');target.setAttribute('aria-expanded',String(open));break;}}});
  function pausePPF(){if(ppfTimer){clearInterval(ppfTimer);ppfTimer=null;}if($('#ppf-play')){$('#ppf-play').textContent='播放取舍变化';$('#ppf-play').setAttribute('aria-pressed','false');}}
- function initPPF(){const range=$('#grain-range'),radios=$$('input[name=scenario]');function point(p,f=1){const x=p*470*f,y=Math.sqrt(Math.max(0,1-p*p))*340*f;return[76+x,388-y];}function path(f){let d='';for(let i=0;i<=100;i++){const[x,y]=point(i/100,f);d+=(i?' L':'M')+x.toFixed(2)+' '+y.toFixed(2);}return d;}
+ function initPPF(){const range=$('#grain-range'),radios=$$('input[name=scenario]');if(!range||!radios.length)return;function point(p,f=1){const x=p*470*f,y=Math.sqrt(Math.max(0,1-p*p))*340*f;return[76+x,388-y];}function path(f){let d='';for(let i=0;i<=100;i++){const[x,y]=point(i/100,f);d+=(i?' L':'M')+x.toFixed(2)+' '+y.toFixed(2);}return d;}
   $('#ppf-curve').setAttribute('d',path(1));$('#ppf-new-curve').setAttribute('d',path(1.12));
   function draw(){const v=Number(range.value)/100,scenario=radios.find(r=>r.checked).value,f=scenario==='idle'?.7:scenario==='growth'?1.12:1;const[x,y]=point(v,f);$('#ppf-point').setAttribute('cx',x);$('#ppf-point').setAttribute('cy',y);$('#ppf-halo').setAttribute('cx',x);$('#ppf-halo').setAttribute('cy',y);$('#ppf-guides').setAttribute('d',`M76 ${y}H${x}V388`);$('#ppf-point-label').setAttribute('x',x+13);$('#ppf-point-label').setAttribute('y',y-14);$('#grain-output').textContent=Math.round(v*100*f);$('#machine-output').textContent=Math.round(Math.sqrt(1-v*v)*100*f);$('#grain-percent').value=range.value+'%';$('#ppf-new-curve').setAttribute('opacity',scenario==='growth'?'1':'0');const explanation=scenario==='idle'?'点在原有曲线内：存在资源闲置或利用低效。提高利用效率，可让两类产品产量同时增加。':scenario==='growth'?'技术进步使生产边界向外移动：相同资源下可以生产更多。图中按两类产品同比例提高作简化演示。':'点在曲线上：资源充分有效利用。向右移动时粮食增加、机器减少，这就是取舍。';if($('#ppf-explanation').textContent!==explanation)$('#ppf-explanation').textContent=explanation;}
   range.addEventListener('input',draw);radios.forEach(r=>r.addEventListener('change',draw));let direction=1;$('#ppf-play').addEventListener('click',()=>{if(ppfTimer){pausePPF();return;}if(matchMedia('(prefers-reduced-motion: reduce)').matches){toast('已启用减少动态效果，请拖动滑块逐步观察');return;}$('#ppf-play').textContent='暂停变化';$('#ppf-play').setAttribute('aria-pressed','true');ppfTimer=setInterval(()=>{let n=Number(range.value)+direction;if(n>=95||n<=5)direction*=-1;range.value=n;draw();},90);});$('#ppf-reset').addEventListener('click',()=>{pausePPF();range.value=60;radios[0].checked=true;draw();});document.addEventListener('visibilitychange',()=>{if(document.hidden)pausePPF();});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches)pausePPF();});draw();}
@@ -1545,8 +2166,22 @@ dialog::backdrop { background: var(--backdrop); }
   $('#chapter-title').textContent=chapter.title;
   $('#chapter-description').textContent=C.lessons.subtitle;
   $('.chapter-exercise-count').textContent=`${C.questions.length} 道练习`;
-  $('[data-view="visual"]').hidden=!chapter.visual;
   renderLessons();
+  $('#lesson-search')?.addEventListener('input', event => {
+   lessonQuery = event.target.value;
+   applyLessonFilter();
+  });
+  $$('[data-lesson-filter]').forEach(btn => {
+   btn.addEventListener('click', () => {
+    lessonFilter = btn.dataset.lessonFilter;
+    $$('[data-lesson-filter]').forEach(node => {
+     const active = node === btn;
+     node.classList.toggle('active', active);
+     node.setAttribute('aria-pressed', String(active));
+    });
+    applyLessonFilter();
+   });
+  });
   $$('.lesson-card').forEach(card=>observer.observe(card));
   fitMapOnFirstOpen=renderMap();
   if(chapter.visual==='ppf')initPPF();
@@ -1561,14 +2196,27 @@ dialog::backdrop { background: var(--backdrop); }
     jumpConcept(hash);
    } else {
     switchView(hash,false);
-    if(view==='learn')restoreReadingPosition({...state.reading});
+    if(view==='learn'&&hash!=='map'&&hash!=='visual')restoreReadingPosition({...state.reading});
     else readingTracking=true;
    }
   }
  } else {
   showHome();
  }
- document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#sidebar').classList.remove('open');$('.mobile-menu').setAttribute('aria-expanded','false');}});
+ document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+   $('#sidebar').classList.remove('open');
+   $('.mobile-menu').setAttribute('aria-expanded','false');
+   if(document.activeElement?.matches('#home-search, #lesson-search')){
+    document.activeElement.value='';
+    document.activeElement.dispatchEvent(new Event('input'));
+    document.activeElement.blur();
+   }
+  } else if(e.key==='/' && !e.metaKey && !e.ctrlKey && !e.altKey && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName||'')){
+   const target = $('#home-view').hidden ? (view==='learn' ? $('#lesson-search') : null) : $('#home-search');
+   if(target){ e.preventDefault(); target.focus(); target.select(); }
+  }
+ });
 })();
 </script>
 </body>

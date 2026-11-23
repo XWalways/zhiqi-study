@@ -27,7 +27,7 @@
         const dark = mode === 'dark' || (mode === 'system' && systemTheme.matches);
         document.documentElement.dataset.theme = dark ? 'dark' : 'light';
         document.documentElement.dataset.themeMode = mode;
-        themeColor.content = dark ? '#182427' : '#fbfdfd';
+        themeColor.content = dark ? '#151b1e' : '#fbfdfd';
       }
 
       applyAppearance();
@@ -68,7 +68,7 @@
   --text: #21363c;
   --heading: #172d34;
   --muted: #4e656c;
-  --line: #cddbdd;
+  --line: #dbe5e7;
   --control-line: #7d9297;
   --accent: #1a665b;
   --accent-hover: #144f47;
@@ -98,26 +98,26 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --background: #111b1e;
-  --surface: #182427;
-  --surface-subtle: #202e31;
-  --text: #dbe8e7;
-  --heading: #edf5f4;
-  --muted: #acbfc1;
-  --line: #384a4e;
-  --control-line: #738c90;
-  --accent: #92d1c0;
-  --accent-hover: #b1e3d5;
-  --accent-on: #132a25;
-  --accent-soft: #233b36;
-  --accent-line: #608f84;
-  --warning: #edd09c;
-  --warning-soft: #362e22;
-  --error: #f2a9b0;
-  --error-soft: #3b252a;
-  --error-line: #a46772;
-  --backdrop: rgb(9 17 20 / .75);
-  --shadow: 0 18px 48px rgb(7 14 17 / .44);
+  --background: #0e1315;
+  --surface: #151b1e;
+  --surface-subtle: #1b2226;
+  --text: #dce4e6;
+  --heading: #f0f4f5;
+  --muted: #8fa0a5;
+  --line: #273135;
+  --control-line: #4d5d63;
+  --accent: #7ecbb7;
+  --accent-hover: #9cdac9;
+  --accent-on: #0f241f;
+  --accent-soft: rgb(126 203 183 / .12);
+  --accent-line: rgb(126 203 183 / .36);
+  --warning: #e8c98e;
+  --warning-soft: rgb(232 201 142 / .12);
+  --error: #f0a1a9;
+  --error-soft: rgb(240 161 169 / .12);
+  --error-line: rgb(240 161 169 / .38);
+  --backdrop: rgb(6 10 12 / .78);
+  --shadow: 0 18px 48px rgb(0 0 0 / .48);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -176,50 +176,77 @@ mark { background: var(--accent-soft); color: var(--accent); padding: 0 .12em; }
 .brand-mark { width: 31px; height: 31px; color: var(--accent); flex: none; }
 .brand-mark svg { width: 100%; height: 100%; }
 .brand small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; font-weight: 460; letter-spacing: .06em; }
-.top-actions { display: flex; gap: clamp(12px, 2vw, 27px); align-items: center; }
+.top-actions { display: flex; gap: clamp(10px, 1.8vw, 22px); align-items: center; }
 .header-link { padding: 8px 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
 .header-link:hover { color: var(--accent); }
+.github-link {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface-subtle);
+  color: var(--muted);
+  transition: color .16s ease, border-color .16s ease, background .16s ease;
+}
+.github-link:hover {
+  color: var(--heading);
+  border-color: var(--control-line);
+  background: var(--accent-soft);
+}
 .theme-control {
-  --theme-slot: 66px;
+  --theme-slot: 32px;
   --theme-position: 1;
   position: relative;
   display: inline-grid;
   grid-template-columns: repeat(3, var(--theme-slot));
   flex: none;
-  align-items: stretch;
+  align-items: center;
   padding: 3px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface-subtle);
 }
-:root[data-theme-mode="light"] .theme-control { --theme-position: 0; }
-:root[data-theme-mode="dark"] .theme-control { --theme-position: 2; }
+:root[data-theme-mode="dark"] .theme-control { --theme-position: 0; }
+:root[data-theme-mode="system"] .theme-control { --theme-position: 1; }
+:root[data-theme-mode="light"] .theme-control { --theme-position: 2; }
 .theme-thumb {
   position: absolute;
-  inset: 3px auto 3px 3px;
+  top: 3px;
+  left: 3px;
   width: var(--theme-slot);
-  border-radius: 999px;
-  background: var(--accent);
+  height: var(--theme-slot);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgb(0 0 0 / .14);
   transform: translateX(calc(100% * var(--theme-position)));
   pointer-events: none;
+}
+:root[data-theme="dark"] .theme-thumb {
+  border-color: var(--control-line);
+  background: #252e33;
+  box-shadow: 0 1px 4px rgb(0 0 0 / .42);
 }
 .theme-option {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 35px;
+  width: var(--theme-slot);
+  height: var(--theme-slot);
   color: var(--muted);
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 630;
-  line-height: 1.2;
-  white-space: nowrap;
+  border-radius: 50%;
   cursor: pointer;
   touch-action: manipulation;
+  transition: color .16s ease;
 }
-.theme-option:hover { color: var(--accent); }
-.theme-control input:checked + .theme-option { color: var(--accent-on); }
-.theme-control input:focus-visible + .theme-option { outline: 2px solid var(--heading); outline-offset: 1px; }
+.theme-option svg { display: block; }
+.theme-option:hover { color: var(--heading); }
+.theme-control input:checked + .theme-option { color: var(--heading); }
+:root[data-theme="light"] .theme-control input:checked + .theme-option { color: var(--accent); }
+.theme-control input:focus-visible + .theme-option { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 .button, .download-button {
   display: inline-flex;
@@ -319,8 +346,10 @@ main:focus { outline: none; }
 .view-tabs button.active, .view-tabs button:hover { color: var(--accent); }
 .view-tabs button.active { font-weight: 700; }
 .view-tabs button.active::after { content: ''; position: absolute; inset: auto 0 -1px; height: 3px; background: var(--accent); }
-.section-intro { margin: 0 0 18px; }
+.section-intro { margin: 0 0 14px; }
 .section-intro p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+.chapter-mindmap { margin-bottom: 26px; scroll-margin-top: calc(var(--header-height) + var(--tabs-height) + 13px); }
+.map-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
 /* A continuous reading surface with a separate index in the margin. */
 .reading-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, 190px); align-items: start; gap: 25px; }
@@ -341,6 +370,112 @@ main:focus { outline: none; }
 .lesson-head h3 { font-size: clamp(1.23rem, 2vw, 1.57rem); letter-spacing: -.025em; }
 .lesson-number { color: var(--accent); font-size: 13px; font-weight: 660; margin-top: 6px; }
 .lesson-summary { margin-top: 4px; color: var(--muted); font-size: 14px; }
+.lesson-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 560;
+  line-height: 1.5;
+}
+.status-pill.is-done {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+.status-pill.is-visual {
+  border-color: var(--control-line);
+  color: var(--heading);
+}
+.learn-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 14px;
+  flex-wrap: wrap;
+  padding: 14px clamp(24px, 3.4vw, 46px);
+  border-bottom: 1px solid var(--line);
+}
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 220px;
+  max-width: 340px;
+}
+.search-box svg {
+  position: absolute;
+  left: 11px;
+  color: var(--muted);
+  pointer-events: none;
+}
+.search-box input {
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 34px 6px 33px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+  color: var(--text);
+  font-size: 13.5px;
+}
+.search-box input::placeholder { color: var(--muted); }
+.search-box input:focus { outline: none; border-color: var(--accent); background: var(--surface); }
+.search-kbd {
+  position: absolute;
+  right: 10px;
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--muted);
+  font: 600 11px/1 var(--font-number);
+  pointer-events: none;
+}
+.search-box input:focus + .search-kbd { opacity: 0; }
+.filter-pills { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.filter-pill {
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 560;
+  transition: background .14s ease, color .14s ease, border-color .14s ease;
+}
+.filter-pill:hover { color: var(--heading); border-color: var(--control-line); }
+.filter-pill.active {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent);
+  font-weight: 650;
+}
+.learn-empty {
+  padding: 36px 24px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+.home-search-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
 .lesson-head .icon-button { margin: -6px -6px 0 0; }
 .lesson-body { font-size: 16px; line-height: 1.95; overflow-wrap: anywhere; }
 .lesson-body > :where(p, ul, ol, h4, blockquote) { margin-block: 0 13px; }
@@ -360,6 +495,60 @@ main:focus { outline: none; }
 .lesson-extra { border-top: 1px solid var(--line); padding: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
 .lesson-extra strong { display: block; color: var(--heading); font-size: 13px; margin-bottom: 4px; }
 .lesson-extra.pitfall strong { color: var(--warning); }
+.inline-visual {
+  margin: 22px 0;
+  padding: 18px;
+  border-top: 2px solid var(--accent-line);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  scroll-margin-top: calc(var(--header-height) + var(--tabs-height) + 16px);
+}
+.inline-visual .ppf-panel {
+  border: 0;
+  background: transparent;
+}
+.inline-visual-header { margin-bottom: 14px; }
+.inline-visual-badge, .inline-practice-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.inline-visual-header h4 { margin-top: 7px; font-size: 1.08rem; }
+.inline-visual-header p { margin-top: 4px; color: var(--muted); font-size: 13.5px; line-height: 1.65; }
+.inline-visual .ppf-controls h5 { margin: 4px 0 2px; color: var(--heading); font-size: 15px; font-weight: 650; }
+.inline-visual .visual-notes { margin: 14px 0 0; }
+.inline-visual .visual-notes > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.inline-practice {
+  margin-top: 26px;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--line);
+}
+.inline-practice-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.inline-practice-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.inline-practice-body { margin-top: 12px; }
+.inline-quiz-grid { margin-bottom: 12px; }
+.inline-quiz-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+}
+.inline-quiz-stem { font-size: clamp(16px, 1.5vw, 18px); line-height: 1.65; margin-bottom: 13px; }
+.inline-quiz-card .quiz-feedback h4 { margin: 0 0 8px; font-size: 16px; }
+.inline-quiz-card .quiz-feedback h5 { margin: 14px 0 5px; font-size: 14px; color: var(--heading); }
 .next-step { border-top: 1px solid var(--line); padding: 20px clamp(24px, 3.4vw, 46px); }
 
 /* Topic map and the interactive production chart */
@@ -540,9 +729,11 @@ input[type=range] { width: 100%; min-height: 25px; margin: 0; cursor: pointer; }
 .catalog-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
 .catalog-heading span { color: var(--muted); font-size: 13px; white-space: nowrap; }
 .catalog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 23px; }
-.catalog-card { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 8px; min-height: 48px; padding: 8px 4px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.catalog-card { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 8px; min-height: 48px; padding: 8px 6px; border-bottom: 1px solid var(--line); color: var(--muted); border-radius: 6px; }
 .catalog-card h3 { color: inherit; font-size: 14px; font-weight: 520; }
 .catalog-card .chapter-no, .catalog-status { font-size: 12px; }
+.catalog-meta { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.catalog-progress { padding: 1px 7px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font: 560 11px/1.5 var(--font-number); }
 .catalog-status { white-space: nowrap; }
 .catalog-card.ready { color: var(--accent); font-weight: 650; }
 .catalog-card.ready:hover { background: var(--accent-soft); }
@@ -643,9 +834,9 @@ dialog::backdrop { background: var(--backdrop); }
   .brand small { font-size: 10px; }
   .top-actions { margin-left: auto; gap: 7px; }
   .top-actions .header-link { display: none; }
-  .theme-control { --theme-slot: 49px; }
-  .theme-option { min-height: 30px; font-size: 12px; }
-  .download-button { min-height: 38px; padding: 6px 10px; font-size: 13px; }
+  .github-link { width: 34px; height: 34px; }
+  .theme-control { --theme-slot: 28px; }
+  .download-button { min-height: 36px; padding: 6px 10px; font-size: 13px; }
   .mobile-menu { display: grid; place-items: center; width: 38px; height: 38px; border-radius: var(--radius); color: var(--heading); }
   .mobile-menu span { position: relative; display: block; height: 1.5px; width: 16px; background: currentColor; }
   .mobile-menu span::before, .mobile-menu span::after { content: ''; position: absolute; left: 0; width: 100%; height: 100%; background: currentColor; }
@@ -691,13 +882,14 @@ dialog::backdrop { background: var(--backdrop); }
   .brand { font-size: 15px; gap: 5px; }
   .brand-mark { width: 22px; height: 22px; }
   .mobile-menu { width: 34px; }
+  .github-link { width: 32px; height: 32px; }
+  .theme-control { --theme-slot: 26px; }
   .download-button { padding-inline: 7px; font-size: 12px; }
 }
 
 @media (max-width: 360px) {
-  .theme-control { --theme-slot: 30px; }
-  .theme-option-system span { position: absolute; width: 1px; height: 1px; clip-path: inset(50%); overflow: hidden; }
-  .theme-option-system::after { content: '系统'; }
+  .theme-control { --theme-slot: 24px; }
+  .inline-visual, .inline-practice, .inline-quiz-card { padding: 12px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -745,14 +937,26 @@ dialog::backdrop { background: var(--backdrop); }
     <a href="index.html" class="header-link">学习目录</a>
     <button class="header-link" data-action="favorites">我的收藏</button>
     <button class="header-link" data-action="records">学习记录</button>
+    <a class="github-link" href="https://github.com/XWalways/zhiqi-finance-study" target="_blank" rel="noopener noreferrer" aria-label="查看 GitHub 仓库" title="GitHub 仓库">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg>
+    </a>
     <div class="theme-control" id="theme-mode" role="radiogroup" aria-label="外观模式">
       <span class="theme-thumb" aria-hidden="true"></span>
-      <input class="visually-hidden" id="theme-light" type="radio" name="appearance" value="light">
-      <label class="theme-option" for="theme-light">白天</label>
-      <input class="visually-hidden" id="theme-system" type="radio" name="appearance" value="system" aria-label="跟随系统" checked>
-      <label class="theme-option theme-option-system" for="theme-system" title="跟随系统"><span>跟随系统</span></label>
       <input class="visually-hidden" id="theme-dark" type="radio" name="appearance" value="dark">
-      <label class="theme-option" for="theme-dark">黑夜</label>
+      <label class="theme-option" for="theme-dark" title="黑夜模式">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <span class="visually-hidden">黑夜</span>
+      </label>
+      <input class="visually-hidden" id="theme-system" type="radio" name="appearance" value="system" aria-label="跟随系统" checked>
+      <label class="theme-option theme-option-system" for="theme-system" title="跟随系统">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <span class="visually-hidden">跟随系统</span>
+      </label>
+      <input class="visually-hidden" id="theme-light" type="radio" name="appearance" value="light">
+      <label class="theme-option" for="theme-light" title="白天模式">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <span class="visually-hidden">白天</span>
+      </label>
     </div>
     <button class="download-button" data-action="download">离线学习</button>
   </nav>
@@ -779,11 +983,32 @@ dialog::backdrop { background: var(--backdrop); }
       </div>
       <nav class="view-tabs" aria-label="章节内容">
         <button data-view="learn" class="active" aria-current="page">考点精讲</button>
-        <button data-view="map">思维导图</button>
-        <button data-view="visual">交互图解</button>
         <button data-view="practice">章节练习</button>
       </nav>
       <section id="view-learn" class="content-view" aria-labelledby="learn-heading">
+        <section class="chapter-mindmap" id="chapter-mindmap" aria-labelledby="map-heading">
+          <div class="section-intro map-intro">
+            <div>
+              <h2 id="map-heading">本章思维导图</h2>
+              <p id="map-help">先看全章脉络再读考点：点击节点直达对应讲解，用节点旁按钮展开或收起分支。</p>
+            </div>
+            <button type="button" class="text-button" id="map-collapse-panel" aria-expanded="true" aria-controls="map-panel-body">收起导图</button>
+          </div>
+          <div class="map-panel" id="map-panel-body">
+            <div class="map-toolbar">
+              <div class="map-zoom" role="group" aria-label="导图缩放">
+                <button type="button" id="map-zoom-out" aria-label="缩小导图">−</button>
+                <button type="button" id="map-size" aria-label="恢复阅读比例" title="恢复阅读比例">100%</button>
+                <button type="button" id="map-zoom-in" aria-label="放大导图">+</button>
+              </div>
+              <button type="button" id="map-fit">适应宽度</button>
+              <button type="button" id="map-expand">收起分支</button>
+            </div>
+            <div class="map-viewport" tabindex="0" role="region" aria-labelledby="map-heading" aria-describedby="map-help">
+              <ul id="mindmap" class="mindmap"></ul>
+            </div>
+          </div>
+        </section>
         <div class="reading-layout">
           <aside class="topic-index" aria-labelledby="topic-heading">
             <h2 id="topic-heading">知识点索引</h2>
@@ -791,33 +1016,56 @@ dialog::backdrop { background: var(--backdrop); }
           </aside>
           <div class="reading-column">
             <h2 id="learn-heading" class="visually-hidden">考点精讲</h2>
-            <div id="lessons"></div>
-            <div class="next-step"><button class="button button-primary" data-switch="practice">开始本章练习 <span aria-hidden="true">→</span></button></div>
-          </div>
-        </div>
-      </section>
-      <section id="view-map" class="content-view" hidden aria-labelledby="map-heading">
-        <div class="section-intro">
-          <h2 id="map-heading">思维导图</h2>
-          <p id="map-help">点击节点查看讲解，用节点旁的按钮展开或收起分支。图超出屏幕时可横向滑动。</p>
-        </div>
-        <div class="map-panel">
-          <div class="map-toolbar">
-            <div class="map-zoom" role="group" aria-label="导图缩放">
-              <button type="button" id="map-zoom-out" aria-label="缩小导图">−</button>
-              <button type="button" id="map-size" aria-label="恢复阅读比例" title="恢复阅读比例">100%</button>
-              <button type="button" id="map-zoom-in" aria-label="放大导图">+</button>
+            <div class="learn-toolbar" id="learn-toolbar">
+              <div class="search-box">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="search" id="lesson-search" placeholder="搜索本章节知识点…" aria-label="搜索本章节知识点">
+                <span class="search-kbd" aria-hidden="true">/</span>
+              </div>
+              <div class="filter-pills" role="group" aria-label="知识点筛选">
+                <button type="button" class="filter-pill active" data-lesson-filter="all" aria-pressed="true">全部</button>
+                <button type="button" class="filter-pill" data-lesson-filter="unread" aria-pressed="false">只看未读</button>
+                <button type="button" class="filter-pill" data-lesson-filter="favorites" aria-pressed="false">只看收藏</button>
+              </div>
             </div>
-            <button type="button" id="map-fit">适应宽度</button>
-            <button type="button" id="map-expand">收起分支</button>
-          </div>
-          <div class="map-viewport" tabindex="0" role="region" aria-labelledby="map-heading" aria-describedby="map-help">
-            <ul id="mindmap" class="mindmap"></ul>
+            <div id="lessons"></div>
+            <div class="learn-empty" id="learn-empty" hidden>没有符合当前筛选或搜索条件的知识点。</div>
+            <div class="next-step"><button class="button button-primary" data-switch="practice">进入整章练习与测试 <span aria-hidden="true">→</span></button></div>
           </div>
         </div>
       </section>
-      <section id="view-visual" class="content-view" hidden><div class="section-intro">
-  <h2>生产可能性曲线</h2>
+      <section id="view-practice" class="content-view" hidden aria-labelledby="practice-heading">
+        <h2 id="practice-heading" class="visually-hidden">章节练习</h2>
+        <div id="quiz"></div>
+      </section>
+    </article>
+  </main>
+</div>
+<nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="移动端快捷导航" hidden>
+  <a href="index.html">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    <span>目录</span>
+  </a>
+  <button type="button" data-view="map">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h4l4-5M12 12l4 5"/></svg>
+    <span>导图</span>
+  </button>
+  <button type="button" data-view="learn" class="active">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <span>精讲</span>
+  </button>
+  <button type="button" data-view="practice">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    <span>练习</span>
+  </button>
+  <button type="button" data-action="records">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+    <span>记录</span>
+  </button>
+</nav>
+<template id="visual-template"><div class="inline-visual-header">
+  <span class="inline-visual-badge">交互图解</span>
+  <h4>生产可能性曲线</h4>
   <p>拖动滑块，观察同样的资源如何在两种产品之间分配。</p>
 </div>
 <div class="ppf-panel">
@@ -838,7 +1086,7 @@ dialog::backdrop { background: var(--backdrop); }
     <p class="chart-footnote">示意模型，产量采用抽象单位。</p>
   </div>
   <div class="ppf-controls">
-    <h3>调整生产组合</h3>
+    <h5>调整生产组合</h5>
     <div class="ppf-outputs"><div><span>粮食</span><strong id="grain-output">60</strong></div><div><span>机器</span><strong id="machine-output">80</strong></div></div>
     <label class="range-label" for="grain-range">粮食生产比重 <output id="grain-percent">60%</output></label>
     <input type="range" id="grain-range" min="0" max="100" value="60" step="1">
@@ -850,7 +1098,7 @@ dialog::backdrop { background: var(--backdrop); }
       <label><input type="radio" name="scenario" value="growth"> 技术进步</label>
     </fieldset>
     <div class="ppf-explanation" id="ppf-explanation" aria-live="polite"></div>
-    <div class="button-row"><button class="button button-primary" id="ppf-play" aria-pressed="false">播放取舍变化</button><button class="button button-secondary" id="ppf-reset">重置</button></div>
+    <div class="button-row"><button type="button" class="button button-primary" id="ppf-play" aria-pressed="false">播放取舍变化</button><button type="button" class="button button-secondary" id="ppf-reset">重置</button></div>
   </div>
 </div>
 <dl class="visual-notes">
@@ -858,20 +1106,12 @@ dialog::backdrop { background: var(--backdrop); }
   <div><dt>曲线内</dt><dd>利用闲置资源，可以同时增加两类产品的产出。</dd></div>
   <div><dt>曲线外</dt><dd>给定资源和技术，当前无法达到。技术进步可拓展边界。</dd></div>
 </dl>
-<button class="text-button" data-concept="ppf">查看机会成本的讲解 <span aria-hidden="true">→</span></button>
-</section>
-      <section id="view-practice" class="content-view" hidden aria-labelledby="practice-heading">
-        <h2 id="practice-heading" class="visually-hidden">章节练习</h2>
-        <div id="quiz"></div>
-      </section>
-    </article>
-  </main>
-</div>
+</template>
 <dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
 <script src="catalog.js"></script>
-<script>window.STUDY_CONTENT={"chapter":{"id":"chapter01","number":1,"title":"微观经济学概述","moduleId":"economics","moduleTitle":"经济基础","downloadName":"第一章-微观经济学概述-离线学习.html","visual":"ppf"},"lessons":{"title":"微观经济学概述","subtitle":"从稀缺出发，理解选择与资源配置。","sections":[{"id":"economics","title":"经济学研究什么","summary":"理解人们如何配置具有多种用途的稀缺资源。","bodyHtml":"\u003cp>\u003cstrong>经济学\u003c/strong>研究人们如何作出选择，将有多种用途的\u003cmark>稀缺资源\u003c/mark>配置到不同用途。家庭的消费、企业的生产和政府的支出都涉及资源配置。\u003c/p>\u003ch4>资源配置的四个问题\u003c/h4>\u003cul>\u003cli>\u003cstrong>生产什么、生产多少\u003c/strong>决定有限资源用于哪些产品及各自的产量。\u003c/li>\u003cli>\u003cstrong>如何生产\u003c/strong>涉及技术选择，以及劳动和资本的组合。\u003c/li>\u003cli>\u003cstrong>为谁生产\u003c/strong>涉及产品和收入如何分配。\u003c/li>\u003cli>\u003cstrong>何时生产\u003c/strong>涉及在现在与未来之间安排资源。\u003c/li>\u003c/ul>","keyTakeaway":"研究对象是资源的配置与利用，根本背景是资源稀缺。","pitfall":"企业利润只是其中一种研究议题。家庭选择、公共支出和社会资源分配也属于经济学的研究范围。","example":"社区有一块空地。决定建公园还是停车场涉及生产什么。选择施工方式涉及如何生产。决定谁能使用以及如何收费涉及为谁生产。确定今年开工还是等到明年涉及何时生产。"},{"id":"scarcity","title":"稀缺性与选择","summary":"相对于需要，可用于满足需要的资源有限。","bodyHtml":"\u003cp>\u003cmark>稀缺性取决于资源与需求的关系。\u003c/mark>相对于人们多样的需要，可用于满足需要的资源有限。时间、土地、劳动、资金等资源都可能具有稀缺性。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>概念\u003c/th>\u003cth>判断依据\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>稀缺性\u003c/td>\u003ctd>可支配资源相对于需要有限，使用资源时必须作出选择\u003c/td>\u003c/tr>\u003ctr>\u003ctd>短缺\u003c/td>\u003ctd>在给定价格等条件下，某种商品的需求量超过供给量\u003c/td>\u003c/tr>\u003ctr>\u003ctd>不可再生性\u003c/td>\u003ctd>资源消耗后无法在人类相关时间尺度内得到补充\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"同一资源有多种用途，将它用于其中一种就需要放弃其他用途。","pitfall":"可再生资源也可能稀缺。判断稀缺性要比较可用资源和需要。","example":"一天有24小时，即使可以每天重新开始，也不能同时把同一小时用于上课、休息和工作。时间仍然需要分配。"},{"id":"goods","title":"经济物品与自由物品","summary":"经济物品能够满足需要，且可取得的数量相对有限。","bodyHtml":"\u003cp>\u003cstrong>经济物品\u003c/strong>同时满足\u003cmark>有用且稀缺\u003c/mark>两个条件。它能满足某种需要，取得它或将它用于特定用途通常需要付出代价。\u003c/p>\u003cp>\u003cstrong>自由物品\u003c/strong>在特定条件下足够丰富，额外使用一单位通常无需放弃其他用途。分类取决于具体情境和可获取的数量。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>判断线索\u003c/th>\u003cth>还需考虑\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>物品有用\u003c/td>\u003ctd>可获取的数量相对于需要是否有限。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>领取免费\u003c/td>\u003ctd>价格为零时，物品依然可能由稀缺资源生产或有数量限制。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>物品稀少\u003c/td>\u003ctd>它是否能够满足某种需要。\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"判断经济物品要同时考察用途和稀缺性。","pitfall":"免费领取的限量物品也可能是经济物品。取得物品付出的代价还可能包括时间或放弃的其他用途。","example":"常态下户外空气常用作自由物品的例子；潜水时瓶装空气需要设备与供给条件，属于经济物品。"},{"id":"rationality","title":"理性经济人假设","summary":"在给定约束下，选择更符合自身目标的方案。","bodyHtml":"\u003cp>\u003cstrong>理性经济人假设\u003c/strong>认为，经济主体在给定信息与约束下，会在可行方案中选择最符合自身目标的方案。\u003c/p>\u003cul>\u003cli>消费者在预算约束下追求\u003cmark>效用最大化\u003c/mark>。\u003c/li>\u003cli>生产者在技术、成本和市场等约束下追求\u003cmark>利润最大化\u003c/mark>。\u003c/li>\u003c/ul>\u003cp>在投入固定时，可以追求更大产出。在产出目标固定时，可以寻求更低成本。判断一种选择是否理性，需要结合决策当时的信息、偏好和约束。偏好也可以包含帮助他人，结果则可能因未知因素而低于预期。\u003c/p>","keyTakeaway":"按决策时的目标、信息和可行方案判断选择。","pitfall":"消费者的目标通常用效用表示，生产者的目标通常用利润表示。信息有限的决策者同样可以作出理性选择。","example":"同样预算下，一个人偏好交通方便，另一个人偏好房间更大。只要各自按偏好权衡，两种选择都可能是理性的。"},{"id":"micro-macro","title":"微观与宏观：看研究对象","summary":"微观侧重个体和单个市场，宏观侧重整个经济的运行。","bodyHtml":"\u003cp>\u003cstrong>微观经济学\u003c/strong>研究消费者、企业、行业或单个市场等经济单位的行为及其相互作用，\u003cmark>价格理论\u003c/mark>是其核心内容。\u003cstrong>宏观经济学\u003c/strong>研究整个经济的总量运行，\u003cmark>国民收入的决定及其变动\u003c/mark>是其核心问题之一。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>维度\u003c/th>\u003cth>微观\u003c/th>\u003cth>宏观\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>研究对象\u003c/td>\u003ctd>消费者、企业、行业、单个市场\u003c/td>\u003ctd>整个国民经济及总量关系\u003c/td>\u003c/tr>\u003ctr>\u003ctd>常见问题\u003c/td>\u003ctd>产品价格、企业产量、厂商均衡\u003c/td>\u003ctd>失业、通胀、经济增长与周期\u003c/td>\u003c/tr>\u003ctr>\u003ctd>核心内容\u003c/td>\u003ctd>价格理论\u003c/td>\u003ctd>国民收入理论\u003c/td>\u003c/tr>\u003ctr>\u003ctd>分析侧重\u003c/td>\u003ctd>个量分析\u003c/td>\u003ctd>总量分析\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>许多微观模型从理性决策出发，分析消费者的效用和企业的利润。宏观分析常关注经济增长、充分就业、物价稳定和国际收支平衡。两个领域都可以研究市场失灵，宏观模型也可从个体决策推导总量结果。\u003c/p>\u003cp>\u003cstrong>某种商品的价格\u003c/strong>通常是微观问题，\u003cstrong>一般价格水平及通货膨胀\u003c/strong>是宏观问题。\u003c/p>","keyTakeaway":"先确定研究对象和问题层次，再判断微观或宏观。","pitfall":"一个行业可以包含很多企业。只要研究的是该行业或市场的行为，仍可属于微观分析。","example":"一家工厂雇多少人属于微观问题。全国失业率为什么上升属于宏观问题。某商品的税率变化对其销量的影响也可以用微观方法分析。"},{"id":"history","title":"人物、著作与学科脉络","summary":"对应三位经济学家、代表著作及其研究脉络。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>人物\u003c/th>\u003cth>著作与年份\u003c/th>\u003cth>经济思想史中的位置\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>亚当·斯密\u003c/td>\u003ctd>《国富论》，1776年\u003c/td>\u003ctd>古典政治经济学的代表著作。斯密常与“看不见的手”联系起来。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>马歇尔\u003c/td>\u003ctd>《经济学原理》，1890年\u003c/td>\u003ctd>系统阐述需求、供给和价格形成，是微观经济学发展中的代表著作。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>凯恩斯\u003c/td>\u003ctd>《就业、利息和货币通论》，1936年\u003c/td>\u003ctd>以总需求、产出和就业为研究重点，是现代宏观经济学发展中的代表著作。\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>“看不见的手”常用来说明，在一定市场条件下，个人追求自身目标也可能促成资源协调。三部著作可以作为理解经济学发展脉络的时间节点。\u003c/p>","keyTakeaway":"斯密对应《国富论》，马歇尔对应《经济学原理》，凯恩斯对应《通论》。","pitfall":"区分书名中的“原理”与“通论”。前者在这里指马歇尔1890年的著作，后者指凯恩斯1936年的著作。","example":"看到“1936年、宏观、失业”可联想凯恩斯；看到“1890年、微观、独立学科”可联想马歇尔。"},{"id":"ppf","title":"生产可能性曲线与机会成本","summary":"读懂曲线上、曲线内、曲线外的区别。","bodyHtml":"\u003cp>\u003cstrong>生产可能性曲线（PPF）\u003c/strong>表示在\u003cmark>既定资源和技术\u003c/mark>下，两类产品所能达到的最大产量组合。横轴和纵轴分别表示两种产品的产量。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>位置或变化\u003c/th>\u003cth>含义\u003c/th>\u003cth>如何增加产出\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>曲线上\u003c/td>\u003ctd>资源得到充分有效利用\u003c/td>\u003ctd>增产一种产品须减产另一种\u003c/td>\u003c/tr>\u003ctr>\u003ctd>曲线内\u003c/td>\u003ctd>产量组合可达，资源存在闲置或利用低效\u003c/td>\u003ctd>改善利用可能同时增加两类产出\u003c/td>\u003c/tr>\u003ctr>\u003ctd>曲线外\u003c/td>\u003ctd>在现有条件下不可达\u003c/td>\u003ctd>需要改变资源或技术等条件\u003c/td>\u003c/tr>\u003ctr>\u003ctd>边界向外移动\u003c/td>\u003ctd>生产能力提高\u003c/td>\u003ctd>技术进步或可用资源增加能扩张可行范围\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>\u003cstrong>机会成本\u003c/strong>是选择某个方案时放弃的最佳替代用途的价值。沿生产可能性曲线增产一种产品时，放弃的另一种产品产量可用来衡量这种取舍。\u003c/p>","keyTakeaway":"沿曲线移动意味着更换生产组合。边界外移意味着可达到的生产范围扩大。","pitfall":"曲线以内存在改善生产效率的空间，资源也可能处于闲置状态。应先判断所在位置，再讨论增产的代价。","example":"假设一地生产机器和粮食。从边界上的80台机器、40吨粮食移到70台机器、50吨粮食，新增10吨粮食的机会成本是放弃10台机器。"}],"mindmap":[{"label":"经济学的含义、研究对象及基本问题","target":"economics","children":[{"label":"经济学是研究稀缺资源合理配置的社会科学","target":"economics"},{"label":"研究对象是经济资源的配置和利用","target":"economics"},{"label":"基本问题","target":"economics","children":[{"label":"生产什么及生产多少","target":"economics"},{"label":"如何生产","target":"economics"},{"label":"为谁生产","target":"economics"},{"label":"何时生产","target":"economics"}]}]},{"label":"经济资源的稀缺性","target":"scarcity","children":[{"label":"可支配资源相对于人们的需要有限","target":"scarcity"}]},{"label":"经济物品","target":"goods","children":[{"label":"有用且稀缺的物品","target":"goods"}]},{"label":"理性人假定（经济人假定）","target":"rationality","children":[{"label":"经济主体在约束下追求自身目标","target":"rationality","children":[{"label":"消费者：效用最大化","target":"rationality"},{"label":"生产者：利润最大化","target":"rationality"}]}]},{"label":"微观经济学与宏观经济学的区别","target":"micro-macro","children":[{"label":"模型如何解释经济行为","target":"micro-macro","children":[{"label":"许多微观模型从理性决策出发","target":"rationality"},{"label":"宏观模型可分析价格黏性、失业等现象","target":"micro-macro"}]},{"label":"研究对象不同","target":"micro-macro","children":[{"label":"微观：单个经济主体（消费者、企业、行业、市场）","target":"micro-macro"},{"label":"宏观：整个国民经济","target":"micro-macro"}]},{"label":"个体目标与宏观政策目标","target":"micro-macro","children":[{"label":"企业通常追求利润最大化，消费者追求效用最大化","target":"micro-macro"},{"label":"宏观：经济增长、充分就业、物价稳定、国际收支平衡等","target":"micro-macro"}]},{"label":"核心理论不同","target":"micro-macro","children":[{"label":"微观：价格理论","target":"micro-macro"},{"label":"宏观：国民收入理论","target":"micro-macro"}]},{"label":"研究方法不同","target":"micro-macro","children":[{"label":"微观：个量分析法","target":"micro-macro"},{"label":"宏观：总量分析法","target":"micro-macro"}]}]},{"label":"经济学发展中的代表著作","target":"history","children":[{"label":"1776年，亚当·斯密《国富论》","target":"history"},{"label":"1890年，马歇尔《经济学原理》","target":"history"},{"label":"1936年，凯恩斯《就业、利息和货币通论》","target":"history"}]},{"label":"生产可能性曲线与机会成本","target":"ppf","children":[{"label":"既定资源与技术 → 最大产量组合","target":"ppf"},{"label":"曲线上有效利用，曲线内尚有改进空间，曲线外暂不可达","target":"ppf"},{"label":"沿曲线移动是取舍，边界外移是能力扩张","target":"ppf"}]}]},"questions":[{"id":"eco-01-q01","number":1,"type":"single","stem":"经济学领域所谓的“看不见的手”的最初提出者是（　）。","options":{"A":"亚当·斯密","B":"凯恩斯","C":"大卫·李嘉图","D":"萨缪尔森"},"answer":["A"],"explanationSupplement":"亚当·斯密用“看不见的手”说明个人追求自身利益时，分散的决策也可能产生社会协调的结果。市场价格与竞争能协调买卖双方的选择，影响资源流向。","optionExplanations":{"A":"亚当·斯密用“看不见的手”说明市场的自发协调作用。","B":"凯恩斯对应《通论》和现代宏观经济学。","C":"李嘉图常与比较优势理论联系。","D":"萨缪尔森的主要贡献包括数理经济学和现代经济学教学。"},"conceptId":"history"},{"id":"eco-01-q02","number":2,"type":"single","stem":"微观经济学是经济学的一个分支，主要研究（　）。","options":{"A":"市场经济","B":"个体行为","C":"总体经济活动","D":"失业和通货膨胀等"},"answer":["B"],"explanationSupplement":"判断微观与宏观，先看研究对象：消费者、企业或某一具体市场属于微观；整个经济的总量、总体失业与物价属于宏观。","optionExplanations":{"A":"市场经济是经济运行体制，范围太宽，不能准确界定微观研究对象。","B":"个体的选择及相互作用是微观经济学的主要研究对象。","C":"总体经济活动属于宏观经济学。","D":"总体失业与通货膨胀是典型宏观问题。"},"conceptId":"micro-macro"},{"id":"eco-01-q03","number":3,"type":"single","stem":"经济物品是指（　）。","options":{"A":"有用的物品","B":"稀缺的物品","C":"要用钱购买的物品","D":"有用且稀缺的物品"},"answer":["D"],"explanationSupplement":"抓住两个条件：有用，并且相对于需要而言稀缺。获得它需要付出机会成本，不一定表现为当场支付货币；免费领取也可能占用资源。","optionExplanations":{"A":"空气在供给充足、可自由取得时有用，却属于自由物品。","B":"仅“稀缺”不够，还需能满足某种需要。","C":"货币支付不是必要识别标准，免费分配的稀缺物品仍可属于经济物品。","D":"同时包含有用性与稀缺性，定义完整。"},"conceptId":"goods"},{"id":"eco-01-q04","number":4,"type":"single","stem":"经济学可定义为（　）。","options":{"A":"政府对市场制度的干预","B":"企业取得利润的活动","C":"研究如何最合理地配置稀缺资源于诸多用途","D":"人们靠收入生活"},"answer":["C"],"explanationSupplement":"资源有限且用途多样，经济主体需要作出选择，由此形成资源配置。它研究个人、企业和社会如何选择，范围比某一种经济活动更广。","optionExplanations":{"A":"政府干预只是经济学研究的问题之一。","B":"企业利润活动属于部分微观研究内容，不能定义整个学科。","C":"概括了稀缺资源在不同用途之间的配置问题。","D":"描述生活现象，未揭示选择与资源配置这一核心。"},"conceptId":"economics"},{"id":"eco-01-q05","number":5,"type":"single","stem":"微观经济学的基本假设前提是（　）。","options":{"A":"完全信息的假设","B":"不完全竞争的假设","C":"合乎理性经济人的假设","D":"边际效用递减的假设"},"answer":["C"],"explanationSupplement":"本题考“理性经济人”：在既定约束下，按自身目标作出最有利的选择。理性不等于永不犯错，也不自动意味着掌握完全信息。","optionExplanations":{"A":"完全信息是某些模型的额外条件，不是本题要求的基本前提。","B":"竞争结构有多种，不完全竞争不是所有微观分析的共同前提。","C":"理性经济人假设对应本题答案。","D":"边际效用递减描述特定规律，不能替代基本行为假设。"},"conceptId":"rationality"},{"id":"eco-01-q06","number":6,"type":"single","stem":"资源的“稀缺性”是指（　）。","options":{"A":"资源具有不可再生性","B":"相对于资源的需求而言，资源总是不足的","C":"资源必须保留给下一代","D":"世界上资源最终将消耗光"},"answer":["B"],"explanationSupplement":"稀缺性描述可用资源相对于人们需要的有限性。有限的时间、注意力和可再生资源都可能需要在不同用途之间分配。具体市场的短缺取决于当时的供求条件。","optionExplanations":{"A":"可再生资源也可能稀缺，不可再生不是定义。","B":"资源总量要同需求比较，有限资源需要在多种用途之间分配。","C":"这是代际资源配置的主张，并非稀缺性的含义。","D":"是否最终耗尽与稀缺性的定义不同。"},"conceptId":"scarcity"},{"id":"eco-01-q07","number":7,"type":"single","stem":"微观经济学的核心理论是（　）。","options":{"A":"价格理论","B":"成本理论","C":"生产理论","D":"市场理论"},"answer":["A"],"explanationSupplement":"价格理论是微观经济学的核心。消费者需求与厂商供给通过市场形成价格，价格又引导资源配置，串联微观分析。","optionExplanations":{"A":"价格理论是本题所问核心理论。","B":"成本理论是微观经济学的组成部分。","C":"生产理论是微观经济学的组成部分。","D":"市场理论涵盖多种问题，题目考查的是价格形成及其配置资源的作用。"},"conceptId":"economics"},{"id":"eco-01-q08","number":8,"type":"single","stem":"被称为“宏观经济学之父”的是（　）。","options":{"A":"弗里德曼","B":"凯恩斯","C":"马歇尔","D":"萨缪尔森"},"answer":["B"],"explanationSupplement":"凯恩斯于1936年发表《通论》，为现代宏观经济学奠定基础。马歇尔于1890年发表《经济学原理》，系统阐述了微观经济学的重要概念。","optionExplanations":{"A":"弗里德曼常与货币主义联系。","B":"凯恩斯是本题所问人物。","C":"马歇尔在本章对应微观经济学发展。","D":"萨缪尔森不是本题所问称号的对应人物。"},"conceptId":"history"},{"id":"eco-01-q09","number":9,"type":"single","stem":"从经济学的角度看，每一个从事经济活动的人所采取的经济行为的目的是（　）。","options":{"A":"实现成功的经济交换，换取更多的经济回报","B":"满足自我成就的需要","C":"同其他人建立社会联系，谋求共同利益最大化","D":"以最小的经济代价，获取最大的经济利益"},"answer":["D"],"explanationSupplement":"理性经济人会考虑自身目标与资源约束。给定资源时争取最大收益，或者在目标既定时尽量降低成本，都是这种选择的体现。","optionExplanations":{"A":"只涉及交换活动，未概括所有经济决策。","B":"可能是个人目标之一，但不是本题采用的概括。","C":"共同利益最大化以群体结果为目标。题目考查个体的选择。","D":"体现经济人在成本约束下追求自身利益的思路。"},"conceptId":"rationality"},{"id":"eco-01-q10","number":10,"type":"single","stem":"以下问题中，（　）不是微观经济学所考查的问题。","options":{"A":"一个厂商的产出水平","B":"失业率的上升或下降","C":"化妆品的高税率对商品销售的影响","D":"某一行业中雇佣工人的数量"},"answer":["B"],"explanationSupplement":"注意题干“不是”。看对象而非是否涉及政府：某种商品税率影响该市场销售仍是微观；总体失业率属于宏观。","optionExplanations":{"A":"单个厂商的产出决策属于微观。","B":"失业率的总体变化属于宏观，符合否定问法。","C":"特定商品市场的税负与销量属于微观。","D":"某一行业的用工需求属于具体市场的微观分析。"},"conceptId":"micro-macro"},{"id":"eco-01-q11","number":11,"type":"single","stem":"当经济学家说人们是理性的时候，这是指（　）。","options":{"A":"人们不会做出错误的判断","B":"人们总会从自己的角度做出最好的决策","C":"人们根据完全的信息而行事","D":"人们不会为自己所做出的任何决策而后悔"},"answer":["B"],"explanationSupplement":"理性强调基于自身目标、信息与约束进行选择，是决策过程的假设，不保证事后的结果最好。理性的人也可能因信息不足而判断失误或事后后悔。","optionExplanations":{"A":"理性不保证判断永远正确。","B":"符合从自身目标出发优化决策的含义。","C":"完全信息与理性是不同假设。","D":"新信息出现后，理性决策者也可能后悔。"},"conceptId":"rationality"},{"id":"eco-01-q12","number":12,"type":"single","stem":"以下哪本著作的发表标志着微观经济学作为一门独立的学科产生？（　）","options":{"A":"《经济学原理》","B":"《通论》","C":"《资本论》","D":"《国富论》"},"answer":["A"],"explanationSupplement":"马歇尔于1890年出版《经济学原理》，这部著作对供求、价格和市场均衡的分析推动了微观经济学的形成。凯恩斯的《通论》则是现代宏观经济学的重要著作。","optionExplanations":{"A":"《经济学原理》是马歇尔的代表作，对微观经济学的形成具有标志意义。","B":"《通论》是凯恩斯的代表作，主要讨论就业、利息和货币。","C":"《资本论》研究资本主义生产方式及其经济关系。","D":"《国富论》对应亚当·斯密与古典经济学。"},"conceptId":"history"},{"id":"eco-01-q13","number":13,"type":"single","stem":"（　）不是宏观经济学的内容。","options":{"A":"失业","B":"经济增长","C":"价格水平","D":"厂商均衡"},"answer":["D"],"explanationSupplement":"注意“价格水平”通常指总体物价，属于宏观；某一种商品的价格则通常属于微观。厂商均衡研究单个企业的决策。","optionExplanations":{"A":"总体失业属于宏观。","B":"整个经济的长期增长属于宏观。","C":"总体价格水平属于宏观，不要与单个商品价格混淆。","D":"厂商均衡属于微观，符合“不是”的要求。"},"conceptId":"micro-macro"},{"id":"eco-01-q14","number":14,"type":"single","stem":"宏观经济学区别于微观经济学的主要特点是（　）。","options":{"A":"加总的应用","B":"强调总量（如总消费、总储蓄、总投资、总产出）的作用","C":"强调总量（如总消费、总储蓄、总投资、总产出）的相互作用关系","D":"以上都是"},"answer":["D"],"explanationSupplement":"宏观分析既构造加总指标，也研究总量的决定及相互关系。A、B、C都描述了宏观分析，因此选“以上都是”。","optionExplanations":{"A":"属于宏观分析特点，但不完整。","B":"属于宏观分析特点，但不完整。","C":"属于宏观分析特点，但不完整。","D":"前三项均成立，选择最完整答案。"},"conceptId":"micro-macro"},{"id":"eco-01-q15","number":15,"type":"single","stem":"对经济学家来说，非理性意味着（　）。","options":{"A":"人们无意识地伤害自己","B":"人们故意采取与自己的最大利益相悖的行为","C":"人们采取恶毒的行为","D":"人们没有花费足够的时间加以考虑，而做出反常的选择"},"answer":["B"],"explanationSupplement":"四个选项中，B最直接描述了行为偏离自身利益目标。实际分析也会用非理性描述认知偏差等原因导致的选择偏离。“故意”是这个选项的具体情境。","optionExplanations":{"A":"无意受损可能源于不确定性，不能据此直接认定非理性。","B":"主动做出与自身目标相悖的选择，最符合本题考查的情境。","C":"经济理性与行为的道德评价并非同一概念。","D":"考虑时间短本身不能证明非理性，搜寻信息也有成本。"},"conceptId":"rationality"},{"id":"eco-01-q16","number":16,"type":"single","stem":"微观经济学研究（　），宏观经济学研究（　）。","options":{"A":"现实的经济问题，抽象的经济理论","B":"个量经济，总量经济","C":"理性行为，非理性行为","D":"企业行为，政府行为"},"answer":["B"],"explanationSupplement":"速记：微观研究个量及具体市场，宏观研究总量及总体关系。两者都可以研究现实问题，也都会使用理论模型。","optionExplanations":{"A":"现实与抽象不是微观、宏观的划分标准。","B":"个量与总量准确概括研究层次的区别。","C":"微观与宏观不是理性和非理性的分工。","D":"政府政策可影响微观市场，企业活动也汇入宏观总量，不能这样二分。"},"conceptId":"micro-macro"},{"id":"eco-01-q17","number":17,"type":"single","stem":"经济学研究的基本问题是（　）。","options":{"A":"怎样生产","B":"生产什么，生产多少","C":"为谁生产","D":"以上都包括"},"answer":["D"],"explanationSupplement":"稀缺资源迫使社会回答：生产的种类与数量、使用的技术和资源组合、产出的分配对象。三个方面共同构成基本问题。","optionExplanations":{"A":"“怎样生产”涉及生产方式，是基本问题之一。","B":"“生产什么、多少”涉及产出选择，是基本问题之一。","C":"“为谁生产”涉及分配，是基本问题之一。","D":"前三项都包含在经济学基本问题中。"},"conceptId":"economics"},{"id":"eco-01-q18","number":18,"type":"single","stem":"生产可能性曲线说明的基本原理是（　）。","options":{"A":"一国资源总能被充分利用","B":"假定所有经济资源能得到充分的有效利用，则只有减少物品生产才能增加物品的生产","C":"改进技术引起生产可能性曲线向内移动","D":"经济能力增长唯一决定于劳动力数量"},"answer":["B"],"explanationSupplement":"生产可能性曲线刻画给定资源和技术下能达到的最大产出组合。沿边界增加一种物品的产量，需要把资源从另一种物品转移过来，后者的产量随之下降。曲线内的组合还有提高产出的空间，曲线外的组合超出当前生产能力。","optionExplanations":{"A":"曲线内的点表示资源未充分利用或配置无效率，因此不是总能充分利用。","B":"这里“减少”和“增加”分别指两种物品。多生产一种需要少生产另一种，体现了机会成本。","C":"技术改进通常使相关方向的生产能力扩大，边界向外扩展。","D":"生产能力还取决于资本、技术、资源等，不只由劳动力数量决定。"},"conceptId":"ppf"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
+<script>window.STUDY_CONTENT={"chapter":{"id":"chapter01","number":1,"title":"微观经济学概述","moduleId":"economics","moduleTitle":"经济基础","downloadName":"第一章-微观经济学概述-离线学习.html","visual":"ppf","visualSectionId":"ppf"},"lessons":{"title":"微观经济学概述","subtitle":"从稀缺出发，理解选择与资源配置。","sections":[{"id":"economics","title":"经济学研究什么","summary":"理解人们如何配置具有多种用途的稀缺资源。","bodyHtml":"\u003cp>\u003cstrong>经济学\u003c/strong>研究人们如何作出选择，将有多种用途的\u003cmark>稀缺资源\u003c/mark>配置到不同用途。家庭的消费、企业的生产和政府的支出都涉及资源配置。\u003c/p>\u003ch4>资源配置的四个问题\u003c/h4>\u003cul>\u003cli>\u003cstrong>生产什么、生产多少\u003c/strong>决定有限资源用于哪些产品及各自的产量。\u003c/li>\u003cli>\u003cstrong>如何生产\u003c/strong>涉及技术选择，以及劳动和资本的组合。\u003c/li>\u003cli>\u003cstrong>为谁生产\u003c/strong>涉及产品和收入如何分配。\u003c/li>\u003cli>\u003cstrong>何时生产\u003c/strong>涉及在现在与未来之间安排资源。\u003c/li>\u003c/ul>","keyTakeaway":"研究对象是资源的配置与利用，根本背景是资源稀缺。","pitfall":"企业利润只是其中一种研究议题。家庭选择、公共支出和社会资源分配也属于经济学的研究范围。","example":"社区有一块空地。决定建公园还是停车场涉及生产什么。选择施工方式涉及如何生产。决定谁能使用以及如何收费涉及为谁生产。确定今年开工还是等到明年涉及何时生产。"},{"id":"scarcity","title":"稀缺性与选择","summary":"相对于需要，可用于满足需要的资源有限。","bodyHtml":"\u003cp>\u003cmark>稀缺性取决于资源与需求的关系。\u003c/mark>相对于人们多样的需要，可用于满足需要的资源有限。时间、土地、劳动、资金等资源都可能具有稀缺性。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>概念\u003c/th>\u003cth>判断依据\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>稀缺性\u003c/td>\u003ctd>可支配资源相对于需要有限，使用资源时必须作出选择\u003c/td>\u003c/tr>\u003ctr>\u003ctd>短缺\u003c/td>\u003ctd>在给定价格等条件下，某种商品的需求量超过供给量\u003c/td>\u003c/tr>\u003ctr>\u003ctd>不可再生性\u003c/td>\u003ctd>资源消耗后无法在人类相关时间尺度内得到补充\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"同一资源有多种用途，将它用于其中一种就需要放弃其他用途。","pitfall":"可再生资源也可能稀缺。判断稀缺性要比较可用资源和需要。","example":"一天有24小时，即使可以每天重新开始，也不能同时把同一小时用于上课、休息和工作。时间仍然需要分配。"},{"id":"goods","title":"经济物品与自由物品","summary":"经济物品能够满足需要，且可取得的数量相对有限。","bodyHtml":"\u003cp>\u003cstrong>经济物品\u003c/strong>同时满足\u003cmark>有用且稀缺\u003c/mark>两个条件。它能满足某种需要，取得它或将它用于特定用途通常需要付出代价。\u003c/p>\u003cp>\u003cstrong>自由物品\u003c/strong>在特定条件下足够丰富，额外使用一单位通常无需放弃其他用途。分类取决于具体情境和可获取的数量。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>判断线索\u003c/th>\u003cth>还需考虑\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>物品有用\u003c/td>\u003ctd>可获取的数量相对于需要是否有限。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>领取免费\u003c/td>\u003ctd>价格为零时，物品依然可能由稀缺资源生产或有数量限制。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>物品稀少\u003c/td>\u003ctd>它是否能够满足某种需要。\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>","keyTakeaway":"判断经济物品要同时考察用途和稀缺性。","pitfall":"免费领取的限量物品也可能是经济物品。取得物品付出的代价还可能包括时间或放弃的其他用途。","example":"常态下户外空气常用作自由物品的例子；潜水时瓶装空气需要设备与供给条件，属于经济物品。"},{"id":"rationality","title":"理性经济人假设","summary":"在给定约束下，选择更符合自身目标的方案。","bodyHtml":"\u003cp>\u003cstrong>理性经济人假设\u003c/strong>认为，经济主体在给定信息与约束下，会在可行方案中选择最符合自身目标的方案。\u003c/p>\u003cul>\u003cli>消费者在预算约束下追求\u003cmark>效用最大化\u003c/mark>。\u003c/li>\u003cli>生产者在技术、成本和市场等约束下追求\u003cmark>利润最大化\u003c/mark>。\u003c/li>\u003c/ul>\u003cp>在投入固定时，可以追求更大产出。在产出目标固定时，可以寻求更低成本。判断一种选择是否理性，需要结合决策当时的信息、偏好和约束。偏好也可以包含帮助他人，结果则可能因未知因素而低于预期。\u003c/p>","keyTakeaway":"按决策时的目标、信息和可行方案判断选择。","pitfall":"消费者的目标通常用效用表示，生产者的目标通常用利润表示。信息有限的决策者同样可以作出理性选择。","example":"同样预算下，一个人偏好交通方便，另一个人偏好房间更大。只要各自按偏好权衡，两种选择都可能是理性的。"},{"id":"micro-macro","title":"微观与宏观：看研究对象","summary":"微观侧重个体和单个市场，宏观侧重整个经济的运行。","bodyHtml":"\u003cp>\u003cstrong>微观经济学\u003c/strong>研究消费者、企业、行业或单个市场等经济单位的行为及其相互作用，\u003cmark>价格理论\u003c/mark>是其核心内容。\u003cstrong>宏观经济学\u003c/strong>研究整个经济的总量运行，\u003cmark>国民收入的决定及其变动\u003c/mark>是其核心问题之一。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>维度\u003c/th>\u003cth>微观\u003c/th>\u003cth>宏观\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>研究对象\u003c/td>\u003ctd>消费者、企业、行业、单个市场\u003c/td>\u003ctd>整个国民经济及总量关系\u003c/td>\u003c/tr>\u003ctr>\u003ctd>常见问题\u003c/td>\u003ctd>产品价格、企业产量、厂商均衡\u003c/td>\u003ctd>失业、通胀、经济增长与周期\u003c/td>\u003c/tr>\u003ctr>\u003ctd>核心内容\u003c/td>\u003ctd>价格理论\u003c/td>\u003ctd>国民收入理论\u003c/td>\u003c/tr>\u003ctr>\u003ctd>分析侧重\u003c/td>\u003ctd>个量分析\u003c/td>\u003ctd>总量分析\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>许多微观模型从理性决策出发，分析消费者的效用和企业的利润。宏观分析常关注经济增长、充分就业、物价稳定和国际收支平衡。两个领域都可以研究市场失灵，宏观模型也可从个体决策推导总量结果。\u003c/p>\u003cp>\u003cstrong>某种商品的价格\u003c/strong>通常是微观问题，\u003cstrong>一般价格水平及通货膨胀\u003c/strong>是宏观问题。\u003c/p>","keyTakeaway":"先确定研究对象和问题层次，再判断微观或宏观。","pitfall":"一个行业可以包含很多企业。只要研究的是该行业或市场的行为，仍可属于微观分析。","example":"一家工厂雇多少人属于微观问题。全国失业率为什么上升属于宏观问题。某商品的税率变化对其销量的影响也可以用微观方法分析。"},{"id":"history","title":"人物、著作与学科脉络","summary":"对应三位经济学家、代表著作及其研究脉络。","bodyHtml":"\u003ctable>\u003cthead>\u003ctr>\u003cth>人物\u003c/th>\u003cth>著作与年份\u003c/th>\u003cth>经济思想史中的位置\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>亚当·斯密\u003c/td>\u003ctd>《国富论》，1776年\u003c/td>\u003ctd>古典政治经济学的代表著作。斯密常与“看不见的手”联系起来。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>马歇尔\u003c/td>\u003ctd>《经济学原理》，1890年\u003c/td>\u003ctd>系统阐述需求、供给和价格形成，是微观经济学发展中的代表著作。\u003c/td>\u003c/tr>\u003ctr>\u003ctd>凯恩斯\u003c/td>\u003ctd>《就业、利息和货币通论》，1936年\u003c/td>\u003ctd>以总需求、产出和就业为研究重点，是现代宏观经济学发展中的代表著作。\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>“看不见的手”常用来说明，在一定市场条件下，个人追求自身目标也可能促成资源协调。三部著作可以作为理解经济学发展脉络的时间节点。\u003c/p>","keyTakeaway":"斯密对应《国富论》，马歇尔对应《经济学原理》，凯恩斯对应《通论》。","pitfall":"区分书名中的“原理”与“通论”。前者在这里指马歇尔1890年的著作，后者指凯恩斯1936年的著作。","example":"看到“1936年、宏观、失业”可联想凯恩斯；看到“1890年、微观、独立学科”可联想马歇尔。"},{"id":"ppf","title":"生产可能性曲线与机会成本","summary":"读懂曲线上、曲线内、曲线外的区别。","bodyHtml":"\u003cp>\u003cstrong>生产可能性曲线（PPF）\u003c/strong>表示在\u003cmark>既定资源和技术\u003c/mark>下，两类产品所能达到的最大产量组合。横轴和纵轴分别表示两种产品的产量。\u003c/p>\u003ctable>\u003cthead>\u003ctr>\u003cth>位置或变化\u003c/th>\u003cth>含义\u003c/th>\u003cth>如何增加产出\u003c/th>\u003c/tr>\u003c/thead>\u003ctbody>\u003ctr>\u003ctd>曲线上\u003c/td>\u003ctd>资源得到充分有效利用\u003c/td>\u003ctd>增产一种产品须减产另一种\u003c/td>\u003c/tr>\u003ctr>\u003ctd>曲线内\u003c/td>\u003ctd>产量组合可达，资源存在闲置或利用低效\u003c/td>\u003ctd>改善利用可能同时增加两类产出\u003c/td>\u003c/tr>\u003ctr>\u003ctd>曲线外\u003c/td>\u003ctd>在现有条件下不可达\u003c/td>\u003ctd>需要改变资源或技术等条件\u003c/td>\u003c/tr>\u003ctr>\u003ctd>边界向外移动\u003c/td>\u003ctd>生产能力提高\u003c/td>\u003ctd>技术进步或可用资源增加能扩张可行范围\u003c/td>\u003c/tr>\u003c/tbody>\u003c/table>\u003cp>\u003cstrong>机会成本\u003c/strong>是选择某个方案时放弃的最佳替代用途的价值。沿生产可能性曲线增产一种产品时，放弃的另一种产品产量可用来衡量这种取舍。\u003c/p>","keyTakeaway":"沿曲线移动意味着更换生产组合。边界外移意味着可达到的生产范围扩大。","pitfall":"曲线以内存在改善生产效率的空间，资源也可能处于闲置状态。应先判断所在位置，再讨论增产的代价。","example":"假设一地生产机器和粮食。从边界上的80台机器、40吨粮食移到70台机器、50吨粮食，新增10吨粮食的机会成本是放弃10台机器。"}],"mindmap":[{"label":"经济学的含义、研究对象及基本问题","target":"economics","children":[{"label":"经济学是研究稀缺资源合理配置的社会科学","target":"economics"},{"label":"研究对象是经济资源的配置和利用","target":"economics"},{"label":"基本问题","target":"economics","children":[{"label":"生产什么及生产多少","target":"economics"},{"label":"如何生产","target":"economics"},{"label":"为谁生产","target":"economics"},{"label":"何时生产","target":"economics"}]}]},{"label":"经济资源的稀缺性","target":"scarcity","children":[{"label":"可支配资源相对于人们的需要有限","target":"scarcity"}]},{"label":"经济物品","target":"goods","children":[{"label":"有用且稀缺的物品","target":"goods"}]},{"label":"理性人假定（经济人假定）","target":"rationality","children":[{"label":"经济主体在约束下追求自身目标","target":"rationality","children":[{"label":"消费者：效用最大化","target":"rationality"},{"label":"生产者：利润最大化","target":"rationality"}]}]},{"label":"微观经济学与宏观经济学的区别","target":"micro-macro","children":[{"label":"模型如何解释经济行为","target":"micro-macro","children":[{"label":"许多微观模型从理性决策出发","target":"rationality"},{"label":"宏观模型可分析价格黏性、失业等现象","target":"micro-macro"}]},{"label":"研究对象不同","target":"micro-macro","children":[{"label":"微观：单个经济主体（消费者、企业、行业、市场）","target":"micro-macro"},{"label":"宏观：整个国民经济","target":"micro-macro"}]},{"label":"个体目标与宏观政策目标","target":"micro-macro","children":[{"label":"企业通常追求利润最大化，消费者追求效用最大化","target":"micro-macro"},{"label":"宏观：经济增长、充分就业、物价稳定、国际收支平衡等","target":"micro-macro"}]},{"label":"核心理论不同","target":"micro-macro","children":[{"label":"微观：价格理论","target":"micro-macro"},{"label":"宏观：国民收入理论","target":"micro-macro"}]},{"label":"研究方法不同","target":"micro-macro","children":[{"label":"微观：个量分析法","target":"micro-macro"},{"label":"宏观：总量分析法","target":"micro-macro"}]}]},{"label":"经济学发展中的代表著作","target":"history","children":[{"label":"1776年，亚当·斯密《国富论》","target":"history"},{"label":"1890年，马歇尔《经济学原理》","target":"history"},{"label":"1936年，凯恩斯《就业、利息和货币通论》","target":"history"}]},{"label":"生产可能性曲线与机会成本","target":"ppf","children":[{"label":"既定资源与技术 → 最大产量组合","target":"ppf"},{"label":"曲线上有效利用，曲线内尚有改进空间，曲线外暂不可达","target":"ppf"},{"label":"沿曲线移动是取舍，边界外移是能力扩张","target":"ppf"}]}]},"questions":[{"id":"eco-01-q01","number":1,"type":"single","stem":"经济学领域所谓的“看不见的手”的最初提出者是（　）。","options":{"A":"亚当·斯密","B":"凯恩斯","C":"大卫·李嘉图","D":"萨缪尔森"},"answer":["A"],"explanationSupplement":"亚当·斯密用“看不见的手”说明个人追求自身利益时，分散的决策也可能产生社会协调的结果。市场价格与竞争能协调买卖双方的选择，影响资源流向。","optionExplanations":{"A":"亚当·斯密用“看不见的手”说明市场的自发协调作用。","B":"凯恩斯对应《通论》和现代宏观经济学。","C":"李嘉图常与比较优势理论联系。","D":"萨缪尔森的主要贡献包括数理经济学和现代经济学教学。"},"conceptId":"history"},{"id":"eco-01-q02","number":2,"type":"single","stem":"微观经济学是经济学的一个分支，主要研究（　）。","options":{"A":"市场经济","B":"个体行为","C":"总体经济活动","D":"失业和通货膨胀等"},"answer":["B"],"explanationSupplement":"判断微观与宏观，先看研究对象：消费者、企业或某一具体市场属于微观；整个经济的总量、总体失业与物价属于宏观。","optionExplanations":{"A":"市场经济是经济运行体制，范围太宽，不能准确界定微观研究对象。","B":"个体的选择及相互作用是微观经济学的主要研究对象。","C":"总体经济活动属于宏观经济学。","D":"总体失业与通货膨胀是典型宏观问题。"},"conceptId":"micro-macro"},{"id":"eco-01-q03","number":3,"type":"single","stem":"经济物品是指（　）。","options":{"A":"有用的物品","B":"稀缺的物品","C":"要用钱购买的物品","D":"有用且稀缺的物品"},"answer":["D"],"explanationSupplement":"抓住两个条件：有用，并且相对于需要而言稀缺。获得它需要付出机会成本，不一定表现为当场支付货币；免费领取也可能占用资源。","optionExplanations":{"A":"空气在供给充足、可自由取得时有用，却属于自由物品。","B":"仅“稀缺”不够，还需能满足某种需要。","C":"货币支付不是必要识别标准，免费分配的稀缺物品仍可属于经济物品。","D":"同时包含有用性与稀缺性，定义完整。"},"conceptId":"goods"},{"id":"eco-01-q04","number":4,"type":"single","stem":"经济学可定义为（　）。","options":{"A":"政府对市场制度的干预","B":"企业取得利润的活动","C":"研究如何最合理地配置稀缺资源于诸多用途","D":"人们靠收入生活"},"answer":["C"],"explanationSupplement":"资源有限且用途多样，经济主体需要作出选择，由此形成资源配置。它研究个人、企业和社会如何选择，范围比某一种经济活动更广。","optionExplanations":{"A":"政府干预只是经济学研究的问题之一。","B":"企业利润活动属于部分微观研究内容，不能定义整个学科。","C":"概括了稀缺资源在不同用途之间的配置问题。","D":"描述生活现象，未揭示选择与资源配置这一核心。"},"conceptId":"economics"},{"id":"eco-01-q05","number":5,"type":"single","stem":"微观经济学的基本假设前提是（　）。","options":{"A":"完全信息的假设","B":"不完全竞争的假设","C":"合乎理性经济人的假设","D":"边际效用递减的假设"},"answer":["C"],"explanationSupplement":"本题考“理性经济人”：在既定约束下，按自身目标作出最有利的选择。理性不等于永不犯错，也不自动意味着掌握完全信息。","optionExplanations":{"A":"完全信息是某些模型的额外条件，不是本题要求的基本前提。","B":"竞争结构有多种，不完全竞争不是所有微观分析的共同前提。","C":"理性经济人假设对应本题答案。","D":"边际效用递减描述特定规律，不能替代基本行为假设。"},"conceptId":"rationality"},{"id":"eco-01-q06","number":6,"type":"single","stem":"资源的“稀缺性”是指（　）。","options":{"A":"资源具有不可再生性","B":"相对于资源的需求而言，资源总是不足的","C":"资源必须保留给下一代","D":"世界上资源最终将消耗光"},"answer":["B"],"explanationSupplement":"稀缺性描述可用资源相对于人们需要的有限性。有限的时间、注意力和可再生资源都可能需要在不同用途之间分配。具体市场的短缺取决于当时的供求条件。","optionExplanations":{"A":"可再生资源也可能稀缺，不可再生不是定义。","B":"资源总量要同需求比较，有限资源需要在多种用途之间分配。","C":"这是代际资源配置的主张，并非稀缺性的含义。","D":"是否最终耗尽与稀缺性的定义不同。"},"conceptId":"scarcity"},{"id":"eco-01-q07","number":7,"type":"single","stem":"微观经济学的核心理论是（　）。","options":{"A":"价格理论","B":"成本理论","C":"生产理论","D":"市场理论"},"answer":["A"],"explanationSupplement":"价格理论是微观经济学的核心。消费者需求与厂商供给通过市场形成价格，价格又引导资源配置，串联微观分析。","optionExplanations":{"A":"价格理论是本题所问核心理论。","B":"成本理论是微观经济学的组成部分。","C":"生产理论是微观经济学的组成部分。","D":"市场理论涵盖多种问题，题目考查的是价格形成及其配置资源的作用。"},"conceptId":"economics"},{"id":"eco-01-q08","number":8,"type":"single","stem":"被称为“宏观经济学之父”的是（　）。","options":{"A":"弗里德曼","B":"凯恩斯","C":"马歇尔","D":"萨缪尔森"},"answer":["B"],"explanationSupplement":"凯恩斯于1936年发表《通论》，为现代宏观经济学奠定基础。马歇尔于1890年发表《经济学原理》，系统阐述了微观经济学的重要概念。","optionExplanations":{"A":"弗里德曼常与货币主义联系。","B":"凯恩斯是本题所问人物。","C":"马歇尔在本章对应微观经济学发展。","D":"萨缪尔森不是本题所问称号的对应人物。"},"conceptId":"history"},{"id":"eco-01-q09","number":9,"type":"single","stem":"从经济学的角度看，每一个从事经济活动的人所采取的经济行为的目的是（　）。","options":{"A":"实现成功的经济交换，换取更多的经济回报","B":"满足自我成就的需要","C":"同其他人建立社会联系，谋求共同利益最大化","D":"以最小的经济代价，获取最大的经济利益"},"answer":["D"],"explanationSupplement":"理性经济人会考虑自身目标与资源约束。给定资源时争取最大收益，或者在目标既定时尽量降低成本，都是这种选择的体现。","optionExplanations":{"A":"只涉及交换活动，未概括所有经济决策。","B":"可能是个人目标之一，但不是本题采用的概括。","C":"共同利益最大化以群体结果为目标。题目考查个体的选择。","D":"体现经济人在成本约束下追求自身利益的思路。"},"conceptId":"rationality"},{"id":"eco-01-q10","number":10,"type":"single","stem":"以下问题中，（　）不是微观经济学所考查的问题。","options":{"A":"一个厂商的产出水平","B":"失业率的上升或下降","C":"化妆品的高税率对商品销售的影响","D":"某一行业中雇佣工人的数量"},"answer":["B"],"explanationSupplement":"注意题干“不是”。看对象而非是否涉及政府：某种商品税率影响该市场销售仍是微观；总体失业率属于宏观。","optionExplanations":{"A":"单个厂商的产出决策属于微观。","B":"失业率的总体变化属于宏观，符合否定问法。","C":"特定商品市场的税负与销量属于微观。","D":"某一行业的用工需求属于具体市场的微观分析。"},"conceptId":"micro-macro"},{"id":"eco-01-q11","number":11,"type":"single","stem":"当经济学家说人们是理性的时候，这是指（　）。","options":{"A":"人们不会做出错误的判断","B":"人们总会从自己的角度做出最好的决策","C":"人们根据完全的信息而行事","D":"人们不会为自己所做出的任何决策而后悔"},"answer":["B"],"explanationSupplement":"理性强调基于自身目标、信息与约束进行选择，是决策过程的假设，不保证事后的结果最好。理性的人也可能因信息不足而判断失误或事后后悔。","optionExplanations":{"A":"理性不保证判断永远正确。","B":"符合从自身目标出发优化决策的含义。","C":"完全信息与理性是不同假设。","D":"新信息出现后，理性决策者也可能后悔。"},"conceptId":"rationality"},{"id":"eco-01-q12","number":12,"type":"single","stem":"以下哪本著作的发表标志着微观经济学作为一门独立的学科产生？（　）","options":{"A":"《经济学原理》","B":"《通论》","C":"《资本论》","D":"《国富论》"},"answer":["A"],"explanationSupplement":"马歇尔于1890年出版《经济学原理》，这部著作对供求、价格和市场均衡的分析推动了微观经济学的形成。凯恩斯的《通论》则是现代宏观经济学的重要著作。","optionExplanations":{"A":"《经济学原理》是马歇尔的代表作，对微观经济学的形成具有标志意义。","B":"《通论》是凯恩斯的代表作，主要讨论就业、利息和货币。","C":"《资本论》研究资本主义生产方式及其经济关系。","D":"《国富论》对应亚当·斯密与古典经济学。"},"conceptId":"history"},{"id":"eco-01-q13","number":13,"type":"single","stem":"（　）不是宏观经济学的内容。","options":{"A":"失业","B":"经济增长","C":"价格水平","D":"厂商均衡"},"answer":["D"],"explanationSupplement":"注意“价格水平”通常指总体物价，属于宏观；某一种商品的价格则通常属于微观。厂商均衡研究单个企业的决策。","optionExplanations":{"A":"总体失业属于宏观。","B":"整个经济的长期增长属于宏观。","C":"总体价格水平属于宏观，不要与单个商品价格混淆。","D":"厂商均衡属于微观，符合“不是”的要求。"},"conceptId":"micro-macro"},{"id":"eco-01-q14","number":14,"type":"single","stem":"宏观经济学区别于微观经济学的主要特点是（　）。","options":{"A":"加总的应用","B":"强调总量（如总消费、总储蓄、总投资、总产出）的作用","C":"强调总量（如总消费、总储蓄、总投资、总产出）的相互作用关系","D":"以上都是"},"answer":["D"],"explanationSupplement":"宏观分析既构造加总指标，也研究总量的决定及相互关系。A、B、C都描述了宏观分析，因此选“以上都是”。","optionExplanations":{"A":"属于宏观分析特点，但不完整。","B":"属于宏观分析特点，但不完整。","C":"属于宏观分析特点，但不完整。","D":"前三项均成立，选择最完整答案。"},"conceptId":"micro-macro"},{"id":"eco-01-q15","number":15,"type":"single","stem":"对经济学家来说，非理性意味着（　）。","options":{"A":"人们无意识地伤害自己","B":"人们故意采取与自己的最大利益相悖的行为","C":"人们采取恶毒的行为","D":"人们没有花费足够的时间加以考虑，而做出反常的选择"},"answer":["B"],"explanationSupplement":"四个选项中，B最直接描述了行为偏离自身利益目标。实际分析也会用非理性描述认知偏差等原因导致的选择偏离。“故意”是这个选项的具体情境。","optionExplanations":{"A":"无意受损可能源于不确定性，不能据此直接认定非理性。","B":"主动做出与自身目标相悖的选择，最符合本题考查的情境。","C":"经济理性与行为的道德评价并非同一概念。","D":"考虑时间短本身不能证明非理性，搜寻信息也有成本。"},"conceptId":"rationality"},{"id":"eco-01-q16","number":16,"type":"single","stem":"微观经济学研究（　），宏观经济学研究（　）。","options":{"A":"现实的经济问题，抽象的经济理论","B":"个量经济，总量经济","C":"理性行为，非理性行为","D":"企业行为，政府行为"},"answer":["B"],"explanationSupplement":"速记：微观研究个量及具体市场，宏观研究总量及总体关系。两者都可以研究现实问题，也都会使用理论模型。","optionExplanations":{"A":"现实与抽象不是微观、宏观的划分标准。","B":"个量与总量准确概括研究层次的区别。","C":"微观与宏观不是理性和非理性的分工。","D":"政府政策可影响微观市场，企业活动也汇入宏观总量，不能这样二分。"},"conceptId":"micro-macro"},{"id":"eco-01-q17","number":17,"type":"single","stem":"经济学研究的基本问题是（　）。","options":{"A":"怎样生产","B":"生产什么，生产多少","C":"为谁生产","D":"以上都包括"},"answer":["D"],"explanationSupplement":"稀缺资源迫使社会回答：生产的种类与数量、使用的技术和资源组合、产出的分配对象。三个方面共同构成基本问题。","optionExplanations":{"A":"“怎样生产”涉及生产方式，是基本问题之一。","B":"“生产什么、多少”涉及产出选择，是基本问题之一。","C":"“为谁生产”涉及分配，是基本问题之一。","D":"前三项都包含在经济学基本问题中。"},"conceptId":"economics"},{"id":"eco-01-q18","number":18,"type":"single","stem":"生产可能性曲线说明的基本原理是（　）。","options":{"A":"一国资源总能被充分利用","B":"假定所有经济资源能得到充分的有效利用，则只有减少物品生产才能增加物品的生产","C":"改进技术引起生产可能性曲线向内移动","D":"经济能力增长唯一决定于劳动力数量"},"answer":["B"],"explanationSupplement":"生产可能性曲线刻画给定资源和技术下能达到的最大产出组合。沿边界增加一种物品的产量，需要把资源从另一种物品转移过来，后者的产量随之下降。曲线内的组合还有提高产出的空间，曲线外的组合超出当前生产能力。","optionExplanations":{"A":"曲线内的点表示资源未充分利用或配置无效率，因此不是总能充分利用。","B":"这里“减少”和“增加”分别指两种物品。多生产一种需要少生产另一种，体现了机会成本。","C":"技术改进通常使相关方向的生产能力扩大，边界向外扩展。","D":"生产能力还取决于资本、技术、资源等，不只由劳动力数量决定。"},"conceptId":"ppf"}],"catalog":[{"id":"economics","title":"经济基础","subtitle":"从微观选择到宏观运行","chapters":[{"id":"chapter01","number":1,"title":"微观经济学概述","href":"chapter01.html"},{"id":"chapter02","number":2,"title":"需求、供给及市场均衡理论","href":"chapter02.html"},{"id":"chapter03","number":3,"title":"弹性理论","href":"chapter03.html"},{"id":"chapter04","number":4,"title":"消费者行为理论","href":"chapter04.html"},{"id":"chapter05","number":5,"title":"生产理论","href":"chapter05.html"},{"id":"chapter06","number":6,"title":"成本理论","href":"chapter06.html"},{"id":"chapter07","number":7,"title":"市场结构理论","href":"chapter07.html"},{"id":"chapter08","number":8,"title":"博弈论初步","href":"chapter08.html"},{"id":"chapter09","number":9,"title":"生产要素市场理论","href":"chapter09.html"},{"id":"chapter10","number":10,"title":"资源配置和市场失灵","href":"chapter10.html"},{"id":"chapter11","number":11,"title":"国民收入核算","href":"chapter11.html"},{"id":"chapter12","number":12,"title":"国民收入的决定：IS-LM模型","href":"chapter12.html"},{"id":"chapter13","number":13,"title":"国民收入的决定：总需求-总供给模型","href":"chapter13.html"},{"id":"chapter14","number":14,"title":"失业与通货膨胀","href":"chapter14.html"},{"id":"chapter15","number":15,"title":"宏观经济政策及其有效性","href":"chapter15.html"},{"id":"chapter16","number":16,"title":"开放经济下的短期经济模型","href":"chapter16.html"},{"id":"chapter17","number":17,"title":"经济增长与经济周期","href":"chapter17.html"}]},{"id":"finance","title":"金融基础","subtitle":"认识货币、市场与金融体系","chapters":[{"id":"chapter18","number":1,"title":"货币与货币制度","href":"chapter18.html"},{"id":"chapter19","number":2,"title":"信用与利率","href":"chapter19.html"},{"id":"chapter20","number":3,"title":"金融市场","href":"chapter20.html"},{"id":"chapter21","number":4,"title":"金融机构","href":"chapter21.html"},{"id":"chapter22","number":5,"title":"货币供求与货币政策","href":"chapter22.html"},{"id":"chapter23","number":6,"title":"国际金融","href":"chapter23.html"},{"id":"chapter24","number":7,"title":"金融风险与金融监管","href":"chapter24.html"},{"id":"chapter25","number":8,"title":"金融抑制与金融深化","href":"chapter25.html"}]},{"id":"insurance","title":"保险基础","subtitle":"理解风险、保障与保险经营","chapters":[{"id":"chapter26","number":1,"title":"风险与保险","href":"chapter26.html"},{"id":"chapter27","number":2,"title":"保险的基本原则","href":"chapter27.html"},{"id":"chapter28","number":3,"title":"保险合同","href":"chapter28.html"},{"id":"chapter29","number":4,"title":"保险公司经营管理和保险监管","href":"chapter29.html"},{"id":"chapter30","number":5,"title":"财产保险","href":"chapter30.html"},{"id":"chapter31","number":6,"title":"人身保险","href":"chapter31.html"}]}]};</script>
 <script>(function (global) {
   'use strict';
   let activeController = null;
@@ -1141,7 +1381,240 @@ dialog::backdrop { background: var(--backdrop); }
     root.addEventListener('click', handleClick); root.addEventListener('change', handleChange); render();
     return function cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); if (activeController === controller) activeController = null; };
   }
-  const api = { mount, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
+  function mountInline(root, config) {
+    if (!root) throw new Error('Inline quiz root is required');
+    const { sectionId, questions, store } = config;
+    const openDiscussions = new Set();
+    let currentId = questions[0] && questions[0].id;
+    let statusText = '';
+    let collapsed = false;
+    let destroyed = false;
+    const el = (tag, cls, text) => {
+      const node = document.createElement(tag);
+      if (cls) node.className = cls;
+      if (text !== undefined && text !== null) node.textContent = text;
+      return node;
+    };
+    const button = (text, action, cls) => {
+      const node = el('button', cls || 'button button-secondary', text);
+      node.type = 'button'; node.dataset.action = action;
+      return node;
+    };
+    function state() {
+      const s = store.get();
+      return { ...s, answers: s.answers || {}, drafts: s.drafts || {}, favorites: s.favorites || [] };
+    }
+    function update(mutator) {
+      store.update((s) => {
+        s.answers ||= {}; s.drafts ||= {}; s.favorites ||= [];
+        mutator(s);
+      });
+    }
+    function chosen(q, s) {
+      if (Object.hasOwn(s.drafts, q.id)) return s.drafts[q.id];
+      return s.answers[q.id] ? s.answers[q.id].selected : [];
+    }
+    function revealed(q, s) {
+      return !!(s.answers[q.id] && s.answers[q.id].submitted && !Object.hasOwn(s.drafts, q.id));
+    }
+    function render() {
+      if (destroyed) return;
+      const s = state();
+      if (!questions.some((q) => q.id === currentId)) currentId = questions[0] && questions[0].id;
+      const q = questions.find((item) => item.id === currentId);
+      root.replaceChildren();
+      if (!q) return;
+
+      const graded = questions.filter((item) => item.type !== 'discussion');
+      const doneCount = graded.filter((item) => s.answers[item.id]?.submitted).length;
+      const correctCount = graded.filter((item) => s.answers[item.id]?.correct).length;
+
+      const header = el('div', 'inline-practice-head');
+      const titleGroup = el('div', 'inline-practice-title');
+      titleGroup.append(el('span', 'inline-practice-badge', '即学即练'));
+      const summaryText = graded.length
+        ? `本知识点 ${questions.length} 道配套题 · 已答 ${doneCount}/${graded.length}${doneCount ? `（答对 ${correctCount}）` : ''}`
+        : `本知识点 ${questions.length} 道讨论题`;
+      titleGroup.append(el('span', 'muted', summaryText));
+      const toggleBtn = button(collapsed ? '展开练习' : '收起练习', 'toggle-collapse', 'text-button');
+      toggleBtn.setAttribute('aria-expanded', String(!collapsed));
+      header.append(titleGroup, toggleBtn);
+      root.append(header);
+
+      if (collapsed) return;
+
+      const body = el('div', 'inline-practice-body');
+      if (questions.length > 1) {
+        const nav = el('nav', 'quiz-grid inline-quiz-grid');
+        nav.setAttribute('aria-label', '本知识点练习题号');
+        questions.forEach((item, idx) => {
+          const n = button(String(idx + 1), 'question', 'quiz-number');
+          n.dataset.qid = item.id;
+          const rec = s.answers[item.id];
+          let result = 'unanswered';
+          if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) result = 'draft';
+          else if (rec) result = rec.correct ? 'correct' : 'wrong';
+          n.dataset.state = result;
+          if (result === 'correct' || result === 'wrong') n.classList.add(result);
+          if (result === 'draft') n.classList.add('answered');
+          if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
+          n.setAttribute('aria-label', `本知识点第 ${idx + 1} 题（全章第 ${item.number} 题）`);
+          nav.append(n);
+        });
+        body.append(nav);
+      }
+
+      const card = el('div', 'inline-quiz-card');
+      const cardHead = el('div', 'quiz-card-header');
+      const discussion = q.type === 'discussion';
+      const types = { multiple: '多项选择题 · 全部选对得分', single: '单项选择题', discussion: '讨论题 · 不计分' };
+      const qIdx = questions.findIndex((item) => item.id === q.id);
+      const posLabel = questions.length > 1 ? `第 ${qIdx + 1}/${questions.length} 题（全章第 ${q.number} 题）` : `全章第 ${q.number} 题`;
+      cardHead.append(el('span', '', [posLabel, types[q.type]].join(' · ')));
+      const favorite = button(s.favorites.includes(q.id) ? '★ 已收藏' : '☆ 收藏此题', 'favorite', 'button button-secondary quiz-favorite');
+      favorite.setAttribute('aria-pressed', String(s.favorites.includes(q.id)));
+      cardHead.append(favorite);
+      card.append(cardHead);
+
+      const stem = el('h4', 'quiz-stem inline-quiz-stem', q.stem);
+      stem.id = `inline-stem-${sectionId}-${q.id}`;
+      card.append(stem);
+
+      const field = el('fieldset', 'quiz-options');
+      field.setAttribute('aria-labelledby', stem.id);
+      field.append(el('legend', '', discussion ? '讨论选项' : q.type === 'multiple' ? '请选择所有符合题意的选项' : '请选择一个选项'));
+      const selected = chosen(q, s);
+      const show = revealed(q, s);
+      const inputName = `inline-quiz-${sectionId}-${q.id}`;
+      Object.entries(q.options).forEach(([key, text]) => {
+        if (discussion) {
+          field.append(el('div', 'quiz-option', `${key}. ${text}`));
+          return;
+        }
+        const label = el('label', 'quiz-option');
+        const input = el('input');
+        input.type = q.type === 'multiple' ? 'checkbox' : 'radio';
+        input.name = inputName;
+        input.value = key;
+        input.checked = selected.includes(key);
+        input.disabled = show;
+        input.dataset.qid = q.id;
+        if (show && q.answer.includes(key)) label.classList.add('correct');
+        if (show && selected.includes(key) && !q.answer.includes(key)) label.classList.add('wrong');
+        label.append(input, el('span', '', `${key}. ${text}`));
+        field.append(label);
+      });
+      card.append(field);
+
+      const actions = el('div', 'quiz-actions');
+      if (questions.length > 1) {
+        const nav = el('div', 'quiz-nav');
+        const prev = button('上一题', 'previous'); prev.disabled = qIdx <= 0;
+        const next = button('下一题', 'next'); next.disabled = qIdx >= questions.length - 1;
+        nav.append(prev, next);
+        actions.append(nav);
+      }
+      if (discussion) {
+        const open = openDiscussions.has(q.id);
+        const toggle = button(open ? '收起讨论解析' : '查看讨论解析', 'discussion', 'button button-primary');
+        toggle.setAttribute('aria-expanded', String(open));
+        actions.append(toggle);
+      } else {
+        const submit = button(show ? '重新作答' : '提交答案', show ? 'retry' : 'submit', 'button button-primary');
+        submit.disabled = !show && !selected.length;
+        actions.append(submit);
+      }
+      card.append(actions);
+
+      const status = el('p', 'quiz-status', statusText);
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      card.append(status);
+
+      if (show || openDiscussions.has(q.id)) {
+        const feedback = el('div', 'quiz-feedback quiz-explanation');
+        if (q.type === 'discussion') {
+          feedback.append(el('h4', '', '讨论解析'));
+        } else {
+          const correct = grade(q, selected);
+          feedback.append(el('h4', correct ? 'quiz-correct' : 'quiz-incorrect', correct ? '回答正确' : '回答错误'));
+          feedback.append(el('p', '', `你选择了 ${selected.join('、')}。正确答案是 ${q.answer.join('、')}。`));
+        }
+        if (q.type === 'multiple' && selected.length && !grade(q, selected)) {
+          const missing = q.answer.filter((key) => !selected.includes(key));
+          const extra = selected.filter((key) => !q.answer.includes(key));
+          const details = [];
+          if (missing.length) details.push(`漏选了 ${missing.join('、')}。`);
+          if (extra.length) details.push(`错选了 ${extra.join('、')}。`);
+          feedback.append(el('p', '', details.join('')));
+        }
+        feedback.append(el('h5', '', '解题思路'), el('p', '', q.explanationSupplement || '请结合上方知识点复习。'));
+        if (q.optionExplanations && Object.keys(q.optionExplanations).length) {
+          feedback.append(el('h5', '', '选项辨析'));
+          const reasons = el('ul', 'quiz-rationale-list');
+          Object.entries(q.optionExplanations).forEach(([key, text]) => reasons.append(el('li', '', `${key}　${text}`)));
+          feedback.append(reasons);
+        }
+        card.append(feedback);
+      }
+
+      body.append(card);
+      root.append(body);
+    }
+    function handleClick(event) {
+      const target = event.target.closest('button[data-action]');
+      if (!target || !root.contains(target)) return;
+      const action = target.dataset.action;
+      const s = state();
+      const q = questions.find((item) => item.id === currentId);
+      statusText = '';
+      if (action === 'toggle-collapse') { collapsed = !collapsed; }
+      else if (action === 'question') { currentId = target.dataset.qid; }
+      else if (action === 'discussion' && q?.type === 'discussion') {
+        if (openDiscussions.has(q.id)) openDiscussions.delete(q.id);
+        else openDiscussions.add(q.id);
+      } else if (action === 'previous' || action === 'next') {
+        const idx = questions.findIndex((item) => item.id === currentId);
+        const nextItem = questions[idx + (action === 'next' ? 1 : -1)];
+        if (nextItem) currentId = nextItem.id;
+      } else if (action === 'favorite' && q) {
+        update((draft) => { const i = draft.favorites.indexOf(q.id); if (i >= 0) draft.favorites.splice(i, 1); else draft.favorites.push(q.id); });
+      } else if (action === 'retry' && q) {
+        update((draft) => { draft.drafts[q.id] = []; });
+        statusText = '已开始重新作答，历史记录保留。';
+      } else if (action === 'submit' && q) {
+        const selected = chosen(q, s);
+        if (!selected.length) { statusText = '请先选择答案。'; }
+        else {
+          update((draft) => { recordAttempt(draft, q, selected); delete draft.drafts[q.id]; });
+          statusText = grade(q, selected) ? '答案已保存，回答正确。' : '答案已保存，已加入错题本。';
+        }
+      }
+      render();
+    }
+    function handleChange(event) {
+      const input = event.target;
+      if (!input.matches('input[data-qid]')) return;
+      const s = state();
+      const q = questions.find((item) => item.id === input.dataset.qid);
+      if (!q || revealed(q, s)) return;
+      const selected = [...root.querySelectorAll(`input[name="${input.name}"]:checked`)].map((node) => node.value);
+      update((draft) => { draft.drafts[q.id] = selected; });
+      statusText = '选项已暂存，提交后判题。';
+      const value = input.value;
+      render();
+      const focus = [...root.querySelectorAll(`input[name="${input.name}"]`)].find((node) => node.value === value);
+      if (focus) focus.focus({ preventScroll: true });
+    }
+    root.addEventListener('click', handleClick);
+    root.addEventListener('change', handleChange);
+    render();
+    return {
+      render,
+      cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); },
+    };
+  }
+  const api = { mount, mountInline, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   if (global) global.StudyQuiz = api;
 })(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this);
@@ -1159,7 +1632,8 @@ dialog::backdrop { background: var(--backdrop); }
  const questionIds=new Set(C.questions?.map(q=>q.id));
  const empty=()=>({version:1,answers:{},drafts:{},favorites:[],reading:{seen:[],lastConcept:'',scrollY:0},test:{drafts:{},submitted:false}});
  let storageAvailable=true,state=empty(),quizCleanup=null,view='learn',toastTimer,ppfTimer=null;
- let readingTimer, readingTracking=false, readingChanged=false;
+ let readingTimer, readingTracking=false, readingChanged=false, lessonFilter='all', lessonQuery='';
+ const inlineQuizzes=[];
  const clone=o=>JSON.parse(JSON.stringify(o));
  function cleanSelected(value,q){if(!Array.isArray(value)||!value.every(v=>typeof v==='string'&&Object.hasOwn(q.options,v)))throw Error('备份中的作答选项无效');const out=[...new Set(value)].sort();if(q.type==='single'&&out.length>1)throw Error('单选题备份含多个选项');return out;}
  function validateState(raw){
@@ -1208,6 +1682,7 @@ dialog::backdrop { background: var(--backdrop); }
  function openModal(title,content){$('#modal-title').textContent=title;$('#modal-content').replaceChildren();if(typeof content==='string')$('#modal-content').innerHTML=content;else if(content)$('#modal-content').append(content);if(!$('#modal').open)$('#modal').showModal();}
  $('#modal-close').addEventListener('click',()=>$('#modal').close());
  $('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
+ function syncInlineQuizzes(){inlineQuizzes.forEach(item=>item.render());}
  function jumpConcept(id) {
   if(!sectionIds.has(id))return;
   showChapter();
@@ -1225,10 +1700,54 @@ dialog::backdrop { background: var(--backdrop); }
   });
  }
  function mountQuiz(){if(quizCleanup)quizCleanup();quizCleanup=window.StudyQuiz.mount($('#quiz'),{questions:C.questions,store,onConceptJump:jumpConcept});}
- function updateProgress(){const count=state.reading?.seen?.length||0;$('#reading-label').textContent=`已读 ${count} / ${C.lessons.sections.length} 个知识点`;$('#continue-reading').hidden=!state.reading?.lastConcept;$$('#lesson-jump a').forEach(link=>{if(link.dataset.concept===state.reading.lastConcept)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});$$('[data-favorite-concept]').forEach(b=>{const yes=state.favorites.includes('concept:'+b.dataset.favoriteConcept);b.classList.toggle('selected',yes);b.textContent=yes?'★':'☆';b.setAttribute('aria-pressed',String(yes));});}
+ function applyLessonFilter(){
+  if(!chapter)return;
+  const q=lessonQuery.trim().toLowerCase();
+  let visible=0;
+  $$('#lessons .lesson-card').forEach(card=>{
+   const id=card.id;
+   const isSeen=state.reading?.seen?.includes(id);
+   const isFav=state.favorites.includes('concept:'+id);
+   const matchFilter=lessonFilter==='all'||(lessonFilter==='unread'&&!isSeen)||(lessonFilter==='favorites'&&isFav);
+   const matchQuery=!q||card.dataset.searchText.includes(q);
+   const show=matchFilter&&matchQuery;
+   card.hidden=!show;
+   if(show)visible++;
+  });
+  const emptyBox=$('#learn-empty');
+  if(emptyBox)emptyBox.hidden=visible>0;
+ }
+ function updateProgress(){
+  const seenSet=new Set(state.reading?.seen||[]);
+  const count=seenSet.size;
+  $('#reading-label').textContent=`已读 ${count} / ${C.lessons.sections.length} 个知识点`;
+  $('#continue-reading').hidden=!state.reading?.lastConcept;
+  $$('#lesson-jump a').forEach(link=>{if(link.dataset.concept===state.reading.lastConcept)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});
+  $$('[data-favorite-concept]').forEach(b=>{const yes=state.favorites.includes('concept:'+b.dataset.favoriteConcept);b.classList.toggle('selected',yes);b.textContent=yes?'★':'☆';b.setAttribute('aria-pressed',String(yes));});
+  $$('[data-read-badge]').forEach(badge=>{
+   const seen=seenSet.has(badge.dataset.readBadge);
+   badge.textContent=seen?'已读':'未读';
+   badge.classList.toggle('is-done',seen);
+  });
+  applyLessonFilter();
+ }
  function toggleFavorite(id){store.update(s=>{const i=s.favorites.indexOf(id);if(i===-1)s.favorites.push(id);else s.favorites.splice(i,1);});}
  function chapterLink(entry) {
   return offline ? (entry.id === chapter?.id ? '#learn' : null) : entry.href;
+ }
+ function readChapterProgress(chapterId) {
+  try {
+   const k = chapterId === 'chapter01' ? keyBase : `${keyBase}:${chapterId}`;
+   const raw = localStorage.getItem(k);
+   if (!raw) return null;
+   const parsed = JSON.parse(raw);
+   const seen = Array.isArray(parsed?.reading?.seen) ? parsed.reading.seen.length : 0;
+   const answered = parsed?.answers && typeof parsed.answers === 'object' ? Object.keys(parsed.answers).length : 0;
+   if (!seen && !answered) return null;
+   return { seen, answered };
+  } catch {
+   return null;
+  }
  }
  function renderSidebar() {
   const openCount = catalog.flatMap(module => module.chapters).filter(chapterLink).length;
@@ -1263,7 +1782,14 @@ dialog::backdrop { background: var(--backdrop); }
   const root = $('#home-view');
   const introduction = el('div', 'home-hero');
   introduction.innerHTML = `<h1>经济金融保险基础</h1>
-   <p>按章节学习概念、操作图解、练习做题。</p>`;
+   <p>按章节学习概念、操作图解、练习做题。</p>
+   <div class="home-search-row">
+     <div class="search-box">
+       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+       <input type="search" id="home-search" placeholder="搜索章节标题或编号…" aria-label="搜索章节标题或编号">
+       <span class="search-kbd" aria-hidden="true">/</span>
+     </div>
+   </div>`;
   root.append(introduction);
 
   catalog.forEach(module => {
@@ -1275,25 +1801,60 @@ dialog::backdrop { background: var(--backdrop); }
    module.chapters.forEach(entry => {
     const href = chapterLink(entry);
     const row = el(href ? 'a' : 'div', 'catalog-card' + (href ? ' ready' : ''));
+    row.dataset.searchText = `${String(entry.number).padStart(2, '0')} ${entry.title} ${module.title}`.toLowerCase();
     const name = el('h3', '', entry.title);
     row.append(el('span', 'chapter-no', String(entry.number).padStart(2, '0')), name);
+    const meta = el('span', 'catalog-meta');
     if (href) {
      row.href = href;
      row.dataset.openChapter = 'true';
-     row.append(el('span', 'catalog-status', '开始学习 →'));
+     const prog = readChapterProgress(entry.id);
+     if (prog) {
+      const parts = [];
+      if (prog.seen) parts.push(`已读 ${prog.seen}`);
+      if (prog.answered) parts.push(`已答 ${prog.answered}`);
+      if (parts.length) meta.append(el('span', 'catalog-progress', parts.join(' · ')));
+     }
+     meta.append(el('span', 'catalog-status', '开始学习 →'));
     } else {
-     row.append(el('span', 'catalog-status', offline ? '其他章节' : '待开放'));
+     meta.append(el('span', 'catalog-status', offline ? '其他章节' : '待开放'));
     }
+    row.append(meta);
     chapters.append(row);
    });
    section.append(chapters);
    root.append(section);
   });
+
+  const emptyHome = el('div', 'learn-empty', '没有找到匹配的章节。');
+  emptyHome.id = 'home-empty';
+  emptyHome.hidden = true;
+  root.append(emptyHome);
+
+  $('#home-search')?.addEventListener('input', event => {
+   const q = event.target.value.trim().toLowerCase();
+   let totalVisible = 0;
+   $$('#home-view .catalog-section').forEach(section => {
+    let sectionVisible = 0;
+    $$('.catalog-card', section).forEach(card => {
+     const match = !q || card.dataset.searchText.includes(q);
+     card.hidden = !match;
+     if (match) sectionVisible++;
+    });
+    section.hidden = sectionVisible === 0;
+    totalVisible += sectionVisible;
+   });
+   emptyHome.hidden = totalVisible > 0;
+  });
  }
 
  function renderLessons() {
+  const visualTpl = $('#visual-template');
   C.lessons.sections.forEach((section, index) => {
    const number = String(index + 1).padStart(2, '0');
+   const sectionQuestions = C.questions.filter(q => q.conceptId === section.id);
+   const hasVisual = Boolean(chapter.visual && chapter.visualSectionId === section.id && visualTpl && visualTpl.content.childNodes.length);
+
    const jump = el('a');
    jump.href = '#' + section.id;
    jump.dataset.concept = section.id;
@@ -1302,9 +1863,18 @@ dialog::backdrop { background: var(--backdrop); }
 
    const card = el('section', 'lesson-card');
    card.id = section.id;
+   card.dataset.searchText = `${number} ${section.title} ${section.summary} ${section.keyTakeaway}`.toLowerCase();
    const head = el('div', 'lesson-head');
    const heading = el('div');
    heading.append(el('h3', '', section.title), el('p', 'lesson-summary', section.summary));
+   const badges = el('div', 'lesson-badges');
+   const readBadge = el('span', 'status-pill', '未读');
+   readBadge.dataset.readBadge = section.id;
+   badges.append(readBadge);
+   if (sectionQuestions.length) badges.append(el('span', 'status-pill', `配套 ${sectionQuestions.length} 题`));
+   if (hasVisual) badges.append(el('span', 'status-pill is-visual', '含交互图解'));
+   heading.append(badges);
+
    const favorite = button('☆', 'icon-button', () => toggleFavorite('concept:' + section.id));
    favorite.dataset.favoriteConcept = section.id;
    favorite.setAttribute('aria-label', '收藏知识点：' + section.title);
@@ -1318,6 +1888,14 @@ dialog::backdrop { background: var(--backdrop); }
     table.replaceWith(wrap);
     wrap.append(table);
    });
+
+   if (chapter.visual && chapter.visualSectionId === section.id && visualTpl && visualTpl.content.childNodes.length) {
+    const visualBox = el('div', 'inline-visual');
+    visualBox.id = 'inline-visual';
+    visualBox.append(visualTpl.content.cloneNode(true));
+    body.append(visualBox);
+   }
+
    const takeaway = el('div', 'concept-takeaway');
    takeaway.append(el('strong', '', '考点'), document.createTextNode(section.keyTakeaway));
    body.append(takeaway);
@@ -1333,6 +1911,19 @@ dialog::backdrop { background: var(--backdrop); }
    }
    body.append(extras);
    card.append(head, body);
+
+   if (sectionQuestions.length) {
+    const practiceBox = el('section', 'inline-practice');
+    practiceBox.dataset.conceptPractice = section.id;
+    practiceBox.setAttribute('aria-label', section.title + ' · 即学即练');
+    card.append(practiceBox);
+    inlineQuizzes.push(window.StudyQuiz.mountInline(practiceBox, {
+     sectionId: section.id,
+     questions: sectionQuestions,
+     store,
+    }));
+   }
+
    $('#lessons').append(card);
   });
  }
@@ -1374,6 +1965,8 @@ dialog::backdrop { background: var(--backdrop); }
   const zoomIn = $('#map-zoom-in');
   const zoomOut = $('#map-zoom-out');
   const size = $('#map-size');
+  const collapsePanel = $('#map-collapse-panel');
+  const panelBody = $('#map-panel-body');
   const branches = [];
   const startExpanded = !matchMedia('(max-width: 767px)').matches;
   const readingSize = 14;
@@ -1456,6 +2049,15 @@ dialog::backdrop { background: var(--backdrop); }
   zoomOut.addEventListener('click', () => setScale(scale / 1.2));
   size.addEventListener('click', () => setScale(1));
   $('#map-fit').addEventListener('click', fitWidth);
+  if (collapsePanel && panelBody) {
+   collapsePanel.addEventListener('click', () => {
+    const nextHidden = !panelBody.hidden;
+    panelBody.hidden = nextHidden;
+    collapsePanel.setAttribute('aria-expanded', String(!nextHidden));
+    collapsePanel.textContent = nextHidden ? '展开导图' : '收起导图';
+    if (!nextHidden) requestAnimationFrame(fitWidth);
+   });
+  }
 
   return () => {
    if (hasOpened) return;
@@ -1463,9 +2065,11 @@ dialog::backdrop { background: var(--backdrop); }
    fitWidth();
   };
  }
- const chapterViews = chapter?.visual ? ['learn', 'map', 'visual', 'practice'] : ['learn', 'map', 'practice'];
+ const chapterViews = ['learn', 'practice'];
  function chapterActions(visible) {
   $$('[data-action="favorites"], [data-action="records"], [data-action="download"], .sidebar-quick-actions').forEach(node => node.hidden = !visible);
+  const mobileNav = $('#mobile-bottom-nav');
+  if (mobileNav) mobileNav.hidden = !visible;
  }
  function showHome() {
   saveReadingPosition();
@@ -1483,24 +2087,41 @@ dialog::backdrop { background: var(--backdrop); }
   document.title=chapter.title+' · 知其所以';
  }
  function switchView(next, scroll=true) {
+  const requested = next;
   if (!chapterViews.includes(next)) next='learn';
   saveReadingPosition();
   pausePPF();
   view=next;
   $$('.content-view').forEach(v=>v.hidden=v.id!=='view-'+next);
   $$('[data-view]').forEach(b=>{
-   const active=b.dataset.view===next;
+   const matchKey = requested === 'map' ? 'map' : next;
+   const active = b.closest('#mobile-bottom-nav') ? b.dataset.view === matchKey : b.dataset.view === next;
    b.classList.toggle('active',active);
    if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
   });
-  if(scroll) {
+  if(next==='learn') {
+   fitMapOnFirstOpen();
+   syncInlineQuizzes();
+  }
+  if(next==='practice') mountQuiz();
+  if(requested==='map') {
+   readingTracking=false;
+   requestAnimationFrame(()=>{
+    $('#chapter-mindmap')?.scrollIntoView({behavior:'instant',block:'start'});
+    requestAnimationFrame(()=>{readingTracking=true;});
+   });
+  } else if(requested==='visual' && $('#inline-visual')) {
+   readingTracking=false;
+   requestAnimationFrame(()=>{
+    $('#inline-visual').scrollIntoView({behavior:'instant',block:'start'});
+    requestAnimationFrame(()=>{readingTracking=true;});
+   });
+  } else if(scroll) {
    readingTracking=false;
    $('.view-tabs').scrollIntoView({behavior:'instant',block:'start'});
    requestAnimationFrame(()=>requestAnimationFrame(()=>{readingTracking=true;}));
   }
-  if(next==='map')fitMapOnFirstOpen();
-  if(next==='practice')mountQuiz();
-  history.replaceState(null,'','#'+next);
+  history.replaceState(null,'','#'+(requested==='map'||requested==='visual'?requested:next));
  }
  $('#continue-reading').addEventListener('click',()=>jumpConcept(state.reading.lastConcept));
  function records() {
@@ -1538,7 +2159,7 @@ dialog::backdrop { background: var(--backdrop); }
     confirm.append(el('p','',`已检查备份，含 ${Object.keys(next.answers).length} 道作答记录、${next.reading.seen.length} 个已读知识点。导入将替换本章记录。`),
      button('确认导入并替换','button button-primary',()=>{
       store.update(record=>Object.assign(record,next));
-      mountQuiz();records();toast('学习记录已恢复');
+      mountQuiz();syncInlineQuizzes();records();toast('学习记录已恢复');
      }));
     status.replaceChildren(confirm);
    } catch(e) {
@@ -1552,7 +2173,7 @@ dialog::backdrop { background: var(--backdrop); }
   openModal('学习记录与备份',wrap);
  }
  function saveBlob(blob,name){const url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
- function favorites(){const wrap=el('div');if(!state.favorites.length)wrap.append(el('p','muted','还没有收藏。阅读时点击知识点右侧的 ☆，或在答题时收藏题目。'));state.favorites.forEach(id=>{const isConcept=id.startsWith('concept:'),item=isConcept?C.lessons.sections.find(s=>s.id===id.slice(8)):C.questions.find(q=>q.id===id);if(!item)return;const row=el('div','favorite-item');const b=button(isConcept?item.title:`第 ${item.number} 题 · ${item.stem}`,'',()=>{$('#modal').close();if(isConcept)jumpConcept(item.id);else{showChapter();switchView('practice');window.StudyQuiz.openQuestion?.(item.id);}});b.append(el('small','',isConcept?'知识点':'练习题'));row.append(b,button('移除','text-button',()=>{toggleFavorite(id);favorites();}));wrap.append(row);});openModal('我的收藏',wrap);}
+ function favorites(){const wrap=el('div');if(!state.favorites.length)wrap.append(el('p','muted','还没有收藏。阅读时点击知识点右侧的 ☆，或在答题时收藏题目。'));state.favorites.forEach(id=>{const isConcept=id.startsWith('concept:'),item=isConcept?C.lessons.sections.find(s=>s.id===id.slice(8)):C.questions.find(q=>q.id===id);if(!item)return;const row=el('div','favorite-item');const b=button(isConcept?item.title:`第 ${item.number} 题 · ${item.stem}`,'',()=>{$('#modal').close();if(isConcept)jumpConcept(item.id);else{showChapter();switchView('practice');window.StudyQuiz.openQuestion?.(item.id);}});b.append(el('small','',isConcept?'知识点':'练习题'));row.append(b,button('移除','text-button',()=>{toggleFavorite(id);syncInlineQuizzes();favorites();}));wrap.append(row);});openModal('我的收藏',wrap);}
  function download() {
   if(offline) {
    openModal('你正在使用离线学习版','<p>本文件包含本章的讲解、思维导图和练习。保存好这份 HTML，断网后双击即可继续学习。</p><p>可在「学习记录」中导出、导入本章备份。</p>');
@@ -1568,7 +2189,7 @@ dialog::backdrop { background: var(--backdrop); }
  }
  document.addEventListener('click',e=>{const target=e.target.closest('button,a');if(!target)return;if(target.dataset.concept){e.preventDefault();jumpConcept(target.dataset.concept);return;}if(target.dataset.view){switchView(target.dataset.view);return;}if(target.dataset.switch){switchView(target.dataset.switch);return;}if(offline&&target.hasAttribute('data-open-chapter')){e.preventDefault();showChapter();switchView('learn');window.scrollTo({top:0,behavior:'instant'});return;}if(offline&&target.getAttribute('href')==='index.html'){e.preventDefault();showHome();history.replaceState(null,'','#home');return;}switch(target.dataset.action){case'favorites':favorites();break;case'records':records();break;case'download':download();break;case'sidebar':{const open=$('#sidebar').classList.toggle('open');target.setAttribute('aria-expanded',String(open));break;}}});
  function pausePPF(){if(ppfTimer){clearInterval(ppfTimer);ppfTimer=null;}if($('#ppf-play')){$('#ppf-play').textContent='播放取舍变化';$('#ppf-play').setAttribute('aria-pressed','false');}}
- function initPPF(){const range=$('#grain-range'),radios=$$('input[name=scenario]');function point(p,f=1){const x=p*470*f,y=Math.sqrt(Math.max(0,1-p*p))*340*f;return[76+x,388-y];}function path(f){let d='';for(let i=0;i<=100;i++){const[x,y]=point(i/100,f);d+=(i?' L':'M')+x.toFixed(2)+' '+y.toFixed(2);}return d;}
+ function initPPF(){const range=$('#grain-range'),radios=$$('input[name=scenario]');if(!range||!radios.length)return;function point(p,f=1){const x=p*470*f,y=Math.sqrt(Math.max(0,1-p*p))*340*f;return[76+x,388-y];}function path(f){let d='';for(let i=0;i<=100;i++){const[x,y]=point(i/100,f);d+=(i?' L':'M')+x.toFixed(2)+' '+y.toFixed(2);}return d;}
   $('#ppf-curve').setAttribute('d',path(1));$('#ppf-new-curve').setAttribute('d',path(1.12));
   function draw(){const v=Number(range.value)/100,scenario=radios.find(r=>r.checked).value,f=scenario==='idle'?.7:scenario==='growth'?1.12:1;const[x,y]=point(v,f);$('#ppf-point').setAttribute('cx',x);$('#ppf-point').setAttribute('cy',y);$('#ppf-halo').setAttribute('cx',x);$('#ppf-halo').setAttribute('cy',y);$('#ppf-guides').setAttribute('d',`M76 ${y}H${x}V388`);$('#ppf-point-label').setAttribute('x',x+13);$('#ppf-point-label').setAttribute('y',y-14);$('#grain-output').textContent=Math.round(v*100*f);$('#machine-output').textContent=Math.round(Math.sqrt(1-v*v)*100*f);$('#grain-percent').value=range.value+'%';$('#ppf-new-curve').setAttribute('opacity',scenario==='growth'?'1':'0');const explanation=scenario==='idle'?'点在原有曲线内：存在资源闲置或利用低效。提高利用效率，可让两类产品产量同时增加。':scenario==='growth'?'技术进步使生产边界向外移动：相同资源下可以生产更多。图中按两类产品同比例提高作简化演示。':'点在曲线上：资源充分有效利用。向右移动时粮食增加、机器减少，这就是取舍。';if($('#ppf-explanation').textContent!==explanation)$('#ppf-explanation').textContent=explanation;}
   range.addEventListener('input',draw);radios.forEach(r=>r.addEventListener('change',draw));let direction=1;$('#ppf-play').addEventListener('click',()=>{if(ppfTimer){pausePPF();return;}if(matchMedia('(prefers-reduced-motion: reduce)').matches){toast('已启用减少动态效果，请拖动滑块逐步观察');return;}$('#ppf-play').textContent='暂停变化';$('#ppf-play').setAttribute('aria-pressed','true');ppfTimer=setInterval(()=>{let n=Number(range.value)+direction;if(n>=95||n<=5)direction*=-1;range.value=n;draw();},90);});$('#ppf-reset').addEventListener('click',()=>{pausePPF();range.value=60;radios[0].checked=true;draw();});document.addEventListener('visibilitychange',()=>{if(document.hidden)pausePPF();});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches)pausePPF();});draw();}
@@ -1588,8 +2209,22 @@ dialog::backdrop { background: var(--backdrop); }
   $('#chapter-title').textContent=chapter.title;
   $('#chapter-description').textContent=C.lessons.subtitle;
   $('.chapter-exercise-count').textContent=`${C.questions.length} 道练习`;
-  $('[data-view="visual"]').hidden=!chapter.visual;
   renderLessons();
+  $('#lesson-search')?.addEventListener('input', event => {
+   lessonQuery = event.target.value;
+   applyLessonFilter();
+  });
+  $$('[data-lesson-filter]').forEach(btn => {
+   btn.addEventListener('click', () => {
+    lessonFilter = btn.dataset.lessonFilter;
+    $$('[data-lesson-filter]').forEach(node => {
+     const active = node === btn;
+     node.classList.toggle('active', active);
+     node.setAttribute('aria-pressed', String(active));
+    });
+    applyLessonFilter();
+   });
+  });
   $$('.lesson-card').forEach(card=>observer.observe(card));
   fitMapOnFirstOpen=renderMap();
   if(chapter.visual==='ppf')initPPF();
@@ -1604,14 +2239,27 @@ dialog::backdrop { background: var(--backdrop); }
     jumpConcept(hash);
    } else {
     switchView(hash,false);
-    if(view==='learn')restoreReadingPosition({...state.reading});
+    if(view==='learn'&&hash!=='map'&&hash!=='visual')restoreReadingPosition({...state.reading});
     else readingTracking=true;
    }
   }
  } else {
   showHome();
  }
- document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#sidebar').classList.remove('open');$('.mobile-menu').setAttribute('aria-expanded','false');}});
+ document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+   $('#sidebar').classList.remove('open');
+   $('.mobile-menu').setAttribute('aria-expanded','false');
+   if(document.activeElement?.matches('#home-search, #lesson-search')){
+    document.activeElement.value='';
+    document.activeElement.dispatchEvent(new Event('input'));
+    document.activeElement.blur();
+   }
+  } else if(e.key==='/' && !e.metaKey && !e.ctrlKey && !e.altKey && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName||'')){
+   const target = $('#home-view').hidden ? (view==='learn' ? $('#lesson-search') : null) : $('#home-search');
+   if(target){ e.preventDefault(); target.focus(); target.select(); }
+  }
+ });
 })();
 </script>
 </body>
