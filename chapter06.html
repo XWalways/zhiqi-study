@@ -3173,11 +3173,111 @@ dialog::backdrop { background: var(--backdrop); }
     draw();
   }
 
+  function mountSupplyElasticity(root) {
+    root.innerHTML = `
+      <div class="inline-visual-header">
+        <span class="inline-visual-badge">交互图解</span>
+        <h4>供给价格弹性：几何截距法则（交纵轴 &gt;1 · 过原点 =1 · 交横轴 &lt;1）</h4>
+        <p>切换供给曲线位置并拖动价格 P，验证线性供给曲线弹性大小只取决于其与坐标轴的交点位置。</p>
+      </div>
+      <div class="ppf-panel micro-panel">
+        <div class="ppf-chart">
+          <div class="chart-caption">
+            <span><i class="chart-line mv-c2-line"></i>当前供给曲线 S</span>
+            <span><i class="chart-line mv-base-line"></i>过原点参考线（Es = 1）</span>
+          </div>
+          <svg viewBox="0 0 540 360" role="img" aria-label="供给价格弹性几何截距对比图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">价格 P</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">供给量 Q</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="171" y="316">25</text><text x="276" y="316">50</text><text x="381" y="316">75</text><text x="486" y="316">100</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="235">10</text><text x="56" y="172">20</text><text x="56" y="109">30</text><text x="56" y="46">40</text></g>
+            <path class="mv-base-curve" data-role="ref"/>
+            <path class="mv-curve-2" data-role="curve"/>
+            <path class="mv-guide" data-role="guide"/>
+            <circle r="6.5" class="mv-dot-2" data-role="pt"/>
+            <circle r="5" class="mv-dot-eq" data-role="intercept"/>
+          </svg>
+        </div>
+        <div class="ppf-controls">
+          <fieldset class="ppf-scenarios">
+            <legend>选择线性供给曲线形态</legend>
+            <label><input type="radio" name="es-type" value="elastic" checked> 与纵轴正半轴相交（富有弹性 Es &gt; 1）</label>
+            <label><input type="radio" name="es-type" value="unit"> 经过原点（单位弹性 Es = 1）</label>
+            <label><input type="radio" name="es-type" value="inelastic"> 与横轴正半轴相交（缺乏弹性 Es &lt; 1）</label>
+            <label><input type="radio" name="es-type" value="vertical"> 垂直于横轴（完全无弹性 Es = 0）</label>
+          </fieldset>
+          <label class="range-label">市场价格 P <output data-role="p-out">20</output></label>
+          <input type="range" data-role="p" min="12" max="36" step="2" value="20">
+          <div class="ppf-outputs">
+            <div><span>供给量 Qs</span><strong data-role="q-val">40</strong></div>
+            <div><span>点弹性 Es</span><strong data-role="es-val">2.00</strong></div>
+          </div>
+          <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
+        </div>
+      </div>`;
+    const x = q => X0 + (q / 100) * W;
+    const y = p => Y0 - (p / 40) * H;
+    root.querySelector('[data-role="ref"]').setAttribute('d', `M${x(0)} ${y(0)} L${x(100)} ${y(40)}`);
+    const radios = [...root.querySelectorAll('input[name="es-type"]')];
+    const pIn = root.querySelector('[data-role="p"]');
+
+    function draw() {
+      const mode = radios.find(r => r.checked).value;
+      const p = pIn.valueAsNumber;
+      let q = 0, es = 0, path = '', ix = 0, iy = 0, msg = '';
+      if (mode === 'elastic') {
+        // Q = -40 + 4P => P = 10 + 0.25Q (intersects P-axis at P=10)
+        q = Math.max(0, -40 + 4 * p);
+        es = q > 0 ? (4 * p) / q : 99;
+        path = `M${x(0)} ${y(10)} L${x(100)} ${y(35)}`;
+        ix = x(0); iy = y(10);
+        msg = `曲线与纵轴正半轴相交（P₀=10）：任意价格下的点弹性均大于 1（当前 Es=${fmt(es, 2)}），供给富有弹性。`;
+      } else if (mode === 'unit') {
+        // Q = 2.5P (through origin)
+        q = 2.5 * p;
+        es = 1;
+        path = `M${x(0)} ${y(0)} L${x(100)} ${y(40)}`;
+        ix = x(0); iy = y(0);
+        msg = '曲线经过原点：无论斜率陡峭还是平缓，线上任意一点的供给价格弹性恒等于 1（单位弹性）。';
+      } else if (mode === 'inelastic') {
+        // Q = 30 + 1.5P (intersects Q-axis at Q=30)
+        q = 30 + 1.5 * p;
+        es = (1.5 * p) / q;
+        path = `M${x(30)} ${y(0)} L${x(90)} ${y(40)}`;
+        ix = x(30); iy = y(0);
+        msg = `曲线与横轴正半轴相交（Q₀=30）：任意价格下的点弹性均小于 1（当前 Es=${fmt(es, 2)}），供给缺乏弹性。`;
+      } else {
+        // Vertical at Q=50
+        q = 50;
+        es = 0;
+        path = `M${x(50)} ${y(0)} L${x(50)} ${y(40)}`;
+        ix = x(50); iy = y(0);
+        msg = '供给曲线垂直于横轴（Es = 0）：如古董、土地或极短期鲜活农产品，价格如何变动，供给量均固定不变。';
+      }
+      root.querySelector('[data-role="curve"]').setAttribute('d', path);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(p).toFixed(1)} H${x(q).toFixed(1)} V${Y0}`);
+      root.querySelector('[data-role="pt"]').setAttribute('cx', x(q).toFixed(1));
+      root.querySelector('[data-role="pt"]').setAttribute('cy', y(p).toFixed(1));
+      root.querySelector('[data-role="intercept"]').setAttribute('cx', ix.toFixed(1));
+      root.querySelector('[data-role="intercept"]').setAttribute('cy', iy.toFixed(1));
+      root.querySelector('[data-role="p-out"]').value = String(p);
+      root.querySelector('[data-role="q-val"]').textContent = fmt(q, 0);
+      root.querySelector('[data-role="es-val"]').textContent = fmt(es, 2);
+      root.querySelector('[data-role="msg"]').textContent = msg;
+    }
+    radios.forEach(r => r.addEventListener('change', draw));
+    pIn.addEventListener('input', draw);
+    draw();
+  }
+
   const registry = {
     'demand-move': mountDemandMove,
     'supply-move': mountSupplyMove,
     'price-controls': mountPriceControls,
     elasticity: mountElasticity,
+    'supply-elasticity': mountSupplyElasticity,
     consumer: mountConsumer,
     production: mountProduction,
     isoquant: mountIsoquant,
