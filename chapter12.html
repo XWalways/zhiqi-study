@@ -957,6 +957,9 @@ dialog::backdrop { background: var(--backdrop); }
 .mv-swatch.mv-dwl { background: color-mix(in srgb, var(--error) 35%, transparent); border: 1px solid var(--error); }
 .micro-panel .ppf-explanation { min-height: 0; }
 .micro-panel .ppf-outputs strong { font-size: 22px; }
+.micro-panel .axis-label, .market-panel .axis-label { font-size: 13px; font-weight: 600; }
+.micro-panel .tick-label, .market-panel .tick-label { font-size: 12px; }
+.micro-panel .point-label { font-size: 14px; }
 </style>
 </head>
 <body data-page="chapter" data-offline="false" data-flat-downloads="true">
@@ -2274,6 +2277,10 @@ dialog::backdrop { background: var(--backdrop); }
     return d;
   };
 
+  // Unified zero-overlap single-plot geometry:
+  // viewBox="0 0 540 360", plot box x:[66,486] (420), y:[42,294] (252)
+  const X0 = 66, W = 420, Y0 = 294, H = 252;
+
   function mountISLM(root) {
     root.innerHTML = `
       <div class="inline-visual-header">
@@ -2288,13 +2295,13 @@ dialog::backdrop { background: var(--backdrop); }
             <span><i class="chart-line mv-c2-line"></i>LM（货币市场）</span>
             <span><i class="chart-line mv-base-line"></i>变动前 IS₀ / LM₀</span>
           </div>
-          <svg viewBox="0 0 520 340" role="img" aria-label="IS-LM 共同均衡交互图">
-            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
-            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
-            <text x="12" y="18" class="axis-label">利率 r%</text>
-            <text x="450" y="322" class="axis-label">产出 Y</text>
-            <g class="tick-label" text-anchor="middle"><text x="56" y="308">40</text><text x="196" y="308">80</text><text x="336" y="308">120</text><text x="476" y="308">160</text></g>
-            <g class="tick-label" text-anchor="end"><text x="46" y="244">2</text><text x="46" y="191">4</text><text x="46" y="138">6</text><text x="46" y="85">8</text><text x="46" y="32">10</text></g>
+          <svg viewBox="0 0 540 360" role="img" aria-label="IS-LM 共同均衡交互图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">利率 r (%)</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">国民产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">40</text><text x="206" y="316">80</text><text x="346" y="316">120</text><text x="486" y="316">160</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="248">2</text><text x="56" y="197">4</text><text x="56" y="147">6</text><text x="56" y="96">8</text><text x="56" y="46">10</text></g>
             <path class="mv-base-curve" data-role="is0"/>
             <path class="mv-base-curve" data-role="lm0"/>
             <path class="mv-curve-1" data-role="is"/>
@@ -2323,9 +2330,8 @@ dialog::backdrop { background: var(--backdrop); }
           </div>
         </div>
       </div>`;
-    // IS: r = 15 - 0.1*(Y - dg); LM: r = -5 + 0.1*(Y - dm) => Eq: Y* = 100 + (dg + dm)/2, r* = 5 + (dg - dm)/20
-    const x = yv => 56 + ((yv - 40) / 120) * 420;
-    const y = rv => 288 - (rv / 10) * 264;
+    const x = yv => X0 + ((yv - 40) / 120) * W;
+    const y = rv => Y0 - (rv / 10) * H;
     const isLine = dg => {
       const y1 = Math.max(40, 50 + dg), y2 = Math.min(160, 150 + dg);
       return `M${x(y1).toFixed(1)} ${y(15 - 0.1 * (y1 - dg)).toFixed(1)} L${x(y2).toFixed(1)} ${y(15 - 0.1 * (y2 - dg)).toFixed(1)}`;
@@ -2347,7 +2353,7 @@ dialog::backdrop { background: var(--backdrop); }
       const rs = 5 + (dg - dm) / 20;
       root.querySelector('[data-role="is"]').setAttribute('d', isLine(dg));
       root.querySelector('[data-role="lm"]').setAttribute('d', lmLine(dm));
-      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(rs).toFixed(1)} H${x(ys).toFixed(1)} V288`);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(rs).toFixed(1)} H${x(ys).toFixed(1)} V${Y0}`);
       root.querySelector('[data-role="e1"]').setAttribute('cx', x(ys).toFixed(1));
       root.querySelector('[data-role="e1"]').setAttribute('cy', y(rs).toFixed(1));
       root.querySelector('[data-role="lbl"]').setAttribute('x', (x(ys) + 10).toFixed(1));
@@ -2388,14 +2394,14 @@ dialog::backdrop { background: var(--backdrop); }
             <span><i class="chart-line mv-c2-line"></i>短期总供给 SRAS</span>
             <span><i class="chart-line mv-c3-line"></i>长期总供给 LRAS（Yf=100）</span>
           </div>
-          <svg viewBox="0 0 520 340" role="img" aria-label="AD-AS 总需求总供给模型图">
-            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
-            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
-            <text x="12" y="18" class="axis-label">物价 P</text>
-            <text x="450" y="322" class="axis-label">产出 Y</text>
-            <g class="tick-label" text-anchor="middle"><text x="56" y="308">60</text><text x="161" y="308">80</text><text x="266" y="308">100</text><text x="371" y="308">120</text><text x="476" y="308">140</text></g>
-            <g class="tick-label" text-anchor="end"><text x="46" y="244">80</text><text x="46" y="160">100</text><text x="46" y="76">120</text></g>
-            <line class="mv-curve-3" x1="266" x2="266" y1="24" y2="288"/>
+          <svg viewBox="0 0 540 360" role="img" aria-label="AD-AS 总需求总供给模型图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">物价水平 P</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">实际产出 Y</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">60</text><text x="171" y="316">80</text><text x="276" y="316">100</text><text x="381" y="316">120</text><text x="486" y="316">140</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="256">80</text><text x="56" y="172">100</text><text x="56" y="88">120</text></g>
+            <line class="mv-curve-3" x1="276" x2="276" y1="42" y2="294"/>
             <path class="mv-base-curve" data-role="ad0"/>
             <path class="mv-base-curve" data-role="as0"/>
             <path class="mv-curve-1" data-role="ad"/>
@@ -2422,9 +2428,8 @@ dialog::backdrop { background: var(--backdrop); }
           </div>
         </div>
       </div>`;
-    // AD: P = 200 + dad - Y; SRAS: P = Y - das => Eq: Y* = 100 + (dad + das)/2, P* = 100 + (dad - das)/2
-    const x = yv => 56 + ((yv - 60) / 80) * 420;
-    const y = pv => 288 - ((pv - 70) / 60) * 264;
+    const x = yv => X0 + ((yv - 60) / 80) * W;
+    const y = pv => Y0 - ((pv - 70) / 60) * H;
     const adLine = dad => {
       const y1 = Math.max(62, 74 + dad), y2 = Math.min(138, 128 + dad);
       return `M${x(y1).toFixed(1)} ${y(200 + dad - y1).toFixed(1)} L${x(y2).toFixed(1)} ${y(200 + dad - y2).toFixed(1)}`;
@@ -2444,7 +2449,7 @@ dialog::backdrop { background: var(--backdrop); }
       const ps = 100 + (dad - das) / 2;
       root.querySelector('[data-role="ad"]').setAttribute('d', adLine(dad));
       root.querySelector('[data-role="as"]').setAttribute('d', asLine(das));
-      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(ps).toFixed(1)} H${x(ys).toFixed(1)} V288`);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(ps).toFixed(1)} H${x(ys).toFixed(1)} V${Y0}`);
       root.querySelector('[data-role="eq"]').setAttribute('cx', x(ys).toFixed(1));
       root.querySelector('[data-role="eq"]').setAttribute('cy', y(ps).toFixed(1));
       root.querySelector('[data-role="lbl"]').setAttribute('x', (x(ys) + 10).toFixed(1));
@@ -2485,14 +2490,14 @@ dialog::backdrop { background: var(--backdrop); }
             <span><i class="chart-line mv-c3-line"></i>长期 LRPC（u*=5%）</span>
             <span><i class="chart-line mv-base-line"></i>基准 SRPC（πᵉ=2%）</span>
           </div>
-          <svg viewBox="0 0 520 340" role="img" aria-label="短期与长期菲利普斯曲线图">
-            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
-            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
-            <text x="10" y="18" class="axis-label">通胀 π%</text>
-            <text x="436" y="322" class="axis-label">失业率 u%</text>
-            <g class="tick-label" text-anchor="middle"><text x="56" y="308">2%</text><text x="161" y="308">4%</text><text x="213.5" y="308">5%</text><text x="266" y="308">6%</text><text x="371" y="308">8%</text></g>
-            <g class="tick-label" text-anchor="end"><text x="46" y="264">0</text><text x="46" y="204">3</text><text x="46" y="144">6</text><text x="46" y="84">9</text><text x="46" y="28">12</text></g>
-            <line class="mv-curve-3" x1="213.5" x2="213.5" y1="24" y2="288"/>
+          <svg viewBox="0 0 540 360" role="img" aria-label="短期与长期菲利普斯曲线图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">通胀率 π (%)</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">失业率 u (%)</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">2%</text><text x="171" y="316">4%</text><text x="223.5" y="316">5%</text><text x="276" y="316">6%</text><text x="381" y="316">8%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="274">0</text><text x="56" y="217">3</text><text x="56" y="160">6</text><text x="56" y="103">9</text><text x="56" y="46">12</text></g>
+            <line class="mv-curve-3" x1="223.5" x2="223.5" y1="42" y2="294"/>
             <path class="mv-base-curve" data-role="sr0"/>
             <path class="mv-curve-1" data-role="sr"/>
             <path class="mv-guide" data-role="guide"/>
@@ -2511,10 +2516,9 @@ dialog::backdrop { background: var(--backdrop); }
           <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
         </div>
       </div>`;
-    // pi = pe - 1.5*(u - 5)
-    const x = u => 56 + ((u - 2) / 8) * 420;
-    const y = pi => 264 - (pi / 12) * 236;
-    const curve = pe => samplePath(u => Math.max(-1, Math.min(12.5, pe - 1.5 * (u - 5))), 2.2, 8.8, 40, x, y);
+    const x = u => X0 + ((u - 2) / 8) * W;
+    const y = pi => 270 - (pi / 12) * 228;
+    const curve = pe => samplePath(u => Math.max(-1, Math.min(12.2, pe - 1.5 * (u - 5))), 2.2, 8.8, 40, x, y);
     root.querySelector('[data-role="sr0"]').setAttribute('d', curve(2));
     const peIn = root.querySelector('[data-role="pe"]');
     const uIn = root.querySelector('[data-role="u"]');
@@ -2523,7 +2527,7 @@ dialog::backdrop { background: var(--backdrop); }
       const pe = peIn.valueAsNumber, u = uIn.valueAsNumber;
       const pi = pe - 1.5 * (u - 5);
       root.querySelector('[data-role="sr"]').setAttribute('d', curve(pe));
-      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(pi).toFixed(1)} H${x(u).toFixed(1)} V288`);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(pi).toFixed(1)} H${x(u).toFixed(1)} V${Y0}`);
       root.querySelector('[data-role="pt"]').setAttribute('cx', x(u).toFixed(1));
       root.querySelector('[data-role="pt"]').setAttribute('cy', y(pi).toFixed(1));
       root.querySelector('[data-role="pe-out"]').value = pe + '%';
@@ -2550,15 +2554,15 @@ dialog::backdrop { background: var(--backdrop); }
       </div>
       <div class="ppf-panel micro-panel">
         <div class="ppf-chart">
-          <svg viewBox="0 0 460 320" role="img" aria-label="蒙代尔不可能三角交互图">
-            <polygon points="230,44 74,264 386,264" fill="none" stroke="var(--line)" stroke-width="2"/>
-            <line data-edge="ab" x1="230" y1="44" x2="74" y2="264" stroke-width="5" stroke-linecap="round"/>
-            <line data-edge="ac" x1="230" y1="44" x2="386" y2="264" stroke-width="5" stroke-linecap="round"/>
-            <line data-edge="bc" x1="74" y1="264" x2="386" y2="264" stroke-width="5" stroke-linecap="round"/>
-            <g data-node="a"><circle cx="230" cy="44" r="16"/><text x="230" y="20" text-anchor="middle" class="axis-label" style="font-size:14px">货币政策独立性</text></g>
-            <g data-node="b"><circle cx="74" cy="264" r="16"/><text x="74" y="298" text-anchor="middle" class="axis-label" style="font-size:14px">固定汇率稳定</text></g>
-            <g data-node="c"><circle cx="386" cy="264" r="16"/><text x="386" y="298" text-anchor="middle" class="axis-label" style="font-size:14px">资本自由流动</text></g>
-            <text x="230" y="182" text-anchor="middle" class="point-label" data-role="center" style="font-size:15px"></text>
+          <svg viewBox="0 0 480 330" role="img" aria-label="蒙代尔不可能三角交互图">
+            <polygon points="240,56 84,268 396,268" fill="none" stroke="var(--line)" stroke-width="2"/>
+            <line data-edge="ab" x1="240" y1="56" x2="84" y2="268" stroke-width="5" stroke-linecap="round"/>
+            <line data-edge="ac" x1="240" y1="56" x2="396" y2="268" stroke-width="5" stroke-linecap="round"/>
+            <line data-edge="bc" x1="84" y1="268" x2="396" y2="268" stroke-width="5" stroke-linecap="round"/>
+            <g data-node="a"><circle cx="240" cy="56" r="15"/><text x="240" y="26" text-anchor="middle" class="axis-label">货币政策独立性</text></g>
+            <g data-node="b"><circle cx="84" cy="268" r="15"/><text x="84" y="308" text-anchor="middle" class="axis-label">固定汇率稳定</text></g>
+            <g data-node="c"><circle cx="396" cy="268" r="15"/><text x="396" y="308" text-anchor="middle" class="axis-label">资本自由流动</text></g>
+            <text x="240" y="192" text-anchor="middle" class="point-label" data-role="center"></text>
           </svg>
         </div>
         <div class="ppf-controls">
@@ -2612,14 +2616,14 @@ dialog::backdrop { background: var(--backdrop); }
             <span><i class="chart-line mv-c1-line"></i>债券价格曲线 P(y)</span>
             <span><i class="chart-line mv-base-line"></i>面值平价线（1000 元）</span>
           </div>
-          <svg viewBox="0 0 520 340" role="img" aria-label="债券价格与市场利率关系曲线图">
-            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
-            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
-            <text x="10" y="18" class="axis-label">价格 元</text>
-            <text x="424" y="322" class="axis-label">市场利率 y%</text>
-            <g class="tick-label" text-anchor="middle"><text x="56" y="308">1%</text><text x="196" y="308">4%</text><text x="336" y="308">7%</text><text x="476" y="308">10%</text></g>
-            <g class="tick-label" text-anchor="end"><text x="46" y="255">600</text><text x="46" y="178">1000</text><text x="46" y="102">1400</text><text x="46" y="32">1800</text></g>
-            <line class="mv-base-curve" x1="56" x2="476" y1="178" y2="178"/>
+          <svg viewBox="0 0 540 360" role="img" aria-label="债券价格与市场利率关系曲线图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">债券价格（元）</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">市场利率 / 到期收益率 y (%)</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">1%</text><text x="206" y="316">4%</text><text x="346" y="316">7%</text><text x="486" y="316">10%</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="266">600</text><text x="56" y="196">1000</text><text x="56" y="125">1400</text><text x="56" y="55">1800</text></g>
+            <line class="mv-base-curve" x1="66" x2="486" y1="192" y2="192"/>
             <path class="mv-curve-1" data-role="curve"/>
             <path class="mv-guide" data-role="guide"/>
             <circle r="6.5" class="mv-dot-1" data-role="pt"/>
@@ -2644,8 +2648,8 @@ dialog::backdrop { background: var(--backdrop); }
       const pvC = y === 0 ? c * 1000 * n : c * 1000 * (1 - Math.pow(1 + y, -n)) / y;
       return pvC + 1000 / Math.pow(1 + y, n);
     };
-    const x = yv => 56 + ((yv - 1) / 9) * 420;
-    const y = pv => 288 - ((Math.max(450, Math.min(1850, pv)) - 420) / 1430) * 264;
+    const x = yv => X0 + ((yv - 1) / 9) * W;
+    const y = pv => Y0 - ((Math.max(450, Math.min(1850, pv)) - 420) / 1430) * H;
     const yIn = root.querySelector('[data-role="y"]');
     const cIn = root.querySelector('[data-role="c"]');
     const nIn = root.querySelector('[data-role="n"]');
@@ -2654,7 +2658,7 @@ dialog::backdrop { background: var(--backdrop); }
       const yv = yIn.valueAsNumber, cv = cIn.valueAsNumber, nv = nIn.valueAsNumber;
       const pv = price(yv, cv, nv);
       root.querySelector('[data-role="curve"]').setAttribute('d', samplePath(t => price(t, cv, nv), 1, 10, 60, x, y));
-      root.querySelector('[data-role="guide"]').setAttribute('d', `M56 ${y(pv).toFixed(1)} H${x(yv).toFixed(1)} V288`);
+      root.querySelector('[data-role="guide"]').setAttribute('d', `M${X0} ${y(pv).toFixed(1)} H${x(yv).toFixed(1)} V${Y0}`);
       root.querySelector('[data-role="pt"]').setAttribute('cx', x(yv).toFixed(1));
       root.querySelector('[data-role="pt"]').setAttribute('cy', y(pv).toFixed(1));
       root.querySelector('[data-role="y-out"]').value = fmt(yv, 1) + '%';
@@ -2686,10 +2690,11 @@ dialog::backdrop { background: var(--backdrop); }
             <span><i class="mv-swatch mv-cs"></i>新增贷款/派生存款</span>
             <span><i class="mv-swatch mv-dwl"></i>缴存法定准备金</span>
           </div>
-          <svg viewBox="0 0 520 310" role="img" aria-label="派生存款创造阶梯柱状图">
-            <path class="chart-axis" d="M52 20V264H490" fill="none" stroke-width="1.5"/>
-            <text x="8" y="20" class="axis-label" style="font-size:14px">万元</text>
+          <svg viewBox="0 0 540 330" role="img" aria-label="派生存款创造阶梯柱状图">
+            <path class="chart-axis" d="M56 36V276H506" fill="none" stroke-width="1.5"/>
+            <text x="14" y="20" class="axis-label">金额（万元）</text>
             <g data-role="bars"></g>
+            <text x="281" y="320" text-anchor="middle" class="axis-label">银行体系信用扩张轮次</text>
           </svg>
         </div>
         <div class="ppf-controls">
@@ -2717,15 +2722,14 @@ dialog::backdrop { background: var(--backdrop); }
       for (let i = 0; i < 6; i++) {
         const dep = d0 * Math.pow(1 - r, i);
         const res = dep * r;
-        const loan = dep - res;
-        const bx = 72 + i * 68;
+        const bx = 76 + i * 70;
         const hTotal = (dep / d0) * 210;
         const hRes = (res / d0) * 210;
         const hLoan = hTotal - hRes;
-        html += `<rect x="${bx}" y="${(264 - hLoan).toFixed(1)}" width="40" height="${hLoan.toFixed(1)}" rx="3" class="mv-fill-cs" stroke="var(--mv-c1)" stroke-width="1.2"/>`;
-        html += `<rect x="${bx}" y="${(264 - hTotal).toFixed(1)}" width="40" height="${hRes.toFixed(1)}" rx="3" class="mv-fill-dwl" stroke="var(--error)" stroke-width="1.2"/>`;
-        html += `<text x="${bx + 20}" y="${(258 - hTotal).toFixed(1)}" text-anchor="middle" class="tick-label" style="font-size:12px">${fmt(dep, 0)}</text>`;
-        html += `<text x="${bx + 20}" y="284" text-anchor="middle" class="tick-label" style="font-size:12px">第${i + 1}轮</text>`;
+        html += `<rect x="${bx}" y="${(276 - hLoan).toFixed(1)}" width="42" height="${hLoan.toFixed(1)}" rx="3" class="mv-fill-cs" stroke="var(--mv-c1)" stroke-width="1.2"/>`;
+        html += `<rect x="${bx}" y="${(276 - hTotal).toFixed(1)}" width="42" height="${hRes.toFixed(1)}" rx="3" class="mv-fill-dwl" stroke="var(--error)" stroke-width="1.2"/>`;
+        html += `<text x="${bx + 21}" y="${(268 - hTotal).toFixed(1)}" text-anchor="middle" class="tick-label">${fmt(dep, 0)}</text>`;
+        html += `<text x="${bx + 21}" y="296" text-anchor="middle" class="tick-label">第${i + 1}轮</text>`;
       }
       bars.innerHTML = html;
       root.querySelector('[data-role="r-out"]').value = rIn.value + '%';
@@ -2752,16 +2756,16 @@ dialog::backdrop { background: var(--backdrop); }
             <span><i class="chart-line mv-c1-line"></i>绝对免赔额赔付</span>
             <span><i class="chart-line mv-c2-line"></i>相对免赔额赔付</span>
           </div>
-          <svg viewBox="0 0 520 340" role="img" aria-label="绝对免赔额与相对免赔额赔付折线图">
-            <rect x="56" y="24" width="420" height="264" class="mv-grid-box"/>
-            <path class="chart-axis" d="M56 14V288H486 M51 21l5-7 5 7 M479 283l7 5-7 5" fill="none" stroke-width="1.5"/>
-            <text x="10" y="18" class="axis-label">赔付 元</text>
-            <text x="436" y="322" class="axis-label">损失 元</text>
-            <g class="tick-label" text-anchor="middle"><text x="56" y="308">0</text><text x="196" y="308">2000</text><text x="336" y="308">4000</text><text x="476" y="308">6000</text></g>
-            <g class="tick-label" text-anchor="end"><text x="46" y="204">2000</text><text x="46" y="116">4000</text><text x="46" y="28">6000</text></g>
+          <svg viewBox="0 0 540 360" role="img" aria-label="绝对免赔额与相对免赔额赔付折线图">
+            <rect x="66" y="42" width="420" height="252" class="mv-grid-box"/>
+            <path class="chart-axis" d="M66 30V294H498 M61 37l5-7 5 7 M491 289l7 5-7 5" fill="none" stroke-width="1.5"/>
+            <text x="14" y="18" class="axis-label">赔付金额（元）</text>
+            <text x="276" y="346" text-anchor="middle" class="axis-label">实际损失金额（元）</text>
+            <g class="tick-label" text-anchor="middle"><text x="66" y="316">0</text><text x="206" y="316">2000</text><text x="346" y="316">4000</text><text x="486" y="316">6000</text></g>
+            <g class="tick-label" text-anchor="end"><text x="56" y="214">2000</text><text x="56" y="130">4000</text><text x="56" y="46">6000</text></g>
             <path class="mv-curve-2" data-role="rel"/>
             <path class="mv-curve-1" data-role="abs"/>
-            <line class="mv-guide" data-role="vline" y1="24" y2="288"/>
+            <line class="mv-guide" data-role="vline" y1="42" y2="294"/>
             <circle r="5.5" class="mv-dot-1" data-role="pt-abs"/>
             <circle r="5.5" class="mv-dot-2" data-role="pt-rel"/>
           </svg>
@@ -2778,8 +2782,8 @@ dialog::backdrop { background: var(--backdrop); }
           <div class="ppf-explanation" data-role="msg" aria-live="polite"></div>
         </div>
       </div>`;
-    const x = v => 56 + (v / 6000) * 420;
-    const y = v => 288 - (v / 6000) * 264;
+    const x = v => X0 + (v / 6000) * W;
+    const y = v => Y0 - (v / 6000) * H;
     const mIn = root.querySelector('[data-role="m"]');
     const lIn = root.querySelector('[data-role="l"]');
 
@@ -2818,22 +2822,22 @@ dialog::backdrop { background: var(--backdrop); }
       </div>
       <div class="ppf-panel micro-panel">
         <div class="ppf-chart">
-          <svg viewBox="0 0 520 230" role="img" aria-label="期内发生式与期内索赔式时间轴对比图">
-            <rect x="44" y="42" width="136" height="106" fill="var(--surface)" stroke="var(--line)" stroke-dasharray="4 3"/>
-            <rect x="180" y="42" width="160" height="106" class="mv-stage-band" stroke="var(--accent)" stroke-width="1.5"/>
-            <rect x="340" y="42" width="136" height="106" fill="var(--surface)" stroke="var(--line)" stroke-dasharray="4 3"/>
-            <g class="tick-label" style="font-size:12px" text-anchor="middle">
-              <text x="112" y="34">追溯期（2025）</text>
-              <text x="260" y="34" fill="var(--accent)" font-weight="650">保单有效期（2026）</text>
-              <text x="408" y="34">保单到期后（2027）</text>
-              <text x="44" y="168">25.01</text><text x="180" y="168">26.01</text><text x="340" y="168">27.01</text><text x="476" y="168">27.12</text>
+          <svg viewBox="0 0 540 230" role="img" aria-label="期内发生式与期内索赔式时间轴对比图">
+            <rect x="46" y="42" width="144" height="106" fill="var(--surface)" stroke="var(--line)" stroke-dasharray="4 3"/>
+            <rect x="190" y="42" width="160" height="106" class="mv-stage-band" stroke="var(--accent)" stroke-width="1.5"/>
+            <rect x="350" y="42" width="144" height="106" fill="var(--surface)" stroke="var(--line)" stroke-dasharray="4 3"/>
+            <g class="tick-label" text-anchor="middle">
+              <text x="118" y="30">追溯期（2025）</text>
+              <text x="270" y="30" fill="var(--accent)" font-weight="650">保单有效期（2026）</text>
+              <text x="422" y="30">保单到期后（2027）</text>
+              <text x="46" y="170">25.01</text><text x="190" y="170">26.01</text><text x="350" y="170">27.01</text><text x="494" y="170">27.12</text>
             </g>
-            <line x1="36" y1="95" x2="486" y2="95" class="chart-axis" stroke-width="1.6"/>
+            <line x1="38" y1="95" x2="504" y2="95" class="chart-axis" stroke-width="1.6"/>
             <line data-role="span" y1="95" y2="95" stroke="var(--accent)" stroke-width="4" opacity=".45"/>
             <circle r="7.5" class="mv-dot-1" data-role="occ-pt" cy="95"/>
-            <text class="point-label" data-role="occ-lbl" y="76" text-anchor="middle" style="font-size:12px">事故</text>
+            <text class="point-label" data-role="occ-lbl" y="74" text-anchor="middle">事故</text>
             <circle r="7.5" class="mv-dot-2" data-role="clm-pt" cy="95"/>
-            <text class="point-label" data-role="clm-lbl" y="124" text-anchor="middle" style="font-size:12px;fill:var(--mv-c2)">索赔</text>
+            <text class="point-label" data-role="clm-lbl" y="128" text-anchor="middle" style="fill:var(--mv-c2)">索赔</text>
           </svg>
         </div>
         <div class="ppf-controls">
@@ -2852,8 +2856,7 @@ dialog::backdrop { background: var(--backdrop); }
           </div>
         </div>
       </div>`;
-    // Months 1..12 = 2025 (retro), 13..24 = 2026 (policy), 25..36 = 2027 (post)
-    const x = m => 44 + ((m - 1) / 35) * 432;
+    const x = m => 46 + ((m - 1) / 35) * 448;
     const mLabel = m => `${2025 + Math.floor((m - 1) / 12)}.${String(((m - 1) % 12) + 1).padStart(2, '0')}`;
     const occIn = root.querySelector('[data-role="occ"]');
     const clmIn = root.querySelector('[data-role="clm"]');
