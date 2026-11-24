@@ -257,6 +257,7 @@ mark { background: var(--accent-soft); color: var(--accent); padding: 0 .12em; }
 }
 .module-group[open] > summary::after { transform: rotate(45deg); }
 .chapter-link { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 3px 5px; padding: 8px 9px; margin: 2px 0; border-radius: var(--radius); font-size: 12px; line-height: 1.55; color: var(--muted); }
+.chapter-link.course-item { display: block; padding: 8px 12px; font-size: 13px; }
 .chapter-link .chapter-no, .chapter-no, .topic-number, .lesson-number { font-family: var(--font-number); font-variant-numeric: tabular-nums; }
 a.chapter-link:hover, .chapter-link.active { background: var(--accent-soft); color: var(--accent); }
 .chapter-link.active { font-weight: 680; }

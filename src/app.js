@@ -187,9 +187,8 @@
    dom.courses.forEach(route=>{
     const c=site.courses.find(x=>x.route===route);
     if(!c)return;
-    const row=el('a','chapter-link');
+    const row=el('a','chapter-link course-item',c.title);
     row.href=`${rootPrefix}${c.route}/index.html`;
-    row.append(el('span','chapter-no',c.chapters.length?`${c.chapters.length}章`:'待更'),el('span','',c.title));
     group.append(row);
    });
    box.append(group);
