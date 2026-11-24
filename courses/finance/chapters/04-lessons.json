@@ -1,0 +1,446 @@
+{
+  "title": "金融机构",
+  "subtitle": "区分中央银行、商业银行、政策性银行和其他金融机构的职责与业务。",
+  "sections": [
+    {
+      "id": "institutions",
+      "title": "金融机构分类与监管分工",
+      "summary": "同一个机构可以按资金来源、业务性质、政策职能或融资角色分类。",
+      "bodyHtml": "<p>金融机构经营资金融通、金融交易和相关服务。按融资关系可分直接融资机构与间接融资机构，按业务性质可分银行与非银行金融机构，按目标可分商业性与政策性机构。资金来源常用于区分存款性、投资性、契约性和政策性机构。现代金融机构体系通常以中央银行为核心。</p><p>我国人民银行承担货币政策、宏观审慎管理及依法负责的市场管理等职责。国家金融监督管理总局依法承担除证券业之外的金融业监管职责，证监会依法对证券、基金及期货等市场履行监管职责。原银监会、原银保监会是历史机构名称。</p><p>国务院派出国有重点金融机构监事会的制度强调监督检查。它与公司内部治理、现行行政监管和国有资本出资人职责属于不同关系。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2023/2023_zt02/yw/202303/t20230311_1050340.html\" target=\"_blank\" rel=\"noopener noreferrer\">国务院机构改革方案</a> · <a href=\"https://app.www.gov.cn/govdata/gov/202310/13/508173/article.html\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行职责调整通知</a> · <a href=\"https://www.csrc.gov.cn/csrc/c100002/c7443811/content.shtml\" target=\"_blank\" rel=\"noopener noreferrer\">证监会职责</a> · <a href=\"https://xzfg.moj.gov.cn/front/law/detail?LawID=540\" target=\"_blank\" rel=\"noopener noreferrer\">国有重点金融机构监事会暂行条例</a></p>",
+      "keyTakeaway": "先识别分类维度，再区分经营机构、自律组织与行政监管机关。",
+      "pitfall": "金融机构并非都吸收公众存款，银行业监管口径也可覆盖部分非银行机构。",
+      "example": "银行吸收存款再放贷是间接融资。证券公司承销债券时，投资者直接持有对发行人的债权。"
+    },
+    {
+      "id": "central-roles",
+      "title": "中央银行的职能",
+      "summary": "从货币发行、银行服务和政府服务识别三类职能。",
+      "bodyHtml": "<ul><li><strong>发行的银行</strong>集中行使法定货币发行权。</li><li><strong>银行的银行</strong>保管存款准备金、组织银行间清算、提供流动性并发挥最后贷款人作用。</li><li><strong>政府的银行</strong>依法经理国库，承担相应政府金融服务。</li></ul><p>中央银行以货币金融稳定等公共目标为重，通常不经营面向普通公众的存贷款业务，也不以利润最大化为目标。货币政策独立程度、资本安排、透明度与业务条件由各地制度决定。我国人民银行依法制定执行货币政策并防范和化解系统性金融风险。依《中国人民银行法》第二十九条，人民银行不得对政府财政透支或直接认购、包销国债和其他政府债券。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://haikou.pbc.gov.cn/eportal/fileDir/image_public/UserFiles/haikou/upload/File/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E9%93%B6%E8%A1%8C%E6%B3%95.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">《中国人民银行法》</a> · <a href=\"https://app.www.gov.cn/govdata/gov/202310/13/508173/article.html\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行职责调整通知</a></p>",
+      "keyTakeaway": "经理国库是国库资金管理服务。认购政府债券一级发行会向政府提供资金，需看法律是否允许。",
+      "pitfall": "组织结算是实际央行业务，通常归于“银行的银行”等职能。",
+      "example": "商业银行为支付清算将资金存放在央行，账户资金同时对应央行负债。"
+    },
+    {
+      "id": "central-models",
+      "title": "中央银行的组织形式",
+      "summary": "单一中央银行、复合、准中央银行与跨国制度各有不同组织关系。",
+      "bodyHtml": "<p>单一中央银行制下设专门机构执行中央银行职能，按组织层级常分<strong>一元式</strong>和<strong>二元式</strong>。我国人民银行通过总行和分支机构履职，通常归入一元式。复合制由承担商业银行业务的机构兼行部分中央银行职能。“准中央银行”是旧式组织分类，指通过某类机构承担部分央行职能。</p><p>新加坡金融管理局现明确是本国中央银行及综合监管机构。欧洲中央银行与已采用欧元的成员国央行组成欧元体系，是跨国组织的常见例子。韩国银行法规定韩国银行为无资本金的特别法人。英格兰银行成立于 1694 年，常作近代中央银行制度的代表，瑞典央行成立更早。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://haikou.pbc.gov.cn/eportal/fileDir/image_public/UserFiles/haikou/upload/File/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E9%93%B6%E8%A1%8C%E6%B3%95.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">《中国人民银行法》</a> · <a href=\"https://www.mas.gov.sg/who-we-are/What-We-Do\" target=\"_blank\" rel=\"noopener noreferrer\">新加坡金融管理局职能</a> · <a href=\"https://www.ecb.europa.eu/ecb/orga/escb/html/index.xx.html\" target=\"_blank\" rel=\"noopener noreferrer\">欧洲中央银行与欧元体系</a> · <a href=\"https://www.bok.or.kr/eng/bbs/E0000824/view.do?menuNo=400261&nttId=10090902\" target=\"_blank\" rel=\"noopener noreferrer\">韩国银行公布的《韩国银行法》</a> · <a href=\"https://www.bankofengland.co.uk/museum/online-collections/blog/world-first-central-bank-invention-of-banknotes\" target=\"_blank\" rel=\"noopener noreferrer\">英格兰银行中央银行历史资料</a></p>",
+      "keyTakeaway": "组织形式看机构如何分工，机构名称和设立年代分别判断。",
+      "pitfall": "“欧元体系”包括欧洲中央银行及采用欧元的国家央行，“欧洲中央银行体系”还包括欧盟未采用欧元成员的央行。",
+      "example": "几个国家共同使用货币并共享货币政策机构，符合跨国中央银行安排。"
+    },
+    {
+      "id": "central-balance",
+      "title": "中央银行的资产、负债与政策利率",
+      "summary": "同一笔业务可同时改变资产端和负债端。",
+      "bodyHtml": "<p>央行<strong>资产</strong>包括持有证券、外汇储备、对金融机构的再贷款或再贴现等。央行<strong>负债</strong>包括发行货币、银行存放的准备金、政府存款以及已发行央行票据等。清算、票据交换、经理国库具有服务属性，需区分业务活动和资产负债项目。</p><p><strong>基础货币</strong>通常由流通现金和银行准备金等构成。贷款、外汇交易及公开市场操作都可能影响基础货币，不能脱离时期给各因素排序。再贴现率上升在其他条件相同且银行实际使用工具时，可能减少再贴现需求。我国主要政策利率为公开市场 7 天期逆回购操作利率。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://haikou.pbc.gov.cn/eportal/fileDir/image_public/UserFiles/haikou/upload/File/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E9%93%B6%E8%A1%8C%E6%B3%95.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">《中国人民银行法》</a> · <a href=\"https://camlmac.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/5347949/2025100917195573922/2025081217013923839.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行货币政策执行报告</a> · <a href=\"https://cif.mofcom.gov.cn/cif/html/upload/20261102092525391_2026%E5%B9%B49%E6%9C%88%E9%87%91%E8%9E%8D%E5%B8%82%E5%9C%BA%E8%BF%90%E8%A1%8C.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">2026 年 9 月金融市场运行情况</a> · <a href=\"https://www.pbc.gov.cn/zhengwugongkai/attachDir/2025/11/2025111914522391548.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">商业汇票承兑、贴现与再贴现管理办法</a></p>",
+      "keyTakeaway": "央行发放贷款时通常增加自身债权，并同时记增银行准备金负债。",
+      "pitfall": "银行在央行的存款对银行是资产，对央行是负债。再贴现率与主要政策利率分别理解。",
+      "example": "央行向银行发放 100 万元再贷款，并将 100 万元记入银行准备金账户，资产和负债各增 100 万元。"
+    },
+    {
+      "id": "policy-banks",
+      "title": "政策性与开发性银行",
+      "summary": "政策性资金重点支持发展战略、薄弱领域与长期项目。",
+      "bodyHtml": "<p>政策性金融机构的常见职能包括引导资金、选择重点、填补商业金融供给缺口、提供配套金融服务。资金来源可包括国家出资、政策性金融债及依法融资。机构同时需要管理风险和保持财务可持续，具体业务范围以监管规则和章程为准。</p><p><strong>国家开发银行</strong>定位于开发性金融，支持中长期战略与重点薄弱领域。<strong>中国进出口银行</strong>主要支持对外贸易、开放和国际合作。<strong>中国农业发展银行</strong>是支持农业农村发展的政策性银行。政策性金融机构行政许可规程采用较广的机构范围，包括国家开发银行和中国出口信用保险公司等。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.cdb.com.cn/gykh/\" target=\"_blank\" rel=\"noopener noreferrer\">国家开发银行简介</a> · <a href=\"https://www.cdb.com.cn/kfxjr/gykfxjr/\" target=\"_blank\" rel=\"noopener noreferrer\">国家开发银行开发性金融说明</a> · <a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1026165&itemId=4214\" target=\"_blank\" rel=\"noopener noreferrer\">中国进出口银行监督管理办法</a> · <a href=\"https://www.adbc.com.cn/n4/n13/c602252/attr/602253.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">中国农业发展银行简介及经营范围</a> · <a href=\"https://www.adbc.com.cn/n5/n15/c708450/content.html\" target=\"_blank\" rel=\"noopener noreferrer\">农发行 2026 年金融债券公告</a> · <a href=\"https://www.nfra.gov.cn/cn/view/pages/governmentDetail.html?docId=1236057&generaltype=1&itemId=861\" target=\"_blank\" rel=\"noopener noreferrer\">政策性金融机构行政许可规程</a></p>",
+      "keyTakeaway": "国开行是开发性金融机构，进出口银行和农发行的业务方向分别偏向外经贸、农业农村。",
+      "pitfall": "不能将所有政策性银行的业务范围一概描述为不吸收任何存款，农发行公开列明可办理部分存款业务。",
+      "example": "农发行通过发行金融债募集资金，可支持春耕备耕等融资。"
+    },
+    {
+      "id": "bank-basics",
+      "title": "商业银行的职能与存款创造",
+      "summary": "商业银行主要从事存款、贷款和支付结算，使用自身资产负债表组织资金。",
+      "bodyHtml": "<p><strong>信用中介</strong>通过吸收存款、贷款投资等方式调剂资金。<strong>支付中介</strong>为客户划付资金和办理结算。<strong>信用创造</strong>体现为银行发放贷款后形成存款。银行还提供咨询、代收代付等服务。</p><p>商业银行以货币和信用为经营对象，以大量存款等负债支持资产运作，具有高杠杆特征。吸收活期存款是典型业务。银行创造存款要受到资本、流动性、贷款需求、风险管理和政策等约束。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_35aff5bda2374572b8eb87cafcd1541a.html\" target=\"_blank\" rel=\"noopener noreferrer\">《商业银行法》</a></p>",
+      "keyTakeaway": "支付收付找支付中介，资金调剂和信用转换找信用中介，新增贷款同时新增存款找信用创造。",
+      "pitfall": "活期存款是商业银行负债，客户活期账户余额是客户资产。",
+      "example": "银行向企业发放 10 万元贷款并转入企业账户，贷款资产和存款负债同时增加。"
+    },
+    {
+      "id": "bank-accounts",
+      "title": "商业银行资产、负债、中间与表外业务",
+      "summary": "区分资金从哪里来、投到哪里、服务收入和或有风险。",
+      "bodyHtml": "<ul><li><strong>负债业务</strong>形成资金来源，如吸收存款、同业拆入和发行债券。</li><li><strong>资产业务</strong>形成资金运用，如发放贷款、持有债券和存放央行款项。基础头寸在常见口径下为库存现金与超额存款准备金。</li><li><strong>中间业务</strong>典型为结算、代理和咨询等服务，收入常是手续费。<strong>狭义表外业务</strong>常见担保、承诺等敞口，满足条件时可能需要确认相关资产、负债或损失。</li></ul><p>广义表外业务的监管口径也涵盖某些代理和中介服务。处理信用证、贷款转让或衍生工具时，应分别看合同风险和会计确认。按《商业银行法》第四十三条，商业银行在境内从事信托投资受限制，国家另有规定的除外。按复利折现时，<strong>现值＝终值÷(1＋每期利率)ⁿ</strong>。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_35aff5bda2374572b8eb87cafcd1541a.html\" target=\"_blank\" rel=\"noopener noreferrer\">《商业银行法》</a> · <a href=\"https://app.www.gov.cn/govdata/gov/202212/04/494900/article.html\" target=\"_blank\" rel=\"noopener noreferrer\">商业银行表外业务风险管理办法解读</a> · <a href=\"https://www.pbc.gov.cn/zhengwugongkai/attachDir/2025/11/2025111914522391548.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">商业汇票承兑、贴现与再贴现管理办法</a></p>",
+      "keyTakeaway": "看业务发生时哪项资产、负债或费用产生，并留意是否有担保或承诺。",
+      "pitfall": "用面值计算票据单利贴息，与用复利计算未来现金流的现值不同。",
+      "example": "银行出具信用证可收取手续费，还应对承诺产生的敞口进行管理。"
+    },
+    {
+      "id": "bank-risk",
+      "title": "经营原则、流动性与贷款分类",
+      "summary": "经营原则并列安全性、流动性与效益性，风险分类按履约风险分级。",
+      "bodyHtml": "<p>安全性要求控制损失和偿付风险。资产流动性是资产迅速且低损耗变现的能力，负债流动性是及时以合理成本补充资金的能力。效益性强调经营收益与长期成本，经营目标应受风险和合规约束。</p><p>金融资产按风险程度划分<strong>正常、关注、次级、可疑、损失</strong>。后三类合称不良资产。对贷款适用时，后三类合称不良贷款。关注类存在不利因素，尚未达到不良贷款分类标准。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_35aff5bda2374572b8eb87cafcd1541a.html\" target=\"_blank\" rel=\"noopener noreferrer\">《商业银行法》</a> · <a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1095372\" target=\"_blank\" rel=\"noopener noreferrer\">商业银行金融资产风险分类办法</a></p>",
+      "keyTakeaway": "“后三类”从次级开始，关注类单独记。",
+      "pitfall": "能快速借到资金是负债流动性，能快速卖出持有资产是资产流动性。",
+      "example": "某笔贷款被划入可疑类，计入不良贷款。"
+    },
+    {
+      "id": "bank-governance",
+      "title": "商业银行组织形式与合规职责",
+      "summary": "总分行关系看法人边界，治理责任看股东会、董事会和高级管理层。",
+      "bodyHtml": "<p><strong>分支银行制</strong>由总行和分支机构组成同一银行网络。<strong>单一银行制</strong>强调单个银行独立经营。<strong>持股公司制</strong>由专设公司持股控制多家银行，<strong>连锁银行制</strong>由同一投资者或集团直接持股控制多家银行。分业与综合经营则按业务范围区分。我国商业银行可依法设立分支，分支机构不具有法人资格。</p><p>股份有限公司的股东会为权力机构。金融机构董事会对合规管理有效性承担最终责任，高级管理层组织实施。内部监督可随法律、监管要求和章程采用相应安排。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_35aff5bda2374572b8eb87cafcd1541a.html\" target=\"_blank\" rel=\"noopener noreferrer\">《商业银行法》</a> · <a href=\"https://www.samr.gov.cn/xyjgs/flfg/art/2024/art_d4e84936a8a744f8928ac7aec7594345.html\" target=\"_blank\" rel=\"noopener noreferrer\">《公司法》</a> · <a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1192220\" target=\"_blank\" rel=\"noopener noreferrer\">金融机构合规管理办法</a></p>",
+      "keyTakeaway": "同一银行向下设机构是分支制，多个银行法人由同一公司控制是持股公司制。",
+      "pitfall": "股东会是公司权力机构，董事会仍对合规管理有效性承担最终责任。",
+      "example": "总行下设多个地区分行时，各分行没有独立法人资格。"
+    },
+    {
+      "id": "nonbank",
+      "title": "其他金融服务机构",
+      "summary": "用资金来源、客户范围和主要业务区分机构。",
+      "bodyHtml": "<ul><li><strong>保险公司</strong>通过保险合同转移、分散风险，并按约定补偿或给付保险金。商业保险可分财产和人身保险，另有原保险、再保险、共同保险等安排。保险人、投保人、被保险人和受益人的角色各有定义。社会保险另有公共制度依据。</li><li><strong>金融资产管理公司</strong>从事不良资产收购、管理和处置等业务。历史上曾由国家出资设立专门机构集中处置国有银行不良资产。</li><li><strong>企业集团财务公司</strong>服务集团成员，开展资金集中管理等业务。<strong>消费金融公司</strong>依法向居民个人提供以消费为目的的贷款，属于非银行金融机构。</li><li><strong>小额贷款公司</strong>是主要开展小额贷款业务的地方金融组织，不吸收公众存款。可按现行规则使用自有资金及适格外部融资，需符合限额与地域等规定。</li></ul><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\" target=\"_blank\" rel=\"noopener noreferrer\">《保险法》</a> · <a href=\"https://xzfg.moj.gov.cn/front/law/detail?LawID=554\" target=\"_blank\" rel=\"noopener noreferrer\">金融资产管理公司条例</a> · <a href=\"https://app.www.gov.cn/govdata/gov/202411/16/521787/article.html\" target=\"_blank\" rel=\"noopener noreferrer\">金融资产管理公司不良资产业务管理办法</a> · <a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1077306&itemId=4214\" target=\"_blank\" rel=\"noopener noreferrer\">企业集团财务公司管理办法</a> · <a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1155386\" target=\"_blank\" rel=\"noopener noreferrer\">消费金融公司管理办法</a> · <a href=\"https://www.nfra.gov.cn/cn/view/pages/governmentDetail.html?docId=1195616&generaltype=1\" target=\"_blank\" rel=\"noopener noreferrer\">小额贷款公司监督管理暂行办法</a></p>",
+      "keyTakeaway": "金融资产管理公司看不良资产，财务公司看集团成员，小额贷款公司看小额贷款与不吸收公众存款。",
+      "pitfall": "财务公司可以按许可为成员提供存贷款等服务。小额贷款公司的资金融入要区分合规融资与吸收公众存款。",
+      "example": "集团成员企业需要集中管理资金，可以由其集团财务公司按许可提供服务。"
+    },
+    {
+      "id": "trust",
+      "title": "信托目的、财产与当事人",
+      "summary": "受托人依信托目的为受益人或特定目的管理、处分信托财产。",
+      "bodyHtml": "<p>信托涉及委托人、受托人、受益人。设立信托必须有<strong>合法目的</strong>和确定的信托财产，并按法律规定采用书面形式。信托财产按法律规定独立管理，有助于区分信托财产和当事人其他财产。</p><p>信托公司主要作为专业受托人提供服务。自 2026 年 1 月 1 日起施行的《信托公司管理办法》规定国家金融监督管理总局及其派出机构依法对信托公司及其业务活动实施监督管理。原中国银保监会名称可出现在历史题境。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.nfra.gov.cn/cn/view/pages/ItemDetail.html?docId=879933&generaltype=0&itemId=927\" target=\"_blank\" rel=\"noopener noreferrer\">《信托法》</a> · <a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1225642\" target=\"_blank\" rel=\"noopener noreferrer\">2026 年起施行的信托公司管理办法</a> · <a href=\"https://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2023/2023_zt02/yw/202303/t20230311_1050340.html\" target=\"_blank\" rel=\"noopener noreferrer\">国务院机构改革方案</a></p>",
+      "keyTakeaway": "信托要看目的、财产、当事人和书面设立安排。",
+      "pitfall": "合法信托目的与确定的信托财产是设立条件，信托收益无法仅凭机构名称保证。",
+      "example": "委托人设立公益信托时，受托人应按依法设立的信托目的使用相应财产。"
+    },
+    {
+      "id": "international",
+      "title": "国际金融与监管组织",
+      "summary": "把发展融资、宏观金融合作、审慎标准和金融稳定协调对应到机构。",
+      "bodyHtml": "<ul><li><strong>国际货币基金组织（IMF）</strong>开展宏观经济监测、能力建设及国际收支融资等。</li><li><strong>世界银行</strong>狭义包括 IBRD 与 IDA，主要提供发展融资。IBRD 依靠自身权益和债券市场融资，IDA 还依赖成员资源补充等。</li><li><strong>亚洲基础设施投资银行</strong>是政府间多边开发银行。中国 2013 年提出筹建倡议，2014 年相关国家签署筹建备忘录。</li><li><strong>巴塞尔银行监管委员会</strong>制定国际银行审慎标准。<strong>金融稳定理事会</strong>监测全球金融系统并协调政策和建议。</li></ul><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.imf.org/en/about/factsheets/financial-system-soundness\" target=\"_blank\" rel=\"noopener noreferrer\">国际货币基金组织金融稳定说明</a> · <a href=\"https://www.worldbank.org/en/about/annual-report-2025/world-bank?dropid=ibrd\" target=\"_blank\" rel=\"noopener noreferrer\">世界银行 IBRD 和 IDA 资料</a> · <a href=\"https://www.aiib.org/en/about-aiib/who-we-are/yearbook/.content/index/download/aiib-yearbook.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">亚洲基础设施投资银行历史</a> · <a href=\"https://www.bis.org/committees/bcbs/charter\" target=\"_blank\" rel=\"noopener noreferrer\">巴塞尔委员会章程</a> · <a href=\"https://www.fsb.org/about/\" target=\"_blank\" rel=\"noopener noreferrer\">金融稳定理事会简介</a></p>",
+      "keyTakeaway": "出现银行审慎国际标准找巴塞尔委员会，出现发展项目融资找相应多边开发银行。",
+      "pitfall": "巴塞尔委员会制定国际标准，各地按自身法律和监管框架落实。",
+      "example": "跨境基础设施项目可由多边开发银行提供融资，银行资本监管标准属于审慎监管安排。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "金融机构概述",
+      "target": "institutions",
+      "children": [
+        {
+          "label": "金融活动及配套服务",
+          "target": "institutions"
+        },
+        {
+          "label": "分类",
+          "target": "institutions",
+          "children": [
+            {
+              "label": "直接融资与间接融资",
+              "target": "institutions"
+            },
+            {
+              "label": "银行与非银行",
+              "target": "institutions"
+            },
+            {
+              "label": "政策性与商业性",
+              "target": "institutions"
+            },
+            {
+              "label": "存款性、投资性、契约性等",
+              "target": "institutions"
+            }
+          ]
+        },
+        {
+          "label": "监管分工",
+          "target": "institutions"
+        }
+      ]
+    },
+    {
+      "label": "中央银行",
+      "target": "central-roles",
+      "children": [
+        {
+          "label": "特征",
+          "target": "central-roles",
+          "children": [
+            {
+              "label": "公共目标与非营利导向",
+              "target": "central-roles"
+            },
+            {
+              "label": "资产流动性与业务透明",
+              "target": "central-roles"
+            },
+            {
+              "label": "政策独立程度",
+              "target": "central-roles"
+            }
+          ]
+        },
+        {
+          "label": "组织形式",
+          "target": "central-models",
+          "children": [
+            {
+              "label": "单一式",
+              "target": "central-models",
+              "children": [
+                {
+                  "label": "一元式",
+                  "target": "central-models"
+                },
+                {
+                  "label": "二元式",
+                  "target": "central-models"
+                }
+              ]
+            },
+            {
+              "label": "复合式",
+              "target": "central-models"
+            },
+            {
+              "label": "准中央银行的传统分类",
+              "target": "central-models"
+            },
+            {
+              "label": "跨国模式",
+              "target": "central-models"
+            }
+          ]
+        },
+        {
+          "label": "职能",
+          "target": "central-roles",
+          "children": [
+            {
+              "label": "发行的银行",
+              "target": "central-roles"
+            },
+            {
+              "label": "银行的银行",
+              "target": "central-roles"
+            },
+            {
+              "label": "政府的银行",
+              "target": "central-roles"
+            },
+            {
+              "label": "调控、监管与服务",
+              "target": "central-roles"
+            }
+          ]
+        },
+        {
+          "label": "业务",
+          "target": "central-balance",
+          "children": [
+            {
+              "label": "负债端",
+              "target": "central-balance",
+              "children": [
+                {
+                  "label": "货币发行",
+                  "target": "central-balance"
+                },
+                {
+                  "label": "银行准备金",
+                  "target": "central-balance"
+                },
+                {
+                  "label": "政府存款与央行票据",
+                  "target": "central-balance"
+                }
+              ]
+            },
+            {
+              "label": "资产端",
+              "target": "central-balance",
+              "children": [
+                {
+                  "label": "再贷款与再贴现",
+                  "target": "central-balance"
+                },
+                {
+                  "label": "证券与外汇储备",
+                  "target": "central-balance"
+                }
+              ]
+            },
+            {
+              "label": "清算与票据交换",
+              "target": "central-balance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "政策性银行与商业银行",
+      "target": "bank-basics",
+      "children": [
+        {
+          "label": "政策性及开发性银行",
+          "target": "policy-banks",
+          "children": [
+            {
+              "label": "国家出资、发债等资金来源",
+              "target": "policy-banks"
+            },
+            {
+              "label": "国开行、进出口银行和农发行",
+              "target": "policy-banks"
+            },
+            {
+              "label": "引导、选择、补充与服务",
+              "target": "policy-banks"
+            }
+          ]
+        },
+        {
+          "label": "商业银行",
+          "target": "bank-basics",
+          "children": [
+            {
+              "label": "经营特征与职能",
+              "target": "bank-basics",
+              "children": [
+                {
+                  "label": "活期存款与信用创造",
+                  "target": "bank-basics"
+                },
+                {
+                  "label": "信用中介、支付中介和金融服务",
+                  "target": "bank-basics"
+                }
+              ]
+            },
+            {
+              "label": "组织与治理",
+              "target": "bank-governance",
+              "children": [
+                {
+                  "label": "单一、分支、持股与连锁",
+                  "target": "bank-governance"
+                },
+                {
+                  "label": "专业化与综合经营",
+                  "target": "bank-governance"
+                }
+              ]
+            },
+            {
+              "label": "业务",
+              "target": "bank-accounts",
+              "children": [
+                {
+                  "label": "资产与负债",
+                  "target": "bank-accounts"
+                },
+                {
+                  "label": "中间与表外",
+                  "target": "bank-accounts"
+                }
+              ]
+            },
+            {
+              "label": "风险管理",
+              "target": "bank-risk",
+              "children": [
+                {
+                  "label": "安全性、流动性、效益性",
+                  "target": "bank-risk"
+                },
+                {
+                  "label": "贷款五级分类",
+                  "target": "bank-risk"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "其他金融机构",
+      "target": "nonbank",
+      "children": [
+        {
+          "label": "保险公司",
+          "target": "nonbank",
+          "children": [
+            {
+              "label": "风险分散、损失补偿与给付",
+              "target": "nonbank"
+            },
+            {
+              "label": "人身、财产及再保险",
+              "target": "nonbank"
+            },
+            {
+              "label": "投保人、保险人、被保险人与受益人",
+              "target": "nonbank"
+            }
+          ]
+        },
+        {
+          "label": "金融资产管理公司",
+          "target": "nonbank",
+          "children": [
+            {
+              "label": "不良资产收购与处置",
+              "target": "nonbank"
+            }
+          ]
+        },
+        {
+          "label": "小额贷款与其他机构",
+          "target": "nonbank",
+          "children": [
+            {
+              "label": "自有资金和合规融资",
+              "target": "nonbank"
+            },
+            {
+              "label": "禁止吸收公众存款",
+              "target": "nonbank"
+            },
+            {
+              "label": "财务公司与消费金融公司",
+              "target": "nonbank"
+            }
+          ]
+        },
+        {
+          "label": "信托公司",
+          "target": "trust",
+          "children": [
+            {
+              "label": "合法目的",
+              "target": "trust"
+            },
+            {
+              "label": "委托人、受托人和受益人",
+              "target": "trust"
+            },
+            {
+              "label": "信托财产",
+              "target": "trust"
+            }
+          ]
+        },
+        {
+          "label": "国际机构",
+          "target": "international",
+          "children": [
+            {
+              "label": "国际货币基金组织",
+              "target": "international"
+            },
+            {
+              "label": "世界银行与亚投行",
+              "target": "international"
+            },
+            {
+              "label": "巴塞尔委员会与金融稳定理事会",
+              "target": "international"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

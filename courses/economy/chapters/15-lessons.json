@@ -1,0 +1,229 @@
+{
+  "title": "宏观经济政策及其有效性",
+  "subtitle": "用 IS–LM 模型比较财政、货币政策及其配合。",
+  "sections": [
+    {
+      "id": "fiscal-tools",
+      "title": "财政政策的工具与作用渠道",
+      "summary": "区分政府购买、转移支付、税收和公债。",
+      "bodyHtml": "<p><strong>财政政策</strong>通过政府支出、税收和筹资安排影响总需求与产出。在价格水平短期固定的 IS–LM 模型中，提高政府购买或减税通常推动 IS 曲线向右移动，反向操作推动 IS 左移。</p><table><thead><tr><th>工具</th><th>影响渠道</th></tr></thead><tbody><tr><td>政府购买</td><td>直接增加对商品和服务的需求</td></tr><tr><td>政府转移支付</td><td>先改变受益者的可支配收入，再通过其消费倾向影响需求</td></tr><tr><td>政府税收</td><td>通过可支配收入、投资激励等影响私人支出</td></tr><tr><td>公债</td><td>提供融资，影响资金来源及债务负担</td></tr></tbody></table>",
+      "keyTakeaway": "政府购买直接进入总需求，税收与转移支付主要经过私人消费等渠道。",
+      "pitfall": "区分公债融资与税收收入。发行公债会形成债务；预算赤字及其融资需要分开判断。",
+      "example": "假设政府增加采购 100 万元，初始的购买需求增加 100 万元。给家庭发放同额转移支付时，其中储蓄的部分不会立即转成消费。"
+    },
+    {
+      "id": "stabilizers",
+      "title": "自动稳定器与相机抉择",
+      "summary": "已有规则随经济变化自动运作，主动决策根据形势调整力度。",
+      "bodyHtml": "<p><mark>自动稳定器</mark>依靠既有制度缓冲总需求波动。经济放缓时，所得下降使税收减少，符合条件的失业给付等转移支付增加，居民可支配收入降幅得到缓冲。繁荣时通常反向作用。按预定规则触发的农产品价格维持安排，也可稳定受影响群体收入。</p><p><strong>相机抉择</strong>由政府结合经济形势主动选择调控措施。需求不足时可扩张财政，过热时可紧缩财政。识别形势、制定和实施政策都需要时间，结果还取决于预期、乘数和经济所处位置。</p>",
+      "keyTakeaway": "先判断制度是否已在运行，再判断政策变化是否需要作出新决策。",
+      "pitfall": "自动稳定器能减弱波动，力度取决于适用制度。市场利率浮动属于金融市场的价格变化。",
+      "example": "衰退中失业保险给付按原规则增加，属于自动反应。临时决定新增投资项目，属于相机抉择。"
+    },
+    {
+      "id": "functional-finance",
+      "title": "财政思想：年度平衡、周期平衡与功能财政",
+      "summary": "理解预算余额在三种财政思想中的位置。",
+      "bodyHtml": "<p><strong>年度平衡预算</strong>要求每个预算年度平衡收支。<strong>周期平衡预算</strong>把经济周期作为考察单位，允许萧条期的赤字由繁荣期的盈余弥补。<strong>功能财政</strong>按就业和价格稳定等经济目标来选择收支规模，在既定宏观目标下可以接受赤字或盈余。</p>",
+      "keyTakeaway": "题干强调以充分就业和价格稳定为目标，预算余额可随实现目标的需要变化，指向功能财政。",
+      "pitfall": "周期平衡预算仍关心跨年度的收支平衡，功能财政把宏观政策效果放在首位。",
+      "example": "经济需求不足时，可用扩张性预算提高就业。经济恢复后，再根据通胀和就业重新评估收支。"
+    },
+    {
+      "id": "fiscal-effects",
+      "title": "财政政策效果与挤出效应",
+      "summary": "沿 IS 与 LM 的新交点追踪产出、利率和私人投资。",
+      "bodyHtml": "<p>标准短期 IS–LM 图的横轴为产出 Y，纵轴为利率 i。政府购买增加推动 IS 右移，通常抬高产出与利率。较高利率压低利率敏感的私人投资，使财政扩张的产出增量小于利率维持不变时的增量，这称为<mark>挤出效应</mark>。</p><ul><li>给定其他条件和自主支出冲击，IS 越平坦、投资对利率越敏感，挤出通常越强。</li><li>LM 越平坦，扩张引起的利率上升越小，财政政策对产出的效果越大。</li><li>古典极端的垂直 LM 下，产出由货币市场约束，财政扩张可能完全挤出私人支出。</li><li>流动性陷阱的水平 LM 段上，财政扩张可以增加产出，利率维持在低位。</li></ul>",
+      "keyTakeaway": "看两个变化：IS 的移动方向和 LM 的斜率。",
+      "pitfall": "财政政策在流动性陷阱中的比较结论适用于仍处于水平 LM 段的短期模型。长期效果还涉及价格、产能和融资条件。",
+      "example": "投资对利率高度敏感时，财政扩张带来的小幅利率上升也可能使一部分企业推迟设备投资。"
+    },
+    {
+      "id": "monetary-tools",
+      "title": "货币政策工具与传导",
+      "summary": "理解存款准备金、再贴现与公开市场操作如何影响流动性。",
+      "bodyHtml": "<p><strong>存款准备金率</strong>规定金融机构按一定口径交存准备金的比例。下调可释放部分原先受约束的流动性，信贷扩张程度还受资本约束和需求影响。<strong>再贴现</strong>通过央行买入符合条件的已贴现票据提供资金，再贴现率关系到资金成本。<strong>公开市场操作</strong>通过买卖证券等方式调节银行体系的流动性。</p><p>在物价短期固定的简化模型中，增加货币供给使 LM 向右或向下移动。现实传导还涉及政策利率、金融机构和市场预期。</p><p>官方核验（2026 年 11 月 11 日）：中国人民银行法第二十三条列举准备金、再贴现、公开市场操作等工具，并授权人民银行规定具体条件与程序。<a href=\"https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=10279\">商务部全球法规网 · 中国人民银行法</a></p>",
+      "keyTakeaway": "在标准 IS–LM 模型中，货币政策主要先改变货币市场均衡和利率，再影响私人支出。",
+      "pitfall": "三种工具是常见的分类。实际使用某项工具的条件和政策参数，要看对应制度与操作公告。",
+      "example": "央行向市场买入证券并支付资金，可向银行体系增加流动性。卖出证券时作用方向相反。"
+    },
+    {
+      "id": "monetary-effects",
+      "title": "货币政策效果、局限与时滞",
+      "summary": "比较利率变动对支出的作用，并区分政策实施前后的时间。",
+      "bodyHtml": "<p>在通常的比较中，IS 越平坦，支出对利率越敏感。增加货币供给时，利率下降能带动更大的支出和产出变化。LM 越陡且货币供给变化使其有效右移，货币政策对产出的作用通常越强。垂直 LM 是古典极端，水平 LM 的流动性陷阱是另一极端。</p><ul><li><strong>内部时滞</strong>从经济状况发生变化，到识别、决定并实施政策。</li><li><strong>外部时滞</strong>从政策实施开始，到金融条件改变并传导至需求、产出和价格。</li><li>衰退中信贷需求和风险偏好可能较弱；货币流通速度变化会改变固定速度模型的推论；跨境资本流动也会影响国内传导。</li></ul>",
+      "keyTakeaway": "常规图中，紧缩货币使 LM 左移，利率上升、产出下降。与扩张财政同时使用时，二者都推高利率，产出净变化取决于力度。",
+      "pitfall": "“完全有效”或“完全无效”是特定极端模型的比较用语。判断产出效果还需说明物价、曲线区间和政策冲击的假设。",
+      "example": "政策利率先调整，之后银行重新定价贷款，企业再改变投资计划。从利率实施到投资响应属于外部时滞。"
+    },
+    {
+      "id": "tinbergen",
+      "title": "丁伯根法则与政策配合",
+      "summary": "用工具数量和独立性判断能否同时实现多个目标。",
+      "bodyHtml": "<p><mark>丁伯根法则</mark>指出，在给定模型中，若要独立实现 N 个经济目标，通常至少需要 N 个可以独立调节、效果方向足以区分的政策工具。在线性模型里，工具到目标的影响矩阵应能覆盖目标空间。</p><p>当一个工具同时影响多个目标，政策制定者可以调整工具组合。还要考虑时滞、冲击强弱和实施约束。</p>",
+      "keyTakeaway": "工具数量要充足，政策效果还要具备独立调节能力。",
+      "pitfall": "两个名义上不同的工具若始终按同样比例影响所有目标，增加工具名称也无法获得新的调节方向。",
+      "example": "一个目标是稳定物价，另一个目标是维持产出。若只有一种总需求工具，通常无法独立把两项指标都调到任意指定的水平。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "财政政策及其效果",
+      "target": "fiscal-tools",
+      "children": [
+        {
+          "label": "财政工具",
+          "target": "fiscal-tools",
+          "children": [
+            {
+              "label": "政府支出：政府购买、转移支付",
+              "target": "fiscal-tools"
+            },
+            {
+              "label": "税收与公债融资",
+              "target": "fiscal-tools"
+            }
+          ]
+        },
+        {
+          "label": "自动稳定器",
+          "target": "stabilizers",
+          "children": [
+            {
+              "label": "所得税随收入变化",
+              "target": "stabilizers"
+            },
+            {
+              "label": "转移支付随符合条件人数变化",
+              "target": "stabilizers"
+            },
+            {
+              "label": "按规则触发的农产品价格维持",
+              "target": "stabilizers"
+            }
+          ]
+        },
+        {
+          "label": "相机抉择：逆周期调节",
+          "target": "stabilizers"
+        },
+        {
+          "label": "局限：时滞与效果不确定",
+          "target": "stabilizers"
+        },
+        {
+          "label": "财政思想",
+          "target": "functional-finance",
+          "children": [
+            {
+              "label": "年度平衡预算",
+              "target": "functional-finance"
+            },
+            {
+              "label": "周期平衡预算",
+              "target": "functional-finance"
+            },
+            {
+              "label": "功能财政",
+              "target": "functional-finance"
+            }
+          ]
+        },
+        {
+          "label": "政策效果",
+          "target": "fiscal-effects",
+          "children": [
+            {
+              "label": "IS 越平坦，挤出通常越强",
+              "target": "fiscal-effects"
+            },
+            {
+              "label": "LM 越平坦，产出效果通常越大",
+              "target": "fiscal-effects"
+            },
+            {
+              "label": "垂直 LM：完全挤出",
+              "target": "fiscal-effects"
+            },
+            {
+              "label": "水平 LM：零利率挤出",
+              "target": "fiscal-effects"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "货币政策及其效果",
+      "target": "monetary-tools",
+      "children": [
+        {
+          "label": "政策工具",
+          "target": "monetary-tools",
+          "children": [
+            {
+              "label": "再贴现",
+              "target": "monetary-tools"
+            },
+            {
+              "label": "法定存款准备金",
+              "target": "monetary-tools"
+            },
+            {
+              "label": "公开市场操作",
+              "target": "monetary-tools"
+            }
+          ]
+        },
+        {
+          "label": "政策效果",
+          "target": "monetary-effects",
+          "children": [
+            {
+              "label": "IS 越平坦，货币传导通常越强",
+              "target": "monetary-effects"
+            },
+            {
+              "label": "LM 越陡，货币政策的产出作用通常越大",
+              "target": "monetary-effects"
+            },
+            {
+              "label": "垂直 LM：古典极端",
+              "target": "monetary-effects"
+            },
+            {
+              "label": "水平 LM：流动性陷阱",
+              "target": "monetary-effects"
+            }
+          ]
+        },
+        {
+          "label": "政策局限",
+          "target": "monetary-effects",
+          "children": [
+            {
+              "label": "衰退中需求反应可能偏弱",
+              "target": "monetary-effects"
+            },
+            {
+              "label": "货币流通速度变动",
+              "target": "monetary-effects"
+            },
+            {
+              "label": "政策内外部时滞",
+              "target": "monetary-effects"
+            },
+            {
+              "label": "国际资金流动",
+              "target": "monetary-effects"
+            }
+          ]
+        },
+        {
+          "label": "丁伯根法则：足量且独立的政策工具",
+          "target": "tinbergen"
+        }
+      ]
+    }
+  ]
+}

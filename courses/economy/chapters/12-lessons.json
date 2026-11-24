@@ -1,0 +1,213 @@
+{
+  "title": "国民收入的决定：IS-LM模型",
+  "subtitle": "用产品和货币市场的共同均衡解释短期产出与利率。",
+  "sections": [
+    {
+      "id": "is-curve",
+      "title": "IS 曲线与产品市场",
+      "summary": "每个点都使计划总支出等于产出。",
+      "bodyHtml": "<p>短期价格给定的封闭经济中，产品市场均衡满足 <mark>Y = C + I + G</mark>。设 C = α + β(Y − T)，I = e − dr，T 和 G 为外生量且 d &gt; 0，则 <mark>Y = (α + e + G − βT − dr)/(1 − β)</mark>。若不含政府，可用计划投资 I 等于计划储蓄 S 表示。</p><p>以 Y 为横轴、r 为纵轴，IS 斜率为 −(1 − β)/d。利率越高，计划投资通常越低，均衡产出也越低。投资对利率越敏感（d 越大）或边际消费倾向 β 越高，IS 越平坦。</p>",
+      "keyTakeaway": "IS 表示产品市场均衡下的产出和利率组合。",
+      "pitfall": "利率在给定曲线内改变时，沿曲线移动。政府购买或其他外生支出改变时，比较各利率下的均衡产出。",
+      "example": "IS 为 Y = 500 − 2000r 时，r = 0.05 对应 Y = 400。"
+    },
+    {
+      "id": "is-shifts",
+      "title": "财政变化与 IS 曲线移动",
+      "summary": "固定利率，判断自主支出变化怎样移动 IS。",
+      "bodyHtml": "<p>当其他条件不变时，<strong>增加政府购买</strong>提高任何给定利率下的计划支出，使 IS 右移。降低定额税提高可支配收入，也可使 IS 右移。减少政府购买或提高定额税使 IS 左移。</p><p>在本章线性模型中，政府购买、税额或自主投资改变时，改变的是 IS 的截距。改变投资对利率的敏感度、边际消费倾向等参数，可能改变曲线斜率。</p>",
+      "keyTakeaway": "分清财政政策直接改变的产品市场和货币市场随后发生的变化。",
+      "pitfall": "IS 右移给出各利率下的产品市场均衡产出变化。最终新利率与产出要同时满足 LM。",
+      "example": "β = 0.8，固定利率时政府购买增加 20，IS 在该利率上向右移动 20/(1 − 0.8) = 100。"
+    },
+    {
+      "id": "money-demand",
+      "title": "凯恩斯的三种持币动机",
+      "summary": "把收入相关的持币需求与利率相关的持币需求分开。",
+      "bodyHtml": "<ul><li><strong>交易动机</strong>来自日常支付，收入越高，通常所需的交易余额越多。</li><li><strong>预防动机</strong>用于应付不确定的支付，也通常随收入上升。</li><li><strong>投机动机</strong>反映持有货币和债券之间的选择。其他条件不变，利率较高时持币机会成本提高，投机性持币需求下降。</li></ul><p>对固定票息债券，其他条件不变时收益率与债券价格反向。若当前利率很低且预期利率回升，当前买入的债券可能出现价格损失，这是流动性偏好模型中人们愿持有货币的原因之一。</p>",
+      "keyTakeaway": "交易和预防动机主要与收入有关，投机动机主要与利率和预期有关。",
+      "pitfall": "利率很低时是否实际发生债券损失，还取决于后续利率、期限和信用等条件。",
+      "example": "收入提高后家庭可能保留更多支付余额。若利率上升而预期等条件不变，其投机性现金持有可能下降。"
+    },
+    {
+      "id": "lm-curve",
+      "title": "LM 曲线与货币市场",
+      "summary": "每个点都使实际货币需求等于实际货币供给。",
+      "bodyHtml": "<p>设实际货币需求为 L(Y,r) = kY − hr，k、h 均为正，实际货币供给 m = M/P。令需求等于供给得到 <mark>r = (k/h)Y − m/h</mark>。以 Y 为横轴、r 为纵轴时，LM 的斜率是 k/h。</p><p>更高的收入增加交易等持币需求。给定实际货币供给，利率需要提高以减少投机性持币需求。h 越大或 k 越小，LM 越平坦。固定价格时，扩张货币供给使 LM 向右下方移动，收缩使 LM 向左上方移动。</p>",
+      "keyTakeaway": "用 r 对 Y 的表达式直接读取 LM 斜率。",
+      "pitfall": "改变 Y 或 r 的组合时，沿曲线读均衡关系。实际货币供给变化才会移动这条 LM 曲线。",
+      "example": "若 k = 0.5、h = 10，LM 斜率为 0.05。其他参数固定时，h 上升到 20，斜率降为 0.025。"
+    },
+    {
+      "id": "lm-regions",
+      "title": "LM 曲线的三个区间",
+      "summary": "比较货币需求对利率的敏感程度。",
+      "bodyHtml": "<table><thead><tr><th>区间</th><th>货币需求的利率敏感性</th><th>简化模型的政策作用</th></tr></thead><tbody><tr><td>凯恩斯区域</td><td>利率极低，额外货币可以被持有，LM 接近水平</td><td>增发货币难以继续压低利率，财政扩张可提高产出</td></tr><tr><td>中间区域</td><td>LM 向右上倾斜</td><td>财政和货币政策均可改变均衡产出</td></tr><tr><td>古典区域</td><td>利率较高，投机性持币需求很低，LM 接近垂直</td><td>在垂直极限，财政扩张推高利率而产出不变，增加货币供给可使产出增加</td></tr></tbody></table><p><mark>流动性陷阱</mark>描述对额外货币的需求在低利率下高度有弹性。关于政策失效的结论只适用于模型所讨论的利率传导渠道。</p>",
+      "keyTakeaway": "LM 越平坦，既定财政扩张带来的利率上升越小。",
+      "pitfall": "用货币需求的利率弹性解释水平极限。某个低利率上的实际持币余额仍可能有限。",
+      "example": "若均衡位于水平 LM 的内部，提高政府购买使 IS 右移，新均衡产出提高，利率保持该水平。"
+    },
+    {
+      "id": "money-theories",
+      "title": "交易方程、现金余额与新货币数量论",
+      "summary": "区分三种货币需求分析的切入点。",
+      "bodyHtml": "<ul><li><strong>费雪交易方程</strong>将货币量、货币流通速度与名义交易量相联系。用收入表示交易的简化写法是 MV = PY。</li><li><strong>剑桥现金余额方程</strong>强调人们希望以货币保存的名义收入比例 k，写作 M<sup>d</sup> = kPY。</li><li><strong>弗里德曼的新货币数量论</strong>将货币视为财富的一种持有形式，货币需求与持久收入及货币和其他资产的相对回报等有关。</li></ul>",
+      "keyTakeaway": "费雪从货币流通切入，剑桥学派从意愿持有切入，弗里德曼从资产选择切入。",
+      "pitfall": "MV = PY 是收入形式的关系式，若要推出物价变化，还要说明流通速度和真实产出怎样变化。",
+      "example": "若 V 恒定、真实产出 Y 也固定，M 增加 10%，收入形式的方程给出 P 同比增加 10%。"
+    },
+    {
+      "id": "is-lm-equilibrium",
+      "title": "两个市场的共同均衡与失衡",
+      "summary": "联立 IS 与 LM，并分别判断曲线两侧的超额需求。",
+      "bodyHtml": "<p>IS 与 LM 的交点满足产品市场和货币市场两个均衡条件。在一条向下和一条向上且于有效范围相交的模型中，共同均衡的产出与利率唯一。</p><table><thead><tr><th>固定产出时所处位置</th><th>失衡</th></tr></thead><tbody><tr><td>IS 上方</td><td>利率高于产品市场均衡所需水平，计划投资偏少，产品超额供给</td></tr><tr><td>IS 下方</td><td>利率低于产品市场均衡所需水平，计划投资偏多，产品超额需求</td></tr><tr><td>LM 上方</td><td>利率较高，货币需求低于实际供给</td></tr><tr><td>LM 下方</td><td>利率较低，货币需求超过实际供给</td></tr></tbody></table><p>也可以固定利率，看位于曲线的左右侧。IS 右侧意味着产出超过计划支出，LM 左侧意味着收入相关的货币需求较低。</p>",
+      "keyTakeaway": "给定 Y 比上下，或给定 r 比左右。分别判定两个市场，最后合并。",
+      "pitfall": "斜向方位如果无法确定在曲线的哪一侧，不能直接判定市场状态。",
+      "example": "若 IS 为 Y = 500 − 20r、LM 为 r = Y/20 − 5，联立得 Y = 300、r = 10。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "产品市场均衡与货币市场均衡",
+      "target": "is-curve",
+      "children": [
+        {
+          "label": "IS 曲线",
+          "target": "is-curve",
+          "children": [
+            {
+              "label": "三部门产品市场均衡",
+              "target": "is-curve"
+            },
+            {
+              "label": "投资利率敏感度或边际消费倾向提高使 IS 更平坦",
+              "target": "is-curve"
+            },
+            {
+              "label": "财政扩张使 IS 右移，财政紧缩使 IS 左移",
+              "target": "is-shifts"
+            }
+          ]
+        },
+        {
+          "label": "LM 曲线",
+          "target": "lm-curve",
+          "children": [
+            {
+              "label": "实际货币供给等于实际货币需求",
+              "target": "lm-curve"
+            },
+            {
+              "label": "凯恩斯货币需求理论",
+              "target": "money-demand",
+              "children": [
+                {
+                  "label": "交易动机",
+                  "target": "money-demand"
+                },
+                {
+                  "label": "预防动机",
+                  "target": "money-demand"
+                },
+                {
+                  "label": "投机动机",
+                  "target": "money-demand"
+                },
+                {
+                  "label": "低利率下的流动性陷阱",
+                  "target": "lm-regions"
+                }
+              ]
+            },
+            {
+              "label": "r = (k/h)Y − m/h",
+              "target": "lm-curve"
+            },
+            {
+              "label": "k 越小、h 越大，LM 越平坦",
+              "target": "lm-curve"
+            },
+            {
+              "label": "LM 的三个区间",
+              "target": "lm-regions",
+              "children": [
+                {
+                  "label": "凯恩斯区域接近水平",
+                  "target": "lm-regions"
+                },
+                {
+                  "label": "中间区域向右上倾斜",
+                  "target": "lm-regions"
+                },
+                {
+                  "label": "古典区域接近垂直",
+                  "target": "lm-regions"
+                }
+              ]
+            },
+            {
+              "label": "实际货币供给增加使 LM 向右下方移动",
+              "target": "lm-curve"
+            }
+          ]
+        },
+        {
+          "label": "其他货币需求理论",
+          "target": "money-theories",
+          "children": [
+            {
+              "label": "费雪交易方程 MV = PY",
+              "target": "money-theories"
+            },
+            {
+              "label": "剑桥现金余额方程 M = kPY",
+              "target": "money-theories"
+            },
+            {
+              "label": "弗里德曼新货币数量论",
+              "target": "money-theories"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "IS-LM 模型",
+      "target": "is-lm-equilibrium",
+      "children": [
+        {
+          "label": "均衡状态",
+          "target": "is-lm-equilibrium",
+          "children": [
+            {
+              "label": "交点同时满足产品市场与货币市场的均衡",
+              "target": "is-lm-equilibrium"
+            }
+          ]
+        },
+        {
+          "label": "非均衡状态",
+          "target": "is-lm-equilibrium",
+          "children": [
+            {
+              "label": "IS 右侧或上方时，产品超额供给",
+              "target": "is-lm-equilibrium"
+            },
+            {
+              "label": "IS 左侧或下方时，产品超额需求",
+              "target": "is-lm-equilibrium"
+            },
+            {
+              "label": "LM 左侧或上方时，货币超额供给",
+              "target": "is-lm-equilibrium"
+            },
+            {
+              "label": "LM 右侧或下方时，货币超额需求",
+              "target": "is-lm-equilibrium"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

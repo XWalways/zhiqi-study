@@ -1,0 +1,271 @@
+{
+  "title": "保险的基本原则",
+  "subtitle": "从保险利益、告知义务、补偿金额和事故因果链判断承保与理赔。",
+  "sections": [
+    {
+      "id": "insurable-interest",
+      "title": "保险利益原则",
+      "summary": "先识别谁对保险标的有法律承认的利益，再确认法律要求在哪个时点具备这种利益。",
+      "bodyHtml": "<p><strong>保险利益</strong>是投保人或者被保险人对保险标的具有的法律承认的利益。财产利益通常能够确定或实现，常来自所有权、担保物权或法律上的赔偿责任。人身保险的利益可以来自本人、特定亲属或劳动关系，也可以基于被保险人的同意。保险利益原则能限制以他人的损失或死亡作为获利机会。</p><p><strong>人身保险看订立时，财产保险看事故时。</strong>订立人身保险合同时，投保人对被保险人没有保险利益，合同无效。财产保险事故发生时，被保险人没有保险利益的，不得请求赔偿。财产保障金额通常与经济利益相关，定额给付人身保险按法律与合同确定给付数额。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 12、31、34、48 条规定保险利益、审查时点和死亡给付合同的同意要求。父母为未成年子女投保存在第 34 条规定的例外。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 保险法</a></p>",
+      "keyTakeaway": "人身险记“投保人＋订立时”，财产险记“被保险人＋事故时”。",
+      "pitfall": "已有保险利益的劳动者死亡给付保险，仍须单独审查被保险人同意和认可保险金额等要求。",
+      "example": "为自己的房屋投保时，所有权通常构成保险利益。为恋人投保寿险时，应另看被保险人是否同意等法定条件。"
+    },
+    {
+      "id": "utmost-good-faith",
+      "title": "最大诚信原则",
+      "summary": "理解如实告知、保证、弃权与禁止反言，并区分逆选择与道德风险。",
+      "bodyHtml": "<p><strong>如实告知</strong>帮助保险人判断是否承保及如何定价。健康状况、既往损失和标的风险等可能影响承保，但投保人法定告知义务通常以保险人具体询问的范围和内容为限。保险人使用格式条款时，应说明合同内容并依法提示、明确说明免责条款。</p><p><strong>保证</strong>指约定在合同中遵守特定事项的承诺。明示保证写入条款，默示保证在有特别法律或其他适用依据时讨论，效力和后果应结合具体规则。<strong>弃权</strong>是放弃一项权利，<strong>禁止反言</strong>限制已作出相应表示或行为的一方随后作相反主张。保险人订约时明知未如实告知，或者成立后知悉仍收取保费等情形，适用相应法律和司法解释规则。</p><p><strong>逆选择</strong>指投保前的隐藏风险类型影响参保组成。<strong>道德风险</strong>指保障安排改变投保后采取防护措施等行为的激励。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 5、16、17 条规定诚信、询问告知和免责提示说明，保险法司法解释（二）第 5–8 条规定询问范围、继续收取保费和解除与拒赔的衔接。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 保险法</a>　<a href=\"https://cicc.court.gov.cn/html/1/380/385/12841.html\">最高人民法院 · 保险法司法解释</a></p>",
+      "keyTakeaway": "告知范围、违背义务的程度、解除权期限和理赔后果需要分开判断。",
+      "pitfall": "弃权与禁止反言在保险实践中主要考查保险人。故意或重大过失、知情时间和继续收费等具体事实会影响法律后果。",
+      "example": "保险公司明确询问曾否因某疾病住院时，投保人应如实作答。高风险人群因更了解自己的健康状况而更愿投保，属于逆选择。"
+    },
+    {
+      "id": "indemnity",
+      "title": "损失补偿的范围与计算",
+      "summary": "保险金额是责任限额。补偿型保险的赔偿还要看保险利益、实际损失和赔付方式。",
+      "bodyHtml": "<p>保险责任范围内发生损失时，保险人可以按合同支付保险金、修复或更换标的。财产保险常用实际损失、保险金额和保险利益限制补偿。定值保险以合同约定的保险价值作为赔偿计算标准。</p><p><strong>不足额投保比例赔偿</strong>＝可赔损失 × 保险金额 ÷ 保险价值，前提是保险金额低于保险价值且合同没有另行约定。<strong>第一损失赔偿</strong>按条款在保险金额范围内弥补承保损失，无须对每笔损失乘以不足额比例。计算仍须检查免赔额、责任限额等具体约定。</p><p>定额寿险按约定给付，费用补偿型医疗保险则根据实际发生的医疗、康复费用按约定计算。两种机制可以同属人身保险，判断时应看具体给付方式。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 18、55 条规定保险金额的定义与财产保险的计价和赔付。《健康保险管理办法》第 5 条区分费用补偿型和定额给付型医疗保险。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 保险法</a>　<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1027050\">国家金融监督管理总局 · 健康保险管理办法</a></p>",
+      "keyTakeaway": "赔付方式决定是否乘以保险金额与保险价值的比例。",
+      "pitfall": "保险价值是赔付计算基准，保险金额是最高责任限额，保险费是获得保险保障的支出。",
+      "example": "房屋保险价值 60 万元，保额 30 万元，承保损失 20 万元，按比例赔偿且无其他约定时赔 10 万元。"
+    },
+    {
+      "id": "subrogation-contribution",
+      "title": "代位与重复保险分摊",
+      "summary": "区分向第三者追偿、取得受损标的权利与保险人之间的分摊。",
+      "bodyHtml": "<p><strong>权利代位</strong>指财产险保险人向被保险人赔付后，在赔付范围内代位向造成损害的第三者请求赔偿。被保险人仍可以主张未获赔部分。被保险人故意或因重大过失导致保险人无法行使代位权时，保险人可以扣减或请求返还相应的保险金。<strong>物上代位</strong>涉及受损标的的权利归属，按全额赔付及保险金额与保险价值的关系确定。委付是海上保险中与推定全损相关的制度，有其独立适用条件。</p><p><strong>重复保险分摊</strong>解决同一保险标的、同一保险利益、同一保险事故由多个保险人承保且保险金额总和超过保险价值时如何分担。除合同另有约定外，按各保险金额占总保险金额的比例分摊，合计赔偿不得超过保险价值。还可区分按各自可赔限额分摊、按承保次序分担等计算思路。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 46 条规定人身保险给付后不享有向第三者追偿的权利，第 56、59–63 条规定财产保险重复保险和代位。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_4c715a53f3d4402c89f62ae77809f638.html\">市场监管总局 · 保险法</a></p>",
+      "keyTakeaway": "代位指向第三者或保险标的权利，分摊发生在多个保险人之间。",
+      "pitfall": "被保险人妨碍代位求偿时，要看故意或重大过失与无法行使之间的因果关系，扣减或返还以相应金额为限。",
+      "example": "第三者撞坏设备，损失 10 万元，保险人赔 8 万元后，可在 8 万元内代位求偿。被保险人仍可向第三者主张未补偿的 2 万元。"
+    },
+    {
+      "id": "proximate-cause",
+      "title": "近因原则与因果链",
+      "summary": "找到对损失具有直接、有效和支配性作用的原因，再检查合同责任范围。",
+      "bodyHtml": "<p><strong>近因</strong>是对保险损失起直接、有效、支配作用的原因。单一原因导致损失时，先确认该原因，再检查是否属于承保风险。连续原因构成未中断的因果链时，应追踪起支配作用的原因，并核对涉及除外风险或未承保风险的合同条款。</p><p>多因间断时，检查有无独立新原因切断原有因果链。多个原因同时起作用时，要识别不同原因的作用以及能否区分相应损失，结合承保范围、除外责任、因果证据和适用规则判断责任。</p>",
+      "keyTakeaway": "“近”描述的是因果作用，时间先后与空间距离仅能辅助还原事实。",
+      "pitfall": "遇到连续事故先画因果箭头，再检查中间是否出现足以独立造成损失的新原因。",
+      "example": "雷击折断大树，大树压倒房屋，房屋倒塌压坏电视。在没有独立介入原因时，雷击是支配整条链的原因。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "保险利益原则",
+      "target": "insurable-interest",
+      "children": [
+        {
+          "label": "含义与适用",
+          "target": "insurable-interest",
+          "children": [
+            {
+              "label": "法律承认的利益",
+              "target": "insurable-interest"
+            },
+            {
+              "label": "财产险事故时、人身险订立时",
+              "target": "insurable-interest"
+            }
+          ]
+        },
+        {
+          "label": "构成要件",
+          "target": "insurable-interest",
+          "children": [
+            {
+              "label": "法律承认、通常具经济性、可确定或实现",
+              "target": "insurable-interest"
+            }
+          ]
+        },
+        {
+          "label": "人身险与财产险",
+          "target": "insurable-interest",
+          "children": [
+            {
+              "label": "利益来源、审查时点、金额依据",
+              "target": "insurable-interest"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "最大诚信原则",
+      "target": "utmost-good-faith",
+      "children": [
+        {
+          "label": "如实告知",
+          "target": "utmost-good-faith",
+          "children": [
+            {
+              "label": "具体询问与承保重要事实",
+              "target": "utmost-good-faith"
+            },
+            {
+              "label": "逆选择与道德风险",
+              "target": "utmost-good-faith"
+            }
+          ]
+        },
+        {
+          "label": "保证",
+          "target": "utmost-good-faith",
+          "children": [
+            {
+              "label": "明示与默示的适用依据",
+              "target": "utmost-good-faith"
+            }
+          ]
+        },
+        {
+          "label": "弃权",
+          "target": "utmost-good-faith",
+          "children": [
+            {
+              "label": "放弃合同权利及适用规则",
+              "target": "utmost-good-faith"
+            }
+          ]
+        },
+        {
+          "label": "禁止反言",
+          "target": "utmost-good-faith",
+          "children": [
+            {
+              "label": "限制事后提出相反主张",
+              "target": "utmost-good-faith"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "损失补偿原则",
+      "target": "indemnity",
+      "children": [
+        {
+          "label": "定义和适用",
+          "target": "indemnity",
+          "children": [
+            {
+              "label": "赔偿、实物补偿或修复",
+              "target": "indemnity"
+            },
+            {
+              "label": "财产险、费用补偿型与定额给付型",
+              "target": "indemnity"
+            }
+          ]
+        },
+        {
+          "label": "赔偿限额",
+          "target": "indemnity",
+          "children": [
+            {
+              "label": "实际损失、保险金额、保险利益",
+              "target": "indemnity"
+            },
+            {
+              "label": "定值保险",
+              "target": "indemnity"
+            }
+          ]
+        },
+        {
+          "label": "损失赔偿方式",
+          "target": "indemnity",
+          "children": [
+            {
+              "label": "第一损失赔偿",
+              "target": "indemnity"
+            },
+            {
+              "label": "不足额投保比例赔偿",
+              "target": "indemnity"
+            }
+          ]
+        },
+        {
+          "label": "派生原则",
+          "target": "subrogation-contribution",
+          "children": [
+            {
+              "label": "代位",
+              "target": "subrogation-contribution",
+              "children": [
+                {
+                  "label": "权利代位与物上代位",
+                  "target": "subrogation-contribution"
+                }
+              ]
+            },
+            {
+              "label": "重复保险分摊",
+              "target": "subrogation-contribution",
+              "children": [
+                {
+                  "label": "比例责任、限额责任与顺序责任",
+                  "target": "subrogation-contribution"
+                }
+              ]
+            },
+            {
+              "label": "财产险代位与人身险给付",
+              "target": "subrogation-contribution"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "近因原则",
+      "target": "proximate-cause",
+      "children": [
+        {
+          "label": "直接、有效且支配损失的原因",
+          "target": "proximate-cause"
+        },
+        {
+          "label": "单一原因",
+          "target": "proximate-cause",
+          "children": [
+            {
+              "label": "判断是否承保",
+              "target": "proximate-cause"
+            }
+          ]
+        },
+        {
+          "label": "多种原因连续",
+          "target": "proximate-cause",
+          "children": [
+            {
+              "label": "全部承保、部分除外或未承保",
+              "target": "proximate-cause"
+            }
+          ]
+        },
+        {
+          "label": "多种原因间断",
+          "target": "proximate-cause",
+          "children": [
+            {
+              "label": "独立介入与因果链切断",
+              "target": "proximate-cause"
+            }
+          ]
+        },
+        {
+          "label": "多种原因同时发生",
+          "target": "proximate-cause",
+          "children": [
+            {
+              "label": "识别各原因作用和条款范围",
+              "target": "proximate-cause"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

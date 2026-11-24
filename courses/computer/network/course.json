@@ -1,0 +1,7 @@
+{
+  "id": "computer-network",
+  "route": "computer/network",
+  "title": "计算机网络",
+  "subtitle": "TCP/IP 协议栈、HTTP/HTTPS、路由转发、拥塞控制与网络排障",
+  "chapters": []
+}

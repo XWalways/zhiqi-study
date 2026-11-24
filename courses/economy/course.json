@@ -1,0 +1,127 @@
+{
+  "id": "economy",
+  "route": "economy",
+  "title": "经济基础",
+  "subtitle": "微观均衡、弹性、生产与成本、市场结构、IS-LM、AD-AS 与经济增长",
+  "chapters": [
+    {
+      "id": "01",
+      "legacyId": "chapter01",
+      "number": 1,
+      "title": "微观经济学概述",
+      "ready": true
+    },
+    {
+      "id": "02",
+      "legacyId": "chapter02",
+      "number": 2,
+      "title": "需求、供给及市场均衡理论",
+      "ready": true
+    },
+    {
+      "id": "03",
+      "legacyId": "chapter03",
+      "number": 3,
+      "title": "弹性理论",
+      "ready": true
+    },
+    {
+      "id": "04",
+      "legacyId": "chapter04",
+      "number": 4,
+      "title": "消费者行为理论",
+      "ready": true
+    },
+    {
+      "id": "05",
+      "legacyId": "chapter05",
+      "number": 5,
+      "title": "生产理论",
+      "ready": true
+    },
+    {
+      "id": "06",
+      "legacyId": "chapter06",
+      "number": 6,
+      "title": "成本理论",
+      "ready": true
+    },
+    {
+      "id": "07",
+      "legacyId": "chapter07",
+      "number": 7,
+      "title": "市场结构理论",
+      "ready": true
+    },
+    {
+      "id": "08",
+      "legacyId": "chapter08",
+      "number": 8,
+      "title": "博弈论初步",
+      "ready": true
+    },
+    {
+      "id": "09",
+      "legacyId": "chapter09",
+      "number": 9,
+      "title": "生产要素市场理论",
+      "ready": true
+    },
+    {
+      "id": "10",
+      "legacyId": "chapter10",
+      "number": 10,
+      "title": "资源配置和市场失灵",
+      "ready": true
+    },
+    {
+      "id": "11",
+      "legacyId": "chapter11",
+      "number": 11,
+      "title": "国民收入核算",
+      "ready": true
+    },
+    {
+      "id": "12",
+      "legacyId": "chapter12",
+      "number": 12,
+      "title": "国民收入的决定：IS-LM模型",
+      "ready": true
+    },
+    {
+      "id": "13",
+      "legacyId": "chapter13",
+      "number": 13,
+      "title": "国民收入的决定：总需求-总供给模型",
+      "ready": true
+    },
+    {
+      "id": "14",
+      "legacyId": "chapter14",
+      "number": 14,
+      "title": "失业与通货膨胀",
+      "ready": true
+    },
+    {
+      "id": "15",
+      "legacyId": "chapter15",
+      "number": 15,
+      "title": "宏观经济政策及其有效性",
+      "ready": true
+    },
+    {
+      "id": "16",
+      "legacyId": "chapter16",
+      "number": 16,
+      "title": "开放经济下的短期经济模型",
+      "ready": true
+    },
+    {
+      "id": "17",
+      "legacyId": "chapter17",
+      "number": 17,
+      "title": "经济增长与经济周期",
+      "ready": true
+    }
+  ]
+}

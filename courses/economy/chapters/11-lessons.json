@@ -1,0 +1,385 @@
+{
+  "title": "国民收入核算",
+  "subtitle": "分清产出、收入和价格指标，再用计划支出理解短期均衡。",
+  "sections": [
+    {
+      "id": "macroeconomics",
+      "title": "宏观经济学的研究对象与目标",
+      "summary": "研究国民经济总体运行以及资源利用。",
+      "bodyHtml": "<p>宏观经济学以国民经济总体为对象，使用<strong>总量分析</strong>研究总产出、就业、物价与国际收支。国民收入理论说明总产出怎样形成，资源利用程度可以通过实际产出与潜在产出比较。</p><p>常见政策目标包括充分就业、价格稳定、经济持续均衡增长和国际收支平衡。充分就业允许存在正常的摩擦性和结构性失业。</p>",
+      "keyTakeaway": "先分清总量指标的范围和分母，再比较增长、就业和价格变化。",
+      "pitfall": "某种商品涨价属于相对价格变化。通货膨胀讨论的是总体价格水平的持续上升。",
+      "example": "研究一家厂商的雇工决策是微观分析，研究全国总就业与总产出的关系是宏观分析。"
+    },
+    {
+      "id": "gdp",
+      "title": "国内生产总值及核算边界",
+      "summary": "GDP 衡量一定时期内本国经济领土上生产的最终产品和服务价值。",
+      "bodyHtml": "<p><strong>GDP</strong>是一定时期内本国经济领土上生产的最终产品和服务的市场价值。它按生产地核算，是按月、季或年考察的<strong>流量</strong>。</p><p>商品属于中间品还是最终品，由本次用途决定。只计算最终产品，或逐阶段加总增加值，都可避免重复计算。未售出的当期产出计入存货投资。旧货转让本身不是当期生产，当期提供的经纪服务可以计入。</p><p>无偿家务服务通常不计入。政府非市场服务、自有住房服务等可按成本或估算价值计入。自建住房与其他自产实物也可能落在生产边界内。统计口径核验于 2026 年 11 月 11 日。<a href=\"https://unstats.un.org/unsd/demographic-social/time-use/icatus-2016/\">联合国统计司关于自产实物的分类说明</a></p>",
+      "keyTakeaway": "判断一项活动能否计入 GDP，先看生产地、期间和用途。",
+      "pitfall": "股票买卖和政府转移支付本身是资产或收入转移。提供金融中介或经纪服务可形成当期产出。",
+      "example": "面粉厂把面粉以 5 元卖给面包店，面包店将面包以 8 元卖给家庭。若面粉厂没有其他中间投入，两阶段增加值分别是 5 元和 3 元，最终产品价值是 8 元。"
+    },
+    {
+      "id": "national-income",
+      "title": "GDP、GNI 与净收入指标",
+      "summary": "区分生产所在地、收入取得者以及总额和净额。",
+      "bodyHtml": "<p><strong>国民总收入 GNI</strong>在概念上承接国民生产总值 GNP。它按<strong>常住单位</strong>取得的收入核算，等于 GDP 加来自境外的初次收入净额。初次收入包括劳动报酬与财产收入等。</p><p>统计口径核验于 2026 年 11 月 11 日。<a href=\"https://www.stats.gov.cn/sj/zbjs/202302/t20230202_1897108.html\">国家统计局国民经济核算指标解释</a></p><p>从 GDP 扣除固定资本消耗得到国内生产净值 NDP，从 GNI 扣除固定资本消耗得到国民净收入。还可用间接税、补贴和转移支付等调整市场价格或个人收入指标，个人可支配收入是个人可用于消费和储蓄的收入。</p>",
+      "keyTakeaway": "GDP 按经济领土核算，GNI 按常住单位取得的收入核算。总值扣除折旧得到净值。",
+      "pitfall": "按常住单位划分，不能直接以国籍作判断。国内外收入用净额调整，也要防止把企业产值重复计入。",
+      "example": "本地 GDP 为 1000 亿，常住单位从境外取得初次收入 50 亿，境外单位从本地取得 30 亿，则 GNI 为 1020 亿。"
+    },
+    {
+      "id": "gdp-methods",
+      "title": "GDP 的支出法、收入法与生产法",
+      "summary": "同一笔产出可以从购买、收入和生产三个方向核算。",
+      "bodyHtml": "<p><mark>支出法 GDP = C + I + G + (X − M)</mark>。C 为居民消费，I 为资本形成和存货变化，G 为政府购买，X − M 为净出口。进口已经可能包括在国内购买中，减去 M 可扣除境外生产。</p><p><strong>生产法</strong>加总各生产者的增加值，并按价格口径处理产品税净额。<strong>收入法</strong>按增加值的收入构成汇总劳动报酬、生产税净额、固定资本消耗和营业盈余等。理论上三种方法描述同一总量，实测中可能存在统计差异。</p><p>统计口径核验于 2026 年 11 月 11 日。<a href=\"https://www.stats.gov.cn/zs/tjws/zytjzbqs/gnsczz/202409/t20240909_1956324.html\">国家统计局国内生产总值概述</a></p>",
+      "keyTakeaway": "投资指实物资本形成和存货变动。政府向家庭发补助属于转移支付，政府购买才直接计入 G。",
+      "pitfall": "既有资产交易和实物资本形成的含义不同。购买进口商品时，购买支出与进口扣减需要配套计入。",
+      "example": "消费 300、投资 100、政府购买 120、出口 60、进口 80，则 GDP 为 500。"
+    },
+    {
+      "id": "price-indices",
+      "title": "名义 GDP、实际 GDP 与价格指数",
+      "summary": "将名义增长中的数量变化与价格变化分开。",
+      "bodyHtml": "<p><strong>名义 GDP</strong>以当期价格估价，固定基期的<strong>实际 GDP</strong>以基期价格估价。<mark>GDP 平减指数 = 名义 GDP ÷ 实际 GDP × 100</mark>。采用固定基期时，平减指数使用当期产量权重，具有帕氏指数的形式。</p><ul><li><strong>CPI</strong>反映居民消费品与服务价格变化。固定篮子方法具有拉氏指数的形式，消费者改用相对便宜的替代品时，固定篮子可能高估生活成本增幅。</li><li><strong>PPI</strong>在生产者价格层面衡量价格变化。</li><li><strong>通货膨胀率</strong>可用选定价格指数相对上一期的百分比变化表示。</li></ul>",
+      "keyTakeaway": "平减指数侧重本国生产的最终产出，CPI 侧重居民消费篮子。",
+      "pitfall": "指数从 120 升到 126 时，涨了 6 个指数点，通胀率为 5%。指数范围和基期也会影响比较。",
+      "example": "名义 GDP 为 420，实际 GDP 为 400，平减指数为 105。若上一期指数为 100，本期相对于上一期上涨 5%。"
+    },
+    {
+      "id": "labor-rates",
+      "title": "失业率与劳动参与率",
+      "summary": "先区分劳动年龄人口与劳动力人口，再选择分母。",
+      "bodyHtml": "<p>劳动力由<strong>就业者</strong>和<strong>失业者</strong>组成。标准模型中，失业者没有就业、能够工作且积极寻找工作。不符合劳动力条件的人归入非劳动力。</p><p><mark>失业率 = 失业人数 ÷ 劳动力人数 × 100%</mark>。<strong>劳动参与率</strong>为劳动力人数除以劳动年龄人口，再乘 100%。</p>",
+      "keyTakeaway": "失业率看劳动力内部，参与率看劳动年龄人口。",
+      "pitfall": "停止求职的人可能退出劳动力。此时失业率下降也可能伴随参与率下降。",
+      "example": "劳动年龄人口为 100，70 人就业，5 人正在找工作且能够工作。劳动力为 75，失业率约 6.67%，参与率为 75%。"
+    },
+    {
+      "id": "expenditure-equilibrium",
+      "title": "计划支出与均衡产出",
+      "summary": "短期价格给定时，均衡产出等于计划总支出。",
+      "bodyHtml": "<p>收入—支出模型假定短期价格给定，并考察企业如何按销售和存货变化调整产量。两部门经济中，<mark>均衡条件为 Y = C + I</mark>，其中 I 为计划投资。由 Y = C + S 可推出均衡时计划储蓄等于计划投资。</p><p>实际总支出按核算恒等于实际产出，非计划存货变化计入实际投资。若产出高于计划总支出，企业库存非计划增加，有减产压力。产出低于计划支出时，非计划存货减少，有增产压力。</p>",
+      "keyTakeaway": "恒等式在事后成立。均衡条件要求事前计划支出恰好吸收产出。",
+      "pitfall": "计划投资与实际投资可以因非计划存货变化而不同。",
+      "example": "消费函数 C = 80 + 0.6Y，计划投资为 40。联立 Y = C + I 得 Y = 300，储蓄为 40。"
+    },
+    {
+      "id": "consumption-saving",
+      "title": "凯恩斯消费函数与储蓄倾向",
+      "summary": "用可支配收入变化解释消费与储蓄怎样分配。",
+      "bodyHtml": "<p>设可支配收入为 Y<sub>d</sub>，简单线性消费函数为 <mark>C = α + βY<sub>d</sub></mark>，其中 α 表示自发消费，0 &lt; β &lt; 1 是边际消费倾向。<strong>储蓄函数 S = −α + (1 − β)Y<sub>d</sub></strong>。</p><p>边际消费倾向 MPC 与边际储蓄倾向 MPS 之和为 1。平均消费倾向 APC = C/Y<sub>d</sub>，平均储蓄倾向 APS = S/Y<sub>d</sub>，两者之和也为 1。若 α 和可支配收入为正，则 APC 大于 MPC，APS 小于 MPS。收入增加时 APC 下降。在一般非线性表述中，边际消费倾向也可能随收入上升而下降，线性模型将其简化为常数。</p>",
+      "keyTakeaway": "平均倾向用总量相除，边际倾向用增量相除。",
+      "pitfall": "收入为零时平均倾向无定义。简单线性模型中的边际消费倾向固定。",
+      "example": "若 C = 100 + 0.8Y，Y 为 500 时，C = 500，APC = 1，MPC = 0.8。"
+    },
+    {
+      "id": "consumption-theories",
+      "title": "相对收入、生命周期与持久收入",
+      "summary": "比较当期收入之外影响消费的三种机制。",
+      "bodyHtml": "<table><thead><tr><th>理论</th><th>代表人物</th><th>关键机制</th></tr></thead><tbody><tr><td>相对收入</td><td>杜森贝里</td><td>消费受周围人消费水平影响，表现为示范效应。过去较高的消费习惯使消费难随收入同比下降，表现为棘轮效应</td></tr><tr><td>生命周期</td><td>莫迪利安尼等</td><td>按一生预期资源平滑消费。年轻时可能借款，中年工作时储蓄，退休时可能动用储蓄</td></tr><tr><td>持久收入</td><td>弗里德曼</td><td>消费主要随预期长期收入变化，对暂时性收入波动的反应通常较小</td></tr></tbody></table>",
+      "keyTakeaway": "示范效应关注别人，棘轮效应关注自己过去。生命周期强调跨年龄配置，持久收入强调预期收入的持久程度。",
+      "pitfall": "暂时收入上升也可能使消费增加，幅度取决于其对预期长期资源、信贷约束等因素的影响。",
+      "example": "一笔意外奖金与一笔长期固定加薪，虽然当期增加金额相同，对预期长期收入的影响却可能很不同。"
+    },
+    {
+      "id": "multipliers",
+      "title": "支出、税收与平衡预算乘数",
+      "summary": "在价格和利率给定的简单模型中，从消费的后续轮次计算总影响。",
+      "bodyHtml": "<p>封闭经济、定额税、消费斜率 β 固定且投资等外生时，新增支出成为他人的收入，带动后续消费。<mark>政府购买与投资乘数为 1/(1 − β)</mark>。定额税乘数为 −β/(1 − β)，转移支付乘数为 β/(1 − β)。</p><p>政府购买与定额税同额增加时，两项作用相加，<strong>平衡预算乘数为 1</strong>。有比例税、进口漏出、利率或价格调整时，乘数要按相应模型重新计算。</p>",
+      "keyTakeaway": "政府购买直接进入计划总支出。税收和转移支付先改变可支配收入，再影响消费。",
+      "pitfall": "直接把转移支付视同政府购买，会高估它对计划支出的第一轮影响。",
+      "example": "β = 0.8 时，政府购买增加 100 使均衡产出增加 500。定额税同时增加 100 会抵消 400，净增 100。"
+    },
+    {
+      "id": "output-gaps",
+      "title": "潜在产出与支出缺口",
+      "summary": "分清产出相差多少与为填平缺口要调整多少支出。",
+      "bodyHtml": "<p><strong>潜在产出</strong>是劳动与资本得到正常充分使用时可持续达到的产出。常用的产出缺口是实际产出减潜在产出，也可除以潜在产出表示百分比。</p><p>在固定价格的收入—支出图中，按充分就业产出比较计划支出和该产出水平。计划支出不足形成<strong>紧缩性支出缺口</strong>，支出过多形成<strong>膨胀性支出缺口</strong>。支出缺口经乘数作用对应较大的均衡产出偏离。</p>",
+      "keyTakeaway": "先辨题目问的是横轴上的产出差，还是充分就业产量处的纵轴支出差。",
+      "pitfall": "产出高于潜在产出可短期出现，通常意味着资源超负荷使用与价格上行压力。",
+      "example": "潜在产出为 1000，实际均衡产出为 900。在简单模型中，若支出乘数为 4，增加自主支出 25 可以填平 100 的产出缺口。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "宏观经济学与国民收入核算",
+      "target": "macroeconomics",
+      "children": [
+        {
+          "label": "宏观经济学特点",
+          "target": "macroeconomics",
+          "children": [
+            {
+              "label": "研究国民经济总体",
+              "target": "macroeconomics"
+            },
+            {
+              "label": "采用总量分析",
+              "target": "macroeconomics"
+            },
+            {
+              "label": "核心关注国民收入理论与资源利用",
+              "target": "macroeconomics"
+            }
+          ]
+        },
+        {
+          "label": "政策目标",
+          "target": "macroeconomics",
+          "children": [
+            {
+              "label": "充分就业",
+              "target": "macroeconomics"
+            },
+            {
+              "label": "价格稳定",
+              "target": "macroeconomics"
+            },
+            {
+              "label": "经济持续均衡增长",
+              "target": "macroeconomics"
+            },
+            {
+              "label": "国际收支平衡",
+              "target": "macroeconomics"
+            }
+          ]
+        },
+        {
+          "label": "国内生产总值",
+          "target": "gdp",
+          "children": [
+            {
+              "label": "本国经济领土内最终产出",
+              "target": "gdp"
+            },
+            {
+              "label": "按一定时期核算流量",
+              "target": "gdp"
+            },
+            {
+              "label": "避免中间品重复计算",
+              "target": "gdp"
+            },
+            {
+              "label": "无偿家务服务通常排除",
+              "target": "gdp"
+            }
+          ]
+        },
+        {
+          "label": "国民总收入和净收入",
+          "target": "national-income",
+          "children": [
+            {
+              "label": "GDP 加境外初次收入净额得到 GNI",
+              "target": "national-income"
+            },
+            {
+              "label": "扣除折旧由总值转向净值",
+              "target": "national-income"
+            }
+          ]
+        },
+        {
+          "label": "通货膨胀率与价格指数",
+          "target": "price-indices",
+          "children": [
+            {
+              "label": "GDP 平减指数为名义 GDP 除以实际 GDP",
+              "target": "price-indices"
+            },
+            {
+              "label": "CPI 关注居民消费价格",
+              "target": "price-indices"
+            },
+            {
+              "label": "PPI 关注生产者价格",
+              "target": "price-indices"
+            }
+          ]
+        },
+        {
+          "label": "失业率和劳动参与率",
+          "target": "labor-rates",
+          "children": [
+            {
+              "label": "失业率以劳动力为分母",
+              "target": "labor-rates"
+            },
+            {
+              "label": "劳动参与率以劳动年龄人口为分母",
+              "target": "labor-rates"
+            }
+          ]
+        },
+        {
+          "label": "GDP 核算方法",
+          "target": "gdp-methods",
+          "children": [
+            {
+              "label": "支出法 C + I + G + X − M",
+              "target": "gdp-methods"
+            },
+            {
+              "label": "收入法汇总各项初次收入与折旧等",
+              "target": "gdp-methods"
+            },
+            {
+              "label": "生产法汇总增加值",
+              "target": "gdp-methods"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "国民收入的决定",
+      "target": "expenditure-equilibrium",
+      "children": [
+        {
+          "label": "两部门均衡产出 Y = C + I",
+          "target": "expenditure-equilibrium",
+          "children": [
+            {
+              "label": "计划储蓄等于计划投资",
+              "target": "expenditure-equilibrium"
+            }
+          ]
+        },
+        {
+          "label": "凯恩斯消费理论",
+          "target": "consumption-saving",
+          "children": [
+            {
+              "label": "收入影响消费",
+              "target": "consumption-saving"
+            },
+            {
+              "label": "C = α + βY",
+              "target": "consumption-saving"
+            },
+            {
+              "label": "S = −α + (1 − β)Y",
+              "target": "consumption-saving"
+            },
+            {
+              "label": "MPC + MPS = 1",
+              "target": "consumption-saving"
+            },
+            {
+              "label": "APC + APS = 1",
+              "target": "consumption-saving"
+            },
+            {
+              "label": "自发消费为正时，MPC 小于 APC，MPS 大于 APS",
+              "target": "consumption-saving"
+            }
+          ]
+        },
+        {
+          "label": "相对收入消费理论",
+          "target": "consumption-theories",
+          "children": [
+            {
+              "label": "杜森贝里",
+              "target": "consumption-theories"
+            },
+            {
+              "label": "过去消费习惯产生棘轮效应",
+              "target": "consumption-theories"
+            },
+            {
+              "label": "周围消费水平产生示范效应",
+              "target": "consumption-theories"
+            }
+          ]
+        },
+        {
+          "label": "生命周期理论",
+          "target": "consumption-theories",
+          "children": [
+            {
+              "label": "莫迪利安尼等",
+              "target": "consumption-theories"
+            },
+            {
+              "label": "按一生资源平滑消费",
+              "target": "consumption-theories"
+            },
+            {
+              "label": "年轻和退休时消费可超收入，工作中期倾向储蓄",
+              "target": "consumption-theories"
+            }
+          ]
+        },
+        {
+          "label": "持久收入理论",
+          "target": "consumption-theories",
+          "children": [
+            {
+              "label": "弗里德曼",
+              "target": "consumption-theories"
+            },
+            {
+              "label": "预期长期收入决定消费的主要部分",
+              "target": "consumption-theories"
+            },
+            {
+              "label": "强调如何估计持久收入",
+              "target": "consumption-theories"
+            }
+          ]
+        },
+        {
+          "label": "乘数",
+          "target": "multipliers",
+          "children": [
+            {
+              "label": "投资与政府购买 1/(1 − β)",
+              "target": "multipliers"
+            },
+            {
+              "label": "定额税 −β/(1 − β)",
+              "target": "multipliers"
+            },
+            {
+              "label": "转移支付 β/(1 − β)",
+              "target": "multipliers"
+            },
+            {
+              "label": "同额增税并增加政府购买时乘数为 1",
+              "target": "multipliers"
+            }
+          ]
+        },
+        {
+          "label": "潜在国民收入",
+          "target": "output-gaps",
+          "children": [
+            {
+              "label": "资源充分正常利用时可持续的产出",
+              "target": "output-gaps"
+            }
+          ]
+        },
+        {
+          "label": "GDP 缺口与支出缺口",
+          "target": "output-gaps",
+          "children": [
+            {
+              "label": "计划支出不足的紧缩性缺口",
+              "target": "output-gaps"
+            },
+            {
+              "label": "计划支出过多的膨胀性缺口",
+              "target": "output-gaps"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

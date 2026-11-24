@@ -1,0 +1,376 @@
+{
+  "title": "市场结构理论",
+  "subtitle": "从同质产品的价格接受者，学到寡头之间的战略选择。",
+  "sections": [
+    {
+      "id": "market-types",
+      "title": "四种市场结构",
+      "summary": "从卖者数量、产品差异和进入壁垒辨认市场。",
+      "bodyHtml": "<p>市场结构由相关市场的<mark>厂商数量、产品差异、进入与退出障碍和定价能力</mark>共同刻画。产品差异尤其有助于区分完全竞争与垄断竞争。进入壁垒和单家控制力通常随垄断程度提高而增强。</p><table><thead><tr><th>类型</th><th>卖者与产品</th><th>进入与定价</th></tr></thead><tbody><tr><td>完全竞争</td><td>大量卖者，同质产品</td><td>自由进入，接受市场价格</td></tr><tr><td>垄断竞争</td><td>较多卖者，差异化产品</td><td>进入较容易，有一定定价能力</td></tr><tr><td>寡头垄断</td><td>少数主要卖者，可同质或差异化</td><td>进入较难，决策彼此依存</td></tr><tr><td>完全垄断</td><td>一个卖者，无接近替代品</td><td>进入障碍高，受市场需求约束</td></tr></tbody></table><p>在给定同样的需求与边际成本等条件时，统一定价的垄断均衡通常比竞争均衡价格高、数量少。比较不同产业的价格和产量时还要考虑成本、需求和产品差异。</p>",
+      "keyTakeaway": "先界定相关市场，再比较厂商数量、产品和进入条件。",
+      "pitfall": "寡头的产品可以有差别，也可以同质。只看价格高低无法判别市场结构。",
+      "example": "标准化农产品的许多小卖家接近竞争模型；同一商圈的特色餐馆接近垄断竞争。"
+    },
+    {
+      "id": "perfect-revenue",
+      "title": "竞争厂商的需求与收益",
+      "summary": "单个企业接受市场价格，P、AR、MR 在图上重合。",
+      "bodyHtml": "<p>完全竞争通常假定买卖者众多、产品同质、资源可充分流动、信息充分。市场总需求通常向右下倾斜。单家竞争厂商影响不了市场价格，面对的是<mark>给定价格处的水平需求曲线</mark>。</p><p>统一单价下，总收益 <var>TR</var>＝<var>PQ</var>，平均收益 <var>AR</var>＝<var>TR/Q</var>＝<var>P</var>。对价格接受者，多卖一单位也能增加 <var>P</var> 单位收益，故 <var>MR</var>＝<var>AR</var>＝<var>P</var>，与单厂商需求曲线重合。</p>",
+      "keyTakeaway": "竞争市场需求曲线和单个竞争厂商的需求曲线有不同形状。",
+      "pitfall": "只要统一单价，AR＝P；MR 也等于 P 还需要厂商无法影响价格。",
+      "example": "市场价是每公斤 5 元时，某小农户多卖 1 公斤，总收益增加 5 元。"
+    },
+    {
+      "id": "profit-max",
+      "title": "边际收益与利润最大化",
+      "summary": "内部最优比较多生产一单位的收益和成本。",
+      "bodyHtml": "<p>利润 <var>π</var>＝<var>TR</var>−<var>TC</var>。在可微的内部解，<mark>MR＝MC</mark> 是一阶条件。增产时若 MR＞MC，利润提高；若 MR＜MC，增产降低利润。通常找 MR−MC 由正转负的交点，再和停产等边界比较。</p><p>完全竞争时 MR＝P，故最优产量通常在上升段的 MC 与 P 的交点。完全垄断则先用 MR＝MC 求产量，再用需求曲线确定该销量对应的价格。</p>",
+      "keyTakeaway": "数量由边际比较决定，利润正负由总收益与总成本或 P 与 AC 比较。",
+      "pitfall": "MR＝MC 也可能是利润最小点。离散产量和产能边界要比较可行选择。",
+      "example": "若第 5 单位的 MR 为 10、MC 为 8，第 6 单位的 MC 为 12 且 MR 仍为 10，增加第 5 单位有利，增加第 6 单位不利。"
+    },
+    {
+      "id": "perfect-short",
+      "title": "完全竞争的短期决策",
+      "summary": "比较价格与平均可变成本最低值，判断是否继续营业。",
+      "bodyHtml": "<p>短期中，总固定成本已经发生。厂商若生产，最优正产量满足 <var>P</var>＝<var>SMC</var>。当价格低于 <mark>最小 AVC</mark>，所有正产量都无法覆盖可变成本，停产更好。等于最小 AVC 时，生产与停产都损失固定成本。</p><p>短期供给曲线是 SMC 在 AVC 最低点及其以上的上升部分。在给定价格下，生产者剩余是收益扣除可变成本，也等于价格减去各单位边际成本的加总。</p>",
+      "keyTakeaway": "停止营业点 SMC＝AVC，盈亏平衡点 SMC＝SAC。",
+      "pitfall": "P 低于 SAC 时会出现经济亏损，只要覆盖 AVC 仍可能继续生产。",
+      "example": "产量为 10 时，TR＝100、TVC＝80、TFC＝40。继续生产亏 20，停产亏 40。"
+    },
+    {
+      "id": "perfect-long",
+      "title": "完全竞争的长期均衡",
+      "summary": "进入退出消除可复制厂商的超额经济利润。",
+      "bodyHtml": "<p>长期中企业可调整规模，并进入或退出行业。在自由进入、同质厂商可复制的基准模型中，长期均衡处 <mark>P＝MR＝LMC＝SMC＝SAC＝LAC</mark>，价格等于最低长期平均成本，企业获得正常利润。</p><p>长期厂商的供给决策由覆盖长期成本的 LMC 决定。若长期技术表现为恒定规模报酬，在相应产量区间可得到水平的长期边际成本。行业长期供给则取决于行业扩张如何改变投入品成本：成本不变、递增、递减行业分别对应水平、向上、向下的长期供给。厂商之间若有不能复制的要素优势，长期剩余可以体现为稀缺要素租金。</p>",
+      "keyTakeaway": "零经济利润表示收入覆盖包括机会成本在内的全部成本。",
+      "pitfall": "单厂商长期成本曲线和行业长期供给曲线属于不同层次。",
+      "example": "市场需求提高，成本不变行业短期涨价并吸引进入，长期可在原价格上实现更高的行业产量。"
+    },
+    {
+      "id": "monopoly",
+      "title": "完全垄断与自然垄断",
+      "summary": "唯一卖者面对市场需求，成本优势只是壁垒的一类。",
+      "bodyHtml": "<p>完全垄断的基准是行业只有一个卖者，产品缺少接近替代品。壁垒可来自行政排他、关键原材料控制、专利保护或成本结构。若一家生产整个市场所需数量的成本低于分给多家生产的总成本，称为<mark>自然垄断</mark>。</p><p>统一定价的垄断者面对市场需求，<var>AR</var>＝<var>P</var>。需求向下倾斜时，<var>MR</var>＝<var>P</var>＋<var>Q</var>×d<var>P</var>/d<var>Q</var>＜<var>P</var>。短期内部均衡满足 MR＝SMC，长期在最优规模下满足 MR＝LMC＝SMC。均衡价格和产量共同受需求与成本影响，无法从价格单独推导常规供给曲线。</p>",
+      "keyTakeaway": "先由 MR＝MC 选产量，再从市场需求读取价格。",
+      "pitfall": "市场力量受需求约束。控制自然资源与自然垄断是不同机制。",
+      "example": "线性需求 P＝100−Q、MC＝20 时，MR＝100−2Q，故垄断产量 40、价格 60。"
+    },
+    {
+      "id": "discrimination",
+      "title": "三级价格歧视怎么区分",
+      "summary": "比较按支付意愿、按购买量与按群体定价。",
+      "bodyHtml": "<p><strong>价格歧视</strong>是同类商品或服务的价差不能由相应成本差异解释。卖家需要一定市场力量和限制套利的能力。分群定价还要求能够识别群体，其需求条件通常不同。</p><ul><li><strong>一级</strong>：按每一单位的最高支付意愿定价。</li><li><strong>二级</strong>：按数量、版本或套餐设置价格，消费者自行选择。</li><li><strong>三级</strong>：按学生、普通乘客等可识别群体分价。在相同边际成本等条件下，需求更缺乏弹性的群体常被收取较高的价格。</li></ul><p>铁路学生优惠票用来识别按身份分群的机制。<strong>规则核验于 2026 年 11 月 11 日</strong>：合资格学生通常可按学年使用四次单程优惠，全年可用；适用席别包括普速硬座、硬卧及客规列明的动车组席别。<a href=\"https://kyfw.12306.cn/otn/gonggao/saleTicketMeans.html?linktypeid=means1\" target=\"_blank\" rel=\"noopener noreferrer\">铁路 12306 客运规程</a> · <a href=\"https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202509/t20250908_4192554.html\" target=\"_blank\" rel=\"noopener noreferrer\">学生优惠票使用时间说明</a></p>",
+      "keyTakeaway": "关键是价差机制。一级逐单位，二级自选数量或套餐，三级按身份或市场分组。",
+      "pitfall": "安装距离增加带来的服务成本差异可以解释价差，不能仅凭收费不同认定价格歧视。",
+      "example": "会员和非会员若按可识别身份在成本相同的服务上付不同价格，接近三级；用水按使用量分档定价，接近二级。"
+    },
+    {
+      "id": "monopolistic",
+      "title": "垄断竞争的短期和长期",
+      "summary": "产品差异带来定价能力，自由进入压低长期经济利润。",
+      "bodyHtml": "<p>垄断竞争中有很多生产者和消费者，产品有差异，进入与退出较容易。单家厂商面对向下倾斜的需求。短期内部最优满足 MR＝SMC，可能有利润、盈亏平衡或亏损。</p><p>长期进入使单厂商需求移动，直至在最优产量处与 LAC 相切。在标准模型中 <mark>MR＝LMC＝SMC，AR＝LAC＝SAC</mark>，经济利润为零。由于需求向下倾斜，通常 P＞MC，产量低于使 LAC 最小的规模。</p>",
+      "keyTakeaway": "长期 AR＝LAC 给出零经济利润，MR＝LMC 决定产量。",
+      "pitfall": "若区分单厂商调价时所认为的需求和同行共同调价的实际轨迹，边际收益来自厂商决策所依据的需求。",
+      "example": "特色餐馆短期获利后，同类餐馆进入会分走客源，压缩单店经济利润。"
+    },
+    {
+      "id": "oligopoly",
+      "title": "寡头的战略相互依赖",
+      "summary": "少数厂商的价格和产量决策会彼此影响。",
+      "bodyHtml": "<p>寡头市场由少数重要厂商主导，进入障碍通常较高。产品既可以同质，也可以差异化。厂商决定产量、价格或广告时要预判对手的反应，<mark>战略相互依赖</mark>是识别寡头的核心。</p><p>寡头的均衡数量由需求、成本和竞争者策略共同决定。同一价格未必总对应同一均衡产量，通常不存在像完全竞争中那样的独立供给曲线。</p>",
+      "keyTakeaway": "厂商很少时，改变自身策略可能改变对手的最优反应。",
+      "pitfall": "不能从寡头结构直接推出高利润、产能过剩或产品差异。",
+      "example": "两家供应商竞争时，一家新增生产线后，另一家可能改变原有产量计划。"
+    },
+    {
+      "id": "oligopoly-models",
+      "title": "古诺、领导者、折弯需求与串谋",
+      "summary": "区分决定产量或价格，以及行动是否有先后。",
+      "bodyHtml": "<ul><li><strong>古诺</strong>：厂商同时选择数量，把对手数量当作已知。线性需求、成本为零且有 N 家对称厂商时，单家产量为市场容量的 <mark>1/(N＋1)</mark>，行业为 N/(N＋1)。</li><li><strong>斯塔克尔伯格</strong>：领导者先选数量，追随者观察后反应，领导者事先考虑该反应。</li><li><strong>斯威齐</strong>：对手不跟随提价，却跟随降价。折点上方的需求更有弹性，折点下方更缺乏弹性，MR 可能出现间断。</li><li><strong>卡特尔</strong>：以行业联合利润为目标，在集团边际收益与有效分配下的边际成本相等处选总量。</li><li><strong>伯特兰德</strong>：厂商同时定价。在同质品、相同恒定边际成本、无容量约束的基准中，价格降至边际成本。</li></ul><p>在线性同质品和相同恒定成本的基准比较中，伯特兰德与竞争的产量较高，古诺居中，串谋最少；价格和行业经济利润的排序反向。</p>",
+      "keyTakeaway": "先定位竞争变量与行动顺序，再套用相应均衡条件。",
+      "pitfall": "古诺的分数依赖对称和线性条件。折弯需求讨论的是拐点附近两侧的弹性。",
+      "example": "若市场容量为 90、成本为零，两个对称古诺厂商各生产 30，市场总产量 60。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "完全竞争市场",
+      "target": "market-types",
+      "children": [
+        {
+          "label": "市场结构划分",
+          "target": "market-types",
+          "children": [
+            {
+              "label": "厂商数量",
+              "target": "market-types"
+            },
+            {
+              "label": "产品差异",
+              "target": "market-types"
+            },
+            {
+              "label": "进入壁垒",
+              "target": "market-types"
+            },
+            {
+              "label": "定价能力",
+              "target": "market-types"
+            }
+          ]
+        },
+        {
+          "label": "比较价格与数量",
+          "target": "market-types",
+          "children": [
+            {
+              "label": "在成本、需求相同时比较竞争程度",
+              "target": "market-types"
+            }
+          ]
+        },
+        {
+          "label": "完全竞争的条件",
+          "target": "market-types",
+          "children": [
+            {
+              "label": "买卖者众多",
+              "target": "market-types"
+            },
+            {
+              "label": "产品同质",
+              "target": "market-types"
+            },
+            {
+              "label": "资源可流动",
+              "target": "market-types"
+            },
+            {
+              "label": "信息充分",
+              "target": "market-types"
+            }
+          ]
+        },
+        {
+          "label": "市场与厂商需求",
+          "target": "perfect-revenue",
+          "children": [
+            {
+              "label": "市场需求通常向右下倾斜",
+              "target": "perfect-revenue"
+            },
+            {
+              "label": "厂商水平需求，P＝AR＝MR",
+              "target": "perfect-revenue"
+            }
+          ]
+        },
+        {
+          "label": "短期均衡",
+          "target": "perfect-short",
+          "children": [
+            {
+              "label": "MR＝SMC＝P",
+              "target": "profit-max"
+            },
+            {
+              "label": "停止营业点为最小 AVC",
+              "target": "perfect-short"
+            },
+            {
+              "label": "短期供给为 AVC 最低点以上的 SMC",
+              "target": "perfect-short"
+            },
+            {
+              "label": "短期生产者剩余等于收益减可变成本",
+              "target": "perfect-short"
+            }
+          ]
+        },
+        {
+          "label": "长期均衡",
+          "target": "perfect-long",
+          "children": [
+            {
+              "label": "可自由调整规模及进入退出",
+              "target": "perfect-long"
+            },
+            {
+              "label": "P＝MR＝LMC＝SMC＝SAC＝LAC",
+              "target": "perfect-long"
+            },
+            {
+              "label": "行业成本不变、递增、递减时的供给",
+              "target": "perfect-long"
+            },
+            {
+              "label": "稀缺要素优势与长期剩余",
+              "target": "perfect-long"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "完全垄断市场",
+      "target": "monopoly",
+      "children": [
+        {
+          "label": "形成原因",
+          "target": "monopoly",
+          "children": [
+            {
+              "label": "行政排他",
+              "target": "monopoly"
+            },
+            {
+              "label": "关键原材料控制",
+              "target": "monopoly"
+            },
+            {
+              "label": "专利保护",
+              "target": "monopoly"
+            },
+            {
+              "label": "自然垄断",
+              "target": "monopoly"
+            }
+          ]
+        },
+        {
+          "label": "需求和厂商均衡",
+          "target": "monopoly",
+          "children": [
+            {
+              "label": "行业需求就是厂商需求",
+              "target": "monopoly"
+            },
+            {
+              "label": "短期 MR＝SMC",
+              "target": "monopoly"
+            },
+            {
+              "label": "长期 MR＝LMC＝SMC",
+              "target": "monopoly"
+            },
+            {
+              "label": "一般没有常规供给曲线",
+              "target": "monopoly"
+            }
+          ]
+        },
+        {
+          "label": "价格歧视",
+          "target": "discrimination",
+          "children": [
+            {
+              "label": "成本不能解释同类服务的价差",
+              "target": "discrimination"
+            },
+            {
+              "label": "可区分消费者且能限制套利",
+              "target": "discrimination"
+            },
+            {
+              "label": "一级按支付意愿",
+              "target": "discrimination"
+            },
+            {
+              "label": "二级按数量或套餐",
+              "target": "discrimination"
+            },
+            {
+              "label": "三级按群体",
+              "target": "discrimination"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "垄断竞争市场",
+      "target": "monopolistic",
+      "children": [
+        {
+          "label": "厂商和消费者较多",
+          "target": "monopolistic"
+        },
+        {
+          "label": "产品有差异",
+          "target": "monopolistic"
+        },
+        {
+          "label": "进入退出较容易",
+          "target": "monopolistic"
+        },
+        {
+          "label": "短期 MR＝SMC",
+          "target": "monopolistic"
+        },
+        {
+          "label": "长期 AR＝LAC，MR＝LMC",
+          "target": "monopolistic"
+        }
+      ]
+    },
+    {
+      "label": "寡头垄断市场",
+      "target": "oligopoly",
+      "children": [
+        {
+          "label": "市场特征",
+          "target": "oligopoly",
+          "children": [
+            {
+              "label": "少数厂商控制市场",
+              "target": "oligopoly"
+            },
+            {
+              "label": "产品可同质或差异化",
+              "target": "oligopoly"
+            },
+            {
+              "label": "进入较难",
+              "target": "oligopoly"
+            },
+            {
+              "label": "策略相互影响",
+              "target": "oligopoly"
+            }
+          ]
+        },
+        {
+          "label": "典型模型",
+          "target": "oligopoly-models",
+          "children": [
+            {
+              "label": "古诺同时选产量",
+              "target": "oligopoly-models"
+            },
+            {
+              "label": "斯塔克尔伯格的产量领导",
+              "target": "oligopoly-models"
+            },
+            {
+              "label": "斯威齐的折弯需求",
+              "target": "oligopoly-models"
+            },
+            {
+              "label": "卡特尔联合最大化",
+              "target": "oligopoly-models"
+            },
+            {
+              "label": "伯特兰德同时选价格",
+              "target": "oligopoly-models"
+            },
+            {
+              "label": "基准模型比较数量、价格与利润",
+              "target": "oligopoly-models"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

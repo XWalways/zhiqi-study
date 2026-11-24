@@ -1,0 +1,374 @@
+{
+  "title": "金融市场",
+  "subtitle": "从资金如何交易，学到怎样识别货币和资本市场工具。",
+  "sections": [
+    {
+      "id": "market-types",
+      "title": "金融市场及其分类",
+      "summary": "在融资期限、交易阶段、交易场所和信用关系四个维度识别市场。",
+      "bodyHtml": "<p><strong>金融市场</strong>是金融工具发行、交易和资金定价的机制。按期限可分货币市场（通常为一年以内、含一年）和资本市场（中长期融资及股票等无到期工具）。按交易阶段分发行市场与流通市场，按场所分场内与场外，按交易对象也可分外汇、证券、衍生品等市场。</p><p><strong>直接融资</strong>使资金方直接对用款人拥有债权或股权。银行吸收存款、再用其资产负债表发放贷款是<strong>间接融资</strong>。承销经纪服务不会改变证券持有人与发行人之间的债权或股权。</p>",
+      "keyTakeaway": "先看题干用哪一条标准分类。",
+      "pitfall": "发行市场等于一级市场，后续流通是二级市场。同一工具可同时属于多个维度。",
+      "example": "新发五年期公司债兼属一级市场与资本市场。"
+    },
+    {
+      "id": "market-functions",
+      "title": "市场参与者与功能",
+      "summary": "把谁在市场中活动、活动怎么定价、资金最终到哪里分开。",
+      "bodyHtml": "<p>主体有家庭、企业、政府、金融机构和中央银行。交易对象包括货币资金、债券、股权和衍生合约。利率、汇率和证券价格反映不同工具的交易条件。</p><p><strong>微观功能</strong>包括积聚资金、提供交易渠道、管理财富和转移风险。<strong>宏观功能</strong>包括配置资源、形成价格和信息、为政策传导提供渠道。“经济晴雨表”对应反映功能，市场会把预期计入价格。</p><p>我国人民银行通过公开市场操作等参与交易，并依法主管全国银行间债券市场。国家金融监督管理总局承担除证券业以外的金融业监管职责，证监会依法负责证券期货监管。核验于 2026 年 11 月 11 日。<a href=\"https://www.pbc.gov.cn/zhengwugongkai/attachDir/2025/11/2025111818164813404.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行银行间债券交易规则</a> · <a href=\"https://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2023/2023_zt02/yw/202303/t20230311_1050340.html\" target=\"_blank\" rel=\"noopener noreferrer\">国务院机构改革方案</a></p>",
+      "keyTakeaway": "聚积回答如何汇钱，配置回答钱流向哪里，反映回答价格传递何种信息。",
+      "pitfall": "市场反映预期，同时受流动性和风险偏好影响，价格并非经济统计值。",
+      "example": "企业发债获得融资，债券收益率还向市场传递信用状况和利率预期。"
+    },
+    {
+      "id": "tool-properties",
+      "title": "金融工具的四个维度",
+      "summary": "期限、流动性、收益性和风险性各自回答不同问题。",
+      "bodyHtml": "<p><strong>期限</strong>是合同安排下资金存续的时间。<strong>流动性</strong>是迅速且低成本变现的能力。<strong>收益</strong>既可来自利息和股息，也可来自价格变化。<strong>风险</strong>包括违约、利率波动、难变现、汇率等。</p><p>股票、债券和商业票据是基本金融工具。期货、期权等根据标的价格或指数定价。期限长短或有无交易所都无法单独决定总风险。在其他条件相同时，流动性差的工具一般需要收益补偿。</p>",
+      "keyTakeaway": "收益比较先控制信用、期限、币种与担保，再讨论风险补偿。",
+      "pitfall": "期限越短一般利率敏感度越低，信用风险仍需单独判断。",
+      "example": "短期低评级债可能具有比长期国债更高的违约风险。"
+    },
+    {
+      "id": "interbank",
+      "title": "同业拆借",
+      "summary": "金融机构依自身信用进行短期资金调剂。",
+      "bodyHtml": "<p><strong>同业拆借</strong>是符合规定的金融机构之间通过统一同业拆借网络开展的无担保资金融通。商业银行常用于弥补结算差额、清算头寸和短期周转。借入资金不得用于固定资产贷款或投资。</p><p>核验于 2026 年 11 月 11 日。<a href=\"https://www.pbc.gov.cn/zhengwugongkai/attachDir/2025/11/2025111914190098678.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行《同业拆借管理办法》</a> · <a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_35aff5bda2374572b8eb87cafcd1541a.html\" target=\"_blank\" rel=\"noopener noreferrer\">《商业银行法》第四十六条</a></p>",
+      "keyTakeaway": "同业拆借的定义关键词是机构间、无担保、资金融通。",
+      "pitfall": "担保或期限短均无法改变固定资产贷款用途的禁止性。",
+      "example": "某银行当天出现结算缺口，可通过市场借入隔夜资金以补足头寸。"
+    },
+    {
+      "id": "repo",
+      "title": "证券回购",
+      "summary": "融资方现在拿到资金，未来按约归还本金并支付融资成本。",
+      "bodyHtml": "<p><strong>质押式回购</strong>中，资金融入方以债券出质，按约返还资金后解除质押。<strong>买断式回购</strong>中，交易双方现在进行债券转让，同时约定将来按约买回。交易中既有首期资金流，也有到期逆向资金流。</p><p>从央行操作角度看，逆回购首期向交易对手提供资金，正回购首期收回资金。证券担保有助于降低损失风险，仍需考察折扣率、市场波动和交易对手风险。核验于 2026 年 11 月 11 日。<a href=\"https://www.pbc.gov.cn/zhengwugongkai/attachDir/2025/11/2025111818164813404.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行银行间债券交易规则</a></p>",
+      "keyTakeaway": "答回购先确定从哪方观察，再区分质押和产权转移。",
+      "pitfall": "回购利率与存款利率的比较取决于期限、担保和市场条件。",
+      "example": "融资方今天获得 100 万元，到期返还 100.1 万元，差额为本次融资成本。"
+    },
+    {
+      "id": "money-instruments",
+      "title": "短期工具、贴现与持币成本",
+      "summary": "国库券、商业票据和大额存单都能用于短期资金安排，但发行人和风险不同。",
+      "bodyHtml": "<ul><li><strong>短期国库券</strong>由政府融资时发行，常作为低信用风险短期工具。持币的机会成本可以用可替代短券的利率衡量。</li><li><strong>商业票据</strong>的经济学典型是企业发行的短期无担保债务凭证。银行承兑汇票涉及承兑银行的到期付款责任。按面额和单利贴现时，实付＝面额 × (1－年贴现率 × 年数)。福费廷常表现为无追索买入远期出口应收款。</li><li><strong>可转让大额定期存单</strong>是典型货币市场工具。我国面向非金融机构的大额存单为人民币记账式一般性存款，产品是否可转让、提前支取或赎回要看发行条款。同业存单另属同业市场工具。</li></ul><p>按《贷款通则》第八条采用的期限口径，短期不超过 1 年，中期超过 1 年且不超过 5 年，长期超过 5 年。信用卡资金不得用于投资等监管禁止领域。核验于 2026 年 11 月 11 日。<a href=\"https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=38628\" target=\"_blank\" rel=\"noopener noreferrer\">商务部法规库《贷款通则》</a> · <a href=\"https://www.cnafc.org/cnafc/front/detail.action?id=e24707081e7f4ee6a466ea9e80c1504a\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行《大额存单管理暂行办法》</a> · <a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=272670\" target=\"_blank\" rel=\"noopener noreferrer\">信用卡业务规范通知</a></p>",
+      "keyTakeaway": "贴现要把半年换算成 0.5 年，并从面额中扣除贴息。",
+      "pitfall": "易变现的“准货币”特性是一种描述，货币供应量的准货币是统计分类。",
+      "example": "面额 100 万元、半年到期、年贴现率 6%，实付 97 万元。"
+    },
+    {
+      "id": "shares",
+      "title": "股票权利、发行与市场板块",
+      "summary": "股权意味着持股人以剩余收益和约定权利承担经营风险。",
+      "bodyHtml": "<p>股票是公司股份的凭证，持有者可能取得股息和价格差。普通股一般享有表决与按规则获得利润分配等权利。优先股可在股息或剩余财产分配上优先，具体股息、表决和其他权利以类别条款为准。</p><p><strong>A 股</strong>以人民币交易，<strong>B 股</strong>以人民币标明面值、以外币认购和交易。H 股是境内注册公司在香港上市的股票，N 股、S 股等简称强调其他境外上市地点。首次公开发行与已上市公司增发等属于发行阶段，投资者间买卖属于流通阶段。</p><p>公司章程可选择面额股或无面额股，面额股发行价格不得低于票面金额。股份有限公司发行新股增加注册资本时，股东原则上无优先认购权，章程或股东会决议可另作规定。我国多层次资本市场包括沪深主板、科创板、创业板、北交所、新三板和区域性股权市场等，深市中小板已于 2021 年并入主板。核验于 2026 年 11 月 11 日。<a href=\"https://www.samr.gov.cn/xyjgs/flfg/art/2024/art_d4e84936a8a744f8928ac7aec7594345.html\" target=\"_blank\" rel=\"noopener noreferrer\">《公司法》</a> · <a href=\"https://www.szse.cn/www/investor/institute/bookshelf/manualseriesbook/P020190322685818724112.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">深交所股票投资指南</a> · <a href=\"https://www.csrc.gov.cn/xizang/c104685/c7415066/7415066/files/%E8%A5%BF%E8%97%8F%E8%BE%96%E5%8C%BA%E4%BC%81%E4%B8%9A%E5%8F%91%E8%A1%8C%E4%B8%8A%E5%B8%82%EF%BC%88%E6%8C%82%E7%89%8C%EF%BC%89%E5%AE%9E%E5%8A%A1%E6%89%8B%E5%86%8C.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">证监会多层次资本市场概述</a> · <a href=\"https://www.szse.cn/disclosure/notice/general/t20210331_585343.html\" target=\"_blank\" rel=\"noopener noreferrer\">深交所主板与中小板合并通知</a></p>",
+      "keyTakeaway": "比较普通股与优先股时，把表决、股息和剩余财产分别看。",
+      "pitfall": "优先股的“优先”一般指分配顺位。具体股息率与新股认购安排要看条款和适用规定。",
+      "example": "公司清算付清债务后，具有财产分配优先约定的类别股可按条款先于普通股获偿。"
+    },
+    {
+      "id": "bonds",
+      "title": "债券分类与发行人",
+      "summary": "从发行主体、付息规则、期限、发行地和计价币种识别债券。",
+      "bodyHtml": "<p>债券代表发行人还本付息等合同义务。按主体可分政府债券、金融债券、公司信用类债券等。按现金流可分固定利率债、浮息债和零息债等。央行票据由中国人民银行发行，用于流动性管理等。<strong>外国债券</strong>由境外发行人在东道国市场用东道国货币发行。<strong>欧洲债券</strong>一般以发行市场所在国之外的货币计价。</p><p>境外机构在我国境内发行的人民币债券称熊猫债。地方政府依法自行组织地方债发行和还本付息，具体工作由地方财政部门办理。财政部代理发行并代办还本付息属于 2009—2010 年的历史安排。核验于 2026 年 11 月 11 日。<a href=\"https://www.pbc.gov.cn/zhengwugongkai/attachDir/2025/11/2025111914265046017.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行金融债券发行管理办法</a> · <a href=\"https://www.pbc.gov.cn/huobizhengceersi/214481/3871621/5885243/2025122616492523798.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行人民币国际化报告</a> · <a href=\"https://www.mof.gov.cn/gkml/caizhengwengao/202001wg/wg202012/202105/t20210514_3702122.htm\" target=\"_blank\" rel=\"noopener noreferrer\">财政部地方政府债券发行办法</a> · <a href=\"https://m.mof.gov.cn/zcjd/201503/t20150316_1202816.htm\" target=\"_blank\" rel=\"noopener noreferrer\">财政部地方债发行历史解读</a></p>",
+      "keyTakeaway": "外国债券名称要同时校对发行主体、发行地与计价币种。",
+      "pitfall": "“欧洲债券”中的欧洲是历史名称，关键在发行市场与币种关系。",
+      "example": "日本机构在美国发行美元债是典型扬基债，在中国境内发行人民币债是典型熊猫债。"
+    },
+    {
+      "id": "bond-value",
+      "title": "债券价格、票息与收益率",
+      "summary": "用未来现金流折现理解交易价格与收益率的方向。",
+      "bodyHtml": "<p>在固定票息、每年付息、到期按面额 F 还本的条件下，债券价格等于各期票息 C 的折现值加上到期本金的折现值，即 <strong>P＝∑ C/(1+y)ᵗ＋F/(1+y)ⁿ</strong>，求和范围为第 1 至第 n 年。y 为每期市场折现率。票面利率是 C/F，发行人约定了支付现金流。</p><p>现金流固定时，市场收益率越高，价格越低。标准债券在付息周期起点报价时，溢价对应到期收益率低于票面利率。期限相近仍要看票息、嵌入期权和现金流分布，比较利率敏感度可用久期。</p>",
+      "keyTakeaway": "区分票息比例、市场收益率、价格和收益金额。",
+      "pitfall": "票面利率按面值计算。投资者在市场上的实际收益还与买入价格和持有期间现金流有关。",
+      "example": "面值 100 元、年票息 5 元的一年债，若收益率为 4%，定价约为 105/1.04＝100.96 元。"
+    },
+    {
+      "id": "funds",
+      "title": "证券投资基金",
+      "summary": "份额持有人承担净值涨跌，管理人受托运作，托管人承担保管和监督职责。",
+      "bodyHtml": "<p>基金把不同投资者的资金集合起来，依投资目标进行组合管理。按组织形态可分<strong>契约型和公司型</strong>，按运作方式可分<strong>开放式和封闭式</strong>。投资者通常按规则申购赎回开放式基金份额，上市封闭式基金可在二级市场交易。上市 ETF 属于开放式基金，其二级市场价格可能偏离基金份额净值。</p><p>基金托管人负责保管资产、办理清算交割、复核净值等。依法设立并取得资格的商业银行或其他金融机构均可担任。核验于 2026 年 11 月 11 日。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_f70635e95c74402c878c9f9a0a362c16.html\" target=\"_blank\" rel=\"noopener noreferrer\">《证券投资基金法》第三十二条</a> · <a href=\"https://www.csrc.gov.cn/csrc/c106256/c1653705/content.shtml\" target=\"_blank\" rel=\"noopener noreferrer\">证监会基金托管业务管理办法</a></p>",
+      "keyTakeaway": "先识别分类标准，再分清管理、托管与份额持有三种角色。",
+      "pitfall": "基金份额可在场外按净值基础申赎，也可能在场内按市场价格交易。",
+      "example": "某 ETF 净值为 1.00 元，场内成交价为 1.01 元，市场价格相对净值有溢价。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "金融市场概述",
+      "target": "market-types",
+      "children": [
+        {
+          "label": "构成",
+          "target": "market-functions",
+          "children": [
+            {
+              "label": "家庭、企业与政府",
+              "target": "market-functions"
+            },
+            {
+              "label": "金融机构与中央银行",
+              "target": "market-functions"
+            },
+            {
+              "label": "交易工具与交易价格",
+              "target": "market-functions"
+            }
+          ]
+        },
+        {
+          "label": "功能",
+          "target": "market-functions",
+          "children": [
+            {
+              "label": "微观",
+              "target": "market-functions",
+              "children": [
+                {
+                  "label": "积聚资金",
+                  "target": "market-functions"
+                },
+                {
+                  "label": "财富管理",
+                  "target": "market-functions"
+                },
+                {
+                  "label": "转移风险",
+                  "target": "market-functions"
+                },
+                {
+                  "label": "促进交易",
+                  "target": "market-functions"
+                }
+              ]
+            },
+            {
+              "label": "宏观",
+              "target": "market-functions",
+              "children": [
+                {
+                  "label": "资源配置",
+                  "target": "market-functions"
+                },
+                {
+                  "label": "宏观调节",
+                  "target": "market-functions"
+                },
+                {
+                  "label": "反映信息",
+                  "target": "market-functions"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "分类",
+          "target": "market-types",
+          "children": [
+            {
+              "label": "货币市场与资本市场",
+              "target": "market-types"
+            },
+            {
+              "label": "发行市场与流通市场",
+              "target": "market-types"
+            },
+            {
+              "label": "场内市场与场外市场",
+              "target": "market-types"
+            },
+            {
+              "label": "直接融资与间接融资",
+              "target": "market-types"
+            }
+          ]
+        },
+        {
+          "label": "金融工具属性",
+          "target": "tool-properties",
+          "children": [
+            {
+              "label": "期限性",
+              "target": "tool-properties"
+            },
+            {
+              "label": "流动性",
+              "target": "tool-properties"
+            },
+            {
+              "label": "收益性",
+              "target": "tool-properties"
+            },
+            {
+              "label": "风险性",
+              "target": "tool-properties"
+            },
+            {
+              "label": "原生与衍生工具",
+              "target": "tool-properties"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "货币市场",
+      "target": "money-instruments",
+      "children": [
+        {
+          "label": "短期国库券",
+          "target": "money-instruments",
+          "children": [
+            {
+              "label": "短期限与高流动性",
+              "target": "money-instruments"
+            },
+            {
+              "label": "持币机会成本",
+              "target": "money-instruments"
+            }
+          ]
+        },
+        {
+          "label": "同业拆借",
+          "target": "interbank",
+          "children": [
+            {
+              "label": "信用拆借",
+              "target": "interbank"
+            },
+            {
+              "label": "结算与临时周转",
+              "target": "interbank"
+            }
+          ]
+        },
+        {
+          "label": "回购协议",
+          "target": "repo",
+          "children": [
+            {
+              "label": "质押式与买断式",
+              "target": "repo"
+            },
+            {
+              "label": "现时融资与到期回购",
+              "target": "repo"
+            }
+          ]
+        },
+        {
+          "label": "票据市场",
+          "target": "money-instruments",
+          "children": [
+            {
+              "label": "商业票据与承兑汇票",
+              "target": "money-instruments"
+            },
+            {
+              "label": "贴现",
+              "target": "money-instruments"
+            },
+            {
+              "label": "福费廷",
+              "target": "money-instruments"
+            }
+          ]
+        },
+        {
+          "label": "大额可转让存单",
+          "target": "money-instruments",
+          "children": [
+            {
+              "label": "存款凭证",
+              "target": "money-instruments"
+            },
+            {
+              "label": "发行条款",
+              "target": "money-instruments"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "资本市场",
+      "target": "shares",
+      "children": [
+        {
+          "label": "股票",
+          "target": "shares",
+          "children": [
+            {
+              "label": "普通股与优先股",
+              "target": "shares"
+            },
+            {
+              "label": "A、B、H、N、S 股",
+              "target": "shares"
+            },
+            {
+              "label": "首次发行、增发与流通",
+              "target": "shares"
+            },
+            {
+              "label": "多层次市场",
+              "target": "shares"
+            }
+          ]
+        },
+        {
+          "label": "债券",
+          "target": "bonds",
+          "children": [
+            {
+              "label": "政府、金融和公司债",
+              "target": "bonds"
+            },
+            {
+              "label": "固定利率、浮息和零息",
+              "target": "bonds"
+            },
+            {
+              "label": "境内、外国和欧洲债券",
+              "target": "bonds"
+            },
+            {
+              "label": "价格与利率",
+              "target": "bond-value",
+              "children": [
+                {
+                  "label": "票面利率与市场收益率",
+                  "target": "bond-value"
+                },
+                {
+                  "label": "价格与收益率反向变动",
+                  "target": "bond-value"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "证券投资基金",
+          "target": "funds",
+          "children": [
+            {
+              "label": "管理、托管与份额持有",
+              "target": "funds"
+            },
+            {
+              "label": "开放式与封闭式",
+              "target": "funds"
+            },
+            {
+              "label": "公司型与契约型",
+              "target": "funds"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

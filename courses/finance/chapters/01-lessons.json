@@ -1,0 +1,399 @@
+{
+  "title": "货币与货币制度",
+  "subtitle": "先辨认货币的职能与层次，再比较不同本位制度和国际安排。",
+  "sections": [
+    {
+      "id": "money-theories",
+      "title": "货币的本质与价值形式",
+      "summary": "区分货币的经济职能、历史形态与法定地位。",
+      "bodyHtml": "<p><strong>货币</strong>承担一般接受的计价和交换职能。货币金属说强调内在商品价值；货币名目说强调计价符号与单位；国家货币说关注法定认可和制度；劳动价值论把商品货币理解为固定充当<mark>一般等价物</mark>的特殊商品。</p><p>在劳动价值论的叙述中，价值形式从简单或偶然的交换，发展为扩大的价值形式，再到集中表达为某种一般等价物，最后该等价物稳定为货币。实物货币、金属货币、可兑现的代用货币和不兑现的信用货币代表不同历史形态。</p>",
+      "keyTakeaway": "先辨认理论框架，再区分货币职能和货币形态。",
+      "pitfall": "商品货币的价值解释不能不加限定地套到现代不兑现货币。",
+      "example": "在物物交换中，一把斧头可能分别和羊、粮食或布交换。统一以货币标价后，各物品的价值可用相同单位比较。"
+    },
+    {
+      "id": "money-functions",
+      "title": "货币的五种职能",
+      "summary": "按标价、即时交换、偿债、贮藏和跨国使用判断。",
+      "bodyHtml": "<table><thead><tr><th>职能</th><th>判断线索</th></tr></thead><tbody><tr><td>价值尺度</td><td>用单位标示价格，无须实际转移货币</td></tr><tr><td>流通手段</td><td>钱货即时交换，货币作为交换媒介</td></tr><tr><td>支付手段</td><td>延期付款、清偿债务、发放工资等资金给付</td></tr><tr><td>贮藏手段</td><td>持有货币或货币性资产以保存未来购买力</td></tr><tr><td>世界货币</td><td>在国际交易、清偿和财富转移中使用</td></tr></tbody></table><p>在传统五职能框架中，价值尺度和流通手段为基本职能。信用关系可使交货和付款分离，进而产生可转让的信用凭证。现代支票、汇票等还应区分是转移资金的工具还是实际存款余额。</p>",
+      "keyTakeaway": "先看钱有没有移动，再看是否即时对应交货，最后确认分析的是哪个交易环节。",
+      "pitfall": "同一场景可以有多个分析角度。国际偿债的具体动作是支付，跨境使用又可对应世界货币。",
+      "example": "商品先发货并记为赊销，月末结清欠款时发挥支付职能；在柜台现取现付时发挥流通职能。"
+    },
+    {
+      "id": "liquidity",
+      "title": "流动性与货币层次",
+      "summary": "比较变现所需时间、成本和价格折损。",
+      "bodyHtml": "<p>流动性表示金融资产可多快、多方便地转化为购买力，并尽量少损失价值。活期存款通常可随时使用，定期存款或证券的流动性取决于提前支取安排、交易深度和折价。</p><p>货币层次按流动性从窄到宽组织。现金和可以直接支付的余额更接近狭义货币。较宽层次还纳入部分需要转换后才能使用的资金。</p>",
+      "keyTakeaway": "快速卖出只是流动性的一部分，还要看价值能否保全。",
+      "pitfall": "能在市场卖出与能直接支付不是一回事。有价证券也不能仅按是否可转让判定层次。",
+      "example": "某债券可立即以大幅折价卖出。它虽然能成交，但大幅折价说明流动性不足。"
+    },
+    {
+      "id": "aggregates",
+      "title": "我国 M0、M1、M2 与社融",
+      "summary": "按统计期区分旧 M1 与新 M1，并独立理解社会融资规模。",
+      "bodyHtml": "<p><strong>核验日期：2026 年 11 月 11 日。</strong><mark>M0</mark> 是流通中货币，银行库存现金不计作公众流通。自统计 2025 年 1 月起，<mark>M1</mark> 包括 M0、单位活期存款、个人活期存款及非银行支付机构客户备付金。旧口径通常以 M0 加单位活期存款来说明。<a href=\"https://www.pbc.gov.cn/chubanwu/fileDir/resource/cms/2025/06/2025062416082199683.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行〔2024〕第17号公告</a> · <a href=\"https://jrj.sh.gov.cn/SCGK194/20261015/24a15f78c09947de9eb58a48c2fdb451.html\" target=\"_blank\" rel=\"noopener noreferrer\">2026年前三季度金融统计数据报告</a></p><p><mark>M2</mark> 是广义货币，包含 M1 及统计口径纳入的其他存款和部分金融工具。常用的「准货币＝M2−M1」随 M1 的划分而变。不能把全部储蓄、所有信托产品或银行承兑汇票一概列进这一差额。题型中有时用 M3 表示更广范围，我国公开常规货币统计使用 M0、M1、M2。</p><p><strong>社会融资规模</strong>衡量实体经济从金融体系获得的资金，按一定期间的增量或期末存量统计。它可以包括贷款、债券融资、境内股票融资等，作为独立指标公布。<a href=\"https://www.pbc.gov.cn/diaochatongjisi/attachDir/2025/12/2025121517152654772.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">人民银行社会融资规模存量统计表</a></p>",
+      "keyTakeaway": "看题目年份和账户类型。社会融资规模与货币供应量分别统计。",
+      "pitfall": "App 是支付渠道。仅知道用手机付款，无法判断付款和收款在哪个统计层次，也无法推出现金增加。",
+      "example": "旧口径中个人活期向单位活期转账可能使 M1 增加。新口径下这两项本已计入 M1，若只在两账户间转账，M1 总量不变。"
+    },
+    {
+      "id": "fiat-money",
+      "title": "信用货币、人民币与电子支付",
+      "summary": "区分发行基础、数字形态与支付工具。",
+      "bodyHtml": "<p>可兑现的代用货币可按规则兑换金属货币。不兑现信用货币的流通依靠发行信用、制度安排与社会接受；持有者没有按固定含金量向发行方兑换黄金的权利。现代存款货币常通过账户划转支付，App 或银行卡是发起支付的工具。</p><p><strong>核验日期：2026 年 11 月 11 日。</strong>人民币是我国的法定货币，由中国人民银行依法发行，单位为元，辅币单位为角、分。《人民币现金收付及服务规定》自 2026 年 2 月 1 日施行，对现金收付及服务提出要求。<a href=\"https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_b133589d1e1c4d3ea6ac7929c23839f3.html\" target=\"_blank\" rel=\"noopener noreferrer\">人民币管理条例</a> · <a href=\"https://policy.mofcom.gov.cn/claw/clawContent.shtml?id=105387\" target=\"_blank\" rel=\"noopener noreferrer\">人民币现金收付及服务规定</a></p><p>数字人民币与第三方账户余额、虚拟货币属于不同概念。数字人民币的产品与计量规则可调整。例如，工商银行公告规定自 2026 年 1 月起按挂牌活期存款利率为本行实名钱包余额计息。现行部门通知明确，所指虚拟货币没有与法定货币等同的法律地位。<a href=\"https://m.icbc.com.cn/page/1179734355649470466.html\" target=\"_blank\" rel=\"noopener noreferrer\">工商银行数字人民币计息公告</a> · <a href=\"https://www.csrc.gov.cn/csrc/c100028/c7614318/content.shtml\" target=\"_blank\" rel=\"noopener noreferrer\">银发〔2026〕42号通知</a></p>",
+      "keyTakeaway": "辨认谁发行、余额记在哪个主体、通过什么方式支付。",
+      "pitfall": "「不兑现」说的是没有固定兑金承诺，不影响货币按面额结算。电子化也不改变工具和基础余额的区别。",
+      "example": "用支付软件发出转账指令时，资金可能来自银行存款；软件只是支付通道。"
+    },
+    {
+      "id": "metal-systems",
+      "title": "货币制度及金属本位",
+      "summary": "从发行、铸造、兑换和法偿安排区分制度。",
+      "bodyHtml": "<p>货币制度通常规定货币名称与单位、材料或基础、主辅币、法偿、发行兑换及准备安排。历史上的典型演变可概括为银本位、金银复本位、金本位、不兑现的信用本位。各国路径并非完全相同。</p><ul><li><strong>金币本位</strong>：金币可流通，典型制度允许自由铸造、按规则兑金和黄金跨境流动。</li><li><strong>金块本位</strong>：金币通常不流通，纸币达到一定额度后可直接换成金块。</li><li><strong>金汇兑本位</strong>：本币换为与黄金挂钩的外汇，再间接兑现黄金。</li></ul><p>足值金属币可被贮藏或熔化，符合制度条件时金属也可再铸币，因而具有调节流通量的缓冲作用。历史上的相对汇率稳定不意味着物价始终稳定。</p>",
+      "keyTakeaway": "金币、金块、金汇兑分别对应金币流通、直接兑金块、通过外汇间接兑金。",
+      "pitfall": "无限法偿说的是可用于清偿的金额范围，自由铸造说的是金属转换为铸币的权利。",
+      "example": "本国银行券只能先兑某种外币，该外币可按固定比价兑金。这接近金汇兑本位。"
+    },
+    {
+      "id": "bimetallism",
+      "title": "金银复本位与格雷欣法则",
+      "summary": "固定法定比价与市场比价的偏离影响哪种币被使用。",
+      "bodyHtml": "<p>金银复本位使用两种本位金属。<strong>平行本位</strong>按市场比价兑换；<strong>双本位</strong>为两种币规定固定法定比价；<strong>跛行本位</strong>通常只允许一种金属自由铸造，限制另一种。</p><p>双本位下，若两种币可以按法定比价清偿，而金属市场比价偏离它，持有人会倾向于支付按法定面值被高估的币，把市场价值更高的币收藏、熔化或输出。这称<mark>格雷欣法则</mark>，即劣币驱逐良币。</p>",
+      "keyTakeaway": "看是否存在必须共同接受的固定兑换比价，再看哪种币按面值被高估。",
+      "pitfall": "「劣」说的是市场金属价值相对于法定面值较低，不能把它理解为假币。",
+      "example": "两枚币在法律上都能清偿 10 元，但金属可分别卖 8 元和 12 元。持有人更可能用值 8 元的币付款。"
+    },
+    {
+      "id": "international-gold",
+      "title": "国际金本位、铸币平价与黄金输送点",
+      "summary": "按法定含金量算平价，再用运金成本理解波动范围。",
+      "bodyHtml": "<p>国际货币体系包括汇率安排、储备资产、国际收支调节和协调机构。在典型国际金本位下，黄金是主要锚，两国货币单位所含黄金重量之比确定<mark>铸币平价</mark>。实际市场汇率会在平价周围波动。</p><p>在黄金可自由运送且金本位兑现有效的条件下，汇价超过含运费的上界时，输送黄金比购汇划算；低于下界时可作相反方向套利。上下界称黄金输出点与黄金输入点，直接标价下可近似写作铸币平价加减运金成本。</p>",
+      "keyTakeaway": "含金量决定平价，运输及保险成本决定波动边界。",
+      "pitfall": "两国货币的换算方向必须先明确。不能把黄金平价机制用于不承诺固定兑金的货币。",
+      "example": "若 1 甲币含金 2 克、1 乙币含金 1 克，则 1 甲币对应 2 乙币的铸币平价，实际汇价可因运金成本略有偏离。"
+    },
+    {
+      "id": "bretton-woods",
+      "title": "布雷顿森林、特里芬难题与牙买加安排",
+      "summary": "记住双挂钩与瓦解之后的汇率制度多样化。",
+      "bodyHtml": "<p>布雷顿森林体系的核心是<mark>双挂钩</mark>：美元按官方比价对外国货币当局兑换黄金，其他成员货币维持对美元可调整的固定平价。体系建立了 IMF 协调等安排，美元和黄金具有国际储备作用。</p><p><strong>特里芬难题</strong>是世界需要更多美元提供国际流动性，而外国持有美元越来越多会削弱按固定比价兑金的可信度。美元停止官方兑金后，原有平价体系瓦解。</p><p>牙买加安排和 IMF 协定第二次修订使汇率安排多样化，削弱黄金在官方平价体系中的作用，继续发展特别提款权（SDR）。<strong>核验日期：2026 年 11 月 11 日。</strong> IMF 将 SDR 定位为补充成员国官方储备的国际储备资产，可用于换取可自由使用的货币。其估值参考美元、欧元、人民币、日元与英镑。<a href=\"https://www.imf.org/en/About/Factsheets/Sheets/2022/gold-in-the-imf\" target=\"_blank\" rel=\"noopener noreferrer\">IMF 黄金与国际货币制度说明</a> · <a href=\"https://www.imf.org/en/topics/special-drawing-right\" target=\"_blank\" rel=\"noopener noreferrer\">IMF 特别提款权说明</a></p>",
+      "keyTakeaway": "古典金本位直接按含金量定平价。布雷顿森林体系通过美元搭起两层挂钩。",
+      "pitfall": "SDR 是储备资产，不能当作公众直接用于支付的货币。牙买加安排也没有要求所有经济体都实行自由浮动。",
+      "example": "若其他成员承诺维持本币对美元的平价，而美元当局承诺用黄金兑现外国官方持有的美元，就形成双挂钩。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "货币与货币职能",
+      "target": "money-functions",
+      "children": [
+        {
+          "label": "货币本质",
+          "target": "money-theories",
+          "children": [
+            {
+              "label": "金属说",
+              "target": "money-theories"
+            },
+            {
+              "label": "名目说",
+              "target": "money-theories"
+            },
+            {
+              "label": "劳动价值论",
+              "target": "money-theories"
+            },
+            {
+              "label": "国家货币说",
+              "target": "money-theories"
+            }
+          ]
+        },
+        {
+          "label": "价值形式演变",
+          "target": "money-theories",
+          "children": [
+            {
+              "label": "简单或偶然形式",
+              "target": "money-theories"
+            },
+            {
+              "label": "扩大形式",
+              "target": "money-theories"
+            },
+            {
+              "label": "一般价值形式",
+              "target": "money-theories"
+            },
+            {
+              "label": "货币形式",
+              "target": "money-theories"
+            }
+          ]
+        },
+        {
+          "label": "货币形态",
+          "target": "fiat-money",
+          "children": [
+            {
+              "label": "实物和金属货币",
+              "target": "fiat-money"
+            },
+            {
+              "label": "代用货币和信用货币",
+              "target": "fiat-money"
+            },
+            {
+              "label": "电子支付与数字人民币",
+              "target": "fiat-money"
+            }
+          ]
+        },
+        {
+          "label": "货币层次",
+          "target": "aggregates",
+          "children": [
+            {
+              "label": "按流动性由窄到宽",
+              "target": "liquidity"
+            },
+            {
+              "label": "M0 为流通中货币",
+              "target": "aggregates"
+            },
+            {
+              "label": "M1 包括高流动性余额",
+              "target": "aggregates"
+            },
+            {
+              "label": "M2 为广义货币",
+              "target": "aggregates"
+            },
+            {
+              "label": "M2−M1 常用来说明准货币",
+              "target": "aggregates"
+            },
+            {
+              "label": "理论上的 M3 与社融统计相区别",
+              "target": "aggregates"
+            }
+          ]
+        },
+        {
+          "label": "五种职能",
+          "target": "money-functions",
+          "children": [
+            {
+              "label": "价值尺度",
+              "target": "money-functions"
+            },
+            {
+              "label": "流通手段",
+              "target": "money-functions"
+            },
+            {
+              "label": "支付手段",
+              "target": "money-functions"
+            },
+            {
+              "label": "贮藏手段",
+              "target": "money-functions"
+            },
+            {
+              "label": "世界货币",
+              "target": "money-functions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "货币制度",
+      "target": "metal-systems",
+      "children": [
+        {
+          "label": "制度内容",
+          "target": "metal-systems",
+          "children": [
+            {
+              "label": "货币材料",
+              "target": "metal-systems"
+            },
+            {
+              "label": "名称和单位",
+              "target": "metal-systems"
+            },
+            {
+              "label": "本位币和辅币",
+              "target": "metal-systems"
+            },
+            {
+              "label": "有限与无限法偿",
+              "target": "metal-systems"
+            },
+            {
+              "label": "发行及准备制度",
+              "target": "metal-systems"
+            }
+          ]
+        },
+        {
+          "label": "金属本位",
+          "target": "metal-systems",
+          "children": [
+            {
+              "label": "银本位",
+              "target": "metal-systems"
+            },
+            {
+              "label": "金银复本位",
+              "target": "bimetallism",
+              "children": [
+                {
+                  "label": "平行本位",
+                  "target": "bimetallism"
+                },
+                {
+                  "label": "双本位与格雷欣法则",
+                  "target": "bimetallism"
+                },
+                {
+                  "label": "跛行本位",
+                  "target": "bimetallism"
+                }
+              ]
+            },
+            {
+              "label": "金本位",
+              "target": "metal-systems",
+              "children": [
+                {
+                  "label": "金币本位",
+                  "target": "metal-systems"
+                },
+                {
+                  "label": "金块本位",
+                  "target": "metal-systems"
+                },
+                {
+                  "label": "金汇兑本位",
+                  "target": "metal-systems"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "不兑现信用本位",
+          "target": "fiat-money",
+          "children": [
+            {
+              "label": "发行信用与法定货币",
+              "target": "fiat-money"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "国际货币体系",
+      "target": "international-gold",
+      "children": [
+        {
+          "label": "制度内容",
+          "target": "international-gold",
+          "children": [
+            {
+              "label": "汇率制度",
+              "target": "international-gold"
+            },
+            {
+              "label": "储备资产",
+              "target": "international-gold"
+            },
+            {
+              "label": "国际收支调节",
+              "target": "international-gold"
+            },
+            {
+              "label": "国际协调机制",
+              "target": "international-gold"
+            }
+          ]
+        },
+        {
+          "label": "国际金本位",
+          "target": "international-gold",
+          "children": [
+            {
+              "label": "黄金为锚",
+              "target": "international-gold"
+            },
+            {
+              "label": "铸币平价决定基准",
+              "target": "international-gold"
+            },
+            {
+              "label": "黄金输送点限制波动",
+              "target": "international-gold"
+            },
+            {
+              "label": "黄金流动与国际收支调节",
+              "target": "international-gold"
+            }
+          ]
+        },
+        {
+          "label": "布雷顿森林体系",
+          "target": "bretton-woods",
+          "children": [
+            {
+              "label": "美元与黄金双挂钩",
+              "target": "bretton-woods"
+            },
+            {
+              "label": "可调整的固定汇率",
+              "target": "bretton-woods"
+            },
+            {
+              "label": "IMF 的建立",
+              "target": "bretton-woods"
+            },
+            {
+              "label": "特里芬难题",
+              "target": "bretton-woods"
+            }
+          ]
+        },
+        {
+          "label": "牙买加安排",
+          "target": "bretton-woods",
+          "children": [
+            {
+              "label": "黄金的官方平价作用下降",
+              "target": "bretton-woods"
+            },
+            {
+              "label": "国际储备多样化",
+              "target": "bretton-woods"
+            },
+            {
+              "label": "汇率安排合法多样化",
+              "target": "bretton-woods"
+            },
+            {
+              "label": "调节方式多样化",
+              "target": "bretton-woods"
+            },
+            {
+              "label": "特别提款权作为储备资产",
+              "target": "bretton-woods"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

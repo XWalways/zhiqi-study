@@ -1,0 +1,293 @@
+{
+  "title": "弹性理论",
+  "subtitle": "用相对变化衡量需求与供给的反应。",
+  "sections": [
+    {
+      "id": "demand-price",
+      "title": "需求价格弹性：定义与计算",
+      "summary": "度量一种商品的需求量对自身价格的反应程度。",
+      "bodyHtml": "<p>其他条件不变时，<strong>需求价格弹性</strong>表示商品自身价格变动 1% 所对应的需求量变动百分比。普通需求曲线向右下倾斜，本章把比率加负号，以正数表示反应幅度。</p><table><thead><tr><th>计算口径</th><th>公式</th><th>适用条件</th></tr></thead><tbody><tr><td>定义式</td><td>e<sub>d</sub> = −(ΔQ/Q)/(ΔP/P)</td><td>需求量变化率除以价格变化率，分母口径要明确</td></tr><tr><td>点弹性</td><td>e<sub>d</sub> = −(dQ/dP)×(P/Q)</td><td>已知函数或给定点的斜率与坐标</td></tr><tr><td>起点口径</td><td>e<sub>d</sub> = −(ΔQ/ΔP)×(P₁/Q₁)</td><td>两端变化率以初始价格和初始数量为基准</td></tr><tr><td>中点弧弹性</td><td>e<sub>d</sub> = −(ΔQ/ΔP)×[(P₁+P₂)/(Q₁+Q₂)]</td><td>两端变化率分别以价格均值和数量均值为基准，交换端点结果相同</td></tr></tbody></table><p><mark>自身价格变化沿原需求曲线移动。</mark>收入、相关品价格或价格预期变化可改变整条曲线。同一点相切的两条曲线既有相同的斜率，也共享同一 P/Q，所以其点弹性相同。</p>",
+      "keyTakeaway": "先识别分母是哪一个变量，再按题意选取初始值、中点均值或给定点。",
+      "pitfall": "常用图的横轴是 Q、纵轴是 P，图上斜率通常是 dP/dQ。点弹性用 dQ/dP，并乘以当点的 P/Q。",
+      "example": "价格从 9 元到 11 元，需求量从 11 吨到 9 吨。中点价格和数量都为 10，两种变化率的绝对值都是 20%，弧弹性为 1。"
+    },
+    {
+      "id": "elasticity-revenue",
+      "title": "弹性大小与总销售收入",
+      "summary": "用需求量的反应幅度判断调价对总销售收入的影响。",
+      "bodyHtml": "<p><strong>总销售收入</strong>等于成交价格乘销量，即 TR=P×Q。需求曲线上有 dTR/dP=Q(1−e<sub>d</sub>)，因此判断局部调价效果要把弹性与 1 比较。题目若直接给出调价前后的价格和销量，可分别相乘比较。</p><table><thead><tr><th>弹性</th><th>类型</th><th>提价对总收入的影响</th></tr></thead><tbody><tr><td>0</td><td>完全无弹性，曲线垂直</td><td>销量固定，总收入增加</td></tr><tr><td>0＜e<sub>d</sub>＜1</td><td>需求缺乏弹性</td><td>总收入增加</td></tr><tr><td>1</td><td>单位弹性</td><td>在单位弹性区间内总收入不变</td></tr><tr><td>e<sub>d</sub>＞1</td><td>需求富有弹性</td><td>总收入减少</td></tr><tr><td>∞</td><td>完全有弹性，曲线水平</td><td>一旦高于市场给定价格，需求量降为零</td></tr></tbody></table><p>丰收推动农产品供给右移。如果需求在相关区间缺乏弹性，市场降价带来的收入损失可能超过销量增加带来的收入增长，这就是<mark>谷贱伤农</mark>。工资总额等于工资率乘雇佣量，可以用同样的方法分析劳动需求。</p>",
+      "keyTakeaway": "需求缺乏弹性时，价格与总收入同向变动。需求富有弹性时，两者反向变动。",
+      "pitfall": "这里的收入指价格乘成交量。计算利润还要考虑成本，判断一次幅度较大的调价还要关注整个价格区间的弹性。",
+      "example": "单价由 4 元上升到 5 元，销量由 10 件降至 8 件，调价前后收入都是 40 元。"
+    },
+    {
+      "id": "demand-factors",
+      "title": "需求价格弹性的影响因素",
+      "summary": "从消费者能否改变购买决策来理解弹性大小。",
+      "bodyHtml": "<ul><li><strong>替代品</strong>越多、越接近，消费者越容易换购，需求价格弹性通常越大。</li><li><strong>用途</strong>越广，可随价格调整的用途越多，弹性通常越大。</li><li><strong>必需程度</strong>越高，可削减的需求量通常越少，弹性较小。</li><li><strong>预算占比</strong>越高，同等比例涨价对预算的影响越大，消费者通常更敏感。</li><li><strong>调整时间</strong>越长，越容易找到替代方案，长期弹性一般更大。</li></ul><p>划定市场范围也很重要。同一行业有大量近似替代品时，单个企业面临的需求可能很富有弹性。完全竞争模型里厂商以市场价销售，面临水平需求曲线。</p>",
+      "keyTakeaway": "把弹性大小还原成一个问题：价格改变后，买方有多少空间改买别的商品或少买一些？",
+      "pitfall": "商品属性和市场范围会改变结论。按题意区分食盐这一大类和可被其他品牌替代的某个品牌。",
+      "example": "家用食盐开支占比小、常见替代方案少，购买量通常对价格不太敏感。可推迟购买的珠宝通常更敏感。"
+    },
+    {
+      "id": "supply-price",
+      "title": "供给价格弹性",
+      "summary": "用百分比衡量生产者能多快、多大程度调整供给量。",
+      "bodyHtml": "<p><strong>供给价格弹性</strong>是供给量变动百分比与商品自身价格变动百分比之比。在通常的向右上倾斜的供给曲线上，它为正。供给曲线的点弹性为 e<sub>s</sub>=(dQ/dP)×(P/Q)，有限变动用 ΔQ/ΔP 并按题意采用起点 P₁/Q₁ 或中点价格数量比。若 Q=kP 且 P、Q 为正，则 e<sub>s</sub>=k×(1/k)=1。</p><p>可分为完全无弹性（0）、缺乏弹性（0＜e<sub>s</sub>＜1）、单位弹性（1）、富有弹性（e<sub>s</sub>＞1）和完全有弹性（∞）。</p><ul><li><mark>时间</mark>越充足，通常越能扩大产能。</li><li>生产周期越长，短期增产越困难，自然条件也可能限制供给量。</li><li>投入品越容易互相替代，越容易通过调整投入组合扩大生产。</li><li>扩产时边际成本上升越慢，通常越容易响应价格上涨。</li></ul>",
+      "keyTakeaway": "供给侧看生产者是否能增减产量。过原点且斜率为有限正值的直线供给曲线在正价格、正产量处点弹性恒为 1。",
+      "pitfall": "百分比的比值还包含 P/Q。用斜率直接充当弹性会遗漏这一项。",
+      "example": "当季鲜果的种植周期无法临时缩短，价格上涨时短期供给量变化可能很小。下一季增加种植面积后，供给量更容易调整。"
+    },
+    {
+      "id": "cross-price",
+      "title": "需求的交叉价格弹性",
+      "summary": "用一种商品价格变动引起的另一种商品需求量变动识别替代与互补。",
+      "bodyHtml": "<p>其他条件不变时，<strong>需求的交叉价格弹性</strong>为 E<sub>xy</sub>=(ΔQ<sub>x</sub>/Q<sub>x</sub>)/(ΔP<sub>y</sub>/P<sub>y</sub>)。下标的顺序写明先看谁的需求量，再看谁的价格。<mark>这里保留正负号</mark>，用方向识别关系。</p><table><thead><tr><th>符号</th><th>关系</th><th>Y 涨价时 X 的需求量</th></tr></thead><tbody><tr><td>正</td><td>替代品</td><td>增加</td></tr><tr><td>负</td><td>互补品</td><td>减少</td></tr><tr><td>零</td><td>在所观察的条件下无交叉反应</td><td>不变</td></tr></tbody></table>",
+      "keyTakeaway": "分子是 X 的需求量变化率，分母是 Y 的价格变化率。反应方向一致为正，方向相反为负。",
+      "pitfall": "两种商品的需求量同时变动时，要找出究竟是哪一种商品的价格发生变化，并在其自身需求曲线通常向下的条件下判断。",
+      "example": "黄油涨价 5%，人造黄油的需求量增加 10%，交叉价格弹性为 2，符合替代品关系。"
+    },
+    {
+      "id": "income-elasticity",
+      "title": "需求的收入弹性",
+      "summary": "比较需求量与收入的变化率，区分必需品、高档品和低档品。",
+      "bodyHtml": "<p>其他条件不变时，<strong>需求的收入弹性</strong>为 E<sub>I</sub>=(ΔQ/Q)/(ΔI/I)。收入提高后需求量随之提高，商品在相应收入区间属于正常品。</p><ul><li><strong>0＜E<sub>I</sub>＜1</strong>：必需品，需求量增加得比收入慢。</li><li><strong>E<sub>I</sub>＞1</strong>：高档品，需求量增加得比收入快。</li><li><strong>E<sub>I</sub>＜0</strong>：低档品，收入提高时需求量减少。</li><li>E<sub>I</sub>=1 时需求量与收入同比例变动，E<sub>I</sub>=0 时需求量没有随收入变动。</li></ul>",
+      "keyTakeaway": "先按符号分正常品和低档品，再用 1 区分正常品中的必需品与高档品。",
+      "pitfall": "低档品是收入变动下的需求分类。同一商品在不同人群和收入区间可能得到不同分类。",
+      "example": "收入提高 25%，某商品的需求量提高 10%，收入弹性为 0.4，属于必需品。"
+    },
+    {
+      "id": "engel",
+      "title": "恩格尔系数与恩格尔定律",
+      "summary": "用食品支出占消费总支出的比重观察消费结构。",
+      "bodyHtml": "<p><mark>恩格尔系数=食品支出÷消费总支出。</mark>恩格尔定律描述收入提高时，食品支出占消费支出的比重通常降低。食品支出的绝对金额仍然可能增加。</p><table><thead><tr><th>工具</th><th>主要用途</th></tr></thead><tbody><tr><td>恩格尔系数</td><td>观察消费结构，在其他条件可比时辅助比较生活水平</td></tr><tr><td>基尼系数和洛伦兹曲线</td><td>观察收入分配不平等程度</td></tr><tr><td>菲利普斯曲线</td><td>在通常的短期宏观分析中，描述通胀率与失业率之间的关系</td></tr></tbody></table>",
+      "keyTakeaway": "比较恩格尔系数时看食品支出占比，并确认统计口径和其他条件可比。",
+      "pitfall": "恩格尔系数的分母是消费总支出。把收入直接当分母会在存在储蓄等情况下得到不同结果。",
+      "example": "甲家庭食品占消费支出的 30%，乙家庭占 50%。在其他条件一致时，甲通常有更高的生活水平。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "需求价格弹性",
+      "target": "demand-price",
+      "children": [
+        {
+          "label": "含义与计算",
+          "target": "demand-price",
+          "children": [
+            {
+              "label": "需求量对自身价格的反应",
+              "target": "demand-price"
+            },
+            {
+              "label": "百分比之比",
+              "target": "demand-price"
+            },
+            {
+              "label": "点弹性：导数乘 P/Q",
+              "target": "demand-price"
+            },
+            {
+              "label": "弧弹性：起点公式与中点公式",
+              "target": "demand-price"
+            }
+          ]
+        },
+        {
+          "label": "弹性类型与销售收入",
+          "target": "elasticity-revenue",
+          "children": [
+            {
+              "label": "e_d=0：完全无弹性",
+              "target": "elasticity-revenue"
+            },
+            {
+              "label": "0＜e_d＜1：缺乏弹性，涨价增收",
+              "target": "elasticity-revenue"
+            },
+            {
+              "label": "e_d=1：单位弹性",
+              "target": "elasticity-revenue"
+            },
+            {
+              "label": "e_d＞1：富有弹性，涨价减收",
+              "target": "elasticity-revenue"
+            },
+            {
+              "label": "e_d 趋于无穷：完全有弹性",
+              "target": "elasticity-revenue"
+            },
+            {
+              "label": "谷贱伤农",
+              "target": "elasticity-revenue"
+            }
+          ]
+        },
+        {
+          "label": "影响因素",
+          "target": "demand-factors",
+          "children": [
+            {
+              "label": "可替代性越强，弹性通常越大",
+              "target": "demand-factors"
+            },
+            {
+              "label": "用途越广，弹性通常越大",
+              "target": "demand-factors"
+            },
+            {
+              "label": "必需程度越高，弹性通常越小",
+              "target": "demand-factors"
+            },
+            {
+              "label": "支出占预算比重越大，弹性通常越大",
+              "target": "demand-factors"
+            },
+            {
+              "label": "调整时间越长，弹性通常越大",
+              "target": "demand-factors"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "供给价格弹性",
+      "target": "supply-price",
+      "children": [
+        {
+          "label": "含义与公式",
+          "target": "supply-price",
+          "children": [
+            {
+              "label": "供给量变化率与价格变化率之比",
+              "target": "supply-price"
+            },
+            {
+              "label": "点弹性",
+              "target": "supply-price"
+            },
+            {
+              "label": "弧弹性的起点公式与中点公式",
+              "target": "supply-price"
+            }
+          ]
+        },
+        {
+          "label": "弹性类型",
+          "target": "supply-price",
+          "children": [
+            {
+              "label": "完全无弹性",
+              "target": "supply-price"
+            },
+            {
+              "label": "缺乏弹性",
+              "target": "supply-price"
+            },
+            {
+              "label": "单位弹性",
+              "target": "supply-price"
+            },
+            {
+              "label": "富有弹性",
+              "target": "supply-price"
+            },
+            {
+              "label": "完全有弹性",
+              "target": "supply-price"
+            }
+          ]
+        },
+        {
+          "label": "影响因素",
+          "target": "supply-price",
+          "children": [
+            {
+              "label": "调整时间",
+              "target": "supply-price"
+            },
+            {
+              "label": "生产周期与自然条件",
+              "target": "supply-price"
+            },
+            {
+              "label": "投入品的替代性",
+              "target": "supply-price"
+            },
+            {
+              "label": "增产时边际成本的变化",
+              "target": "supply-price"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "需求的交叉价格弹性",
+      "target": "cross-price",
+      "children": [
+        {
+          "label": "一种商品的需求量对另一种商品价格的反应",
+          "target": "cross-price"
+        },
+        {
+          "label": "X 需求量变化率÷Y 价格变化率",
+          "target": "cross-price"
+        },
+        {
+          "label": "正值：替代品",
+          "target": "cross-price"
+        },
+        {
+          "label": "负值：互补品",
+          "target": "cross-price"
+        },
+        {
+          "label": "零：无交叉反应",
+          "target": "cross-price"
+        }
+      ]
+    },
+    {
+      "label": "需求的收入弹性",
+      "target": "income-elasticity",
+      "children": [
+        {
+          "label": "需求量对收入的反应",
+          "target": "income-elasticity"
+        },
+        {
+          "label": "需求量变化率÷收入变化率",
+          "target": "income-elasticity"
+        },
+        {
+          "label": "0＜E_I＜1：必需品",
+          "target": "income-elasticity"
+        },
+        {
+          "label": "E_I＞1：高档品",
+          "target": "income-elasticity"
+        },
+        {
+          "label": "E_I＜0：低档品",
+          "target": "income-elasticity"
+        },
+        {
+          "label": "恩格尔系数",
+          "target": "engel",
+          "children": [
+            {
+              "label": "食品支出÷消费总支出",
+              "target": "engel"
+            },
+            {
+              "label": "恩格尔定律：收入增加，食品消费占比通常下降",
+              "target": "engel"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

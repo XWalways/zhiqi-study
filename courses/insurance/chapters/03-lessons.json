@@ -1,0 +1,289 @@
+{
+  "title": "保险合同",
+  "subtitle": "从投保申请到理赔和终止，分清合同角色、各阶段的法律条件和容易混淆的手续。",
+  "sections": [
+    {
+      "id": "insurance-contract",
+      "title": "保险合同及其特性",
+      "summary": "合同当事人是投保人与保险人，典型特征包括双务、有偿、射幸和附和。",
+      "bodyHtml": "<p><strong>保险合同</strong>是投保人与保险人约定保险权利义务关系的协议。投保人按约定付保费，保险人按约定承担风险并在保险事故或约定给付条件满足时履行赔偿或给付责任。</p><p><strong>双务性</strong>指双方互负义务。<strong>射幸性</strong>指订约时赔付是否发生、发生时点或金额具有不确定性。<strong>条件性</strong>指赔偿或给付要满足合同所定条件。<strong>附和性</strong>与预先拟定并重复使用的格式条款有关。<strong>补偿性</strong>主要体现于财产保险和费用补偿型产品。<strong>个人性</strong>指保险人承保时要考虑具体主体的利益和风险，例如个人寿险会依被保险人健康状况核保。双方掌握的信息存在差异，也形成告知和说明义务的需要。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 10、11、14、16、17、30 条分别规定合同定义、公平协商、履行、告知说明和格式条款解释。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a></p>",
+      "keyTakeaway": "“双方各负义务”是双务性，“最终赔付存在不确定性”是射幸性，“格式条款预先拟定”体现附和性。",
+      "pitfall": "没有获得赔付时，保险人在约定期间内仍提供了风险保障。",
+      "example": "为厂房购买一年火险后，厂房全年未发生承保事故，保险人未支付赔款，体现射幸性。"
+    },
+    {
+      "id": "contract-forms",
+      "title": "保险合同的文件形式",
+      "summary": "按申请、证明、临时保障、书面变更四个用途辨认文件。",
+      "bodyHtml": "<p><strong>投保单</strong>通常用于投保人提出书面投保要求。<strong>保险单</strong>载明已经约定的合同内容，<strong>保险凭证</strong>可以作为其简化书面证明。<strong>暂保单</strong>记载约定的临时保障。<strong>批单</strong>常用于证明合同已有变更。依法可调取、能有形表现所载内容的数据电文可以视作书面形式。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 13 条区分承保合意与签发保险单等文件，第 20 条规定协商变更及批注、附贴批单或书面协议。《民法典》第 469 条规定书面形式及数据电文。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a>　<a href=\"https://www.spp.gov.cn/spp/zdgz/202006/t20200602_463886.shtml\">最高人民检察院 · 民法典</a></p>",
+      "keyTakeaway": "记住“投保单是申请，保险单和保险凭证是证明，暂保单是临时保障，批单是变更记录”。",
+      "pitfall": "保费收据证明收款。判断合同成立还要查保险人是否同意承保，或是否符合特定司法解释条件。",
+      "example": "企业提交财产险投保单，保险人同意承保后签发保险单。双方随后书面调整保障范围，可以出具批单。"
+    },
+    {
+      "id": "contract-roles",
+      "title": "合同主体、客体和内容",
+      "summary": "分清当事人、关系人、中介，以及保险标的和保险利益。",
+      "bodyHtml": "<p>保险人、投保人属于<strong>当事人</strong>。被保险人、受益人通常称<strong>关系人</strong>，同一人可以兼有多种身份。人身保险受益人由被保险人或投保人指定，投保人指定或变更时须经被保险人同意。死亡保险金在未指定、无法确定受益人等法定情形下作为被保险人遗产。</p><p>保险标的是合同承保的财产及相关利益或人的寿命、身体。按保险合同三要素的分析框架，合同客体强调对标的的可保利益。<strong>合同内容</strong>是有关各方的权利义务及相关事项，包括保险责任、免责、保险期间、金额、保费及赔付办法。<strong>基本条款</strong>规定主要内容，<strong>附加条款</strong>在此基础上增减约定。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 10、12、18、39–42 条规定合同角色、合同事项和受益人制度。受益人还负有第 21、22 条所涉通知和提供有关证明资料的义务。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a></p>",
+      "keyTakeaway": "主体问“谁参与”，客体问“保障什么利益”，内容问“双方有哪些权利义务”。",
+      "pitfall": "为有劳动关系的员工投保人身保险时，指定的受益人范围受第 39 条限制。",
+      "example": "张女士向保险公司为自己投保，兼为投保人和被保险人。她依法指定受益人后，该受益人可以在约定给付条件满足时请求保险金。"
+    },
+    {
+      "id": "insurance-intermediaries",
+      "title": "保险代理人、经纪人和公估人",
+      "summary": "按委托来源、服务立场和服务内容区分三类保险中介。",
+      "bodyHtml": "<p><strong>保险代理人</strong>接受保险人委托，在授权范围内代为办理业务。<strong>保险经纪人</strong>基于投保人利益提供订立合同的中介服务并依法收费。<strong>保险公估人</strong>提供保险标的评估、事故查勘、损失鉴定和理算等专业服务。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 117、118、129 条规定代理、经纪和评估鉴定机构的相关规则，监管部门对保险中介经营的许可或备案按业务类型区分。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a>　<a href=\"https://www.nfra.gov.cn/branch/guangxi/view/pages/common/ItemDetail.html?docId=1172095&amp;itemId=1612\">国家金融监督管理总局广西监管局 · 保险中介资质提示</a></p>",
+      "keyTakeaway": "代理看保险人委托，经纪看投保人利益，公估看评估和查勘理算。",
+      "pitfall": "题目一般问保险中介的职能分类。特定销售规章中的适用对象应按该规章定义判断。",
+      "example": "企业请经纪机构比较不同保险公司的货运险方案。出险后，公估机构可以受托查勘并估算货损。"
+    },
+    {
+      "id": "contract-formation",
+      "title": "订立、成立、生效和责任开始",
+      "summary": "按顺序核对投保要求、同意承保、效力和责任开始时间。",
+      "bodyHtml": "<p>投保人提出保险要求且保险人同意承保，保险合同成立。依法成立的合同通常自成立时生效，双方可以约定生效附条件或附期限。<strong>保险责任开始时间</strong>按合同约定确定，可能与成立日不同。</p><p>在人身保险中，投保人订立时对被保险人没有保险利益的，合同无效。财产保险要求事故发生时被保险人对标的有保险利益，缺乏该利益会影响请求赔偿。投保单已收且已收费、保险人尚未表示承保而发生事故时，应结合司法解释的承保条件规则判断。</p><p>官方核验（2026 年 11 月 11 日）。核对《保险法》第 12–14、31、48 条和保险法司法解释（二）第 4 条。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a>　<a href=\"https://cicc.court.gov.cn/html/1/380/385/12841.html\">最高人民法院 · 保险法司法解释</a></p>",
+      "keyTakeaway": "成立看合意，生效看法律和约定，赔付还须看保险责任开始时间。",
+      "pitfall": "财险订约时缺少保险利益和财险出险时缺少保险利益的后果不同，勿将后者称为合同效力待定。",
+      "example": "保险人 5 月 1 日同意承保，双方约定 5 月 5 日零时起承担责任。判断 5 月 3 日的事故时，单看承保同意日不够。"
+    },
+    {
+      "id": "contract-performance",
+      "title": "合同履行与理赔费用",
+      "summary": "事故通知、危险增加通知、减损和费用承担要对应各自义务人。",
+      "bodyHtml": "<p>投保人依约缴费。投保人、被保险人或者受益人知道保险事故发生后，应及时通知保险人，申请赔付时按要求提供其所能提供的相关证明资料。财产险标的危险程度显著增加时，被保险人按合同及时通知。事故发生时，被保险人尽力采取必要措施防止或减少损失。</p><p>保险人收到申请后应依法核定和通知，符合责任的按期履行赔偿或给付义务。财产保险中，必要、合理的<strong>施救费用</strong>在标的损失赔偿外另计，最高不超过保险金额。保险人、被保险人为查明事故性质、原因和损失程度支付的必要、合理费用由保险人承担。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 14、21–25、51、52、57、64 条分别规定交费、理赔、标的安全、风险增加、减损和查明费用。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a></p>",
+      "keyTakeaway": "先识别投保人和被保险人是否为同一主体，再判断具体义务。",
+      "pitfall": "事故发生通知与危险增加通知是两项不同义务。查定费用与施救费用要分别审查必要性、合理性和适用限制。",
+      "example": "足额财险承保损失 100 万元，施救和查明事故各有必要合理费用 10 万元，题设没有其他扣减时合计 120 万元。"
+    },
+    {
+      "id": "contract-change",
+      "title": "合同变更和标的转让",
+      "summary": "区分变更受益人、协商修改条款、财产标的转让后承继权利义务。",
+      "bodyHtml": "<p>保险人与投保人可以协商变更合同内容，通常以批注、批单或书面协议确认。人身保险受益人变更须书面通知保险人，投保人提出变更还须经被保险人同意。个人寿险更换被保险人会改变承保的寿命、身体和风险，通常需要重新核保和订约。</p><p>财产保险标的转让时，受让人依法承继被保险人的权利义务。一般由被保险人或受让人及时通知保险人，<strong>货物运输保险和另有约定的合同</strong>属于通知义务的例外。转让导致危险显著增加时，应另看保险人的增费或解除权。海上货物运输保险合同可以背书或以其他方式转让。</p><p>官方核验（2026 年 11 月 11 日）。核对《保险法》第 20、34、41、49 条与自 2026 年 5 月 1 日施行的《海商法》第 255 条。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a>　<a href=\"https://www.js.msa.gov.cn/art/2026/1/5/art_842_2101.html\">江苏海事局 · 海商法</a></p>",
+      "keyTakeaway": "“承继被保险人的权利义务”“通知保险人”“征得同意”分别判断。",
+      "pitfall": "受让人承继被保险人地位，不能据此一并推定投保人资格自动转移。死亡给付保单转让或质押还应核对被保险人书面同意要求。",
+      "example": "货主背书转让海上货物运输保险合同时，相关合同权利义务随转让移转。"
+    },
+    {
+      "id": "contract-termination",
+      "title": "合同中止、解除、终止与无效",
+      "summary": "先分清合同效力状态，再检查解除权主体、法定事由和期限。",
+      "bodyHtml": "<p><strong>自然终止</strong>常见于保险期满，履约终止可能发生在合同义务全部完成时。<strong>解除</strong>可以来自协商一致、法定事由或约定的解除条件。保险法原则上允许投保人解除，保险人解除须有法律或合同依据。违反义务可能形成解除事由，仍须核对法定条件。<strong>中止</strong>是暂时停止效力，例如分期寿险在满足首期已付且逾期等条件时可以中止，双方可以协商并补费复效。中止满两年未达成协议时，保险人有权解除并依约退还现金价值。</p><p>投保人故意或因重大过失未如实告知，并且足以影响承保或费率时，才进入相应解除权审查。还要核对知情后 30 日与合同成立后两年的限制。投保人、被保险人故意制造保险事故与受益人故意造成被保险人死亡、伤残、疾病，适用不同后果。<strong>无效</strong>涉及法定效力瑕疵，例如人身保险订立时欠缺保险利益。违反法律、行政法规的强制性规定时，还应审查该规定是否导致民事法律行为无效。</p><p>官方核验（2026 年 11 月 11 日）。核对《保险法》第 15、16、27、31、36、37、42、43、50、51 条和《民法典》第 153、557、562–563 条。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a>　<a href=\"https://www.spp.gov.cn/spp/zdgz/202006/t20200602_463886.shtml\">最高人民检察院 · 民法典</a></p>",
+      "keyTakeaway": "“无效”问合同是否取得法律效力，“解除”问有效合同是否可以提前结束，“中止”问效力能否暂时停下并恢复。",
+      "pitfall": "保险费违约、安全义务违约、未告知和故意制造事故分别适用相应规则。货运险和运输工具航程保险在保险责任开始后存在法定解除限制。",
+      "example": "分期寿险中止后，双方达成复效协议，投保人补交保费，合同效力恢复。"
+    },
+    {
+      "id": "contract-interpretation",
+      "title": "保险合同争议与条款解释",
+      "summary": "结合用词、上下文和当事人意思解释条款，格式条款争议有适用条件。",
+      "bodyHtml": "<p><strong>文义解释</strong>从文字通常含义及上下文入手。<strong>意图解释</strong>结合合同目的、相关条款、交易习惯和诚信原则确认意思表示。条款有缺漏时，可以依法通过补充协议、相关条款或交易习惯等补充。保险凭证记载冲突时，还要结合投保单、经确认的变更、非格式条款及形成时间等适用具体规则。</p><p>采用保险人提供的格式条款订约时，应先按通常理解解释。若条款有两种以上解释，法院或仲裁机构应作出有利于被保险人和受益人的解释。有效协商的非格式条款与格式条款冲突时，适用非格式条款。</p><p>官方核验（2026 年 11 月 11 日）。核对《保险法》第 30 条、《民法典》第 142、466、498、510 条和保险法司法解释（二）第 14 条。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a>　<a href=\"https://www.spp.gov.cn/spp/zdgz/202006/t20200602_463886.shtml\">最高人民检察院 · 民法典</a>　<a href=\"https://cicc.court.gov.cn/html/1/380/385/12841.html\">最高人民法院 · 保险法司法解释</a></p>",
+      "keyTakeaway": "先看通常理解。格式条款确有两种以上解释时，适用有利于被保险人和受益人的规则。",
+      "pitfall": "批单记载产生冲突时，要确认变更经当事人依法同意以及相应法律适用条件。",
+      "example": "如果某个保险人提供的格式用语结合合同上下文后仍存在两种合理解释，法院适用《保险法》第 30 条。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "概念与特性",
+      "target": "insurance-contract",
+      "children": [
+        {
+          "label": "投保人与保险人约定权利义务",
+          "target": "insurance-contract",
+          "children": [
+            {
+              "label": "缴纳保费与承担赔偿或给付责任",
+              "target": "insurance-contract"
+            }
+          ]
+        },
+        {
+          "label": "合同特性",
+          "target": "insurance-contract",
+          "children": [
+            {
+              "label": "双务性与射幸性",
+              "target": "insurance-contract"
+            },
+            {
+              "label": "补偿性与条件性",
+              "target": "insurance-contract"
+            },
+            {
+              "label": "附和性与格式条款",
+              "target": "contract-interpretation"
+            },
+            {
+              "label": "个人性与被保险人风险",
+              "target": "contract-change"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "形式和内容",
+      "target": "contract-forms",
+      "children": [
+        {
+          "label": "合同文件",
+          "target": "contract-forms",
+          "children": [
+            {
+              "label": "投保单、保险单、保险凭证",
+              "target": "contract-forms"
+            },
+            {
+              "label": "暂保单、批单",
+              "target": "contract-forms"
+            }
+          ]
+        },
+        {
+          "label": "合同的三要素",
+          "target": "contract-roles",
+          "children": [
+            {
+              "label": "当事人和关系人",
+              "target": "contract-roles"
+            },
+            {
+              "label": "客体与可保利益",
+              "target": "contract-roles"
+            },
+            {
+              "label": "权利义务与保险条款",
+              "target": "contract-roles"
+            }
+          ]
+        },
+        {
+          "label": "合同辅助人",
+          "target": "insurance-intermediaries",
+          "children": [
+            {
+              "label": "保险代理人",
+              "target": "insurance-intermediaries"
+            },
+            {
+              "label": "保险经纪人",
+              "target": "insurance-intermediaries"
+            },
+            {
+              "label": "保险公估人",
+              "target": "insurance-intermediaries"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "订立、履行、变更与终止",
+      "target": "contract-formation",
+      "children": [
+        {
+          "label": "订立",
+          "target": "contract-formation",
+          "children": [
+            {
+              "label": "合同成立",
+              "target": "contract-formation",
+              "children": [
+                {
+                  "label": "要约与承诺",
+                  "target": "contract-formation"
+                }
+              ]
+            },
+            {
+              "label": "生效与责任开始",
+              "target": "contract-formation",
+              "children": [
+                {
+                  "label": "附条件或附期限",
+                  "target": "contract-formation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "履行",
+          "target": "contract-performance",
+          "children": [
+            {
+              "label": "投保人和被保险人的基本义务",
+              "target": "contract-performance"
+            },
+            {
+              "label": "保险人的基本义务",
+              "target": "contract-performance"
+            }
+          ]
+        },
+        {
+          "label": "变更",
+          "target": "contract-change",
+          "children": [
+            {
+              "label": "关系人变更",
+              "target": "contract-change",
+              "children": [
+                {
+                  "label": "被保险人和受益人的变更",
+                  "target": "contract-change"
+                }
+              ]
+            },
+            {
+              "label": "合同内容变更",
+              "target": "contract-change"
+            }
+          ]
+        },
+        {
+          "label": "终止与中止",
+          "target": "contract-termination",
+          "children": [
+            {
+              "label": "期满和履约完成",
+              "target": "contract-termination"
+            },
+            {
+              "label": "法定、约定与协商解除",
+              "target": "contract-termination"
+            },
+            {
+              "label": "违约后的法律后果",
+              "target": "contract-termination"
+            },
+            {
+              "label": "效力中止与复效",
+              "target": "contract-termination"
+            }
+          ]
+        },
+        {
+          "label": "争议与解释",
+          "target": "contract-interpretation",
+          "children": [
+            {
+              "label": "文义与意图",
+              "target": "contract-interpretation"
+            },
+            {
+              "label": "有利于被保险人和受益人",
+              "target": "contract-interpretation"
+            },
+            {
+              "label": "凭证冲突和补充解释",
+              "target": "contract-interpretation"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

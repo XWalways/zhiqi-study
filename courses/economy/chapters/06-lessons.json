@@ -1,0 +1,243 @@
+{
+  "title": "成本理论",
+  "subtitle": "识别真实的决策成本，比较不同产量和规模下的最低生产成本。",
+  "sections": [
+    {
+      "id": "cost",
+      "title": "机会成本、显性成本、隐性成本与沉没成本",
+      "summary": "从备选用途价值出发，识别经济决策中的成本。",
+      "bodyHtml": "<p><strong>机会成本</strong>是作出选择时放弃的最佳可行备选方案的价值。资源可用于不同用途时，经济分析需要考虑被放弃的最好用途。</p><ul><li><strong>显性成本</strong>是企业购买或租用外部要素实际支付的费用，例如租金、工资与材料费。</li><li><strong>隐性成本</strong>是使用自有资源所放弃的最佳替代收益，例如使用自有厂房放弃的出租收益。</li><li><strong>经济成本</strong>包括显性成本与隐性成本。在计算时，每项要素的机会成本只计一次。</li><li><strong>沉没成本</strong>是已经发生且无法收回的成本。比较未来方案时，关注会随选择而改变的成本和收益。</li></ul>",
+      "keyTakeaway": "经济成本包括实际支出和自有资源的机会成本。沉没成本在当前可选方案之间不再改变。",
+      "pitfall": "多个用途相互排斥时，机会成本取价值最高的可行备选用途。可以同时实现的其他用途，要作为一个可行方案整体估值。",
+      "example": "自用门店放弃每月 4000 元出租收入，同时支付每月 6000 元员工工资。两项合计的月经济成本是 10000 元。"
+    },
+    {
+      "id": "cost-profit",
+      "title": "会计利润、经济利润与正常利润",
+      "summary": "利润口径取决于扣除了哪些成本。",
+      "bodyHtml": "<table><thead><tr><th>口径</th><th>公式或含义</th></tr></thead><tbody><tr><td>会计利润</td><td>在本章的简化口径下，总收益减显性成本</td></tr><tr><td>经济利润</td><td>总收益减经济成本，等于会计利润减隐性成本</td></tr><tr><td>正常利润</td><td>使企业家才能继续用于本用途所需的最低报酬，计入隐性成本</td></tr></tbody></table><p>经济利润为零时，收入恰好补偿显性成本与隐性成本，企业家仍取得正常利润。经济利润为正时，才有超过全部机会成本的剩余，通常称为超额利润。</p>",
+      "keyTakeaway": "经济利润按全部机会成本计算。正常利润已经列在隐性成本中。",
+      "pitfall": "经济利润为零的企业仍可能有正的会计利润。判断时先问用了哪一种成本口径。",
+      "example": "总收益 10 万元，显性成本 7 万元，隐性成本 3 万元，其中已包括正常利润。会计利润为 3 万元，经济利润为零。"
+    },
+    {
+      "id": "producer-equilibrium",
+      "title": "成本最小化与生产者均衡",
+      "summary": "给定产量求最低成本，或给定成本求最高产量。",
+      "bodyHtml": "<p>投入劳动 <var>L</var>、资本 <var>K</var>，价格分别为 <var>w</var> 与 <var>r</var> 时，<strong>等成本线</strong>满足 <mark>wL + rK = C</mark>。以劳动为横轴、资本为纵轴，斜率为 −w/r。给定产量，选择达到该产量的最低等成本线。给定成本，选择可达到的最高等产量曲线。</p><p>在凸且光滑的标准模型中，若两种要素的最优投入量均为正，曲线相切时有 <mark>MRTS = MP<sub>L</sub>/MP<sub>K</sub> = w/r</mark>，等价于 MP<sub>L</sub>/w = MP<sub>K</sub>/r。若两种要素每元带来的边际产量不同，可以重新分配投入支出。角点等情形按约束单独判断。</p><p>对每个产量求最小可行成本，可构成成本函数。短期固定至少一种要素，长期可对全部要素重新选择。</p>",
+      "keyTakeaway": "内点最优时，技术替代率等于投入价格比，同时满足产量或预算约束。",
+      "pitfall": "成本最小化选择生产给定产量的投入组合。若要决定利润最大的产量，还需要知道产品收益。",
+      "example": "工资为 20 元、资本使用价格为 40 元时，等成本线斜率是 −0.5。若技术替代率为 0.5 且组合在给定等产量曲线上，凸曲线内点满足成本最小化的切点条件。"
+    },
+    {
+      "id": "short-run-cost",
+      "title": "短期成本的分解与计算",
+      "summary": "固定成本不随产量变动，边际成本只计新增产量的成本。",
+      "bodyHtml": "<p>在至少一种生产要素固定的短期，<mark>总成本 TC = 总固定成本 TFC + 总可变成本 TVC</mark>。若停产时没有可变支出，则 TVC 从零开始，TC 的纵轴截距为 TFC。</p><table><thead><tr><th>指标</th><th>公式</th></tr></thead><tbody><tr><td>平均固定成本 AFC</td><td>TFC/Q</td></tr><tr><td>平均可变成本 AVC</td><td>TVC/Q</td></tr><tr><td>平均总成本 AC 或 ATC</td><td>TC/Q = AFC + AVC</td></tr><tr><td>边际成本 MC</td><td>ΔTC/ΔQ，连续可微时为 dTC/dQ</td></tr></tbody></table><p>平均成本在正产量时定义。固定成本不随产量变化，所以 MC 也等于总可变成本对产量的增量比或导数。</p>",
+      "keyTakeaway": "用总量除以产量求平均。用两点成本差除以产量差求该段单位增量成本。",
+      "pitfall": "固定成本按是否随当期产量变化分类。已经发生且不能收回的成本属于沉没成本，两种分类依据不同。",
+      "example": "若 Q = 10 时 TC 为 2300、TVC 为 1100，TFC 为 1200，AFC 为 120，AVC 为 110，AC 为 230。"
+    },
+    {
+      "id": "cost-curves",
+      "title": "边际成本与平均成本曲线",
+      "summary": "切线与原点连线的斜率分别对应边际量与平均量。",
+      "bodyHtml": "<ul><li><strong>MC</strong>是总成本或总可变成本曲线的切线斜率。</li><li><strong>AC</strong>是原点到总成本曲线上对应点的连线斜率。</li><li><strong>AVC</strong>是原点到总可变成本曲线上对应点的连线斜率。</li></ul><p>MC 小于某项平均成本时，该平均成本下降。MC 大于它时，该平均成本上升。对典型的 U 形 AC、AVC 曲线，<mark>MC 自下而上穿过两者各自的最低点</mark>，通常先经过 AVC 最低点，再经过 AC 最低点。两条平均成本曲线的垂直差为 AFC，若 TFC 大于零，差距随产量增加而缩小。</p>",
+      "keyTakeaway": "MC 与 AC 或 AVC 相交于其最低点，前提是 MC 从较低一侧穿到较高一侧。",
+      "pitfall": "MC 大于 AC 说明 AC 上升。仅凭这一关系，无法判断 MC 本身在升还是在降。",
+      "example": "当前生产 4 件的平均成本为 25 元。如果第 5 件的边际成本为 30 元，新平均成本是 26 元，高于原平均成本。"
+    },
+    {
+      "id": "cost-product",
+      "title": "短期产量与短期成本的关系",
+      "summary": "当劳动是唯一可变要素时，产量曲线可转换成成本曲线。",
+      "bodyHtml": "<p>劳动是唯一可变投入、工资 <var>w</var> 固定时，<var>TVC = wL</var>。在边际产量为正且生产函数可逆的有效区间内，从目标产量求出最少用工量，乘以工资，再加上固定成本就得到 TC。</p><p>由边际产量 MP<sub>L</sub> 和平均产量 AP<sub>L</sub> 可得 <mark>MC = w/MP<sub>L</sub></mark> 与 <mark>AVC = w/AP<sub>L</sub></mark>。MP<sub>L</sub> 先升后降且保持为正时，MC 先降后升，MP<sub>L</sub> 的峰值对应 MC 的谷值。AP<sub>L</sub> 达到峰值时，AVC 达到最低。</p>",
+      "keyTakeaway": "在同一工资下，一单位劳动带来的新增产量越多，每新增一单位产出的成本越低。",
+      "pitfall": "产量曲线逆推出成本要使用有效生产区间。若有多种可变要素或工资随投入量改变，不能直接套用这组公式。",
+      "example": "工资为每工时 60 元。一小时额外劳动能生产 6 件时，边际成本为每件 10 元。若一小时只能额外生产 3 件，边际成本为每件 20 元。"
+    },
+    {
+      "id": "long-run-cost",
+      "title": "长期总成本与平均成本的包络线",
+      "summary": "长期可以选择厂房规模，每个产量都取相应的最低成本。",
+      "bodyHtml": "<p><strong>长期总成本 LTC</strong>是在所有投入可调整时，生产给定产量的最小总成本。每个产量对应的成本，可从不同固定厂房规模的短期总成本曲线中取最低值。因此 LTC 是这些短期总成本曲线的下包络线。</p><p>正产量下，<strong>长期平均成本 LAC = LTC/Q</strong>，也对应各厂房规模的短期平均成本曲线的下包络线。厂房规模可以连续选择且曲线光滑时，最优规模的短期平均成本曲线与 LAC 相切。切点未必是这条短期曲线的最低点。</p>",
+      "keyTakeaway": "长期的比较单位是同一产量下可选择的全部规模，短期成本还受既定规模约束。",
+      "pitfall": "把各条短期平均成本曲线的最低点连接起来，通常不能得到长期平均成本曲线。比较时应把各曲线放在同一产量上。",
+      "example": "生产 100 件时，小厂成本为 900 元，大厂为 1000 元。只考虑这两种可行规模，长期总成本是 900 元，长期平均成本是每件 9 元。"
+    },
+    {
+      "id": "scale-economies",
+      "title": "规模经济与规模不经济",
+      "summary": "随着产量扩大，观察长期平均成本的方向。",
+      "bodyHtml": "<p><strong>规模经济</strong>是扩大生产规模时，长期平均成本下降。例如更细的分工、设备利用和专业采购可以减少单位成本。<strong>规模不经济</strong>是继续扩大规模后，长期平均成本上升。例如部门增多，协调与监督成本可能增长。</p><p>若在较低产量区存在规模经济，较高产量区出现规模不经济，LAC 表现为先降后升。长期平均成本也可能在一段产量范围内近似不变。</p>",
+      "keyTakeaway": "规模经济比较的是产量与单位成本，规模报酬比较的是全部投入同比例变化与产量。",
+      "pitfall": "生产规模扩大时，即使长期总成本上升，也可能因增长慢于产量而出现长期平均成本下降。",
+      "example": "产量从 100 件升至 200 件，总成本从 900 元升至 1600 元，单位成本从 9 元降到 8 元。在这个区间内表现为规模经济。"
+    },
+    {
+      "id": "external-economies",
+      "title": "外在经济与外在不经济",
+      "summary": "外部经营条件变化可以移动厂商的平均成本曲线。",
+      "bodyHtml": "<p><strong>外在经济</strong>来自厂商依赖的外部生产条件改善，例如产业集聚带来的专业物流和熟练劳动力供给。<strong>外在不经济</strong>来自外部条件恶化，例如拥堵、公共设施紧张和投入品价格上升。</p><p>外部条件变化时，即使厂商自己的产量未变，每单位的生产成本也可能改变，表现为平均成本曲线的位置变化。</p>",
+      "keyTakeaway": "判断外在经济要看成本变化的原因是否来自企业外部的生产环境。",
+      "pitfall": "企业扩大自身产量造成的单位成本变化，通常在同一条长期平均成本曲线上比较。外部条件变化则需要比较不同的曲线。",
+      "example": "产业园开通公共物流专线，各厂同一产量下的运输成本下降，原有的单位生产成本也随之降低。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "成本与生产者均衡",
+      "target": "cost",
+      "children": [
+        {
+          "label": "成本及利润的概念",
+          "target": "cost",
+          "children": [
+            {
+              "label": "机会成本是最佳备选用途的价值",
+              "target": "cost"
+            },
+            {
+              "label": "显性成本是购买或租用外部要素的支付",
+              "target": "cost"
+            },
+            {
+              "label": "隐性成本是自有要素的机会成本",
+              "target": "cost"
+            },
+            {
+              "label": "经济成本等于显性成本加隐性成本",
+              "target": "cost"
+            },
+            {
+              "label": "沉没成本已经发生且无法收回",
+              "target": "cost"
+            },
+            {
+              "label": "会计利润按简化口径扣除显性成本",
+              "target": "cost-profit"
+            },
+            {
+              "label": "经济利润扣除全部经济成本",
+              "target": "cost-profit"
+            },
+            {
+              "label": "正常利润作为企业家才能的机会成本计入隐性成本",
+              "target": "cost-profit"
+            }
+          ]
+        },
+        {
+          "label": "生产者均衡",
+          "target": "producer-equilibrium",
+          "children": [
+            {
+              "label": "给定产量的成本最小化与给定成本的产量最大化",
+              "target": "producer-equilibrium"
+            },
+            {
+              "label": "内点最优时，边际技术替代率等于要素价格比",
+              "target": "producer-equilibrium"
+            },
+            {
+              "label": "短期和长期成本函数分别取各自可行集合中的最低成本",
+              "target": "producer-equilibrium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "成本函数及曲线",
+      "target": "short-run-cost",
+      "children": [
+        {
+          "label": "各成本曲线之间的关系",
+          "target": "cost-curves",
+          "children": [
+            {
+              "label": "MC 穿过典型 U 形 AVC、AC 各自的最低点",
+              "target": "cost-curves"
+            },
+            {
+              "label": "MC 等于 TC 或 TVC 切线的斜率",
+              "target": "cost-curves"
+            },
+            {
+              "label": "AC 等于 TC 对应点到原点连线的斜率",
+              "target": "cost-curves"
+            },
+            {
+              "label": "AVC 等于 TVC 对应点到原点连线的斜率",
+              "target": "cost-curves"
+            }
+          ]
+        },
+        {
+          "label": "短期产量曲线与成本曲线",
+          "target": "cost-product",
+          "children": [
+            {
+              "label": "劳动是唯一可变要素且工资固定时，MC = w/MP",
+              "target": "cost-product"
+            },
+            {
+              "label": "AVC = w/AP",
+              "target": "cost-product"
+            },
+            {
+              "label": "典型边际产量先升后降时，MC 先降后升",
+              "target": "cost-product"
+            }
+          ]
+        },
+        {
+          "label": "长期成本曲线",
+          "target": "long-run-cost",
+          "children": [
+            {
+              "label": "长期总成本曲线是短期总成本曲线的下包络线",
+              "target": "long-run-cost"
+            }
+          ]
+        },
+        {
+          "label": "规模经济与规模不经济",
+          "target": "scale-economies",
+          "children": [
+            {
+              "label": "规模经济表现为扩大规模后长期平均成本下降",
+              "target": "scale-economies"
+            },
+            {
+              "label": "规模不经济表现为继续扩大规模时长期平均成本上升",
+              "target": "scale-economies"
+            },
+            {
+              "label": "两者依次出现时，长期平均成本曲线呈 U 形",
+              "target": "scale-economies"
+            }
+          ]
+        },
+        {
+          "label": "外在经济与外在不经济",
+          "target": "external-economies",
+          "children": [
+            {
+              "label": "外部条件改善可降低单位成本",
+              "target": "external-economies"
+            },
+            {
+              "label": "外部条件恶化可提高单位成本",
+              "target": "external-economies"
+            },
+            {
+              "label": "外部因素改变平均成本曲线的位置",
+              "target": "external-economies"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

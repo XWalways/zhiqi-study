@@ -1,0 +1,66 @@
+<div class="inline-visual-header">
+  <span class="inline-visual-badge">交互图解</span>
+  <h4>供需曲线与市场均衡</h4>
+  <p>先改变市场价格，再改变需求或供给条件。观察两种操作怎样改变图上的点和曲线。</p>
+</div>
+<div class="ppf-panel market-panel">
+  <div class="ppf-chart">
+    <div class="chart-caption">
+      <span><i class="chart-line market-demand-line"></i>需求 D</span>
+      <span><i class="chart-line market-supply-line"></i>供给 S</span>
+      <span><i class="chart-line market-baseline"></i>变动前</span>
+    </div>
+    <svg id="market-svg" viewBox="0 0 530 350" role="img" aria-labelledby="market-title market-description">
+      <title id="market-title">供需与市场均衡交互图</title>
+      <desc id="market-description">横轴为数量，纵轴为价格。向下倾斜的曲线表示需求，向上倾斜的曲线表示供给，两者交点为均衡。控件旁会显示试验价格下的需求量、供给量和均衡结果。</desc>
+      <defs>
+        <pattern id="market-grid" width="60" height="33.75" patternUnits="userSpaceOnUse" x="54" y="26"><path class="chart-grid" d="M60 0H0V33.75" fill="none"/></pattern>
+      </defs>
+      <rect x="54" y="26" width="420" height="270" fill="url(#market-grid)"/>
+      <path class="chart-axis" d="M54 15V296H488 M49 22l5-7 5 7 M481 291l7 5-7 5" fill="none" stroke-width="1.5"/>
+      <text x="10" y="14" class="axis-label">价格</text>
+      <text x="264" y="342" text-anchor="middle" class="axis-label">数量</text>
+      <g class="tick-label" text-anchor="middle">
+        <text x="54" y="317">0</text><text x="174" y="317">40</text><text x="294" y="317">80</text><text x="414" y="317">120</text>
+      </g>
+      <g class="tick-label" text-anchor="end">
+        <text x="43" y="232">10</text><text x="43" y="165">20</text><text x="43" y="97">30</text><text x="43" y="30">40</text>
+      </g>
+      <path id="market-demand-before" class="market-demand market-before"/>
+      <path id="market-supply-before" class="market-supply market-before"/>
+      <path id="market-demand-curve" class="market-demand market-curve"/>
+      <path id="market-supply-curve" class="market-supply market-curve"/>
+      <path id="market-price-guide" class="market-guide"/>
+      <path id="market-equilibrium-guide" class="market-guide market-equilibrium-guide"/>
+      <circle id="market-equilibrium-point" r="7.5" class="market-equilibrium"/>
+      <circle id="market-qd-point" r="5.5" class="market-demand-point"/>
+      <rect id="market-qs-point" width="10" height="10" rx="1" class="market-supply-point"/>
+      <text id="market-equilibrium-label" class="point-label">E</text>
+    </svg>
+    <p class="chart-footnote">线性示意模型。E 表示当前均衡，虚线曲线表示变动前的位置。</p>
+  </div>
+  <div class="ppf-controls">
+    <h5>试验当前市场价格</h5>
+    <div class="ppf-outputs market-outputs">
+      <div><span>需求量</span><strong id="market-qd">60</strong></div>
+      <div><span>供给量</span><strong id="market-qs">60</strong></div>
+    </div>
+    <label class="range-label" for="market-price">市场价格 <output id="market-price-value" for="market-price">20</output></label>
+    <input type="range" id="market-price" min="5" max="35" step="1" value="20">
+    <h5>改变价格以外的条件</h5>
+    <label class="range-label" for="market-demand">需求变化 <output id="market-demand-value" for="market-demand">0</output></label>
+    <input type="range" id="market-demand" min="-20" max="20" step="4" value="0">
+    <label class="range-label" for="market-supply">供给变化 <output id="market-supply-value" for="market-supply">0</output></label>
+    <input type="range" id="market-supply" min="-20" max="20" step="4" value="0">
+    <div class="ppf-explanation" aria-live="polite">
+      <strong id="market-equilibrium"></strong>
+      <div id="market-gap"></div>
+    </div>
+    <div class="button-row"><button type="button" class="button button-primary" id="market-match">采用均衡价格</button><button type="button" class="button button-secondary" id="market-reset">重置</button></div>
+  </div>
+</div>
+<dl class="visual-notes">
+  <div><dt>沿曲线移动</dt><dd>只提高市场价格，需求量减少、供给量增加，需求曲线和供给曲线的位置保持不变。</dd></div>
+  <div><dt>整条曲线平移</dt><dd>在每个给定价格下，需求或供给条件的变化会改变对应的数量。比如生产成本下降，供给曲线右移。</dd></div>
+  <div><dt>找交点</dt><dd>需求量等于供给量时达到均衡。价格低于均衡时出现短缺，高于均衡时出现过剩。</dd></div>
+</dl>

@@ -1,0 +1,282 @@
+{
+  "title": "国际金融",
+  "subtitle": "理解国际收支怎样记账、汇率怎样标价，以及官方储备如何使用。",
+  "sections": [
+    {
+      "id": "bop-accounts",
+      "title": "国际收支与账户结构",
+      "summary": "国际收支平衡表记录居民与非居民在一段时间内的经济交易。",
+      "bodyHtml": "<p><strong>居民身份</strong>按经济利益中心等统计标准判断。交易按统一货币估值并采用复式记账，资料不完全一致形成的差额列为净误差与遗漏。</p><table><thead><tr><th>账户</th><th>主要内容</th></tr></thead><tbody><tr><td>经常账户</td><td>货物、服务、初次收入、二次收入。跨境投资利润通常属于初次收入。</td></tr><tr><td>资本账户</td><td>资本转移，非生产非金融资产取得与处置。</td></tr><tr><td>金融账户</td><td>直接投资、证券投资、金融衍生品、其他投资、储备资产等。</td></tr></tbody></table><p>国家外汇管理局公布人民币、美元和 SDR 计值表。人民币和 SDR 季度数据由美元计值数据按相应平均汇率折算。核验于 2026 年 11 月 11 日。<a href=\"https://www.safe.gov.cn/safe/2026/0929/27942.html\">国家外汇管理局国际收支平衡表</a></p>",
+      "keyTakeaway": "跨境货物交易记经常账户，交易对应的金融资产变动记金融账户。",
+      "pitfall": "“经常转移”对应二次收入，利润通常属于初次收入。账户一级分类与下属明细的范围不同。",
+      "example": "居民企业购买境外企业股票并达到证券投资分类条件，交易记金融账户。后续收到股息通常记经常账户初次收入。"
+    },
+    {
+      "id": "bop-balances",
+      "title": "顺差、逆差与国际收支调节",
+      "summary": "先识别是贸易余额、经常账户余额还是综合差额。",
+      "bodyHtml": "<p>货物进出口差额形成货物贸易余额，货物和服务再加初次及二次收入构成经常账户。基本差额等分析指标的口径要结合定义。狭义资本账户与含金融流动的合并项目也要分开。</p><p>持续逆差可能带来汇率贬值、外汇储备下降或融资压力，具体取决于汇率制度、资本流动和央行操作。逆差可以由外来融资弥补，也可能随着信心下降出现外流。资本流动、储备和估值必须分别判断。</p><p>支出变更政策调节总支出，汇率等支出转换政策影响支出在本国与外国产品间的分配。储备或国际融资可以缓冲短期缺口，长期结构性失衡还需要调整生产率或外贸结构。</p>",
+      "keyTakeaway": "经常账户有顺差时，仍需检查金融账户和储备资产。",
+      "pitfall": "复式记账的账面总额轧平，某一分析账户仍可呈现顺差或逆差。贸易逆差也可能与资本流入同时发生。",
+      "example": "国内需求减弱、进口下降时，其他项目稳定可使贸易余额改善。若同时外需下降，出口减少可能抵销这一作用。"
+    },
+    {
+      "id": "fx-quotes",
+      "title": "汇率标价与汇率制度",
+      "summary": "先认清单位货币，再判断报价变动意味着谁升值。",
+      "bodyHtml": "<p>汇率是两种货币的相对价格。<strong>直接标价</strong>用本币计量单位外币，<strong>间接标价</strong>用外币计量单位本币。两者互为倒数。在直接标价下，报价提高表示买同一单位外币需更多本币，即本币贬值。</p><p>可按形成机制区分官方汇率和市场汇率，按交割期限区分即期和远期，按参照范围区分双边和多边汇率。浮动汇率主要受外汇市场供求影响。人民币实行参考一篮子货币、有管理的浮动汇率制度，以市场供求为基础。核验于 2026 年 11 月 11 日。<a href=\"https://xining.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/f5c4690f2cbd40918bf24c2d39ac58af/b3e8c1a2b07d4facb38f4a7426415252/2025081819132397368.pdf\">中国人民银行货币政策执行报告</a></p>",
+      "keyTakeaway": "1 个百分比基点为 0.01 个百分点，写成小数是 0.0001。外汇报价最小点位还看货币对惯例。",
+      "pitfall": "买入价与卖出价按交易方视角区分，与直接或间接标价属于不同分类。",
+      "example": "1 美元从 7.20 元变为 7.00 元时，直接标价下降，人民币对美元升值。"
+    },
+    {
+      "id": "fx-effects",
+      "title": "汇率变动及其经济影响",
+      "summary": "从贸易价格、资本流动、物价和资产负债表判断传导。",
+      "bodyHtml": "<p>汇率受国际收支、利率差、通胀差、央行操作、宏观政策和市场预期等影响。其他条件给定，本币升值可降低进口品本币价格，抑制输入性通胀，并提高出口品的外币价格。出口量、进口量和贸易余额还取决于计价、价格传递、需求弹性与合同调整。</p><p>汇率也改变外币资产和负债的本币价值，可通过资产负债表、投资和资本流动影响增长、就业及外债压力。</p>",
+      "keyTakeaway": "先换算价格，再分析数量和总金额。",
+      "pitfall": "升值只能给出特定渠道的方向，资本流动还要考虑预期回报、风险和资金配置。",
+      "example": "商品售价 100 美元且美元价格固定时，汇率由 1 美元兑 6 元变为兑 5 元，进口商支付的人民币从 600 元降到 500 元。"
+    },
+    {
+      "id": "reserve-assets",
+      "title": "外汇与国际储备",
+      "summary": "外汇是可用于国际清偿的资产和支付工具，官方储备是货币当局可支配的储备资产。",
+      "bodyHtml": "<p>《外汇管理条例》列举了外币现钞、外币支付凭证或工具、外币证券、特别提款权和其他外汇资产。国际储备通常包括<strong>货币性黄金、外汇储备、IMF 储备头寸与 SDR</strong>。备用信用额度可以提供融资来源，未支用额度本身不构成已经持有的储备资产。</p><p>储备可用于国际支付、支持汇率操作和维持融资信心。外债期限、外部融资能力、进口规模和汇率制度会影响所需储备水平。核验于 2026 年 11 月 11 日。<a href=\"https://www.safe.gov.cn/heilongjiang/file/file/20170728/c8dd4cfd7f9b432faa691b7d23395809.pdf\">《中华人民共和国外汇管理条例》</a> · <a href=\"https://www.imf.org/external/pubs/ft/ar/2025/pdfs/imf-annual-report-2025-appendices.pdf\">IMF 国际储备统计</a></p>",
+      "keyTakeaway": "外汇储备是国际储备的一个组成部分。",
+      "pitfall": "私人持有的外币证券不自动成为官方储备。顺差是否转化为外汇储备，取决于货币当局是否取得相关资产。",
+      "example": "若央行用外汇储备向市场供给美元、换回本币，该笔操作会减少央行外汇资产。"
+    },
+    {
+      "id": "sdr",
+      "title": "特别提款权与货币篮子",
+      "summary": "SDR 是 IMF 创设的国际储备资产和记账单位，合资格持有者可以按规则使用。",
+      "bodyHtml": "<p>IMF 会员和获准的官方机构可以持有 SDR。会员可以按规则将 SDR 换取可自由使用货币，也可用于部分 IMF 相关支付。私人商户不能像使用日常货币一样直接收取 SDR。</p><p>人民币于 2016 年 10 月 1 日加入 SDR 货币篮子。自 2022 年 8 月起的估值权重为美元 43.38%、欧元 29.31%、人民币 12.28%、日元 7.59%、英镑 7.44%。核验于 2026 年 11 月 11 日。<a href=\"https://www.imf.org/en/About/Factsheets/Sheets/2023/Special-Drawing-Rights-SDR\">IMF 特别提款权说明</a> · <a href=\"https://www.elibrary.imf.org/display/book/9798229008341/CH027.xml\">IMF 估值决议与历史</a></p>",
+      "keyTakeaway": "区分估值篮子货币、SDR 持有资格和实际支付用途。",
+      "pitfall": "篮子权重用于估值调整，固定货币数量按每日市场汇率计值，因此日常价值占比会变化。",
+      "example": "央行可按规则将所持 SDR 兑换为美元，再用于对外支付。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "国际收支与汇率变动",
+      "target": "bop-accounts",
+      "children": [
+        {
+          "label": "国际收支平衡表",
+          "target": "bop-accounts",
+          "children": [
+            {
+              "label": "经常账户",
+              "target": "bop-accounts"
+            },
+            {
+              "label": "资本账户",
+              "target": "bop-accounts"
+            },
+            {
+              "label": "金融账户",
+              "target": "bop-accounts"
+            },
+            {
+              "label": "净误差与遗漏",
+              "target": "bop-accounts"
+            }
+          ]
+        },
+        {
+          "label": "主要差额",
+          "target": "bop-balances",
+          "children": [
+            {
+              "label": "贸易差额",
+              "target": "bop-balances"
+            },
+            {
+              "label": "经常账户差额",
+              "target": "bop-balances"
+            },
+            {
+              "label": "基本账户差额",
+              "target": "bop-balances"
+            },
+            {
+              "label": "综合账户差额",
+              "target": "bop-balances"
+            }
+          ]
+        },
+        {
+          "label": "持续失衡的影响",
+          "target": "bop-balances",
+          "children": [
+            {
+              "label": "外汇储备",
+              "target": "bop-balances"
+            },
+            {
+              "label": "对外支付与债务",
+              "target": "bop-balances"
+            },
+            {
+              "label": "进口、增长与就业",
+              "target": "bop-balances"
+            },
+            {
+              "label": "资本流动",
+              "target": "bop-balances"
+            }
+          ]
+        },
+        {
+          "label": "失衡调节",
+          "target": "bop-balances",
+          "children": [
+            {
+              "label": "支出变更",
+              "target": "bop-balances"
+            },
+            {
+              "label": "汇率与支出转换",
+              "target": "bop-balances"
+            },
+            {
+              "label": "储备缓冲",
+              "target": "bop-balances"
+            },
+            {
+              "label": "直接管理与国际金融合作",
+              "target": "bop-balances"
+            }
+          ]
+        },
+        {
+          "label": "汇率与变动因素",
+          "target": "fx-quotes",
+          "children": [
+            {
+              "label": "直接与间接标价",
+              "target": "fx-quotes"
+            },
+            {
+              "label": "汇率制度",
+              "target": "fx-quotes"
+            },
+            {
+              "label": "国际收支与通胀、利差",
+              "target": "fx-quotes"
+            },
+            {
+              "label": "政策操作与市场预期",
+              "target": "fx-quotes"
+            }
+          ]
+        },
+        {
+          "label": "汇率变化的影响",
+          "target": "fx-effects",
+          "children": [
+            {
+              "label": "贸易收支",
+              "target": "fx-effects"
+            },
+            {
+              "label": "外债压力",
+              "target": "fx-effects"
+            },
+            {
+              "label": "资本流动",
+              "target": "fx-effects"
+            },
+            {
+              "label": "物价、增长与就业",
+              "target": "fx-effects"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "外汇与国际储备",
+      "target": "reserve-assets",
+      "children": [
+        {
+          "label": "外汇类型",
+          "target": "reserve-assets",
+          "children": [
+            {
+              "label": "外国货币",
+              "target": "reserve-assets"
+            },
+            {
+              "label": "外币支付凭证和工具",
+              "target": "reserve-assets"
+            },
+            {
+              "label": "外币证券",
+              "target": "reserve-assets"
+            },
+            {
+              "label": "特别提款权",
+              "target": "sdr"
+            },
+            {
+              "label": "其他外汇资产",
+              "target": "reserve-assets"
+            }
+          ]
+        },
+        {
+          "label": "官方储备的构成",
+          "target": "reserve-assets",
+          "children": [
+            {
+              "label": "货币性黄金",
+              "target": "reserve-assets"
+            },
+            {
+              "label": "外汇储备",
+              "target": "reserve-assets"
+            },
+            {
+              "label": "IMF 储备头寸",
+              "target": "reserve-assets"
+            },
+            {
+              "label": "特别提款权",
+              "target": "sdr",
+              "children": [
+                {
+                  "label": "可使用的主体",
+                  "target": "sdr"
+                },
+                {
+                  "label": "SDR 货币篮子",
+                  "target": "sdr"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "国际储备的作用",
+          "target": "reserve-assets",
+          "children": [
+            {
+              "label": "弥补国际支付缺口",
+              "target": "reserve-assets"
+            },
+            {
+              "label": "支持汇率操作",
+              "target": "reserve-assets"
+            },
+            {
+              "label": "维护国际信用与投资环境",
+              "target": "reserve-assets"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

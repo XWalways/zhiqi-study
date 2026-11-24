@@ -1,0 +1,192 @@
+{
+  "title": "经济增长与经济周期",
+  "subtitle": "分清长期产能扩张与短期波动，读懂实际 GDP 和增长核算。",
+  "sections": [
+    {
+      "id": "growth-gdp",
+      "title": "经济增长、经济发展与 GDP",
+      "summary": "用不变价格计算实际增长率，并区分经济规模和发展质量。",
+      "bodyHtml": "<p><strong>经济增长</strong>可以从两个角度看。实际 GDP 增速衡量观察期内总产出的真实变化；长期增长分析关注资本、劳动或技术积累带来的潜在产能提高。用生产可能性曲线表示长期产能扩张时，边界向外移动。</p><p><mark>实际增长率=（本期实际 GDP−上期同口径实际 GDP）÷上期实际 GDP</mark>。现价 GDP 适合描述当期货币价值，不变价 GDP 用于剔除价格变动后的跨期比较。经济发展还涉及经济结构、收入分配、健康、教育和生活质量。GDP 是一项重要指标，还可结合投资等指标分析经济运行。</p><p>官方核验（2026 年 11 月 11 日）：国家统计局区分现价 GDP 总量与不变价 GDP 增速，其定期国民经济运行发布也列出固定资产投资。<a href=\"https://www.stats.gov.cn/zs/tjws/zytjzbqs/gnsczz/202502/t20250226_1958799.html\">国家统计局 · GDP 数据解读</a>，<a href=\"https://www.stats.gov.cn/sj/zxfb/202610/t20261019_1965618.html\">国家统计局 · 主要指标发布示例</a></p>",
+      "keyTakeaway": "衡量实际增速时比较同口径不变价 GDP。讨论长期增长时留意生产能力是否提高。",
+      "pitfall": "价格上涨可以抬高现价 GDP。实际产出变动、潜在产能和居民福利是不同概念。",
+      "example": "两年按同一基期价格衡量的 GDP 分别为 100 和 105，实际增长率是 5%。如果产出增长只是闲置设备重新启用，原有生产可能性边界可以保持不变。"
+    },
+    {
+      "id": "growth-accounting",
+      "title": "增长核算与全要素生产率",
+      "summary": "把产出增长分解为投入贡献和生产率增长。",
+      "bodyHtml": "<p>在两要素增长核算中，用劳动和资本的产出弹性作权重，可以写成 g<sub>Y</sub>=αg<sub>L</sub>+βg<sub>K</sub>+g<sub>A</sub>。在完全竞争等条件下，可用要素收入份额估计权重。整理得<mark>g<sub>A</sub>=g<sub>Y</sub>−αg<sub>L</sub>−βg<sub>K</sub></mark>。剩余项是全要素生产率的增长估计，常称索罗余值，可能包含技术改进、配置效率、投入质量和测量误差等。</p><p>要素投入型或粗放型增长主要依靠投入数量增加。集约型增长更依赖技术、管理、技能和资源利用效率提高。若采用储蓄率 s 固定、资本产出比 v 固定且忽略折旧的简化哈罗德—多马关系 g=s/v，单位产出占用资本越多，给定投入可支持的增长率越低。</p><p>索罗的增长核算是经典方法，阿布拉莫维茨也在同期研究中分离投入与生产率的贡献。<a href=\"https://www.bls.gov/opub/hom/opt/concepts.htm\">美国劳工统计局 · 生产率概念</a>，<a href=\"https://www.nber.org/books-and-chapters/resource-and-output-trends-united-states-1870/resource-and-output-trends-united-states-1870\">阿布拉莫维茨的 1956 年研究</a></p>",
+      "keyTakeaway": "各投入贡献等于其增长率乘相应权重。两项贡献从实际产出增长率中扣除后得到生产率余值。",
+      "pitfall": "区分生产率水平、生产率增速、生产率拉动的百分点和生产率贡献占总增长的比例。",
+      "example": "产出增长 8%，资本增长 5% 且权重 60%，劳动增长 2% 且权重 40%。生产率余值为 8%−3%−0.8%=4.2%。"
+    },
+    {
+      "id": "solow-growth",
+      "title": "索罗增长模型：稳态与黄金律",
+      "summary": "理解投资补偿折旧与人口增长后，怎样改变人均资本。",
+      "bodyHtml": "<p>设 k 为人均资本、f(k) 为人均产出、s 为储蓄率、n 为人口增长率、δ 为折旧率。在无技术进步的连续时间简化模型中，<mark>ḱ=sf(k)−(n+δ)k</mark>。前者是人均储蓄形成的投资，后者是维持人均资本所需的保本投资，既要补折旧，也要补人口增长带来的资本稀释。</p><p>稳态满足 sf(k*)=(n+δ)k*。人均资本和人均产出不变，总资本和总产出随人口按 n 增长。稳态人均消费 c*=f(k*)−(n+δ)k*。可微内点最大化的黄金律条件是<mark>f′(k<sub>gold</sub>)=n+δ</mark>。在按有效劳动定义变量且引入劳动增进型技术增长 g 的模型中，保本投资包含 g。</p>",
+      "keyTakeaway": "先明确人均或总量口径，以及是否假定技术不变，再写稳态和黄金律条件。",
+      "pitfall": "稳态是人均资本停止变化的状态，黄金律在所有可行稳态中进一步寻找人均消费最大的资本水平。",
+      "example": "若 n=2%、δ=5%，在无技术进步的简化模型中每年要投入人均资本的 7% 才能维持现有人均资本。黄金律对应资本边际产量 7%。"
+    },
+    {
+      "id": "macro-schools",
+      "title": "新古典与新凯恩斯主义的短期观点",
+      "summary": "用价格、工资调整速度和预期解释政策影响。",
+      "bodyHtml": "<p>部分<strong>新古典宏观</strong>模型假定市场价格较灵活且主体具有理性预期。典型的货币意外模型中，预期到的货币变化主要反映在价格上，未被预期的变化才可能暂时影响实际产出和就业。</p><p><strong>新凯恩斯主义</strong>模型也常使用理性经济行为和理性预期，同时引入名义价格、工资黏性等约束。需求下滑时，价格和工资调整可能慢于支出调整，经济恢复充分就业需要时间，稳定政策可在短期影响实际活动。</p>",
+      "keyTakeaway": "讨论政策何时有效时，先比较两种模型对价格调整和信息的假设。",
+      "pitfall": "索罗模型研究长期资本积累。货币意外和名义黏性属于不同短期波动模型，使用各自的假设。",
+      "example": "工资通过年度合同调整。需求突然下降时，工资短期固定，企业可能先减少工时或招聘。"
+    },
+    {
+      "id": "business-cycle",
+      "title": "经济周期的阶段与长度",
+      "summary": "辨认实际产出、国民收入和就业的共同波动。",
+      "bodyHtml": "<p><strong>经济周期</strong>是总体经济活动随时间出现的扩张与收缩，常用实际产出和实际国民收入的变化观察。扩张可分为复苏和繁荣，收缩可分为衰退和萧条。波峰连接扩张与收缩，波谷连接收缩与下一轮扩张。</p><table><thead><tr><th>传统分类</th><th>代表名称</th><th>大致长度</th></tr></thead><tbody><tr><td>短周期</td><td>基钦周期</td><td>约 3–5 年</td></tr><tr><td>中周期</td><td>朱格拉周期</td><td>约 8–10 年</td></tr><tr><td>长周期</td><td>康德拉耶夫周期</td><td>约 50–60 年</td></tr></tbody></table><p>经典周期理论常用这组分类组织长期观察。实际周期的长度和幅度可随冲击、制度和研究口径变化。</p>",
+      "keyTakeaway": "扩张含复苏和繁荣，收缩含衰退和萧条。短、中、长周期分别记住基钦、朱格拉、康德拉耶夫。",
+      "pitfall": "就业、价格和利率也可能波动。识别总体经济活动的周期应综合观察多个指标。",
+      "example": "经历衰退后，企业订单、产出和就业逐渐回升，可称为复苏，属于扩张的早期阶段。"
+    },
+    {
+      "id": "cycle-mechanisms",
+      "title": "乘数、加速数与逆周期调节",
+      "summary": "理解需求、投资和产出怎样相互影响。",
+      "bodyHtml": "<p><mark>乘数机制</mark>描述初始支出变化如何通过收入和消费反复传递，形成更大的产出变化。<mark>加速数机制</mark>描述产出或销售增长预期如何带动企业扩大所需资本与投资。两者相互反馈并带有时滞时，在某些参数下可生成周期波动。</p><p>现实周期还可能由需求、供给、金融等冲击触发。需求不足且产能闲置时，增加有效公共投资可支持总需求。经济过热时，减少支出可降温。政策效果取决于冲击性质、融资空间和项目落地速度。</p>",
+      "keyTakeaway": "乘数的方向是支出影响收入，加速数的方向是需求或产出变化影响投资。",
+      "pitfall": "乘数—加速数相互作用是一种解释机制。周期问题若没有限定模型，还需要考虑外部冲击等其他因素。",
+      "example": "销售上升促使企业添置设备。设备投资增加又提高收入与消费，进一步推高销售。这是两种机制相互反馈的例子。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "经济增长",
+      "target": "growth-gdp",
+      "children": [
+        {
+          "label": "经济增长率",
+          "target": "growth-gdp",
+          "children": [
+            {
+              "label": "实际 GDP 较上期的增长率",
+              "target": "growth-gdp"
+            },
+            {
+              "label": "生产可能性边界向外移动",
+              "target": "growth-gdp"
+            }
+          ]
+        },
+        {
+          "label": "产出增长的分解",
+          "target": "growth-accounting",
+          "children": [
+            {
+              "label": "劳动份额乘劳动增长率",
+              "target": "growth-accounting"
+            },
+            {
+              "label": "资本份额乘资本增长率",
+              "target": "growth-accounting"
+            },
+            {
+              "label": "全要素生产率增长：索罗余值",
+              "target": "growth-accounting"
+            }
+          ]
+        },
+        {
+          "label": "新古典增长模型",
+          "target": "solow-growth",
+          "children": [
+            {
+              "label": "人均资本变化：储蓄投资减保本投资",
+              "target": "solow-growth"
+            },
+            {
+              "label": "稳态：人均资本和人均产出不变",
+              "target": "solow-growth"
+            },
+            {
+              "label": "黄金律：资本边际产量等于折旧率加人口增长率",
+              "target": "solow-growth"
+            }
+          ]
+        },
+        {
+          "label": "新古典宏观的货币意外模型",
+          "target": "macro-schools",
+          "children": [
+            {
+              "label": "预期货币变化主要影响价格",
+              "target": "macro-schools"
+            },
+            {
+              "label": "意外货币变化可短期影响产出和就业",
+              "target": "macro-schools"
+            }
+          ]
+        },
+        {
+          "label": "新凯恩斯主义",
+          "target": "macro-schools",
+          "children": [
+            {
+              "label": "名义工资和价格黏性",
+              "target": "macro-schools"
+            },
+            {
+              "label": "理性选择与理性预期",
+              "target": "macro-schools"
+            },
+            {
+              "label": "需求冲击后复原较慢，短期稳定政策可影响产出",
+              "target": "macro-schools"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "经济周期",
+      "target": "business-cycle",
+      "children": [
+        {
+          "label": "扩张阶段",
+          "target": "business-cycle",
+          "children": [
+            {
+              "label": "复苏",
+              "target": "business-cycle"
+            },
+            {
+              "label": "繁荣",
+              "target": "business-cycle"
+            }
+          ]
+        },
+        {
+          "label": "紧缩或衰退阶段",
+          "target": "business-cycle",
+          "children": [
+            {
+              "label": "衰退",
+              "target": "business-cycle"
+            },
+            {
+              "label": "萧条",
+              "target": "business-cycle"
+            }
+          ]
+        },
+        {
+          "label": "传统长度分类：基钦、朱格拉、康德拉耶夫",
+          "target": "business-cycle"
+        },
+        {
+          "label": "乘数、加速数与政策应对",
+          "target": "cycle-mechanisms"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+<div class="inline-visual-header">
+  <span class="inline-visual-badge">交互图解</span>
+  <h4>生产可能性曲线</h4>
+  <p>拖动滑块，观察同样的资源如何在两种产品之间分配。</p>
+</div>
+<div class="ppf-panel">
+  <div class="ppf-chart">
+    <div class="chart-caption"><span><i class="chart-line"></i> 初始生产边界</span><span><i class="chart-line new"></i> 技术进步后</span></div>
+    <svg id="ppf-svg" viewBox="0 0 650 450" role="img" aria-labelledby="ppf-title ppf-desc">
+      <title id="ppf-title">生产可能性曲线交互图</title>
+      <desc id="ppf-desc">横轴为粮食，纵轴为机器。曲线表示资源充分有效利用时两类产品的最大产量组合。技术进步使边界向外移动。</desc>
+      <defs><pattern id="grid" width="47" height="34" patternUnits="userSpaceOnUse"><path class="chart-grid" d="M47 0H0V34" fill="none" stroke-width="1"/></pattern></defs>
+      <rect x="76" y="48" width="470" height="340" fill="url(#grid)"/>
+      <path class="chart-axis" d="M76 3V388H622 M71 11l5-8 5 8 M614 383l8 5-8 5" fill="none" stroke-width="1.5"/>
+      <text x="26" y="33" class="axis-label">机器</text><text x="591" y="428" class="axis-label">粮食</text>
+      <text x="55" y="408" class="tick-label">0</text><text x="534" y="410" class="tick-label">100</text><text x="38" y="57" class="tick-label">100</text>
+      <path id="ppf-curve" fill="none" stroke-width="3"/><path id="ppf-new-curve" fill="none" stroke-width="2.5" stroke-dasharray="7 6" opacity="0"/>
+      <path id="ppf-guides" fill="none" stroke-dasharray="5 5"/>
+      <circle id="ppf-halo" r="17"/><circle id="ppf-point" r="7" stroke-width="3"/><text id="ppf-point-label" class="point-label">A</text>
+    </svg>
+    <p class="chart-footnote">示意模型，产量采用抽象单位。</p>
+  </div>
+  <div class="ppf-controls">
+    <h5>调整生产组合</h5>
+    <div class="ppf-outputs"><div><span>粮食</span><strong id="grain-output">60</strong></div><div><span>机器</span><strong id="machine-output">80</strong></div></div>
+    <label class="range-label" for="grain-range">粮食生产比重 <output id="grain-percent">60%</output></label>
+    <input type="range" id="grain-range" min="0" max="100" value="60" step="1">
+    <div class="range-ends"><span>更多机器</span><span>更多粮食</span></div>
+    <fieldset class="ppf-scenarios">
+      <legend>资源与技术条件</legend>
+      <label><input type="radio" name="scenario" value="efficient" checked> 资源充分有效利用</label>
+      <label><input type="radio" name="scenario" value="idle"> 资源闲置</label>
+      <label><input type="radio" name="scenario" value="growth"> 技术进步</label>
+    </fieldset>
+    <div class="ppf-explanation" id="ppf-explanation" aria-live="polite"></div>
+    <div class="button-row"><button type="button" class="button button-primary" id="ppf-play" aria-pressed="false">播放取舍变化</button><button type="button" class="button button-secondary" id="ppf-reset">重置</button></div>
+  </div>
+</div>
+<dl class="visual-notes">
+  <div><dt>曲线上</dt><dd>资源已充分有效利用。增加一种产品，必须减少另一种。</dd></div>
+  <div><dt>曲线内</dt><dd>利用闲置资源，可以同时增加两类产品的产出。</dd></div>
+  <div><dt>曲线外</dt><dd>给定资源和技术，当前无法达到。技术进步可拓展边界。</dd></div>
+</dl>

@@ -1,0 +1,254 @@
+{
+  "title": "生产理论",
+  "subtitle": "区分短期的边际产量与长期的规模报酬，理解厂商如何选择投入组合。",
+  "sections": [
+    {
+      "id": "production",
+      "title": "厂商目标、生产要素与生产函数",
+      "summary": "生产函数描述既定技术下，投入组合所能实现的最大产量。",
+      "bodyHtml": "<p>基础模型常假设厂商追求<strong>利润最大化</strong>，利润等于总收益减去总经济成本。厂商在生产中组织四类常见要素，即劳动、资本、土地与企业家才能。</p><p>对给定技术，<mark>生产函数</mark>把投入组合与该组合能够有效生产的最大产量联系起来。用劳动 <var>L</var> 和资本 <var>K</var> 表示时，可写为 <var>Q = f(L, K)</var>。技术改进可以改变相同投入对应的最大产量，因此会改变生产函数。</p>",
+      "keyTakeaway": "判断生产函数变化时，区分技术条件变化与同一技术下投入组合的变化。",
+      "pitfall": "生产函数说明技术上能生产多少。判断企业利润还需要知道投入品价格与销售收入。",
+      "example": "同一间烘焙店拥有两台烤箱，增加工人后沿既有生产函数改变产量。采用更快的烤制技术后，相同工人与烤箱可以生产更多，生产函数随之改变。"
+    },
+    {
+      "id": "short-run-production",
+      "title": "短期生产与边际报酬递减",
+      "summary": "技术和部分投入固定，观察增加某一种投入带来的产量变化。",
+      "bodyHtml": "<p><strong>短期</strong>至少有一种生产要素投入无法调整。<strong>长期</strong>允许厂商调整所有要素投入。划分依据是能否调整全部要素，具体时长随行业而异。</p><p>在技术和其他要素投入固定时，连续增加某种可变投入，到一定阶段后，每单位新增投入所带来的额外产量会减少。这是<mark>边际报酬递减规律</mark>。在常见的短期生产曲线中，分工改善可使边际产量先上升，固定设备逐渐饱和后边际产量下降。</p>",
+      "keyTakeaway": "先固定技术和其他投入，再比较可变要素每增加一单位带来的产量增量。",
+      "pitfall": "边际产量开始递减时，总产量仍可能增加。只要新增投入的边际产量大于零，就还有额外产出。",
+      "example": "厨房的烤箱数量固定。增加最初几名工人有助于分工，后来工人排队使用烤箱，额外一名工人带来的产出开始减少。"
+    },
+    {
+      "id": "marginal-product",
+      "title": "总产量、平均产量和边际产量",
+      "summary": "总产量看累计产出，平均产量看每单位投入，边际产量看新增投入。",
+      "bodyHtml": "<table><thead><tr><th>指标</th><th>计算</th><th>总产量曲线上的含义</th></tr></thead><tbody><tr><td>总产量 TP</td><td>给定要素组合的总产出</td><td>曲线上该投入量的纵坐标</td></tr><tr><td>平均产量 AP</td><td>TP/L，L 大于零</td><td>原点到对应点的连线斜率</td></tr><tr><td>边际产量 MP</td><td>单位新增投入带来的 TP 变化，可微时为 dTP/dL</td><td>对应点的切线斜率</td></tr></tbody></table><p>在常见平滑模型中，<mark>MP 大于 AP 时 AP 上升，MP 小于 AP 时 AP 下降</mark>。若 MP 从高于 AP 转为低于 AP，交点处 AP 达到最大。MP 为正时 TP 上升，MP 为负时 TP 下降。若 MP 从正变负，MP 等于零处 TP 达到峰值。</p><p>采用典型的先升后降的边际产量曲线时，峰值依次出现在 MP、AP、TP 上。</p>",
+      "keyTakeaway": "MP 的正负决定 TP 的变化方向。MP 与 AP 的大小关系决定 AP 的变化方向。",
+      "pitfall": "只有看到符号或大小关系越过相应临界点，才能确认峰值。只知道某点 MP 等于零或 MP 等于 AP，通常还需检查前后走势。",
+      "example": "工人从 4 名增加到 5 名，总产量从 48 件增加到 57 件。第 5 名工人的边际产量为 9 件，低于原平均 12 件，新平均产量降为 11.4 件。"
+    },
+    {
+      "id": "production-stages",
+      "title": "短期生产的三个阶段",
+      "summary": "以平均产量和总产量的峰值划分典型生产区间。",
+      "bodyHtml": "<p>在典型的单一可变投入模型中，<strong>第一阶段</strong>的平均产量持续上升，结束于 AP 达到最大、MP 等于 AP 的位置。<strong>第二阶段</strong>的 AP 与 MP 下降，MP 仍为正，TP 继续上升至 MP 等于零的峰值。<strong>第三阶段</strong>的 MP 为负，继续增加可变投入会减少 TP，常表现为固定要素相对不足。</p><p>在可变要素与产出价格为正、厂商选择正产量的典型模型中，第二阶段是通常的经济生产区间，具体投入还要比较新增收益与新增成本。</p>",
+      "keyTakeaway": "两个分界点依次是 MP 等于 AP 和 MP 等于零。",
+      "pitfall": "第一阶段内 MP 可能已开始下降，AP 仍可上升。第三阶段的新增投入会使总产量下降。",
+      "example": "若平均产量在第 6 个单位投入达到峰值、总产量在第 8 个单位达到峰值，则 6 到 8 是第二阶段。"
+    },
+    {
+      "id": "isoquants",
+      "title": "等产量曲线与边际技术替代率",
+      "summary": "固定产量，比较劳动和资本可以如何替换。",
+      "bodyHtml": "<p><strong>等产量曲线</strong>连接能够生产同一产量的劳动与资本组合。令劳动 L 为横轴，资本 K 为纵轴。两种投入的边际产量均为正时，增加劳动并保持产量不变，需要减少资本，曲线通常向右下倾斜。提高两种要素的生产效率可使同一产量的曲线向原点靠近。</p><p><strong>边际技术替代率</strong>是保持产量不变时，多用一单位劳动所能减少的资本量。生产函数可微且两种边际产量为正时，<mark>MRTS = MP<sub>L</sub>/MP<sub>K</sub></mark>，等于等产量曲线斜率的绝对值。若在曲线上随劳动增加、资本减少，MRTS 下降，等产量曲线凸向原点。</p><p>常见模型中，劳动越多时其边际产量越低，资本越少时其边际产量越高，这使二者的比值趋于下降。一般情形下，判断 MRTS 的变化还要考虑两种要素相互影响的方式。</p>",
+      "keyTakeaway": "用等产量曲线分析固定产量下的投入组合，替代率比较的是两种投入的边际产量。",
+      "pitfall": "给定同一条曲线改变投入组合时，产量保持固定。技术改进后，原有产量可能用更少的投入实现。",
+      "example": "在某投入组合处，劳动的边际产量为 8，资本的边际产量为 4。小幅增加 1 单位劳动，约能少用 2 单位资本而保持产量。"
+    },
+    {
+      "id": "isocost",
+      "title": "等成本线",
+      "summary": "给定投入价格和成本预算，比较可购买的要素组合。",
+      "bodyHtml": "<p>若工资为 <var>w</var>，资本使用价格为 <var>r</var>，总投入支出为 <var>C</var>，<strong>等成本线</strong>满足 <mark>wL + rK = C</mark>。以劳动为横轴，资本为纵轴，横轴截距是 C/w，纵轴截距是 C/r，斜率是 −w/r。</p><p>投入品价格固定时，提高成本预算使线平行外移。只改变一种投入的价格会改变斜率，线围绕另一种投入的截距旋转。</p>",
+      "keyTakeaway": "等产量曲线来自技术，等成本线来自预算和要素价格。",
+      "pitfall": "把工资和资本价格放入斜率时，分子是横轴投入的价格。",
+      "example": "工资 20 元、资本使用价格 40 元、预算 400 元时，劳动和资本轴截距分别为 20 和 10。斜率为 −0.5。"
+    },
+    {
+      "id": "producer-equilibrium",
+      "title": "生产者的投入选择",
+      "summary": "内点成本最小化时，两种要素每元支出的边际产量相同。",
+      "bodyHtml": "<p>给定产量时，厂商在可行的等产量曲线上寻找最低可达的等成本线。给定成本预算时，厂商寻找可达到的最高等产量曲线。这是同一投入选择的两个方向。</p><p>在常见光滑凸等产量曲线和正投入量的内点上，等产量曲线和等成本线相切。<mark>MP<sub>L</sub>/MP<sub>K</sub> = w/r</mark>，等价于 MP<sub>L</sub>/w = MP<sub>K</sub>/r。若某要素每元投入的边际产量更高，就有理由调整投入结构，直至达到切点或边界。</p>",
+      "keyTakeaway": "成本最小化的切点条件比较技术替代比例与要素价格比。",
+      "pitfall": "仅计算边际技术替代率还不够。题目若要求给定产量下的投入，还需用生产函数约束求解。",
+      "example": "劳动和资本每投入一元分别带来 0.8 和 0.6 单位新增产量。局部调整时，可将部分预算从资本转到劳动以增加产量。"
+    },
+    {
+      "id": "returns-to-scale",
+      "title": "规模报酬",
+      "summary": "将全部生产要素同比例放大，比较产量的放大比例。",
+      "bodyHtml": "<p>在技术不变时，将劳动和资本等<strong>全部要素</strong>乘以同一个 <var>t</var>，其中 <var>t</var> 大于 1。比较新产量 f(tL, tK) 与原产量的 <var>t</var> 倍。</p><table><thead><tr><th>比较结果</th><th>规模报酬</th></tr></thead><tbody><tr><td>新产量大于 t × 原产量</td><td>规模报酬递增</td></tr><tr><td>新产量等于 t × 原产量</td><td>规模报酬不变</td></tr><tr><td>新产量小于 t × 原产量</td><td>规模报酬递减</td></tr></tbody></table><p>对 Q = A L<sup>α</sup>K<sup>β</sup> 这类生产函数，要素乘以 <var>t</var> 后产量乘以 t<sup>α+β</sup>。指数和大于、等于或小于 1，分别对应三类规模报酬。规模报酬也可随考察的投入区间变化。</p>",
+      "keyTakeaway": "规模报酬看所有要素一起变。边际报酬看其他要素固定时单种投入变化。",
+      "pitfall": "规模报酬不变只约束全部投入同比例变化的结果。要比较仅增加劳动后的产量，需要生产函数或更多条件。",
+      "example": "若产量 Q 等于 L 与 K 乘积的平方根，劳动、资本均翻倍时产量翻倍。只让劳动翻倍，产量乘以 √2。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "厂商与生产的基本概念",
+      "target": "production",
+      "children": [
+        {
+          "label": "厂商通常追求利润最大化",
+          "target": "production"
+        },
+        {
+          "label": "生产要素",
+          "target": "production",
+          "children": [
+            {
+              "label": "劳动",
+              "target": "production"
+            },
+            {
+              "label": "资本",
+              "target": "production"
+            },
+            {
+              "label": "土地",
+              "target": "production"
+            },
+            {
+              "label": "企业家才能",
+              "target": "production"
+            }
+          ]
+        },
+        {
+          "label": "生产函数",
+          "target": "production",
+          "children": [
+            {
+              "label": "短期至少有一种投入固定",
+              "target": "short-run-production"
+            },
+            {
+              "label": "长期可调整全部投入",
+              "target": "isoquants"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "短期生产函数",
+      "target": "short-run-production",
+      "children": [
+        {
+          "label": "平均产量与边际产量",
+          "target": "marginal-product",
+          "children": [
+            {
+              "label": "MP 高于 AP 时 AP 上升",
+              "target": "marginal-product"
+            },
+            {
+              "label": "MP 自上而下穿过 AP 时 AP 达到最大",
+              "target": "marginal-product"
+            },
+            {
+              "label": "MP 低于 AP 时 AP 下降",
+              "target": "marginal-product"
+            }
+          ]
+        },
+        {
+          "label": "总产量与边际产量",
+          "target": "marginal-product",
+          "children": [
+            {
+              "label": "MP 大于零时 TP 上升",
+              "target": "marginal-product"
+            },
+            {
+              "label": "MP 由正转负经过零时 TP 达到最大",
+              "target": "marginal-product"
+            }
+          ]
+        },
+        {
+          "label": "边际报酬递减规律",
+          "target": "short-run-production",
+          "children": [
+            {
+              "label": "其他要素与技术不变时，增加单种投入的产量增量最终减少",
+              "target": "short-run-production"
+            }
+          ]
+        },
+        {
+          "label": "生产的三个阶段",
+          "target": "production-stages",
+          "children": [
+            {
+              "label": "第一阶段结束于平均产量最大",
+              "target": "production-stages"
+            },
+            {
+              "label": "第二阶段结束于总产量最大",
+              "target": "production-stages"
+            },
+            {
+              "label": "第三阶段总产量减少，固定投入相对不足",
+              "target": "production-stages"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "长期生产函数",
+      "target": "isoquants",
+      "children": [
+        {
+          "label": "等产量曲线",
+          "target": "isoquants",
+          "children": [
+            {
+              "label": "生产技术改进可使同产量曲线向原点移动",
+              "target": "isoquants"
+            }
+          ]
+        },
+        {
+          "label": "边际技术替代率",
+          "target": "isoquants",
+          "children": [
+            {
+              "label": "保持产量不变，多用一种要素所能替代的另一要素的数量",
+              "target": "isoquants"
+            },
+            {
+              "label": "常见情形中，替代率递减，等产量曲线凸向原点",
+              "target": "isoquants"
+            }
+          ]
+        },
+        {
+          "label": "规模报酬的种类",
+          "target": "returns-to-scale",
+          "children": [
+            {
+              "label": "递增时，产量增长比例超过投入增长比例",
+              "target": "returns-to-scale"
+            },
+            {
+              "label": "不变时，产量增长比例等于投入增长比例",
+              "target": "returns-to-scale"
+            },
+            {
+              "label": "递减时，产量增长比例小于投入增长比例",
+              "target": "returns-to-scale"
+            }
+          ]
+        },
+        {
+          "label": "投入选择",
+          "target": "producer-equilibrium",
+          "children": [
+            {
+              "label": "等成本线表示同一支出的投入组合",
+              "target": "isocost"
+            },
+            {
+              "label": "内点成本最小时，技术替代率等于投入价格比",
+              "target": "producer-equilibrium"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

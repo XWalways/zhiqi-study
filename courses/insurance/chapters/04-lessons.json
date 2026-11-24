@@ -1,0 +1,238 @@
+{
+  "title": "保险公司经营管理和保险监管",
+  "subtitle": "从承保、定价到偿付能力和风险处置，理解保险公司如何组织资金并履行赔付责任。",
+  "sections": [
+    {
+      "id": "insurance-operations",
+      "title": "保险经营原则与市场供给",
+      "summary": "承保能力衡量市场能提供多少保障，经营中同时关注成本、风险选择和风险分散。",
+      "bodyHtml": "<p>保险经营的一般思路包括<strong>经济核算</strong>、在合规边界内根据市场和风险变化调整经营，以及利用规模分摊固定成本。保险特有的经营原则包括<strong>风险大量、风险选择、风险分散</strong>。风险大量使风险估计在合适条件下更稳定，风险选择通过核保将标的分类定价，风险分散可用地区与行业组合、承保限额、共保和再保险降低集中暴露。</p><p><strong>保险市场供给</strong>是在给定费率下市场愿意且有能力提供的保障，常以承保能力衡量。承保能力取决于资本、风险暴露、再保险安排等，实际签发的保单数量同时受市场需求影响。</p>",
+      "keyTakeaway": "“愿意且能够提供”是供给，“实际上卖出”还受到需求影响。",
+      "pitfall": "同质标的多有利于统计估计。高相关性会使损失集中，仍需分散并安排再保险。",
+      "example": "同一洪涝区的一千份保单可能在一次事故中同时报案。增配不同地区和风险类别的业务，可减少单一灾害造成的集中损失。"
+    },
+    {
+      "id": "insurer-forms",
+      "title": "保险组织与经营退出",
+      "summary": "区分股份保险公司、会员制相互保险和劳合社保险市场，并掌握破产清偿层级。",
+      "bodyHtml": "<p>股份保险公司由股东持有，可以用股权融资。相互保险组织以会员为基础、侧重会员保障，没有外部股东，筹资通常依靠初始运营资金、留存盈余等方式。英国劳合社组织承保市场，承保成员包括个人与公司，经承保辛迪加参与业务。</p><p>保险公司破产财产依法优先清偿破产费用和共益债务后，第 91 条列出四类债权的顺位。<strong>职工工资、法定补偿等 → 赔偿或给付保险金 → 其余社会保险欠费和税款 → 普通破产债权。</strong>同一顺位不足清偿时按比例分配。申请重整、和解或破产清算的情形还要看第 90 条。</p><p>官方核验（2026 年 11 月 11 日）。核对劳合社市场资料、《保险法》第 90、91 条及金融监管总局的相互保险组织开业审查资料。<a href=\"https://www.lloyds.com/about-lloyds/our-market/lloyds-market\">劳合社 · 市场如何运作</a>　<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a>　<a href=\"https://www.nfra.gov.cn/chinese/docfile/2023/ee30bf701599443a93a0cb6b69270308.pdf\">国家金融监督管理总局 · 准入审查资料</a></p>",
+      "keyTakeaway": "会员制涉及所有权结构，初始运营资金是开业资金，两者需分清。",
+      "pitfall": "破产费用和共益债务优先于题目常列的四类债权。人寿保险合同转让和保险保障基金救助各有独立规则。",
+      "example": "若依法扣除破产费用和共益债务后仍有 100 万元财产，按法定顺位先处理应付职工类债权，再清偿保险金请求。"
+    },
+    {
+      "id": "insurance-density",
+      "title": "保险密度与保险深度",
+      "summary": "两项指标共享保费收入这一分子，分母分别为常住人口和 GDP。",
+      "bodyHtml": "<p><strong>保险密度＝当年保费收入 ÷ 同一区域当年常住人口。</strong>单位通常是元/人，用来观察当地平均保费水平。<strong>保险深度＝当年保费收入 ÷ 同一区域当年 GDP。</strong>通常以百分比表示，用于观察保费收入相对于经济总量的规模。密度受收入、产品结构和投保程度影响，深度同时受保险业和总体经济增长影响。</p>",
+      "keyTakeaway": "保险密度记“人均”，保险深度记“占 GDP 的比重”。",
+      "pitfall": "比较地区时要保持统计年度、地域范围和保费统计口径一致。指标不能直接判断每个人的实际保障是否充足。",
+      "example": "某地区年保费收入 80 亿元，常住人口 400 万，GDP 2,000 亿元，密度为每人 2,000 元，深度为 4%。"
+    },
+    {
+      "id": "insurance-pricing",
+      "title": "费率厘定与生命表",
+      "summary": "纯费率对应预计赔付，附加费率覆盖经营费用等需要，寿险定价需要死亡率假设。",
+      "bodyHtml": "<p>简化的基础分解为<strong>保险费率＝纯费率＋附加费率</strong>。纯费率以承保风险的预计赔付为基础，附加费率主要反映经营费用等。定价关注风险匹配、公平合理、赔付资金充足、相对稳定和促进防灾防损，费率办法还应易于理解和使用。保险集合由大量同质且相关程度较低的风险组成时，平均实际损失更可能接近期望。</p><p><strong>生命表</strong>用特定人群数据描述不同年龄的生存和死亡规律，是估计寿险死亡率、给付现值和准备金的基础之一。利率假设主要影响未来现金流折现。</p><p>官方核验（2026 年 11 月 11 日）。金融监管总局规定自 2026 年 1 月 1 日使用第四套经验生命表。定价应结合表、自身经验及保险责任特点审慎确定死亡发生率。自 2026 年 11 月 1 日施行的财险产品开发管理规定要求财险费率按合理、公平、充足原则厘定。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1231212\">国家金融监督管理总局 · 第四套生命表</a>　<a href=\"https://www.nfra.gov.cn/cn/view/pages/ItemDetail.html?docId=1274236&amp;itemId=928\">国家金融监督管理总局 · 财险产品开发管理规定</a></p>",
+      "keyTakeaway": "生命表帮助选取死亡率，利率帮助计算现值，附加费率主要覆盖经营费用等。",
+      "pitfall": "大数法则用于平均损失，风险高度相关时，增加保单数量仍可能遇到集中赔付。",
+      "example": "某类财产险年事故概率约 1%，每次平均赔 2 万元，简化模型下平均每单预计赔付 200 元。实际定价还会考虑费用、风险变化等。"
+    },
+    {
+      "id": "pension-pillars",
+      "title": "多支柱养老保障与商业养老保险",
+      "summary": "在个人自愿积累养老资金的语境下，商业养老保险属于补充养老工具。",
+      "bodyHtml": "<p>世界银行早期三支柱分析区分公共养老、强制积累安排和自愿补充保障。个人自愿购买商业养老保险通常对应第三支柱中的个人养老储蓄。世界银行后来还讨论过更细的多支柱框架。我国的基本养老保险属于第一支柱，企业年金和职业年金属于第二支柱，个人养老金制度和其他个人商业养老金融业务是第三支柱的一部分。</p><p>官方核验（2026 年 11 月 11 日）。核对世界银行早期养老体系报告和金融监管总局关于商业保险年金的现行说明。<a href=\"https://documents1.worldbank.org/curated/en/973571468174557899/pdf/multi-page.pdf\">世界银行 · 养老体系研究</a>　<a href=\"https://app.www.gov.cn/govdata/gov/202410/24/520966/article.html\">中国政府网 · 商业保险年金通知</a></p>",
+      "keyTakeaway": "个人自行购买商业养老保险通常对应自愿补充保障，职业年金取决于职业或单位安排。",
+      "pitfall": "我国个人养老金是一项制度安排，商业养老保险是一类产品，符合条件的产品可以纳入相关渠道。",
+      "example": "个人自愿购买商业养老年金，按合同约定在退休后领取，用于补充其他养老收入。"
+    },
+    {
+      "id": "insurance-supervision",
+      "title": "保险监管的途径与内容",
+      "summary": "政府监管、行业自律和企业内控共同发挥作用。监管内容可从行为、治理和偿付能力理解。",
+      "bodyHtml": "<p>广义保险监管包含政府监管、行业自律和企业内控，狭义通常指政府监管。立法建立规则，司法依法处理争议和解释法律，行政监管实施准入、现场检查、非现场监管和执法。<strong>市场行为监管</strong>关注销售、条款和理赔等活动，<strong>公司治理监管</strong>关注组织权责、内控和利益冲突，<strong>偿付能力监管</strong>关注履行赔付义务的能力。监管旨在维护市场稳定、促进行业稳健发展并保护消费者合法权益。</p><p>官方核验（2026 年 11 月 11 日）。保险行政监管由国家金融监督管理总局及其派出机构依法实施。2026 年 6 月 1 日施行的许可证管理办法适用于保险机构及所列保险中介等。施行前颁发的保险许可证在 2028 年 6 月 1 日前继续有效，相关机构按规定换领金融许可证。<a href=\"https://www.nfra.gov.cn/cn/view/pages/jigougaikuang/jigougaikuang.html\">国家金融监督管理总局 · 主要职责</a>　<a href=\"https://www.nfra.gov.cn/cn/view/pages/ItemDetail.html?docId=1248393&amp;itemId=928\">国家金融监督管理总局 · 许可证管理办法</a></p>",
+      "keyTakeaway": "市场行为、公司治理、偿付能力是观察保险监管内容的三个维度。",
+      "pitfall": "偿二代内部的三个支柱是定量资本要求、定性监管要求和市场约束机制，适用范围更具体。",
+      "example": "销售误导涉及市场行为。保险公司风险报表显示资本充足率下降，可进入非现场偿付能力监管和进一步检查。"
+    },
+    {
+      "id": "insurance-solvency",
+      "title": "偿付能力指标与资本补充",
+      "summary": "区分实际资本、核心资本和最低资本，达标需要同时满足三项指标。",
+      "bodyHtml": "<p><strong>实际资本</strong>按偿付能力监管规则计量，基本逻辑是认可资产减认可负债并遵循资本分级等规则。<strong>核心资本</strong>体现较高质量的损失吸收能力。<strong>最低资本</strong>是为覆盖可量化风险所需的监管资本要求。</p><p><strong>核心偿付能力充足率＝核心资本 ÷ 最低资本。</strong><strong>综合偿付能力充足率＝实际资本 ÷ 最低资本。</strong>偿付能力达标须同时满足核心充足率不低于 50%、综合充足率不低于 100%、风险综合评级为 B 类及以上。符合条件的无固定期限资本债券可补充核心二级资本。</p><p>财务报表的资产负债率等于负债总额除以资产总额，可辅助观察长期偿债压力。它与监管偿付能力指标采用不同的资产负债认定和计算口径。</p><p>官方核验（2026 年 11 月 11 日）。核对《保险公司偿付能力管理规定》第 5、6、8 条、偿付能力监管规则（Ⅱ），以及保险公司无固定期限资本债券发行通知和 2026 年批复。<a href=\"https://www.nfra.gov.cn/cn/view/pages/ItemDetail.html?docId=962016&amp;generaltype=0&amp;itemId=925\">国家金融监督管理总局 · 偿付能力管理规定</a>　<a href=\"https://www.nfra.gov.cn/cn/view/pages/governmentDetail.html?docId=1027892&amp;generaltype=1&amp;itemId=861\">国家金融监督管理总局 · 偿付能力监管规则</a>　<a href=\"https://www.ssf.gov.cn/portal/rootfiles/2022/09/28/1665992017038929-1665992017050420.pdf\">全国社保基金理事会 · 无固定期限资本债券通知</a></p>",
+      "keyTakeaway": "两项充足率分母相同，核心充足率用核心资本，综合充足率用实际资本。",
+      "pitfall": "会计净资产和监管实际资本口径不同。发行合规债券有助于补充核心二级资本，最终指标还受最低资本和各项监管计量影响。",
+      "example": "最低资本 100 亿元、核心资本 60 亿元、实际资本 120 亿元，两项充足率分别为 60% 和 120%。若风险综合评级是 C 类，整体仍未达标。"
+    },
+    {
+      "id": "insurance-guarantee-fund",
+      "title": "保险保障基金",
+      "summary": "行业风险救助机制按法定条件和范围保护保单权益并支持风险处置。",
+      "bodyHtml": "<p><strong>保险保障基金</strong>是由依法缴纳形成的非政府性行业风险救助基金。在符合法定条件时，可用于救助保单持有人、保单受让公司，或处置保险业风险。公司被依法撤销或实施破产、清算财产不足以偿付保单利益时，依险种与相关规则适用救助。</p><p>官方核验（2026 年 11 月 11 日）。《保险保障基金管理办法》规定基金的性质、使用条件和不同合同的救助办法。保险法上的保证金、保险合同责任准备金与保险保障基金分属不同制度。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=1080924&amp;itemId=4214\">国家金融监督管理总局 · 保险保障基金管理办法</a></p>",
+      "keyTakeaway": "记住“保单持有人最后安全网”对应保险保障基金。",
+      "pitfall": "救助对象、方式与标准由规则确定。不同合同的救助安排有所区别，不能把基金理解为对所有保单权益的全额保证。",
+      "example": "保险公司被依法撤销且清算财产不足时，相关保单利益可按适用办法申请救助。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "保险公司经营概述",
+      "target": "insurance-operations",
+      "children": [
+        {
+          "label": "经营的一般原则",
+          "target": "insurance-operations",
+          "children": [
+            {
+              "label": "经济核算、市场响应与规模经营",
+              "target": "insurance-operations"
+            }
+          ]
+        },
+        {
+          "label": "保险特有原则",
+          "target": "insurance-operations",
+          "children": [
+            {
+              "label": "风险大量、风险选择与风险分散",
+              "target": "insurance-operations"
+            }
+          ]
+        },
+        {
+          "label": "保险密度",
+          "target": "insurance-density",
+          "children": [
+            {
+              "label": "同一年度保费收入除以常住人口",
+              "target": "insurance-density"
+            },
+            {
+              "label": "人均保费与保险业务发展程度",
+              "target": "insurance-density"
+            }
+          ]
+        },
+        {
+          "label": "保险深度",
+          "target": "insurance-density",
+          "children": [
+            {
+              "label": "同一年度保费收入除以 GDP",
+              "target": "insurance-density"
+            },
+            {
+              "label": "经济总量与保险业相对规模",
+              "target": "insurance-density"
+            }
+          ]
+        },
+        {
+          "label": "保险组织与破产顺位",
+          "target": "insurer-forms"
+        }
+      ]
+    },
+    {
+      "label": "保险费率的厘定",
+      "target": "insurance-pricing",
+      "children": [
+        {
+          "label": "纯费率与附加费率",
+          "target": "insurance-pricing",
+          "children": [
+            {
+              "label": "预计赔付与经营费用",
+              "target": "insurance-pricing"
+            }
+          ]
+        },
+        {
+          "label": "大数法则",
+          "target": "insurance-pricing",
+          "children": [
+            {
+              "label": "同质、较低相关的风险与平均损失",
+              "target": "insurance-pricing"
+            }
+          ]
+        },
+        {
+          "label": "生命表",
+          "target": "insurance-pricing",
+          "children": [
+            {
+              "label": "寿险死亡率与生存率",
+              "target": "insurance-pricing"
+            }
+          ]
+        },
+        {
+          "label": "费率原则",
+          "target": "insurance-pricing",
+          "children": [
+            {
+              "label": "公平合理、保证偿付、相对稳定",
+              "target": "insurance-pricing"
+            },
+            {
+              "label": "防灾防损、易懂易用",
+              "target": "insurance-pricing"
+            }
+          ]
+        },
+        {
+          "label": "商业养老与个人自愿储蓄",
+          "target": "pension-pillars"
+        }
+      ]
+    },
+    {
+      "label": "保险监管",
+      "target": "insurance-supervision",
+      "children": [
+        {
+          "label": "广义与狭义",
+          "target": "insurance-supervision",
+          "children": [
+            {
+              "label": "政府监管、行业自律与企业内控",
+              "target": "insurance-supervision"
+            }
+          ]
+        },
+        {
+          "label": "立法、司法与行政途径",
+          "target": "insurance-supervision"
+        },
+        {
+          "label": "市场行为与公司治理",
+          "target": "insurance-supervision"
+        },
+        {
+          "label": "偿付能力监管",
+          "target": "insurance-solvency",
+          "children": [
+            {
+              "label": "定量资本、定性监管、市场约束",
+              "target": "insurance-solvency"
+            },
+            {
+              "label": "核心与综合充足率及风险评级",
+              "target": "insurance-solvency"
+            },
+            {
+              "label": "现场检查与非现场监管",
+              "target": "insurance-supervision"
+            }
+          ]
+        },
+        {
+          "label": "保险保障基金和行业风险处置",
+          "target": "insurance-guarantee-fund"
+        }
+      ]
+    }
+  ]
+}

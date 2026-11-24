@@ -1,0 +1,389 @@
+{
+  "title": "失业与通货膨胀",
+  "subtitle": "从就业统计、物价变化和产出缺口理解宏观经济波动。",
+  "sections": [
+    {
+      "id": "employment-measure",
+      "title": "就业、失业与劳动参与",
+      "summary": "调查失业率的分母是劳动力人口，劳动力包括就业和失业两组。",
+      "bodyHtml": "<p>在一般经济分析中，<strong>失业</strong>指没有工作、有工作意愿且具备工作条件。统计时还要观察求职行为、能否及时工作以及统计时期。</p><p>我国劳动力调查对 16 周岁及以上人口进行就业状态分类。调查参考周内为取得报酬或经营收入工作至少 1 小时，或暂时离岗但符合在职条件，计为就业。参考周内没有工作，过去 3 个月积极寻找工作，且能在有合适工作后 2 周内开始工作的人员，计为失业。</p><ul><li>调查失业率 = 失业人数 ÷（就业人数 + 失业人数）× 100%。</li><li>劳动参与率 = 劳动力人口 ÷ 相应年龄人口 × 100%。</li><li>城镇调查按常住地划分统计范围。符合调查范围的进城务工人员也在覆盖范围内。</li></ul><p>统计口径核验于 2026 年 11 月 11 日。<a href=\"https://www.stats.gov.cn/zs/tjws/zytjzbqs/tcsyl/202409/t20240910_1956360.html\">国家统计局《什么是调查失业率》</a> · <a href=\"https://www.stats.gov.cn/zs/tjws/zytjzbqs/tcsyl/202411/t20241115_1957491.html\">国家统计局《调查失业率的计算方法》</a></p>",
+      "keyTakeaway": "先按统计口径分为就业、失业和非劳动力，再用失业人数除以劳动力。",
+      "pitfall": "城镇调查失业率和城镇登记失业率的人员范围及计算方式不同。未就业但近期未求职的人可能归入非劳动力。",
+      "example": "某地有就业者 950 人、符合调查口径的失业者 50 人，调查失业率为 5%。其他非劳动力不计入这个分母。"
+    },
+    {
+      "id": "unemployment-types",
+      "title": "摩擦性、结构性、周期性与季节性失业",
+      "summary": "识别岗位搜索、技能错配、需求波动和季节变化这四类原因。",
+      "bodyHtml": "<table><thead><tr><th>类型</th><th>主要成因</th><th>典型情境</th></tr></thead><tbody><tr><td>摩擦性失业</td><td>搜索、面试或岗位转换需要时间</td><td>毕业生进入劳动力市场后仍在找工作</td></tr><tr><td>结构性失业</td><td>岗位与劳动者的技能、地区等难以匹配</td><td>工人缺少新设备所需技能</td></tr><tr><td>周期性失业</td><td>经济下行、总需求不足</td><td>衰退时多行业缩减用工</td></tr><tr><td>季节性失业</td><td>用工随季节反复变化</td><td>滑雪场在非营业季减少岗位</td></tr></tbody></table><p>自愿与非自愿描述劳动者在现行工资和工作条件下的选择。劳动者愿意按现行条件工作但找不到岗位，可归为非自愿失业。一次失业也能按成因和意愿分别描述。</p>",
+      "keyTakeaway": "做情境题时抓失业的直接成因。技能错配看结构性，总需求收缩看周期性。",
+      "pitfall": "“某行业不景气”需要进一步观察原因。技术替代、消费结构变化和全经济需求收缩指向不同机制。",
+      "example": "车间搬迁而本地工人缺乏新产业要求的技能，属于结构性失业。工人投递同类岗位、等待面试期间也可能经历摩擦性失业。"
+    },
+    {
+      "id": "natural-unemployment",
+      "title": "自然失业率与充分就业",
+      "summary": "充分就业时周期性失业约为零，仍可存在岗位转换和结构错配。",
+      "bodyHtml": "<p>基础模型通常将<strong>自然失业率</strong>理解为周期性失业约为零时的失业率，主要来自摩擦性与结构性失业。劳动力流动、技能匹配效率、求职成本与劳动力市场制度变化都会影响它。</p><p>在简化的两状态模型中，设就业者失去工作概率为 s，失业者找到工作概率为 f。稳态失业率为 <strong>u* = s ÷ (s + f)</strong>。给定 s，提高 f 会降低稳态失业率。</p>",
+      "keyTakeaway": "充分就业的标准是经济接近潜在产出、周期性失业约为零。",
+      "pitfall": "自然失业率会随结构和制度变化。一次需求衰退直接推高的是周期性失业；若造成长期技能损失，还可能改变自然失业率。",
+      "example": "若 s = 2%、f = 38%，模型给出稳态失业率 5%。若工作匹配加快使 f 提高至 48%，则降到 4%。"
+    },
+    {
+      "id": "inflation-types",
+      "title": "通货膨胀的含义与分类",
+      "summary": "观察一般物价水平是否持续上升，并区分涨速、价格结构与表现形式。",
+      "bodyHtml": "<p><strong>通货膨胀</strong>是一般物价水平持续上升的过程，货币购买力随之下降。通胀率常按价格指数相对上期或上年同期的百分比变化计算。</p><ul><li><strong>按涨速</strong>可分温和、奔腾、恶性。四档教学分类另列涨幅更低的爬行式。划分阈值取决于采用的定义。</li><li><strong>按相对价格</strong>区分平衡和非平衡。各类价格同比例上涨时，相对价格基本不变。</li><li><strong>按表现</strong>区分公开与抑制或隐蔽。价格受管制时，超额需求可表现为短缺、排队、凭证购买或黑市价格。</li></ul>",
+      "keyTakeaway": "观察总体价格指标和变化持续性。",
+      "pitfall": "单一商品涨价反映该商品的相对价格变化。通胀率由 5% 降至 2% 时，一般物价仍在上升。",
+      "example": "价格指数从 100 升至 104，涨幅 4%。再升至 106.08 时，第二期通胀率是 2%，物价指数仍比第一期高。"
+    },
+    {
+      "id": "inflation-causes",
+      "title": "需求拉动、成本推动与结构性成因",
+      "summary": "固定另一条曲线，比较需求或成本冲击对价格和产出的方向。",
+      "bodyHtml": "<ul><li><strong>需求拉动</strong>是总需求相对于生产能力过旺，AD 右移。短期通常伴随价格和产出同向上升。</li><li><strong>成本推动</strong>来自单位工资成本、原材料成本或加价率等上升，短期 AS 左移。物价可上升而产出减少。</li><li><strong>供求混合</strong>表示需求扩张与成本上升共同作用，产出方向取决于各自幅度。</li><li><strong>结构性通胀</strong>与部门生产率、工资传导或要素配置差异有关。在需求扩张或传导持续时，相对价格冲击可推动一般价格。</li></ul><p>传统货币数量论从 <strong>MV = PY</strong> 出发。在货币流通速度 V 和实际产出 Y 给定时，货币量 M 越高，价格水平 P 越高。长期通胀判断还要考虑货币增长、实际产出增长与流通速度变化。</p>",
+      "keyTakeaway": "需求拉动看超额总需求，成本推动看单位成本或加价率。",
+      "pitfall": "名义工资增加的同时若劳动生产率同比例提高，单位劳动成本可能保持稳定。",
+      "example": "若国际能源短缺推高企业投入成本，短期总供给收缩，物价上升、产出下降。"
+    },
+    {
+      "id": "inflation-costs",
+      "title": "通胀的成本与经济活动",
+      "summary": "分别判断价格调整、持币行为、税收和相对价格信号受到的影响。",
+      "bodyHtml": "<ul><li><strong>菜单成本</strong>是企业更改价签、报价系统和合同的成本。</li><li><strong>鞋底成本</strong>是为减少货币购买力损失而调整现金持有的时间与交易成本。</li><li><strong>税收扭曲</strong>会在名义税档和名义收益未完全随价格调整时出现。</li><li>较高、波动较大的通胀会使相对价格信号更难判断，并加剧投资与交易不确定性。</li></ul><p>需求扩张可能在有闲置产能、价格和工资未完全调整时带动短期生产。高通胀、严重缺货或成本冲击可能破坏正常交易，降低投资意愿。</p>",
+      "keyTakeaway": "区分通胀随附的成本和造成通胀的冲击。",
+      "pitfall": "通胀即使被预期到，也可能有调价成本与税收影响。实际生产反应取决于成因和经济条件。",
+      "example": "价格需要频繁变动时，商家花费额外工时更新报价，消费者也更难比较不同商店的真实价格。"
+    },
+    {
+      "id": "inflation-redistribution",
+      "title": "通胀如何改变收入与财富分配",
+      "summary": "给定名义合同，未预期到的通胀提高会减轻债务实际负担。",
+      "bodyHtml": "<p>固定名义工资、固定退休金和现金储蓄的购买力会被通胀侵蚀。名义收入及时按价格调整的群体所受影响较小。固定利率借贷中，<strong>实际利率约等于名义利率减去通胀率</strong>，精确式为 (1+i) ÷ (1+π) − 1。</p><p>在名义合同给定时，未预期通胀使固定名义还款的实际价值下降，购买力从债权人向债务人转移。预期通胀可进入新签合同的名义利率，指数化合同也可减轻影响。政府若发行名义债务，意外通胀可能降低其实际负担，公共支出和税收还会经价格、指数化和征收时滞变化。</p>",
+      "keyTakeaway": "先检查名义金额是否固定、通胀是否被预期、合同是否指数化。",
+      "pitfall": "名义利率是以货币计量的收益率，实际利率反映购买力。",
+      "example": "固定名义利率为 5%，通胀率意外达到 8%，实际利率约为 −3%，精确值约为 −2.78%。"
+    },
+    {
+      "id": "inflation-policies",
+      "title": "通胀治理与政策作用路径",
+      "summary": "不同成因对应需求管理、改善供给和降低再分配成本等措施。",
+      "bodyHtml": "<ul><li>对需求过旺，可通过紧缩性货币或财政措施减少总需求。标准模型中，央行卖出证券可回收流动性。</li><li>改善供给可针对物流瓶颈、单位生产成本和生产率。供给学派强调税收对供给激励的影响，实际效果取决于税种、融资与政策环境。</li><li>收入政策可通过工资与价格指引缓解成本传导。指数化可调整名义合同，降低实际购买力偏离。</li><li>极端通胀下，货币制度改革通常需要配合财政与货币政策稳定，才能重建货币信用。</li></ul>",
+      "keyTakeaway": "先诊断通胀成因，再判断所考工具对总需求、总供给或名义合同的直接作用。",
+      "pitfall": "价格管制可能压住公开标价，同时出现供给不足或黑市。指数化可减轻部分再分配影响，持续通胀仍取决于其成因。",
+      "example": "需求超过产能时，减少政府购买可使总需求回落。若问题源于港口堵塞，疏通物流有助于降低供给成本。"
+    },
+    {
+      "id": "deflation",
+      "title": "通货紧缩、实际利率与债务",
+      "summary": "一般物价持续下跌时，固定名义债务的实际负担可能上升。",
+      "bodyHtml": "<p><strong>通货紧缩</strong>是一般物价水平持续下降。需求不足引发的紧缩可使销售、投资和就业承压。若名义利率变化有限，通胀率下降到负数会推高实际利率，增加名义债务的实际负担。</p><p>在总需求不足的情境中，增加公共支出、降低政策利率或改善收入支持可通过总需求缓解通缩。部分教学分类使用“隐性通缩”指价格被人为维持而需求不足或商品积压的情境。统计判断仍要观察一般价格水平是否持续下行。</p>",
+      "keyTakeaway": "物价水平持续下降属于通缩，物价涨得更慢属于通胀放缓。",
+      "pitfall": "供给改善带来的降价与需求收缩带来的通缩对产出和就业的影响不同。判断债务负担时先检查名义利率与合同。",
+      "example": "名义借款利率 2%、价格水平下降 3% 时，实际利率近似为 5%。"
+    },
+    {
+      "id": "okun-law",
+      "title": "奥肯定律与产出缺口",
+      "summary": "用经验关系连接周期性失业和实际产出缺口。",
+      "bodyHtml": "<p>缺口式奥肯定律可写作 <strong>(Y − Y*) ÷ Y* ≈ −β(u − u*)</strong>。Y 为实际产出，Y* 为潜在产出，u 为实际失业率，u* 为自然失业率。β 为经验系数。</p><p>基础练习常使用 β ≈ 2。当失业率高于自然失业率 1 个百分点，实际产出约比潜在产出低 2%。估计系数随经济体、时期、估计方式与劳动市场调整而变。</p>",
+      "keyTakeaway": "失业率差用百分点，产出缺口表示为潜在产出的百分比。",
+      "pitfall": "奥肯定律联系产出和失业。增长率形式需要另外确定潜在增长率与失业率变动的估计关系。",
+      "example": "若自然失业率 4.5%，实际失业率 6%，取 β = 2，则实际产出约低于潜在产出 3%。"
+    },
+    {
+      "id": "phillips-curve",
+      "title": "菲利普斯曲线与通胀预期",
+      "summary": "短期存在有条件的负向关系，长期曲线在自然失业率处垂直。",
+      "bodyHtml": "<p>早期菲利普斯曲线描述名义工资增长率与失业率的负向关系，后续形式用价格通胀率。考虑预期和供给冲击时，可写为 <strong>π = πᵉ − α(u − u*) + v</strong>。其中 α &gt; 0，πᵉ 为预期通胀率，v 为供给冲击。</p><p>给定预期和供给条件，降低失业率对应沿短期曲线提高通胀率。预期通胀提高或不利供给冲击可使短期曲线向上移动。长期预期与实际通胀一致，且供给冲击消退时，失业率回到自然率。</p>",
+      "keyTakeaway": "在短期题中固定预期与供给条件。长期垂直曲线排除靠持续提高通胀永久降低失业率。",
+      "pitfall": "需求政策在长期仍可影响名义变量。提高岗位匹配效率等结构措施还可能改变自然失业率。",
+      "example": "需求扩张可在短期减少周期性失业并提高通胀。随着通胀预期调整，失业率回归自然率，物价路径可能已改变。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "失业",
+      "target": "employment-measure",
+      "children": [
+        {
+          "label": "失业主体条件与统计",
+          "target": "employment-measure",
+          "children": [
+            {
+              "label": "有劳动能力",
+              "target": "employment-measure"
+            },
+            {
+              "label": "有工作意愿",
+              "target": "employment-measure"
+            },
+            {
+              "label": "没有工作",
+              "target": "employment-measure"
+            },
+            {
+              "label": "调查失业率与统计口径",
+              "target": "employment-measure"
+            }
+          ]
+        },
+        {
+          "label": "按意愿分类",
+          "target": "unemployment-types",
+          "children": [
+            {
+              "label": "自愿失业",
+              "target": "unemployment-types"
+            },
+            {
+              "label": "非自愿失业",
+              "target": "unemployment-types"
+            }
+          ]
+        },
+        {
+          "label": "自然失业与充分就业",
+          "target": "natural-unemployment",
+          "children": [
+            {
+              "label": "摩擦性失业",
+              "target": "unemployment-types"
+            },
+            {
+              "label": "结构性失业",
+              "target": "unemployment-types"
+            },
+            {
+              "label": "充分就业仍有自然失业",
+              "target": "natural-unemployment"
+            }
+          ]
+        },
+        {
+          "label": "季节性失业",
+          "target": "unemployment-types"
+        },
+        {
+          "label": "周期性失业",
+          "target": "unemployment-types"
+        }
+      ]
+    },
+    {
+      "label": "通货膨胀",
+      "target": "inflation-types",
+      "children": [
+        {
+          "label": "类型",
+          "target": "inflation-types",
+          "children": [
+            {
+              "label": "按物价上涨速度",
+              "target": "inflation-types",
+              "children": [
+                {
+                  "label": "温和型",
+                  "target": "inflation-types"
+                },
+                {
+                  "label": "奔腾式",
+                  "target": "inflation-types"
+                },
+                {
+                  "label": "恶性型",
+                  "target": "inflation-types"
+                },
+                {
+                  "label": "四档分法另列爬行式",
+                  "target": "inflation-types"
+                }
+              ]
+            },
+            {
+              "label": "按相对价格变化",
+              "target": "inflation-types",
+              "children": [
+                {
+                  "label": "平衡型",
+                  "target": "inflation-types"
+                },
+                {
+                  "label": "非平衡型",
+                  "target": "inflation-types"
+                }
+              ]
+            },
+            {
+              "label": "按表现形式",
+              "target": "inflation-types",
+              "children": [
+                {
+                  "label": "公开性",
+                  "target": "inflation-types"
+                },
+                {
+                  "label": "隐蔽性或抑制性",
+                  "target": "inflation-types"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "成因",
+          "target": "inflation-causes",
+          "children": [
+            {
+              "label": "传统货币数量论",
+              "target": "inflation-causes"
+            },
+            {
+              "label": "需求拉动",
+              "target": "inflation-causes"
+            },
+            {
+              "label": "成本推动",
+              "target": "inflation-causes"
+            },
+            {
+              "label": "供求混合",
+              "target": "inflation-causes"
+            },
+            {
+              "label": "结构性通胀",
+              "target": "inflation-causes"
+            }
+          ]
+        },
+        {
+          "label": "成本",
+          "target": "inflation-costs",
+          "children": [
+            {
+              "label": "菜单成本",
+              "target": "inflation-costs"
+            },
+            {
+              "label": "鞋底成本",
+              "target": "inflation-costs"
+            },
+            {
+              "label": "税收扭曲",
+              "target": "inflation-costs"
+            }
+          ]
+        },
+        {
+          "label": "分配影响",
+          "target": "inflation-redistribution",
+          "children": [
+            {
+              "label": "固定收入与浮动收入",
+              "target": "inflation-redistribution"
+            },
+            {
+              "label": "货币储蓄者",
+              "target": "inflation-redistribution"
+            },
+            {
+              "label": "债权人与债务人",
+              "target": "inflation-redistribution"
+            },
+            {
+              "label": "政府与公众",
+              "target": "inflation-redistribution"
+            }
+          ]
+        },
+        {
+          "label": "治理",
+          "target": "inflation-policies",
+          "children": [
+            {
+              "label": "控制需求",
+              "target": "inflation-policies"
+            },
+            {
+              "label": "改善供给",
+              "target": "inflation-policies"
+            },
+            {
+              "label": "收入政策",
+              "target": "inflation-policies"
+            },
+            {
+              "label": "收入指数化",
+              "target": "inflation-policies"
+            },
+            {
+              "label": "货币制度改革",
+              "target": "inflation-policies"
+            }
+          ]
+        },
+        {
+          "label": "通货紧缩",
+          "target": "deflation",
+          "children": [
+            {
+              "label": "持续下跌的一般物价",
+              "target": "deflation"
+            },
+            {
+              "label": "实际利率和债务负担",
+              "target": "deflation"
+            },
+            {
+              "label": "需求不足时的政策",
+              "target": "deflation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "奥肯定律与菲利普斯曲线",
+      "target": "okun-law",
+      "children": [
+        {
+          "label": "奥肯定律",
+          "target": "okun-law",
+          "children": [
+            {
+              "label": "自然失业率与周期性失业",
+              "target": "okun-law"
+            },
+            {
+              "label": "实际产出与潜在产出缺口",
+              "target": "okun-law"
+            }
+          ]
+        },
+        {
+          "label": "菲利普斯曲线",
+          "target": "phillips-curve",
+          "children": [
+            {
+              "label": "工资上涨率与失业率",
+              "target": "phillips-curve"
+            },
+            {
+              "label": "价格通胀率与失业率",
+              "target": "phillips-curve"
+            },
+            {
+              "label": "短期曲线与通胀预期",
+              "target": "phillips-curve"
+            },
+            {
+              "label": "长期曲线在自然失业率处垂直",
+              "target": "phillips-curve"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

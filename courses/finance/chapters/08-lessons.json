@@ -1,0 +1,209 @@
+{
+  "title": "金融抑制与金融深化",
+  "subtitle": "理解利率和信贷管制怎样影响资金配置，区分金融约束论，并按口径读懂金融深化指标。",
+  "sections": [
+    {
+      "id": "financial-repression",
+      "title": "金融抑制的含义与常见手段",
+      "summary": "当不当干预持续扭曲金融价格与资金配置时，金融体系与实体经济可能相互拖累。",
+      "bodyHtml": "<p><strong>金融抑制</strong>是麦金农和肖研究金融发展时使用的概念。发展中经济体如果长期以行政方式压低存贷款利率、扭曲汇率或配置贷款，金融市场难以按资金稀缺性与风险分配资源。麦金农强调货币余额积累对投资的作用，肖强调金融中介和金融发展对储蓄、投资的影响。</p><p>常见手段包括利率上限、信贷配给、准入和业务限制，以及在特定制度下过高的法定准备金或流动性要求。汇率扭曲常表现为<strong>本币高估</strong>。若以每单位外币折合本币表示汇率，本币高估对应外币的本币价格偏低。判断一项措施是否形成金融抑制，要看程度、持续时间及其对市场功能的影响。</p>",
+      "keyTakeaway": "识别金融抑制时，先找“过度干预”，再找“利率、汇率或信贷配置失真”及其影响。",
+      "pitfall": "同一类工具也可能服务于审慎监管。汇率“高低”必须先说明标价法。",
+      "example": "当名义存款利率为 2%、同期通胀为 5% 时，实际利率约为 −3%。若这种回报持续低于市场水平，居民可能减少在正规机构持有的存款。"
+    },
+    {
+      "id": "repression-mechanism",
+      "title": "金融抑制的结构、表现与传导",
+      "summary": "从金融工具和机构的局限，追踪到储蓄、投资、就业与收入。",
+      "bodyHtml": "<p>金融资产和机构类型单一、直接融资市场薄弱，以及正规金融和非正规金融并存的<strong>二元结构</strong>，会使抑制性安排的影响更难缓解。典型表现包括金融市场不健全、产品与银行业务单一、利率僵硬、商业信用发展不足及证券品种有限。</p><p>低实际存款回报可能削弱持有正规金融资产的意愿。贷款价格受限时，信贷需求可能超过供给，资金通过数量、资格或行政安排分配，影响投资项目选择。融资与投资不足还可能影响就业与收入，反过来拖慢金融服务需求和发展。</p><p>研究补充（2026 年 11 月 11 日核对）。另有研究从政府融资讨论低实际利率对储户和债券持有人的隐性税效应。该机制的受益者、承担者和作用，与储蓄、投资、就业、收入四项经典分类需要分别理解。<a href=\"https://www.imf.org/en/publications/wp/issues/2016/12/31/the-liquidation-of-government-debt-42610\">国际货币基金组织 · 金融抑制与政府债务研究</a></p>",
+      "keyTakeaway": "四项典型传导是储蓄、投资、就业、收入，方向取决于制度与经济条件。",
+      "pitfall": "低贷款利率可能提高申请贷款的意愿，但有限资金按配额分配时，实际投资并不一定随之增加。",
+      "example": "银行不能按借款风险定价且放贷额度有限时，项目回报较高的小企业也可能被拒贷，转向成本更高的非正规融资。"
+    },
+    {
+      "id": "financial-restraint",
+      "title": "金融约束论与激励",
+      "summary": "金融约束论强调在特定条件下，适度安排可以为持续经营和审查借款人创造激励。",
+      "bodyHtml": "<p>赫尔曼、默多克和斯蒂格利茨提出的<strong>金融约束</strong>理论关注信息不对称下的激励。某些适度的存款利率限制或准入安排，可以为银行创造高于充分竞争情形的收益机会，即<strong>租金</strong>。如果银行重视未来持续取得这些收益，就可能有更多动力审查借款人、监测贷款和谨慎经营。</p><p>这套机制依赖适度约束、监管和未来经营价值等条件。约束过强会压低储蓄回报，减少竞争并产生寻租。研究核对（2026 年 11 月 11 日）。<a href=\"https://www.gsb.stanford.edu/faculty-research/working-papers/financial-restraint-towards-new-paradigm\">斯坦福商学院 · 金融约束研究</a></p>",
+      "keyTakeaway": "金融约束题抓住“创造租金，以改善激励”。金融抑制题抓住“扭曲价格和阻碍发展”。",
+      "pitfall": "金融约束论的租金指超过竞争情形的收益机会，效果取决于具体制度与条件。",
+      "example": "一家银行若能通过稳健经营保有未来收益，增加贷前审查和贷后监督投入可能比追求短期高风险回报更有吸引力。"
+    },
+    {
+      "id": "financial-deepening",
+      "title": "金融深化的改革与表现",
+      "summary": "改善定价、扩展融资工具与中介服务，降低信息与交易成本，促进金融服务实体经济。",
+      "bodyHtml": "<p>在麦金农—肖框架中，<strong>金融深化</strong>强调减少不适当干预，让利率、汇率等价格更能反映供求与风险。典型改革包括金融与财政政策协调、放松利率和汇率的过度限制、发展直接融资工具和金融市场、鼓励适当竞争，以及减少指导性信贷配给。</p><p>信息不对称和交易成本使金融中介、征信和其他信息机构具有价值。中介可以集合资金、审查借款人并分散部分风险。限制性契约、抵押品与借款人净值可以提供激励或降低违约损失。金融市场与实际经济相互促进仍依赖制度质量、风险管理和宏观稳定。</p><p>研究核对（2026 年 11 月 11 日）。<a href=\"https://www.brookings.edu/books/money-and-capital-in-economic-development/\">布鲁金斯学会 · 麦金农研究</a>　<a href=\"https://www.imf.org/en/news/articles/2015/09/28/04/53/sp101909\">国际货币基金组织 · 金融与经济增长</a></p>",
+      "keyTakeaway": "金融深化既看市场、机构与产品如何发展，也看其配置资金、处理信息和分担风险的能力。",
+      "pitfall": "金融自由化可以推动深化，但开放速度、审慎监管、信息披露和契约执行条件会影响实际效果。",
+      "example": "企业除申请银行贷款外，还可以发行债券。信息披露与信用评级帮助投资人比较不同项目的风险。"
+    },
+    {
+      "id": "financial-depth-measures",
+      "title": "货币化程度与金融深度指标",
+      "summary": "区分货币交易占比、货币余额与收入之比，以及金融资产和信贷的规模指标。",
+      "bodyHtml": "<p><strong>货币化程度</strong>描述货币媒介在经济活动中的普及。直接考察时可比较以货币结算的产出或交换与相应总量。实证中也常用广义货币与名义 GDP 的比率作为近似指标，广义货币是存量，GDP 是期间流量，计算时应说明时间和统计口径。</p><p>剑桥现金余额方程写作 <strong>Mᵈ＝kPY</strong>，其中 k＝名义货币需求 ÷ 名义收入，表示相对于收入希望持有多少货币。在货币市场均衡并采用一致口径时，可由相应货币存量与名义收入的比率表征。这个余额比率和“用货币完成的交易价值占比”是不同的统计量。</p><p><strong>金融相关比率</strong>可用来描述金融资产相对于实际国民财富的规模。金融深度也可用私人部门信贷或金融机构资产与 GDP 的比率等衡量。指标核对（2026 年 11 月 11 日）。世界银行框架还同时观察金融服务的可及性、效率与稳定性。<a href=\"https://www.worldbank.org/en/publication/gfdr/gfdr-2016/background/financial-development\">世界银行 · 金融发展衡量框架</a>　<a href=\"https://data.worldbank.org/collections/findata/about-us\">世界银行 · 金融发展数据</a></p>",
+      "keyTakeaway": "先看分子是交易额、货币余额、金融资产还是信贷，确认口径后再比较。",
+      "pitfall": "金融规模增大并不必然代表配置效率提高。金融相关比率与货币化程度各有解释对象。",
+      "example": "广义货币为 120 亿元，年度名义 GDP 为 100 亿元，余额与 GDP 之比为 120%。这个数值可以超过 100%，因为它不是总交易中货币结算的份额。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "金融抑制",
+      "target": "financial-repression",
+      "children": [
+        {
+          "label": "含义",
+          "target": "financial-repression",
+          "children": [
+            {
+              "label": "金融价格扭曲与实体经济相互拖累",
+              "target": "financial-repression"
+            }
+          ]
+        },
+        {
+          "label": "结构背景",
+          "target": "repression-mechanism",
+          "children": [
+            {
+              "label": "金融资产形式少、机构单一",
+              "target": "repression-mechanism"
+            },
+            {
+              "label": "正规与非正规金融二元结构",
+              "target": "repression-mechanism"
+            },
+            {
+              "label": "直接融资薄弱、金融价格扭曲",
+              "target": "repression-mechanism"
+            }
+          ]
+        },
+        {
+          "label": "常见手段",
+          "target": "financial-repression",
+          "children": [
+            {
+              "label": "利率限制与信贷配给",
+              "target": "financial-repression"
+            },
+            {
+              "label": "过高的准备金或流动性要求",
+              "target": "financial-repression"
+            },
+            {
+              "label": "本币汇率高估",
+              "target": "financial-repression"
+            }
+          ]
+        },
+        {
+          "label": "典型表现",
+          "target": "repression-mechanism",
+          "children": [
+            {
+              "label": "市场不健全、利率僵硬",
+              "target": "repression-mechanism"
+            },
+            {
+              "label": "金融工具、银行业务和证券品种有限",
+              "target": "repression-mechanism"
+            },
+            {
+              "label": "商业信用发展不足",
+              "target": "repression-mechanism"
+            }
+          ]
+        },
+        {
+          "label": "四类后果",
+          "target": "repression-mechanism",
+          "children": [
+            {
+              "label": "储蓄与投资受影响",
+              "target": "repression-mechanism"
+            },
+            {
+              "label": "就业与收入受影响",
+              "target": "repression-mechanism"
+            }
+          ]
+        },
+        {
+          "label": "金融约束论",
+          "target": "financial-restraint",
+          "children": [
+            {
+              "label": "适度约束、租金与激励条件",
+              "target": "financial-restraint"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "金融深化",
+      "target": "financial-deepening",
+      "children": [
+        {
+          "label": "改革内容",
+          "target": "financial-deepening",
+          "children": [
+            {
+              "label": "金融与财政改革协调",
+              "target": "financial-deepening"
+            },
+            {
+              "label": "利率与汇率定价机制",
+              "target": "financial-deepening"
+            },
+            {
+              "label": "直接融资、市场竞争与减少信贷配给",
+              "target": "financial-deepening"
+            }
+          ]
+        },
+        {
+          "label": "发展动因",
+          "target": "financial-deepening",
+          "children": [
+            {
+              "label": "信息不对称与交易成本",
+              "target": "financial-deepening"
+            }
+          ]
+        },
+        {
+          "label": "市场表现",
+          "target": "financial-deepening",
+          "children": [
+            {
+              "label": "专业信息机构与金融中介",
+              "target": "financial-deepening"
+            },
+            {
+              "label": "限制性契约、抵押与净值",
+              "target": "financial-deepening"
+            }
+          ]
+        },
+        {
+          "label": "衡量方法",
+          "target": "financial-depth-measures",
+          "children": [
+            {
+              "label": "货币化程度与剑桥 k 的口径",
+              "target": "financial-depth-measures"
+            },
+            {
+              "label": "金融相关比率、资产和信贷指标",
+              "target": "financial-depth-measures"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

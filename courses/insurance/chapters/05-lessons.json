@@ -1,0 +1,281 @@
+{
+  "title": "财产保险",
+  "subtitle": "先识别承保的是财产本身、对他人的赔偿责任，还是交易对手的履约风险，再判断触发条件和赔偿方式。",
+  "sections": [
+    {
+      "id": "property-coverage",
+      "title": "广义财产保险与财产损失保险",
+      "summary": "广义财产保险覆盖财产及相关利益，狭义财产保险主要补偿具体财产损失。",
+      "bodyHtml": "<p>广义<strong>财产保险</strong>包括财产损失、责任、信用、保证等保险业务。狭义的财产保险主要是财产损失保险，典型险种包括火灾保险、运输工具保险、货物运输保险、工程保险和农业保险。财产保险通常具有补偿性，赔偿以承保损失和合同约定为基础。</p><p><strong>火灾保险</strong>通常围绕房屋、设备、存货或家庭财产等标的承保火灾及合同列明的其他风险。常见产品有企业财产险、家庭财产险，判断时依次查标的范围、保险事故、责任免除、保额与赔偿办法。标的地点和用途可能影响风险。</p><p>官方核验（2026 年 11 月 11 日）。《保险法》第 12、55、95 条分别涉及保险标的、保险价值与业务分类。经批准，财险公司可经营短期健康保险和意外伤害保险，这两类业务属于人身保险。自 2026 年 11 月 1 日施行的财险产品开发管理规定也明确区分险种类别。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a>　<a href=\"https://www.nfra.gov.cn/cn/view/pages/ItemDetail.html?docId=1274236&amp;itemId=928\">国家金融监督管理总局 · 财险产品开发规定</a></p>",
+      "keyTakeaway": "财产险补偿财产损失、经济利益损失或赔偿责任，具体以承保险种为准。",
+      "pitfall": "“财险公司可以经营的业务”和“财产保险业务”采用不同分类口径。",
+      "example": "仓库因火灾损毁的是财产损失。若事故还导致经营者依法赔偿他人损失，需另看责任保险。"
+    },
+    {
+      "id": "property-compensation",
+      "title": "第一风险赔偿与免赔额",
+      "summary": "先确认赔偿方式，再按保险金额、承保损失和免赔条款计算。",
+      "bodyHtml": "<p>采用<strong>第一风险责任赔偿</strong>且无其他扣减时，赔款＝承保损失与保险金额两者中的较小值。保额以内称第一损失，超过保额的部分由被保险人承担。采用不足额比例赔偿时，按承保损失乘保险金额与保险价值之比计算，适用条件是保额低于保险价值且合同无另行约定。</p><p><strong>绝对免赔额</strong>通常从核定可赔损失中扣除约定数额，低于该金额不赔。<strong>相对免赔额</strong>是启动赔付的门槛，达到合同约定的触发条件后无需再扣这笔金额。刚好等于门槛时，按条款约定判断。</p>",
+      "keyTakeaway": "先定“第一风险还是比例”，再定“绝对免赔还是相对免赔”，最后核对赔款上限。",
+      "pitfall": "保险金额是赔付限额之一，承保损失才是计算起点。",
+      "example": "住宅价值 120 万元，保额 90 万元，可赔损失 40 万元。采用第一风险赔 40 万元，采用不足额比例规则且无其他扣减则为 30 万元。"
+    },
+    {
+      "id": "motor-insurance",
+      "title": "机动车保险的保障对象",
+      "summary": "分别核对本车、车上人员、车载货物和第三者损失。",
+      "bodyHtml": "<p><strong>交强险</strong>是法定强制责任保险，按条例在责任限额内赔偿道路交通事故造成的相应受害人损失，受害人范围不含本车人员和被保险人。<strong>机动车损失保险</strong>保障本车承保的直接损失。<strong>商业第三者责任保险</strong>承保依法应向第三者承担的约定赔偿责任，<strong>车上人员责任保险</strong>按约定保障对本车乘员的赔偿责任。车载货物损失另核对货运险、附加保障等合同安排。</p><p>官方核验（2026 年 11 月 11 日）。核对交强险条例，以及中国保险行业协会公布的普通机动车商业保险示范条款。该示范条款列机动车损失险、商业第三者责任险和车上人员责任险三项独立主险，特种车等另有示范条款。<a href=\"https://xzfg.moj.gov.cn/front/law/detail?LawID=162\">国家行政法规库 · 交强险条例</a>　<a href=\"https://www.iachina.cn/art/2020/9/4/art_24_104621.html\">中国保险行业协会 · 商业车险示范条款</a></p>",
+      "keyTakeaway": "本车损失看车损险，第三者责任看交强险及商业三者险，车上人员与货物各看专门保障。",
+      "pitfall": "同一次事故可产生多类损失。商业第三者责任险和交强险有各自的适用规则。",
+      "example": "暴雨中汽车碰树，本车受损和车上乘客受伤分别核对车损险和车上人员保障。"
+    },
+    {
+      "id": "agricultural-insurance",
+      "title": "农业保险、保额与政策支持",
+      "summary": "农业保险覆盖合同约定的生产风险，保额可按成本、产量或估定价值确定。",
+      "bodyHtml": "<p><strong>农业保险</strong>承保种植业、林业、畜牧业、渔业等生产中约定的自然灾害、意外事故、疫病和疾病等引起的财产损失。农业风险常有地域性和季节性。实践中可按生产成本、约定产量对应价值或估定价值确定保险金额，主要险种可按承保的种植、森林、养殖等生产对象区分。</p><p>财政保费补贴可以提高农业保险的可及性。WTO 的<strong>绿箱</strong>指满足《农业协定》附件 2 条件、对贸易或生产影响很小的国内支持。政府参与收入保险或自然灾害救助项目，需要核对一般条件和相应类别的损失门槛、补偿限制等专门条件。</p><p>官方核验（2026 年 11 月 11 日）。《农业保险条例》第 2、3 条涉及农业保险的范围和政府引导、市场运作等原则。WTO《农业协定》附件 2 第 1、7、8 段规定绿箱及相关项目条件。<a href=\"https://xzfg.moj.gov.cn/front/law/detail?LawID=361\">国家行政法规库 · 农业保险条例</a>　<a href=\"https://www.wto.org/ENGLISH/docs_e/legal_e/14-ag_02_e.htm\">世界贸易组织 · 农业协定附件 2</a></p>",
+      "keyTakeaway": "农险按生产活动及约定事故判断。政策支持、是否强制投保、WTO 通报类别需要分别核对。",
+      "pitfall": "政府参与农险只说明存在政策支持。判断绿箱要知道方案如何触发和计算补偿。",
+      "example": "同一地区的水稻保险可按投入成本设保额。遇洪涝后，还需按合同核定受损面积和赔偿条件。"
+    },
+    {
+      "id": "liability-insurance",
+      "title": "责任保险及常见险种",
+      "summary": "用“谁因什么对谁负赔偿责任”区分公众、产品、雇主和职业责任。",
+      "bodyHtml": "<p><strong>责任保险</strong>以被保险人对第三者依法应负的赔偿责任为保险标的。具体合同可约定承保与排除的责任范围、赔偿限额及有关法律费用。责任确定后，直接向第三者赔付及其请求条件可按《保险法》第 65 条判断。</p><ul><li><strong>公众责任</strong>常见于综合公众责任、营业场所、电梯运行、承包人对公众和个人家庭日常活动责任。</li><li><strong>产品责任</strong>关注缺陷产品造成使用者或他人的人身伤害或财产损失。产品自身质量或保修风险应另看相应合同。</li><li><strong>雇主责任</strong>关注员工工作中受伤、伤残、死亡或患约定职业病时，雇主依法或依约应负的赔偿责任。故意等情形须核对除外条款。</li><li><strong>职业责任</strong>关注提供专业服务时的约定责任，例如医疗、律师、会计师、建筑和工程技术人员责任。</li></ul><p>官方核验（2026 年 11 月 11 日）。核对《保险法》第 65、66 条、《民法典》第 1202、1203 条和用人单位依法参加工伤保险的要求。<a href=\"https://www.nfra.gov.cn/cn/view/pages/rulesDetail.html?docId=879931\">国家金融监督管理总局 · 保险法</a>　<a href=\"https://www.spp.gov.cn/spp/zdgz/202006/t20200602_463886.shtml\">最高人民检察院 · 民法典</a>　<a href=\"https://app.www.gov.cn/govdata/gov/202108/04/474314/article.html\">中国政府网 · 工伤保险参保说明</a></p>",
+      "keyTakeaway": "顾客因产品缺陷受伤看产品责任，雇员因工作受伤看雇主责任，公众在场所受伤看场所责任。",
+      "pitfall": "购买商业雇主责任险后，用人单位仍须履行法定工伤保险参保义务。",
+      "example": "玩具缺陷伤及客户时，对应产品责任。员工操作机器受伤时，对应雇主责任并核对工伤保险待遇。"
+    },
+    {
+      "id": "liability-triggers",
+      "title": "期内发生式与期内索赔式",
+      "summary": "分别找出事故或损害发生日、首次提出索赔日和合同期间。",
+      "bodyHtml": "<p><strong>期内发生式</strong>主要按保险事故或损害是否发生在保险期间内判断承保期间。期后提出的索赔仍可能适用，需要核对条款、通知和法定时效。<strong>期内索赔式</strong>通常要求第三者首次提出赔偿请求发生在保险期间或约定的延长报告期，发生在保单生效前的损害还要看追溯日、已知情形等条件。</p>",
+      "keyTakeaway": "期内发生式看事故或损害时间，期内索赔式看首次索赔及相关报告约定。",
+      "pitfall": "生产日期、事故日、发现日、第三者索赔日和向保险人报案日都可能不同，逐一写在时间线上。",
+      "example": "产品在保单生效前生产，使用者在保险期间内受伤。按期内发生式，生产早于承保期本身不排除责任。"
+    },
+    {
+      "id": "credit-guarantee",
+      "title": "信用保险与保证保险的角色",
+      "summary": "两类保险都保障履约信用风险，差别在于谁投保。",
+      "bodyHtml": "<p>三方分别是承担赔偿责任的保险人、享有债权或合同利益的权利人、负有还款或履约义务的义务人。<strong>信用保险</strong>中，权利人作为投保人和被保险人，承保义务人的履约信用风险。<strong>保证保险</strong>中，履约义务人投保，权利人是被保险人。风险必须具有不确定性。</p><p>信用类业务可见国内信用保险、出口信用保险及广义分类中的投资保险。保证类产品可见履约或其他确实保证、雇员诚实保证、产品保证等，具体看保险责任。其保障具有信用增级作用，赔付仍须满足保险合同约定。</p><p>官方核验（2026 年 11 月 11 日）。核对《信用保险和保证保险业务监管办法》第 1、7、33 条，政策性保险公司中长期出口信用保险和海外投资保险业务有适用例外。<a href=\"https://www.nfra.gov.cn/cn/view/pages/governmentDetail.html?docId=904960&amp;generaltype=1\">国家金融监督管理总局 · 信用保险和保证保险业务监管办法</a></p>",
+      "keyTakeaway": "信用险是权利人给他人的信用风险投保。保证险是义务人给自己的履约风险投保。",
+      "pitfall": "投保人负责投保与缴费，被保险人享有合同保障。信用风险主体在两个险种中均指履约义务人。",
+      "example": "供货商为买方赊购货款投保是信用保险，承包商为自己的工程履约向保险人投保是保证保险。"
+    },
+    {
+      "id": "export-credit",
+      "title": "出口信用保险与经营模式",
+      "summary": "出口信用保险保障出口收款等约定风险，具体政策工具还要符合国际规则。",
+      "bodyHtml": "<p><strong>出口信用保险</strong>可以对买方拖欠、破产以及约定政治风险造成的收款损失提供保障。我国政策性出口信用保险由国家出资设立的国有政策性保险公司中国信保承办。中国信保公开营业执照登记为有限责任公司（国有控股），年报列有财政部及中央汇金派驻股权董事。按政策承办模式和按工商登记性质分类，需要分别核对口径。</p><p>WTO《补贴与反补贴措施协定》附件 I 第 (j) 项针对政府或政府控制机构以不足以覆盖长期经营成本和损失的费率提供相关出口信用保险等计划。判断一个方案须审查它的实际设计和运行。</p><p>官方核验（2026 年 11 月 11 日）。核对中国信保的营业执照、2025 年报及 WTO 协定正文。<a href=\"https://sx.sinosure.com.cn/images/gywm/gsjj/xxpl/hlwbxxxplu/gsjcxx/2026/04/15/1494017395218657280.pdf\">中国信保 · 营业执照</a>　<a href=\"https://js.sinosure.com.cn/xwzx/ndbd/ndbg_2025/\">中国信保 · 2025 年报</a>　<a href=\"https://www.wto.org/english/docs_e/legal_e/24-scm_01_e.htm\">世界贸易组织 · 补贴与反补贴措施协定</a></p>",
+      "keyTakeaway": "出口信用保险看出口信用风险和政策性承办机构，补贴合规还要看费率等条件。",
+      "pitfall": "出口收款风险和海外投资政治风险可由不同的产品处理，投保时要核对保险标的。",
+      "example": "出口企业向海外买方赊销设备，买方破产造成应收账款损失时，检查出口信用保单是否覆盖该损失。"
+    },
+    {
+      "id": "financing-credit-risk",
+      "title": "融资性信用保证保险的风险控制",
+      "summary": "分散承保、审查融资交易与履约能力，并控制自留责任和集中度。",
+      "bodyHtml": "<p><strong>融资性信保业务</strong>承保借贷、融资租赁等融资合同的履约信用风险。经营时要识别底层融资合同和真实交易，检查履约义务人的资产、信用与偿债能力。风险管理还包括小额分散、集中度管理、净资产约束、再保险和持续跟踪。</p><p>官方核验（2026 年 11 月 11 日）。《信用保险和保证保险业务监管办法》以净资产约束自留未了责任余额及单一义务人集中度，第 6 条禁止承保保险公司的控股股东、实际控制人、子公司及其他关联方的资金融入业务，第 15 条要求审慎调查和跟踪融资性业务。2017 年暂行办法已被该办法废止。<a href=\"https://www.nfra.gov.cn/cn/view/pages/governmentDetail.html?docId=904960&amp;generaltype=1\">国家金融监督管理总局 · 信用保险和保证保险业务监管办法</a></p>",
+      "keyTakeaway": "风险审查覆盖单笔真实性、义务人偿债能力和组合集中度。",
+      "pitfall": "关联方的资金融入与资金融出是不同概念。判断承保限制时先看它在交易中是哪一方。",
+      "example": "同一集团企业集中融资时，逐笔金额较小也可能形成相关性和集中暴露，应按监管口径合并审查。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "狭义的财产保险",
+      "target": "property-coverage",
+      "children": [
+        {
+          "label": "定义与范围",
+          "target": "property-coverage",
+          "children": [
+            {
+              "label": "广义含财产损失、责任、信用与保证",
+              "target": "property-coverage"
+            },
+            {
+              "label": "狭义承保具体财产损失",
+              "target": "property-coverage"
+            }
+          ]
+        },
+        {
+          "label": "财产损失险分类",
+          "target": "property-coverage",
+          "children": [
+            {
+              "label": "火灾、运输工具、货运、工程、农业",
+              "target": "property-coverage"
+            }
+          ]
+        },
+        {
+          "label": "火灾保险",
+          "target": "property-coverage",
+          "children": [
+            {
+              "label": "特征与主要险种",
+              "target": "property-coverage"
+            },
+            {
+              "label": "适用范围、责任与赔偿",
+              "target": "property-compensation",
+              "children": [
+                {
+                  "label": "第一风险和比例赔偿",
+                  "target": "property-compensation"
+                },
+                {
+                  "label": "相对免赔和绝对免赔",
+                  "target": "property-compensation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "机动车辆保险",
+          "target": "motor-insurance",
+          "children": [
+            {
+              "label": "交强险",
+              "target": "motor-insurance"
+            },
+            {
+              "label": "车损、商业三者和车上人员责任",
+              "target": "motor-insurance"
+            },
+            {
+              "label": "附加保障",
+              "target": "motor-insurance"
+            }
+          ]
+        },
+        {
+          "label": "农业保险",
+          "target": "agricultural-insurance",
+          "children": [
+            {
+              "label": "成本、产量或估定价值确定保额",
+              "target": "agricultural-insurance"
+            },
+            {
+              "label": "种植、林业、畜牧及渔业",
+              "target": "agricultural-insurance"
+            },
+            {
+              "label": "财政支持与绿箱适用条件",
+              "target": "agricultural-insurance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "责任保险",
+      "target": "liability-insurance",
+      "children": [
+        {
+          "label": "对第三者依法承担的赔偿责任",
+          "target": "liability-insurance"
+        },
+        {
+          "label": "公众责任",
+          "target": "liability-insurance",
+          "children": [
+            {
+              "label": "综合公众、场所、电梯、承包人、个人家庭",
+              "target": "liability-insurance"
+            }
+          ]
+        },
+        {
+          "label": "产品责任",
+          "target": "liability-insurance",
+          "children": [
+            {
+              "label": "产品缺陷损害他人人身或财产",
+              "target": "liability-insurance"
+            },
+            {
+              "label": "期内发生式和期内索赔式",
+              "target": "liability-triggers"
+            }
+          ]
+        },
+        {
+          "label": "雇主责任",
+          "target": "liability-insurance",
+          "children": [
+            {
+              "label": "雇员工伤、职业病与约定除外责任",
+              "target": "liability-insurance"
+            }
+          ]
+        },
+        {
+          "label": "职业责任",
+          "target": "liability-insurance",
+          "children": [
+            {
+              "label": "医疗、律师、会计和工程专业责任",
+              "target": "liability-insurance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "信用、保证保险",
+      "target": "credit-guarantee",
+      "children": [
+        {
+          "label": "保险人、权利人、履约义务人",
+          "target": "credit-guarantee"
+        },
+        {
+          "label": "信用保险",
+          "target": "credit-guarantee",
+          "children": [
+            {
+              "label": "权利人作为投保人和被保险人",
+              "target": "credit-guarantee"
+            },
+            {
+              "label": "国内信用、出口信用与投资保障",
+              "target": "credit-guarantee",
+              "children": [
+                {
+                  "label": "出口信用政策工具及适用规则",
+                  "target": "export-credit"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "保证保险",
+          "target": "credit-guarantee",
+          "children": [
+            {
+              "label": "义务人投保，权利人受保障",
+              "target": "credit-guarantee"
+            },
+            {
+              "label": "确实保证、诚实保证与产品保证",
+              "target": "credit-guarantee"
+            }
+          ]
+        },
+        {
+          "label": "融资性业务与风险控制",
+          "target": "financing-credit-risk"
+        }
+      ]
+    }
+  ]
+}

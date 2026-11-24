@@ -1,0 +1,50 @@
+{
+  "id": "insurance",
+  "route": "insurance",
+  "title": "保险基础",
+  "subtitle": "风险管理、保险基本原则、保险合同、经营监管、财产保险与人身保险",
+  "chapters": [
+    {
+      "id": "01",
+      "legacyId": "chapter26",
+      "number": 1,
+      "title": "风险与保险",
+      "ready": true
+    },
+    {
+      "id": "02",
+      "legacyId": "chapter27",
+      "number": 2,
+      "title": "保险的基本原则",
+      "ready": true
+    },
+    {
+      "id": "03",
+      "legacyId": "chapter28",
+      "number": 3,
+      "title": "保险合同",
+      "ready": true
+    },
+    {
+      "id": "04",
+      "legacyId": "chapter29",
+      "number": 4,
+      "title": "保险公司经营管理和保险监管",
+      "ready": true
+    },
+    {
+      "id": "05",
+      "legacyId": "chapter30",
+      "number": 5,
+      "title": "财产保险",
+      "ready": true
+    },
+    {
+      "id": "06",
+      "legacyId": "chapter31",
+      "number": 6,
+      "title": "人身保险",
+      "ready": true
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfdfd">
+  <meta name="description" content="知其所以 · 多学科个人在线学习站：经济、金融、保险与计算机专题精讲、思维导图、互动图解与即学即练。">
+  <title>知其所以 · 个人在线学习站</title>
+  <link rel="manifest" href="<!--ROOT-->manifest.webmanifest">
+  <script>
+    (() => {
+      const storageKey = 'zhiqi-theme-mode';
+      const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      const readMode = () => {
+        try {
+          const saved = localStorage.getItem(storageKey);
+          if (saved === 'light' || saved === 'dark') return saved;
+        } catch {}
+        return 'system';
+      };
+      let mode = readMode();
+      function applyAppearance() {
+        const dark = mode === 'dark' || (mode === 'system' && systemTheme.matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.dataset.themeMode = mode;
+        themeColor.content = dark ? '#151b1e' : '#fbfdfd';
+      }
+      applyAppearance();
+      systemTheme.addEventListener('change', () => { if (mode === 'system') applyAppearance(); });
+      document.addEventListener('DOMContentLoaded', () => {
+        const picker = document.getElementById('theme-mode');
+        if (!picker) return;
+        const options = picker.querySelectorAll('input[type="radio"]');
+        const selectCurrentMode = () => { for (const o of options) o.checked = o.value === mode; };
+        selectCurrentMode();
+        picker.addEventListener('change', event => {
+          mode = event.target.value;
+          applyAppearance();
+          try { localStorage.setItem(storageKey, mode); } catch {}
+        });
+        window.addEventListener('storage', event => {
+          if (event.key !== storageKey && event.key !== null) return;
+          mode = readMode();
+          selectCurrentMode();
+          applyAppearance();
+        });
+      });
+    })();
+  </script>
+  <link rel="stylesheet" href="<!--ROOT-->assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳转到正文</a>
+<header class="topbar">
+  <a class="brand" href="<!--ROOT-->index.html" aria-label="知其所以，返回学习总览">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 7h9l3 4v17l-4-3H5V7Z" stroke="currentColor" stroke-width="1.7"/><path d="M27 7h-9l-3 4m2 17 4-3h6V7ZM9 12h3m-3 5h3m9-5h3m-3 5h3" stroke="currentColor" stroke-width="1.7"/></svg></span>
+    <span>知其所以<small>个人在线学习站</small></span>
+  </a>
+  <nav class="subject-nav" id="subject-nav" aria-label="学科导航"></nav>
+  <nav class="top-actions" aria-label="全局工具">
+    <button class="header-link" data-action="favorites">我的收藏</button>
+    <button class="header-link" data-action="records">学习记录</button>
+    <a class="github-link" href="<!--REPO_URL-->" target="_blank" rel="noopener noreferrer" aria-label="查看 GitHub 仓库" title="GitHub 仓库">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/></svg>
+    </a>
+    <div class="theme-control" id="theme-mode" role="radiogroup" aria-label="外观模式">
+      <span class="theme-thumb" aria-hidden="true"></span>
+      <input class="visually-hidden" id="theme-dark" type="radio" name="appearance" value="dark">
+      <label class="theme-option" for="theme-dark" title="黑夜模式">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <span class="visually-hidden">黑夜</span>
+      </label>
+      <input class="visually-hidden" id="theme-system" type="radio" name="appearance" value="system" aria-label="跟随系统" checked>
+      <label class="theme-option theme-option-system" for="theme-system" title="跟随系统">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <span class="visually-hidden">跟随系统</span>
+      </label>
+      <input class="visually-hidden" id="theme-light" type="radio" name="appearance" value="light">
+      <label class="theme-option" for="theme-light" title="白天模式">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <span class="visually-hidden">白天</span>
+      </label>
+    </div>
+  </nav>
+  <button class="mobile-menu" data-action="sidebar" aria-label="展开导航" aria-controls="sidebar" aria-expanded="false"><span aria-hidden="true"></span></button>
+</header>
+<div id="storage-notice" class="storage-notice" role="status" hidden></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="课程导航">
+    <div class="sidebar-label"><span id="sidebar-title">学习路径</span> <small id="open-chapter-count"></small></div>
+    <div class="sidebar-quick-actions"><button data-action="favorites">我的收藏</button><button data-action="records">学习记录</button></div>
+    <div id="sidebar-catalog"></div>
+  </aside>
+  <main id="main" tabindex="-1">
+    <div id="home-view" hidden></div>
+    <div id="course-view" hidden></div>
+    <article id="chapter-view" hidden>
+      <div class="chapter-heading">
+        <div class="breadcrumb" id="chapter-breadcrumb"></div>
+        <h1 id="chapter-title"></h1>
+        <p class="chapter-description" id="chapter-description"></p>
+        <div class="chapter-tools">
+          <div class="reading-progress"><span id="reading-label"></span><span class="chapter-exercise-count"></span></div>
+          <button class="text-button" id="continue-reading" hidden>继续上次阅读 <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <nav class="view-tabs" aria-label="章节内容">
+        <button data-view="learn" class="active" aria-current="page">考点精讲</button>
+        <button data-view="practice">测试与错题</button>
+      </nav>
+      <section id="view-learn" class="content-view" aria-labelledby="learn-heading">
+        <section class="chapter-mindmap" id="chapter-mindmap" aria-labelledby="map-heading">
+          <div class="section-intro map-intro">
+            <div>
+              <h2 id="map-heading">本章思维导图</h2>
+              <p id="map-help">先看全章脉络再读考点：点击节点直达对应讲解，用节点旁按钮展开或收起分支。</p>
+            </div>
+            <button type="button" class="text-button" id="map-collapse-panel" aria-expanded="true" aria-controls="map-panel-body">收起导图</button>
+          </div>
+          <div class="map-panel" id="map-panel-body">
+            <div class="map-toolbar">
+              <div class="map-zoom" role="group" aria-label="导图缩放">
+                <button type="button" id="map-zoom-out" aria-label="缩小导图">−</button>
+                <button type="button" id="map-size" aria-label="恢复阅读比例" title="恢复阅读比例">100%</button>
+                <button type="button" id="map-zoom-in" aria-label="放大导图">+</button>
+              </div>
+              <button type="button" id="map-fit">适应宽度</button>
+              <button type="button" id="map-expand">收起分支</button>
+            </div>
+            <div class="map-viewport" tabindex="0" role="region" aria-labelledby="map-heading" aria-describedby="map-help">
+              <ul id="mindmap" class="mindmap"></ul>
+            </div>
+          </div>
+        </section>
+        <div class="reading-layout">
+          <aside class="topic-index" aria-labelledby="topic-heading">
+            <h2 id="topic-heading">知识点索引</h2>
+            <nav class="lesson-jump" id="lesson-jump" aria-label="知识点索引"></nav>
+          </aside>
+          <div class="reading-column">
+            <h2 id="learn-heading" class="visually-hidden">考点精讲</h2>
+            <div class="learn-toolbar" id="learn-toolbar">
+              <div class="search-box">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="search" id="lesson-search" placeholder="搜索本章节知识点…" aria-label="搜索本章节知识点">
+                <span class="search-kbd" aria-hidden="true">/</span>
+              </div>
+              <div class="filter-pills" role="group" aria-label="知识点筛选">
+                <button type="button" class="filter-pill active" data-lesson-filter="all" aria-pressed="true">全部</button>
+                <button type="button" class="filter-pill" data-lesson-filter="unread" aria-pressed="false">只看未读</button>
+                <button type="button" class="filter-pill" data-lesson-filter="favorites" aria-pressed="false">只看收藏</button>
+              </div>
+            </div>
+            <div id="lessons"></div>
+            <div class="learn-empty" id="learn-empty" hidden>没有符合当前筛选或搜索条件的知识点。</div>
+            <div class="next-step"><button class="button button-primary" data-switch="practice">进入整章测试与错题复盘 <span aria-hidden="true">→</span></button></div>
+          </div>
+        </div>
+      </section>
+      <section id="view-practice" class="content-view" hidden aria-labelledby="practice-heading">
+        <h2 id="practice-heading" class="visually-hidden">测试与错题</h2>
+        <div id="quiz"></div>
+      </section>
+    </article>
+  </main>
+</div>
+<nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="移动端快捷导航" hidden>
+  <a href="<!--ROOT-->index.html" id="mobile-home-link">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    <span>总览</span>
+  </a>
+  <button type="button" data-view="map">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 12h4l4-5M12 12l4 5"/></svg>
+    <span>导图</span>
+  </button>
+  <button type="button" data-view="learn" class="active">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <span>精讲</span>
+  </button>
+  <button type="button" data-view="practice">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    <span>测试</span>
+  </button>
+  <button type="button" data-action="records">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+    <span>记录</span>
+  </button>
+</nav>
+<div id="visual-templates" hidden><!--VISUAL--></div>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-top"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="关闭弹窗">×</button></div><div id="modal-content"></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><div class="noscript">请启用浏览器 JavaScript，以阅读知识点、操作导图和进行答题。</div></noscript>
+<!--DATA-->
+<script src="<!--ROOT-->assets/quiz.js"></script>
+<script src="<!--ROOT-->assets/app.js"></script>
+<!--VISUAL_SCRIPTS-->
+</body>
+</html>

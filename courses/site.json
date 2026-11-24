@@ -1,0 +1,20 @@
+{
+  "siteTitle": "知其所以",
+  "siteSubtitle": "个人在线学习站",
+  "repoUrl": "https://github.com/XWalways/zhiqi-finance-study",
+  "domains": [
+    {
+      "id": "finance-econ",
+      "title": "经济 · 金融 · 保险",
+      "subtitle": "系统化知识精讲、思维导图、互动图解与即学即练",
+      "courses": ["economy", "finance", "insurance"]
+    },
+    {
+      "id": "computer",
+      "title": "计算机科学",
+      "subtitle": "面向核心底层原理与工程实践的专题学习区（筹备中）",
+      "route": "computer",
+      "courses": ["computer/security", "computer/database", "computer/network"]
+    }
+  ]
+}

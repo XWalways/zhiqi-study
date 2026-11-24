@@ -1,0 +1,297 @@
+{
+  "title": "消费者行为理论",
+  "subtitle": "用偏好和预算理解购买选择，再看收入或价格变化如何改变选择。",
+  "sections": [
+    {
+      "id": "utility",
+      "title": "效用与两种度量方法",
+      "summary": "效用表示消费者对商品组合的主观评价。",
+      "bodyHtml": "<p><strong>效用</strong>描述消费者从消费中得到的满足程度。消费者可用效用表达对商品组合的偏好，同一物品在不同人或不同场合下可能带来不同效用。</p><table><thead><tr><th>方法</th><th>效用如何表示</th><th>常用分析工具</th></tr></thead><tbody><tr><td>基数效用论</td><td>假定效用可用数值直接度量，效用增量可以相加</td><td>总效用和边际效用</td></tr><tr><td>序数效用论</td><td>数值只用来表示偏好顺序</td><td>无差异曲线与预算线</td></tr></tbody></table>",
+      "keyTakeaway": "基数效用论关注效用大小。序数效用论关注哪个组合更受偏好。",
+      "pitfall": "序数效用函数也可以赋予商品组合数字。效用值 20 和 10 可表示排序，不能据此判断满足程度刚好相差一倍。",
+      "example": "甲在同一价格下更喜欢茶，乙更喜欢咖啡。两人可以分别给饮品排序，效用表示会随消费者的偏好改变。"
+    },
+    {
+      "id": "marginal-utility",
+      "title": "总效用与边际效用",
+      "summary": "新增一个单位商品带来的满足程度通常随消费量上升而减少。",
+      "bodyHtml": "<p><strong>总效用</strong>是消费一定数量商品所获的效用水平。其他商品消费量不变时，<strong>边际效用</strong>是额外增加一单位该商品带来的效用增量。连续情形下，边际效用是总效用对该商品数量的导数。</p><p><mark>边际效用递减规律</mark>描述在一定时期内，随着同一商品的消费量增加，额外一单位提供的效用趋于下降。增加的边际效用仍为正时，总效用继续增加。若边际效用由正转负，总效用在转折处达到峰值。</p><p>货币通过购买商品与服务带来效用。货币的边际效用也可能递减。分析小额支出变化时，可用边际效用近似不变来简化比较。</p>",
+      "keyTakeaway": "比较总效用的增减时看边际效用的正负。比较总效用增长的快慢时看边际效用的大小。",
+      "pitfall": "边际效用下降期间，只要边际效用大于零，总效用仍会增加。",
+      "example": "三片面包依次带来 12、7、3 单位新增效用。边际效用逐片下降，总效用依次为 12、19、22。"
+    },
+    {
+      "id": "preference",
+      "title": "偏好的基本假定",
+      "summary": "完整的排序规则使不同商品组合能够比较。",
+      "bodyHtml": "<ul><li><strong>完全性</strong>要求任意两个组合都可以比较，允许偏好其中之一或无差异。</li><li><strong>传递性</strong>要求比较保持一致。若 A 至少与 B 一样好，且 B 至少与 C 一样好，则 A 至少与 C 一样好。</li><li><strong>非饱和性</strong>在通常的两种有益商品模型中表现为多多益善，其他数量不减时，多消费有益商品使组合更受偏好。</li></ul><p>假定消费者偏好凸时，消费者通常愿意搭配消费，偏好相同的两种极端组合之间的平均组合至少同样好。</p>",
+      "keyTakeaway": "完全性保证可比较，传递性保证比较一致，非饱和性解释为何通常追求更高可达效用。",
+      "pitfall": "偏好排序属于特定消费者。改变收入和价格会改变其可选集合，分析时可继续将偏好保持不变。",
+      "example": "若某人更喜欢 A 而不是 B，又更喜欢 B 而不是 C，传递性要求他也更喜欢 A 而不是 C。"
+    },
+    {
+      "id": "indifference-curves",
+      "title": "无差异曲线与边际替代率",
+      "summary": "效用相同的组合连成曲线，斜率反映消费者愿意交换的比例。",
+      "bodyHtml": "<p><strong>无差异曲线</strong>连接使同一消费者获得相同效用水平的所有商品组合。不同效用水平的曲线不相交。两种商品都多多益善时，曲线向右下倾斜，位于东北方向的更高曲线代表更高效用。</p><p>令 X 为横轴、Y 为纵轴。固定效用，额外获得一单位 X 时，愿放弃的 Y 数量是 X 对 Y 的<strong>边际替代率</strong>。在可微且边际效用为正的情形，<mark>MRS = MU<sub>X</sub> / MU<sub>Y</sub></mark>，等于无差异曲线斜率的绝对值。</p><p>在边际替代率递减的标准情形，X 越多，消费者越少愿用 Y 换取额外的 X，曲线凸向原点。完全替代品的曲线是斜率不变的直线。完全互补品的曲线呈直角。</p>",
+      "keyTakeaway": "同一条曲线上效用相同。曲线斜率的绝对值表示保持效用不变时的边际交换比例。",
+      "pitfall": "横纵轴互换后，边际替代率的分子与分母也会互换。比较效用高低应比较曲线位置，避免用两条曲线上任意点到原点的直线距离判断。",
+      "example": "若额外 1 杯咖啡恰好能补偿少喝 2 杯茶，当前咖啡对茶的边际替代率约为 2。"
+    },
+    {
+      "id": "budget-line",
+      "title": "预算线与消费可行集",
+      "summary": "预算线的截距由收入和价格决定，斜率由相对价格决定。",
+      "bodyHtml": "<p>以 X 为横轴、Y 为纵轴，收入 <var>I</var>、两种商品的正价格分别为 <var>P<sub>X</sub></var>、<var>P<sub>Y</sub></var>。<strong>预算线</strong>满足 <mark>P<sub>X</sub>X + P<sub>Y</sub>Y = I</mark>。线内和线上的非负组合满足支出不超过收入。</p><p>横轴截距为 I/P<sub>X</sub>，纵轴截距为 I/P<sub>Y</sub>，斜率为 −P<sub>X</sub>/P<sub>Y</sub>。斜率的绝对值是多买一单位 X 在市场上需要放弃的 Y 数量。</p><table><thead><tr><th>变化</th><th>图形变化</th></tr></thead><tbody><tr><td>价格不变、收入增加</td><td>平行外移</td></tr><tr><td>只有 X 降价</td><td>绕纵轴截距旋转，横轴截距增大</td></tr><tr><td>收入不变、两种价格同比例上升</td><td>平行内移</td></tr><tr><td>收入和两种价格均乘以同一正数</td><td>截距与斜率保持不变</td></tr></tbody></table>",
+      "keyTakeaway": "先算两轴截距，再看相对价格有没有变化。相对价格不变时，预算线斜率不变。",
+      "pitfall": "两种价格同向变动也可能改变价格比。需要确认它们是否同比例变化，才能判断预算线是否平移。",
+      "example": "收入 60 元，X 每单位 6 元，Y 每单位 3 元。截距分别为 10 和 20，斜率为 −2。若只有 X 降到 4 元，横轴截距变为 15，纵轴截距仍是 20。"
+    },
+    {
+      "id": "consumer-equilibrium",
+      "title": "消费者均衡",
+      "summary": "在预算约束下，找到可达的最高效用。",
+      "bodyHtml": "<p><strong>消费者均衡</strong>是在给定偏好、收入和价格下选择效用最高的可行组合。对通常的光滑凸偏好，当两种商品的最优购买量均为正时，预算线与最高可达的无差异曲线相切。</p><p>内点切点条件为 <mark>MU<sub>X</sub>/MU<sub>Y</sub> = P<sub>X</sub>/P<sub>Y</sub></mark>，等价于 <mark>MU<sub>X</sub>/P<sub>X</sub> = MU<sub>Y</sub>/P<sub>Y</sub></mark>。右边的形式比较将一元钱分别花在两种商品上的边际效用。某种商品每元边际效用更高时，从另一种商品转移少量支出可改善效用，直至达到均衡或碰到边界。</p><p>检查两种商品是否都购买、偏好是否可微、预算是否用完。角点和拐点也可能是最优组合，应按偏好与可行集判断。</p>",
+      "keyTakeaway": "有内点时，主观交换比等于市场交换比，同时组合满足预算约束。",
+      "pitfall": "边际效用的高低需要结合商品价格。比较每元边际效用可以避免遗漏预算约束。",
+      "example": "X 每元带来 2 单位边际效用，Y 每元带来 3 单位边际效用，两者均有购买。把部分支出从 X 转到 Y 有助于提高效用。"
+    },
+    {
+      "id": "consumer-paths",
+      "title": "价格—消费曲线、收入—消费曲线与恩格尔曲线",
+      "summary": "改变一个条件，跟踪每次最优选择，再换一组坐标。",
+      "bodyHtml": "<table><thead><tr><th>曲线</th><th>变动的条件</th><th>坐标和用途</th></tr></thead><tbody><tr><td>价格—消费曲线</td><td>一种商品的价格，收入、偏好和另一种价格固定</td><td>在 X、Y 数量图上连接最优点。取变化的价格与其最优购买量，得到该商品的个人需求曲线</td></tr><tr><td>收入—消费曲线</td><td>收入，价格与偏好固定</td><td>在 X、Y 数量图上连接最优点。两种商品均为正常品时，曲线向右上方延伸</td></tr><tr><td>恩格尔曲线</td><td>收入，价格与偏好固定</td><td>把收入与一种商品的最优购买量对应起来。正常品收入与数量同向，低档品反向</td></tr></tbody></table>",
+      "keyTakeaway": "价格—消费曲线通向个人需求曲线。收入—消费曲线通向恩格尔曲线。",
+      "pitfall": "收入—消费曲线的两根轴都是商品数量。两种商品中有一种是低档品时，收入上升可能使其购买量下降，曲线因而向该商品数量减少的方向弯折。",
+      "example": "收入从 100 增加到 120 元，价格不变，米的购买量从 5 增加到 6 千克。收入和米购买量的两对数值可作为恩格尔曲线上的点。"
+    },
+    {
+      "id": "consumer-effects",
+      "title": "替代效应与收入效应",
+      "summary": "把本品降价对需求量的影响分解为相对价格和购买力的作用。",
+      "bodyHtml": "<p><strong>替代效应</strong>表示在对购买力变化作补偿后，相对价格变化造成的需求量变动。X 降价，消费者倾向于用相对便宜的 X 替代 Y。<strong>收入效应</strong>表示名义收入不变时，价格变动使实际购买力变化并影响购买选择。两者相加得到需求量的总变化。</p><table><thead><tr><th>X 降价时</th><th>替代效应</th><th>收入效应</th><th>总效果</th></tr></thead><tbody><tr><td>正常品，包括通常的必需品与高档品</td><td>X 需求量增加或不变</td><td>增加</td><td>需求量增加</td></tr><tr><td>一般低档品</td><td>增加</td><td>减少，幅度较小</td><td>需求量增加</td></tr><tr><td>吉芬品</td><td>增加</td><td>减少，幅度较大</td><td>需求量减少</td></tr></tbody></table><p>在通常的局部非饱和模型中，一种商品降价且其他条件不变，原消费组合仍然可负担，预算机会扩大。新最优效用至少与原来一样高。</p>",
+      "keyTakeaway": "低档品的两个效应反向。只有收入效应压过替代效应，才会出现吉芬情形。",
+      "pitfall": "仅凭低档品或正常品的标签，无法比较两种商品需求曲线斜率的大小。",
+      "example": "某低档品降价后，替代效应使需求量增加 6 单位，收入效应使需求量减少 2 单位，净增 4 单位，需求量仍与价格反向。"
+    },
+    {
+      "id": "consumer-surplus",
+      "title": "消费者剩余",
+      "summary": "每单位最高愿付价与实际支付价的差额可加总。",
+      "bodyHtml": "<p><strong>消费者剩余</strong>是购买一定数量时的总支付意愿减去实际支出。若每单位按同一市场价格成交，图上可用<strong>需求曲线下方、价格线以上</strong>且截至成交量的面积表示。</p><p>分单位报价时，按单位逐项求差。连续线性需求且需求曲线与成交价线相交时，可用三角形面积，即成交量乘以最高愿付价与市场价格的差，再除以二。</p>",
+      "keyTakeaway": "消费者剩余衡量交易为买方带来的净收益，单位与价格和支出相同。",
+      "pitfall": "消费者购买多件商品时，前几单位的最高愿付价可能更高。应加总各单位的愿付价格。",
+      "example": "买方对两本书分别最多愿付 40 元和 25 元，均以 20 元买下。消费者剩余为 (40 − 20) + (25 − 20) = 25 元。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "效用论概述",
+      "target": "utility",
+      "children": [
+        {
+          "label": "效用的概念与度量",
+          "target": "utility",
+          "children": [
+            {
+              "label": "效用表示消费者的主观满足程度",
+              "target": "utility"
+            },
+            {
+              "label": "基数效用论假定效用可直接度量",
+              "target": "utility"
+            },
+            {
+              "label": "序数效用论用等级表示偏好顺序",
+              "target": "utility"
+            }
+          ]
+        },
+        {
+          "label": "边际效用递减规律",
+          "target": "marginal-utility",
+          "children": [
+            {
+              "label": "其他商品消费量不变，额外消费带来的效用增量通常递减",
+              "target": "marginal-utility"
+            }
+          ]
+        },
+        {
+          "label": "货币的边际效用也可能递减",
+          "target": "marginal-utility"
+        },
+        {
+          "label": "偏好的基本假定",
+          "target": "preference",
+          "children": [
+            {
+              "label": "完全性",
+              "target": "preference"
+            },
+            {
+              "label": "传递性",
+              "target": "preference"
+            },
+            {
+              "label": "非饱和性",
+              "target": "preference"
+            }
+          ]
+        },
+        {
+          "label": "无差异曲线的特征",
+          "target": "indifference-curves",
+          "children": [
+            {
+              "label": "同一曲线上偏好相同",
+              "target": "indifference-curves"
+            },
+            {
+              "label": "不同效用水平的曲线不相交",
+              "target": "indifference-curves"
+            },
+            {
+              "label": "在两种商品均多多益善时，东北方向的曲线效用更高",
+              "target": "indifference-curves"
+            },
+            {
+              "label": "常见情形下斜率为负，凸向原点",
+              "target": "indifference-curves"
+            }
+          ]
+        },
+        {
+          "label": "边际替代率递减",
+          "target": "indifference-curves",
+          "children": [
+            {
+              "label": "保持效用不变，已有的 X 越多，每单位新增 X 可替代的 Y 越少",
+              "target": "indifference-curves"
+            }
+          ]
+        },
+        {
+          "label": "影响预算线变动的因素",
+          "target": "budget-line",
+          "children": [
+            {
+              "label": "收入变动时，预算线平移",
+              "target": "budget-line"
+            },
+            {
+              "label": "一种商品价格变动时，预算线旋转",
+              "target": "budget-line"
+            },
+            {
+              "label": "两种商品价格同比例变化时，预算线平移",
+              "target": "budget-line"
+            },
+            {
+              "label": "两种价格与收入同倍数变化时，预算线不变",
+              "target": "budget-line"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "消费者均衡",
+      "target": "consumer-equilibrium",
+      "children": [
+        {
+          "label": "消费者均衡条件",
+          "target": "consumer-equilibrium",
+          "children": [
+            {
+              "label": "两种商品的边际效用比等于价格比",
+              "target": "consumer-equilibrium"
+            },
+            {
+              "label": "光滑凸偏好的内点最优处，边际替代率等于价格比",
+              "target": "consumer-equilibrium"
+            }
+          ]
+        },
+        {
+          "label": "价格—消费曲线",
+          "target": "consumer-paths",
+          "children": [
+            {
+              "label": "收入及偏好不变，改变单种商品价格并连接最优点",
+              "target": "consumer-paths"
+            },
+            {
+              "label": "由价格—消费曲线可推导个人需求曲线",
+              "target": "consumer-paths"
+            }
+          ]
+        },
+        {
+          "label": "收入—消费曲线",
+          "target": "consumer-paths",
+          "children": [
+            {
+              "label": "两种商品均为正常品时，收入增加使曲线向右上方延伸",
+              "target": "consumer-paths"
+            },
+            {
+              "label": "若一种是低档品，可能向该商品数量减少的方向弯折",
+              "target": "consumer-paths"
+            },
+            {
+              "label": "由收入—消费曲线可推导恩格尔曲线",
+              "target": "consumer-paths"
+            }
+          ]
+        },
+        {
+          "label": "恩格尔曲线",
+          "target": "consumer-paths",
+          "children": [
+            {
+              "label": "正常品的收入和需求量同向，低档品反向",
+              "target": "consumer-paths"
+            }
+          ]
+        },
+        {
+          "label": "替代效应与收入效应",
+          "target": "consumer-effects",
+          "children": [
+            {
+              "label": "替代效应来自相对价格变化",
+              "target": "consumer-effects"
+            },
+            {
+              "label": "收入效应来自实际购买力变化",
+              "target": "consumer-effects"
+            },
+            {
+              "label": "正常品的两种效应均与本品价格反向",
+              "target": "consumer-effects"
+            },
+            {
+              "label": "低档品的两种效应反向，吉芬品的收入效应占优",
+              "target": "consumer-effects"
+            }
+          ]
+        },
+        {
+          "label": "消费者剩余",
+          "target": "consumer-surplus",
+          "children": [
+            {
+              "label": "总支付意愿减实际支出",
+              "target": "consumer-surplus"
+            },
+            {
+              "label": "需求曲线下方、价格线上方的面积",
+              "target": "consumer-surplus"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

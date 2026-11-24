@@ -1,0 +1,7 @@
+{
+  "id": "computer-database",
+  "route": "computer/database",
+  "title": "数据库原理与实践",
+  "subtitle": "关系模型、事务与 MVCC、索引与 B+ 树、查询优化与分布式存储",
+  "chapters": []
+}
