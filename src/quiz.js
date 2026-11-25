@@ -171,6 +171,8 @@
     let mode = 'practice';
     let currentId = questions[0] && questions[0].id;
     let statusText = '';
+    let sheetOverride = null;
+    let activeSheetGroup = '__all__';
     let destroyed = false;
     const button = (text, action, cls) => {
       const node = el('button', cls || 'button button-secondary', text);
@@ -223,38 +225,86 @@
         root.append(el('div', 'quiz-empty', mode === 'wrong' ? '还没有错题。完成练习后，答错的题目会出现在这里。' : '本章暂无题目。'));
         return;
       }
-      const index = el('nav', 'quiz-index');
-      index.setAttribute('aria-label', '题号导航');
-      let activeGroup;
-      let grid;
-      list.forEach((item) => {
-        if (!grid || item.group !== activeGroup) {
-          activeGroup = item.group;
-          const section = el('div', 'quiz-question-group');
-          if (activeGroup) section.append(el('span', 'quiz-group-label', activeGroup));
-          grid = el('div', 'quiz-grid');
-          section.append(grid);
-          index.append(section);
-        }
-        const n = button(String(item.number), 'question', 'quiz-number'); n.dataset.qid = item.id;
+      const groups = [];
+      list.forEach((item) => { if (item.group && !groups.includes(item.group)) groups.push(item.group); });
+      if (activeSheetGroup !== '__all__' && !groups.includes(activeSheetGroup)) activeSheetGroup = '__all__';
+      const sheetOpen = sheetOverride !== null ? sheetOverride : list.length <= 16;
+      const itemState = (item) => {
         const rec = s.answers[item.id];
-        let result = 'unanswered';
         if (item.type === 'case') {
           const drafts = mode === 'test' ? s.test.caseDrafts : s.caseDrafts;
-          if (drafts?.[item.id]?.trim()) result = 'draft';
-        } else if (mode === 'test' && hasChoices(item)) {
+          return drafts?.[item.id]?.trim() ? 'draft' : 'unanswered';
+        }
+        if (mode === 'test' && hasChoices(item)) {
           const selected = s.test.drafts[item.id] || [];
-          if (selected.length) result = s.test.submitted && isScored(item) ? (grade(item, selected) ? 'correct' : 'wrong') : 'draft';
-        } else if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) result = 'draft';
-        else if (rec) result = rec.correct ? 'correct' : 'wrong';
-        n.dataset.state = result;
-        if (result === 'correct' || result === 'wrong') n.classList.add(result);
-        if (result === 'draft') n.classList.add('answered');
-        if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
-        const label = !isScored(item) ? `，${typeLabels[item.type]}` : result === 'correct' ? '，已答对' : result === 'wrong' ? '，答错' : result === 'draft' ? '，已选择待提交' : '，未作答';
-        n.setAttribute('aria-label', `第 ${item.number} 题${label}`);
-        grid.append(n);
-      }); root.append(index);
+          if (!selected.length) return 'unanswered';
+          return s.test.submitted && isScored(item) ? (grade(item, selected) ? 'correct' : 'wrong') : 'draft';
+        }
+        if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) return 'draft';
+        if (rec) return rec.correct ? 'correct' : 'wrong';
+        return 'unanswered';
+      };
+      const states = list.map(itemState);
+      const okCnt = states.filter((st) => st === 'correct').length;
+      const errCnt = states.filter((st) => st === 'wrong').length;
+      const draftCnt = states.filter((st) => st === 'draft').length;
+      const sheet = el('section', 'quiz-sheet' + (sheetOpen ? ' is-open' : ''));
+      sheet.setAttribute('aria-label', '题号导航');
+      const bar = el('div', 'quiz-sheet-bar');
+      const meta = el('div', 'quiz-sheet-meta');
+      meta.append(el('strong', 'quiz-sheet-pos', `第 ${list.indexOf(q) + 1} / ${list.length} 题`));
+      const statParts = [];
+      if (mode === 'test' && !s.test.submitted) statParts.push(`已选 ${draftCnt} 题`);
+      else {
+        if (okCnt) statParts.push(`答对 ${okCnt}`);
+        if (errCnt) statParts.push(`答错 ${errCnt}`);
+        if (draftCnt) statParts.push(`待提交 ${draftCnt}`);
+        if (!statParts.length) statParts.push('尚未作答');
+      }
+      meta.append(el('span', 'muted', statParts.join(' · ')));
+      const toggleSheet = button(sheetOpen ? '收起答题卡 ▴' : `展开答题卡（${list.length} 题）▾`, 'toggle-sheet', 'quiz-sheet-toggle');
+      toggleSheet.setAttribute('aria-expanded', String(sheetOpen));
+      bar.append(meta, toggleSheet);
+      sheet.append(bar);
+      if (sheetOpen) {
+        const body = el('div', 'quiz-sheet-body');
+        if (groups.length > 1) {
+          const gTabs = el('div', 'quiz-group-tabs');
+          gTabs.setAttribute('role', 'tablist');
+          gTabs.setAttribute('aria-label', '按分组筛选题号');
+          const allBtn = button(`全部 (${list.length})`, 'sheet-group', 'filter-pill' + (activeSheetGroup === '__all__' ? ' active' : ''));
+          allBtn.dataset.group = '__all__';
+          allBtn.setAttribute('aria-pressed', String(activeSheetGroup === '__all__'));
+          gTabs.append(allBtn);
+          groups.forEach((gName) => {
+            const cnt = list.filter((it) => it.group === gName).length;
+            const gBtn = button(`${gName} (${cnt})`, 'sheet-group', 'filter-pill' + (activeSheetGroup === gName ? ' active' : ''));
+            gBtn.dataset.group = gName;
+            gBtn.setAttribute('aria-pressed', String(activeSheetGroup === gName));
+            gTabs.append(gBtn);
+          });
+          body.append(gTabs);
+        }
+        const index = el('nav', 'quiz-index');
+        index.setAttribute('aria-label', '题号列表');
+        const visibleItems = activeSheetGroup === '__all__' ? list : list.filter((it) => it.group === activeSheetGroup);
+        const grid = el('div', 'quiz-grid');
+        visibleItems.forEach((item) => {
+          const n = button(String(item.number), 'question', 'quiz-number'); n.dataset.qid = item.id;
+          const result = itemState(item);
+          n.dataset.state = result;
+          if (result === 'correct' || result === 'wrong') n.classList.add(result);
+          if (result === 'draft') n.classList.add('answered');
+          if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
+          const label = !isScored(item) ? `，${typeLabels[item.type]}` : result === 'correct' ? '，已答对' : result === 'wrong' ? '，答错' : result === 'draft' ? '，已选择待提交' : '，未作答';
+          n.setAttribute('aria-label', `第 ${item.number} 题${label}`);
+          grid.append(n);
+        });
+        index.append(grid);
+        body.append(index);
+        sheet.append(body);
+      }
+      root.append(sheet);
       const card = el('article', 'quiz-card');
       const head = el('div', 'quiz-card-header');
       const position = mode === 'test' ? `测试第 ${list.indexOf(q) + 1} / ${list.length} 题` : `第 ${q.number} / ${questions.length} 题`;
@@ -340,7 +390,9 @@
       const action = target.dataset.action;
       const s = state(); const list = filtered(s); const q = list.find((item) => item.id === currentId);
       statusText = '';
-      if (action === 'mode') { mode = target.dataset.mode; }
+      if (action === 'mode') { mode = target.dataset.mode; sheetOverride = null; activeSheetGroup = '__all__'; }
+      else if (action === 'toggle-sheet') { const curOpen = sheetOverride !== null ? sheetOverride : list.length <= 16; sheetOverride = !curOpen; }
+      else if (action === 'sheet-group') { activeSheetGroup = target.dataset.group || '__all__'; }
       else if (action === 'question') currentId = target.dataset.qid;
       else if (action === 'discussion' && mode !== 'test' && (q?.type === 'discussion' || q?.type === 'case')) {
         if (openDiscussions.has(q.id)) openDiscussions.delete(q.id);

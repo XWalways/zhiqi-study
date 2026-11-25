@@ -688,8 +688,46 @@ input[type=range] { width: 100%; min-height: 25px; margin: 0; cursor: pointer; }
 .quiz-tab { border: 1px solid transparent; border-radius: var(--radius); padding: 8px 12px; min-height: 42px; font-size: 14px; white-space: nowrap; }
 .quiz-tab:hover, .quiz-tab.active { color: var(--accent); background: var(--accent-soft); }
 .quiz-tab.active { border-color: var(--accent-line); font-weight: 650; }
-.quiz-index { display: grid; gap: 10px; margin: 15px 0; }
+.quiz-sheet {
+  margin: 14px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+.quiz-sheet-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 14px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: var(--surface-subtle);
+}
+.quiz-sheet-meta { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.quiz-sheet-pos { color: var(--accent); font: 650 13.5px var(--font-number); }
+.quiz-sheet-toggle {
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 1px solid var(--control-line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--heading);
+  font-size: 12.5px;
+  font-weight: 580;
+  white-space: nowrap;
+}
+.quiz-sheet-toggle:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.quiz-sheet-body {
+  padding: 12px 14px 14px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 10px;
+}
+.quiz-group-tabs { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.quiz-index { max-height: 210px; overflow-y: auto; scrollbar-width: thin; padding: 2px; }
 .quiz-grid { gap: 6px; }
+.inline-quiz-grid { max-height: 140px; overflow-y: auto; scrollbar-width: thin; padding: 2px; }
 .quiz-group-label { display: block; margin-bottom: 5px; color: var(--muted); font-size: 13px; }
 .quiz-number { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: var(--radius); font: 550 13px var(--font-number); }
 .quiz-number:hover, .quiz-number.answered { border-color: var(--accent); color: var(--accent); }
