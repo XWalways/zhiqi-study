@@ -44,7 +44,7 @@
       "summary": "对比链路加密、节点加密与端到端加密在中间节点的加解密行为及报文头保护差异。",
       "bodyHtml": "<p>在分组交换网络中，数据从源主机经过多个中间路由器到达目的主机，加密可以部署在三个不同层次：</p><table><thead><tr><th>加密方式</th><th>工作层次</th><th>中间节点行为</th><th>报文头是否加密</th><th>优缺点</th></tr></thead><tbody><tr><td><strong>链路加密</strong></td><td>数据链路层</td><td>每经过一个节点都需<strong>先解密再加密</strong>，节点内存出现明文</td><td><strong>是</strong>（可隐藏源/目的路由信息，抗流量分析）</td><td>对用户透明，但中间节点一旦被攻破即泄露明文</td></tr><tr><td><strong>节点加密</strong></td><td>数据链路层（含安全模块）</td><td>在中间节点的<strong>硬件安全模块</strong>内完成密钥转换，主机内存不暴露明文</td><td><strong>否</strong>（报文头须明文供路由转发）</td><td>弥补链路加密节点明文风险，但无法隐藏流量特征</td></tr><tr><td><strong>端到端加密</strong></td><td>传输层 / 应用层</td><td>中间节点<strong>完全不解密</strong>，全程密文直达终点</td><td><strong>否</strong>（报头明文用于沿途寻址）</td><td>无需信任中间网络节点，部署灵活；但不能隐藏通信双方地址</td></tr></tbody></table><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/2239162045424568bc2d10130beee475/sectionId/882b2b475e8b457d8e622cf3f877de22\">3.7.1 密码技术常见应用场景类型</a></p>",
       "keyTakeaway": "链路加密连报头一起加密（能防流量分析，但节点出明文）；端到端加密中间全程密文（最省心，但报头明文）。",
-      "pitfall": "选择题常考「哪种加密方式能防止中间链路上的流量分析？」——答案是<strong>链路加密</strong>，因为只有它把路由报头也一并加密了。",
+      "pitfall": "选择题常考「哪种加密方式能防止中间链路上的流量分析？」——答案是「链路加密」，因为只有它把路由报头也一并加密了。",
       "example": "HTTPS（TLS）和 PGP 加密邮件属于典型的端到端（或应用/传输层）加密：沿途运营商路由器只能看到目标 IP 和端口，无法读取网页或邮件正文。"
     },
     {

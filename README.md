@@ -1,4 +1,4 @@
-# 知其所以 · 个人在线学习站（zhiqi-study）
+# 斯文攸归（zhiqi-study）
 
 零依赖多学科个人在线学习平台，采用单一源码仓库 + GitHub Actions 自动构建部署到 GitHub Pages，并内置 PWA 自动离线缓存。
 

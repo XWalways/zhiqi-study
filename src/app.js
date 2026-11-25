@@ -258,7 +258,7 @@
      const prog=stats.started?`已学 ${stats.started}/${stats.total} 章 · 已答 ${stats.answered} 题`:'尚未开始';
      foot.append(el('span','',prog), el('strong','','进入学习 →'));
     }else{
-     foot.append(el('span','',`路由：/${c.route}/`), el('span','','即将开放'));
+     foot.append(el('span','','内容整理中'), el('span','','即将开放'));
     }
     card.append(foot);
     grid.append(card);
@@ -314,7 +314,12 @@
    if(!stats.total)top.append(el('span','status-pill','筹备中'));
    card.append(top, el('p','',c.subtitle));
    const foot=el('div','course-card-foot');
-   foot.append(el('span','',`/${c.route}/`), el('strong','',stats.total?'进入课程 →':'查看框架 →'));
+   if(stats.total){
+    const prog=stats.started?`已学 ${stats.started}/${stats.total} 章 · 已答 ${stats.answered} 题`:'尚未开始';
+    foot.append(el('span','',prog), el('strong','','进入学习 →'));
+   }else{
+    foot.append(el('span','','内容整理中'), el('span','','即将开放'));
+   }
    card.append(foot);
    grid.append(card);
   });
@@ -345,7 +350,7 @@
   if(!course.chapters.length){
    const emptyBox=el('div','course-empty-box');
    emptyBox.innerHTML=`<h3>${course.title} · 筹备中</h3>
-    <p>该专题目录框架已就绪（路径 <code>/${course.route}/</code>）。后续在 <code>courses/${course.route}/chapters/</code> 中添加章节 JSON 并推送，GitHub Actions 将自动构建发布。</p>`;
+    <p>该专题内容正在整理中，上线后即可直接在线阅读与练习。</p>`;
    root.append(emptyBox);
    return;
   }
@@ -692,7 +697,7 @@
   }catch{}
   const backup={app:'zhiqi-study-all',version:2,exportedAt:new Date().toISOString(),records};
   const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});
-  saveBlob(blob,`知其所以-全站学习记录-${backup.exportedAt.slice(0,10)}.json`);
+  saveBlob(blob,`斯文攸归-全站学习记录-${backup.exportedAt.slice(0,10)}.json`);
   toast(`已导出全站 ${Object.keys(records).length} 章学习记录`);
  }
 
