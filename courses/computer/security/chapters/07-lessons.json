@@ -1,0 +1,143 @@
+{
+  "title": "安全体系、风险评估与应急响应",
+  "subtitle": "用安全模型分析信息流，用风险评估决定优先级，再把预案、处置、取证和业务恢复串起来。",
+  "sections": [
+    {
+      "id": "security-models",
+      "title": "安全模型与信息流",
+      "summary": "用读写方向区分 BLP、Biba 和其他常见模型。",
+      "bodyHtml": "<table><thead><tr><th>模型</th><th>主要目标</th><th>机制或规则</th></tr></thead><tbody><tr><td>Bell–LaPadula（BLP）</td><td>机密性</td><td>简单安全属性：不可向上读；星属性：不可向下写</td></tr><tr><td>Biba 严格模型</td><td>完整性</td><td>不可向下读；不可向上写</td></tr><tr><td>Clark–Wilson</td><td>商业环境的数据完整性</td><td>受控转换、职责分离和完整性验证</td></tr><tr><td>信息流与信息保障</td><td>信息传播约束、信息系统保障</td><td>根据层次或状态限制流向，结合保护、检测、响应与恢复</td></tr></tbody></table><p>读写方向以主体相对客体的安全级别为参照。BLP 防低级别主体读取高密信息，也防高级别主体写入低密对象；Biba 避免低完整性数据污染高完整性对象。能力成熟度评价关注过程是否可重复、可度量和持续改善。</p><p>当题目同时给出级别与类别集合时，BLP 的支配关系要求级别不低且类别包含。读取时检查主体能否支配客体，写入时检查客体能否支配主体。教材还区分 PDRR 的保护、检测、响应、恢复，以及 P²DR 的策略、保护、检测、响应。SSE-CMM 可用非正式执行、计划跟踪、充分定义、量化控制、持续优化描述能力提升。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/f46cee7253704dca9922ed91a9da3767/sectionId/a4a962b9565a4dde9622e0da88cc323c\">4.2.1 BLP机密性模型</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/f46cee7253704dca9922ed91a9da3767/sectionId/3d4c0647f0dd49c686a8cad1fa176e36\">4.2.2 BiBa完整性模型</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/f46cee7253704dca9922ed91a9da3767/sectionId/5d5e5fe929f44a8191be92b7389bbe50\">4.2.4 信息保障模型</a></p>",
+      "keyTakeaway": "BLP 保密：不上读、不下写。Biba 严格模型保完整：不下读、不上写。",
+      "example": "高密分析员不能把结论直接写入公开库；低可信进程也不能修改高完整性基准文档。",
+      "pitfall": "同一个“高”在 BLP 指密级，在 Biba 指完整性等级。"
+    },
+    {
+      "id": "security-governance",
+      "title": "纵深防御、组织职责与管理体系",
+      "summary": "理解安全体系的技术、组织、运营与管理如何协同。",
+      "bodyHtml": "<p>纵深防御把不同控制分布在边界、网络、主机、应用与数据等位置，通过独立控制降低单点失效影响。安全体系还需要安全策略、人员、标准、资源和运营机制。组织中决策层批准策略和预算，管理层协调实施，执行层落实操作，外部协作可提供审计、预警和支持。</p><p>ISO/IEC 27001 管理体系强调按风险选择控制并持续改进。NIST CSF 2.0 以治理、识别、保护、检测、响应、恢复六项功能组织安全结果。等级保护体系包括不同保护对象和扩展场景的要求。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/f46cee7253704dca9922ed91a9da3767/sectionId/829b20d82fc24fe89f6366482dfa1325\">4.3.1 网络安全原则</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/f46cee7253704dca9922ed91a9da3767\">第4章 网络安全体系与网络安全模型</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/f46cee7253704dca9922ed91a9da3767/sectionId/3c619d4601f346d38a90cbafa0903e13\">4.1.1 网络安全体系概念</a></p>",
+      "keyTakeaway": "体系是职责与技术控制的组合；控制失效时要有检测、响应和恢复。",
+      "example": "支付服务同时实行分区、身份强认证、应用校验、日志关联和异地恢复演练。",
+      "pitfall": "买齐同类安全产品不等于建立了纵深防御或完成管理体系建设。"
+    },
+    {
+      "id": "risk-assessment",
+      "title": "资产、威胁、脆弱性与风险评估",
+      "summary": "掌握识别、分析、评价和处置的顺序，区分资产价值与风险影响。",
+      "bodyHtml": "<p>按 GB/T 20984-2022 组织风险评估时，先明确范围、对象和准则，再盘点资产、识别威胁、识别脆弱性并评估已有措施，结合事件可能性与损失影响分析风险。资产价值可按机密性、完整性、可用性和业务重要性衡量。风险报告给出对象、证据、分析依据、结果、处置优先级与责任人。</p><table><thead><tr><th>变量</th><th>例子</th></tr></thead><tbody><tr><td>资产</td><td>存放业务数据的数据库及依赖服务</td></tr><tr><td>威胁</td><td>设备失效或未授权访问</td></tr><tr><td>脆弱性</td><td>缺少冗余或授权范围过宽</td></tr><tr><td>风险</td><td>服务停机或敏感记录泄露的可能性及后果</td></tr></tbody></table><p><a href=\"https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=FDA38AB7D08A715C6B6D69DFDEABB2C0\">GB/T 20984-2022</a></p><p>教材可将风险表为 <code>R = f(Ep, Ev)</code>，其中 <code>Ep</code> 为安全事件发生的可能性，<code>Ev</code> 为后果或损失。使用概率与货币损失做简化计算时，两者乘积可表示期望损失；定性等级仍需按评估准则汇总。教材还比较自评估、检查评估和委托评估。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/d6a82c0819954636b4267792392ff5b0/sectionId/d5e70b94640942bdbbe7d329ed12691c\">16.2 网络安全风险评估过程</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/d6a82c0819954636b4267792392ff5b0/sectionId/18b5234c86344d5699dfd6effc027404\">16.2.2 资产识别</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/d6a82c0819954636b4267792392ff5b0/sectionId/642fe7e43c1b418ea41abd85e9b10424\">16.2.3 威胁识别</a></p>",
+      "keyTakeaway": "识别资产、威胁、脆弱性和控制，再分析可能性、后果及剩余风险。",
+      "example": "备份故障使数据库故障风险上升。恢复演练、监控和异地副本能降低其可能性或影响。",
+      "pitfall": "通用漏洞严重度并不能直接代替业务风险。"
+    },
+    {
+      "id": "incident-response",
+      "title": "事件分级、预案与应急处置",
+      "summary": "把事件监测、响应升级、遏制、清除与恢复放在正确时序。",
+      "bodyHtml": "<p>收到告警后先验证事件、记录时间和影响、按预案分级上报并确定负责人。遏制阶段限制影响范围，清除阶段处置根因，恢复阶段验证业务和控制后分步上线，随后复盘。预案可依事件类型与影响设置总体、专项和现场处置内容，明确职责、联络、资源、触发条件与演练频率。</p><p>旧题常用 NIST SP 800-61 Rev. 2 的准备、检测分析、遏制清除恢复、事后活动；Rev. 3 已用 CSF 2.0 组织事件响应，把治理、识别和保护纳入常态准备，把检测、响应和恢复与持续改进联动。</p><p><a href=\"https://csrc.nist.gov/pubs/sp/800/61/r3/final\">NIST SP 800-61 Rev. 3</a></p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/6b2d567cc3d448a39760ad3a0d207e20/sectionId/536e0d03289048c988ec6dde3b603166\">17.3.1 网络安全事件类型与分级</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/6b2d567cc3d448a39760ad3a0d207e20/sectionId/5942d66232654657908007169274544b\">17.5.3 网络安全评估</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/6b2d567cc3d448a39760ad3a0d207e20/sectionId/97dbe99238364b04b5f59e0b81bd749d\">17.5.4 网络安全监测</a></p>",
+      "keyTakeaway": "先验证与定级，再遏制和清除，恢复需验证并复盘。",
+      "example": "恶意软件告警涉及生产主机。先隔离受影响主机、保全证据并评估依赖，再在核验后恢复业务。",
+      "pitfall": "恢复上线前要确认根因已处置、账号与连接状态安全，避免问题重复。"
+    },
+    {
+      "id": "forensics-recovery",
+      "title": "取证、业务恢复与演练",
+      "summary": "区分证据保全、灾难恢复和业务连续性目标。",
+      "bodyHtml": "<p>证据保全记录采集来源、时间、工具、操作者与交接过程，对副本校验完整性。容易消失的状态需要按现场风险和授权优先处理。日志、磁盘镜像、时间戳和证据链可用于还原时间线。</p><p>业务影响分析确定关键流程、依赖资源和容忍时间；RTO 是恢复时间目标，RPO 是可容忍的数据回退点。恢复需检查备份可读性、完整性、业务一致性与复发风险。桌面演练验证决策流程，技术演练验证操作和恢复能力。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/6b2d567cc3d448a39760ad3a0d207e20/sectionId/e32a49961e2f440f97cc99534f17a3aa\">17.5.6 入侵取证</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/6b2d567cc3d448a39760ad3a0d207e20/sectionId/da0324023c59464caeacc59ee6e28485\">17.5.5 系统恢复</a></p>",
+      "keyTakeaway": "RTO 对应停机时长，RPO 对应数据回退量；证据保全关注完整性与可追溯性。",
+      "example": "不可篡改备份每 30 分钟一次，可降低回退目标。业务恢复耗时还取决于切换方案与验证。",
+      "pitfall": "保存证据时应明确每项操作影响。恢复备份与清除攻击根因应分别验证。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "安全模型与信息流",
+      "target": "security-models",
+      "children": [
+        {
+          "label": "BLP 与 Biba",
+          "target": "security-models"
+        },
+        {
+          "label": "信息流",
+          "target": "security-models"
+        },
+        {
+          "label": "能力成熟度",
+          "target": "security-models"
+        }
+      ]
+    },
+    {
+      "label": "纵深防御、组织职责与管理体系",
+      "target": "security-governance",
+      "children": [
+        {
+          "label": "安全策略与组织角色",
+          "target": "security-governance"
+        },
+        {
+          "label": "ISO 27001 与 CSF 2.0",
+          "target": "security-governance"
+        },
+        {
+          "label": "分层保护",
+          "target": "security-governance"
+        }
+      ]
+    },
+    {
+      "label": "资产、威胁、脆弱性与风险评估",
+      "target": "risk-assessment",
+      "children": [
+        {
+          "label": "资产与威胁",
+          "target": "risk-assessment"
+        },
+        {
+          "label": "脆弱性与已有控制",
+          "target": "risk-assessment"
+        },
+        {
+          "label": "风险报告",
+          "target": "risk-assessment"
+        }
+      ]
+    },
+    {
+      "label": "事件分级、预案与应急处置",
+      "target": "incident-response",
+      "children": [
+        {
+          "label": "监测与分级",
+          "target": "incident-response"
+        },
+        {
+          "label": "遏制和根因处置",
+          "target": "incident-response"
+        },
+        {
+          "label": "预案与复盘",
+          "target": "incident-response"
+        }
+      ]
+    },
+    {
+      "label": "取证、业务恢复与演练",
+      "target": "forensics-recovery",
+      "children": [
+        {
+          "label": "证据链",
+          "target": "forensics-recovery"
+        },
+        {
+          "label": "RTO/RPO",
+          "target": "forensics-recovery"
+        },
+        {
+          "label": "演练",
+          "target": "forensics-recovery"
+        }
+      ]
+    }
+  ]
+}

@@ -11,7 +11,9 @@
       "C": "运算速度相对较慢，但密钥分发方便且支持数字签名",
       "D": "完全不需要保护任何密钥的机密性"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "非对称加密涉及大数模幂或椭圆曲线点乘运算，速度远慢于对称加密，但其公钥可公开传播，彻底缓解了密钥分发难题并可实现数字签名。",
     "optionExplanations": {
       "A": "速度快、适合大文件加密是对称加密的优势。",
@@ -33,7 +35,9 @@
       "C": "128 位，128 位",
       "D": "128 位，56 位"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "DES 的分组长度为 64 位，输入密钥虽为 64 位，但其中每 8 位有 1 位作为奇偶校验位（共 8 位），真正参与加密的有效密钥长度仅为 56 位。",
     "optionExplanations": {
       "A": "忽略了 8 位奇偶校验位，有效密钥不是 64 位。",
@@ -55,7 +59,9 @@
       "C": "AES 与 DES 一样采用 64 位分组长度",
       "D": "AES 只能用于计算文件哈希摘要，不能解密"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "AES（Rijndael）是国际通用的对称分组加密标准，分组长度固定为 128 位，密钥长度可选 128、192 或 256 位。",
     "optionExplanations": {
       "A": "AES 是对称加密算法。",
@@ -77,7 +83,9 @@
       "C": "AES",
       "D": "ECC"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "AES 是典型的对称分组密码算法；RSA 和 ECC 属于非对称公钥密码算法；MD5 属于哈希摘要算法。",
     "optionExplanations": {
       "A": "RSA 为非对称加密算法。",
@@ -99,7 +107,9 @@
       "C": "线性方程组求解难题",
       "D": "最短路径搜索难题"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "RSA 将两个大素数相乘得到模数 n 非常容易，但已知 n 反推其素因子 p 和 q 在计算上极其困难，这是其安全性的数学基础。",
     "optionExplanations": {
       "A": "准确对应 RSA 的数学难题基础。",
@@ -121,7 +131,9 @@
       "C": "11",
       "D": "29"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "计算欧拉函数 φ(n) = (5−1)×(7−1) = 24。私钥 d 须满足 e×d ≡ 1 (mod 24)，即 5d ≡ 1 (mod 24)。代入 d = 5，5×5 = 25 ≡ 1 (mod 24)，故 d = 5（在 1 < d < 24 范围内唯一解）。",
     "optionExplanations": {
       "A": "5×5 = 25 = 1×24 + 1，满足模 24 同余 1。",
@@ -143,7 +155,9 @@
       "C": "用哈希函数加密明文数据，接收方再用哈希函数解密还原",
       "D": "连续使用两种相同的对称密钥对明文加密两次"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "混合加密兼顾效率与密钥分发安全：大数据正文交给高速的对称密钥加密，短小的对称会话密钥交给接收方公钥封装成「数字信封」。",
     "optionExplanations": {
       "A": "顺序完全颠倒，且公钥本身公开无需加密。",
@@ -165,7 +179,9 @@
       "C": "中间路由器",
       "D": "DNS 服务器"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "在传统 SSL/TLS（RSA 模式）中，客户端验证服务器证书后生成随机预主密钥，用证书中的服务器公钥加密后发给服务器，双方据此派生相同的对称会话密钥。",
     "optionExplanations": {
       "A": "CA 仅签发数字证书，不参与每次会话密钥生成。",
@@ -187,7 +203,9 @@
       "C": "输入数据哪怕改动 1 个比特，输出摘要也会发生显著变化",
       "D": "拥有对应的解密密钥即可将摘要完整还原为原始明文"
     },
-    "answer": ["D"],
+    "answer": [
+      "D"
+    ],
     "explanationSupplement": "哈希函数是单向压缩映射，不存在「解密密钥」，无法从定长摘要反向还原出原始明文。",
     "optionExplanations": {
       "A": "压缩定长输出是哈希函数的基本特性。",
@@ -209,7 +227,9 @@
       "C": "SM3",
       "D": "SM4"
     },
-    "answer": ["D"],
+    "answer": [
+      "D"
+    ],
     "explanationSupplement": "SM4 是我国公开的对称分组密码标准（原名 SMS4），分组长度和密钥长度均为 128 位，广泛应用于无线局域网（WAPI）及各类数据加密场景。",
     "optionExplanations": {
       "A": "SM1 虽然也是对称分组密码，但算法不公开，仅封装在加密芯片中。",
@@ -231,7 +251,9 @@
       "C": "SM3，SM2",
       "D": "SM4，SM9"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "国密体系中，SM2 为椭圆曲线公钥（非对称）算法，SM3 为 256 位密码杂凑（摘要）算法，两者常组合使用完成国密数字签名。",
     "optionExplanations": {
       "A": "SM1 和 SM4 均为对称分组加密算法。",
@@ -253,7 +275,9 @@
       "C": "机密性",
       "D": "并发承载能力"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "利用哈希函数的抗碰撞性与雪崩效应，只要安装包在下载或镜像分发中被植入木马或损坏，计算出的哈希值就会与官方公布值完全不同，从而确保软件完整性。",
     "optionExplanations": {
       "A": "哈希校验不反映程序执行性能。",
@@ -275,7 +299,9 @@
       "C": "端到端加密",
       "D": "应用层明文传输"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "链路加密在相邻节点间的物理/链路层对整个数据帧（含报头和载荷）全部加密，外部窃听者无法识别源和目的地址，可有效抵御流量分析。",
     "optionExplanations": {
       "A": "唯一同时加密报文头与载荷的方式。",
@@ -297,7 +323,9 @@
       "C": "能够彻底隐藏通信双方的 IP 地址和通信频次",
       "D": "必须在每一段物理链路上配置专用硬件加密机"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "端到端加密仅在通信起点加密、终点解密，中间转发节点始终只看到密文载荷，无需信任中间节点。",
     "optionExplanations": {
       "A": "这是链路加密的行为特征。",
@@ -319,7 +347,11 @@
       "C": "节点加密在中间节点通过专用硬件安全模块完成密钥转换，避免明文暴露在主机内存中",
       "D": "在现代密码系统中，只要加密算法本身严格保密，密钥长度可以随意缩短"
     },
-    "answer": ["A", "B", "C"],
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanationSupplement": "ECB 缺乏随机化链接易泄露明文规律；对称算法速度快于非对称；节点加密依赖硬件安全模块消除明文暴露。根据柯克霍夫原则，安全性不能依赖算法保密，而必须依靠足够强度的密钥。",
     "optionExplanations": {
       "A": "正确指出了 ECB 模式的典型缺陷。",
@@ -341,7 +373,12 @@
       "C": "SM4",
       "D": "祖冲之算法（ZUC）"
     },
-    "answer": ["A", "B", "C", "D"],
+    "answer": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
     "explanationSupplement": "SM2（非对称）、SM3（杂凑）、SM4（对称分组）以及祖冲之流密码算法（ZUC，被纳入 3GPP 国际移动通信加密标准）均是我国自主设计的商用密码算法。",
     "optionExplanations": {
       "A": "我国椭圆曲线公钥密码标准。",
@@ -350,5 +387,2567 @@
       "D": "我国自主设计的流密码算法，应用于 4G/5G 通信加密。"
     },
     "conceptId": "hash-sm"
+  },
+  {
+    "id": "rkb-fb6e167dc9d6ff3572f416c6ce297f8f",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "加密方案公开后，按柯克霍夫原则，哪些信息必须保密来保护通信？",
+    "options": {
+      "A": "明文格式名称",
+      "B": "使用的通用协议规范",
+      "C": "密钥",
+      "D": "加密算法名称"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "方案应在设计可公开的假设下依赖密钥保密。",
+    "source": {
+      "date": "2020-11",
+      "number": "65",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/fb6e167dc9d6ff3572f416c6ce297f8f",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 17
+  },
+  {
+    "id": "rkb-deed3bd2fa17d04ab455010c90ed18a4",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "关于认证和加密，哪项描述错误？",
+    "options": {
+      "A": "认证加密可同时保护完整性与机密性",
+      "B": "使用加密本身即可证明对方真实身份",
+      "C": "身份认证核实所声称身份",
+      "D": "加密保护未经授权读取"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "加密要结合对端身份验证才能为通信提供身份保障。",
+    "source": {
+      "date": "2020-11",
+      "number": "7",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/deed3bd2fa17d04ab455010c90ed18a4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 18
+  },
+  {
+    "id": "rkb-b6a612165b39dca4f89fc1e475e613ac",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "使用向后移动六个字母的循环移位规则加密 SEC，结果是什么？",
+    "options": {
+      "A": "YKE",
+      "B": "UFE",
+      "C": "YKI",
+      "D": "WIG"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "S、E、C 各向字母表后方移动六位，得到 Y、K、I。",
+    "source": {
+      "date": "2020-11",
+      "number": "69",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/b6a612165b39dca4f89fc1e475e613ac",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 19
+  },
+  {
+    "id": "rkb-1ab5fa717a35dad0ab8bb0a30abfec84",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "区分四类常见密码分析条件时，哪类条件允许分析者选择一些明文并获得对应密文？",
+    "options": {
+      "A": "唯密文条件",
+      "B": "仅已知明文条件",
+      "C": "只有公开算法而无样本",
+      "D": "选择明文条件"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "是否能选取输入是区分已知明文和选择明文的要点。",
+    "source": {
+      "date": "2020-11",
+      "number": "6",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/1ab5fa717a35dad0ab8bb0a30abfec84",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 20
+  },
+  {
+    "id": "rkb-2bbfe80e38fbdad97bad46882beb6f05",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "把英文字母各向后移三位，以循环规则加密 MATH，会得到什么？",
+    "options": {
+      "A": "PDWK",
+      "B": "KXQE",
+      "C": "PDWL",
+      "D": "PDUK"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "M→P、A→D、T→W、H→K。",
+    "source": {
+      "date": "2019-05",
+      "number": "69",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/2bbfe80e38fbdad97bad46882beb6f05",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 21
+  },
+  {
+    "id": "rkb-65bee7bccbb64e515a44322c4d707d43",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "case",
+    "stem": "仿射密码采用 A=0 至 Z=25，解密必须能求出乘数的模逆。用题设的字符映射演算小型对称密码。",
+    "prompts": [
+      "列出机密性、完整性和可用性的含义。",
+      "若 E(x)=(3x+5) mod 26，算出 C 的密文字母。",
+      "若 B→I、D→O，反推同一仿射密码的两个参数。"
+    ],
+    "explanationSupplement": "保护未授权读取、变更和可达性；C=2，E(2)=11，对应 L；a=3、b=5，因为 2a≡6 mod 26，在 3 与 16 中只有 3 与 26 互素。",
+    "source": {
+      "date": "2019-05",
+      "number": "2-4",
+      "url": "https://www.ruankaoba.com/paper/paperId/66bbb1e0025a541e4ea90760eceb825c/chiefId/65bee7bccbb64e515a44322c4d707d43",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 22
+  },
+  {
+    "id": "rkb-bc291ae4dc82d4f0309a8205a78abeff",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "破译一个方案的工作量超出现实资源，这体现哪种安全概念？",
+    "options": {
+      "A": "无需假设即可永久保密",
+      "B": "物理访问控制",
+      "C": "可用性保证",
+      "D": "计算安全"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "计算安全利用现实计算与时间条件下的不可行性。",
+    "source": {
+      "date": "2018-05",
+      "number": "68",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/bc291ae4dc82d4f0309a8205a78abeff",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 23
+  },
+  {
+    "id": "rkb-51e82f22710fd270762ba9098e13dc65",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "针对题设的一般可逆加密，如果 C=E(M)，下列哪项成立？",
+    "options": {
+      "A": "任意密钥均能恢复原文",
+      "B": "正确解密密文得回 M",
+      "C": "始终 E(C)=M",
+      "D": "C 必然等于 M"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "输入相应密钥且数据有效时，解密恢复正确的明文。",
+    "source": {
+      "date": "2018-05",
+      "number": "6",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/51e82f22710fd270762ba9098e13dc65",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 24
+  },
+  {
+    "id": "rkb-ebadee0f1d432b5afee774f471e53b68",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "《保密系统的通信理论》与哪位密码学先驱有关？",
+    "options": {
+      "A": "惠特菲尔德·迪菲",
+      "B": "莱昂纳德·阿德曼",
+      "C": "菲利普·齐默尔曼",
+      "D": "克劳德·香农"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "香农 1949 年的工作为现代密码理论奠定基础。",
+    "source": {
+      "date": "2017-05",
+      "number": "3",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/ebadee0f1d432b5afee774f471e53b68",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 25
+  },
+  {
+    "id": "rkb-e5a1c5e59f2185c57ace6cbb9969e4c7",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "假设凯撒移位为 +3，明文 ZHONGGUO 的输出是什么？",
+    "options": {
+      "A": "CKRQJJWP",
+      "B": "CKRQJJXR",
+      "C": "YGNMFFTN",
+      "D": "CKRPJJXR"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "沿字母表逐字循环移动，Z 跨越末尾变成 C。",
+    "source": {
+      "date": "2017-05",
+      "number": "5",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/e5a1c5e59f2185c57ace6cbb9969e4c7",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 26
+  },
+  {
+    "id": "rkb-19053560234dd655fcabf44c930e055d",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "如果分析条件允许选择一条密文并获得对应的解密结果，这被称为什么？",
+    "options": {
+      "A": "已知明文",
+      "B": "唯密文",
+      "C": "选择密文",
+      "D": "选择明文"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "区分加解密查询方向及是否能够挑选输入。",
+    "source": {
+      "date": "2017-05",
+      "number": "1",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/19053560234dd655fcabf44c930e055d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 27
+  },
+  {
+    "id": "rkb-5e9f58b8445e318f142b0552e6d7077c",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "对大量日志数据做高效保密传输，哪类算法通常不用来直接处理全部日志？",
+    "options": {
+      "A": "直接用 RSA 加密全部正文",
+      "B": "用认证的对称加密保护正文",
+      "C": "会话密钥驱动的对称分组加密",
+      "D": "适当的认证加密流式处理"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "公钥密码开销较大，正文通常使用对称密码。",
+    "source": {
+      "date": "2016-11",
+      "number": "50",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/5e9f58b8445e318f142b0552e6d7077c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 28
+  },
+  {
+    "id": "rkb-14861ae4ce7d6151d064455402c9812c-1",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "目的是隐藏信息存在本身的技术领域，通常称为什么？",
+    "options": {
+      "A": "协议翻译",
+      "B": "身份鉴别",
+      "C": "隐写术",
+      "D": "公钥基础设施"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "隐写关注存在是否被发现；加密重点是内容能否被解读。",
+    "source": {
+      "date": "2016-11",
+      "number": "71",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/14861ae4ce7d6151d064455402c9812c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 29
+  },
+  {
+    "id": "rkb-14861ae4ce7d6151d064455402c9812c-2",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "无色墨水、微缩图等例子共同说明了什么？",
+    "options": {
+      "A": "只有网络可以传输信息",
+      "B": "每种隐写都必须用 RSA",
+      "C": "所有隐藏信息必然不可发现",
+      "D": "隐藏信息的方法和载体可以多样化"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "隐藏方式因载体而异，现代场景也可用多媒体。",
+    "source": {
+      "date": "2016-11",
+      "number": "72",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/14861ae4ce7d6151d064455402c9812c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 30
+  },
+  {
+    "id": "rkb-14861ae4ce7d6151d064455402c9812c-3",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "ICMP 英文全称中，字母 M 代表哪个词？",
+    "options": {
+      "A": "Message",
+      "B": "Mail",
+      "C": "Management",
+      "D": "Member"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "全称是 Internet Control Message Protocol。",
+    "source": {
+      "date": "2016-11",
+      "number": "73",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/14861ae4ce7d6151d064455402c9812c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 31
+  },
+  {
+    "id": "rkb-14861ae4ce7d6151d064455402c9812c-4",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "与只在长篇文章中隐藏少量字符相比，现代多媒体隐写的技术特点是什么？",
+    "options": {
+      "A": "不需要考虑载体变化",
+      "B": "可使用更复杂的载体与处理方法",
+      "C": "只能存放一个字节",
+      "D": "只能用于纸质文件"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "不同载体的容量、可感知性和鲁棒性会互相制约。",
+    "source": {
+      "date": "2016-11",
+      "number": "74",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/14861ae4ce7d6151d064455402c9812c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 32
+  },
+  {
+    "id": "rkb-14861ae4ce7d6151d064455402c9812c-5",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "描述图像像素位的术语 LSB 代表什么？",
+    "options": {
+      "A": "去除全部有效位",
+      "B": "最长统计块",
+      "C": "最低有效位",
+      "D": "最高有效位"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "LSB 是 least significant bit，即数值位权最低的一位。",
+    "source": {
+      "date": "2016-11",
+      "number": "75",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/14861ae4ce7d6151d064455402c9812c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 33
+  },
+  {
+    "id": "rkb-5a125feb90171e661e6ac84aabae687c",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "case",
+    "stem": "课程通过多个信息事件考查 CIA、密钥管理和分组加密语境。设每个密文块由当前明文与前一密文块联动产生。",
+    "prompts": [
+      "解释 CIA 的三项含义。",
+      "对抄取、修改和阻断三种事件分别判断受影响属性。",
+      "列出密钥管理涉及的技术环节。",
+      "前一密文块参与当前块处理的典型工作模式是什么？"
+    ],
+    "explanationSupplement": "分别对应泄露、篡改、无法访问；密钥管理包括生成、分发、保护、轮换、撤销、恢复与销毁；CBC 中加密输入是当前明文与前一密文块的异或，第一个块使用 IV。",
+    "source": {
+      "date": "2016-11",
+      "number": "1-4",
+      "url": "https://www.ruankaoba.com/paper/paperId/e9776a541c7160e86566c29feb673116/chiefId/5a125feb90171e661e6ac84aabae687c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 34
+  },
+  {
+    "id": "rkb-6ee20d229385fdf4c8c37e487d2f5c66",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "若可以通过归约说明，能破解方案便能解决一个明确的困难问题，这强调的是哪类安全论证？",
+    "source": {
+      "date": "2019-05",
+      "number": "68",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/6ee20d229385fdf4c8c37e487d2f5c66",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 35,
+    "options": {
+      "A": "仅靠性能估算的计算安全判断",
+      "B": "可证明安全",
+      "C": "信息论无条件安全",
+      "D": "对所有对手的绝对安全"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "安全归约以明确计算假设、对手模型和目标为条件。"
+  },
+  {
+    "id": "rkb-36d981dc7f2598f839fd749f9bc4de7f",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "在签名安全模型中，假设对手可以选择若干消息并看到这些消息的签名，该模型最接近下列哪一项？",
+    "source": {
+      "date": "2019-05",
+      "number": "6",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/36d981dc7f2598f839fd749f9bc4de7f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 36,
+    "options": {
+      "A": "只知密文",
+      "B": "已知明文",
+      "C": "选择密文",
+      "D": "选择消息（类比选择明文）"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "签名安全以选择消息为标准术语，与加密语境下的选择明文能力类似。"
+  },
+  {
+    "id": "rkb-047de3e7081655e99f673fef5e22dde0",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "给定一个密码方案及可取得的数据，经典密码分析可以尝试达成什么？",
+    "source": {
+      "date": "2017-05",
+      "number": "53",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/047de3e7081655e99f673fef5e22dde0",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 37,
+    "options": {
+      "A": "公开算法名称",
+      "B": "恢复隐藏的明文或密钥",
+      "C": "修改加密端字体",
+      "D": "发现攻击者的人事信息"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "密码分析关注获得受保护信息或破坏方案的安全目标。"
+  },
+  {
+    "id": "rkb-f8ec843818797aee537fa2b1f774644c",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "若算法公开，攻击者已取得一段现代加密的密文，还需要什么材料才能按正常算法解密？",
+    "source": {
+      "date": "2016-11",
+      "number": "32",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/f8ec843818797aee537fa2b1f774644c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 38,
+    "options": {
+      "A": "只是更多密文",
+      "B": "有效的解密密钥",
+      "C": "加密算法公开说明",
+      "D": "再次获得公开说明和相同密文"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "密码系统的安全不能依赖隐藏公开算法。获得有效解密密钥会破坏保护。"
+  },
+  {
+    "id": "rkb-4543c47b537d69b69c39e331c1600918",
+    "group": "密码体制基础与对称/非对称对比 · 历年真题",
+    "conceptId": "crypto-basics",
+    "type": "single",
+    "stem": "关于对称密码、密码分析和密钥，下列哪项错误地假设算法本身必须保密？",
+    "source": {
+      "date": "2016-11",
+      "number": "29",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/4543c47b537d69b69c39e331c1600918",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 39,
+    "options": {
+      "A": "对称方案以共享密钥实现相反操作",
+      "B": "密码分析可尝试获取密钥或明文",
+      "C": "可靠的对称密码必须隐藏加、解密算法",
+      "D": "密钥需要生命周期管理"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "密码工程应假设方案公开，将秘密限定为受管理的密钥等材料。"
+  },
+  {
+    "id": "rkb-c2e1dd1d76c0e9a8e30fa548c1b74a17",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "以 E 表示 DES 加密、D 表示 DES 解密。TDEA 的常见加密次序是哪一种？",
+    "options": {
+      "A": "E → E → E",
+      "B": "D → E → D",
+      "C": "D → D → D",
+      "D": "E → D → E"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "三重 DES 的标准结构是先加密、再解密、再加密。",
+    "source": {
+      "date": "2022-11",
+      "number": "13",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/c2e1dd1d76c0e9a8e30fa548c1b74a17",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 40
+  },
+  {
+    "id": "rkb-43c7365c7b1c82527071d6b7a8ff0ab4",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "AES 标准支持 128、192、256 位密钥。下列哪一长度不在其中？",
+    "options": {
+      "A": "256 位",
+      "B": "160 位",
+      "C": "128 位",
+      "D": "192 位"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "AES 的分组固定为 128 位，密钥规格是题中三个长度。",
+    "source": {
+      "date": "2022-11",
+      "number": "12",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/43c7365c7b1c82527071d6b7a8ff0ab4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 41
+  },
+  {
+    "id": "rkb-1b230f2aacc8664943fc5b067117cfae-1",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "在公私钥比较题中，对称通信的双方必须安全共享哪种材料？",
+    "options": {
+      "A": "服务器的域名",
+      "B": "共享秘密密钥",
+      "C": "每人各自的公钥",
+      "D": "公共文件名"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "对称密码依赖双方掌握相同且未泄露的秘密。",
+    "source": {
+      "date": "2022-11",
+      "number": "71",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/1b230f2aacc8664943fc5b067117cfae",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 42
+  },
+  {
+    "id": "rkb-1b230f2aacc8664943fc5b067117cfae-2",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "公钥密码中，哪种密钥可以发布给潜在发送者？",
+    "options": {
+      "A": "会话秘密",
+      "B": "用于本地验证的口令",
+      "C": "公钥",
+      "D": "自己的解密私钥"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "公钥可分发，但需认证其归属。",
+    "source": {
+      "date": "2022-11",
+      "number": "72",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/1b230f2aacc8664943fc5b067117cfae",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 43
+  },
+  {
+    "id": "rkb-1b230f2aacc8664943fc5b067117cfae-3",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "对称密码中的加密和对应解密使用何种密钥关系？",
+    "options": {
+      "A": "始终使用互不相关的两把密钥",
+      "B": "使用签发机构的签名公钥",
+      "C": "始终不需要密钥",
+      "D": "使用同一个共享密钥"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "对称的基本含义是使用共享密钥。",
+    "source": {
+      "date": "2022-11",
+      "number": "73",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/1b230f2aacc8664943fc5b067117cfae",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 44
+  },
+  {
+    "id": "rkb-1b230f2aacc8664943fc5b067117cfae-4",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "与对称加密相比，典型公钥加密如何分配密钥？",
+    "options": {
+      "A": "加密与解密使用同一密钥对中的不同密钥",
+      "B": "两端共用一份明文口令即可",
+      "C": "仅用摘要代替解密密钥",
+      "D": "每端同时公开长时私钥"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "公钥加密与私钥解密使用互相关联的不同密钥。",
+    "source": {
+      "date": "2022-11",
+      "number": "74",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/1b230f2aacc8664943fc5b067117cfae",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 45
+  },
+  {
+    "id": "rkb-1b230f2aacc8664943fc5b067117cfae-5",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "多个发送方需要各自给同一个接收者加密消息，哪种体制可复用接收者发布的一把密钥？",
+    "options": {
+      "A": "仅用码表代换",
+      "B": "公钥密码",
+      "C": "每对用户共享的对称保密方案",
+      "D": "无密钥哈希"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "接收者可向多个发送者发布已认证的公钥，自己持有私钥。",
+    "source": {
+      "date": "2022-11",
+      "number": "75",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/1b230f2aacc8664943fc5b067117cfae",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 46
+  },
+  {
+    "id": "rkb-11fef07e415cb9beec1e26438b304b8a",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "SM2、SM3、SM4 与 SM9 中，哪一个是分组密码？",
+    "options": {
+      "A": "SM2",
+      "B": "SM3",
+      "C": "SM9",
+      "D": "SM4"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "SM4 是分组密码；SM3 用于杂凑，SM2 和 SM9 是公钥密码相关算法。",
+    "source": {
+      "date": "2022-11",
+      "number": "3",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/11fef07e415cb9beec1e26438b304b8a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 47
+  },
+  {
+    "id": "rkb-fa0b463ce50668b53c70fea34381c3ff",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "下列哪项是对称分组密码？",
+    "options": {
+      "A": "RSA",
+      "B": "SM2",
+      "C": "Diffie–Hellman",
+      "D": "IDEA"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "IDEA 使用共享密钥对固定长度分组做加密。",
+    "source": {
+      "date": "2020-11",
+      "number": "68",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/fa0b463ce50668b53c70fea34381c3ff",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 48
+  },
+  {
+    "id": "rkb-b60151bef5399d62fe94dfcf0e37a6ba-1",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "Symmetric-key cryptography 用哪种密钥关系处理加解密？",
+    "options": {
+      "A": "使用固定公私钥拆分",
+      "B": "使用不相干的两个密钥",
+      "C": "密钥可以从文件名推出",
+      "D": "共享同一密钥"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "同一共享秘密用于加解密。",
+    "source": {
+      "date": "2020-11",
+      "number": "71",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/b60151bef5399d62fe94dfcf0e37a6ba",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 49
+  },
+  {
+    "id": "rkb-b60151bef5399d62fe94dfcf0e37a6ba-2",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "两方尚未建立安全通道，对称密码的一个实际难点是安全建立哪项材料？",
+    "options": {
+      "A": "共同的会话密钥",
+      "B": "公共 DNS 域名",
+      "C": "双方的端口号",
+      "D": "文件扩展名"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "只有可信地建立共享秘密，后续对称保护才有意义。",
+    "source": {
+      "date": "2020-11",
+      "number": "72",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/b60151bef5399d62fe94dfcf0e37a6ba",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 50
+  },
+  {
+    "id": "rkb-b60151bef5399d62fe94dfcf0e37a6ba-3",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "公钥密码希望哪项计算在现实资源下不可行？",
+    "options": {
+      "A": "通过私钥完成获授权的解密",
+      "B": "从公钥推导出对应私钥",
+      "C": "通过私钥验算对应公钥关系",
+      "D": "把证书复制到客户端"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "公开密钥只能承担公开操作，不应泄漏私钥。",
+    "source": {
+      "date": "2020-11",
+      "number": "73",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/b60151bef5399d62fe94dfcf0e37a6ba",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 51
+  },
+  {
+    "id": "rkb-b60151bef5399d62fe94dfcf0e37a6ba-4",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "一对公钥密码密钥中，哪一项可以通过公开通道分发？",
+    "options": {
+      "A": "已验证的共享会话秘密",
+      "B": "操作员的管理员口令",
+      "C": "公钥",
+      "D": "私钥"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "公钥无需保密，但要检查公钥来源和绑定。",
+    "source": {
+      "date": "2020-11",
+      "number": "74",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/b60151bef5399d62fe94dfcf0e37a6ba",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 52
+  },
+  {
+    "id": "rkb-b60151bef5399d62fe94dfcf0e37a6ba-5",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "以 Rivest、Shamir、Adleman 三位作者命名的算法是什么？",
+    "options": {
+      "A": "DES",
+      "B": "AES",
+      "C": "IDEA",
+      "D": "RSA"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "RSA 是公钥密码，其他是对称分组密码。",
+    "source": {
+      "date": "2020-11",
+      "number": "75",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/b60151bef5399d62fe94dfcf0e37a6ba",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 53
+  },
+  {
+    "id": "rkb-94b4c2edfc1cdff74eca2f683f7bc748",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "128 位固定分组的 AES 不包含下列哪种标准密钥规格？",
+    "options": {
+      "A": "192 位",
+      "B": "256 位",
+      "C": "64 位",
+      "D": "128 位"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "块长固定，密钥可在 128、192、256 位间选用。",
+    "source": {
+      "date": "2020-11",
+      "number": "35",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/94b4c2edfc1cdff74eca2f683f7bc748",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 54
+  },
+  {
+    "id": "rkb-6dd83d389808748eb5bdb211a260c211",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "早期 802.11 WEP 通过哪种流密码实现保密？",
+    "options": {
+      "A": "AES",
+      "B": "RSA",
+      "C": "SHA-256",
+      "D": "RC4"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "RC4 是 WEP 的历史算法；WEP 已不适合作为现行安全配置。",
+    "source": {
+      "date": "2020-11",
+      "number": "29",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/6dd83d389808748eb5bdb211a260c211",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 55
+  },
+  {
+    "id": "rkb-5379012ed8b3fd20ba317c383b50780a",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "明文调整一位后，下面哪种变换通常不会表现出密码算法强调的雪崩扩散？",
+    "options": {
+      "A": "具备多轮扩散的 AES",
+      "B": "安全杂凑中的扩散结构",
+      "C": "具备多轮混淆扩散的分组密码",
+      "D": "简单的逐字母移位"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "简单逐字母移位仅改变对应字符，无法传播到其他位置。",
+    "source": {
+      "date": "2020-11",
+      "number": "18",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/5379012ed8b3fd20ba317c383b50780a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 56
+  },
+  {
+    "id": "rkb-c8fb2e60c677fa282b27795c7237ac67",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "使用 K1 和 K2 两个不同 DES 密钥做三重 EDE，按教材以有效密钥位数合计为多少？",
+    "options": {
+      "A": "64 位",
+      "B": "128 位",
+      "C": "168 位",
+      "D": "112 位"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "每个独立 DES 密钥有 56 位有效比特，两个相加为 112 位；安全强度与位数要区分。",
+    "source": {
+      "date": "2019-05",
+      "number": "35",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/c8fb2e60c677fa282b27795c7237ac67",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 57
+  },
+  {
+    "id": "rkb-2638c06b3ba567107067a94f5506bd50-1",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "通常对一个固定长度的分组施加加密运算时，输入包括密钥和哪项内容？",
+    "options": {
+      "A": "证书的过期日期",
+      "B": "明文分组",
+      "C": "预期密文摘要",
+      "D": "必须为另一个密文分组"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "密码运算用密钥把输入明文块变换为密文块。",
+    "source": {
+      "date": "2019-05",
+      "number": "71",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/2638c06b3ba567107067a94f5506bd50",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 58
+  },
+  {
+    "id": "rkb-2638c06b3ba567107067a94f5506bd50-2",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "DES 和 AES 属于哪一类加密设计？",
+    "options": {
+      "A": "数字签名",
+      "B": "消息认证码",
+      "C": "分组密码",
+      "D": "流密码"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "两者处理固定长度的明文块。",
+    "source": {
+      "date": "2019-05",
+      "number": "72",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/2638c06b3ba567107067a94f5506bd50",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 59
+  },
+  {
+    "id": "rkb-2638c06b3ba567107067a94f5506bd50-3",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "典型流密码产生的密钥流要与哪些数据相结合？",
+    "options": {
+      "A": "口令重置邮件",
+      "B": "网络层路由号",
+      "C": "数据库行数",
+      "D": "明文序列"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "密钥流与明文逐位或逐单位组合。",
+    "source": {
+      "date": "2019-05",
+      "number": "73",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/2638c06b3ba567107067a94f5506bd50",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 60
+  },
+  {
+    "id": "rkb-2638c06b3ba567107067a94f5506bd50-4",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "流密码在加密操作中，内部状态更新所生成的序列用于获得什么输出？",
+    "options": {
+      "A": "密文流",
+      "B": "主机证书",
+      "C": "编译器选项",
+      "D": "数据标签"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "根据密钥和内部状态产生密钥流，并与明文组合得到密文。",
+    "source": {
+      "date": "2019-05",
+      "number": "74",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/2638c06b3ba567107067a94f5506bd50",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 61
+  },
+  {
+    "id": "rkb-2638c06b3ba567107067a94f5506bd50-5",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "两条不同输入被哈希为同一输出时，该现象叫什么？",
+    "options": {
+      "A": "重放",
+      "B": "碰撞",
+      "C": "原像",
+      "D": "撤销"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "相同摘要本身不证明输入相同，抗碰撞要求难以找到这类输入对。",
+    "source": {
+      "date": "2019-05",
+      "number": "75",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/2638c06b3ba567107067a94f5506bd50",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 62
+  },
+  {
+    "id": "rkb-196dd43aa26aa6231c1180ffa538e216",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "传统 SET 相关考题涉及 DES。DES 的有效密钥长度为多少？",
+    "options": {
+      "A": "112 位",
+      "B": "128 位",
+      "C": "56 位",
+      "D": "64 位"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "64 位表示含校验位的典型表示，有效密钥为 56 位。",
+    "source": {
+      "date": "2019-05",
+      "number": "48",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/196dd43aa26aa6231c1180ffa538e216",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 63
+  },
+  {
+    "id": "rkb-997a69953da8e848f8936f722c7e18db",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "DES 每轮子密钥和输入分组的长度按顺序分别是多少？",
+    "options": {
+      "A": "56 位、64 位",
+      "B": "64 位、48 位",
+      "C": "48 位、128 位",
+      "D": "48 位、64 位"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "DES 从有效主密钥导出每轮 48 位子密钥；分组为 64 位。",
+    "source": {
+      "date": "2018-05",
+      "number": "35",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/997a69953da8e848f8936f722c7e18db",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 64
+  },
+  {
+    "id": "rkb-96dfa9179ad691d0fec8bf370832a0c9",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "按对明文的处理单位，经典对称密码可分成哪两类？",
+    "options": {
+      "A": "公钥与摘要值",
+      "B": "分组密码和流密码",
+      "C": "服务器密码和客户端密码",
+      "D": "接入密码和出口密码"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "分组密码处理定长块，流密码对序列逐步处理。",
+    "source": {
+      "date": "2018-05",
+      "number": "15",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/96dfa9179ad691d0fec8bf370832a0c9",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 65
+  },
+  {
+    "id": "rkb-bd78a0ab8b2770af75955be5d0550b41",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "以下哪项属于对称分组密码？",
+    "options": {
+      "A": "RSA",
+      "B": "ElGamal",
+      "C": "MD5",
+      "D": "DES"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "DES 是历史上的分组密码，RSA、ElGamal 属公钥密码，MD5 是杂凑。",
+    "source": {
+      "date": "2017-05",
+      "number": "4",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/bd78a0ab8b2770af75955be5d0550b41",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 66
+  },
+  {
+    "id": "rkb-6072206f7b4c74de9d949768154e0292",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "传统称为 64 位的 WEP 中，静态密钥与初始化向量的位数如何分配？",
+    "options": {
+      "A": "24 位密钥、40 位 IV",
+      "B": "40 位密钥、24 位 IV",
+      "C": "64 位密钥、0 位 IV",
+      "D": "32 位密钥、32 位 IV"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "WEP 把 40 位秘密与 24 位 IV 结合，相关题属于历史技术。",
+    "source": {
+      "date": "2017-05",
+      "number": "37",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/6072206f7b4c74de9d949768154e0292",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 67
+  },
+  {
+    "id": "rkb-4e0c0bc216667f0d2dfd632c75276a21",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "case",
+    "stem": "用示例 S 盒和置换温习 DES 的教学组件。输入六位中外侧两位选行，中间四位选列。",
+    "prompts": [
+      "请解释 S 盒表的行和列怎样由输入确定。",
+      "用第 1 行第 3 列值为 12 的小表演算输入 000111，行列均从 0 编号。",
+      "初始置换表如何按索引重排各位？",
+      "对 10110010 使用置换表 2、6、3、1、4、8、5、7，求结果。",
+      "DES 弱密钥具有怎样的性质？"
+    ],
+    "explanationSupplement": "外侧选行，中间选四位列；000111 对应第 1 行第 3 列，输出 1100；沿置换表取输入各位，示例得到 00111001；特定 DES 弱密钥会产生高度退化的轮子密钥，导致加密映射具有自逆性质。",
+    "source": {
+      "date": "2017-05",
+      "number": "4-8",
+      "url": "https://www.ruankaoba.com/paper/paperId/f1d251c45cf7b606843d5fac97cb6945/chiefId/4e0c0bc216667f0d2dfd632c75276a21",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "行",
+        "列",
+        "示例 S 盒值"
+      ],
+      "rows": [
+        [
+          "1",
+          "3",
+          "12"
+        ]
+      ]
+    },
+    "number": 68
+  },
+  {
+    "id": "rkb-d6d60fac4dccb200eedb52f209729eca",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "AES 轮变换中，哪一个主要提供非线性替代？",
+    "options": {
+      "A": "MixColumns",
+      "B": "AddRoundKey",
+      "C": "SubBytes",
+      "D": "ShiftRows"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "SubBytes 通过 S 盒完成非线性字节替换。",
+    "source": {
+      "date": "2016-11",
+      "number": "68",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/d6d60fac4dccb200eedb52f209729eca",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 69
+  },
+  {
+    "id": "rkb-c8d7bef13c8ad430778741d30065d2af",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "DES 的有效密钥长及分组长按顺序是多少？",
+    "options": {
+      "A": "64 位与 56 位",
+      "B": "128 位与 128 位",
+      "C": "48 位与 64 位",
+      "D": "56 位与 64 位"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "有效密钥 56 位，分组 64 位。",
+    "source": {
+      "date": "2016-11",
+      "number": "35",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/c8d7bef13c8ad430778741d30065d2af",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 70
+  },
+  {
+    "id": "rkb-6e981c9f8c5ff49f1fffd217e9a1c6fd",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "把对称加密按固定长度块和连续序列处理区分，得到哪两类？",
+    "options": {
+      "A": "公钥和私钥",
+      "B": "身份认证与备份",
+      "C": "分组密码与流密码",
+      "D": "证书密码与交换机密码"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "分组和流密码的区别是处理方式。",
+    "source": {
+      "date": "2016-11",
+      "number": "15",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/6e981c9f8c5ff49f1fffd217e9a1c6fd",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 71
+  },
+  {
+    "id": "rkb-460f62d1d713ec37617b772c76a42fcd",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "两组独立 DES 密钥构成 EDE，按有效位数教材给出的总长度是多少？",
+    "options": {
+      "A": "168 位",
+      "B": "128 位",
+      "C": "64 位",
+      "D": "112 位"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "两把 DES 有效密钥位数为 2×56。",
+    "source": {
+      "date": "2016-11",
+      "number": "65",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/460f62d1d713ec37617b772c76a42fcd",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 72
+  },
+  {
+    "id": "rkb-0ef3d04867204e150e6d72633aee561e",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "DES 的每轮子密钥长是多少？",
+    "options": {
+      "A": "48 位",
+      "B": "56 位",
+      "C": "64 位",
+      "D": "128 位"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "主密钥有效位 56 位，而每轮派生使用 48 位。",
+    "source": {
+      "date": "2016-11",
+      "number": "70",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/0ef3d04867204e150e6d72633aee561e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 73
+  },
+  {
+    "id": "rkb-f6da4f7bc15a227211fc17153f551ea9",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "DES S 盒以六位输入的首尾两位选行，中间四位选列，行列从 0 起计。某盒第 1 行在第 7、8、9、10 列的值依次是 3、4、7、2。输入 010001 的四位输出是什么？",
+    "source": {
+      "date": "2021-11",
+      "number": "16",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/f6da4f7bc15a227211fc17153f551ea9",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 74,
+    "options": {
+      "A": "0110",
+      "B": "1001",
+      "C": "0100",
+      "D": "0101"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "首尾为 01，行是 1；中间 1000，列是 8；交点为 4，即 0100。"
+  },
+  {
+    "id": "rkb-fe07f1b45e9fd512c69f297cdc29b9fc",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "DES S 盒用首尾两位选行，中间四位选列。第 1 行在第 4、5、6、7 列的值依次为 7、12、9、5。输入 001011 的四位输出为多少？",
+    "source": {
+      "date": "2020-11",
+      "number": "26",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/fe07f1b45e9fd512c69f297cdc29b9fc",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 75,
+    "options": {
+      "A": "1011",
+      "B": "1100",
+      "C": "0011",
+      "D": "1101"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "输入的行是 1，列是 5，所查值 12 写作 1100。"
+  },
+  {
+    "id": "rkb-137c56be3e96d31e8ed20f7e26d9435c",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "在历史 WPA 和 WPA2 题目中，与 TKIP 相比较，CCMP 所采用的分组密码是什么？",
+    "source": {
+      "date": "2020-11",
+      "number": "55",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/137c56be3e96d31e8ed20f7e26d9435c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 76,
+    "options": {
+      "A": "AES",
+      "B": "DES",
+      "C": "IDEA",
+      "D": "RSA"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "CCMP 使用 AES。现代配置应按当前无线标准和组织安全基线选择。"
+  },
+  {
+    "id": "rkb-1296dede338478606d6ba972fe128635",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "某 DES S 盒第 3 行的第 8、9、10、11 列依次为 11、14、1、7。以首尾位选行、中间四位选列，输入 110011 时输出什么？",
+    "source": {
+      "date": "2019-05",
+      "number": "26",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/1296dede338478606d6ba972fe128635",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 77,
+    "options": {
+      "A": "1110",
+      "B": "1001",
+      "C": "0100",
+      "D": "0101"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "首尾位为 11，行是 3；中间 1001，列是 9；交点值 14，即 1110。"
+  },
+  {
+    "id": "rkb-a92fcd1fd2e095c7cfdf458b3f73cca0",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "某 DES S 盒第 2 行从第 0 列起依次是 10、6、9、0。以首尾两位选行，中间四位选列。六位输入 100010 对应的四位输出是什么？",
+    "source": {
+      "date": "2018-05",
+      "number": "26",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/a92fcd1fd2e095c7cfdf458b3f73cca0",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 78,
+    "options": {
+      "A": "0110",
+      "B": "1001",
+      "C": "0100",
+      "D": "0101"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "首尾为 10，行是 2；中间 0001，列是 1；该元素为 6，即 0110。"
+  },
+  {
+    "id": "rkb-971015de497de59c47958eef165d83db",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "在历史无线接入题中，哪项与 WPA、WPA2 的个人模式无关，是更早的独立保护方案？",
+    "source": {
+      "date": "2018-05",
+      "number": "37",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/971015de497de59c47958eef165d83db",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 79,
+    "options": {
+      "A": "WPA 企业或个人模式",
+      "B": "WEP",
+      "C": "WPA-PSK",
+      "D": "WPA2-PSK"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "WEP 早于 WPA，两者不是同一认证方案。"
+  },
+  {
+    "id": "rkb-a96d7ac7dc2cb7e7dee502600e65419e",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "哪一项是早于 WPA 的独立无线安全方案，而非 WPA、WPA2 的认证模式？",
+    "source": {
+      "date": "2016-11",
+      "number": "37",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/a96d7ac7dc2cb7e7dee502600e65419e",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 80,
+    "options": {
+      "A": "WPA 企业模式",
+      "B": "WPA-PSK",
+      "C": "WEP",
+      "D": "WPA2-PSK"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "WEP 是更早的无线保护。PSK 指预共享密钥。"
+  },
+  {
+    "id": "rkb-635d2abc1b6bf8c7529044e5df148ae7",
+    "group": "对称加密算法：DES、3DES 与 AES · 历年真题",
+    "conceptId": "symmetric-crypto",
+    "type": "single",
+    "stem": "某 DES S 盒第 3 行的第 8、9、10、11 列依次为 9、4、5、11。以首尾位选行、中间四位选列，输入 110011 时输出什么？",
+    "source": {
+      "date": "2016-11",
+      "number": "26",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/635d2abc1b6bf8c7529044e5df148ae7",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 81,
+    "options": {
+      "A": "0110",
+      "B": "1001",
+      "C": "0100",
+      "D": "0101"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "行 3、列 9 的值为 4，其四位表示为 0100。"
+  },
+  {
+    "id": "rkb-47bb2c39d94669684181a11e47e3545f",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "加密和解密使用配对的不同密钥。该体制称为什么？",
+    "options": {
+      "A": "单独哈希计算",
+      "B": "无密钥压缩",
+      "C": "非对称密码体制",
+      "D": "对称密码体制"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "非对称算法使用相关的公私钥。",
+    "source": {
+      "date": "2021-11",
+      "number": "15",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/47bb2c39d94669684181a11e47e3545f",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 82
+  },
+  {
+    "id": "rkb-26d4f40e2f8eb03bbe125d29aa0919a8",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "case",
+    "stem": "以教材中的小整数 RSA 讨论密码保护和签名。以下值只用于演算，设 p=5、q=11，e=3，消息取 m=7。",
+    "prompts": [
+      "说明常见的三项密码学安全目标。",
+      "解释 p、q、n、φ(n)、e 和 d。",
+      "计算密文 7 的三次方模 55。",
+      "计算满足 3d≡1 mod 40 的私钥指数。",
+      "公钥和私钥共同依赖哪个模数？",
+      "教材中消息整数通常必须满足什么范围？",
+      "如何写出教材中的 RSA 签名算式，现代实现为何要用标准编码？",
+      "签名证明哪些安全属性？"
+    ],
+    "explanationSupplement": "机密性、完整性、身份真实性等需按语境区分。n=55，φ=40，密文为 13，d=27；0≤m<n；教科书签名为 m^d mod n，实际使用标准签名方案如 RSA-PSS；签名支持完整性、来源认证及有条件的抗抵赖。",
+    "source": {
+      "date": "2020-11",
+      "number": "2-9",
+      "url": "https://www.ruankaoba.com/paper/paperId/ab4f61947582107908a2d4284a9d3349/chiefId/26d4f40e2f8eb03bbe125d29aa0919a8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 83
+  },
+  {
+    "id": "rkb-be320e52768b0d63724aa6cd3234de6c",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "企业需保护大量传输数据，通常不直接用哪一种方式加密每块正文？",
+    "options": {
+      "A": "通过会话密钥对数据加密",
+      "B": "使用分组模式处理大批数据",
+      "C": "直接使用 RSA 加密全部数据",
+      "D": "使用经认证的对称加密"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "混合方案以对称加密处理正文，公钥密码用于密钥等小数据。",
+    "source": {
+      "date": "2018-05",
+      "number": "50",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/be320e52768b0d63724aa6cd3234de6c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 84
+  },
+  {
+    "id": "rkb-6c4d8aa2ba8cbdc6b8b9de0c9229771b",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "数字信封的典型用法是什么？",
+    "options": {
+      "A": "用发送者公钥代替所有正文密钥",
+      "B": "用接收者公钥保护会话密钥，再用会话密钥保护正文",
+      "C": "公开接收者私钥",
+      "D": "只把正文压缩后发送"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "数字信封利用公钥密码分发会话秘密，同时保留对称加密的效率。",
+    "source": {
+      "date": "2018-05",
+      "number": "34",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/6c4d8aa2ba8cbdc6b8b9de0c9229771b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 85
+  },
+  {
+    "id": "rkb-36fc82b19eed2d0cdc0972ad3f477009",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "在教材 RSA 小例中，n=55，e=7，私钥指数 d 应取哪一个？",
+    "options": {
+      "A": "13",
+      "B": "29",
+      "C": "23",
+      "D": "17"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "φ(55)=40，7×23=161≡1 mod 40。",
+    "source": {
+      "date": "2018-05",
+      "number": "65",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/36fc82b19eed2d0cdc0972ad3f477009",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 86
+  },
+  {
+    "id": "rkb-356bd05f1963658cf342517621d6e1ef",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "用公钥密码给指定接收者加密数据时，密钥分工是什么？",
+    "options": {
+      "A": "使用接收者私钥加密，由其公钥解密",
+      "B": "公开发送者私钥后共同使用",
+      "C": "任何公钥都可以解开原文",
+      "D": "使用接收者公钥加密，由其私钥解密"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "只有持有与加密公钥相配私钥的主体能够完成正确解密。",
+    "source": {
+      "date": "2018-05",
+      "number": "70",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/356bd05f1963658cf342517621d6e1ef",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 87
+  },
+  {
+    "id": "rkb-1025cfc41546497ad7ac7ff1105707b4",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "设 p=5、q=11、e=7，教材 RSA 中 e 在模 φ(n) 意义下的逆元是多少？",
+    "options": {
+      "A": "19",
+      "B": "23",
+      "C": "27",
+      "D": "17"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "φ(n)=40，7×23 除以 40 的余数是 1。",
+    "source": {
+      "date": "2017-05",
+      "number": "66",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/1025cfc41546497ad7ac7ff1105707b4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 88
+  },
+  {
+    "id": "rkb-cfe47cb98d6f5bd92f71593bf95df141",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "case",
+    "stem": "两端拟用预先分发的公钥收发加密消息，评审发现公钥来源和发送者身份均未核验。",
+    "prompts": [
+      "讨论在身份未绑定时机密性为何无法可靠成立。",
+      "若组合签名和加密，需要验证哪些先决条件？"
+    ],
+    "explanationSupplement": "使用可信证书链或已核验指纹绑定公钥和身份；使用标准加密与签名，检查真实性、上下文、新鲜性和发送者、接收者身份。",
+    "source": {
+      "date": "2017-05",
+      "number": "5-6",
+      "url": "https://www.ruankaoba.com/paper/paperId/f1d251c45cf7b606843d5fac97cb6945/chiefId/cfe47cb98d6f5bd92f71593bf95df141",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 89
+  },
+  {
+    "id": "rkb-f5b88f19698fd30f95d28dc842478e57",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "小整数 RSA 公钥取 e=13、n=35。私钥指数 d 为多少？",
+    "options": {
+      "A": "17",
+      "B": "11",
+      "C": "19",
+      "D": "13"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "φ(35)=24，而 13×13≡1 mod 24。",
+    "source": {
+      "date": "2016-11",
+      "number": "66",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/f5b88f19698fd30f95d28dc842478e57",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 90
+  },
+  {
+    "id": "rkb-c0f932b5e0b925a4a88ef0ad9cdf88c2",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "以下哪种密码体制不是对称加密算法？",
+    "options": {
+      "A": "SM4",
+      "B": "IDEA",
+      "C": "RSA",
+      "D": "AES"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "RSA 为公钥密码，其他三种为对称分组密码。",
+    "source": {
+      "date": "2016-11",
+      "number": "4",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/c0f932b5e0b925a4a88ef0ad9cdf88c2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 91
+  },
+  {
+    "id": "rkb-7ed9ea24448d5c0d930328db5f81b46d",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "一个方案用相关但不同的密钥分别加密和解密，称为什么？",
+    "options": {
+      "A": "对称密码体制",
+      "B": "压缩编码",
+      "C": "非加密的哈希运算",
+      "D": "非对称密码体制"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "非对称方案使用相关的公私钥。",
+    "source": {
+      "date": "2016-11",
+      "number": "6",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/7ed9ea24448d5c0d930328db5f81b46d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 92
+  },
+  {
+    "id": "rkb-170b684991c7c4b48f3a1da5e90ad1f4",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "数字信封中，收件人通常如何获得正文使用的会话密钥？",
+    "options": {
+      "A": "向所有人公布私钥",
+      "B": "用自己的私钥解封会话密钥",
+      "C": "用自己的公钥解封会话密钥",
+      "D": "从文件名求哈希得到"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "发送方将会话密钥封装给接收者；接收者以配对私钥解开。",
+    "source": {
+      "date": "2016-11",
+      "number": "34",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/170b684991c7c4b48f3a1da5e90ad1f4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 93
+  },
+  {
+    "id": "rkb-08473404942ec7f12a1c9cb25cbbc835",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "对接收方加密时使用谁的哪类密钥？",
+    "options": {
+      "A": "接收方私钥",
+      "B": "任一方公开的签名口令",
+      "C": "发送者私钥",
+      "D": "接收方公钥"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "接收方保管配对私钥供解密。",
+    "source": {
+      "date": "2016-11",
+      "number": "33",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/08473404942ec7f12a1c9cb25cbbc835",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 94
+  },
+  {
+    "id": "rkb-5e8acfa727e5c2af8ab13b98fe2d77d7",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "公钥密码设计中的哪一项主张错误？",
+    "source": {
+      "date": "2018-05",
+      "number": "66",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/5e8acfa727e5c2af8ab13b98fe2d77d7",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 95,
+    "options": {
+      "A": "体系使用配对的公钥和私钥",
+      "B": "仅凭公开算法和公钥应很容易求出私钥",
+      "C": "公钥可在验证其归属后分发",
+      "D": "签名私钥可用于生成签名"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "从公开信息推导私钥在选用的算法和安全参数下应在计算上不可行。"
+  },
+  {
+    "id": "rkb-7678d468e91397be697f1acd43d4546a",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "关于公钥加密系统，哪项不符合其安全设计？",
+    "source": {
+      "date": "2017-05",
+      "number": "56",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/7678d468e91397be697f1acd43d4546a",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 96,
+    "options": {
+      "A": "公钥与私钥组成有数学关系的一对",
+      "B": "仅凭公开的加密密钥应能高效构造解密私钥",
+      "C": "公钥可经可信方式公开分发",
+      "D": "某些公钥方案使用私钥进行签名"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "安全性依赖于对公开信息无法高效推导私钥的假设。"
+  },
+  {
+    "id": "rkb-166cd19d58b3488439e7ed1106db2670",
+    "group": "非对称加密（RSA/ECC）与混合加密 · 历年真题",
+    "conceptId": "asymmetric-crypto",
+    "type": "single",
+    "stem": "甲使用自己的私钥签名，并用乙的公钥对签名和消息一起加密。乙应怎样依次处理？",
+    "source": {
+      "date": "2017-05",
+      "number": "36",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/166cd19d58b3488439e7ed1106db2670",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 97,
+    "options": {
+      "A": "再次用乙公钥加密，再用甲私钥签名",
+      "B": "两次使用甲的公钥",
+      "C": "先用乙自己的私钥解密，再用甲的可信公钥验签",
+      "D": "先用乙私钥解密，再使用甲私钥"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "接收者用自己的私钥解封消息，并用签名者的公钥验证。现代系统应使用标准签名与加密方案。"
+  },
+  {
+    "id": "rkb-8497bb5a6002a846ea4a31e844483e1c",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "MD5 输出的摘要有多少位？",
+    "options": {
+      "A": "64 位",
+      "B": "256 位",
+      "C": "512 位",
+      "D": "128 位"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "MD5 输入块为 512 位，摘要长度是 128 位。",
+    "source": {
+      "date": "2021-11",
+      "number": "18",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/8497bb5a6002a846ea4a31e844483e1c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 98
+  },
+  {
+    "id": "rkb-08466133c87ea8b0a234235a627e741d",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "在几个国密算法中，哪项属于对称分组密码？",
+    "options": {
+      "A": "SM4",
+      "B": "SM3",
+      "C": "SM2",
+      "D": "SM9"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "SM4 用于分组加密，SM3 是杂凑算法。",
+    "source": {
+      "date": "2021-11",
+      "number": "17",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/08466133c87ea8b0a234235a627e741d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 99
+  },
+  {
+    "id": "rkb-f78f6d8dbf008b22de9025d268241711",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "SM2 的公钥与签名体系建立在哪类数学工具上？",
+    "options": {
+      "A": "纯哈希链",
+      "B": "十进制编码",
+      "C": "椭圆曲线密码",
+      "D": "代换表式分组加密"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "SM2 采用椭圆曲线公钥密码体制。",
+    "source": {
+      "date": "2020-11",
+      "number": "11",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/f78f6d8dbf008b22de9025d268241711",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 100
+  },
+  {
+    "id": "rkb-a6da53a35f0561dc12666ab03671a961",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "SM4 的分组长度与密钥长度分别是多少？",
+    "options": {
+      "A": "128 位、256 位",
+      "B": "256 位、128 位",
+      "C": "128 位、128 位",
+      "D": "64 位、128 位"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "SM4 的固定分组和密钥长度都为 128 位。",
+    "source": {
+      "date": "2020-11",
+      "number": "32",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/a6da53a35f0561dc12666ab03671a961",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 101
+  },
+  {
+    "id": "rkb-3e9c060975d0941b0dde6858f2792ffa",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "SM 系列的杂凑算法是哪一个？",
+    "options": {
+      "A": "SM2",
+      "B": "SM4",
+      "C": "SM9",
+      "D": "SM3"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "SM3 用于生成定长杂凑值。",
+    "source": {
+      "date": "2020-11",
+      "number": "2",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/3e9c060975d0941b0dde6858f2792ffa",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 102
+  },
+  {
+    "id": "rkb-f5dc6f9d97a3070dcc3d85a63abf4611",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "SM3 算法的摘要长度是多少？",
+    "options": {
+      "A": "128 位",
+      "B": "512 位",
+      "C": "256 位",
+      "D": "64 位"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "SM3 的分块和输出长度不同，固定输出为 256 位。",
+    "source": {
+      "date": "2019-05",
+      "number": "2",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/f5dc6f9d97a3070dcc3d85a63abf4611",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 103
+  },
+  {
+    "id": "rkb-2177a538fe5b1a0fa1b501fdd16df7c4",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "SM2 与下列哪项同属公钥密码，可在相应国产商用密码场景中承担相近功能？",
+    "options": {
+      "A": "RSA",
+      "B": "SHA-256",
+      "C": "SM4",
+      "D": "DES"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "SM2 和 RSA 都能用于适当的公钥加密或签名场景。",
+    "source": {
+      "date": "2019-05",
+      "number": "32",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/2177a538fe5b1a0fa1b501fdd16df7c4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 104
+  },
+  {
+    "id": "rkb-a60ea694491cdcca5eb25c32daf8bac2",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "我国 SM 系列中，哪一个属于标识密码算法？",
+    "options": {
+      "A": "SM3",
+      "B": "SM4",
+      "C": "DES",
+      "D": "SM9"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "SM9 是基于标识的公钥密码技术。",
+    "source": {
+      "date": "2018-05",
+      "number": "2",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/a60ea694491cdcca5eb25c32daf8bac2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 105
+  },
+  {
+    "id": "rkb-402b69900f45a4b9a3226802f3224f14",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "SM3 按多长的输入消息分组处理？",
+    "options": {
+      "A": "128 位",
+      "B": "160 位",
+      "C": "256 位",
+      "D": "512 位"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "SM3 输入分组长 512 位，输出为 256 位。",
+    "source": {
+      "date": "2018-05",
+      "number": "67",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/402b69900f45a4b9a3226802f3224f14",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 106
+  },
+  {
+    "id": "rkb-d327b3953e8837806b1b79c8cf2c6c99",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "SHA-1 标准输出的摘要长度为多少？",
+    "options": {
+      "A": "128 位",
+      "B": "256 位",
+      "C": "512 位",
+      "D": "160 位"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "SHA-1 输出 160 位，目前不能作为需抵抗碰撞的推荐选择。",
+    "source": {
+      "date": "2017-05",
+      "number": "35",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/d327b3953e8837806b1b79c8cf2c6c99",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 107
+  },
+  {
+    "id": "rkb-5f858ee27d21ec552e4405a5ecf3da7e",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "国密 SM4 的分组与密钥位数分别是多少？",
+    "options": {
+      "A": "64、128",
+      "B": "128、192",
+      "C": "256、128",
+      "D": "128、128"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "SM4 的两项长度均为 128 位。",
+    "source": {
+      "date": "2017-05",
+      "number": "65",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/5f858ee27d21ec552e4405a5ecf3da7e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 108
+  },
+  {
+    "id": "rkb-6b5dee069bf8eb195b2507075bb7069e",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "SHA-1 的输入处理分组长度是多少？",
+    "options": {
+      "A": "512 位",
+      "B": "160 位",
+      "C": "256 位",
+      "D": "1024 位"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "SHA-1 输入分组为 512 位，输出摘要为 160 位。",
+    "source": {
+      "date": "2016-11",
+      "number": "67",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/6b5dee069bf8eb195b2507075bb7069e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 109
+  },
+  {
+    "id": "rkb-fd9a9bd265a17ff9acc7a377b6adb529",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "在题设的无线局域网密码要求中，哪项属于用于建立共享密钥的椭圆曲线协商算法？",
+    "source": {
+      "date": "2020-11",
+      "number": "70",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/fd9a9bd265a17ff9acc7a377b6adb529",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 110,
+    "options": {
+      "A": "PKI",
+      "B": "DSA",
+      "C": "CPK",
+      "D": "ECDH"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "ECDH 属于密钥协商；DSA 是签名，PKI 是证书和信任基础设施。"
+  },
+  {
+    "id": "rkb-7659148ed7303e5c9c09a9d50a1f5c75",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "在受制于带宽和终端计算能力的无线 PKI 场景中，哪种公钥算法方案常因较短密钥而被采用？",
+    "source": {
+      "date": "2018-05",
+      "number": "48",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/7659148ed7303e5c9c09a9d50a1f5c75",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 111,
+    "options": {
+      "A": "SM4 对称算法",
+      "B": "增大 RSA 密钥的方案",
+      "C": "只用共享口令",
+      "D": "基于椭圆曲线并针对无线环境优化的方案"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "在相近安全级别下，椭圆曲线可用较短密钥，适合资源较受限的场景。"
+  },
+  {
+    "id": "rkb-1d1d437094b102430f878fc69fca9f46",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "按试题所用的历史口径，2017 年德国柏林 ISO/IEC SC 27 会议通过了哪两种国密数字签名机制？",
+    "source": {
+      "date": "2018-05",
+      "number": "32",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/1d1d437094b102430f878fc69fca9f46",
+      "basis": "《信息安全工程师 2016 至 2018 年试题分析与解答》",
+      "basisUrl": "https://wqxuetang.oss-cn-beijing.aliyuncs.com/upload/source/e9/e9852771b25733ad4027480238be7a59"
+    },
+    "number": 112,
+    "options": {
+      "A": "SM2 和 SM3",
+      "B": "SM3 和 SM4",
+      "C": "SM4 和 SM9",
+      "D": "SM9 和 SM2"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "该次会议通过的配对是 SM2 与 SM9 数字签名机制，进入 ISO/IEC 14888-3 对应补篇的发布阶段。"
+  },
+  {
+    "id": "rkb-167a95abd8652f6cb7a15731fab0308f",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "评价祖冲之序列密码时，哪项把输出设计目标说错了？",
+    "source": {
+      "date": "2018-05",
+      "number": "54",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/167a95abd8652f6cb7a15731fab0308f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 113,
+    "options": {
+      "A": "输出序列应具有良好的统计性质",
+      "B": "输出应有易于利用的线性关系",
+      "C": "应考虑已知序列密码分析方法",
+      "D": "设计应控制弱密钥风险"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "可预测的线性关系会削弱密码；其设计包含非线性运算。"
+  },
+  {
+    "id": "rkb-ff4c62cbc78a3a571df773394275cebb",
+    "group": "哈希摘要算法与我国商用密码（SM 系列） · 历年真题",
+    "conceptId": "hash-sm",
+    "type": "single",
+    "stem": "在题设无线局域网密码要求中，选择可在椭圆曲线上执行密钥协商的一项。",
+    "source": {
+      "date": "2016-11",
+      "number": "2",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/ff4c62cbc78a3a571df773394275cebb",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 114,
+    "options": {
+      "A": "有限域 DH",
+      "B": "ECDSA",
+      "C": "ECDH",
+      "D": "CPK"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "ECDH 用于椭圆曲线密钥协商；ECDSA 用于签名。"
+  },
+  {
+    "id": "rkb-73d0ecb0b807128d9ab8ae31fd567dd5",
+    "group": "密钥协商、管理与协议选型 · 历年真题",
+    "conceptId": "key-agreement",
+    "type": "single",
+    "stem": "SSH 的三个主要协议组成是什么？",
+    "options": {
+      "A": "路由、会话初始化、流控制",
+      "B": "密钥存储、数据库、日志",
+      "C": "DNS 查询、传输层、文件系统",
+      "D": "传输层、用户认证、连接协议"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "SSH 架构由传输层、用户认证和连接协议组成。",
+    "source": {
+      "date": "2022-11",
+      "number": "15",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/73d0ecb0b807128d9ab8ae31fd567dd5",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 115
+  },
+  {
+    "id": "rkb-4da6b6b6856d504492822c3595bb03e3",
+    "group": "密钥协商、管理与协议选型 · 历年真题",
+    "conceptId": "key-agreement",
+    "type": "single",
+    "stem": "用 OpenPGP 保护邮件时，哪项说法正确？",
+    "options": {
+      "A": "只有哈希算法参与加密",
+      "B": "可用混合加密保护正文，并用独立签名验证来源",
+      "C": "收件人必须公开自己的私钥",
+      "D": "可替代邮件服务器的全部访问控制"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "通常以会话密钥加密正文，通过接收者公钥保护会话密钥。",
+    "source": {
+      "date": "2022-11",
+      "number": "16",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/4da6b6b6856d504492822c3595bb03e3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 116
+  },
+  {
+    "id": "rkb-0ddd88869934e2b794ba57e420d4a37a",
+    "group": "密钥协商、管理与协议选型 · 历年真题",
+    "conceptId": "key-agreement",
+    "type": "single",
+    "stem": "我国《密码法》实行哪一组分类？",
+    "options": {
+      "A": "公开密码、弱密码、强密码",
+      "B": "对称密码、私有密码、明文密码",
+      "C": "核心密码、普通密码、商用密码",
+      "D": "国内密码、出口密码、进口密码"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "法律分类的依据和目的不同于算法结构分类。",
+    "source": {
+      "date": "2022-11",
+      "number": "5",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/0ddd88869934e2b794ba57e420d4a37a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 117
+  },
+  {
+    "id": "rkb-fe8d9e9a62783c87e83531061287a725",
+    "group": "密钥协商、管理与协议选型 · 历年真题",
+    "conceptId": "key-agreement",
+    "type": "single",
+    "stem": "经典有限域 DH 的安全性涉及以下哪项计算难题？",
+    "options": {
+      "A": "比较两个公开摘要的长度",
+      "B": "在适当群上求离散对数",
+      "C": "分解十进制文本字符",
+      "D": "求线性和"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "经典 DH 常以离散对数类计算难题解释其安全性。",
+    "source": {
+      "date": "2021-11",
+      "number": "20",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/fe8d9e9a62783c87e83531061287a725",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 118
+  },
+  {
+    "id": "rkb-bc1f05e0a4071b9cf7ed3d22bbc25ecf",
+    "group": "密钥协商、管理与协议选型 · 历年真题",
+    "conceptId": "key-agreement",
+    "type": "single",
+    "stem": "密码法所称的法定分类包括哪三个名称？",
+    "options": {
+      "A": "流、分组、哈希密码",
+      "B": "核心、普通、商用密码",
+      "C": "私钥、公钥、混合密码",
+      "D": "认证、加密、摘要密码"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "法定分类与密码算法技术分类分别判断。",
+    "source": {
+      "date": "2021-11",
+      "number": "7",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/bc1f05e0a4071b9cf7ed3d22bbc25ecf",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 119
+  },
+  {
+    "id": "rkb-c3b67a8cf427bd0e7a256fe724e896f2",
+    "group": "密钥协商、管理与协议选型 · 历年真题",
+    "conceptId": "key-agreement",
+    "type": "case",
+    "stem": "运维团队将远程管理迁移到加密通道，并对一批失败登录日志开展分析。",
+    "prompts": [
+      "SSH 默认使用哪个端口？",
+      "哪些协议可保护远程管理通道？",
+      "怎样用失败日志判断是否需进一步调查？",
+      "切换公钥登录时应保护哪部分材料？",
+      "会话加密和登录认证分别依赖哪些密码机制？"
+    ],
+    "explanationSupplement": "SSH 默认 22；按功能选 SSH、HTTPS 或加密管理网络；按账号、来源和时间聚合日志；保护私钥并核验主机身份；协商会话秘密后对称保护流量，认证利用签名或其他凭据。",
+    "source": {
+      "date": "2021-11",
+      "number": "2-6",
+      "url": "https://www.ruankaoba.com/paper/paperId/627f92f9dc0fe2c33fadaa4b97a522d9/chiefId/c3b67a8cf427bd0e7a256fe724e896f2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 120
+  },
+  {
+    "id": "rkb-bb5eb966102d65a1cbe12228105c3a3a",
+    "group": "密钥协商、管理与协议选型 · 历年真题",
+    "conceptId": "key-agreement",
+    "type": "single",
+    "stem": "《密码法》把密码分为核心密码、普通密码与商用密码。下列哪一项不在该法定三类中？",
+    "source": {
+      "date": "2020-11",
+      "number": "58",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/bb5eb966102d65a1cbe12228105c3a3a",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 121,
+    "options": {
+      "A": "核心密码",
+      "B": "普通密码",
+      "C": "商用密码",
+      "D": "国产密码"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "国产用于描述来源或技术属性，不是该条的法定分类。"
+  },
+  {
+    "id": "rkb-06bd1874c7993688caff0c5dbc2c1c0d",
+    "group": "密钥协商、管理与协议选型 · 历年真题",
+    "conceptId": "key-agreement",
+    "type": "single",
+    "stem": "按《密码法》和商用密码管理相关规定，题设列入强制管理范围的商用密码产品或服务，应执行哪一类检测认证？",
+    "source": {
+      "date": "2020-11",
+      "number": "56",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/06bd1874c7993688caff0c5dbc2c1c0d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 122,
+    "options": {
+      "A": "仅备案",
+      "B": "完全自愿",
+      "C": "企业自行决定的鼓励性认证",
+      "D": "强制性检测认证"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "适用范围依法确定，应按规定通过检测认证后方可进入相应使用环节。"
+  },
+  {
+    "id": "sec-extra-key-agreement",
+    "type": "single",
+    "stem": "两个端点成功算出 DH 共享秘密，但都未验证对端身份。仍需补足什么？",
+    "options": {
+      "A": "在同一连接中反复复用全部旧参数",
+      "B": "公开端点的长期私钥",
+      "C": "将参与者身份与密钥协商绑定",
+      "D": "取消会话密钥"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "普通 DH 只协商秘密，协议还需认证对端。",
+    "group": "密钥协商、管理与协议选型",
+    "conceptId": "key-agreement",
+    "number": 123
   }
 ]

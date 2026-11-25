@@ -57,10 +57,16 @@ test('all 31 migrated chapters exist in economy/finance/insurance with 41 visual
   assert.equal(totalVisuals, 41);
 });
 
-test('computer/security builds 6 chapters with 7 visuals and 96 questions', () => {
+test('computer/security builds nine chapters and covers the catalog and previous question bank', () => {
+  const coverage = require('../courses/computer/security/source-coverage.json');
+  const concepts = new Map();
+  const ids = new Set();
+  const exams = new Set();
   let totalVisuals = 0;
-  let totalQuestions = 0;
-  for (let i = 1; i <= 6; i++) {
+  let choices = 0;
+  let cases = 0;
+  let casePrompts = 0;
+  for (let i = 1; i <= 9; i++) {
     const id = String(i).padStart(2, '0');
     const file = path.join(dist, 'computer/security', `${id}.html`);
     assert.ok(fs.existsSync(file), `Missing computer/security/${id}.html`);
@@ -69,10 +75,55 @@ test('computer/security builds 6 chapters with 7 visuals and 96 questions', () =
     assert.ok((data.chapter.visuals || []).length >= 1, `computer/security/${id} should have at least 1 visual`);
     assert.ok(html.includes('assets/visuals/security-visuals.js'), `computer/security/${id} should load security-visuals.js`);
     totalVisuals += data.chapter.visuals.length;
-    totalQuestions += (data.questions || []).length;
+    const sectionIds = new Set(data.lessons.sections.map(section => section.id));
+    concepts.set(id, sectionIds);
+    for (const visual of data.chapter.visuals) assert.ok(sectionIds.has(visual.sectionId));
+    for (const section of sectionIds) {
+      assert.ok(data.questions.some(question => question.conceptId === section), section);
+    }
+    for (const [index, question] of data.questions.entries()) {
+      assert.ok(!ids.has(question.id), question.id);
+      assert.ok(sectionIds.has(question.conceptId), question.id);
+      assert.equal(question.number, index + 1);
+      ids.add(question.id);
+      if (quiz.isScored(question)) assert.ok(quiz.grade(question, question.answer), question.id);
+      if (question.source) {
+        exams.add(question.id.split('-')[1]);
+        assert.match(question.source.date, /^\d{4}-\d{2}$/);
+        assert.match(question.source.number, /^\d+(?:-\d+)?$/);
+        assert.match(question.source.url, /^https:\/\/www\.ruankaoba\.com\/paper\/paperId\/[a-f\d]+\/chiefId\/[a-f\d]+$/);
+        if (question.type === 'case') {
+          cases++;
+          casePrompts += question.prompts.length;
+          assert.ok(question.explanationSupplement, question.id);
+        } else {
+          choices++;
+          assert.ok(quiz.hasChoices(question), question.id);
+          assert.ok(Object.values(question.options).every(option => option.trim()), question.id);
+          assert.equal(new Set(Object.values(question.options)).size, 4, question.id);
+          assert.ok(!question.stem.includes('题干与选项可在原题查看'), question.id);
+          if (question.type === 'pending') assert.equal(question.answer, undefined, question.id);
+          else assert.ok(question.explanationSupplement.trim(), question.id);
+        }
+      }
+    }
+    if (i <= 6) {
+      for (let number = 1; number <= 16; number++) {
+        assert.ok(ids.has(`sec-${id}-q${String(number).padStart(2, '0')}`));
+      }
+    }
   }
-  assert.equal(totalVisuals, 7);
-  assert.equal(totalQuestions, 96);
+  assert.equal(totalVisuals, 11);
+  assert.equal(coverage.sections.filter(section => section.flag).length, 203);
+  assert.equal(coverage.pdfs.length, 27);
+  assert.equal(exams.size, 523);
+  assert.deepEqual(exams, new Set(coverage.sections.flatMap(section => section.examIds)));
+  assert.equal(choices, 517);
+  assert.equal(cases, 34);
+  assert.equal(casePrompts, 147);
+  for (const section of coverage.sections) {
+    assert.ok(concepts.get(section.chapter)?.has(section.conceptId), section.topic);
+  }
 });
 
 test('all shared JS assets parse cleanly as valid JavaScript', () => {
@@ -93,6 +144,16 @@ test('all shared JS assets parse cleanly as valid JavaScript', () => {
   }
 });
 
+test('published pages and assets omit the retired exam wording', () => {
+  const retired = String.fromCodePoint(0x8f6f, 0x8003);
+  const files = fs.readdirSync(dist, { recursive: true, withFileTypes: true });
+  for (const entry of files) {
+    if (!entry.isFile() || !/\.(html|js|css|json|webmanifest)$/.test(entry.name)) continue;
+    const file = path.join(entry.parentPath, entry.name);
+    assert.ok(!fs.readFileSync(file, 'utf8').includes(retired), path.relative(dist, file));
+  }
+});
+
 test('quiz grading logic handles single, multiple, and discussion questions', () => {
   const single = { id: 'q1', type: 'single', options: { A: '1', B: '2' }, answer: ['A'] };
   const multi = { id: 'q2', type: 'multiple', options: { A: '1', B: '2', C: '3' }, answer: ['A', 'C'] };
@@ -100,4 +161,28 @@ test('quiz grading logic handles single, multiple, and discussion questions', ()
   assert.equal(quiz.grade(single, ['B']), false);
   assert.equal(quiz.grade(multi, ['C', 'A']), true);
   assert.equal(quiz.grade(multi, ['A']), false);
+});
+
+test('test scoring records graded answers while preserving case drafts and pending questions', () => {
+  const single = { id: 'graded', type: 'single', options: { A: '1', B: '2' }, answer: ['A'] };
+  const caseQuestion = { id: 'case', type: 'case' };
+  const pending = { id: 'pending', type: 'pending', options: { A: '1', B: '2' } };
+  assert.equal(quiz.hasChoices(pending), true);
+  assert.equal(quiz.isScored(pending), false);
+  const questions = [single, caseQuestion, pending];
+  const state = { answers: {}, test: {
+    drafts: { graded: ['B'], case: ['A'], pending: ['A'] },
+    caseDrafts: { case: '检查授权与日志' },
+    submitted: false
+  } };
+  assert.deepEqual(quiz.testSummary(questions, state.test.drafts), {
+    total: 1, answered: 1, correct: 0, wrong: 1, unanswered: 0
+  });
+  assert.equal(quiz.submitTest(state, questions), true);
+  assert.equal(quiz.submitTest(state, questions), false);
+  assert.equal(state.answers.graded.everWrong, true);
+  assert.equal(state.answers.graded.attempts, 1);
+  assert.deepEqual(Object.keys(state.answers), ['graded']);
+  assert.deepEqual(state.test.drafts.pending, ['A']);
+  assert.equal(state.test.caseDrafts.case, '检查授权与日志');
 });

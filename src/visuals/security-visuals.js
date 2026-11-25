@@ -460,6 +460,53 @@
     update();
   }
 
+  function mountInformationFlow(root) {
+    root.innerHTML = wrapStatic(
+      'BLP 与 Biba 的读写方向',
+      '箭头表示信息流，从信息来源指向接收方。主体和客体在同一级别时仍须满足其他授权规则。',
+      `<svg viewBox="0 0 560 228" role="img" aria-label="BLP 允许信息由低密级流向高密级，Biba 严格模型允许信息由高完整性流向低完整性">
+        <g fill="var(--surface)" stroke="var(--line)">
+          <rect x="12" y="12" width="260" height="204" rx="12"/>
+          <rect x="288" y="12" width="260" height="204" rx="12"/>
+        </g>
+        <g text-anchor="middle" fill="var(--heading)" font-size="17" font-weight="650">
+          <text x="142" y="42">BLP · 机密性</text>
+          <text x="418" y="42">Biba · 完整性</text>
+        </g>
+        <g fill="var(--accent-soft)" stroke="var(--accent-line)">
+          <rect x="44" y="57" width="196" height="36" rx="7"/><rect x="320" y="57" width="196" height="36" rx="7"/>
+          <rect x="44" y="148" width="196" height="36" rx="7"/><rect x="320" y="148" width="196" height="36" rx="7"/>
+        </g>
+        <g text-anchor="middle" fill="var(--heading)" font-size="15">
+          <text x="142" y="80">高密级</text><text x="418" y="80">高完整性</text>
+          <text x="142" y="171">低密级</text><text x="418" y="171">低完整性</text>
+        </g>
+        <g stroke="var(--accent)" stroke-width="2.5" fill="none">
+          <path d="M142 142V101m-6 7 6-7 6 7"/><path d="M418 99v41m-6-7 6 7 6-7"/>
+        </g>
+        <g text-anchor="middle" fill="var(--muted)" font-size="14">
+          <text x="142" y="202">不上读 · 不下写</text><text x="418" y="202">不下读 · 不上写</text>
+        </g>
+      </svg>`
+    );
+  }
+
+  function mountSequence(root, title, description, steps) {
+    const rows = steps.map(([label, detail], index) => {
+      const y = 10 + index * 48;
+      return `<rect x="16" y="${y}" width="388" height="36" rx="8" fill="var(--surface-subtle)" stroke="var(--line)"/>
+        <circle cx="36" cy="${y + 18}" r="11" fill="var(--accent-soft)" stroke="var(--accent-line)"/>
+        <text x="36" y="${y + 23}" fill="var(--accent)" text-anchor="middle" font-size="13">${index + 1}</text>
+        <text x="56" y="${y + 23}" fill="var(--heading)" font-weight="650" font-size="15">${label}</text>
+        <text x="158" y="${y + 23}" fill="var(--muted)" font-size="13">${detail}</text>`;
+    }).join('');
+    const height = 48 * steps.length + 8;
+    root.innerHTML = wrapStatic(title, description,
+      `<svg viewBox="0 0 420 ${height}" role="img" aria-label="${steps.map(([label, detail]) => label + '，' + detail).join('；')}">
+        ${rows}
+      </svg>`);
+  }
+
   const registry = {
     'sec-cia-layers': container => { container.innerHTML = renderCIALayers(); },
     'sec-hybrid-crypto': mountHybridCrypto,
@@ -468,6 +515,25 @@
     'sec-defense-topology': container => { container.innerHTML = renderDefenseTopology(); },
     'sec-dmz-policy': mountDMZPolicy,
     'sec-chmod-calc': mountChmodCalc,
+    'sec-information-flow': mountInformationFlow,
+    'sec-incident-response': root => mountSequence(root, '事件响应步骤', '以事件的范围与影响决定通知、隔离和恢复顺序。', [
+      ['发现与确认', '关联告警，确定事件与范围'],
+      ['定级与遏制', '上报负责人，限制波及面'],
+      ['清除与恢复', '处置根因，核验后分步恢复'],
+      ['事后复盘', '保存证据，更新控制与预案'],
+    ]),
+    'sec-vulnerability-cycle': root => mountSequence(root, '漏洞管理过程', '对每个受影响资产分别记录修复责任和验证结果。', [
+      ['登记与确认', '核对版本、配置和实际暴露'],
+      ['排序', '结合利用态势和业务影响'],
+      ['修复与缓解', '补丁、配置或临时控制'],
+      ['复测与关闭', '验证控制，保留处理记录'],
+    ]),
+    'sec-data-lifecycle': root => mountSequence(root, '数据生命周期的防护措施', '根据数据用途和敏感等级决定各阶段的控制。', [
+      ['采集与传输', '最小采集，保护通道'],
+      ['存储与处理', '分级授权，加密，留痕'],
+      ['共享与使用', '用途校验，脱敏，审计'],
+      ['留存与销毁', '按期限保留，验证删除'],
+    ]),
   };
 
   document.querySelectorAll('[data-micro-visual]').forEach(container => {

@@ -1,0 +1,1605 @@
+[
+  {
+    "id": "rkb-8b49b91048171865d9b66da3f35f17f2",
+    "group": "漏洞识别、影响评估与修复验证 · 历年真题",
+    "conceptId": "vulnerability-management",
+    "type": "single",
+    "stem": "哪个历史事件与受影响的产品缺陷配对错误？",
+    "options": {
+      "A": "早期 Internet 蠕虫曾涉及邮件和信息服务程序",
+      "B": "冲击波蠕虫对应一个泛称的 TCP/IP 协议设计漏洞",
+      "C": "WannaCry 与 Windows SMB 缺陷相关",
+      "D": "Slammer 与微软 SQL Server 的服务缺陷相关"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "冲击波蠕虫所用的是对应 Windows RPC 实现的缺陷，不等于通用 TCP/IP 设计漏洞。",
+    "source": {
+      "date": "2022-11",
+      "number": "50",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/8b49b91048171865d9b66da3f35f17f2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 1
+  },
+  {
+    "id": "rkb-756dc0802bee2b71b5e6b804cb40f6ef",
+    "group": "漏洞识别、影响评估与修复验证 · 历年真题",
+    "conceptId": "vulnerability-management",
+    "type": "single",
+    "stem": "下列哪种工具的主要用途是捕获和分析网络数据包？",
+    "options": {
+      "A": "证书存储管理器",
+      "B": "数据库迁移器",
+      "C": "Wireshark",
+      "D": "磁盘镜像校验工具"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "Wireshark 主要用于网络协议与报文分析。",
+    "source": {
+      "date": "2022-11",
+      "number": "52",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/756dc0802bee2b71b5e6b804cb40f6ef",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 2
+  },
+  {
+    "id": "rkb-44701e84ce43cc6f3112e494cd91d583",
+    "group": "漏洞识别、影响评估与修复验证 · 历年真题",
+    "conceptId": "vulnerability-management",
+    "type": "single",
+    "stem": "下列哪一项属于非技术性漏洞来源？",
+    "options": {
+      "A": "关键账户审批职责缺失",
+      "B": "请求解析代码越界",
+      "C": "签名校验实现错误",
+      "D": "系统组件包含缓冲区缺陷"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "制度和流程缺口属于非技术层面。",
+    "source": {
+      "date": "2022-11",
+      "number": "51",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/44701e84ce43cc6f3112e494cd91d583",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 3
+  },
+  {
+    "id": "rkb-d620b1d1929f25d1d6023f5191910b99",
+    "group": "漏洞识别、影响评估与修复验证 · 历年真题",
+    "conceptId": "vulnerability-management",
+    "type": "single",
+    "stem": "把校验值放在栈帧中，以发现可能破坏控制数据的越界写入，属于哪种技术？",
+    "options": {
+      "A": "代理认证",
+      "B": "内核日志轮换",
+      "C": "栈保护 canary",
+      "D": "磁盘坏块检测"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "函数返回前检查 canary，可发现部分栈内容遭意外改写的问题。",
+    "source": {
+      "date": "2021-11",
+      "number": "8",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/d620b1d1929f25d1d6023f5191910b99",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 4
+  },
+  {
+    "id": "rkb-732f08b18c3f6f36d1aac16990f789fb",
+    "group": "漏洞识别、影响评估与修复验证 · 历年真题",
+    "conceptId": "vulnerability-management",
+    "type": "single",
+    "stem": "业务授权长期无人复核，属于哪一类漏洞来源？",
+    "options": {
+      "A": "芯片算术设计缺陷",
+      "B": "文件解析越界",
+      "C": "管理过程缺陷",
+      "D": "密码算法实现缺陷"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "管理弱点属于非技术性漏洞来源。",
+    "source": {
+      "date": "2021-11",
+      "number": "48",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/732f08b18c3f6f36d1aac16990f789fb",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 5
+  },
+  {
+    "id": "rkb-0899bf5a6ff409191854ca4b84db35f1",
+    "group": "漏洞识别、影响评估与修复验证 · 历年真题",
+    "conceptId": "vulnerability-management",
+    "type": "single",
+    "stem": "若某一缺陷来自通信规范本身的设计，而非使用该规范的软件实现，按来源如何归类？",
+    "options": {
+      "A": "协议漏洞",
+      "B": "硬件老化",
+      "C": "部署时疏忽",
+      "D": "人员离职"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "协议设计缺陷与单个产品实现缺陷不同。",
+    "source": {
+      "date": "2019-05",
+      "number": "46",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/0899bf5a6ff409191854ca4b84db35f1",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 6
+  },
+  {
+    "id": "rkb-e0473ae34ad4611c95a7962a9e73030c",
+    "group": "漏洞识别、影响评估与修复验证 · 历年真题",
+    "conceptId": "vulnerability-management",
+    "type": "single",
+    "stem": "漏洞检查一般先确定有哪些网络服务，再确认服务是否受到已知缺陷影响。哪组活动对应这两步？",
+    "source": {
+      "date": "2017-05",
+      "number": "44",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/e0473ae34ad4611c95a7962a9e73030c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 7,
+    "options": {
+      "A": "可达性检查和开放端口识别",
+      "B": "开放端口识别和漏洞检查",
+      "C": "系统类型识别和漏洞检查",
+      "D": "可达性检查和系统类型识别"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "端口与服务识别提供检查范围；漏洞检查结合服务状态及缺陷证据。"
+  },
+  {
+    "id": "sec-extra-vulnerability-management",
+    "type": "single",
+    "stem": "CVSS 高危漏洞被登记后，怎样确认修复闭环？",
+    "options": {
+      "A": "对受影响资产复测并保存修复证据",
+      "B": "更换漏洞报告封面",
+      "C": "从 CVE 编号移除年份",
+      "D": "不检查补丁是否生效"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "复测和证据记录验证风险缓解实际落实。",
+    "group": "漏洞识别、影响评估与修复验证",
+    "conceptId": "vulnerability-management",
+    "number": 8
+  },
+  {
+    "id": "rkb-e189e615bda9541e9b2d4a75fb717c40",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "一条传统文本型系统日志应能识别什么时候、哪台主机、哪个子系统发生了什么。哪组字段满足要求？",
+    "options": {
+      "A": "用户名、时区、端口、备注",
+      "B": "时间、主机名、生成消息的子系统、消息正文",
+      "C": "主机名、消息、备注、行尾",
+      "D": "时间、用户名、文件后缀、备注"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "四个字段提供时间线、来源和事件本身。不同日志格式还可能包含其他结构化字段。",
+    "source": {
+      "date": "2022-11",
+      "number": "63",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/e189e615bda9541e9b2d4a75fb717c40",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 9
+  },
+  {
+    "id": "rkb-c2e09cc4c51a2ee41a4e5d55a3f5eb3a",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "审计数据留存时，哪种措施会削弱日志安全性？",
+    "options": {
+      "A": "允许被审计账户修改原始日志",
+      "B": "校验日志完整性",
+      "C": "限制访问范围",
+      "D": "异地保留副本"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "审计原件应单独受控，相关被审计账号无权改写。",
+    "source": {
+      "date": "2022-11",
+      "number": "48",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/c2e09cc4c51a2ee41a4e5d55a3f5eb3a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 10
+  },
+  {
+    "id": "rkb-98d840f671906958ce12d0332a411bc3",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "以下哪项更适合由漏洞管理扫描确认，而非把 NIDS 的告警作为直接证明？",
+    "options": {
+      "A": "网络连接模式突然发生变化",
+      "B": "报文出现已知流量特征",
+      "C": "检测点观察到可疑通信",
+      "D": "某主机是否安装了缺失特定补丁的版本"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "探针能发现经过它的行为，但无法直接证明主机所有组件的版本和补丁状态。",
+    "source": {
+      "date": "2022-11",
+      "number": "49",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/98d840f671906958ce12d0332a411bc3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 11
+  },
+  {
+    "id": "rkb-3981cd278299cbff9dd46db021a4bda8",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "GB 17859 历史五级中，第一级对应哪个名称？",
+    "options": {
+      "A": "安全标记保护级",
+      "B": "结构化保护级",
+      "C": "用户自主保护级",
+      "D": "系统审计保护级"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "第一级以自主保护为基础，自第二级起名称强调系统审计。",
+    "source": {
+      "date": "2022-11",
+      "number": "46",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/3981cd278299cbff9dd46db021a4bda8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 12
+  },
+  {
+    "id": "rkb-85636bf9e64649bddecd97c25f8ce32e",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "case",
+    "stem": "服务器审计发现大量失败登录。日志归档名使用 Windows 原生扩展名，事件 ID 为 4625，抓包发现对远程桌面服务的 TLS 连接。",
+    "prompts": [
+      "应查看哪类 Windows 日志？",
+      "原生日志归档的扩展名是什么？",
+      "哪个 Windows 管理工具负责查看这些事件？",
+      "4625 对应什么现象？",
+      "远程桌面常用什么端口？",
+      "如何让抓包视图只显示与该端口有关的数据？",
+      "TLS 握手哪个阶段处理证书？",
+      "持续异常登录可以归入哪类事件？",
+      "攻击若耗尽服务资源，影响哪个基本属性？"
+    ],
+    "explanationSupplement": "核对安全日志和 .evtx 文件。用事件查看器关联 4625 登录失败与账号、来源、时间；远程桌面默认 3389，按端口过滤。证书属于认证握手；关联日志判定网络攻击，资源耗尽影响可用性。",
+    "source": {
+      "date": "2022-11",
+      "number": "3-11",
+      "url": "https://www.ruankaoba.com/paper/paperId/a3dd2e06d897109268c3160478ff6f85/chiefId/85636bf9e64649bddecd97c25f8ce32e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "证据",
+        "已知特征"
+      ],
+      "rows": [
+        [
+          "登录审计",
+          "事件 ID 4625；连续失败"
+        ],
+        [
+          "网络观察",
+          "远程桌面服务；TLS"
+        ],
+        [
+          "影响",
+          "需结合重复频率和服务可用性判断"
+        ]
+      ]
+    },
+    "number": 13
+  },
+  {
+    "id": "rkb-9736f28c6504f7169177adbc77e8f4e2",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "审计经典 FTP 文件传输时，首先应识别什么协议？",
+    "options": {
+      "A": "FTP",
+      "B": "SMTP",
+      "C": "Telnet",
+      "D": "DHCP"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "FTP 服务传送文件；SMTP 发送邮件，Telnet 用作远程会话。",
+    "source": {
+      "date": "2021-11",
+      "number": "47",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/9736f28c6504f7169177adbc77e8f4e2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 14
+  },
+  {
+    "id": "rkb-77892bf5685aace12d0fe414df34e8ec",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "审计员、安全员与操作员分离时，哪项安排破坏职责分离？",
+    "options": {
+      "A": "审计员查核安全事件",
+      "B": "操作员可清除与自己有关的独立审计日志",
+      "C": "操作员按工单执行业务",
+      "D": "安全员维护授权规则"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "独立审计记录应由受控审计权限管理。",
+    "source": {
+      "date": "2021-11",
+      "number": "46",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/77892bf5685aace12d0fe414df34e8ec",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 15
+  },
+  {
+    "id": "rkb-dcd6dabdcbc2d4f2315043933f94ea92",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "在 SMTP 事务中，通知服务器接下来发送邮件内容的命令是什么？",
+    "options": {
+      "A": "HELO",
+      "B": "RCPT TO",
+      "C": "DATA",
+      "D": "QUIT"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "DATA 阶段提交邮件头和正文；RCPT TO 指定收件人。",
+    "source": {
+      "date": "2020-11",
+      "number": "28",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/dcd6dabdcbc2d4f2315043933f94ea92",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 16
+  },
+  {
+    "id": "rkb-fdaac18c83a3796f4df16ab819b721b6",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "多个组件先后发生异常，调查员如何找出它们之间的时间与因果联系？",
+    "options": {
+      "A": "按统一时钟做跨组件日志关联",
+      "B": "删除最早记录",
+      "C": "逐个系统只看单条告警",
+      "D": "按数据库密码长度排序"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "时间线和事件关联支持多组件事件调查。",
+    "source": {
+      "date": "2019-05",
+      "number": "38",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/fdaac18c83a3796f4df16ab819b721b6",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 17
+  },
+  {
+    "id": "rkb-23c9b73e929d23cebeda62cf6cbbbf87",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "传统 SMTP 事务中，可发送客户端主机标识启动会话的命令是哪个？",
+    "options": {
+      "A": "DATA",
+      "B": "QUIT",
+      "C": "RCPT TO",
+      "D": "HELO"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "HELO 标识 SMTP 客户端，扩展 SMTP 常用 EHLO。",
+    "source": {
+      "date": "2019-05",
+      "number": "28",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/23c9b73e929d23cebeda62cf6cbbbf87",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 18
+  },
+  {
+    "id": "rkb-35dd11321de05b9f1c3274eeea5f0229",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "按 GB 17859-1999，哪个级别要求可信计算基满足访问监控器的条件？",
+    "source": {
+      "date": "2020-11",
+      "number": "48",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/35dd11321de05b9f1c3274eeea5f0229",
+      "basis": "GB 17859-1999 第 4.5 条",
+      "basisUrl": "https://zjic.zj.gov.cn/ywdh/szfg/202104/P020220711448085717700.pdf"
+    },
+    "number": 19,
+    "options": {
+      "A": "系统审计保护级",
+      "B": "安全标记保护级",
+      "C": "结构化保护级",
+      "D": "访问验证保护级"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "访问验证保护级对作为访问监控器的可信计算基提出抗篡改、始终调用和可验证等要求。"
+  },
+  {
+    "id": "rkb-2779526aeffbcc3a95472fa0629257ad",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "操作系统审计从获取事件到告警的主要组件，哪组覆盖完整？",
+    "source": {
+      "date": "2018-05",
+      "number": "45",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/2779526aeffbcc3a95472fa0629257ad",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 20,
+    "options": {
+      "A": "挖掘、记录查询、分析报警",
+      "B": "特征提取、特征匹配、报警",
+      "C": "事件收集过滤、记录查询、分析响应报警",
+      "D": "日志采集挖掘、事件记录、报警"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "通用审计流程涵盖采集与过滤、持久存储与查询、分析和后续处置。"
+  },
+  {
+    "id": "rkb-d2734f0012811c5fb328fea9e0f80533",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "操作系统审计需要哪一组职能才能从事件产生走到响应？",
+    "source": {
+      "date": "2017-05",
+      "number": "40",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/d2734f0012811c5fb328fea9e0f80533",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 21,
+    "options": {
+      "A": "采集与过滤、记录与查询、分析与告警",
+      "B": "挖掘、记录、通知",
+      "C": "采集与挖掘、记录、只做告警",
+      "D": "特征提取、模式匹配、发出报警"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "应能取得事件、可靠留存和调阅，再分析、告警及响应。"
+  },
+  {
+    "id": "rkb-8f2456ef7e3d4710b5306a29bda5fcb8",
+    "group": "网络安全审计与日志保护 · 历年真题",
+    "conceptId": "security-audit",
+    "type": "single",
+    "stem": "每天检查既有日志并发现违背策略的事件，主要属于哪类控制？",
+    "source": {
+      "date": "2017-05",
+      "number": "21",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/8f2456ef7e3d4710b5306a29bda5fcb8",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 22,
+    "options": {
+      "A": "预防性",
+      "B": "检测性",
+      "C": "威慑性",
+      "D": "纠正性"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "日志审计帮助找出已经发生的操作或问题，额外处置才属于纠正。"
+  },
+  {
+    "id": "sec-extra-security-audit",
+    "type": "single",
+    "stem": "审计平台要证明日志未被被审计人员删除或改写。哪项方案最直接？",
+    "options": {
+      "A": "只记录设备型号",
+      "B": "将日志持续发送到受控仓库并校验完整性",
+      "C": "让各运维员保管自己的唯一副本",
+      "D": "事件发生后统一覆盖日志"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "独立存储、访问控制与完整性校验使证据可追溯。",
+    "group": "网络安全审计与日志保护",
+    "conceptId": "security-audit",
+    "number": 23
+  },
+  {
+    "id": "rkb-17ed6e5c7919379440f2b342064756bc",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "哪项职责不应仅依靠 IPS 来完成？",
+    "options": {
+      "A": "限制符合阻断规则的连接",
+      "B": "替代完整的业务数据备份与恢复",
+      "C": "按策略拦截已识别的恶意通信",
+      "D": "生成阻断告警"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "IPS 负责网络流量防御，备份与恢复由单独的运维控制承担。",
+    "source": {
+      "date": "2021-11",
+      "number": "52",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/17ed6e5c7919379440f2b342064756bc",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 24
+  },
+  {
+    "id": "rkb-6a53900064ff964b72911c3610285f71",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "选择关于蜜罐的准确说法。",
+    "options": {
+      "A": "蜜罐部署后可以忽略收集数据的保护",
+      "B": "蜜罐唯一目的在于备份服务器",
+      "C": "蜜罐提供诱捕和监测线索，需与生产环境隔离",
+      "D": "蜜罐替代所有防火墙和补丁"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "蜜罐辅助发现威胁，需控制交互、管控日志和隔离。",
+    "source": {
+      "date": "2019-05",
+      "number": "25",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/6a53900064ff964b72911c3610285f71",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 25
+  },
+  {
+    "id": "rkb-f90c13cf354cb88cd0255af46c99c680-1",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "为网络服务建立信任关系，就是基于哪类假设依赖某实体？",
+    "options": {
+      "A": "它永远不会出现硬件问题",
+      "B": "即使违约也无需核验",
+      "C": "它必须主动公开所有秘密",
+      "D": "它会按约定的安全策略运行"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "受信表示安全设计依赖该方履行特定策略。",
+    "source": {
+      "date": "2018-05",
+      "number": "71",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/f90c13cf354cb88cd0255af46c99c680",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 26
+  },
+  {
+    "id": "rkb-f90c13cf354cb88cd0255af46c99c680-2",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "系统依赖的受信组件在安全体系中承担什么角色？",
+    "options": {
+      "A": "组件的正确行为关系到体系能否满足安全策略",
+      "B": "组件失效一定不会影响系统",
+      "C": "只负责添加颜色主题",
+      "D": "完全不能观察或影响任何状态"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "受信组件必须正确运行，架构应限制依赖与暴露面。",
+    "source": {
+      "date": "2018-05",
+      "number": "72",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/f90c13cf354cb88cd0255af46c99c680",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 27
+  },
+  {
+    "id": "rkb-f90c13cf354cb88cd0255af46c99c680-3",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "核心受信组件失效后，应如何对依赖它的系统作安全判断？",
+    "options": {
+      "A": "换一台显示器就能恢复信任",
+      "B": "原安全保证需重新评估，可能已不成立",
+      "C": "可以无条件继续信任",
+      "D": "无需检查依赖"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "依赖方不能在核心策略失效后沿用原判断。",
+    "source": {
+      "date": "2018-05",
+      "number": "73",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/f90c13cf354cb88cd0255af46c99c680",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 28
+  },
+  {
+    "id": "rkb-f90c13cf354cb88cd0255af46c99c680-4",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "组织互相依赖对方提供并验证用户身份，信任管理直接支持哪项能力？",
+    "options": {
+      "A": "网络地址转换",
+      "B": "存储压缩",
+      "C": "身份管理",
+      "D": "浸没式冷却"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "身份提供、认证和授权决策都需知道信任来源。",
+    "source": {
+      "date": "2018-05",
+      "number": "74",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/f90c13cf354cb88cd0255af46c99c680",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 29
+  },
+  {
+    "id": "rkb-f90c13cf354cb88cd0255af46c99c680-5",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "在利用密码机制传递信任前，首先需要建立什么？",
+    "options": {
+      "A": "未校验的任意证书",
+      "B": "公开管理员口令",
+      "C": "会话缓存",
+      "D": "初始信任锚"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "后续验证链须有经可靠途径确认的起点。",
+    "source": {
+      "date": "2018-05",
+      "number": "75",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/f90c13cf354cb88cd0255af46c99c680",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 30
+  },
+  {
+    "id": "rkb-c8e998005308ec3e49cc6911fe63177d",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "以下哪项属于用于发现入侵活动的主动防护？",
+    "options": {
+      "A": "把防护资产清单永久归档",
+      "B": "只更换机房灯光",
+      "C": "不给日志系统配置时间",
+      "D": "隔离部署诱饵并监控其访问"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "蜜罐主动暴露受控诱饵，以收集和识别异常。",
+    "source": {
+      "date": "2018-05",
+      "number": "13",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/c8e998005308ec3e49cc6911fe63177d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 31
+  },
+  {
+    "id": "rkb-f67e642faf21477069b28ddd1b2abb7e",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "在受控诱捕系统里，一个设备响应其负责的多个本地 IPv4 地址。局域网要获知这些地址对应的链路地址，涉及哪个协议？",
+    "source": {
+      "date": "2021-11",
+      "number": "42",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/f67e642faf21477069b28ddd1b2abb7e",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 32,
+    "options": {
+      "A": "ICMP",
+      "B": "DHCP",
+      "C": "DNS",
+      "D": "ARP"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "ARP 用于局域网 IPv4 到链路地址的解析。"
+  },
+  {
+    "id": "rkb-9089cf841a6cd609c163425c25fa0a4b",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "为观测异常访问，安全团队在隔离环境中模拟某一种网络应用服务，只响应指向该服务的请求。这是哪一类诱捕？",
+    "source": {
+      "date": "2020-11",
+      "number": "25",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/9089cf841a6cd609c163425c25fa0a4b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 33,
+    "options": {
+      "A": "诱骗服务",
+      "B": "降低真实系统防护",
+      "C": "加固真实系统",
+      "D": "模拟完整的多用户主机"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "诱骗服务模拟特定应用，不必提供完整操作系统。"
+  },
+  {
+    "id": "rkb-6bb6f6d714d3b04dfb4a84c0a3bdf5e0",
+    "group": "主动防护、可信计算与诱捕 · 历年真题",
+    "conceptId": "proactive-protection",
+    "type": "single",
+    "stem": "下列哪一描述错误高估了蜜罐的防护作用？",
+    "source": {
+      "date": "2017-05",
+      "number": "63",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/6bb6f6d714d3b04dfb4a84c0a3bdf5e0",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 34,
+    "options": {
+      "A": "可用隔离诱饵吸引可疑活动",
+      "B": "可辅助研究入侵行为",
+      "C": "诱饵无交互时能提供的直接样本有限",
+      "D": "可以独立代替其他安全控制并决定系统等级"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "蜜罐收集线索。边界隔离、补丁及访问控制仍有独立职责。"
+  },
+  {
+    "id": "sec-extra-proactive-protection",
+    "type": "single",
+    "stem": "设备每次开机记录启动组件摘要，由外部服务决定是否准入。这最接近什么技术？",
+    "options": {
+      "A": "数据泛化",
+      "B": "本地文件浏览",
+      "C": "可信度量与验证",
+      "D": "端口地址转换"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "可信计算从受信任的度量起点构造可验证的状态。",
+    "group": "主动防护、可信计算与诱捕",
+    "conceptId": "proactive-protection",
+    "number": 35
+  },
+  {
+    "id": "rkb-93de4735eea785f0e76e49ae8b1162b3",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "发布数据时把精确生日换成出生年份。这项变换叫什么？",
+    "options": {
+      "A": "增加随机噪声",
+      "B": "泛化",
+      "C": "加密",
+      "D": "置换"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "用更粗的类别或区间覆盖原取值属于泛化。",
+    "source": {
+      "date": "2022-11",
+      "number": "58",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/93de4735eea785f0e76e49ae8b1162b3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 36
+  },
+  {
+    "id": "rkb-70a7895b75dd7196b456cfa8ecfffc34",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "发布统计结果时加入受控的随机噪声。这个处理属于哪类技术？",
+    "options": {
+      "A": "扰动",
+      "B": "泛化",
+      "C": "只读挂载",
+      "D": "直接抑制"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "扰动改变输出数值以降低精确推断风险。",
+    "source": {
+      "date": "2021-11",
+      "number": "53",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/70a7895b75dd7196b456cfa8ecfffc34",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 37
+  },
+  {
+    "id": "rkb-1f48017cc6ffe5e03565d6457c8ff36c",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "数字水印主要可帮助建立标识、溯源或篡改提示。以下哪项不应依赖水印单独实现？",
+    "options": {
+      "A": "识别受控分发副本",
+      "B": "辅助版权追踪",
+      "C": "协助验证内容变更",
+      "D": "直接阻断所有未经授权读取"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "防止未授权读取需建立加密、访问控制等措施。",
+    "source": {
+      "date": "2020-11",
+      "number": "53",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/1f48017cc6ffe5e03565d6457c8ff36c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 38
+  },
+  {
+    "id": "rkb-4a903a4f02693c9a48dd5de9aa350dfe",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "关于数字水印，哪个说法不成立？",
+    "options": {
+      "A": "所有水印都一定不可移除且无需验证",
+      "B": "可嵌入多媒体内容",
+      "C": "通常可经检测提取",
+      "D": "可用于归属或分发追踪"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "可靠性取决于水印设计、载体、鲁棒性及检测条件。",
+    "source": {
+      "date": "2019-05",
+      "number": "20",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/4a903a4f02693c9a48dd5de9aa350dfe",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 39
+  },
+  {
+    "id": "rkb-a53d316c4318f2da3c749d28e7365cd4",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "用隐藏水印辅助版权识别时，哪项通常不需要作为基本目标？",
+    "options": {
+      "A": "让水印在载体上始终明显可见",
+      "B": "在正常使用时不显著改变内容",
+      "C": "可以经授权检测",
+      "D": "根据用途保留一定鲁棒性"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "隐藏水印强调不可感知，典型要求与具体用途有关。",
+    "source": {
+      "date": "2018-05",
+      "number": "20",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/a53d316c4318f2da3c749d28e7365cd4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 40
+  },
+  {
+    "id": "rkb-adbf408bd277b9c4e02e948e04c7a5ff",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "嵌入隐蔽数字水印时，哪项不属于常见特性？",
+    "options": {
+      "A": "一定鲁棒性",
+      "B": "低可感知性",
+      "C": "要求所有浏览者肉眼清楚地看到水印",
+      "D": "可检测性"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "该题考查隐蔽水印与显式标记的用途区别。",
+    "source": {
+      "date": "2016-11",
+      "number": "20",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/adbf408bd277b9c4e02e948e04c7a5ff",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 41
+  },
+  {
+    "id": "rkb-d9332482afb1655f029230bbd6815669",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "哪条数据处理规则遗漏关键授权条件？",
+    "source": {
+      "date": "2020-11",
+      "number": "43",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/d9332482afb1655f029230bbd6815669",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 42,
+    "options": {
+      "A": "仅采集业务所需信息",
+      "B": "拒绝未授权的数据访问",
+      "C": "允许访问个人信息且无需任何授权前提",
+      "D": "制定个人信息保护流程"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "个人信息访问应依合法依据、授权范围和业务必要性共同约束。"
+  },
+  {
+    "id": "rkb-714c6621f9c85c610955bca07bd1b183",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "按题设将个人资料区分为一般属性、标识属性和敏感属性，哪项最直接属于财务敏感信息？",
+    "source": {
+      "date": "2020-11",
+      "number": "8",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/714c6621f9c85c610955bca07bd1b183",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 43,
+    "options": {
+      "A": "姓名",
+      "B": "年龄",
+      "C": "普通证件照",
+      "D": "个人薪酬与财产收入"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "财务收入直接反映个人经济状况，应依目的、授权和影响保护。"
+  },
+  {
+    "id": "rkb-4aa32a8f6883ce14a3a42ad281bf40bd",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "出现数字作品归属争议时，下列哪一措施只核验交互者，无法独立证明水印和原作的先后或关联？",
+    "source": {
+      "date": "2020-11",
+      "number": "20",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/4aa32a8f6883ce14a3a42ad281bf40bd",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 44,
+    "options": {
+      "A": "将注册时间交可信时间戳留证",
+      "B": "在页面加人机验证码",
+      "C": "同时登记原作品与水印",
+      "D": "采用能验证作品归属的单向水印方案"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "人机验证码判断交互方是否为自动程序，与作品及水印归属证据无关。"
+  },
+  {
+    "id": "rkb-80f9ea7e2e1d70d172e07473a88745a9",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "下列哪类信息通常是关于运营服务商本身的公开资料，不直接描述某一移动用户？",
+    "source": {
+      "date": "2018-05",
+      "number": "30",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/80f9ea7e2e1d70d172e07473a88745a9",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 45,
+    "options": {
+      "A": "绑定到用户的终端信息",
+      "B": "具体用户通话记录",
+      "C": "具体用户位置",
+      "D": "公众运营商名称"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "后三类中的个人关联资料需要按用途核验保护要求，运营商公开名称本身不是该用户的敏感属性。"
+  },
+  {
+    "id": "rkb-7be427be9e60ea67d9ac6ba7578cc88d",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "就安全数据挖掘的输出处理而言，哪项措施单独部署只保护数据的可读性，不能控制输出结果泄露的个人信息？",
+    "source": {
+      "date": "2018-05",
+      "number": "8",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/7be427be9e60ea67d9ac6ba7578cc88d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 46,
+    "options": {
+      "A": "基于分析的隐私约束",
+      "B": "扰动或失真处理",
+      "C": "对数据做匿名化",
+      "D": "仅做普通数据加密"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "加密约束谁能读取输入数据。授权解密后，推断风险仍需输出侧处理。"
+  },
+  {
+    "id": "rkb-633651cc7e94d6571dbbad741fff398c",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "按题设口径，数字水印的鲁棒性考察要求图像变换后仍可正常使用。下列哪项在使图像内容严重失真时不满足这一前提？",
+    "source": {
+      "date": "2018-05",
+      "number": "33",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/633651cc7e94d6571dbbad741fff398c",
+      "basis": "《信息安全工程师 2016 至 2018 年试题分析与解答》",
+      "basisUrl": "https://wqxuetang.oss-cn-beijing.aliyuncs.com/upload/source/e9/e9852771b25733ad4027480238be7a59"
+    },
+    "number": 47,
+    "options": {
+      "A": "改变像素值",
+      "B": "敏感性分析",
+      "C": "对图像进行置乱",
+      "D": "利用梯度下降评估水印稳定性"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "这份试卷按是否保留载体使用价值归类。会导致图像严重失真的置乱不满足题设对鲁棒性扰动的定义。"
+  },
+  {
+    "id": "rkb-a195436911b1f5c9ccd82bf803929604",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "以下哪项的主要目标不同于水印常见的版权、溯源和防篡改用途？",
+    "source": {
+      "date": "2017-05",
+      "number": "9",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/a195436911b1f5c9ccd82bf803929604",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 48,
+    "options": {
+      "A": "版权识别",
+      "B": "票据防伪",
+      "C": "辅助判断内容是否被改动",
+      "D": "提高图像清晰度"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "图像增强侧重画质。数字水印嵌入可用于标识、验证或证据。"
+  },
+  {
+    "id": "rkb-7a495a414f824b89fa3cfa87a378dc6e",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "多媒体中部分微弱变化不易被感知。下列哪项不能直接解释其为何可能作为信息隐藏载体？",
+    "source": {
+      "date": "2017-05",
+      "number": "59",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/7a495a414f824b89fa3cfa87a378dc6e",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 49,
+    "options": {
+      "A": "原始媒体往往有一定冗余",
+      "B": "任何高度压缩的编码都会保留大量可改写冗余",
+      "C": "人的听觉或视觉存在掩蔽效应",
+      "D": "在感知阈值内变化可以维持媒体正常使用"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "高压缩可能去掉冗余并改变隐藏内容。是否可用取决于载体和后续处理。"
+  },
+  {
+    "id": "rkb-512c4ad38cea100be08883365e8020ba",
+    "group": "隐私保护、数字水印与同态计算 · 历年真题",
+    "conceptId": "privacy-watermark",
+    "type": "single",
+    "stem": "以下何项通常是关于服务商的公开信息，区别于具体手机用户的个人资料？",
+    "source": {
+      "date": "2016-11",
+      "number": "30",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/512c4ad38cea100be08883365e8020ba",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 50,
+    "options": {
+      "A": "用户身份标识",
+      "B": "用户精确位置",
+      "C": "与用户关联的终端信息",
+      "D": "运营商公开信息"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "前三项与个体有关，具体保护义务要看其用途和识别风险。"
+  },
+  {
+    "id": "sec-extra-privacy-watermark",
+    "type": "single",
+    "stem": "需要识别哪一份分发副本被未经授权传播，应优先使用哪类控制？",
+    "options": {
+      "A": "关闭所有备份",
+      "B": "增加 DNS 记录缓存时长",
+      "C": "改用纯数据压缩",
+      "D": "可追溯的分发水印"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "按分发渠道嵌入标记可以在副本出现后辅助追踪。",
+    "group": "隐私保护、数字水印与同态计算",
+    "conceptId": "privacy-watermark",
+    "number": 51
+  },
+  {
+    "id": "rkb-8c4ac4fba1abaca559140b993dd5b719",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "single",
+    "stem": "授权安全测评中，团队按批准的窗口执行已确认方案并收集证据。这是哪一阶段？",
+    "options": {
+      "A": "实施",
+      "B": "受理委托",
+      "C": "综合评估",
+      "D": "结题归档"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "执行与证据采集属于实施；评估阶段形成结论。",
+    "source": {
+      "date": "2022-11",
+      "number": "62",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/8c4ac4fba1abaca559140b993dd5b719",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 52
+  },
+  {
+    "id": "rkb-c969cf1120d786e4cd42dd3623f07d53",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "single",
+    "stem": "测评团队获知部分内部结构，但并未拿到全部源代码。属于哪种已知信息模型？",
+    "options": {
+      "A": "只能是业务审计",
+      "B": "灰盒",
+      "C": "完整白盒",
+      "D": "纯黑盒"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "已知信息介于黑盒和白盒之间。",
+    "source": {
+      "date": "2021-11",
+      "number": "60",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/c969cf1120d786e4cd42dd3623f07d53",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 53
+  },
+  {
+    "id": "rkb-8b725fa68054a098c535fb10a53c1e6e",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "case",
+    "stem": "一段 C 程序把外部长度用作复制长度，本地缓冲区容量固定。另有一个本地状态变量用于决定是否继续执行。",
+    "prompts": [
+      "识别发生的内存安全问题及业务影响。",
+      "从栈帧角度解释本地变量为什么可能受影响。",
+      "指出适合该组件的安全构建和审查措施。"
+    ],
+    "explanationSupplement": "越界写入可破坏相邻状态或造成崩溃；本地变量常在栈或寄存器中，实际布局由编译器决定。校验长度和目的容量，使用安全 API 与编译防护，再用授权测试验证。",
+    "source": {
+      "date": "2020-11",
+      "number": "5-7",
+      "url": "https://www.ruankaoba.com/paper/paperId/ab4f61947582107908a2d4284a9d3349/chiefId/8b725fa68054a098c535fb10a53c1e6e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 54
+  },
+  {
+    "id": "rkb-5ce57c13f4a53be88aaa14e6283dde16",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "single",
+    "stem": "在获得委托授权后，用受控方式验证已有防护能否阻断模拟威胁，属于哪类测评？",
+    "options": {
+      "A": "发布密码轮换",
+      "B": "安全渗透测试",
+      "C": "数据分类审计",
+      "D": "物理门禁备案"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "这类测试的目标是验证安全防护和明确影响，需要严格授权。",
+    "source": {
+      "date": "2020-11",
+      "number": "64",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/5ce57c13f4a53be88aaa14e6283dde16",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 55
+  },
+  {
+    "id": "rkb-1e6f290c4d5d6463bda9b84df4e83aa8",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "case",
+    "stem": "安全开发评审发现弱口令、数据用途不清和写死的凭据。团队需要从需求、实现与发布三个阶段安排控制。",
+    "prompts": [
+      "如何降低弱口令和重复使用风险？",
+      "个人数据在哪些场景需要限制收集及披露？",
+      "写死的口令和不受限的输入分别带来什么风险？",
+      "提出三项可核验的实现阶段控制。"
+    ],
+    "explanationSupplement": "身份鉴别采用合理口令策略、抗猜测存储及多因素；按目的最少采集，控制权限和留存；移除硬编码凭据、校验输入长度、执行代码审查与测试。",
+    "source": {
+      "date": "2019-05",
+      "number": "5-8",
+      "url": "https://www.ruankaoba.com/paper/paperId/66bbb1e0025a541e4ea90760eceb825c/chiefId/1e6f290c4d5d6463bda9b84df4e83aa8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "阶段",
+        "已发现问题"
+      ],
+      "rows": [
+        [
+          "需求",
+          "个人数据使用范围不清"
+        ],
+        [
+          "实现",
+          "硬编码凭据和不受限输入"
+        ],
+        [
+          "发布",
+          "尚未验证身份基线"
+        ]
+      ]
+    },
+    "number": 56
+  },
+  {
+    "id": "rkb-61c774a7342b82873f89110f7a93e9e6",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "case",
+    "stem": "一种消息带有标称长度和实际负载，接收方需验证二者一致性后处理。",
+    "prompts": [
+      "n 位无符号长度字段的最大值如何计算？",
+      "不检查标称值与实际值的关系可能造成什么影响？",
+      "说明模糊测试的流程和观测目标。",
+      "哪类边界测试最能验证这项修复？"
+    ],
+    "explanationSupplement": "最大值 2ⁿ−1；不校验可造成越界访问或异常；在授权环境覆盖短包、边界和异常输入，监视崩溃与泄露；修复应比较标称值、实际可读长度和目标容量。",
+    "source": {
+      "date": "2018-05",
+      "number": "4-7",
+      "url": "https://www.ruankaoba.com/paper/paperId/3e5853345790aec277f0a109fe7b34b3/chiefId/61c774a7342b82873f89110f7a93e9e6",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "字段",
+        "校验重点"
+      ],
+      "rows": [
+        [
+          "标称长度",
+          "必须在协议字段和业务范围内"
+        ],
+        [
+          "实际负载",
+          "可读字节数不能小于声明长度"
+        ],
+        [
+          "目的缓冲区",
+          "容量必须覆盖经验证的复制长度"
+        ]
+      ]
+    },
+    "number": 57
+  },
+  {
+    "id": "rkb-6e6f7d86e96e9aeae8ec77370989bf4f",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "case",
+    "stem": "有三个本地变量的 C 函数把外部参数复制到固定大小的数组，未检查长度。",
+    "prompts": [
+      "本地变量可能位于哪个存储区域？",
+      "编译器是否保证三个变量按声明相邻？",
+      "如何判断越界是否会影响控制判断？",
+      "怎样修改源代码并验证？"
+    ],
+    "explanationSupplement": "自动变量可能在栈或寄存器，声明顺序不保证布局；用代码审查和安全测试确定影响；显式验证长度、使用受限复制，验证边界并启用编译防护。",
+    "source": {
+      "date": "2017-05",
+      "number": "6-9",
+      "url": "https://www.ruankaoba.com/paper/paperId/f1d251c45cf7b606843d5fac97cb6945/chiefId/6e6f7d86e96e9aeae8ec77370989bf4f",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 58
+  },
+  {
+    "id": "rkb-7e5f61acaf245fb942cb7201a64b5a6c",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "case",
+    "stem": "某口令校验函数使用了不限制长度的旧输入接口，并将输入写入固定大小的字符缓冲区。",
+    "prompts": [
+      "解释为何超长输入会使权限检查不可靠。",
+      "识别隐患并提出修复及回归验证方法。"
+    ],
+    "explanationSupplement": "不受控的写入会越界破坏相邻状态。改为显式限制缓冲区尺寸的安全读取，校验输入且用受控密码存储，并在边界条件下验证。",
+    "source": {
+      "date": "2016-11",
+      "number": "5-6",
+      "url": "https://www.ruankaoba.com/paper/paperId/e9776a541c7160e86566c29feb673116/chiefId/7e5f61acaf245fb942cb7201a64b5a6c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 59
+  },
+  {
+    "id": "rkb-f8c7b8f00fc323385230ee840070f6d7",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "single",
+    "stem": "按照分级保护设计要求逐项核验某系统的安全功能，属于哪一类测评？",
+    "source": {
+      "date": "2022-11",
+      "number": "61",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/f8c7b8f00fc323385230ee840070f6d7",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 60,
+    "options": {
+      "A": "安全管理检查",
+      "B": "模拟攻击测试",
+      "C": "源代码审计",
+      "D": "安全功能检测"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "设计要求描述应具备的技术控制，功能检测核对系统是否落实这些控制。"
+  },
+  {
+    "id": "rkb-a9577a4d36ee577b15489c3abeee6420",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "single",
+    "stem": "按 GB 17859-1999，哪个级别明确要求系统发生失效或中断后能在保持安全保护的前提下恢复？",
+    "source": {
+      "date": "2021-11",
+      "number": "61",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/a9577a4d36ee577b15489c3abeee6420",
+      "basis": "GB 17859-1999 第 4.5 条与第 4.5.10 条",
+      "basisUrl": "https://zjic.zj.gov.cn/ywdh/szfg/202104/P020220711448085717700.pdf"
+    },
+    "number": 61,
+    "options": {
+      "A": "系统审计保护级",
+      "B": "安全标记保护级",
+      "C": "结构化保护级",
+      "D": "访问验证保护级"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "该恢复机制属于第五级访问验证保护级的要求。"
+  },
+  {
+    "id": "rkb-1ac571fca52c63f46f16e646fe62b823",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "single",
+    "stem": "按题设的旧版通用准则结构，第二部分主要定义哪类要求？",
+    "source": {
+      "date": "2020-11",
+      "number": "3",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/1ac571fca52c63f46f16e646fe62b823",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 62,
+    "options": {
+      "A": "评估保证级别",
+      "B": "简介与通用模型",
+      "C": "保护轮廓的一般框架",
+      "D": "安全功能技术要求"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "第二部分描述所评估对象应具备的安全功能，第三部分讨论如何建立保证。"
+  },
+  {
+    "id": "rkb-c39529193453ecf3be7945bb1fe9b6f4",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "single",
+    "stem": "GB 17859-1999 中，将自主和强制访问控制扩展到所有主体与客体的是哪一级？",
+    "source": {
+      "date": "2018-05",
+      "number": "3",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/c39529193453ecf3be7945bb1fe9b6f4",
+      "basis": "GB 17859-1999 第 4.4 条",
+      "basisUrl": "https://zjic.zj.gov.cn/ywdh/szfg/202104/P020220711448085717700.pdf"
+    },
+    "number": 63,
+    "options": {
+      "A": "用户自主保护级",
+      "B": "系统审计保护级",
+      "C": "安全标记保护级",
+      "D": "结构化保护级"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "结构化保护级在第三级基础上扩大访问控制的覆盖范围。"
+  },
+  {
+    "id": "rkb-76bfb21cd961e998210d453516d78386",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "single",
+    "stem": "在授权安全测试中使用自动输入变异，哪种说法忽略了结果复核的必要性？",
+    "source": {
+      "date": "2017-05",
+      "number": "10",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/76bfb21cd961e998210d453516d78386",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 64,
+    "options": {
+      "A": "可用于不同类别的输入程序",
+      "B": "告警都必然是可证实漏洞，无需人工检查",
+      "C": "有时无需获得源代码即可测试",
+      "D": "效果受目标结构与观测条件影响"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "异常可能来自配置、环境或非安全故障，检测到异常后仍需确认根因和影响。"
+  },
+  {
+    "id": "rkb-0ca2ca7bb3e163da0925a52f99e67a02",
+    "group": "安全测评类型、方法与证据 · 历年真题",
+    "conceptId": "security-assessment",
+    "type": "single",
+    "stem": "按题设所引用的旧保护等级口径，不对公众开放的军用信息系统最低等级属于哪个选项？",
+    "source": {
+      "date": "2016-11",
+      "number": "24",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/0ca2ca7bb3e163da0925a52f99e67a02",
+      "basis": "2016 年第 24 题公开题解",
+      "basisUrl": "https://rk.51cto.com/article/691839.html"
+    },
+    "number": 65,
+    "options": {
+      "A": "二级及以上",
+      "B": "三级及以上",
+      "C": "四级及以上",
+      "D": "五级"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "按这道历史题的公开题解，题目问的是定级下限，对应三级及以上。实际系统的定级应依据其适用的规定和具体情况。"
+  },
+  {
+    "id": "sec-extra-security-assessment",
+    "type": "single",
+    "stem": "团队获得设计和源码，需检查业务授权路径和权限输入。适合采用哪种方法？",
+    "options": {
+      "A": "白盒代码审查配合测试",
+      "B": "纯黑盒网络延迟测量",
+      "C": "仅审计机房门禁",
+      "D": "仅统计磁盘容量"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "掌握设计与源码可审查代码和数据流中的授权条件。",
+    "group": "安全测评类型、方法与证据",
+    "conceptId": "security-assessment",
+    "number": 66
+  }
+]

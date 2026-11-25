@@ -1,0 +1,143 @@
+{
+  "title": "安全运营、审计与测评",
+  "subtitle": "从漏洞治理、日志审计到主动防御与安全测评，理解不同控制手段如何提供可核验的安全证据。",
+  "sections": [
+    {
+      "id": "vulnerability-management",
+      "title": "漏洞识别、影响评估与修复验证",
+      "summary": "把漏洞编号、严重程度和组织修复优先级区分开。",
+      "bodyHtml": "<p>漏洞可来自代码、配置、依赖组件、默认设置和运维流程。漏洞管理按资产识别、受权检查、结果确认、风险排序、修复或缓解、复测及关闭追踪。扫描结果需要与版本、配置、业务暴露面和可观测证据交叉验证。</p><table><thead><tr><th>术语</th><th>用途</th></tr></thead><tbody><tr><td>CVE</td><td>为已记录的漏洞提供通用编号</td></tr><tr><td>CVSS</td><td>描述漏洞技术严重度，阅读分值时确认版本与向量</td></tr><tr><td>CNVD/CNNVD</td><td>我国常见的漏洞共享与信息平台</td></tr><tr><td>修复优先级</td><td>结合可达性、在野利用和业务影响排定</td></tr></tbody></table><p>修复可通过补丁、下线受影响功能、隔离、配置变更或临时控制。记下资产、影响范围、责任人、时限和复测证据。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ad58953276d6439cb4397f687ac9ae79/sectionId/88360d210d5445ef8125fe4aec572e1a\">2.2.3 挖掘漏洞信息</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/73607b2dd181455499a715496f06d154/sectionId/f51112b9142749ba925ea237781b9202\">13.1.2 网络安全漏洞威胁</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/73607b2dd181455499a715496f06d154/sectionId/83e0bc09fc9548af83b5fd1a4dc026a1\">13.2.1 网络安全漏洞来源</a></p>",
+      "keyTakeaway": "先核定是否受影响，再根据暴露与业务影响排序，修复后要复测。",
+      "example": "同一个漏洞在互联网网关与离线测试设备上可有不同的修复优先级。",
+      "pitfall": "漏洞扫描能提示可疑项，单凭版本匹配不能断言漏洞已可被触发。"
+    },
+    {
+      "id": "security-audit",
+      "title": "网络安全审计与日志保护",
+      "summary": "掌握审计数据的采集、分析、保护和追溯要求。",
+      "bodyHtml": "<p>审计应能回答谁在何时、对哪个对象做了什么、结果如何。数据来自网络设备、主机、数据库、应用与运维堡垒机；先统一时间与字段，保留原始记录，再做筛选、关联、告警和报告。日志审计、流量审计、数据库审计和运维审计关注对象各异。</p><p>审计数据需要最小访问权限、独立保管、留存、备份、防篡改和适当脱敏。集中收集降低源主机失陷后的记录丢失概率。运营人员、审计管理员和被审计对象应按职责分离。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/2bbdd93d27464bbbadb4f2caf11f7206/sectionId/b4f1491a80b84f309db7e9d18c72ebba\">12.1.2 网络安全审计相关标准</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/2bbdd93d27464bbbadb4f2caf11f7206/sectionId/bbbe11ce9f85420c862e4f1ee39a144c\">12.3.5 网络审计数据保护技术</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/2bbdd93d27464bbbadb4f2caf11f7206/sectionId/2aaba377d9e54629bdf48d1cf6526d3f\">12.4.4 网络安全审计产品</a></p>",
+      "keyTakeaway": "审计既要能还原事件，也要保障证据可信与保密。",
+      "example": "运维操作通过堡垒机授权、记录并关联工单，数据库审计另核对敏感表查询。",
+      "pitfall": "审计系统通常侧重事后追溯和告警，能否实时阻断取决于具体部署。"
+    },
+    {
+      "id": "proactive-protection",
+      "title": "主动防护、可信计算与诱捕",
+      "summary": "辨析阻断、诱捕、白名单、可信验证、清洗与入侵容忍。",
+      "bodyHtml": "<table><thead><tr><th>机制</th><th>解决的问题</th></tr></thead><tbody><tr><td>入侵阻断与流量清洗</td><td>限制异常请求或剔除恶意流量并保留合法访问</td></tr><tr><td>应用允许名单</td><td>只允许符合策略的执行对象</td></tr><tr><td>可信计算</td><td>从信任根开始度量启动链并验证状态</td></tr><tr><td>蜜罐/蜜网</td><td>用隔离的诱饵捕获监测线索</td></tr><tr><td>入侵容忍</td><td>组件受损时维持关键功能并限制影响</td></tr></tbody></table><p>把设备身份、度量结果和运行策略结合，可提高设备准入可信度。DNS 安全同时涉及服务冗余、访问策略、监控与来源可信验证，DNSSEC 通过签名验证数据来源和完整性。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/865c9d3ced0c432fb78d8f5e234c8ba9/sectionId/47ec97d6db5248dda44adecb9d54736b\">15.1.2 入侵阻断技术应用</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/865c9d3ced0c432fb78d8f5e234c8ba9/sectionId/f0d6a5f72c7c45f1940f029a38f1dfa8\">15.4.1 可信计算技术原理</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/865c9d3ced0c432fb78d8f5e234c8ba9/sectionId/d6e2f4c6310749ae9cb87bc407a9b10c\">15.6.1 网络攻击陷阱技术原理</a></p>",
+      "keyTakeaway": "可信计算重度量与验证，诱捕重监测，清洗重流量可用性。",
+      "example": "边界告警进入响应流程，经过策略核验后阻断；隔离区的诱饵只收集观察线索。",
+      "pitfall": "诱捕可提供线索，不能代替资产修复和常态检测。"
+    },
+    {
+      "id": "privacy-watermark",
+      "title": "隐私保护、数字水印与同态计算",
+      "summary": "区分匿名化、去标识化、水印和密文计算的目标。",
+      "bodyHtml": "<p>去标识化降低直接识别机会，仍应评估关联重识别风险。聚合、泛化、抑制与差分隐私用于不同数据发布情境。加密适用于存储与传输，但用途和权限依然需要控制。</p><p>鲁棒水印可用于版权标识或溯源，脆弱水印可用于发现内容变化。典型过程包含水印生成、嵌入和检测；容量、不可感知性和鲁棒性之间需权衡。同态加密允许在密文上进行方案支持的计算，解密结果具有相应运算语义。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/865c9d3ced0c432fb78d8f5e234c8ba9/sectionId/dac3cd5805104f908d554c7d425f2522\">15.5.1 数字水印技术原理</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/865c9d3ced0c432fb78d8f5e234c8ba9/sectionId/b5abe0ffcb5d487b8dcc89f23139792c\">15.8.1 隐私保护类型技术原理</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/865c9d3ced0c432fb78d8f5e234c8ba9/sectionId/a3fad50d55d34f92971cacbdb68b462f\">15.8.2 隐私保护技术应用</a></p>",
+      "keyTakeaway": "隐私保护限制身份推断，水印用于标识、溯源或完整性提示，同态加密用于密文计算。",
+      "example": "在公开数据汇总中收敛精度和频率，在分享文件中嵌入可核验的分发标识。",
+      "pitfall": "可去除姓名的数据仍可能因时间、地点等属性组合识别个人。"
+    },
+    {
+      "id": "security-assessment",
+      "title": "安全测评类型、方法与证据",
+      "summary": "区分等级测评、配置核查、代码审查、协议分析及授权测试。",
+      "bodyHtml": "<p>测评根据要求、验收目标和对象选用方法。先明确授权、范围、时间窗口和停止条件，再采集证据、核查控制、复核结论并出具整改建议。按信息可见性，黑盒依赖外部视角，白盒掌握设计源码，灰盒介于两者之间。</p><table><thead><tr><th>方法</th><th>主要证据</th></tr></thead><tbody><tr><td>配置核查</td><td>基线与实际设置差异</td></tr><tr><td>代码安全审查</td><td>输入校验、授权与数据流路径</td></tr><tr><td>协议分析</td><td>握手、消息顺序、字段和异常状态</td></tr><tr><td>等级测评</td><td>技术和管理要求的落实与证据</td></tr></tbody></table><p>等级保护基本要求和测评要求应区分。授权测试发现的问题要表达受影响的控制、前置条件、实际影响与修复安排。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/0f5dee62f72845eeacd59f182ee92db6/sectionId/d0669d16ce6141178ba89b14bd635e1a\">18.1.2 网络安全测评发展</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/0f5dee62f72845eeacd59f182ee92db6/sectionId/c97f6e7f5be041f394eb171735faa243\">18.3.2 网络安全渗透测试流程与内容</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/0f5dee62f72845eeacd59f182ee92db6/sectionId/0ce9df91777a4ebc9f87281d9ad819bf\">18.4.2 安全渗透测试</a></p>",
+      "keyTakeaway": "测评结论可追溯到明确范围、标准版本与证据；整改后验证。",
+      "example": "对支付授权做代码审查，另外检查配置和日志，交叉验证服务端是否落实访问规则。",
+      "pitfall": "黑盒、白盒、灰盒描述测试者已知信息程度，与是否授权无关。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "漏洞识别、影响评估与修复验证",
+      "target": "vulnerability-management",
+      "children": [
+        {
+          "label": "漏洞来源与编号",
+          "target": "vulnerability-management"
+        },
+        {
+          "label": "扫描确认与修复",
+          "target": "vulnerability-management"
+        },
+        {
+          "label": "复测与闭环",
+          "target": "vulnerability-management"
+        }
+      ]
+    },
+    {
+      "label": "网络安全审计与日志保护",
+      "target": "security-audit",
+      "children": [
+        {
+          "label": "采集与关联",
+          "target": "security-audit"
+        },
+        {
+          "label": "日志保护",
+          "target": "security-audit"
+        },
+        {
+          "label": "审计产品类型",
+          "target": "security-audit"
+        }
+      ]
+    },
+    {
+      "label": "主动防护、可信计算与诱捕",
+      "target": "proactive-protection",
+      "children": [
+        {
+          "label": "IPS 与清洗",
+          "target": "proactive-protection"
+        },
+        {
+          "label": "信任根",
+          "target": "proactive-protection"
+        },
+        {
+          "label": "蜜罐与入侵容忍",
+          "target": "proactive-protection"
+        }
+      ]
+    },
+    {
+      "label": "隐私保护、数字水印与同态计算",
+      "target": "privacy-watermark",
+      "children": [
+        {
+          "label": "去标识和差分隐私",
+          "target": "privacy-watermark"
+        },
+        {
+          "label": "数字水印",
+          "target": "privacy-watermark"
+        },
+        {
+          "label": "同态加密",
+          "target": "privacy-watermark"
+        }
+      ]
+    },
+    {
+      "label": "安全测评类型、方法与证据",
+      "target": "security-assessment",
+      "children": [
+        {
+          "label": "测评分类",
+          "target": "security-assessment"
+        },
+        {
+          "label": "代码与协议",
+          "target": "security-assessment"
+        },
+        {
+          "label": "测评质量",
+          "target": "security-assessment"
+        }
+      ]
+    }
+  ]
+}

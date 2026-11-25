@@ -2,7 +2,7 @@
   "id": "computer-security",
   "route": "computer/security",
   "title": "信息与网络安全",
-  "subtitle": "信息安全基础、密码学与国密算法、认证与 PKI、威胁防护、防火墙协议及系统安全",
+  "subtitle": "信息安全基础与密码学、认证与边界防护、安全治理与运营、数据及行业安全工程",
   "chapters": [
     {
       "id": "01",
@@ -38,6 +38,24 @@
       "id": "06",
       "number": 6,
       "title": "操作系统安全管理与新兴安全挑战",
+      "ready": true
+    },
+    {
+      "id": "07",
+      "number": 7,
+      "title": "安全体系、风险评估与应急响应",
+      "ready": true
+    },
+    {
+      "id": "08",
+      "number": 8,
+      "title": "安全运营、审计与测评",
+      "ready": true
+    },
+    {
+      "id": "09",
+      "number": 9,
+      "title": "数据库与行业安全工程",
       "ready": true
     }
   ]

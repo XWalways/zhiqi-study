@@ -2,8 +2,123 @@
   'use strict';
   let activeController = null;
   const unique = (values) => Array.isArray(values) ? [...new Set(values)].sort() : [];
+  const isScored = (question) => question?.type === 'single' || question?.type === 'multiple';
+  const hasChoices = (question) => isScored(question) || question?.type === 'pending';
+  const typeLabels = {
+    single: '单项选择题',
+    multiple: '多项选择题 · 全部选对得分',
+    discussion: '讨论题 · 不计分',
+    case: '案例题 · 自评',
+    pending: '答案待核对 · 不计分'
+  };
+  const el = (tag, cls, text) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text !== undefined && text !== null) node.textContent = text;
+    return node;
+  };
+
+  function renderSource(card, source) {
+    if (!source) return;
+    const row = el('p', 'quiz-source muted');
+    row.append(document.createTextNode(`${source.date} 历年真题 · 第 ${source.number} 题 · `));
+    const link = el('a', '', '查看原题');
+    link.href = source.url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    row.append(link);
+    card.append(row);
+  }
+
+  function renderCase(card, q, stem, value, readOnly) {
+    if (q.material) {
+      const wrap = el('div', 'table-wrap lesson-body');
+      const table = el('table');
+      const head = el('thead');
+      const heading = el('tr');
+      q.material.headers.forEach(text => {
+        const cell = el('th', '', text);
+        cell.scope = 'col';
+        heading.append(cell);
+      });
+      head.append(heading);
+      const body = el('tbody');
+      q.material.rows.forEach(values => {
+        const row = el('tr');
+        values.forEach(text => row.append(el('td', '', text)));
+        body.append(row);
+      });
+      table.append(head, body);
+      wrap.append(table);
+      card.append(wrap);
+    }
+    if (q.prompts?.length) {
+      const prompts = el('ol', 'quiz-case-prompts');
+      q.prompts.forEach(prompt => prompts.append(el('li', '', prompt)));
+      card.append(prompts);
+    }
+    const label = el('label', 'quiz-case-label', '作答草稿');
+    const draft = el('textarea', 'quiz-case-draft');
+    draft.rows = 4;
+    draft.maxLength = 3000;
+    draft.value = value || '';
+    draft.readOnly = readOnly;
+    draft.dataset.caseDraft = q.id;
+    draft.setAttribute('aria-describedby', stem.id);
+    label.append(draft);
+    card.append(label);
+  }
+
+  function updateCaseDraft(drafts, id, value) {
+    if (value) drafts[id] = value.slice(0, 3000);
+    else delete drafts[id];
+  }
+
+  function renderBasis(feedback, question) {
+    const source = question.source;
+    if (!source?.basis) return;
+    const row = el('p', 'muted', '解析依据：');
+    if (source.basisUrl) {
+      const link = el('a', '', source.basis);
+      link.href = source.basisUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      row.append(link);
+    } else row.append(document.createTextNode(source.basis));
+    feedback.append(row);
+  }
+
+  function renderOptions(card, q, stem, selected, show, inputName) {
+    const entries = Object.entries(q.options || {});
+    if (!entries.length) return;
+    const field = el('fieldset', 'quiz-options');
+    field.setAttribute('aria-labelledby', stem.id);
+    const choice = hasChoices(q);
+    const legend = choice ? (q.type === 'multiple' ? '请选择所有符合题意的选项' : '请选择一个选项') : '讨论选项';
+    field.append(el('legend', '', legend));
+    entries.forEach(([key, text]) => {
+      if (!choice) {
+        field.append(el('div', 'quiz-option', `${key}. ${text}`));
+        return;
+      }
+      const label = el('label', 'quiz-option');
+      const input = el('input');
+      input.type = q.type === 'multiple' ? 'checkbox' : 'radio';
+      input.name = inputName;
+      input.value = key;
+      input.checked = selected.includes(key);
+      input.disabled = show;
+      input.dataset.qid = q.id;
+      if (isScored(q) && show && q.answer.includes(key)) label.classList.add('correct');
+      if (isScored(q) && show && selected.includes(key) && !q.answer.includes(key)) label.classList.add('wrong');
+      label.append(input, el('span', '', `${key}. ${text}`));
+      field.append(label);
+    });
+    card.append(field);
+  }
+
   function grade(question, selected) {
-    if (!question || question.type === 'discussion' || !question.options || !Array.isArray(selected) || !Array.isArray(question.answer)) return false;
+    if (!isScored(question) || !question.options || !Array.isArray(selected) || !Array.isArray(question.answer)) return false;
     const actual = unique(selected);
     const expected = unique(question.answer);
     if (!actual.length || !expected.length || actual.some((v) => typeof v !== 'string' || !Object.hasOwn(question.options, v))) return false;
@@ -11,7 +126,7 @@
     return actual.length === expected.length && actual.every((v, i) => v === expected[i]);
   }
   function recordAttempt(state, question, selected, at) {
-    if (question.type === 'discussion' || !Array.isArray(selected) || !selected.length) return false;
+    if (!isScored(question) || !Array.isArray(selected) || !selected.length) return false;
     const correct = grade(question, selected);
     const previous = state.answers[question.id] || {};
     state.answers[question.id] = {
@@ -23,7 +138,7 @@
     return true;
   }
   function testSummary(questions, drafts) {
-    const graded = questions.filter(q => q.type !== 'discussion');
+    const graded = questions.filter(isScored);
     const summary = { total: graded.length, answered: 0, correct: 0, wrong: 0, unanswered: 0 };
     graded.forEach((q) => {
       const selected = drafts[q.id] || [];
@@ -43,25 +158,20 @@
     const byId = new Map(questions.map((q) => [q.id, q]));
     return Object.entries(input.answers).every(([id, record]) => {
       const q = byId.get(id);
-      return q && q.type !== 'discussion' && record && Array.isArray(record.selected) && record.selected.length > 0 && record.selected.every((v) => Object.hasOwn(q.options, v)) &&
+      return isScored(q) && record && Array.isArray(record.selected) && record.selected.length > 0 && record.selected.every((v) => Object.hasOwn(q.options, v)) &&
         (q.type === 'multiple' || unique(record.selected).length === 1) && record.correct === grade(q, record.selected) && Number.isInteger(record.attempts) && record.attempts > 0;
     });
   }
   function mount(root, config) {
     if (!root) throw new Error('Quiz root is required');
     const { questions, store, onConceptJump } = config;
-    const graded = questions.filter(q => q.type !== 'discussion');
+    const graded = questions.filter(isScored);
+    const testQuestions = questions.filter(q => q.type !== 'discussion');
     const openDiscussions = new Set();
     let mode = 'practice';
     let currentId = questions[0] && questions[0].id;
     let statusText = '';
     let destroyed = false;
-    const el = (tag, cls, text) => {
-      const node = document.createElement(tag);
-      if (cls) node.className = cls;
-      if (text !== undefined && text !== null) node.textContent = text;
-      return node;
-    };
     const button = (text, action, cls) => {
       const node = el('button', cls || 'button button-secondary', text);
       node.type = 'button'; node.dataset.action = action;
@@ -78,7 +188,7 @@
       });
     }
     function filtered(s) {
-      if (mode === 'test') return graded;
+      if (mode === 'test') return testQuestions;
       if (mode === 'wrong') return graded.filter(q => s.answers[q.id]?.everWrong);
       return questions;
     }
@@ -104,7 +214,9 @@
         tab.dataset.mode = key; tab.setAttribute('aria-pressed', String(mode === key)); tabs.append(tab);
       });
       toolbar.append(tabs);
-      const stats = el('span', 'muted', mode === 'wrong' ? `历史错题 ${list.length} 道 · 答对后保留记录` : mode === 'test' ? `${graded.length} 道计分题` : `${questions.length} 道练习题 · 答题记录保存在当前浏览器`);
+      const unscoredCount = testQuestions.length - graded.length;
+      const testCount = `${graded.length} 道计分题` + (unscoredCount ? ` · ${unscoredCount} 道不计分题` : '');
+      const stats = el('span', 'muted', mode === 'wrong' ? `历史错题 ${list.length} 道 · 答对后保留记录` : mode === 'test' ? testCount : `${questions.length} 道练习题 · 答题记录保存在当前浏览器`);
       toolbar.append(stats); root.append(toolbar);
       if (mode === 'test') renderTestSummary(s);
       if (!q) {
@@ -127,44 +239,36 @@
         const n = button(String(item.number), 'question', 'quiz-number'); n.dataset.qid = item.id;
         const rec = s.answers[item.id];
         let result = 'unanswered';
-        if (mode === 'test') {
-          if (s.test.submitted) result = (s.test.drafts[item.id] || []).length ? (grade(item, s.test.drafts[item.id]) ? 'correct' : 'wrong') : 'unanswered';
-          else if ((s.test.drafts[item.id] || []).length) result = 'draft';
+        if (item.type === 'case') {
+          const drafts = mode === 'test' ? s.test.caseDrafts : s.caseDrafts;
+          if (drafts?.[item.id]?.trim()) result = 'draft';
+        } else if (mode === 'test' && hasChoices(item)) {
+          const selected = s.test.drafts[item.id] || [];
+          if (selected.length) result = s.test.submitted && isScored(item) ? (grade(item, selected) ? 'correct' : 'wrong') : 'draft';
         } else if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) result = 'draft';
         else if (rec) result = rec.correct ? 'correct' : 'wrong';
         n.dataset.state = result;
         if (result === 'correct' || result === 'wrong') n.classList.add(result);
         if (result === 'draft') n.classList.add('answered');
         if (item.id === q.id) { n.classList.add('active'); n.setAttribute('aria-current', 'true'); }
-        n.setAttribute('aria-label', `第 ${item.number} 题${item.type === 'discussion' ? '，讨论题' : result === 'correct' ? '，已答对' : result === 'wrong' ? '，答错' : result === 'draft' ? '，已选择待提交' : '，未作答'}`);
+        const label = !isScored(item) ? `，${typeLabels[item.type]}` : result === 'correct' ? '，已答对' : result === 'wrong' ? '，答错' : result === 'draft' ? '，已选择待提交' : '，未作答';
+        n.setAttribute('aria-label', `第 ${item.number} 题${label}`);
         grid.append(n);
       }); root.append(index);
       const card = el('article', 'quiz-card');
       const head = el('div', 'quiz-card-header');
-      const discussion = q.type === 'discussion';
-      const types = { multiple: '多项选择题 · 全部选对得分', single: '单项选择题', discussion: '讨论题 · 不计分' };
       const position = mode === 'test' ? `测试第 ${list.indexOf(q) + 1} / ${list.length} 题` : `第 ${q.number} / ${questions.length} 题`;
-      head.append(el('span', '', [q.group, position, types[q.type]].filter(Boolean).join(' · ')));
+      head.append(el('span', '', [q.group, position, typeLabels[q.type]].filter(Boolean).join(' · ')));
       const favorite = button(s.favorites.includes(q.id) ? '★ 已收藏' : '☆ 收藏此题', 'favorite', 'button button-secondary quiz-favorite');
       favorite.setAttribute('aria-pressed', String(s.favorites.includes(q.id))); head.append(favorite); card.append(head);
       const stem = el('h3', 'quiz-stem', q.stem); stem.id = 'quiz-current-stem'; card.append(stem);
-      const field = el('fieldset', 'quiz-options');
-      field.setAttribute('aria-labelledby', stem.id);
-      field.append(el('legend', '', discussion ? '讨论选项' : q.type === 'multiple' ? '请选择所有符合题意的选项' : '请选择一个选项'));
+      renderSource(card, q.source);
       const selected = chosen(q, s);
       const show = revealed(q, s);
-      Object.entries(q.options).forEach(([key, text]) => {
-        if (discussion) {
-          field.append(el('div', 'quiz-option', `${key}. ${text}`));
-          return;
-        }
-        const label = el('label', 'quiz-option');
-        const input = el('input'); input.type = q.type === 'multiple' ? 'checkbox' : 'radio'; input.name = 'quiz-answer'; input.value = key;
-        input.checked = selected.includes(key); input.disabled = show; input.dataset.qid = q.id;
-        if (show && q.answer.includes(key)) label.classList.add('correct');
-        if (show && selected.includes(key) && !q.answer.includes(key)) label.classList.add('wrong');
-        label.append(input, el('span', '', `${key}. ${text}`)); field.append(label);
-      }); card.append(field);
+      if (q.type === 'case') {
+        const drafts = mode === 'test' ? s.test.caseDrafts : s.caseDrafts;
+        renderCase(card, q, stem, drafts?.[q.id], show);
+      } else renderOptions(card, q, stem, selected, show, 'quiz-answer');
       if (mode === 'wrong' && s.answers[q.id] && s.answers[q.id].correct) card.append(el('p', 'quiz-status quiz-correct', '最近一次已答对 · 已掌握，历史错题仍保留'));
       const actions = el('div', 'quiz-actions');
       const nav = el('div', 'quiz-nav');
@@ -172,18 +276,20 @@
       const prev = button('上一题', 'previous'); prev.disabled = questionIndex <= 0;
       const next = button('下一题', 'next'); next.disabled = questionIndex >= list.length - 1;
       nav.append(prev, next); actions.append(nav);
-      if (discussion) {
+      if (mode !== 'test' && (q.type === 'discussion' || q.type === 'case')) {
         const open = openDiscussions.has(q.id);
-        const toggle = button(open ? '收起讨论解析' : '查看讨论解析', 'discussion', 'button button-primary');
+        const label = q.type === 'case' ? '参考要点' : '讨论解析';
+        const toggle = button((open ? '收起' : '查看') + label, 'discussion', 'button button-primary');
         toggle.setAttribute('aria-expanded', String(open));
         actions.append(toggle);
-      } else if (mode !== 'test') {
+      } else if (mode !== 'test' && isScored(q)) {
         const submit = button(show ? '重新作答' : '提交答案', show ? 'retry' : 'submit', 'button button-primary');
         submit.disabled = !show && !selected.length; actions.append(submit);
-      } else if (!s.test.submitted) actions.append(el('span', 'muted', '本章测试交卷后统一显示解析'));
+      } else if (mode === 'test' && !s.test.submitted && q.type !== 'pending') actions.append(el('span', 'muted', '本章测试交卷后统一显示解析'));
+      if (q.type === 'pending') actions.append(el('span', 'muted', '选择后自动保存。参考答案待核对，本题不计分。'));
       card.append(actions);
       const status = el('p', 'quiz-status', statusText); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite'); card.append(status);
-      if (show || openDiscussions.has(q.id)) renderExplanation(card, q, selected);
+      if ((mode === 'test' ? show : show || openDiscussions.has(q.id)) && q.type !== 'pending') renderExplanation(card, q, selected);
       root.append(card);
       if (mode === 'test' && !s.test.submitted) {
         const foot = el('div', 'quiz-actions');
@@ -203,8 +309,8 @@
     }
     function renderExplanation(card, q, selected) {
       const feedback = el('div', 'quiz-feedback quiz-explanation');
-      if (q.type === 'discussion') {
-        feedback.append(el('h3', '', '讨论解析'));
+      if (!isScored(q)) {
+        feedback.append(el('h3', '', q.type === 'case' ? '参考要点' : '讨论解析'));
       } else {
         const correct = grade(q, selected);
         feedback.append(el('h3', correct ? 'quiz-correct' : 'quiz-incorrect', !selected.length ? '本题未作答' : correct ? '回答正确' : '回答错误'));
@@ -224,6 +330,7 @@
         const reasons = el('ul', 'quiz-rationale-list');
         Object.entries(q.optionExplanations).forEach(([key, text]) => reasons.append(el('li', '', `${key}　${text}`))); feedback.append(reasons);
       }
+      renderBasis(feedback, q);
       const links = el('div', 'quiz-actions'); const jump = button('回看对应知识点', 'concept'); jump.dataset.concept = q.conceptId;
       links.append(jump); feedback.append(links); card.append(feedback);
     }
@@ -235,7 +342,7 @@
       statusText = '';
       if (action === 'mode') { mode = target.dataset.mode; }
       else if (action === 'question') currentId = target.dataset.qid;
-      else if (action === 'discussion' && q?.type === 'discussion') {
+      else if (action === 'discussion' && mode !== 'test' && (q?.type === 'discussion' || q?.type === 'case')) {
         if (openDiscussions.has(q.id)) openDiscussions.delete(q.id);
         else openDiscussions.add(q.id);
       }
@@ -247,7 +354,7 @@
         const selected = chosen(q, s); if (!selected.length) { statusText = '请先选择答案。'; }
         else { update((draft) => { recordAttempt(draft, q, selected); delete draft.drafts[q.id]; }); statusText = grade(q, selected) ? '答案已保存，回答正确。' : '答案已保存，已加入错题本。'; }
       } else if (action === 'finish-test') { update((draft) => submitTest(draft, questions)); statusText = '测试已交卷，答题记录已保存。'; }
-      else if (action === 'restart-test') { update((draft) => { draft.test = { drafts: {}, submitted: false }; }); currentId = questions[0] && questions[0].id; statusText = '新一轮测试已开始，历史答题记录保留。'; }
+      else if (action === 'restart-test') { update((draft) => { Object.assign(draft.test, { drafts: {}, caseDrafts: {}, submitted: false }); }); currentId = testQuestions[0]?.id; statusText = '新一轮测试已开始，历史答题记录保留。'; }
       else if (action === 'concept') { if (typeof onConceptJump === 'function') onConceptJump(target.dataset.concept); return; }
       render();
       if (action === 'discussion') root.querySelector('[data-action="discussion"]')?.focus();
@@ -258,14 +365,23 @@
       const s = state(); const q = questions.find((item) => item.id === input.dataset.qid); if (!q || revealed(q, s)) return;
       const selected = [...root.querySelectorAll('input[name="quiz-answer"]:checked')].map((node) => node.value);
       update((draft) => { if (mode === 'test') draft.test.drafts[q.id] = selected; else draft.drafts[q.id] = selected; });
-      statusText = '选项已暂存，提交后判题。';
+      statusText = isScored(q) ? '选项已暂存，提交后判题。' : '作答已保存，答案待核对。';
       const value = input.value; render();
       const focus = [...root.querySelectorAll('input[name="quiz-answer"]')].find((node) => node.value === value); if (focus) focus.focus({ preventScroll: true });
     }
+    function handleInput(event) {
+      const input = event.target;
+      if (!input.matches('textarea[data-case-draft]') || input.readOnly) return;
+      update(draft => {
+        if (mode === 'test' && draft.test.submitted) return;
+        const target = mode === 'test' ? draft.test : draft;
+        updateCaseDraft(target.caseDrafts ||= {}, input.dataset.caseDraft, input.value);
+      });
+    }
     const controller = { openQuestion(id) { if (!questions.some((q) => q.id === id)) return false; mode = 'practice'; currentId = id; statusText = ''; render(); return true; } };
     activeController = controller;
-    root.addEventListener('click', handleClick); root.addEventListener('change', handleChange); render();
-    return function cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); if (activeController === controller) activeController = null; };
+    root.addEventListener('click', handleClick); root.addEventListener('change', handleChange); root.addEventListener('input', handleInput); render();
+    return function cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); root.removeEventListener('input', handleInput); if (activeController === controller) activeController = null; };
   }
   function mountInline(root, config) {
     if (!root) throw new Error('Inline quiz root is required');
@@ -275,12 +391,6 @@
     let statusText = '';
     let collapsed = false;
     let destroyed = false;
-    const el = (tag, cls, text) => {
-      const node = document.createElement(tag);
-      if (cls) node.className = cls;
-      if (text !== undefined && text !== null) node.textContent = text;
-      return node;
-    };
     const button = (text, action, cls) => {
       const node = el('button', cls || 'button button-secondary', text);
       node.type = 'button'; node.dataset.action = action;
@@ -311,7 +421,7 @@
       root.replaceChildren();
       if (!q) return;
 
-      const graded = questions.filter((item) => item.type !== 'discussion');
+      const graded = questions.filter(isScored);
       const doneCount = graded.filter((item) => s.answers[item.id]?.submitted).length;
       const correctCount = graded.filter((item) => s.answers[item.id]?.correct).length;
 
@@ -320,7 +430,7 @@
       titleGroup.append(el('span', 'inline-practice-badge', '即学即练'));
       const summaryText = graded.length
         ? `本知识点 ${questions.length} 道配套题 · 已答 ${doneCount}/${graded.length}${doneCount ? `（答对 ${correctCount}）` : ''}`
-        : `本知识点 ${questions.length} 道讨论题`;
+        : `本知识点 ${questions.length} 道配套题`;
       titleGroup.append(el('span', 'muted', summaryText));
       const toggleBtn = button(collapsed ? '展开练习' : '收起练习', 'toggle-collapse', 'text-button');
       toggleBtn.setAttribute('aria-expanded', String(!collapsed));
@@ -338,7 +448,7 @@
           n.dataset.qid = item.id;
           const rec = s.answers[item.id];
           let result = 'unanswered';
-          if (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length) result = 'draft';
+          if (s.caseDrafts?.[item.id]?.trim() || (Object.hasOwn(s.drafts, item.id) && s.drafts[item.id].length)) result = 'draft';
           else if (rec) result = rec.correct ? 'correct' : 'wrong';
           n.dataset.state = result;
           if (result === 'correct' || result === 'wrong') n.classList.add(result);
@@ -352,11 +462,9 @@
 
       const card = el('div', 'inline-quiz-card');
       const cardHead = el('div', 'quiz-card-header');
-      const discussion = q.type === 'discussion';
-      const types = { multiple: '多项选择题 · 全部选对得分', single: '单项选择题', discussion: '讨论题 · 不计分' };
       const qIdx = questions.findIndex((item) => item.id === q.id);
       const posLabel = questions.length > 1 ? `第 ${qIdx + 1}/${questions.length} 题（全章第 ${q.number} 题）` : `全章第 ${q.number} 题`;
-      cardHead.append(el('span', '', [posLabel, types[q.type]].join(' · ')));
+      cardHead.append(el('span', '', [posLabel, typeLabels[q.type]].join(' · ')));
       const favorite = button(s.favorites.includes(q.id) ? '★ 已收藏' : '☆ 收藏此题', 'favorite', 'button button-secondary quiz-favorite');
       favorite.setAttribute('aria-pressed', String(s.favorites.includes(q.id)));
       cardHead.append(favorite);
@@ -365,32 +473,13 @@
       const stem = el('h4', 'quiz-stem inline-quiz-stem', q.stem);
       stem.id = `inline-stem-${sectionId}-${q.id}`;
       card.append(stem);
+      renderSource(card, q.source);
 
-      const field = el('fieldset', 'quiz-options');
-      field.setAttribute('aria-labelledby', stem.id);
-      field.append(el('legend', '', discussion ? '讨论选项' : q.type === 'multiple' ? '请选择所有符合题意的选项' : '请选择一个选项'));
       const selected = chosen(q, s);
       const show = revealed(q, s);
       const inputName = `inline-quiz-${sectionId}-${q.id}`;
-      Object.entries(q.options).forEach(([key, text]) => {
-        if (discussion) {
-          field.append(el('div', 'quiz-option', `${key}. ${text}`));
-          return;
-        }
-        const label = el('label', 'quiz-option');
-        const input = el('input');
-        input.type = q.type === 'multiple' ? 'checkbox' : 'radio';
-        input.name = inputName;
-        input.value = key;
-        input.checked = selected.includes(key);
-        input.disabled = show;
-        input.dataset.qid = q.id;
-        if (show && q.answer.includes(key)) label.classList.add('correct');
-        if (show && selected.includes(key) && !q.answer.includes(key)) label.classList.add('wrong');
-        label.append(input, el('span', '', `${key}. ${text}`));
-        field.append(label);
-      });
-      card.append(field);
+      if (q.type === 'case') renderCase(card, q, stem, s.caseDrafts?.[q.id], false);
+      else renderOptions(card, q, stem, selected, show, inputName);
 
       const actions = el('div', 'quiz-actions');
       if (questions.length > 1) {
@@ -400,16 +489,18 @@
         nav.append(prev, next);
         actions.append(nav);
       }
-      if (discussion) {
+      if (q.type === 'discussion' || q.type === 'case') {
         const open = openDiscussions.has(q.id);
-        const toggle = button(open ? '收起讨论解析' : '查看讨论解析', 'discussion', 'button button-primary');
+        const label = q.type === 'case' ? '参考要点' : '讨论解析';
+        const toggle = button((open ? '收起' : '查看') + label, 'discussion', 'button button-primary');
         toggle.setAttribute('aria-expanded', String(open));
         actions.append(toggle);
-      } else {
+      } else if (isScored(q)) {
         const submit = button(show ? '重新作答' : '提交答案', show ? 'retry' : 'submit', 'button button-primary');
         submit.disabled = !show && !selected.length;
         actions.append(submit);
       }
+      if (q.type === 'pending') actions.append(el('span', 'muted', '选择后自动保存。参考答案待核对，本题不计分。'));
       card.append(actions);
 
       const status = el('p', 'quiz-status', statusText);
@@ -419,8 +510,8 @@
 
       if (show || openDiscussions.has(q.id)) {
         const feedback = el('div', 'quiz-feedback quiz-explanation');
-        if (q.type === 'discussion') {
-          feedback.append(el('h4', '', '讨论解析'));
+        if (!isScored(q)) {
+          feedback.append(el('h4', '', q.type === 'case' ? '参考要点' : '讨论解析'));
         } else {
           const correct = grade(q, selected);
           feedback.append(el('h4', correct ? 'quiz-correct' : 'quiz-incorrect', correct ? '回答正确' : '回答错误'));
@@ -441,6 +532,7 @@
           Object.entries(q.optionExplanations).forEach(([key, text]) => reasons.append(el('li', '', `${key}　${text}`)));
           feedback.append(reasons);
         }
+        renderBasis(feedback, q);
         card.append(feedback);
       }
 
@@ -456,7 +548,7 @@
       statusText = '';
       if (action === 'toggle-collapse') { collapsed = !collapsed; }
       else if (action === 'question') { currentId = target.dataset.qid; }
-      else if (action === 'discussion' && q?.type === 'discussion') {
+      else if (action === 'discussion' && (q?.type === 'discussion' || q?.type === 'case')) {
         if (openDiscussions.has(q.id)) openDiscussions.delete(q.id);
         else openDiscussions.add(q.id);
       } else if (action === 'previous' || action === 'next') {
@@ -477,6 +569,7 @@
         }
       }
       render();
+      if (action === 'discussion') root.querySelector('[data-action="discussion"]')?.focus();
     }
     function handleChange(event) {
       const input = event.target;
@@ -486,21 +579,27 @@
       if (!q || revealed(q, s)) return;
       const selected = [...root.querySelectorAll(`input[name="${input.name}"]:checked`)].map((node) => node.value);
       update((draft) => { draft.drafts[q.id] = selected; });
-      statusText = '选项已暂存，提交后判题。';
+      statusText = isScored(q) ? '选项已暂存，提交后判题。' : '作答已保存，答案待核对。';
       const value = input.value;
       render();
       const focus = [...root.querySelectorAll(`input[name="${input.name}"]`)].find((node) => node.value === value);
       if (focus) focus.focus({ preventScroll: true });
     }
+    function handleInput(event) {
+      const input = event.target;
+      if (!input.matches('textarea[data-case-draft]')) return;
+      update(draft => updateCaseDraft(draft.caseDrafts ||= {}, input.dataset.caseDraft, input.value));
+    }
     root.addEventListener('click', handleClick);
     root.addEventListener('change', handleChange);
+    root.addEventListener('input', handleInput);
     render();
     return {
       render,
-      cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); },
+      cleanup() { destroyed = true; root.removeEventListener('click', handleClick); root.removeEventListener('change', handleChange); root.removeEventListener('input', handleInput); },
     };
   }
-  const api = { mount, mountInline, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
+  const api = { mount, mountInline, isScored, hasChoices, grade, recordAttempt, testSummary, submitTest, validateImport, openQuestion(id) { return activeController ? activeController.openQuestion(id) : false; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   if (global) global.StudyQuiz = api;
 })(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this);

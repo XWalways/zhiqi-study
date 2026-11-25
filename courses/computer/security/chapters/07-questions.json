@@ -1,0 +1,1239 @@
+[
+  {
+    "id": "rkb-93762c0269f520303499c00055a7f59a",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "single",
+    "stem": "哪组术语是 PDRR 信息保障模型的四个环节？",
+    "options": {
+      "A": "认证、授权、记账、计费",
+      "B": "人、机、料、法",
+      "C": "保护、检测、响应、恢复",
+      "D": "计划、开发、测试、发布"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "PDRR 由 Protection、Detection、Response、Recovery 构成。",
+    "source": {
+      "date": "2022-11",
+      "number": "17",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/93762c0269f520303499c00055a7f59a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 1
+  },
+  {
+    "id": "rkb-24daa3fe6450b5de78f66a4b24165c25",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "single",
+    "stem": "BLP 中约束低密级主体不能读取更高密级对象的规定叫什么？",
+    "options": {
+      "A": "自主授权列表",
+      "B": "完整性星属性",
+      "C": "简单安全属性",
+      "D": "星属性"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "BLP 简单安全属性约束读取方向；星属性约束写入方向。",
+    "source": {
+      "date": "2022-11",
+      "number": "18",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/24daa3fe6450b5de78f66a4b24165c25",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 2
+  },
+  {
+    "id": "rkb-e3852421bb94c979571a5f5749eb36f0",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "single",
+    "stem": "按照 PDRR 教材分类，数据备份主要为哪一行动提供能力？",
+    "options": {
+      "A": "扫描",
+      "B": "外发授权",
+      "C": "物理入场登记",
+      "D": "恢复"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "恢复阶段使用可验证的副本重建数据与服务。",
+    "source": {
+      "date": "2021-11",
+      "number": "24",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/e3852421bb94c979571a5f5749eb36f0",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 3
+  },
+  {
+    "id": "rkb-8b1273e288b86a72423db788ccc24fd8",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "single",
+    "stem": "若流程已经量化管理，组织进一步用指标持续改进，处于哪类最高成熟度状态？",
+    "options": {
+      "A": "临时无序执行",
+      "B": "只建立项目计划",
+      "C": "初步定义流程",
+      "D": "持续优化"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "成熟度的最高层通常强调持续优化。",
+    "source": {
+      "date": "2021-11",
+      "number": "25",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/8b1273e288b86a72423db788ccc24fd8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 4
+  },
+  {
+    "id": "rkb-69fb39100e3e2a128e8498e90b47bc0e",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "single",
+    "stem": "Biba 严格模型为何限制低完整性主体向上写？",
+    "options": {
+      "A": "便于旁路审计",
+      "B": "避免低可信数据污染高完整性对象",
+      "C": "确保机密数据可公开读取",
+      "D": "增加应用层吞吐"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "Biba 核心目标是保护完整性。",
+    "source": {
+      "date": "2021-11",
+      "number": "23",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/69fb39100e3e2a128e8498e90b47bc0e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 5
+  },
+  {
+    "id": "rkb-86ad8e371bb93e7445be318a97138a9c",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "single",
+    "stem": "下列关于 BLP 的描述哪一项有误？",
+    "options": {
+      "A": "它的基本目标是保护完整性",
+      "B": "禁止低密级主体读取高密级对象",
+      "C": "限制高密主体向低密对象写入",
+      "D": "是采用密级信息的安全模型"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "BLP 的方向规则主要保护机密性。",
+    "source": {
+      "date": "2020-11",
+      "number": "36",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/86ad8e371bb93e7445be318a97138a9c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 6
+  },
+  {
+    "id": "rkb-1d9a848b87be998f6470b24bfc928c07",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "single",
+    "stem": "P²DR 模型里的 D 表示什么？",
+    "options": {
+      "A": "授权",
+      "B": "检测",
+      "C": "销毁",
+      "D": "归档"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "P²DR 的四项为策略、保护、检测和响应。",
+    "source": {
+      "date": "2019-05",
+      "number": "36",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/1d9a848b87be998f6470b24bfc928c07",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 7
+  },
+  {
+    "id": "rkb-282d2356fb35dd9cc2256aa151586190",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "case",
+    "stem": "分级数据系统同时使用带标签的强制访问控制和 Unix 文件权限，某共享报表的模式是 rwxr-x---。",
+    "prompts": [
+      "访问控制由哪三类核心对象构成？",
+      "BLP 保护哪项属性，其读写方向如何？",
+      "把给出的权限写成数字并解释各类用户的操作能力。"
+    ],
+    "explanationSupplement": "主体、客体与规则；BLP 保护机密性，不上读、不下写；750 对应属主读写执行、属组读执行、其他无权限。",
+    "source": {
+      "date": "2019-05",
+      "number": "1-3",
+      "url": "https://www.ruankaoba.com/paper/paperId/66bbb1e0025a541e4ea90760eceb825c/chiefId/282d2356fb35dd9cc2256aa151586190",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 8
+  },
+  {
+    "id": "rkb-e5f37286850b4b91c28a2905a97d984b",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "single",
+    "stem": "BLP 的简单安全属性规定主体的读取行为受什么约束？",
+    "options": {
+      "A": "只能读取比自己完整性低的数据",
+      "B": "禁止访问所有同密级对象",
+      "C": "禁止向较低密级写入",
+      "D": "不能读取高于自身密级的客体"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "简单安全属性限制向上读；向下写由星属性约束。",
+    "source": {
+      "date": "2018-05",
+      "number": "58",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/e5f37286850b4b91c28a2905a97d984b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 9
+  },
+  {
+    "id": "rkb-ca37bcb4df38422be543400801ab431d",
+    "group": "安全模型与信息流 · 历年真题",
+    "conceptId": "security-models",
+    "type": "single",
+    "stem": "BLP 读取时，主体密级不得低于客体，主体类别需包含客体全部类别。机密文件 E 属财务和科技，F 属人事和财务。绝密用户甲只有人事类别，绝密用户乙三类都有。哪项判断成立？",
+    "source": {
+      "date": "2021-11",
+      "number": "22",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/ca37bcb4df38422be543400801ab431d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 10,
+    "options": {
+      "A": "甲不能读 F",
+      "B": "乙不能读 F",
+      "C": "甲能读 E",
+      "D": "乙不能读 E"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "甲缺少 F 所要求的财务类别，也不满足 E 的类别；乙密级和类别均满足两份文件的读取条件。"
+  },
+  {
+    "id": "sec-extra-security-models",
+    "type": "single",
+    "stem": "一个主体完整性级别较低，却试图写入高完整性控制数据。哪个模型的哪条规则直接阻止？",
+    "options": {
+      "A": "BLP 的不向上读",
+      "B": "RBAC 的角色继承",
+      "C": "PDRR 的检测",
+      "D": "Biba 严格模型的不向上写"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "Biba 防止低完整性数据影响高完整性对象。",
+    "group": "安全模型与信息流",
+    "conceptId": "security-models",
+    "number": 11
+  },
+  {
+    "id": "rkb-0475658f9a8c41ddbeb16dd8e336a1ad",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "依据旧版 NIST CSF，识别、保护、检测、响应之外还有哪项核心功能？",
+    "options": {
+      "A": "产品采购",
+      "B": "口令恢复",
+      "C": "发布审批",
+      "D": "恢复"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "旧版为五项；CSF 2.0 增加治理。",
+    "source": {
+      "date": "2022-11",
+      "number": "20",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/0475658f9a8c41ddbeb16dd8e336a1ad",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 12
+  },
+  {
+    "id": "rkb-a991d1bb2341c450da66fab76949da43",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "case",
+    "stem": "把六类安全事件映射为合适的安全服务。每问需说明所选服务如何降低影响。",
+    "prompts": [
+      "利用用户现有会话发起未经授权的跨站请求。",
+      "登录口令通过可被旁观的网络传输。",
+      "请求量使服务无法响应正常用户。",
+      "接收者收到身份和内容无法验证的签名消息。",
+      "运营方需要还原异常请求的时间线和来源。",
+      "软件包在交付过程中被插入非预期模块。"
+    ],
+    "explanationSupplement": "依次关注访问控制和请求绑定；机密性及认证传输；可用性保护；认证、完整性和抗抵赖；审计与可信时间；来源认证及软件完整性校验。",
+    "source": {
+      "date": "2020-11",
+      "number": "4-9",
+      "url": "https://www.ruankaoba.com/paper/paperId/ab4f61947582107908a2d4284a9d3349/chiefId/a991d1bb2341c450da66fab76949da43",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 13
+  },
+  {
+    "id": "rkb-22be83cde55bf576bc644385c6cfa632",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "为避免一个控制失效导致整个系统失守，应采用什么原则？",
+    "options": {
+      "A": "只关注购买成本",
+      "B": "纵深防御",
+      "C": "同一个口令全系统共享",
+      "D": "依靠单一边界规则"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "多个不同层级的独立防护降低单点失效影响。",
+    "source": {
+      "date": "2020-11",
+      "number": "4",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/22be83cde55bf576bc644385c6cfa632",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 14
+  },
+  {
+    "id": "rkb-5a9bae9aca6c01bd574c285967e0d695",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "一笔敏感操作需要由不同人员执行和审核。体现哪个原则？",
+    "options": {
+      "A": "默认允许",
+      "B": "单一故障点",
+      "C": "职责分离",
+      "D": "匿名访问"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "职责分离要求不同主体相互制约。",
+    "source": {
+      "date": "2019-05",
+      "number": "4",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/5a9bae9aca6c01bd574c285967e0d695",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 15
+  },
+  {
+    "id": "rkb-d7cf371be42236b1c451f820c528e8fe",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "加强各保护环节中最薄弱部分以提升整体安全，教材常称为什么原则？",
+    "options": {
+      "A": "风险转移原则",
+      "B": "木桶原则",
+      "C": "默认允许原则",
+      "D": "删除隐藏原则"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "整体能力容易被最弱防护环节限制。",
+    "source": {
+      "date": "2018-05",
+      "number": "12",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/d7cf371be42236b1c451f820c528e8fe",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 16
+  },
+  {
+    "id": "rkb-80fc03f713778999df286a08718fdfe6",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "安全体系优先把多个环节中的最薄弱环节补强，这是哪项考点？",
+    "options": {
+      "A": "公钥撤销机制",
+      "B": "把全部职责集中给一个人",
+      "C": "木桶原则",
+      "D": "只保护带宽"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "体系防护能力可能受最薄弱控制限制。",
+    "source": {
+      "date": "2017-05",
+      "number": "12",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/80fc03f713778999df286a08718fdfe6",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 17
+  },
+  {
+    "id": "rkb-37c64ed24efac194ad37194cfef28075",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "优先找出并补强最薄弱安全环节，教材如何称呼？",
+    "options": {
+      "A": "完全信任原则",
+      "B": "默认放行原则",
+      "C": "强制公开原则",
+      "D": "木桶原则"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "薄弱环节可能限制系统的整体保护水平。",
+    "source": {
+      "date": "2016-11",
+      "number": "12",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/37c64ed24efac194ad37194cfef28075",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 18
+  },
+  {
+    "id": "rkb-41f2ca205f59d107d494a9e6c5bf9c5f",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "建立并维护管理体系后，哪项还需要部署实际运行的检测机制？",
+    "source": {
+      "date": "2019-05",
+      "number": "3",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/41f2ca205f59d107d494a9e6c5bf9c5f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 19,
+    "options": {
+      "A": "规范员工行为",
+      "B": "动态发现关键资产上的异常安全状态",
+      "C": "推动管理层明确安全职责",
+      "D": "依据管理标准评审制度"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "管理体系可要求监测，但实时发现异常依赖技术和运营控制的落实。"
+  },
+  {
+    "id": "rkb-5e7ee06fc29be43e194f8ab0cda7f0ba",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "哪一原则最直接针对密码系统的安全假设，其余更常直接用在网络防护体系总体设计？",
+    "source": {
+      "date": "2018-05",
+      "number": "9",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/5e7ee06fc29be43e194f8ab0cda7f0ba",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 20,
+    "options": {
+      "A": "最小权限",
+      "B": "纵深防御",
+      "C": "安全收益与代价平衡",
+      "D": "柯克霍夫原则"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "柯克霍夫原则强调公开密码设计仍以密钥保密维持安全。"
+  },
+  {
+    "id": "rkb-db4b44a9a2eb602e70b2080adbd3075d",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "以下哪项主要用于故障后的恢复，而不是直接约束或监测网络访问？",
+    "source": {
+      "date": "2017-05",
+      "number": "48",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/db4b44a9a2eb602e70b2080adbd3075d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 21,
+    "options": {
+      "A": "边界防火墙",
+      "B": "数据备份与容灾",
+      "C": "入侵检测",
+      "D": "访问控制"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "灾备控制降低恢复时间和数据损失，其余各项偏向访问保护与检测。"
+  },
+  {
+    "id": "rkb-0eac5cadc79968f224df3329ac01a8b0",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "在经典 OSI 安全体系所列的安全服务中，哪项属于实现手段而不属于该分类中的服务名称？",
+    "source": {
+      "date": "2017-05",
+      "number": "18",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/0eac5cadc79968f224df3329ac01a8b0",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 22,
+    "options": {
+      "A": "鉴别",
+      "B": "数据报过滤",
+      "C": "访问控制",
+      "D": "数据完整性"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "过滤可用于实现访问控制等目标，但不是该体系中独立的安全服务。"
+  },
+  {
+    "id": "rkb-dddeaa17249ad931f8ca9e205ded0348",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "对于安全运维管理员的一般职责，哪项更直接属于独立研发岗位？",
+    "source": {
+      "date": "2016-11",
+      "number": "1",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/dddeaa17249ad931f8ca9e205ded0348",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 23,
+    "options": {
+      "A": "参与网络安全布局",
+      "B": "处理安全告警与事件",
+      "C": "负责替所有用户开发安全应用程序",
+      "D": "核对和优化安全设备配置"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "安全运维管理与应用研发有独立职责。管理员可参与需求与安全审核。"
+  },
+  {
+    "id": "rkb-bca57dc856aefd0d493d262e830cfb1f",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "下列哪项主要处理传输中的偶发位错误，而非直接用于网络访问安全控制？",
+    "source": {
+      "date": "2016-11",
+      "number": "48",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/bca57dc856aefd0d493d262e830cfb1f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 24,
+    "options": {
+      "A": "防火墙",
+      "B": "访问控制",
+      "C": "入侵检测",
+      "D": "差错控制"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "差错控制处理传输质量，对抗未授权访问需要其他控制。"
+  },
+  {
+    "id": "rkb-81c0a3a43b7d695d2317e6f6becb143a",
+    "group": "纵深防御、组织职责与管理体系 · 历年真题",
+    "conceptId": "security-governance",
+    "type": "single",
+    "stem": "设计覆盖全局的安全框架，哪一组同时涵盖核心数据属性、身份、真实性及可追溯能力？",
+    "source": {
+      "date": "2016-11",
+      "number": "47",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/81c0a3a43b7d695d2317e6f6becb143a",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 25,
+    "options": {
+      "A": "审计、完整性、保密性、可用性",
+      "B": "审计、完整性、身份认证、保密性、可用性、真实性",
+      "C": "审计、完整性、身份认证、可用性",
+      "D": "审计、完整性、身份认证、保密性"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "完整集合分别关注机密性、完整性、可用性、身份真实性及审计。"
+  },
+  {
+    "id": "sec-extra-security-governance",
+    "type": "single",
+    "stem": "组织同时部署身份认证、数据库授权、独立日志和恢复演练，体现哪种体系设计？",
+    "options": {
+      "A": "纵深防御",
+      "B": "单一控制",
+      "C": "只做认证",
+      "D": "仅靠数据压缩"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "多个层次承担独立的预防、发现和恢复职责。",
+    "group": "纵深防御、组织职责与管理体系",
+    "conceptId": "security-governance",
+    "number": 26
+  },
+  {
+    "id": "rkb-294c17d3b9e6b2ff86090a9aaed36be6",
+    "group": "资产、威胁、脆弱性与风险评估 · 历年真题",
+    "conceptId": "risk-assessment",
+    "type": "single",
+    "stem": "在风险评估项目中，形成资产、威胁和脆弱性清单后下一步做什么？",
+    "options": {
+      "A": "绕过责任分配",
+      "B": "直接报告所有风险已关闭",
+      "C": "理解已有控制并分析影响与可能性",
+      "D": "立刻删除所有业务数据"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "识别只得到输入，分析、评价及处置仍需逐步完成。",
+    "source": {
+      "date": "2022-11",
+      "number": "59",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/294c17d3b9e6b2ff86090a9aaed36be6",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 27
+  },
+  {
+    "id": "rkb-0584639734720c726530217435c658ed",
+    "group": "资产、威胁、脆弱性与风险评估 · 历年真题",
+    "conceptId": "risk-assessment",
+    "type": "single",
+    "stem": "海量邮件耗尽接收服务，使合法邮件延迟或无法接收。哪项属性首先受影响？",
+    "options": {
+      "A": "抗抵赖性",
+      "B": "可用性",
+      "C": "机密性",
+      "D": "真实性"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "系统服务资源被消耗会影响合法用户及时使用。",
+    "source": {
+      "date": "2021-11",
+      "number": "55",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/0584639734720c726530217435c658ed",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 28
+  },
+  {
+    "id": "rkb-f2afec42732e1ee3cad936257e64af08",
+    "group": "资产、威胁、脆弱性与风险评估 · 历年真题",
+    "conceptId": "risk-assessment",
+    "type": "single",
+    "stem": "维护资产清单时，哪项做法会降低风险评估的有效性？",
+    "options": {
+      "A": "记录责任人和业务用途",
+      "B": "关联关键依赖",
+      "C": "定期确认资产状态",
+      "D": "只记录名称且变更后长期不更新"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "资产清单是风险评估输入，需要随变更核对。",
+    "source": {
+      "date": "2020-11",
+      "number": "60",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/f2afec42732e1ee3cad936257e64af08",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 29
+  },
+  {
+    "id": "rkb-ce0b459871c870a62b88e3ae244b995b",
+    "group": "资产、威胁、脆弱性与风险评估 · 历年真题",
+    "conceptId": "risk-assessment",
+    "type": "single",
+    "stem": "对同一资产评估威胁和可被利用的弱点，得出的风险应综合哪项？",
+    "options": {
+      "A": "只有员工数",
+      "B": "安全事件发生可能性与造成的影响",
+      "C": "只有产品采购价",
+      "D": "只有漏洞编号尾数"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "风险以发生可能性与后果为关键维度。",
+    "source": {
+      "date": "2019-05",
+      "number": "43",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/ce0b459871c870a62b88e3ae244b995b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 30
+  },
+  {
+    "id": "rkb-2ac1e51a3b5974f3ad763c34905fdf72",
+    "group": "资产、威胁、脆弱性与风险评估 · 历年真题",
+    "conceptId": "risk-assessment",
+    "type": "single",
+    "stem": "风险评估按准备、因素识别、程度分析和结果评价推进。下面哪项给出了完整次序？",
+    "source": {
+      "date": "2018-05",
+      "number": "43",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/2ac1e51a3b5974f3ad763c34905fdf72",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 31,
+    "options": {
+      "A": "准备、扫描、计算、评价",
+      "B": "资产识别、扫描、计算、评价",
+      "C": "准备、风险因素识别、风险程度分析、风险等级评价",
+      "D": "资产识别、风险因素识别、风险程度分析、评价"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "准备明确准则和范围。识别、分析与评价依次使用这些前提。"
+  },
+  {
+    "id": "rkb-e3b3f7df5bc32dd67ada880221fe9fcf",
+    "group": "资产、威胁、脆弱性与风险评估 · 历年真题",
+    "conceptId": "risk-assessment",
+    "type": "single",
+    "stem": "按教材风险评估的识别阶段，哪一项是汇总目标，而非资产、威胁、脆弱性这三个基础要素之一？",
+    "source": {
+      "date": "2017-05",
+      "number": "43",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/e3b3f7df5bc32dd67ada880221fe9fcf",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 32,
+    "options": {
+      "A": "资产",
+      "B": "威胁",
+      "C": "风险整体结论",
+      "D": "脆弱性"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "分析风险要利用基础要素并结合可能性和影响，不宜把风险结论当作同级输入。"
+  },
+  {
+    "id": "rkb-805c75f7e0f730f8eab68eebe243bcd4",
+    "group": "资产、威胁、脆弱性与风险评估 · 历年真题",
+    "conceptId": "risk-assessment",
+    "type": "single",
+    "stem": "哪项是为观察异常而建立的防护控制，而非通常列举的网络安全威胁来源？",
+    "source": {
+      "date": "2016-11",
+      "number": "9",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/805c75f7e0f730f8eab68eebe243bcd4",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 33,
+    "options": {
+      "A": "权限配置错误",
+      "B": "秘密数据被未授权窃取",
+      "C": "安装来源未经验证的软件",
+      "D": "部署隔离且受监测的蜜罐"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "经过隔离和监测的诱饵用于收集安全线索。另三项可能引入或形成风险。"
+  },
+  {
+    "id": "rkb-07801c77a84b58e0b7bd99f0d5d537d5",
+    "group": "资产、威胁、脆弱性与风险评估 · 历年真题",
+    "conceptId": "risk-assessment",
+    "type": "single",
+    "stem": "在风险因素识别环节，通常可产出资产、威胁和已有措施记录。哪个文件需要等风险分析与评价之后才能完成？",
+    "source": {
+      "date": "2016-11",
+      "number": "43",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/07801c77a84b58e0b7bd99f0d5d537d5",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 34,
+    "options": {
+      "A": "资产价值分析记录",
+      "B": "完整的风险评估报告",
+      "C": "威胁分析记录",
+      "D": "现有安全措施分析记录"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "最终报告还要汇总风险程度、评价与处置建议，超出识别环节。"
+  },
+  {
+    "id": "sec-extra-risk-assessment",
+    "type": "single",
+    "stem": "某系统的同一漏洞在隔离主机上和面向互联网的核心业务上都存在。评估应怎样排序？",
+    "options": {
+      "A": "仅按设备购买价格决定",
+      "B": "结合暴露、控制现状和业务损失分析剩余风险",
+      "C": "仅按组件名称字母排序",
+      "D": "直接认定两者风险相同"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "同一严重度在不同业务环境中可产生不同风险。",
+    "group": "资产、威胁、脆弱性与风险评估",
+    "conceptId": "risk-assessment",
+    "number": 35
+  },
+  {
+    "id": "rkb-c807b04f23be06410bddea51909cbccd",
+    "group": "事件分级、预案与应急处置 · 历年真题",
+    "conceptId": "incident-response",
+    "type": "single",
+    "stem": "按题设分类，通过网络传播法律法规禁止公开的内容属于哪类事件？",
+    "options": {
+      "A": "设施自然故障",
+      "B": "主机资源耗尽",
+      "C": "数据完整性校验失败",
+      "D": "信息内容安全事件"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "该类别依据事件涉及的信息内容来判断。",
+    "source": {
+      "date": "2021-11",
+      "number": "56",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/c807b04f23be06410bddea51909cbccd",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 36
+  },
+  {
+    "id": "rkb-4695e6dddcb764c9d6283775baea651a",
+    "group": "事件分级、预案与应急处置 · 历年真题",
+    "conceptId": "incident-response",
+    "type": "single",
+    "stem": "Linux 中，哪种工具可按进程查询已打开的文件与套接字？",
+    "options": {
+      "A": "chmod",
+      "B": "passwd",
+      "C": "date",
+      "D": "lsof"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "常见 Unix 文件观察工具 lsof 可展示文件描述符。",
+    "source": {
+      "date": "2021-11",
+      "number": "49",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/4695e6dddcb764c9d6283775baea651a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 37
+  },
+  {
+    "id": "rkb-2102cc2d7d492b785d06a04802d94f13",
+    "group": "事件分级、预案与应急处置 · 历年真题",
+    "conceptId": "incident-response",
+    "type": "single",
+    "stem": "在已授权的 Linux 取证环境，需要逐字节对比一个程序文件与可信介质上的副本。哪个系统工具适用？",
+    "options": {
+      "A": "who",
+      "B": "arp",
+      "C": "date",
+      "D": "cmp"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "cmp 可以比较文件内容，比较结果还应结合副本的可信来源。",
+    "source": {
+      "date": "2021-11",
+      "number": "57",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/2102cc2d7d492b785d06a04802d94f13",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 38
+  },
+  {
+    "id": "rkb-e3f7ff2730e6ddd921898fd232c4bbd6",
+    "group": "事件分级、预案与应急处置 · 历年真题",
+    "conceptId": "incident-response",
+    "type": "single",
+    "stem": "WannaCry 的自动扩散行为符合哪类传播特征？",
+    "options": {
+      "A": "网络蠕虫",
+      "B": "仅需人工复制的静态文档",
+      "C": "网络传输协议",
+      "D": "文件系统审计"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "它以加密勒索为目的，自动传播具备蠕虫特征。",
+    "source": {
+      "date": "2019-05",
+      "number": "62",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/e3f7ff2730e6ddd921898fd232c4bbd6",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 39
+  },
+  {
+    "id": "rkb-e9182632351afc3da1ccf40a4a899c6f",
+    "group": "事件分级、预案与应急处置 · 历年真题",
+    "conceptId": "incident-response",
+    "type": "single",
+    "stem": "利用网络流量观测数据，可以衡量负载、形成日志并支持检测。哪一个动作仍需另外的机制执行？",
+    "source": {
+      "date": "2019-05",
+      "number": "64",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/e9182632351afc3da1ccf40a4a899c6f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 40,
+    "options": {
+      "A": "统计链路负载",
+      "B": "修复传输差错",
+      "C": "形成流量记录",
+      "D": "识别异常流量"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "流量监测提供证据，重传、纠错等操作由相应通信协议或设施完成。"
+  },
+  {
+    "id": "rkb-925400cb2f2fb09d392b15a5bb8f9c65",
+    "group": "事件分级、预案与应急处置 · 历年真题",
+    "conceptId": "incident-response",
+    "type": "single",
+    "stem": "被动采集流量的监测系统可以观察会话和分析协议。哪项职责必须另由执行控制承担？",
+    "source": {
+      "date": "2018-05",
+      "number": "64",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/925400cb2f2fb09d392b15a5bb8f9c65",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 41,
+    "options": {
+      "A": "解析协议行为",
+      "B": "从监测点采集信息",
+      "C": "阻断包含敏感数据的传输",
+      "D": "汇总网络节点与链路记录"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "监测提供观测，阻断需要实际位于可执行管控的位置。"
+  },
+  {
+    "id": "rkb-8db18275e27d0e34aa8e5c2bd3abb57f",
+    "group": "事件分级、预案与应急处置 · 历年真题",
+    "conceptId": "incident-response",
+    "type": "single",
+    "stem": "被动网络流量监测能从多个网络位置采集并解析数据。以下哪项不能仅靠这个被动组件保证？",
+    "source": {
+      "date": "2016-11",
+      "number": "64",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/8db18275e27d0e34aa8e5c2bd3abb57f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 42,
+    "options": {
+      "A": "采集路由器接口流量",
+      "B": "通过探针读取经过采集点的报文",
+      "C": "自动阻止敏感数据出网",
+      "D": "分析已采集的协议行为"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "观测与执行是不同的功能。阻断需要能够对数据路径施加控制。"
+  },
+  {
+    "id": "sec-extra-incident-response",
+    "type": "single",
+    "stem": "隔离故障主机并处置根因后，恢复生产服务前应完成什么？",
+    "options": {
+      "A": "隐去事件影响范围",
+      "B": "先公开原始日志中的个人信息",
+      "C": "验证恢复后的业务、访问策略与监测",
+      "D": "跳过回滚方案和日志保留"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "确认恢复环境可信并试运行，可降低复发风险。",
+    "group": "事件分级、预案与应急处置",
+    "conceptId": "incident-response",
+    "number": 43
+  },
+  {
+    "id": "rkb-696cc9958fa878c2374175c0e09e63f4",
+    "group": "取证、业务恢复与演练 · 历年真题",
+    "conceptId": "forensics-recovery",
+    "type": "single",
+    "stem": "电子证据常需借助设备读取和解码，不能直接用肉眼检查内容。这反映了什么特点？",
+    "options": {
+      "A": "无形性",
+      "B": "不可复制性",
+      "C": "无需验证性",
+      "D": "不受损坏性"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "电子形式的证据需要合适工具呈现，仍要保护完整性和交接记录。",
+    "source": {
+      "date": "2022-11",
+      "number": "60",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/696cc9958fa878c2374175c0e09e63f4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 44
+  },
+  {
+    "id": "rkb-5bad04fee0dfdf0fe696e4355d462175",
+    "group": "取证、业务恢复与演练 · 历年真题",
+    "conceptId": "forensics-recovery",
+    "type": "single",
+    "stem": "为保全数字证据，哪组顺序最合理？",
+    "options": {
+      "A": "保护现场、识别、保全、受控转移、分析、提交",
+      "B": "先分析再识别和保护现场",
+      "C": "先转移原件再保全和登记",
+      "D": "先提交后识别并保存"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "应尽量避免污染证据，保全和交接记录在分析之前建立。",
+    "source": {
+      "date": "2021-11",
+      "number": "58",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/5bad04fee0dfdf0fe696e4355d462175",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 45
+  },
+  {
+    "id": "rkb-2cc4b77a38c461cb6175c7135e710c61",
+    "group": "取证、业务恢复与演练 · 历年真题",
+    "conceptId": "forensics-recovery",
+    "type": "single",
+    "stem": "将所有纳入范围的数据完整复制一次，不依赖先前备份，这是什么类型？",
+    "options": {
+      "A": "差分备份",
+      "B": "增量备份",
+      "C": "只同步目录索引",
+      "D": "完全备份"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "完全备份覆盖本次选定的全部数据。",
+    "source": {
+      "date": "2019-05",
+      "number": "39",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/2cc4b77a38c461cb6175c7135e710c61",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 46
+  },
+  {
+    "id": "rkb-60025d08cf922d2582734b85d4bf6699",
+    "group": "取证、业务恢复与演练 · 历年真题",
+    "conceptId": "forensics-recovery",
+    "type": "single",
+    "stem": "建设灾备设施的核心业务目标是什么？",
+    "options": {
+      "A": "保证磁盘永不损坏",
+      "B": "取消应急演练",
+      "C": "在严重故障后恢复关键业务和数据",
+      "D": "减少对访问控制的需求"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "灾备服务于可恢复性与业务连续性。",
+    "source": {
+      "date": "2017-05",
+      "number": "29",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/60025d08cf922d2582734b85d4bf6699",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 47
+  },
+  {
+    "id": "rkb-1fa39c0bb62a801480c9ba937ad0ff1b",
+    "group": "取证、业务恢复与演练 · 历年真题",
+    "conceptId": "forensics-recovery",
+    "type": "single",
+    "stem": "网站出现未授权文件上传。要最快追溯接收上传的 URL、请求时间和来源，先查哪份记录？",
+    "source": {
+      "date": "2020-11",
+      "number": "22",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/1fa39c0bb62a801480c9ba937ad0ff1b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 48,
+    "options": {
+      "A": "Web 服务访问日志",
+      "B": "主机开关机日志",
+      "C": "边界防火墙告警",
+      "D": "交换机端口状态"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "Web 日志直接记录到达应用的 HTTP 请求，可与应用、主机和边界证据关联。"
+  },
+  {
+    "id": "rkb-4c8d0e948604f48f4c417d60ac65fd03",
+    "group": "取证、业务恢复与演练 · 历年真题",
+    "conceptId": "forensics-recovery",
+    "type": "single",
+    "stem": "开展数字取证时，哪一条措施不属于保障取证工具完整性的必要做法？",
+    "source": {
+      "date": "2019-05",
+      "number": "22",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/4c8d0e948604f48f4c417d60ac65fd03",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 49,
+    "options": {
+      "A": "必须先把所有取证工具加密",
+      "B": "记录与验证工具版本",
+      "C": "采用经校验的工具发行副本",
+      "D": "保存操作过程与证据交接记录"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "工具完整性可经可信来源、签名或摘要核验。加密主要解决保密。"
+  },
+  {
+    "id": "rkb-2c52da6b07b8954c6651266e2b733f87",
+    "group": "取证、业务恢复与演练 · 历年真题",
+    "conceptId": "forensics-recovery",
+    "type": "single",
+    "stem": "在保存电子证据时，哪项说法把适用条件错误绝对化了？",
+    "source": {
+      "date": "2018-05",
+      "number": "18",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/2c52da6b07b8954c6651266e2b733f87",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 50,
+    "options": {
+      "A": "取证必须等到设备开机才能执行",
+      "B": "应识别、保护并记录证据",
+      "C": "磁介质可保存能用于调查的信息",
+      "D": "取证可能在事件发生过程中或之后进行"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "活体取证适用于易失数据。关机状态下也可按批准流程保全持久存储。"
+  },
+  {
+    "id": "rkb-ac98a04879592a57cb3d548a80f455a1",
+    "group": "取证、业务恢复与演练 · 历年真题",
+    "conceptId": "forensics-recovery",
+    "type": "single",
+    "stem": "按数字取证目标，哪项更偏向事件修复，而非识别和保全证据？",
+    "source": {
+      "date": "2017-05",
+      "number": "8",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/ac98a04879592a57cb3d548a80f455a1",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 51,
+    "options": {
+      "A": "保护现场",
+      "B": "确定有关证据",
+      "C": "收集并校验证据副本",
+      "D": "清除恶意程序"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "清除属于处置或修复。在可能改变证据的操作之前，应按调查要求保全证据。"
+  },
+  {
+    "id": "rkb-94b0dbc9f206881d16715f666b41ca92",
+    "group": "取证、业务恢复与演练 · 历年真题",
+    "conceptId": "forensics-recovery",
+    "type": "single",
+    "stem": "以下哪一项不准确地限定了数字取证的设备状态？",
+    "source": {
+      "date": "2016-11",
+      "number": "18",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/94b0dbc9f206881d16715f666b41ca92",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 52,
+    "options": {
+      "A": "可识别和归档存储介质中的证据",
+      "B": "应考虑电子证据易改变的特点",
+      "C": "所有证据采集均要求目标已经开机",
+      "D": "可在有关事件期间或之后采集证据"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "要按证据易失性和安全条件决定活体或离线取证。"
+  },
+  {
+    "id": "sec-extra-forensics-recovery",
+    "type": "single",
+    "stem": "服务最多容忍丢失最近半小时的数据，这一业务参数是什么？",
+    "options": {
+      "A": "RTO",
+      "B": "CVSS",
+      "C": "MFA",
+      "D": "RPO"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "恢复点目标描述可以接受的数据回退范围。",
+    "group": "取证、业务恢复与演练",
+    "conceptId": "forensics-recovery",
+    "number": 53
+  }
+]

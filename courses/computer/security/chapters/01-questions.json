@@ -11,7 +11,9 @@
       "C": "可用性",
       "D": "不可否认性"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "可用性（Availability）强调授权实体在需要时可以随时正常访问数据和服务。拒绝服务攻击（DoS/DDoS）和服务器过载（HTTP 503）破坏的正是可用性。",
     "optionExplanations": {
       "A": "机密性防止信息泄露给非授权主体。",
@@ -33,7 +35,9 @@
       "C": "可用性",
       "D": "可控性"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "HTTP 503 表示服务器暂时过载或维护而无法处理正常请求，直接导致合法用户无法获取服务，属于可用性受损。",
     "optionExplanations": {
       "A": "并未发生敏感数据外泄。",
@@ -55,7 +59,9 @@
       "C": "通过网络嗅探窃取未加密传输的用户口令",
       "D": "在系统日志中删除操作记录"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "网络嗅探窃取明文口令导致秘密信息泄露给非授权人员，直接破坏机密性。",
     "optionExplanations": {
       "A": "修改数据破坏完整性。",
@@ -77,7 +83,9 @@
       "C": "七氟丙烷气体灭火系统",
       "D": "普通干粉灭火器"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "七氟丙烷属于洁净气体灭火剂，不导电、无残留、对精密电子设备无二次损害，是数据中心机房的标准消防配置。",
     "optionExplanations": {
       "A": "水会导电并造成电子设备短路报废。",
@@ -99,7 +107,9 @@
       "C": "经病毒查杀与审批后，刻录一次性只读光盘（CD-R/DVD-R）摆渡导入",
       "D": "在内网主机上开启手机热点临时下载"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "物理隔离网络间数据摆渡应防止双向交叉感染。经查杀后使用一次性只读光盘或专用安全隔离网闸导入，可避免介质回流污染。",
     "optionExplanations": {
       "A": "临时直连直接打破物理隔离红线。",
@@ -121,7 +131,9 @@
       "C": "仅对 HTTP 流量进行关键字过滤",
       "D": "为所有内网主机分配公网 IP 地址"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "网闸由内网处理单元、外网处理单元和专用硬件隔离交换模块组成，任何时刻内外网不同时与交换区相连，且剥离底层网络协议仅交换纯数据。",
     "optionExplanations": {
       "A": "网闸不允许内外网建立直接的端到端 TCP 连接。",
@@ -143,7 +155,9 @@
       "C": "6 个月",
       "D": "12 个月"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "《网络安全法》第二十一条明确规定，网络运营者应留存相关的网络日志不少于六个月，以便安全事件追溯与取证。",
     "optionExplanations": {
       "A": "低于法定最低期限。",
@@ -165,7 +179,9 @@
       "C": "每年至少",
       "D": "每两年至少"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "《关键信息基础设施安全保护条例》第十七条规定，运营者应当自行或委托专业机构每年至少进行一次网络安全检测和风险评估，对发现的安全问题及时整改。",
     "optionExplanations": {
       "A": "频率高于条例规定的最低要求。",
@@ -187,7 +203,9 @@
       "C": "数据单一备份",
       "D": "数据自由跨境"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "《数据安全法》第二十一条规定国家建立数据分类分级保护制度，对重要数据和国家核心数据实行更严格的保护管理。",
     "optionExplanations": {
       "A": "数据不能无条件全量公开。",
@@ -209,7 +227,9 @@
       "C": "五级",
       "D": "六级"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "GB 17859 将安全保护等级由低到高分为五级：用户自主保护级（一级）、系统审计保护级（二级）、安全标记保护级（三级）、结构化保护级（四级）、访问验证保护级（五级）。",
     "optionExplanations": {
       "A": "三级是国家秘密的密级划分数量（秘密/机密/绝密）。",
@@ -231,7 +251,9 @@
       "C": "机密、秘密、绝密",
       "D": "普通、重要、核心"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "依据《保守国家秘密法》，国家秘密的密级分为秘密、机密、绝密三级，绝密是最重要的国家秘密。",
     "optionExplanations": {
       "A": "「内部」不属于国家秘密法定密级。",
@@ -253,7 +275,11 @@
       "C": "个人行使本法规定权利的方式和程序",
       "D": "个人信息处理者内部服务器的物理机柜编号"
     },
-    "answer": ["A", "B", "C"],
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanationSupplement": "《个人信息保护法》第十七条规定了处理者事前告知的核心义务，涵盖主体身份与联系方式、处理目的方式种类及保存期限、个人行权方式等，但不涉及内部机柜编号等运维细节。",
     "optionExplanations": {
       "A": "属于法定必须告知事项。",
@@ -275,7 +301,9 @@
       "C": "更换更高速率的光纤交换机",
       "D": "关闭企业内部所有邮箱系统"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "社会工程学攻击的目标是「人」而非纯技术漏洞，因此常态化的安全意识教育、核验制度与模拟演练是最直接有效的防线。",
     "optionExplanations": {
       "A": "硬件扩容无法阻止人员受骗。",
@@ -297,7 +325,9 @@
       "C": "代码静态扫描",
       "D": "网络拓扑发现"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "业务影响分析（Business Impact Analysis, BIA）是业务连续性管理的核心前期步骤，用来量化系统中断对业务造成的损失并明确恢复优先级与 RTO/RPO。",
     "optionExplanations": {
       "A": "渗透测试用于发现系统安全漏洞。",
@@ -319,7 +349,9 @@
       "C": "完全开放原则",
       "D": "效率绝对优先原则"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "「三员分立」（系统管理员、安全管理员、审计管理员）是职责分离原则的典型落地，避免单一账号权限过大导致既能违规操作又能自行抹除日志。",
     "optionExplanations": {
       "A": "通过分权制衡降低内部舞弊与误操作风险。",
@@ -341,7 +373,11 @@
       "C": "对数据按敏感性进行分级分类管理，有助于合理分配安全防护资源",
       "D": "开源软件因代码公开透明，不会存在安全漏洞与供应链风险"
     },
-    "answer": ["A", "B", "C"],
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanationSupplement": "安全与发展相辅相成；ISMS 强调 PDCA 持续改进；数据分级分类可实现精准防护。开源软件同样可能存在高危漏洞（如 Log4j2）和恶意投毒风险，必须纳入漏洞治理。",
     "optionExplanations": {
       "A": "正确把握了安全与发展的辩证统一关系。",
@@ -350,5 +386,1155 @@
       "D": "开源并不等于无漏洞，仍需版本跟踪与成分分析（SCA）。"
     },
     "conceptId": "risk-management"
+  },
+  {
+    "id": "rkb-61a37e4880763a7d9a3c4675f9cc21f4",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "限制敏感数据只对获授权主体可见，体现哪项属性？",
+    "options": {
+      "A": "机密性",
+      "B": "完整性",
+      "C": "可用性",
+      "D": "抗抵赖性"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "机密性约束未授权披露。",
+    "source": {
+      "date": "2022-11",
+      "number": "1",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/61a37e4880763a7d9a3c4675f9cc21f4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 17
+  },
+  {
+    "id": "rkb-57a4762ea39ef70a9aecf2b5076f9fec",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "在业务高峰期，已授权用户仍能及时获得服务，体现什么属性？",
+    "options": {
+      "A": "不可否认性",
+      "B": "记录完整性",
+      "C": "可用性",
+      "D": "机密性"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "及时访问与正常运行属于可用性。",
+    "source": {
+      "date": "2021-11",
+      "number": "1",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/57a4762ea39ef70a9aecf2b5076f9fec",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 18
+  },
+  {
+    "id": "rkb-e08a5c074cc9500bd1094b7e736fbf74",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "要求信息在业务需要时可被可靠、及时地访问。这是哪项安全目标？",
+    "options": {
+      "A": "完整性",
+      "B": "不可否认性",
+      "C": "可用性",
+      "D": "隐蔽性"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "可靠的及时访问是可用性要求。",
+    "source": {
+      "date": "2020-11",
+      "number": "52",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/e08a5c074cc9500bd1094b7e736fbf74",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 19
+  },
+  {
+    "id": "rkb-9f2dfc6fa630236741472e223a309ec4",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "规定系统资源只能按授权方式更改，主要保护什么？",
+    "options": {
+      "A": "可用性",
+      "B": "机密性",
+      "C": "抗抵赖性",
+      "D": "完整性"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "阻止未经授权改变或破坏是完整性要求。",
+    "source": {
+      "date": "2020-11",
+      "number": "14",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/9f2dfc6fa630236741472e223a309ec4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 20
+  },
+  {
+    "id": "rkb-3657e9ebfbac670242b72b9ae12881c9",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "授权范围外的实体既不能读取也不能获知敏感信息，这是哪项属性？",
+    "options": {
+      "A": "完整性",
+      "B": "机密性",
+      "C": "可靠性",
+      "D": "抗抵赖性"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "限定信息的可见主体是机密性要求。",
+    "source": {
+      "date": "2020-11",
+      "number": "66",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/3657e9ebfbac670242b72b9ae12881c9",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 21
+  },
+  {
+    "id": "rkb-e8761bab1af579bc22e7353a394b4ac7",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "数据只能被已授权的主体读取，这属于哪项基本属性？",
+    "options": {
+      "A": "抗抵赖性",
+      "B": "机密性",
+      "C": "可用性",
+      "D": "完整性"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "机密性控制未授权披露。",
+    "source": {
+      "date": "2019-05",
+      "number": "14",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/e8761bab1af579bc22e7353a394b4ac7",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 22
+  },
+  {
+    "id": "rkb-faacb8c349bb3118b38679640489e76b",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "一个没有授权的账户读到敏感数据，最直接违反哪项属性？",
+    "options": {
+      "A": "可用性",
+      "B": "恢复能力",
+      "C": "机密性",
+      "D": "完备性"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "机密性确保披露受控。",
+    "source": {
+      "date": "2018-05",
+      "number": "14",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/faacb8c349bb3118b38679640489e76b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 23
+  },
+  {
+    "id": "rkb-f772e3c1771615266164e2565a847f97",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "以保护数据免于未经授权修改和破坏为目标，这对应哪项？",
+    "options": {
+      "A": "抗抵赖性",
+      "B": "完整性",
+      "C": "机密性",
+      "D": "可用性"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "验证与限制更改属于完整性保护。",
+    "source": {
+      "date": "2017-05",
+      "number": "6",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/f772e3c1771615266164e2565a847f97",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 24
+  },
+  {
+    "id": "rkb-1ccfc9ed34f006389c8d8cc322728f0e",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "case",
+    "stem": "一个只面向公众提供资料的站点禁止未经审批修改内容，并希望能够在网络故障后继续提供服务。",
+    "prompts": [
+      "定义 CIA 三项属性。",
+      "哪一项影响评估在公开数据中容易被判为不适用？",
+      "如何评价该服务资产与公开数据本身的保护需求？"
+    ],
+    "explanationSupplement": "CIA 对应防未授权披露、变更和服务中断。公开内容的保密要求可较低；发布管理接口、内容完整性、服务可用性仍需分别评估。",
+    "source": {
+      "date": "2017-05",
+      "number": "1-3",
+      "url": "https://www.ruankaoba.com/paper/paperId/f1d251c45cf7b606843d5fac97cb6945/chiefId/1ccfc9ed34f006389c8d8cc322728f0e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 25
+  },
+  {
+    "id": "rkb-7c33492d3ae9c084f4e3ba3396626e60",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "日志表中的隐私记录被未授权主体访问，最直接违反了什么？",
+    "options": {
+      "A": "机密性",
+      "B": "认证可用性",
+      "C": "抗抵赖",
+      "D": "业务恢复"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "未授权披露违反机密性。",
+    "source": {
+      "date": "2016-11",
+      "number": "14",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/7c33492d3ae9c084f4e3ba3396626e60",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 26
+  },
+  {
+    "id": "rkb-ea8af84def722dab2a3be22dc415480b",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "围绕系统正常运行和受损后的处置，哪组词描述的是一个完整的网络防护功能链？",
+    "source": {
+      "date": "2021-11",
+      "number": "3",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/ea8af84def722dab2a3be22dc415480b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 27,
+    "options": {
+      "A": "预警、认证、控制、响应",
+      "B": "防御、监测、应急、恢复",
+      "C": "延缓、阻止、检测、限制",
+      "D": "可靠、可用、可控、可信"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "防御与监测覆盖平时运行，应急与恢复覆盖事件发生后的处置。最后一组选项描述期望属性。"
+  },
+  {
+    "id": "rkb-c5056934da7a0c1fca2b138b971e68c5",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "防护评审中，哪种说法对加密的作用作了不成立的概括？",
+    "source": {
+      "date": "2019-05",
+      "number": "66",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/c5056934da7a0c1fca2b138b971e68c5",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 28,
+    "options": {
+      "A": "流量分析依赖实际可观测到的数据",
+      "B": "只要采用加密，就可抵御所有系统攻击",
+      "C": "APT 指高级持续性威胁",
+      "D": "大量 TCP 未完成握手可消耗资源"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "加密主要保护数据，无法单独修补应用漏洞、实现业务授权或保证服务容量。"
+  },
+  {
+    "id": "rkb-a5f242bba1e226af3eb10f0be6bbeacc",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "安全分析师还原一起持续性入侵。最初入口已出现，随后从一台已受影响终端扩展到多个内部系统。此阶段通常叫什么？",
+    "source": {
+      "date": "2019-05",
+      "number": "51",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/a5f242bba1e226af3eb10f0be6bbeacc",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 29,
+    "options": {
+      "A": "情报收集",
+      "B": "初始边界突破",
+      "C": "横向移动",
+      "D": "建立首个通信通道"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "横向移动描述在已有立足点后扩大到其他内部资源的行为。"
+  },
+  {
+    "id": "rkb-26b394c12ac1e2480a2626b60a1bf011",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "以下哪项错误地限定了安全问题可以由哪种人造成？",
+    "source": {
+      "date": "2018-05",
+      "number": "23",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/26b394c12ac1e2480a2626b60a1bf011",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 30,
+    "options": {
+      "A": "未授权修改可破坏完整性",
+      "B": "抵赖只能由外部黑客造成",
+      "C": "资源被无权主体使用属于未授权访问",
+      "D": "重放可能重复使用历史有效报文"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "抵赖可来自合法通信的任一方，所以系统需要可验证的交付和签名证据。"
+  },
+  {
+    "id": "rkb-891c2cace8b5c6669bd88530b31f9c7b",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "正常用户被阻断，规定时间内无法使用服务，首要受损的安全属性是哪一项？",
+    "source": {
+      "date": "2017-05",
+      "number": "25",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/891c2cace8b5c6669bd88530b31f9c7b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 31,
+    "options": {
+      "A": "机密性",
+      "B": "可用性",
+      "C": "完整性",
+      "D": "真实性"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "服务拒绝破坏授权用户正常访问和使用服务的能力。"
+  },
+  {
+    "id": "rkb-88874ccfbce819567eb6718fab04913a",
+    "group": "信息安全五大基本属性（CIA 扩展） · 历年真题",
+    "conceptId": "cia-properties",
+    "type": "single",
+    "stem": "电子交易通常要求能校验真实性、保密性、完整性和抗抵赖。哪项更多是额外业务规则，而非题设的安全属性？",
+    "source": {
+      "date": "2016-11",
+      "number": "10",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/88874ccfbce819567eb6718fab04913a",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 32,
+    "options": {
+      "A": "交易真实性",
+      "B": "保密性与完整性",
+      "C": "业务能够撤销交易",
+      "D": "交易抗抵赖"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "撤销由结算与业务状态规则决定，可通过认证流程安全执行。"
+  },
+  {
+    "id": "rkb-61b9f1ee7e6cf01b0bc5f0da011bd11b",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "GB 17859 的五级历史名称中，第三级是哪一项？",
+    "options": {
+      "A": "系统审计保护级",
+      "B": "结构化保护级",
+      "C": "访问验证保护级",
+      "D": "安全标记保护级"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "五级依次为用户自主、系统审计、安全标记、结构化、访问验证保护级。",
+    "source": {
+      "date": "2022-11",
+      "number": "19",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/61b9f1ee7e6cf01b0bc5f0da011bd11b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 33
+  },
+  {
+    "id": "rkb-fc5e4789fdef9249d17ab7b412fe45c4",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "《中华人民共和国数据安全法》自何时施行？",
+    "options": {
+      "A": "2020 年 1 月 1 日",
+      "B": "2021 年 11 月 1 日",
+      "C": "2021 年 9 月 1 日",
+      "D": "2021 年 6 月 10 日"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "6 月通过，9 月 1 日施行；11 月 1 日是《个人信息保护法》的施行日。",
+    "source": {
+      "date": "2021-11",
+      "number": "5",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/fc5e4789fdef9249d17ab7b412fe45c4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 34
+  },
+  {
+    "id": "rkb-e5741323d0c94ca1a3c2902f06a5e13e",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "《中华人民共和国密码法》的施行时间是哪个日期？",
+    "options": {
+      "A": "2022 年 1 月 1 日",
+      "B": "2020 年 1 月 1 日",
+      "C": "2019 年 10 月 26 日",
+      "D": "2021 年 9 月 1 日"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "2019 年 10 月通过，2020 年 1 月施行。",
+    "source": {
+      "date": "2020-11",
+      "number": "1",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/e5741323d0c94ca1a3c2902f06a5e13e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 35
+  },
+  {
+    "id": "rkb-8221ac850f839050dc25ae3cc35173ad",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "早期通用顶级域名中，传统上面向非营利组织的是哪项？",
+    "options": {
+      "A": ".edu",
+      "B": ".gov",
+      "C": ".org",
+      "D": ".mil"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": ".org 的历史定位是组织，当前注册条件与具体规则需另查。",
+    "source": {
+      "date": "2020-11",
+      "number": "27",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/8221ac850f839050dc25ae3cc35173ad",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 36
+  },
+  {
+    "id": "rkb-43084da526dcb0ad8e485cf7462d1d9a",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "编号以 GB/T 开头的《网络安全等级保护基本要求》属于哪级标准？",
+    "options": {
+      "A": "强制性行业标准",
+      "B": "推荐性国家标准",
+      "C": "企业内部规范",
+      "D": "国际电工标准"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "GB/T 为推荐性国家标准标记；旧题可能使用 2008 版，新标准为 2019 版。",
+    "source": {
+      "date": "2019-05",
+      "number": "58",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/43084da526dcb0ad8e485cf7462d1d9a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 37
+  },
+  {
+    "id": "rkb-62cbc303a95fcb391aba722dc1d35863",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "2017 年 6 月 1 日开始施行的网络安全基本法律是哪一部？",
+    "options": {
+      "A": "《中华人民共和国网络安全法》",
+      "B": "《中华人民共和国密码法》",
+      "C": "《中华人民共和国数据安全法》",
+      "D": "《中华人民共和国个人信息保护法》"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "此为初版网络安全法的施行日，2025 年修正自 2026 年 1 月生效。",
+    "source": {
+      "date": "2017-05",
+      "number": "68",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/62cbc303a95fcb391aba722dc1d35863",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 38
+  },
+  {
+    "id": "rkb-99fc8f9e61f0f426860f198b61848990",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "按《互联网域名管理办法》第四十一条，域名系统出现网络与信息安全事件后，相关运行或注册机构应在多长时间内向电信管理机构报告？",
+    "source": {
+      "date": "2022-11",
+      "number": "4",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/99fc8f9e61f0f426860f198b61848990",
+      "basis": "《互联网域名管理办法》第四十一条",
+      "basisUrl": "https://nmca.miit.gov.cn/zwgk/zcwj/bmgzjgfxwj/art/2021/art_f7ba7db3c79e4e54b513667c790827d6.html"
+    },
+    "number": 39,
+    "options": {
+      "A": "6 小时",
+      "B": "12 小时",
+      "C": "24 小时",
+      "D": "3 天"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "该办法明确要求在 24 小时内报告。"
+  },
+  {
+    "id": "rkb-fea0482d318ae62d523174bb47b1dde0",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "2021 年 7 月对部分出行与招聘平台启动网络安全审查时，公告列出的上位法是哪一组？",
+    "source": {
+      "date": "2021-11",
+      "number": "4",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/fea0482d318ae62d523174bb47b1dde0",
+      "basis": "网络安全审查办公室 2021 年 7 月公告",
+      "basisUrl": "https://www.cac.gov.cn/2021-07/05/c_1627071328950274.htm"
+    },
+    "number": 40,
+    "options": {
+      "A": "国家安全法、网络安全法",
+      "B": "网络安全法、密码法",
+      "C": "数据安全法、网络安全法",
+      "D": "数据安全法、国家安全法"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "主管部门当年的启动审查公告列出国家安全法和网络安全法。"
+  },
+  {
+    "id": "rkb-9457667b860b256f6e4b6bc6fff77fb2",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "按题设使用的等级保护 2.0 分类，应用程序所有执行环节的动态可信验证最接近哪一级的要求？",
+    "source": {
+      "date": "2021-11",
+      "number": "26",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/9457667b860b256f6e4b6bc6fff77fb2",
+      "basis": "GB/T 22239-2019 第 9.1.4.6 节",
+      "basisUrl": "https://www.hf.cas.cn/xxzx/gzzd/202209/P020220928382516409602.pdf"
+    },
+    "number": 41,
+    "options": {
+      "A": "第一级",
+      "B": "第二级",
+      "C": "第三级",
+      "D": "第四级"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "GB/T 22239-2019 第 9.1.4.6 节在第四级安全计算环境中提出覆盖应用全部执行环节的动态可信验证。"
+  },
+  {
+    "id": "rkb-850ec93795177174500ad1e76043fbb2",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "按《关键信息基础设施安全保护条例》的责任条款，下面哪种说法用错了相关岗位从业限制年限？",
+    "source": {
+      "date": "2021-11",
+      "number": "9",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/850ec93795177174500ad1e76043fbb2",
+      "basis": "《关键信息基础设施安全保护条例》",
+      "basisUrl": "https://wap.miit.gov.cn/jgsj/waj/gzdt/art/2021/art_05b0aeb07bcf4a19851aa85a3e072ca8.html"
+    },
+    "number": 42,
+    "options": {
+      "A": "运营者未按规定报告事件可能被处罚",
+      "B": "相关人员受治安管理处罚后，限制期限是 3 年",
+      "C": "相关人员受刑事处罚可适用终身限制",
+      "D": "公职人员滥用职权可受处分或被追究刑责"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "该条例的对应治安管理处罚情形采用 5 年期限。判断时要同时核对适用人员与违法行为。"
+  },
+  {
+    "id": "rkb-f87bf627479e6cecae719b16dd3465a3",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "等保历史定级题给出“公共利益受到特别严重损害，或国家安全受到严重损害”。符合哪个级别？",
+    "source": {
+      "date": "2020-11",
+      "number": "46",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/f87bf627479e6cecae719b16dd3465a3",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 43,
+    "options": {
+      "A": "一级",
+      "B": "二级",
+      "C": "三级",
+      "D": "四级"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "在题设定级口径下，国家安全严重受损或公共利益特别严重受损对应第四级。"
+  },
+  {
+    "id": "rkb-399d7d36b4e9ea4f11daadf1fead854f",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "2020 年版《网络安全审查办法》最初制定时依据哪两部法律？",
+    "source": {
+      "date": "2020-11",
+      "number": "5",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/399d7d36b4e9ea4f11daadf1fead854f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 44,
+    "options": {
+      "A": "国家安全法和网络安全法",
+      "B": "保守国家秘密法和网络安全法",
+      "C": "国家安全法和等级保护相关规定",
+      "D": "国家安全法和保守国家秘密法"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "2020 年版列出国家安全法和网络安全法。后续修订版又新增其他上位法依据。"
+  },
+  {
+    "id": "rkb-0600215398a5371d022a369726a29fe4",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "短期外部人员获批接入组织网络。哪项不符合等保 2.0 的访问管理要求？",
+    "source": {
+      "date": "2020-11",
+      "number": "67",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/0600215398a5371d022a369726a29fe4",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 45,
+    "options": {
+      "A": "批准后按需要建立专用账户",
+      "B": "任务完成后及时清除访问权限",
+      "C": "签订适用保密协议并限定操作",
+      "D": "项目结束离场后保留原有远程权限"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "外部访问授权以任务为边界，离场应及时回收。"
+  },
+  {
+    "id": "rkb-ffcff3bf35b15e7db65c3c1b1e4cb385",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "按历史上关于信息安全等级保护的制度说明，下列哪项不属于其主要分级管理内容？",
+    "source": {
+      "date": "2019-05",
+      "number": "5",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/ffcff3bf35b15e7db65c3c1b1e4cb385",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 46,
+    "options": {
+      "A": "按安全影响对信息与系统分级保护",
+      "B": "按适用等级管理系统所用安全产品",
+      "C": "对安全事件按等级响应处置",
+      "D": "为全部安全从业人员划等级并照此分级处罚"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "主要对象是信息、系统产品与安全事件；个人处罚适用相关法律依据。"
+  },
+  {
+    "id": "rkb-25387e46a0e8eee0b133cfe3d618d515",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "按试卷引用的 2016 年版《网络安全法》第五十八条，重大突发社会安全事件中，对特定区域采取临时网络通信限制需要谁决定或批准？",
+    "source": {
+      "date": "2019-05",
+      "number": "1",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/25387e46a0e8eee0b133cfe3d618d515",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 47,
+    "options": {
+      "A": "国务院",
+      "B": "国家网信部门",
+      "C": "省级以上人民政府",
+      "D": "网络服务提供商"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "这一历史条款将决定、批准权限赋予国务院。"
+  },
+  {
+    "id": "rkb-03e322fe2c6c81899bf6347edbb03094",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "一份材料是否属于国家秘密、属于何种密级尚不明确。按题设保密法的程序，下列哪种做法错误？",
+    "source": {
+      "date": "2019-05",
+      "number": "10",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/03e322fe2c6c81899bf6347edbb03094",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 48,
+    "options": {
+      "A": "经办单位自行定密并直接办理事后备案",
+      "B": "按国家秘密及其密级具体范围确定定密事项",
+      "C": "依法确定密级、保密期限及知悉范围",
+      "D": "依规定提请有权的保密行政管理部门确定"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "事项不明确时应走依法确定程序，不能以单位自行决定后备案替代。"
+  },
+  {
+    "id": "rkb-8e27f3dc5a645ca8944b3344a2c92aef",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "《网络安全法》规定，由哪一类部门统筹协调网络安全工作及相关监督管理？",
+    "source": {
+      "date": "2018-05",
+      "number": "5",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/8e27f3dc5a645ca8944b3344a2c92aef",
+      "basis": "《中华人民共和国网络安全法》",
+      "basisUrl": "https://sdca.miit.gov.cn/zwgk/fgbz/art/2026/art_4815dd4ec11d454783b83a91502a3cc7.html"
+    },
+    "number": 49,
+    "options": {
+      "A": "地方工信部门",
+      "B": "国务院所有部门统一承担这一特定职责",
+      "C": "国家网信部门",
+      "D": "省级公安机关"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "国家网信部门承担法定统筹协调，其他主管部门按职责分别管理。"
+  },
+  {
+    "id": "rkb-74d00c61ffe9f8ed7a9323257deb74a6",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "2016 年通过的《中华人民共和国网络安全法》初版何时施行？",
+    "source": {
+      "date": "2018-05",
+      "number": "1",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/74d00c61ffe9f8ed7a9323257deb74a6",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 50,
+    "options": {
+      "A": "2017 年 1 月 1 日",
+      "B": "2017 年 6 月 1 日",
+      "C": "2017 年 7 月 1 日",
+      "D": "2017 年 10 月 1 日"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "初版自 2017 年 6 月 1 日施行；后续修正文本另有施行日期。"
+  },
+  {
+    "id": "rkb-6ce50d31d8b8926b2804a67676e6447c",
+    "group": "我国网络安全核心法规与等级保护 · 历年真题",
+    "conceptId": "compliance-laws",
+    "type": "single",
+    "stem": "按旧版 GB 17859，哪一级要求把自主及强制访问控制扩展到全部主体和客体？",
+    "source": {
+      "date": "2017-05",
+      "number": "2",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/6ce50d31d8b8926b2804a67676e6447c",
+      "basis": "GB 17859-1999 第 4.4 条",
+      "basisUrl": "https://zjic.zj.gov.cn/ywdh/szfg/202104/P020220711448085717700.pdf"
+    },
+    "number": 51,
+    "options": {
+      "A": "用户自主保护级",
+      "B": "系统审计保护级",
+      "C": "安全标记保护级",
+      "D": "结构化保护级"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "第四级结构化保护级在第三级的基础上扩大了控制覆盖范围。"
+  },
+  {
+    "id": "rkb-4de2ee572ad611e5230f753335bcb348",
+    "group": "安全管理体系、风险评估与人员意识 · 历年真题",
+    "conceptId": "risk-management",
+    "type": "single",
+    "stem": "组织希望提高人员判断钓鱼邮件和上报事件的能力，直接采用哪项措施？",
+    "options": {
+      "A": "取消邮件审计",
+      "B": "仅修改界面布局",
+      "C": "安全意识培训与模拟演练",
+      "D": "只扩充存储容量"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "训练和演练能直接检验人员识别和处置能力。",
+    "source": {
+      "date": "2019-05",
+      "number": "8",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/4de2ee572ad611e5230f753335bcb348",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 52
+  },
+  {
+    "id": "rkb-0b8704ef4d552907d96d2cde6dbdaeab",
+    "group": "安全管理体系、风险评估与人员意识 · 历年真题",
+    "conceptId": "risk-management",
+    "type": "single",
+    "stem": "信息系统尚在编制建设计划，需要先评估资产风险以确定安全投入。这个活动属于哪个生命周期阶段？",
+    "source": {
+      "date": "2022-11",
+      "number": "2",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/0b8704ef4d552907d96d2cde6dbdaeab",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 53,
+    "options": {
+      "A": "规划",
+      "B": "设计",
+      "C": "集成实现",
+      "D": "运行维护"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "这里的评估用于决定早期要求与投入，处在规划阶段。系统投产后仍需持续评估风险。"
+  },
+  {
+    "id": "rkb-dfc9c86fb84f75331b10fdca39383a81",
+    "group": "安全管理体系、风险评估与人员意识 · 历年真题",
+    "conceptId": "risk-management",
+    "type": "single",
+    "stem": "在相近邮件量下，哪种措施通常需要解析正文甚至附件，计算量更受内容大小影响？",
+    "source": {
+      "date": "2020-11",
+      "number": "51",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/dfc9c86fb84f75331b10fdca39383a81",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 54,
+    "options": {
+      "A": "SMTP 登录鉴别",
+      "B": "反向域名核对",
+      "C": "内容过滤",
+      "D": "按来源查静态拦截名单"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "内容过滤可能要解析、提取特征和检查附件，而单次列表查询通常更轻。"
+  },
+  {
+    "id": "rkb-1dd5da594633845b41342ddbfde23308",
+    "group": "安全管理体系、风险评估与人员意识 · 历年真题",
+    "conceptId": "risk-management",
+    "type": "single",
+    "stem": "业务记录是组织必须保护的最终对象，服务器与软件用于承载和处理这些记录。哪项是该场景的核心信息资产？",
+    "source": {
+      "date": "2020-11",
+      "number": "49",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/1dd5da594633845b41342ddbfde23308",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 55,
+    "options": {
+      "A": "机房环境",
+      "B": "承载硬件",
+      "C": "业务数据",
+      "D": "通用软件"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "资产价值由业务影响决定。在本场景中，其他资产的保护服务于关键数据和业务。"
+  },
+  {
+    "id": "rkb-ca0c320d9c1461cf148ebd0f1418f659",
+    "group": "安全管理体系、风险评估与人员意识 · 历年真题",
+    "conceptId": "risk-management",
+    "type": "single",
+    "stem": "按历史 TCSEC 分类，哪一级被称为自主安全保护或选择性保护？",
+    "source": {
+      "date": "2017-05",
+      "number": "46",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/ca0c320d9c1461cf148ebd0f1418f659",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 56,
+    "options": {
+      "A": "C1",
+      "B": "C2",
+      "C": "B1",
+      "D": "B2"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "C1 是 Discretionary Security Protection；C2 是 Controlled Access Protection。"
+  },
+  {
+    "id": "rkb-cfa15fc88b8c51466206eafdd2fe6498",
+    "group": "机房分区、线路与存储介质 · 历年真题",
+    "conceptId": "physical-environment",
+    "type": "single",
+    "stem": "四项机房风险中，哪项主要由人为行为造成？",
+    "options": {
+      "A": "地震",
+      "B": "雷击",
+      "C": "洪水",
+      "D": "未经授权搬走存储设备"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "人员实施的盗取行为属于人为物理威胁。",
+    "source": {
+      "date": "2022-11",
+      "number": "21",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/cfa15fc88b8c51466206eafdd2fe6498",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 57
+  },
+  {
+    "id": "rkb-642d31fe923f57af859ed21d68f42629",
+    "group": "机房分区、线路与存储介质 · 历年真题",
+    "conceptId": "physical-environment",
+    "type": "single",
+    "stem": "下列哪项主要针对存储介质安全？",
+    "options": {
+      "A": "对报废磁盘执行透明可验证的清除并登记",
+      "B": "给机房墙面刷漆",
+      "C": "更新空调过滤网",
+      "D": "敷设更长的跳线"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "介质安全涉及存储、转移和销毁的数据保护。",
+    "source": {
+      "date": "2019-05",
+      "number": "56",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/642d31fe923f57af859ed21d68f42629",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 58
+  },
+  {
+    "id": "rkb-24760d624225652335ba5c543923486a",
+    "group": "机房分区、线路与存储介质 · 历年真题",
+    "conceptId": "physical-environment",
+    "type": "single",
+    "stem": "对火灾、雷电、设备丢失和用户口令弱四项威胁分类，哪一项通常不属于物理安全？",
+    "options": {
+      "A": "口令过弱",
+      "B": "火灾",
+      "C": "雷击",
+      "D": "设备盗窃"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "口令属于身份鉴别或管理风险，其余涉及实体环境。",
+    "source": {
+      "date": "2018-05",
+      "number": "56",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/24760d624225652335ba5c543923486a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 59
+  },
+  {
+    "id": "rkb-d00d48e126ab8a8b5a77281be078070f",
+    "group": "机房分区、线路与存储介质 · 历年真题",
+    "conceptId": "physical-environment",
+    "type": "single",
+    "stem": "不属于物理环境安全威胁的是哪一项？",
+    "options": {
+      "A": "身份认证策略被配置为弱口令",
+      "B": "洪水",
+      "C": "机房火灾",
+      "D": "外人盗走设备"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "实体设施受损与凭据策略缺陷分属不同控制领域。",
+    "source": {
+      "date": "2016-11",
+      "number": "56",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/d00d48e126ab8a8b5a77281be078070f",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 60
+  },
+  {
+    "id": "rkb-4f6f9f3ae90c3475faf61b4fccdb0158",
+    "group": "机房分区、线路与存储介质 · 历年真题",
+    "conceptId": "physical-environment",
+    "type": "single",
+    "stem": "按题设采用的 GB 51195-2016 版本，R2 级互联网数据中心的基础设施与网络支持的业务可用性下限是多少？",
+    "source": {
+      "date": "2022-11",
+      "number": "22",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/4f6f9f3ae90c3475faf61b4fccdb0158",
+      "basis": "GB 51195-2016 第 3.0.2 条",
+      "basisUrl": "https://www.zlglpt.com/book/book_view.aspx?id=3391"
+    },
+    "number": 61,
+    "options": {
+      "A": "95%",
+      "B": "99%",
+      "C": "99.5%",
+      "D": "99.9%"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "该版本要求 R2 具备冗余能力，所支持的业务可用性至少 99.9%。"
+  },
+  {
+    "id": "rkb-9ef013a42a67bc2371828b536c9ba4ed",
+    "group": "机房分区、线路与存储介质 · 历年真题",
+    "conceptId": "physical-environment",
+    "type": "single",
+    "stem": "采用 GB/T 2887-2011 的旧分类，以下哪间属于所列的第一类辅助房间？",
+    "source": {
+      "date": "2021-11",
+      "number": "27",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/9ef013a42a67bc2371828b536c9ba4ed",
+      "basis": "GB/T 2887-2011 第 5.1 节",
+      "basisUrl": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=7DC85FD143801F924ADAE3492C3FB9DC"
+    },
+    "number": 62,
+    "options": {
+      "A": "终端室",
+      "B": "监控室",
+      "C": "资料室",
+      "D": "储藏室"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "GB/T 2887-2011 第 5.1 节把监控室列为第一类辅助房间；资料室、储藏室分别列入第二类和第三类。"
+  },
+  {
+    "id": "rkb-3059c4f416d2926726992f4109cef06d",
+    "group": "机房分区、线路与存储介质 · 历年真题",
+    "conceptId": "physical-environment",
+    "type": "single",
+    "stem": "备份计划列出配置、运行所需数据和恢复验证。以下哪项本身是需要恢复的能力，不能直接充当备份对象？",
+    "source": {
+      "date": "2016-11",
+      "number": "51",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/3059c4f416d2926726992f4109cef06d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 63,
+    "options": {
+      "A": "网络设备配置与版本",
+      "B": "服务器配置",
+      "C": "提供中的网络服务本身",
+      "D": "备份完整性和恢复测试记录"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "要恢复服务，应备份其配置、数据和依赖，并实际验证恢复。"
+  },
+  {
+    "id": "sec-extra-physical-environment",
+    "type": "single",
+    "stem": "要处置含有保密数据的旧固态盘，哪个步骤可以核验处置过程？",
+    "options": {
+      "A": "移除机箱资产标签",
+      "B": "按照介质类型和数据等级执行并记录经验证的清除或销毁",
+      "C": "把驱动器名称改成空白",
+      "D": "仅删除桌面文件快捷方式"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "通过可验证的清除或销毁降低残留数据风险。台账记录介质和处置结果。",
+    "group": "机房分区、线路与存储介质",
+    "conceptId": "physical-environment",
+    "number": 64
   }
 ]

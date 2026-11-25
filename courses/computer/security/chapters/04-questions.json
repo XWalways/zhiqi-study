@@ -11,7 +11,9 @@
       "C": "流量分析",
       "D": "重放旧认证报文"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "被动威胁仅窃听或分析网络通信模式而不改动数据，主要包括消息内容窃听和流量分析两类；篡改、重放、伪造与拒绝服务均属于主动威胁。",
     "optionExplanations": {
       "A": "篡改直接修改数据内容，属于主动威胁。",
@@ -33,7 +35,9 @@
       "C": "绝对不会消耗网络带宽和主机 CPU 资源",
       "D": "只能在单机无网络环境下触发"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "病毒必须寄生在宿主程序或文档中依赖人工操作触发传播；蠕虫则是独立的恶意程序，可自动扫描漏洞并在网络中主动自我复制扩散。",
     "optionExplanations": {
       "A": "寄生在 Word 文档中属于宏病毒特征。",
@@ -55,7 +59,9 @@
       "C": "硬件固件木马",
       "D": "网络协议嗅探器"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "名称前缀 Macro 即表明它是利用办公软件（Word/Excel）宏语言编写的宏病毒，寄生在文档模板或数据文件中。",
     "optionExplanations": {
       "A": "引导区病毒寄生在磁盘主引导记录（MBR）。",
@@ -77,7 +83,9 @@
       "C": "协助管理员自动修复系统漏洞",
       "D": "增强本地操作系统的加密强度"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "企业防火墙通常严格禁止外网主动访问内网，但对内网主动访问外网（如 80/443 端口）较为宽松；木马利用反向连接即可借助合法出站策略穿墙。",
     "optionExplanations": {
       "A": "与磁盘性能无关。",
@@ -99,7 +107,9 @@
       "C": "缓冲区溢出",
       "D": "端口扫描"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "逻辑炸弹（Logic Bomb）是嵌入合法程序中的恶意代码段，在满足预设的时间、事件或逻辑条件时触发破坏行为。",
     "optionExplanations": {
       "A": "按预设条件潜伏触发，完全符合逻辑炸弹定义。",
@@ -121,7 +131,11 @@
       "C": "对重要业务数据定期实施离线、异地备份",
       "D": "一旦中招立即向勒索方支付赎金并保持系统现状不打补丁"
     },
-    "answer": ["A", "B", "C"],
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanationSupplement": "防范勒索软件须坚持「补漏洞 + 关端口 + 离线备份」三位一体；支付赎金不仅无法保证恢复数据，且不打补丁会导致二次感染。",
     "optionExplanations": {
       "A": "打补丁从根源封堵「永恒之蓝」等漏洞。",
@@ -143,7 +157,9 @@
       "C": "直接篡改 DNS 根服务器的域名解析记录",
       "D": "利用 HTTP Cookie 窃取用户登录态"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "服务器收到 SYN 后会分配资源建立半连接并回复 SYN+ACK 等待客户端 ACK；恶意方伪造不存在的源 IP 发送海量 SYN，使半连接队列迅速占满导致正常用户无法建立连接。",
     "optionExplanations": {
       "A": "准确描述了 SYN Flood 耗尽半连接队列的原理。",
@@ -165,7 +181,9 @@
       "C": "跨站脚本（XSS）",
       "D": "字典暴力猜测"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "ARP 协议在局域网内解析 IP 对应的 MAC 地址且无身份认证，伪造 ARP 应答污染主机缓存即可实施 ARP 欺骗和中间人拦截。",
     "optionExplanations": {
       "A": "SQL 注入发生在 Web 与数据库交互层。",
@@ -187,7 +205,9 @@
       "C": "DDoS 只会影响客户端电脑，不会影响服务器可用性",
       "D": "关闭服务器所有防火墙即可自然消除 DDoS"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "DDoS 通过海量分布式流量直接塞满出口带宽或连接表，终端杀毒软件无法在链路入口清洗外部大流量，需依靠运营商/云端高防清洗与流量牵引。",
     "optionExplanations": {
       "A": "杀毒软件无法阻挡外部海量泛洪流量塞满带宽。",
@@ -209,7 +229,9 @@
       "C": "取消所有主机的 IP 地址",
       "D": "关闭交换机的全部指示灯"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "VLAN 可在数据链路层将大广播域切分为多个隔离的小广播域，遏制广播风暴扩散；ACL 则可在三层接口按策略过滤不必要的跨网段流量。",
     "optionExplanations": {
       "A": "集线器处于同一冲突域和广播域，反而加剧风暴。",
@@ -231,7 +253,9 @@
       "C": "行动周期极短，一般在几分钟内高调炫耀破坏后即自动彻底清除自身",
       "D": "传统仅依赖已知特征库的单一防护设备难以全面发现"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "APT 的核心在于「Persistent（持续性）」与高度隐蔽，往往潜伏数月甚至数年持续窃取高价值情报，绝非几分钟高调炫耀的短期行为。",
     "optionExplanations": {
       "A": "高度定向是 APT 的典型特征。",
@@ -253,7 +277,9 @@
       "C": "静态路由表",
       "D": "不间断电源（UPS）"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "蜜罐是一种典型的主动防御与欺骗防御技术，本身不承载真实生产业务，任何对其发起的访问都高度可疑，可精准捕获入侵手法与特征。",
     "optionExplanations": {
       "A": "准确对应蜜罐主动防御的概念。",
@@ -275,7 +301,9 @@
       "C": "IDS 和 IPS 都不具备分析网络数据包特征的能力",
       "D": "部署了 IDS 后就不再需要任何防火墙"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "IDS（Detection）侧重旁路监测与告警，不影响主干转发；IPS（Prevention）串联在线路中，能够实时丢弃恶意报文或重置连接。",
     "optionExplanations": {
       "A": "准确区分了 IDS 与 IPS 的部署方式和处置能力。",
@@ -297,7 +325,9 @@
       "C": "打印服务器",
       "D": "中继器"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "堡垒主机作为运维唯一入口，实现账号集中管理、细粒度授权、字符/图形会话审计与高危命令拦截。",
     "optionExplanations": {
       "A": "准确对应运维安全审计堡垒主机的核心作用。",
@@ -319,7 +349,9 @@
       "C": "渗透测试无需获得系统所有者的书面授权即可随意对互联网网站开展",
       "D": "漏洞扫描的结果绝对不会出现误报或漏报"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "漏洞扫描偏重自动化广度普查，渗透测试偏重人工深度利用验证；且任何渗透测试都必须事先获得合法书面授权。",
     "optionExplanations": {
       "A": "将两者的自动化与人工特征说反了。",
@@ -341,7 +373,12 @@
       "C": "ICMP 协议本身不具备加密认证机制，不属于网络安全协议",
       "D": "将网卡置于混杂模式可以监听同一广播域内经过网卡的非本机流量"
     },
-    "answer": ["A", "B", "C", "D"],
+    "answer": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
     "explanationSupplement": "关闭多余端口减少暴露面；异常检测相对误用检测更擅长发现未知异常但误报偏高；ICMP 是基础诊断协议而非安全协议；混杂模式是网络嗅探的底层条件。",
     "optionExplanations": {
       "A": "符合最小服务面加固基线。",
@@ -350,5 +387,2596 @@
       "D": "混杂模式使网卡接收所有流经帧而非仅过滤本机 MAC。"
     },
     "conceptId": "active-defense"
+  },
+  {
+    "id": "rkb-0d08f03525459e9781fbd9189db3968d",
+    "group": "主动威胁与被动威胁的分类 · 历年真题",
+    "conceptId": "attack-taxonomy",
+    "type": "single",
+    "stem": "分析一个安全目标能否通过多个条件组合影响时，攻击树的根表示什么？",
+    "options": {
+      "A": "唯一可行的防护措施",
+      "B": "叶节点的排序结果",
+      "C": "风险负责人名单",
+      "D": "要分析的总体目标"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "树从目标向下组织和分解条件。",
+    "source": {
+      "date": "2022-11",
+      "number": "6",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/0d08f03525459e9781fbd9189db3968d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 17
+  },
+  {
+    "id": "rkb-03ef2cd3137e3bf5dcbcffc0248c22a5",
+    "group": "主动威胁与被动威胁的分类 · 历年真题",
+    "conceptId": "attack-taxonomy",
+    "type": "single",
+    "stem": "协议监测设备需要将网卡接收到的可见以太网帧交给分析程序。哪种工作状态对应此目标？",
+    "options": {
+      "A": "只收广播",
+      "B": "只收单一组播",
+      "C": "混杂模式",
+      "D": "只收本机单播"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "混杂模式减少网卡按目的 MAC 丢弃可见帧的限制。",
+    "source": {
+      "date": "2020-11",
+      "number": "10",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/03ef2cd3137e3bf5dcbcffc0248c22a5",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 18
+  },
+  {
+    "id": "rkb-b4692f65838f16447e231bf1eb888662",
+    "group": "主动威胁与被动威胁的分类 · 历年真题",
+    "conceptId": "attack-taxonomy",
+    "type": "single",
+    "stem": "分类一次网络欺骗事件时，哪一项把 DNS 异常和网站内容异常混为一谈？",
+    "source": {
+      "date": "2019-05",
+      "number": "57",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/b4692f65838f16447e231bf1eb888662",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 19,
+    "options": {
+      "A": "仿冒网页可以是社会工程的载体",
+      "B": "DNS 欺骗指通过修改服务器上的网页正文来冒充站点",
+      "C": "域名解析结果异常可使客户端连接到非预期地址",
+      "D": "地址映射核验可辅助发现局域网欺骗"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "DNS 欺骗作用于解析或信任链，篡改网页内容另属网站完整性问题。"
+  },
+  {
+    "id": "rkb-7a79068a4299a46a835e9d777d188f3b",
+    "group": "主动威胁与被动威胁的分类 · 历年真题",
+    "conceptId": "attack-taxonomy",
+    "type": "single",
+    "stem": "关于计算机犯罪的证据，哪项陈述错误？",
+    "source": {
+      "date": "2018-05",
+      "number": "46",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/7a79068a4299a46a835e9d777d188f3b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 20,
+    "options": {
+      "A": "行为人可能掌握技术手段",
+      "B": "可能给系统或业务造成破坏",
+      "C": "不存在可以调查的现场或电子证据",
+      "D": "操作行为可能具有隐蔽性"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "物理设备、终端、日志、云资源及网络记录均可能构成调查现场和证据。"
+  },
+  {
+    "id": "rkb-c24556820a5937c3b5e7d3139d11fba9",
+    "group": "主动威胁与被动威胁的分类 · 历年真题",
+    "conceptId": "attack-taxonomy",
+    "type": "single",
+    "stem": "某旧系统只按连接的源 IP 判定信任。安全评估发现源地址可能被冒用，哪项改动最直接降低这类风险？",
+    "source": {
+      "date": "2017-05",
+      "number": "47",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/c24556820a5937c3b5e7d3139d11fba9",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 21,
+    "options": {
+      "A": "仅增加一个信任地址",
+      "B": "对通信对端实施密码学身份鉴别，并限制不可信来源",
+      "C": "延长连接存活时间",
+      "D": "减少日志记录"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "网络地址可受伪装，可信通信还要验证对端身份并限制不应出现的来源。"
+  },
+  {
+    "id": "rkb-df545ba2d87ca223653f82afac1edcaa",
+    "group": "主动威胁与被动威胁的分类 · 历年真题",
+    "conceptId": "attack-taxonomy",
+    "type": "single",
+    "stem": "区分凭据猜测和已发生的信息泄露。哪项首先描述尝试获得访问能力的过程，而不能单独证明秘密已经泄露？",
+    "source": {
+      "date": "2016-11",
+      "number": "13",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/df545ba2d87ca223653f82afac1edcaa",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 22,
+    "options": {
+      "A": "数据内容被窃听获得",
+      "B": "旁观者通过流量推断敏感关系",
+      "C": "账号资料被他人窃取",
+      "D": "反复尝试猜测口令"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "猜测活动可能失败。只有凭据或敏感信息被获得才能确认相应泄露。"
+  },
+  {
+    "id": "rkb-cefbe9248fbc5500af275b2c87d6651d",
+    "group": "主动威胁与被动威胁的分类 · 历年真题",
+    "conceptId": "attack-taxonomy",
+    "type": "single",
+    "stem": "对计算机犯罪及其调查现场，下列判断哪项错误？",
+    "source": {
+      "date": "2016-11",
+      "number": "44",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/cefbe9248fbc5500af275b2c87d6651d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 23,
+    "options": {
+      "A": "操作可能有较强隐蔽性",
+      "B": "行为人可能掌握复杂技术",
+      "C": "可能导致明显业务破坏",
+      "D": "没有可定位、可检查的现场或电子痕迹"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "本地、网络和云环境可能保有可供调查的数字证据。"
+  },
+  {
+    "id": "rkb-acf0351280fc44351a1c0376216656aa",
+    "group": "主动威胁与被动威胁的分类 · 历年真题",
+    "conceptId": "attack-taxonomy",
+    "type": "single",
+    "stem": "按照旧教材对服务攻击、非服务攻击、渗入威胁和评估原则的分类，下列哪项说法不准确？",
+    "source": {
+      "date": "2016-11",
+      "number": "23",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/acf0351280fc44351a1c0376216656aa",
+      "basis": "计算机网络安全课程的威胁分类",
+      "basisUrl": "https://ftp.utcluj.ro/pub/users/dadarlat/master-I-IVA-engleza/prez1-sec.pdf"
+    },
+    "number": 24,
+    "options": {
+      "A": "服务攻击以特定网络应用为对象",
+      "B": "渗入威胁包括木马和教材所称陷阱",
+      "C": "非服务攻击可以针对协议本身，而不是某项具体网络应用",
+      "D": "在线业务评估应尽量减少对生产的影响"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "经典分类把木马和后门归为植入威胁。假冒、绕过控制与滥用授权是典型的渗入威胁。"
+  },
+  {
+    "id": "rkb-984230a392e0f6ef00f47e428354538a",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "以下哪一类恶意代码通常可自主从一台易受影响的主机传播到其他主机？",
+    "options": {
+      "A": "网络蠕虫",
+      "B": "纯文档诱饵",
+      "C": "单独的跟踪像素",
+      "D": "必须依赖宿主传播的文件型病毒"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "蠕虫显著特征是可独立复制传播。",
+    "source": {
+      "date": "2022-11",
+      "number": "53",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/984230a392e0f6ef00f47e428354538a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 25
+  },
+  {
+    "id": "rkb-7dbdb5fc1888f680b2455fa551987773",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "文件型病毒最典型的宿主是哪类文件？",
+    "options": {
+      "A": "未用的数据块",
+      "B": "可执行程序",
+      "C": "纯文本样式说明",
+      "D": "只读纸质记录"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "按教材分类，文件型病毒主要寄生在可执行文件等宿主。",
+    "source": {
+      "date": "2022-11",
+      "number": "54",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/7dbdb5fc1888f680b2455fa551987773",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 26
+  },
+  {
+    "id": "rkb-0cc4d1d1da1fc595858ecfd3a8b6d360",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "一款软件外观正常，但隐藏控制行为。它最符合哪类恶意代码？",
+    "options": {
+      "A": "特洛伊木马",
+      "B": "仅限启动区的引导病毒",
+      "C": "完整性校验程序",
+      "D": "网络分层设备"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "木马以良性外观或其他掩盖方式承载恶意行为。",
+    "source": {
+      "date": "2022-11",
+      "number": "56",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/0cc4d1d1da1fc595858ecfd3a8b6d360",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 27
+  },
+  {
+    "id": "rkb-2cc3023d0083eae225e4c636f7bdef0b",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "从依附位置看，教材所说的“磁盘杀手”典型归为哪类病毒？",
+    "options": {
+      "A": "数据加密标准",
+      "B": "引导型病毒",
+      "C": "文档宏病毒",
+      "D": "纯网络路由故障"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "引导型病毒重点影响启动区或相关引导机制。",
+    "source": {
+      "date": "2021-11",
+      "number": "50",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/2cc3023d0083eae225e4c636f7bdef0b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 28
+  },
+  {
+    "id": "rkb-799e9324cc9f4321ed49aa1df3e4a83e",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "以下哪个术语描述凭据猜测方法，本身并不代表僵尸程序触达和感染新终端的传播载体？",
+    "options": {
+      "A": "字典攻击",
+      "B": "含恶意内容的网页",
+      "C": "携带恶意软件的邮件",
+      "D": "利用未加固服务扩散"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "区分传播载体、侵入条件和用于取得凭据的方式。",
+    "source": {
+      "date": "2020-11",
+      "number": "21",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/799e9324cc9f4321ed49aa1df3e4a83e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 29
+  },
+  {
+    "id": "rkb-57336b6913e66c72149f7d4ea2e52705",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "一组受控终端可被按同一指令集中调度。这种网络叫什么？",
+    "options": {
+      "A": "加密隧道",
+      "B": "僵尸网络",
+      "C": "主机访问列表",
+      "D": "证书链"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "许多受控节点组成可集体操作的僵尸网络。",
+    "source": {
+      "date": "2019-05",
+      "number": "21",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/57336b6913e66c72149f7d4ea2e52705",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 30
+  },
+  {
+    "id": "rkb-2d154292ec163a4c6b1d9d699636f519",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "降低网页恶意程序风险时，以下哪项不合适？",
+    "options": {
+      "A": "限制不必要的插件",
+      "B": "通过可信途径获取扩展",
+      "C": "允许来源不明的浏览器扩展拥有全部权限",
+      "D": "及时更新浏览器"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "扩展权限与来源需要受控。",
+    "source": {
+      "date": "2019-05",
+      "number": "41",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/2d154292ec163a4c6b1d9d699636f519",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 31
+  },
+  {
+    "id": "rkb-cca5610010cfd4aa6afc8de5890716f6",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "木马以正常程序的外观隐藏未授权行为。对系统威胁的性质是什么？",
+    "options": {
+      "A": "自然灾害",
+      "B": "不改变状态的被动观察",
+      "C": "主动威胁",
+      "D": "单纯的物理老化"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "木马会执行未授权行为并可能改变系统状态。",
+    "source": {
+      "date": "2018-05",
+      "number": "38",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/cca5610010cfd4aa6afc8de5890716f6",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 32
+  },
+  {
+    "id": "rkb-9e829f4917913b9cf91d0a3963caa0f3",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "防病毒软件的典型目标是什么？",
+    "options": {
+      "A": "创建所有网络用户的角色",
+      "B": "发现、阻止或隔离恶意代码",
+      "C": "为所有文件签发身份证书",
+      "D": "替代备份与业务恢复"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "可以依赖签名、行为等方法识别并处置恶意代码。",
+    "source": {
+      "date": "2018-05",
+      "number": "41",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/9e829f4917913b9cf91d0a3963caa0f3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 33
+  },
+  {
+    "id": "rkb-86b4df9ef11c710596ee3a33d439644a",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "在教材按宿主划分的病毒类型中，下列哪项不是普通文件型病毒的典型宿主？",
+    "options": {
+      "A": "无可执行内容的纯文本文件",
+      "B": "本地可执行程序",
+      "C": "能执行指令的二进制宿主",
+      "D": "受感染后仍可被执行的程序文件"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "传统文件型病毒寄生在被执行的文件中。",
+    "source": {
+      "date": "2018-05",
+      "number": "49",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/86b4df9ef11c710596ee3a33d439644a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 34
+  },
+  {
+    "id": "rkb-c7e519909cbe30534e9a69b4380a4fc8",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "case",
+    "stem": "一次勒索软件事件影响了若干 Windows 终端，并通过存在缺陷的文件共享服务扩散。",
+    "prompts": [
+      "从行为和传播能力两个维度给恶意软件分类。",
+      "哪些终端和 Windows 服务需要优先排查？",
+      "说明恶意代码的典型共同特征。",
+      "如何用隔离、补丁、服务限制和恢复降低影响？"
+    ],
+    "explanationSupplement": "数据加密索赎属于勒索，自动扩散具备蠕虫特征；盘点易受影响的 Windows 文件共享服务；隔离已感染终端，限制非必要的 SMB，修补并验证备份恢复。",
+    "source": {
+      "date": "2018-05",
+      "number": "1-4",
+      "url": "https://www.ruankaoba.com/paper/paperId/3e5853345790aec277f0a109fe7b34b3/chiefId/c7e519909cbe30534e9a69b4380a4fc8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 35
+  },
+  {
+    "id": "rkb-4545a5e8ef0740850e5050dc59b0a3fd",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "如果一个文件没有可执行内容，只以静态字符供人读取，传统分类通常怎样判断它？",
+    "options": {
+      "A": "是典型的本机可执行程序",
+      "B": "是引导扇区保留指令",
+      "C": "必然是网络蠕虫",
+      "D": "不是普通文件型病毒的典型宿主"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "判断类型要考虑宿主所处位置和宿主是否可执行。",
+    "source": {
+      "date": "2017-05",
+      "number": "38",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/4545a5e8ef0740850e5050dc59b0a3fd",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 36
+  },
+  {
+    "id": "rkb-43d743a566dff0862e590fa2c879754e",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "常规防杀病毒软件应执行哪项任务？",
+    "options": {
+      "A": "签发网站证书",
+      "B": "检测并处置恶意文件或程序行为",
+      "C": "替换设备的物理门禁",
+      "D": "选择数据中心楼层"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "终端防护落实扫描、监测、隔离和相关控制。",
+    "source": {
+      "date": "2016-11",
+      "number": "41",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/43d743a566dff0862e590fa2c879754e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 37
+  },
+  {
+    "id": "rkb-07b1adc32145688913bfa364c1d7973a",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "通过软件伪装执行未授权动作的特洛伊木马属于哪类威胁？",
+    "options": {
+      "A": "主动威胁",
+      "B": "仅被动分析",
+      "C": "自然毁损",
+      "D": "单独的线路老化"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "木马会执行程序动作，造成系统状态或数据变化。",
+    "source": {
+      "date": "2016-11",
+      "number": "38",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/07b1adc32145688913bfa364c1d7973a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 38
+  },
+  {
+    "id": "rkb-86b61cbf483f17ffe6b9101964f37207",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "复习历史蠕虫案例时，哪一个常用来说明按地址逐个尝试的顺序传播特征？",
+    "source": {
+      "date": "2022-11",
+      "number": "55",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/86b61cbf483f17ffe6b9101964f37207",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 39,
+    "options": {
+      "A": "Slammer",
+      "B": "Nimda",
+      "C": "Lion",
+      "D": "Blaster"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "冲击波蠕虫的传播案例常用于讲解顺序扫描。安全监测可关注连续地址访问这一行为信号。"
+  },
+  {
+    "id": "rkb-4c5d36a5dff03a4e606022a6b376640e",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "安全团队调查未授权访问。哪种证据直接指向流量监听，而将其单独使用无法证明主机上保有后门？",
+    "source": {
+      "date": "2022-11",
+      "number": "7",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/4c5d36a5dff03a4e606022a6b376640e",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 40,
+    "options": {
+      "A": "关键目录权限被放宽",
+      "B": "发现未获授权的网络报文监听工具",
+      "C": "管理员凭据被异常修改",
+      "D": "发现未在资产清册登记的通信路径"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "监听工具主要提供观测能力。判断后门需另查未授权访问入口及其持续性。"
+  },
+  {
+    "id": "rkb-fa3b20bc5cbe8bdbd180ae11205ad658",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "从防护角度分析，一个能独立运行和自动扩散的蠕虫通常可按哪四项功能理解？",
+    "source": {
+      "date": "2021-11",
+      "number": "51",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/fa3b20bc5cbe8bdbd180ae11205ad658",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 41,
+    "options": {
+      "A": "探测、通信加密、备份、负载",
+      "B": "探测、传播、蠕虫运行引擎、负载",
+      "C": "口令审计、传播、操作系统、销毁",
+      "D": "探测、传播、负载、单列的破坏模块"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "典型模型将发现目标、扩散、控制运行及实际负载分别建模。不同负载未必具有破坏功能。"
+  },
+  {
+    "id": "rkb-9c0eaab50fe276599ec63b23c1f59c23",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "按题设的恶意代码命名约定，哪一前缀表示脚本类恶意代码？",
+    "source": {
+      "date": "2020-11",
+      "number": "24",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/9c0eaab50fe276599ec63b23c1f59c23",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 42,
+    "options": {
+      "A": "Worm",
+      "B": "Trojan",
+      "C": "Binder",
+      "D": "Script"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "Script 表示脚本类别。实际厂商命名体系可能不同。"
+  },
+  {
+    "id": "rkb-547273943a4019335e8037d074a909d5",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "哪个历史样本以文档宏作为传播或执行载体？",
+    "source": {
+      "date": "2020-11",
+      "number": "62",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/547273943a4019335e8037d074a909d5",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 43,
+    "options": {
+      "A": "Trojan.Bank",
+      "B": "Macro.Melissa",
+      "C": "Worm.Blaster",
+      "D": "Trojan.Huigezi"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "Melissa 是通过文档宏传播的代表性历史样本。"
+  },
+  {
+    "id": "rkb-1e2fc6c3214c033ede0659dc54978500",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "按主要功能分类，以下哪一名称明确对应勒索而非远程控制类木马？",
+    "source": {
+      "date": "2020-11",
+      "number": "38",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/1e2fc6c3214c033ede0659dc54978500",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 44,
+    "options": {
+      "A": "冰河",
+      "B": "彩虹桥",
+      "C": "PCShare",
+      "D": "Trojan-Ransom"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "Ransom 表示以勒索为主要负载，远程控制类的分类依据则是控制能力。"
+  },
+  {
+    "id": "rkb-08bbf1a72131cbd872768008f9c9c52d",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "四种历史蠕虫名称中，哪一个按聊天室渠道命名，而其他三个通常按利用服务缺陷传播的案例讲解？",
+    "source": {
+      "date": "2020-11",
+      "number": "41",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/08bbf1a72131cbd872768008f9c9c52d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 45,
+    "options": {
+      "A": "Code Red",
+      "B": "Slammer",
+      "C": "MSBlaster",
+      "D": "IRC-worm"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "IRC 表示相关通信和传播渠道。历史分类以样本主要行为为依据。"
+  },
+  {
+    "id": "rkb-57bfcf4aa2c255aa3a4990e8d3024c46",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "按题设样本命名约定，哪一个标签最直接指向脚本类病毒？",
+    "source": {
+      "date": "2019-05",
+      "number": "24",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/57bfcf4aa2c255aa3a4990e8d3024c46",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 46,
+    "options": {
+      "A": "Worm.Sasser",
+      "B": "Trojan.Huigezi",
+      "C": "Harm.formatC",
+      "D": "Script.Redlof"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "Script 前缀在该分类表示以脚本为载体的恶意代码。"
+  },
+  {
+    "id": "rkb-a8aa5df65a4d708e68f106857dffb3e0",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "系统允许按纯文本或按网页格式呈现未知来源邮件。若只需要阅读正文，哪个方式可减少主动内容的风险？",
+    "source": {
+      "date": "2018-05",
+      "number": "25",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/a8aa5df65a4d708e68f106857dffb3e0",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 47,
+    "options": {
+      "A": "交给附件默认应用执行",
+      "B": "以纯文本呈现",
+      "C": "自动渲染并执行全部网页内容",
+      "D": "允许邮件自动调取第三方脚本"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "纯文本模式缩小邮件渲染与执行面，附件仍需独立判断。"
+  },
+  {
+    "id": "rkb-94252f44d9bfcb3c63420f9b3c4d854b",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "访问可信程度不同的网站时，哪种浏览器侧措施能针对网页内容执行权限，降低恶意内容的影响？",
+    "source": {
+      "date": "2018-05",
+      "number": "22",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/94252f44d9bfcb3c63420f9b3c4d854b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 48,
+    "options": {
+      "A": "按信任级别隔离站点并限制主动内容",
+      "B": "仅使用加密连接",
+      "C": "进口一个任意站点的证书",
+      "D": "改用另一种 IP 传输"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "可信分区、站点隔离与执行限制处理网页内容风险；加密通道不会判断内容是否恶意。"
+  },
+  {
+    "id": "rkb-07eba2fb814be8e2d8c02f5828528dbf",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "在原教材的历史样本分类中，Android 恶意软件可按远控、扣费等主要行为归类，哪一组符合当年的四类口径？",
+    "source": {
+      "date": "2018-05",
+      "number": "10",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/07eba2fb814be8e2d8c02f5828528dbf",
+      "basis": "《信息安全工程师 2016 至 2018 年试题分析与解答》",
+      "basisUrl": "https://wqxuetang.oss-cn-beijing.aliyuncs.com/upload/source/e9/e9852771b25733ad4027480238be7a59"
+    },
+    "number": 49,
+    "options": {
+      "A": "远控、扣费、隐私窃取、系统破坏",
+      "B": "远控、扣费、系统破坏、硬件资源消耗",
+      "C": "远控、扣费、隐私窃取、恶意推广",
+      "D": "远控、扣费、系统破坏、恶意推广"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "当年试题分析使用远控、恶意扣费、窃取隐私、系统破坏四种主要表现，描述的是历史分类。"
+  },
+  {
+    "id": "rkb-c0bdfda54f4d98bbd069a529c6e161fe",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "以下哪一恶意代码样本以文档宏而闻名？",
+    "source": {
+      "date": "2017-05",
+      "number": "28",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/c0bdfda54f4d98bbd069a529c6e161fe",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 50,
+    "options": {
+      "A": "Melissa",
+      "B": "灰鸽子木马",
+      "C": "Blaster",
+      "D": "Agobot"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "Melissa 是宏病毒的代表案例，其他选项的主要类型不同。"
+  },
+  {
+    "id": "rkb-9c54c83108a7858be3a32fa910a68cf7",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "静态分析通常不必运行目标。下列哪种活动观察的是进程运行状态？",
+    "source": {
+      "date": "2017-05",
+      "number": "64",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/9c54c83108a7858be3a32fa910a68cf7",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 51,
+    "options": {
+      "A": "检查运行时进程内存",
+      "B": "在源码中匹配可疑模式",
+      "C": "用证明器检查程序属性",
+      "D": "对抽象模型做模型检测"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "进程内存是实际执行状态，属于运行时观察。"
+  },
+  {
+    "id": "rkb-3d4425addc814ddc1d7302d2c1a5723c",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "经典教材把病毒运行过程分哪四个阶段？",
+    "source": {
+      "date": "2017-05",
+      "number": "41",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/3d4425addc814ddc1d7302d2c1a5723c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 52,
+    "options": {
+      "A": "开发、传播、发现、清除",
+      "B": "开发、潜伏、传播、清除",
+      "C": "潜伏、传播、发现、清除",
+      "D": "潜伏、传播、触发、发作"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "潜伏和传播可先于满足触发条件后的发作，发现与清除是防守方的处置。"
+  },
+  {
+    "id": "rkb-d953e733ac9b79d6c477c498d8a4efe4",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "从防护角度检查引导型恶意代码，哪种判断错误地把一种破坏结果当成所有样本必有的运行阶段？",
+    "source": {
+      "date": "2016-11",
+      "number": "49",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/d953e733ac9b79d6c477c498d8a4efe4",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 53,
+    "options": {
+      "A": "受影响的系统仍可能表面正常",
+      "B": "异常程序可能占用部分内存",
+      "C": "启动组件可能被未经授权地改写",
+      "D": "任何引导型样本都会删除引导扇区"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "引导型样本可能改变引导路径，不必然删除引导区。"
+  },
+  {
+    "id": "rkb-5dc2fa39d2f15841e16ab4e1d410005d",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "读未知来源的邮件时，希望先看文字，同时减少与主动网页内容交互。哪种模式合适？",
+    "source": {
+      "date": "2016-11",
+      "number": "25",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/5dc2fa39d2f15841e16ab4e1d410005d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 54,
+    "options": {
+      "A": "自动显示完整网页",
+      "B": "纯文本阅读",
+      "C": "默认运行附件",
+      "D": "让邮件脚本自行加载"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "纯文本减少渲染端主动内容，仍须另外判断链接和附件。"
+  },
+  {
+    "id": "rkb-24492b418cc3ee5d20f2fc5960c2cf4a",
+    "group": "恶意代码分类与勒索软件防范 · 历年真题",
+    "conceptId": "malware-types",
+    "type": "single",
+    "stem": "防止未知站点中的恶意内容影响终端，下列哪项主要约束网页内容运行权限？",
+    "source": {
+      "date": "2016-11",
+      "number": "22",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/24492b418cc3ee5d20f2fc5960c2cf4a",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 55,
+    "options": {
+      "A": "对不同可信站点采用隔离与分区权限",
+      "B": "安装不相关的数字证书",
+      "C": "仅改用另一种 IP 层协议",
+      "D": "只把连接改为加密"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "通道认证和加密保护数据传输。站点隔离与执行策略更直接地限制内容影响。"
+  },
+  {
+    "id": "rkb-912b75403a4f106ecff6311f85f5980a",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "哪一种经典拒绝服务现象与错误处理重叠的 IP 分片有关？",
+    "options": {
+      "A": "口令猜测",
+      "B": "DNS 缓存污染",
+      "C": "会话冒用",
+      "D": "泪滴攻击"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "泪滴攻击考查错误的分片重组与可用性。",
+    "source": {
+      "date": "2022-11",
+      "number": "11",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/912b75403a4f106ecff6311f85f5980a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 56
+  },
+  {
+    "id": "rkb-641107bcf573656c08dcb3559ffb5dd1",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "哪一种行为属于被动威胁？",
+    "options": {
+      "A": "阻断连接",
+      "B": "监听通信内容但不干预通信",
+      "C": "改写在途消息",
+      "D": "伪造请求"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "被动威胁只观察，不向通信流注入变化。",
+    "source": {
+      "date": "2022-11",
+      "number": "8",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/641107bcf573656c08dcb3559ffb5dd1",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 57
+  },
+  {
+    "id": "rkb-566cb0cab1c992e8e1bd79c4172b2978",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "伪装为熟悉的服务诱导用户在仿冒页面交出凭据，属于哪类威胁？",
+    "options": {
+      "A": "拒绝服务",
+      "B": "磁盘损坏",
+      "C": "网络钓鱼",
+      "D": "分片重组异常"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "网络钓鱼利用欺骗促使用户主动披露敏感信息。",
+    "source": {
+      "date": "2022-11",
+      "number": "10",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/566cb0cab1c992e8e1bd79c4172b2978",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 58
+  },
+  {
+    "id": "rkb-0832583bea4a1ea74bc4e9adc691800b",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "大量连接停留在 TCP 建立中间状态，服务端连接队列耗尽。最符合哪一类威胁？",
+    "options": {
+      "A": "DNS 缓存到期",
+      "B": "内网密码轮换",
+      "C": "SYN 洪泛",
+      "D": "邮件签名故障"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "该现象首先表现为连接状态资源耗尽和服务不可用。",
+    "source": {
+      "date": "2022-11",
+      "number": "57",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/0832583bea4a1ea74bc4e9adc691800b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 59
+  },
+  {
+    "id": "rkb-b843e6799398629c7399864cd6587f82",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "只记录一段通信的流量规律，既不发送新数据也不改写消息，属于哪类行为？",
+    "options": {
+      "A": "应答伪造",
+      "B": "协议状态干扰",
+      "C": "被动流量分析",
+      "D": "消息篡改"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "不对在途数据施加干预的流量分析属于被动威胁。",
+    "source": {
+      "date": "2021-11",
+      "number": "10",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/b843e6799398629c7399864cd6587f82",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 60
+  },
+  {
+    "id": "rkb-28669561fe7921911a8ca7eb19a5330f",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "网络取证时，要检查抓取文件里的协议解析结果，应选哪类工具？",
+    "options": {
+      "A": "数据库备份工具",
+      "B": "固件签名工具",
+      "C": "网络协议分析器",
+      "D": "口令修改工具"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "协议分析器可解释抓包中的层次与字段。",
+    "source": {
+      "date": "2021-11",
+      "number": "13",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/28669561fe7921911a8ca7eb19a5330f",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 61
+  },
+  {
+    "id": "rkb-f8940802ae001ee8b9c0627b1d1647ba",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "服务收到此前有效消息的复制品。哪项措施本身不能确保它检测到重复？",
+    "options": {
+      "A": "只加密原消息且允许密文再次提交",
+      "B": "检查带身份绑定的单次挑战",
+      "C": "核验由认证保护且不重复的序列号",
+      "D": "按认证时间戳及已见消息记录校验"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "机密性不提供新鲜性，需要校验重复或时效。",
+    "source": {
+      "date": "2020-11",
+      "number": "50",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/f8940802ae001ee8b9c0627b1d1647ba",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 62
+  },
+  {
+    "id": "rkb-6b55e23514594e235597fd33304cd698",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "哪种流量观察不改变网络传输，因此属于被动攻击？",
+    "options": {
+      "A": "窃听已有通信",
+      "B": "追加伪造数据",
+      "C": "拒绝服务",
+      "D": "替换合法响应"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "仅获取信息属于被动威胁。",
+    "source": {
+      "date": "2020-11",
+      "number": "57",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/6b55e23514594e235597fd33304cd698",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 63
+  },
+  {
+    "id": "rkb-d7a168eda93f235692037e21c7911327",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "下列哪项只观察通信，不改变系统状态？",
+    "options": {
+      "A": "阻断合法会话",
+      "B": "流量分析",
+      "C": "修改数据包",
+      "D": "向服务器发伪造请求"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "被动行为获取信息而不修改通信。",
+    "source": {
+      "date": "2019-05",
+      "number": "13",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/d7a168eda93f235692037e21c7911327",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 64
+  },
+  {
+    "id": "rkb-c95cf34448aeadcb05392fc13cebf722",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "多个不同来源同时消耗一个目标服务的资源，使合法用户失去访问能力，通常称为什么？",
+    "options": {
+      "A": "数字签名",
+      "B": "安全审计",
+      "C": "分布式拒绝服务",
+      "D": "被动流量分析"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "多个来源共同造成服务不可用，属于 DDoS。",
+    "source": {
+      "date": "2019-05",
+      "number": "67",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/c95cf34448aeadcb05392fc13cebf722",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 65
+  },
+  {
+    "id": "rkb-603d5b8c24f0cbbb9d65a5583ba08b6f",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "只允许一次使用且每次验证后更新状态的口令，主要缓解哪一类问题？",
+    "options": {
+      "A": "用户无意修改文件",
+      "B": "重放旧口令",
+      "C": "硬盘失效",
+      "D": "网络供电中断"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "已消费的口令不应再次被接受。",
+    "source": {
+      "date": "2019-05",
+      "number": "7",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/603d5b8c24f0cbbb9d65a5583ba08b6f",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 66
+  },
+  {
+    "id": "rkb-091f0d888f1d3c4f22a7f01c7e0b999d",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "通信双方未经验证地连接到了一个可分别与两端建立会话的中介。这最接近哪一类风险？",
+    "options": {
+      "A": "数据重复备份",
+      "B": "物理线路断开",
+      "C": "磁盘空间不足",
+      "D": "中间人风险"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "核验对端身份和密码材料可防止将未授权中介作为对端信任。",
+    "source": {
+      "date": "2019-05",
+      "number": "50",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/091f0d888f1d3c4f22a7f01c7e0b999d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 67
+  },
+  {
+    "id": "rkb-004be488675b6224bae2d1105b253359",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "一条转账消息被录下后再次送入系统。什么能支持拒绝这种重复？",
+    "options": {
+      "A": "只加密消息而接收方不做状态检查",
+      "B": "压缩消息",
+      "C": "删除网络日志",
+      "D": "认证消息中绑定并核验一次性序列号"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "重放保护要验证新鲜性并检查重复值。",
+    "source": {
+      "date": "2019-05",
+      "number": "29",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/004be488675b6224bae2d1105b253359",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 68
+  },
+  {
+    "id": "rkb-fd4e5d94fe1932ccfe38e44d70806570",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "只观察流量便可推断通信规律，未向通信流写入数据。这是哪类行为？",
+    "options": {
+      "A": "消息注入",
+      "B": "被动攻击",
+      "C": "主动欺骗",
+      "D": "服务阻断"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "流量分析可泄露关系和时间信息，即使报文内容未更改。",
+    "source": {
+      "date": "2018-05",
+      "number": "29",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/fd4e5d94fe1932ccfe38e44d70806570",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 69
+  },
+  {
+    "id": "rkb-0c4d4403ee6892b7a8e1000967e31dd2",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "让用户等待越来越久甚至无法获得正常网络服务的对抗，其主要归类是什么？",
+    "options": {
+      "A": "拒绝服务",
+      "B": "身份托管",
+      "C": "签名验证",
+      "D": "敏感数据脱敏"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "核心后果是服务不可用。",
+    "source": {
+      "date": "2018-05",
+      "number": "21",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/0c4d4403ee6892b7a8e1000967e31dd2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 70
+  },
+  {
+    "id": "rkb-5baa56f8ae375afc56b74fa1306b5e33",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "什么行为符合被动攻击？",
+    "options": {
+      "A": "改写消息",
+      "B": "干扰服务响应",
+      "C": "监听或分析已有流量",
+      "D": "删除服务器文件"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "被动攻击侧重获取信息。",
+    "source": {
+      "date": "2017-05",
+      "number": "14",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/5baa56f8ae375afc56b74fa1306b5e33",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 71
+  },
+  {
+    "id": "rkb-b01e982fd6d601143a833cbf12c61caf",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "case",
+    "stem": "防守方审查 TCP 连接记录与边界过滤策略。部分连接已建立，部分反复停留在连接建立阶段。",
+    "prompts": [
+      "怎样从观测记录区分来源和目的？",
+      "TCP 连接建立属于哪一层协议？",
+      "SYN 标志具有何意义？",
+      "怎样基于日志判断服务是否在监听？",
+      "诊断时如何判断三次握手是否完成？",
+      "怎样制定进出方向的最小允许规则？",
+      "为什么边界防火墙还需要检查出站方向？"
+    ],
+    "explanationSupplement": "结合五元组和接口方向。TCP 属运输层，SYN 同步序列号；握手状态和授权探针可作证据，防火墙策略应验证允许服务、状态回流及出站异常。",
+    "source": {
+      "date": "2017-05",
+      "number": "3-9",
+      "url": "https://www.ruankaoba.com/paper/paperId/f1d251c45cf7b606843d5fac97cb6945/chiefId/b01e982fd6d601143a833cbf12c61caf",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "样本",
+        "观测结果"
+      ],
+      "rows": [
+        [
+          "记录 A",
+          "连接建立完成"
+        ],
+        [
+          "记录 B",
+          "连接长时间未完成"
+        ],
+        [
+          "策略核验",
+          "对照网络方向与合法业务清单"
+        ]
+      ]
+    },
+    "number": 72
+  },
+  {
+    "id": "rkb-5df506741e5c06f9dfd1fab689a8c7dd",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "持续干扰网络系统直至用户无法正常使用，该问题归属哪种威胁？",
+    "options": {
+      "A": "身份注册",
+      "B": "拒绝服务",
+      "C": "电子签名验证",
+      "D": "密钥更新"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "拒绝服务以破坏可用性为典型特征。",
+    "source": {
+      "date": "2016-11",
+      "number": "21",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/5df506741e5c06f9dfd1fab689a8c7dd",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 73
+  },
+  {
+    "id": "rkb-04bae654f54bbbe34f753429f199f734",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "以下哪种做法属于被动网络威胁？",
+    "options": {
+      "A": "伪造服务端回包",
+      "B": "切断服务",
+      "C": "未改动数据的旁路窃听",
+      "D": "重写响应正文"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "被动窃听截获信息但不修改通信。",
+    "source": {
+      "date": "2016-11",
+      "number": "3",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/04bae654f54bbbe34f753429f199f734",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 74
+  },
+  {
+    "id": "rkb-8740cfdd824ee1541d6835f0f8c5f81e",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "在边界监测记录中，一些 TCP 连接只进入建立过程的中间状态，未成为完整会话。按连接是否建立，如何描述这类记录？",
+    "source": {
+      "date": "2022-11",
+      "number": "9",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/8740cfdd824ee1541d6835f0f8c5f81e",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 75,
+    "options": {
+      "A": "正常结束的连接",
+      "B": "半连接记录",
+      "C": "已完整建立的连接",
+      "D": "应用层会话"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "连接未到达已建立状态。从监测角度可将其计入半连接，结合频率与基线判断异常。"
+  },
+  {
+    "id": "rkb-e2251a2eff6180dfd6257e26df26cd19",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "按主要机制分类，哪项属于应用查询注入，而不是专门消耗服务资源的拒绝服务手段？",
+    "source": {
+      "date": "2021-11",
+      "number": "12",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/e2251a2eff6180dfd6257e26df26cd19",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 76,
+    "options": {
+      "A": "SYN 洪泛",
+      "B": "DNS 放大流量",
+      "C": "SQL 注入",
+      "D": "利用异常分片的泪滴现象"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "查询注入改变应用向数据库提交的指令含义。其他选项是常见拒绝服务类型。"
+  },
+  {
+    "id": "rkb-c95e76649208b4a39c633f5bf058fe0d",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "分析一段 TCP 诊断抓包，若处于监听状态的服务接收连接请求，正常握手中服务端回应是什么？",
+    "source": {
+      "date": "2021-11",
+      "number": "11",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/c95e76649208b4a39c633f5bf058fe0d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 77,
+    "options": {
+      "A": "SYN 与 ACK 同时置位",
+      "B": "只有 RST",
+      "C": "RST 和 ACK 同时置位",
+      "D": "IPv4 标识字段单独变化"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "正常握手中服务端的 SYN-ACK 既同步自己的序列号，也确认客户端发来的 SYN。"
+  },
+  {
+    "id": "rkb-1b78ecfedad30451f97a6166704ac988",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "防守方给扫描告警分类。若线索显示活动涉及独立第三方主机的 IPv4 标识变化，最接近哪一种历史类型？",
+    "source": {
+      "date": "2021-11",
+      "number": "59",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/1b78ecfedad30451f97a6166704ac988",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 78,
+    "options": {
+      "A": "完全连接扫描",
+      "B": "SYN 扫描",
+      "C": "标识字段关联的空闲扫描",
+      "D": "ACK 扫描"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "空闲扫描的教材分类特征是与第三方及其标识变化有关。记录时应区分可见流量来源与责任归属。"
+  },
+  {
+    "id": "rkb-65a270ec5c8c7175ad6cc664e3b45781",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "区分抓包工具的软件与硬件形态时，哪项可表示独立硬件设备？",
+    "source": {
+      "date": "2020-11",
+      "number": "13",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/65a270ec5c8c7175ad6cc664e3b45781",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 79,
+    "options": {
+      "A": "NetXRay",
+      "B": "PacketBoy 软件",
+      "C": "NetMonitor 软件",
+      "D": "专用硬件协议分析仪"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "硬件分析仪可在独立设备上采集和分析报文；协议分析也可由软件实现。"
+  },
+  {
+    "id": "rkb-8c507d1a95ff88dac3576ce2efff0c74",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "关于网络服务的端口，哪一项错误？",
+    "source": {
+      "date": "2019-05",
+      "number": "47",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/8c507d1a95ff88dac3576ce2efff0c74",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 80,
+    "options": {
+      "A": "暴露端口信息有助于了解可能的服务",
+      "B": "一个端口号在任何协议和主机上都只能使用一次",
+      "C": "端口可用于标识传输层端点",
+      "D": "套接字端点通常结合地址及端口"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "端口号可在不同主机或 TCP、UDP 等不同传输协议下重复出现。"
+  },
+  {
+    "id": "rkb-ec711c252f4145528d45e4f074c44a5f",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "下面哪项错误地排除了钓鱼的常见载体？",
+    "source": {
+      "date": "2018-05",
+      "number": "57",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/ec711c252f4145528d45e4f074c44a5f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 81,
+    "options": {
+      "A": "网络钓鱼常运用社会工程",
+      "B": "网络钓鱼和 Web 服务完全无关",
+      "C": "仿冒登录网页可承载钓鱼",
+      "D": "钓鱼常混用伪装与诱导"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "Web 页面、邮件和通信消息都可能成为钓鱼载体。"
+  },
+  {
+    "id": "rkb-e2343f0b90e1ff7289fbea03989cd246",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "关于 TCP，哪项描述了错误的正常连接建立过程？",
+    "source": {
+      "date": "2018-05",
+      "number": "27",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/e2343f0b90e1ff7289fbea03989cd246",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 82,
+    "options": {
+      "A": "TCP 是传输层协议",
+      "B": "TCP 提供可靠的双向字节流",
+      "C": "通常仅交换两条握手消息就完成建立",
+      "D": "TCP 使用计时机制处理未获确认的数据"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "经典 TCP 建立使用三次握手。"
+  },
+  {
+    "id": "rkb-c4c8fcc5db9d6e43fe85e6dcb4d61641",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "安全管理员经授权检查资产暴露面。仅凭端口连通性观察，能最直接确定哪类信息？",
+    "source": {
+      "date": "2018-05",
+      "number": "47",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/c4c8fcc5db9d6e43fe85e6dcb4d61641",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 83,
+    "options": {
+      "A": "设备的完整操作系统版本",
+      "B": "哪些端口接受连接或有服务响应",
+      "C": "登录口令",
+      "D": "设备硬件型号"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "端口检查可验证开放情况，准确服务身份还需进一步的资产记录或协议证据。"
+  },
+  {
+    "id": "rkb-3e66b9532421eaa118da232bdcc8e912",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "从密码体制的代数结构及数学假设研究其安全性，这种分析在宽泛分类中称为什么？",
+    "source": {
+      "date": "2018-05",
+      "number": "4",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/3e66b9532421eaa118da232bdcc8e912",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 84,
+    "options": {
+      "A": "数学分析",
+      "B": "物理取证",
+      "C": "穷举全部密钥",
+      "D": "流量关联"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "数学分析关注结构性质；穷举尝试候选值，物理分析观察实现泄漏。"
+  },
+  {
+    "id": "rkb-cb4557486e9943da517184fed61f1acd",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "在经批准的资产检查中，连接与端口观测能直接给出哪类信息？",
+    "source": {
+      "date": "2017-05",
+      "number": "22",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/cb4557486e9943da517184fed61f1acd",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 85,
+    "options": {
+      "A": "用户口令",
+      "B": "是否可部署木马",
+      "C": "确切的操作系统版本",
+      "D": "当前对监测点开放的端口和服务线索"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "开放情况可直接观察；系统版本和服务归属应另用资产、配置或协议证据核实。"
+  },
+  {
+    "id": "rkb-ba7229ab42e7e0e4d0da319355e238b3",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "为防重复接收旧消息，可验证时间、序号或单次挑战。哪个措施本身不能证明消息为新产生？",
+    "source": {
+      "date": "2017-05",
+      "number": "7",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/ba7229ab42e7e0e4d0da319355e238b3",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 86,
+    "options": {
+      "A": "校验经过认证的时间戳",
+      "B": "核验单次使用的随机挑战",
+      "C": "只给明文补齐长度",
+      "D": "校验受保护且不重复的序号"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "填充只改变数据长度或格式，不提供时效或防重复证据。"
+  },
+  {
+    "id": "rkb-4d4db24542cb00b95a0e5ea0e2a00f4f",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "以下哪一手段主要依赖欺骗用户交出信息，其他几项可直接破坏服务可用性？",
+    "source": {
+      "date": "2017-05",
+      "number": "11",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/4d4db24542cb00b95a0e5ea0e2a00f4f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 87,
+    "options": {
+      "A": "内存越界使服务进程崩溃",
+      "B": "钓鱼",
+      "C": "邮件资源耗尽",
+      "D": "拒绝服务"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "钓鱼的主要机制是欺骗。对可用性的进一步影响取决于之后发生的行为。"
+  },
+  {
+    "id": "rkb-404df47edfd674065605af06e2c03b8c-1",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "在英语网络监测记录中，“connection setup ___”的空格表示一次发起连接的请求。哪一词最贴切？",
+    "source": {
+      "date": "2017-05",
+      "number": "71",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/404df47edfd674065605af06e2c03b8c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 88,
+    "options": {
+      "A": "message（消息）",
+      "B": "information（信息）",
+      "C": "request（请求）",
+      "D": "data（数据）"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "request 特指请求动作，适合连接建立的语境。"
+  },
+  {
+    "id": "rkb-404df47edfd674065605af06e2c03b8c-2",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "英语报告写道“In many ___, heavy traffic also affects legitimate users”，意思是在很多情况下重流量也影响合法用户。应填哪项？",
+    "source": {
+      "date": "2017-05",
+      "number": "72",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/404df47edfd674065605af06e2c03b8c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 89,
+    "options": {
+      "A": "methods",
+      "B": "cases",
+      "C": "hands",
+      "D": "sections"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "in many cases 是表示“在许多情况下”的常见搭配。"
+  },
+  {
+    "id": "rkb-404df47edfd674065605af06e2c03b8c-3",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "英语检测报告需要描述来源字段可能是伪造值。哪一词可以表示“伪造的”？",
+    "source": {
+      "date": "2017-05",
+      "number": "73",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/404df47edfd674065605af06e2c03b8c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 90,
+    "options": {
+      "A": "bad",
+      "B": "real",
+      "C": "fake",
+      "D": "new"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "fake 表示伪造；监测时仅凭报文中的来源字段不足以确认实际来源。"
+  },
+  {
+    "id": "rkb-404df47edfd674065605af06e2c03b8c-4",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "在安全报告中，要用英语指发起恶意行为的一方，而非普通用户或运维者，选择哪个词？",
+    "source": {
+      "date": "2017-05",
+      "number": "74",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/404df47edfd674065605af06e2c03b8c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 91,
+    "options": {
+      "A": "user",
+      "B": "administrator",
+      "C": "editor",
+      "D": "attacker"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "attacker 指发起攻击者。"
+  },
+  {
+    "id": "rkb-404df47edfd674065605af06e2c03b8c-5",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "用英语表达“大量的合法请求”，选择“a large number ___ legitimate requests”中的介词。",
+    "source": {
+      "date": "2017-05",
+      "number": "75",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/404df47edfd674065605af06e2c03b8c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 92,
+    "options": {
+      "A": "or",
+      "B": "of",
+      "C": "in",
+      "D": "to"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "a large number of 与可数复数搭配。"
+  },
+  {
+    "id": "rkb-0399a6a7b85f1929f0c5359a955d109b",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "哪项通常属于安全团队用来发现异常访问的诱捕设施，而不是常见钓鱼载体？",
+    "source": {
+      "date": "2017-05",
+      "number": "15",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/0399a6a7b85f1929f0c5359a955d109b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 93,
+    "options": {
+      "A": "欺骗性社会工程消息",
+      "B": "仿冒购物页面",
+      "C": "伪装成网银登录页",
+      "D": "隔离的蜜罐"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "蜜罐用于观察异常行为。钓鱼常借信任关系及仿冒页面诱导用户。"
+  },
+  {
+    "id": "rkb-8704737fdea42fda9022c9091c209835",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "在核查 IPv4 日志时，哪个字段的标准用途是帮助接收端把同一个数据报的分片归到一起？",
+    "source": {
+      "date": "2016-11",
+      "number": "27",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/8704737fdea42fda9022c9091c209835",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 94,
+    "options": {
+      "A": "生存时间 TTL",
+      "B": "源地址",
+      "C": "版本字段",
+      "D": "标识字段 Identification"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "该字段与其他首部信息一起用于分片重组。监控时可核对其行为是否符合协议预期。"
+  },
+  {
+    "id": "rkb-2c70d5f2989bb5da423145447a6a45f7",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "对网络钓鱼的认识中，哪项错误？",
+    "source": {
+      "date": "2016-11",
+      "number": "57",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/2c70d5f2989bb5da423145447a6a45f7",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 95,
+    "options": {
+      "A": "常包含伪装与诱导",
+      "B": "网页服务绝不可能用于网络钓鱼",
+      "C": "可能通过仿冒网页诱使用户输入资料",
+      "D": "属于常见社会工程活动"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "仿冒网页是典型钓鱼载体之一。"
+  },
+  {
+    "id": "rkb-10d63b866a023793582849d498c5531a",
+    "group": "典型网络威胁与 APT 高级持续性威胁 · 历年真题",
+    "conceptId": "network-threats",
+    "type": "single",
+    "stem": "关于端口探测这类技术的用途，哪项判断成立？",
+    "source": {
+      "date": "2016-11",
+      "number": "62",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/10d63b866a023793582849d498c5531a",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 96,
+    "options": {
+      "A": "只能用于未授权攻击",
+      "B": "只能用于防御",
+      "C": "只能用于检查已确认的漏洞",
+      "D": "可用于经批准的资产检查，也可能被用于未授权侦察"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "行为性质取决于授权和目的。组织可在批准范围内检验自身暴露面。"
+  },
+  {
+    "id": "rkb-a1d3fdf0c75259d53cb52105b6ceb620",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "检测系统若主要分析链路报文，而非某台服务器的文件完整性、进程和系统日志，应归为哪类？",
+    "options": {
+      "A": "网络入侵检测系统",
+      "B": "主机文件完整性监控",
+      "C": "主机审计系统",
+      "D": "网页防篡改软件"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "NIDS 由网络侧观察流量；HIDS 从本机行为中取证。",
+    "source": {
+      "date": "2022-11",
+      "number": "41",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/a1d3fdf0c75259d53cb52105b6ceb620",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 97
+  },
+  {
+    "id": "rkb-8a421b5f2620e31e3b24d9c5765a57a4",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "一个检测器按预置的事件模式与规则匹配告警。该检测属于哪种思路？",
+    "options": {
+      "A": "业务影响分析",
+      "B": "配置恢复",
+      "C": "基于规则的误用检测",
+      "D": "单纯异常基线"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "规则描述已知模式时属于误用检测。",
+    "source": {
+      "date": "2022-11",
+      "number": "40",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/8a421b5f2620e31e3b24d9c5765a57a4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 98
+  },
+  {
+    "id": "rkb-49fce34a527a9072d48a8fb0cff707ec",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "Snort 规则里，哪项通常属于规则选项而不是规则头？",
+    "options": {
+      "A": "动作",
+      "B": "协议",
+      "C": "地址与端口条件",
+      "D": "告警消息文本"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "规则头说明动作和流量条件，消息等信息放在规则选项。",
+    "source": {
+      "date": "2022-11",
+      "number": "43",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/49fce34a527a9072d48a8fb0cff707ec",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 99
+  },
+  {
+    "id": "rkb-3eadebe5d7a889d2cee84890d64504e1",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "在边界防火墙内侧放置 IDS 的典型目的是什么？",
+    "options": {
+      "A": "在防火墙过滤前记录全部外部流量",
+      "B": "不部署边界访问控制",
+      "C": "无需审计任何本地主机",
+      "D": "观察实际通过防火墙的流量"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "内侧布置降低无关外部流量干扰，并监测已通过边界的通信。",
+    "source": {
+      "date": "2022-11",
+      "number": "33",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/3eadebe5d7a889d2cee84890d64504e1",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 100
+  },
+  {
+    "id": "rkb-3cfb87e2a6738ceed703b3d1c108f938",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "下面哪个现象更适合由浏览器或 Web 应用安全检测处理，而非数据库 IDS 直接检测？",
+    "options": {
+      "A": "跨站脚本导致浏览器执行外来内容",
+      "B": "数据库收到可疑查询",
+      "C": "数据库认证连续异常",
+      "D": "数据库操作出现不符合基线的模式"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "XSS 的主要执行环境是浏览器，数据库监测主要关注数据库协议与操作。",
+    "source": {
+      "date": "2022-11",
+      "number": "42",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/3cfb87e2a6738ceed703b3d1c108f938",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 101
+  },
+  {
+    "id": "rkb-1d8d3faec054842fa9e0f4b4f6cdeaa1",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "在 CIDF 入侵检测框架中，哪个组件承担分析已收集事件的职责？",
+    "options": {
+      "A": "事件分析器",
+      "B": "事件产生器",
+      "C": "响应单元",
+      "D": "事件数据库"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "CIDF 区分数据产生、分析、持久化和响应。",
+    "source": {
+      "date": "2022-11",
+      "number": "39",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/1d8d3faec054842fa9e0f4b4f6cdeaa1",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 102
+  },
+  {
+    "id": "rkb-5438ad1212a647e244f0286db527a170",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "NIDS 在网络链路上监听流量，对下列哪种变化最缺乏直接证据？",
+    "options": {
+      "A": "已知明文协议中的异常字段",
+      "B": "完全发生在本机且无网络通信的文件权限变更",
+      "C": "经镜像口传入的异常通信",
+      "D": "网络连接数量突然升高"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "本地状态适合用 HIDS 或主机审计观察。",
+    "source": {
+      "date": "2021-11",
+      "number": "43",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/5438ad1212a647e244f0286db527a170",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 103
+  },
+  {
+    "id": "rkb-2e92611f95de179b33c81999bf30cff5",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "CIDF 中向后续模块提供已观察事件的单元是什么？",
+    "options": {
+      "A": "事件产生器",
+      "B": "事件数据库",
+      "C": "响应单元",
+      "D": "身份认证中心"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "事件产生器负责观察与输出事件。",
+    "source": {
+      "date": "2021-11",
+      "number": "41",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/2e92611f95de179b33c81999bf30cff5",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 104
+  },
+  {
+    "id": "rkb-c078c4b412eec2379235a8d9b8596a23",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "嗅探、数据包记录和网络入侵检测之外，哪一种不是教材中列出的 Snort 模式？",
+    "options": {
+      "A": "公钥证书签发",
+      "B": "嗅探",
+      "C": "数据包记录",
+      "D": "网络入侵检测"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "Snort 的网络观察和检测功能与 CA 无关。",
+    "source": {
+      "date": "2020-11",
+      "number": "44",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/c078c4b412eec2379235a8d9b8596a23",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 105
+  },
+  {
+    "id": "rkb-a830bc78dd13fe5e1a044e677699cf7c",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "和基线异常检测相比，误用检测更直接依赖什么？",
+    "options": {
+      "A": "已经归纳好的行为或流量模式",
+      "B": "完全不需要先验信息",
+      "C": "每个月的系统预算",
+      "D": "密码学公钥证书本身"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "误用检测将观测数据与已知模式匹配。",
+    "source": {
+      "date": "2019-05",
+      "number": "44",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/a830bc78dd13fe5e1a044e677699cf7c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 106
+  },
+  {
+    "id": "rkb-a27bb043215e99401197c35210f28f74",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "以下哪项不属于 Snort 教材常列的三种工作模式？",
+    "options": {
+      "A": "数据包记录",
+      "B": "网络入侵检测",
+      "C": "数据库安全角色配置",
+      "D": "嗅探"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "其三种模式关注流量观察、记录和检测。",
+    "source": {
+      "date": "2019-05",
+      "number": "53",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/a27bb043215e99401197c35210f28f74",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 107
+  },
+  {
+    "id": "rkb-f00d27b680a4871db821687f0c24c267",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "case",
+    "stem": "IDS 发现同一服务出现大量未完成握手的连接。主机资源受到影响，团队希望配置检测和响应。",
+    "prompts": [
+      "IDS 与 IPS 的主要差异是什么？",
+      "列出 P²DR 的组成。",
+      "未完成连接反复积累会造成什么风险？",
+      "已知模式和突然偏离基线分别适合什么检测思路？",
+      "列出教材中的三种 Snort 工作模式。"
+    ],
+    "explanationSupplement": "IDS 监测告警，IPS 可在线阻断；策略、保护、检测、响应；资源耗尽影响可用性；误用识别已知特征、异常检测对应偏离；嗅探、数据包记录和入侵检测。",
+    "source": {
+      "date": "2018-05",
+      "number": "5-9",
+      "url": "https://www.ruankaoba.com/paper/paperId/3e5853345790aec277f0a109fe7b34b3/chiefId/f00d27b680a4871db821687f0c24c267",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 108
+  },
+  {
+    "id": "rkb-5c032518c03b10a7c32d79e08f1fdf53",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "IDS 放在防火墙内侧，最直接能看到哪类流量？",
+    "options": {
+      "A": "被防火墙丢弃的全部公网流量",
+      "B": "所有远端网段的本机操作",
+      "C": "未实际在网络上传输的请求",
+      "D": "已经通过边界策略的流量"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "探针只能看到其观测点可达的网络数据。",
+    "source": {
+      "date": "2016-11",
+      "number": "53",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/5c032518c03b10a7c32d79e08f1fdf53",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 109
+  },
+  {
+    "id": "rkb-9664a0d9b2ad1cfad494d60ede4e86d2",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "如果把系统划分为流量分类检测与后续响应两部分，哪项属于后续响应？",
+    "source": {
+      "date": "2018-05",
+      "number": "44",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/9664a0d9b2ad1cfad494d60ede4e86d2",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 110,
+    "options": {
+      "A": "提取流量特征",
+      "B": "选择输入特征",
+      "C": "运行分类器",
+      "D": "执行策略动作"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "深度流检测侧重从流量特征判断类别，拦截等动作在结论形成后执行。"
+  },
+  {
+    "id": "rkb-5fb7eda392f16042421ac88ed2c3342f",
+    "group": "入侵检测模型、告警指标与部署 · 历年真题",
+    "conceptId": "intrusion-detection",
+    "type": "single",
+    "stem": "深度流检测首先选取与提取特征，之后判断流量类别。以下哪项属于分类结论之后的缓解步骤？",
+    "source": {
+      "date": "2016-11",
+      "number": "46",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/5fb7eda392f16042421ac88ed2c3342f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 111,
+    "options": {
+      "A": "特征选择",
+      "B": "特征提取",
+      "C": "流量分类",
+      "D": "执行响应策略"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "分类为阻断或告警提供依据，响应动作由其后的执行控制落实。"
+  },
+  {
+    "id": "sec-extra-intrusion-detection",
+    "type": "single",
+    "stem": "网络探针只看到 TLS 流量元数据，想检测解密后应用的异常文件修改，应增加哪种观测？",
+    "options": {
+      "A": "主机或应用日志",
+      "B": "更换 DNS 缓存名称",
+      "C": "关闭身份验证",
+      "D": "重复镜像同一加密链路"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "主机侧能观察进程、日志和文件事件。",
+    "group": "入侵检测模型、告警指标与部署",
+    "conceptId": "intrusion-detection",
+    "number": 112
+  },
+  {
+    "id": "rkb-e0989c1ebae0f131d7e5043bdf269ced",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "case",
+    "stem": "递归解析日志连续出现长子域名请求与异常失败。管理员需要定位源程序并恢复正常解析。",
+    "prompts": [
+      "如何从响应码与域名判断解析状态？",
+      "怎样把流量归属到终端程序？",
+      "如何区分解析故障、异常信标和正常业务？",
+      "怎样限制相关终端和 DNS 访问范围？",
+      "为什么应监测超长、高频或格式异常的 DNS 请求？"
+    ],
+    "explanationSupplement": "比较响应码、权威结果和正常基线；关联进程、DNS 日志及终端监测；以行为证据判断；受影响终端隔离并约束解析出口；长标签和异常频率适于异常检测。",
+    "source": {
+      "date": "2021-11",
+      "number": "3-6",
+      "url": "https://www.ruankaoba.com/paper/paperId/627f92f9dc0fe2c33fadaa4b97a522d9/chiefId/e0989c1ebae0f131d7e5043bdf269ced",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "观察点",
+        "告警"
+      ],
+      "rows": [
+        [
+          "递归解析器",
+          "出现高频长子域名请求"
+        ],
+        [
+          "终端",
+          "待定位发送进程"
+        ],
+        [
+          "边界",
+          "计划限制解析出口与受影响终端"
+        ]
+      ]
+    },
+    "number": 113
+  },
+  {
+    "id": "rkb-93255e0e7c379e3b1aa46012997bfd76",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "single",
+    "stem": "按 RFC 1918，以下哪段地址不属于私有 IPv4 范围？",
+    "options": {
+      "A": "172.32.0.0/16",
+      "B": "10.0.0.0/8",
+      "C": "172.16.0.0/12",
+      "D": "192.168.0.0/16"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "172.16/12 只覆盖第二字节为 16 至 31 的地址。",
+    "source": {
+      "date": "2019-05",
+      "number": "12",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/93255e0e7c379e3b1aa46012997bfd76",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 114
+  },
+  {
+    "id": "rkb-0c48099f0f86b1c2144c0243f2bd1d6f",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "single",
+    "stem": "以下哪个地址位于 RFC 1918 的私有范围？",
+    "options": {
+      "A": "192.169.0.1",
+      "B": "10.20.5.6",
+      "C": "11.20.5.6",
+      "D": "172.32.0.1"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "10.0.0.0/8 属于 RFC 1918 私网段。",
+    "source": {
+      "date": "2018-05",
+      "number": "42",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/0c48099f0f86b1c2144c0243f2bd1d6f",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 115
+  },
+  {
+    "id": "rkb-00777de94d7fd22f462e15a24694d581",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "single",
+    "stem": "HTTPS 网页的通信由哪一类机制保护？",
+    "options": {
+      "A": "IP 地址改写",
+      "B": "无密钥的 URL 转码",
+      "C": "TLS 安全通道",
+      "D": "仅使用普通 HTTP 的缓存控制"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "HTTPS 将 HTTP 流量放在经验证的 TLS 通道中。",
+    "source": {
+      "date": "2017-05",
+      "number": "13",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/00777de94d7fd22f462e15a24694d581",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 116
+  },
+  {
+    "id": "rkb-679e16ad5aee85164dd810d7aa679a6a",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "single",
+    "stem": "在 OSI 模型，按帧处理并使用 MAC 地址的通信职责属于哪一层？",
+    "options": {
+      "A": "表示层",
+      "B": "数据链路层",
+      "C": "应用层",
+      "D": "运输层"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "以太网帧和 MAC 寻址是数据链路层的典型内容。",
+    "source": {
+      "date": "2016-11",
+      "number": "45",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/679e16ad5aee85164dd810d7aa679a6a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 117
+  },
+  {
+    "id": "rkb-08bb8cd224cbb8d01d1f7dac41e5e0f2",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "single",
+    "stem": "在给定地址中哪一项属于 RFC 1918 私网？",
+    "options": {
+      "A": "172.32.0.1",
+      "B": "11.0.0.1",
+      "C": "192.168.21.5",
+      "D": "192.169.21.5"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "192.168.0.0/16 是三段私有地址之一。",
+    "source": {
+      "date": "2016-11",
+      "number": "42",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/08bb8cd224cbb8d01d1f7dac41e5e0f2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 118
+  },
+  {
+    "id": "rkb-e76a5159eb4fc0da865c2190aade93c1",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "single",
+    "stem": "下列无线技术中，哪项是通用低功耗组网方案，而其他几项主要面向工业过程通信？",
+    "source": {
+      "date": "2020-11",
+      "number": "37",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/e76a5159eb4fc0da865c2190aade93c1",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 119,
+    "options": {
+      "A": "ISA100.11a",
+      "B": "WIA-PA",
+      "C": "Zigbee",
+      "D": "WirelessHART"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "Zigbee 可用于多种低功耗设备互联；其余选项是典型工业无线技术。"
+  },
+  {
+    "id": "rkb-3d0f3939df7a97ccbd816aeb1a590677",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "single",
+    "stem": "关于无线传感器网络，哪项一概否定了一类常用密码技术？",
+    "source": {
+      "date": "2019-05",
+      "number": "37",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/3d0f3939df7a97ccbd816aeb1a590677",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 120,
+    "options": {
+      "A": "合适的频率切换可减轻部分干扰",
+      "B": "链路会受到资源耗尽影响",
+      "C": "任何分组密码都不适合无线传感器网络",
+      "D": "路由层需考虑异常转发路径"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "这是过度概括。适合资源受限设备的分组密码可用于相应链路或应用保护。"
+  },
+  {
+    "id": "rkb-3c695eaff4324fe54a779864922b4e82",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "single",
+    "stem": "哪一现象最直接针对无线终端身份，而不是仅针对无线链路中已有数据？",
+    "source": {
+      "date": "2018-05",
+      "number": "51",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/3c695eaff4324fe54a779864922b4e82",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 121,
+    "options": {
+      "A": "在无线接口上被动观察通信",
+      "B": "重新提交一条旧报文",
+      "C": "发现一台设备的标识被另一台设备冒用",
+      "D": "对收到的报文进行记录"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "克隆设备身份属于针对设备的威胁，需保护设备凭据并核验身份唯一性。"
+  },
+  {
+    "id": "rkb-88186d46cf32c5b81d585c714776cafd",
+    "group": "网络体系、协议与无线防护 · 历年真题",
+    "conceptId": "network-protocol-basics",
+    "type": "single",
+    "stem": "为低功耗多跳传感网选择防护策略，哪项在大规模部署中最容易形成单点与过高的观测假设？",
+    "source": {
+      "date": "2017-05",
+      "number": "57",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/88186d46cf32c5b81d585c714776cafd",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 122,
+    "options": {
+      "A": "对干扰采用适配的信道调整",
+      "B": "用独立路径交叉验证异常",
+      "C": "由一个中心节点直接观察并判定所有节点行为",
+      "D": "采用具备安全性和容错性的时间同步"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "多跳网络中的覆盖、资源及信任分布使单点全面观测不可靠。"
+  },
+  {
+    "id": "sec-extra-network-protocol-basics",
+    "type": "single",
+    "stem": "调用端能正常建立 TCP 连接，但同一域名无法解析。优先检查哪个应用协议的证据？",
+    "options": {
+      "A": "IPsec AH",
+      "B": "DNS",
+      "C": "SSH",
+      "D": "SMTP"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "DNS 服务负责域名解析，应查看客户端、递归解析器及权威记录。",
+    "group": "网络体系、协议与无线防护",
+    "conceptId": "network-protocol-basics",
+    "number": 123
   }
 ]

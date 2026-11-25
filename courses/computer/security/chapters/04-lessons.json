@@ -6,7 +6,7 @@
       "id": "attack-taxonomy",
       "title": "主动威胁与被动威胁的分类",
       "summary": "从是否改动系统数据或干扰正常通信，准确区分被动窃听/流量分析与主动篡改/伪造/重放/拒绝服务。",
-      "bodyHtml": "<p>按照是否对传输数据或系统正常运行状态产生实质修改与干扰，网络威胁可分为<strong>被动威胁</strong>与<strong>主动威胁</strong>两大类：</p><table><thead><tr><th>类型</th><th>核心特征</th><th>典型手段</th><th>防御重点</th></tr></thead><tbody><tr><td><strong>被动威胁</strong></td><td>只窥探、收集信息，<strong>不修改</strong>数据、不破坏系统，隐蔽性极强、<strong>难以检测</strong></td><td><strong>消息内容窃听（嗅探）</strong>、<strong>流量分析</strong>（统计通信频次、报文长度与收发双方）</td><td>重在<strong>预防</strong>（端到端加密防窃听、链路加密防流量分析）</td></tr><tr><td><strong>主动威胁</strong></td><td>对数据流进行<strong>修改、伪造、重放或阻断</strong>，破坏完整性或可用性</td><td><strong>假冒（伪造身份）</strong>、<strong>重放</strong>、<strong>消息篡改</strong>、<strong>拒绝服务（DoS/DDoS）</strong></td><td>难以完全杜绝，重在<strong>检测与快速恢复</strong>（数字签名、时间戳、IPS、高防清洗）</td></tr></tbody></table>",
+      "bodyHtml": "<p>按照是否对传输数据或系统正常运行状态产生实质修改与干扰，网络威胁可分为<strong>被动威胁</strong>与<strong>主动威胁</strong>两大类：</p><table><thead><tr><th>类型</th><th>核心特征</th><th>典型手段</th><th>防御重点</th></tr></thead><tbody><tr><td><strong>被动威胁</strong></td><td>只窥探、收集信息，<strong>不修改</strong>数据、不破坏系统，隐蔽性极强、<strong>难以检测</strong></td><td><strong>消息内容窃听（嗅探）</strong>、<strong>流量分析</strong>（统计通信频次、报文长度与收发双方）</td><td>重在<strong>预防</strong>（端到端加密防窃听、链路加密防流量分析）</td></tr><tr><td><strong>主动威胁</strong></td><td>对数据流进行<strong>修改、伪造、重放或阻断</strong>，破坏完整性或可用性</td><td><strong>假冒（伪造身份）</strong>、<strong>重放</strong>、<strong>消息篡改</strong>、<strong>拒绝服务（DoS/DDoS）</strong></td><td>难以完全杜绝，重在<strong>检测与快速恢复</strong>（数字签名、时间戳、IPS、高防清洗）</td></tr></tbody></table><p>对抗模型用于把事件划分为可防守的阶段。教材中的攻击树、攻击链和其他框架着重不同：攻击树分解目标与条件，攻击链帮助选择分阶段检测与阻断点。扫描、窃听、凭据滥用、会话异常与后门驻留可分别从暴露面、日志与访问时间线识别。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ad58953276d6439cb4397f687ac9ae79/sectionId/9fece3f5a1634cc094ba9bfa3fcc4854\">2.1.1 网络攻击概念</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ad58953276d6439cb4397f687ac9ae79/sectionId/3cdd56a9ce9b48d78cdca9b204d54287\">2.1.2 网络攻击模型</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ad58953276d6439cb4397f687ac9ae79/sectionId/dbb128d63daf4543a8852e0d537b7064\">2.1.3 网络攻击发展</a></p>",
       "keyTakeaway": "只看不改＝被动（窃听、流量分析，防靠加密）；动手改/伪/重放/打瘫＝主动（防靠检测、签名与冗余）。",
       "pitfall": "「流量分析」虽然听起来像主动分析行为，但在信息安全分类中严格属于<strong>被动威胁</strong>，因为它并未向网络注入或修改任何数据包。",
       "example": "在共享局域网中运行抓包工具静默监听未加密 HTTP 流量属于被动窃听；拦截报文后修改转账目标账号再发出去则属于主动篡改。"
@@ -15,7 +15,7 @@
       "id": "malware-types",
       "title": "恶意代码分类与勒索软件防范",
       "summary": "精准辨析病毒、宏病毒、蠕虫、特洛伊木马、后门、逻辑炸弹与勒索软件的传播及触发特征。",
-      "bodyHtml": "<p>恶意代码指违背系统安全策略、造成信息泄露或破坏的程序代码，考试中极常考查各类恶意代码的本质区别：</p><table><thead><tr><th>恶意代码类型</th><th>是否依赖宿主</th><th>核心特征与经典案例</th></tr></thead><tbody><tr><td><strong>计算机病毒</strong></td><td><strong>需要宿主</strong></td><td>寄生在正常可执行文件或文档中，随宿主运行被激活并自我复制传染。<strong>宏病毒</strong>（如 <code>Macro.Melissa</code>）专门寄生在 Word/Excel 等办公文档的宏脚本中，跨平台传播快。</td></tr><tr><td><strong>网络蠕虫（Worm）</strong></td><td><strong>独立运行</strong></td><td>无需寄生在宿主文件、无需人工干预，利用系统网络漏洞自动扫描并在网络中高速自我复制扩散（如震网、WannaCry 蠕虫模块）。</td></tr><tr><td><strong>特洛伊木马（Trojan）</strong></td><td>伪装正常程序</td><td>不以自我复制为主要特征，伪装成正常工具诱骗运行后在后台建立远控通道；现代木马常采用<mark>反向连接</mark>（由内网受控机主动向外连控制端）以绕过防火墙入站拦截。</td></tr><tr><td><strong>后门与逻辑炸弹</strong></td><td>潜伏在系统中</td><td><strong>后门（Backdoor）</strong>绕过正常认证留作隐蔽入口；<strong>逻辑炸弹</strong>在满足特定日期、账号删除等预设条件时才触发破坏。</td></tr><tr><td><strong>勒索软件</strong></td><td>独立或结合蠕虫</td><td>加密受害主机重要文件并勒索赎金。例如 <strong>WannaCry</strong> 利用 Windows SMB（445 端口）「永恒之蓝」漏洞扩散，防范关键在于<strong>及时打补丁、关闭不必要的 445 端口、定期离线异地备份</strong>。</td></tr></tbody></table>",
+      "bodyHtml": "<p>恶意代码指违背系统安全策略、造成信息泄露或破坏的程序代码，考试中极常考查各类恶意代码的本质区别：</p><table><thead><tr><th>恶意代码类型</th><th>是否依赖宿主</th><th>核心特征与经典案例</th></tr></thead><tbody><tr><td><strong>计算机病毒</strong></td><td><strong>需要宿主</strong></td><td>寄生在正常可执行文件或文档中，随宿主运行被激活并自我复制传染。<strong>宏病毒</strong>（如 <code>Macro.Melissa</code>）专门寄生在 Word/Excel 等办公文档的宏脚本中，跨平台传播快。</td></tr><tr><td><strong>网络蠕虫（Worm）</strong></td><td><strong>独立运行</strong></td><td>无需寄生在宿主文件、无需人工干预，利用系统网络漏洞自动扫描并在网络中高速自我复制扩散（如震网、WannaCry 蠕虫模块）。</td></tr><tr><td><strong>特洛伊木马（Trojan）</strong></td><td>伪装正常程序</td><td>不以自我复制为主要特征，伪装成正常工具诱骗运行后在后台建立远控通道；现代木马常采用<mark>反向连接</mark>（由内网受控机主动向外连控制端）以绕过防火墙入站拦截。</td></tr><tr><td><strong>后门与逻辑炸弹</strong></td><td>潜伏在系统中</td><td><strong>后门（Backdoor）</strong>绕过正常认证留作隐蔽入口；<strong>逻辑炸弹</strong>在满足特定日期、账号删除等预设条件时才触发破坏。</td></tr><tr><td><strong>勒索软件</strong></td><td>独立或结合蠕虫</td><td>加密受害主机重要文件并勒索赎金。例如 <strong>WannaCry</strong> 利用 Windows SMB（445 端口）「永恒之蓝」漏洞扩散，防范关键在于<strong>及时打补丁、关闭不必要的 445 端口、定期离线异地备份</strong>。</td></tr></tbody></table><p>病毒依赖宿主，蠕虫可自行传播，木马以表面功能掩饰真实意图，僵尸网络由受控节点及控制机制构成。分析可用哈希与签名比对、静态结构检查、隔离环境行为观察和日志关联。防护结合应用准入、最小权限、更新、监测和可恢复备份。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/d80b6ccf0596461eb4f292f82e4db98d/sectionId/01de7895505441e4ac9034f5ee292de9\">14.1.1 恶意代码定义与分类</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/d80b6ccf0596461eb4f292f82e4db98d/sectionId/7b5b57ee40ec4cbf9ba96c3918889387\">14.2.3 计算病毒常见类型与技术</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/d80b6ccf0596461eb4f292f82e4db98d/sectionId/53cf147caa15437cbf19af4d05cfe88e\">14.2.5 计算机病毒防护方案</a></p>",
       "keyTakeaway": "病毒靠宿主、蠕虫靠漏洞自传播、木马靠伪装（常反向连接绕防火墙）、逻辑炸弹靠条件触发、勒索病毒防靠补丁+关高危端口+离线备份。",
       "pitfall": "杀毒软件（防病毒系统）主要针对恶意代码查杀，<strong>无法有效抵御</strong>来自海量外部肉鸡的分布式拒绝服务（DDoS）流量洪泛。",
       "example": "某主机感染木马后，防火墙虽禁止外网主动访问内网，但木马进程主动向外部服务器 443 端口发起出站 TCP 连接（反向连接），从而成功建立控制通道。"
@@ -24,7 +24,7 @@
       "id": "network-threats",
       "title": "典型网络威胁与 APT 高级持续性威胁",
       "summary": "掌握 SYN Flood、ARP/IP 欺骗、端口扫描、网络风暴及 APT 的核心机制与缓解措施。",
-      "bodyHtml": "<ul><li><strong>拒绝服务与 TCP SYN Flood</strong>：DoS/DDoS 通过海量无效请求耗尽目标带宽或计算资源（破坏可用性）。<strong>SYN Flood</strong> 利用 TCP 三次握手缺陷：伪造源 IP 发送大量 <code>SYN</code> 包，服务器回复 <code>SYN+ACK</code> 后迟迟收不到第三次 <code>ACK</code>，导致<strong>半连接队列被占满</strong>而拒绝正常用户连接。</li><li><strong>ARP 欺骗与 IP 欺骗</strong>：ARP 协议缺乏认证机制，恶意主机在局域网发送伪造 ARP 应答包，将网关 IP 映射到自己 MAC 地址，实现中间人窃听或断网；IP 欺骗则伪造数据包源 IP 地址冒充受信任主机。</li><li><strong>网络嗅探与端口扫描</strong>：嗅探器将网卡设为<strong>混杂模式</strong>监听局域网明文流量；端口扫描（如 Nmap）探测目标开放端口与运行服务，是入侵前信息搜集的常见步骤，因此服务器应遵守<strong>最小服务原则</strong>关闭所有非必要端口。</li><li><strong>广播/网络风暴防范</strong>：局域网环路或异常广播泛洪会耗尽交换机带宽，划分 <mark>VLAN</mark> 隔离广播域并结合 <mark>ACL</mark>（访问控制列表）和生成树协议（STP）可有效遏制。</li><li><strong>APT（高级持续性威胁）</strong>：针对特定高价值目标（政府、金融、能源）发起的<strong>长期潜伏、多阶段渗透、高度隐蔽、定制化工具</strong>的定向威胁，传统基于特征库的单点防御难以发现。</li></ul>",
+      "bodyHtml": "<ul><li><strong>拒绝服务与 TCP SYN Flood</strong>：DoS/DDoS 通过海量无效请求耗尽目标带宽或计算资源（破坏可用性）。<strong>SYN Flood</strong> 利用 TCP 三次握手缺陷：伪造源 IP 发送大量 <code>SYN</code> 包，服务器回复 <code>SYN+ACK</code> 后迟迟收不到第三次 <code>ACK</code>，导致<strong>半连接队列被占满</strong>而拒绝正常用户连接。</li><li><strong>ARP 欺骗与 IP 欺骗</strong>：ARP 协议缺乏认证机制，恶意主机在局域网发送伪造 ARP 应答包，将网关 IP 映射到自己 MAC 地址，实现中间人窃听或断网；IP 欺骗则伪造数据包源 IP 地址冒充受信任主机。</li><li><strong>网络嗅探与端口扫描</strong>：嗅探器将网卡设为<strong>混杂模式</strong>监听局域网明文流量；端口扫描（如 Nmap）探测目标开放端口与运行服务，是入侵前信息搜集的常见步骤，因此服务器应遵守<strong>最小服务原则</strong>关闭所有非必要端口。</li><li><strong>广播/网络风暴防范</strong>：局域网环路或异常广播泛洪会耗尽交换机带宽，划分 <mark>VLAN</mark> 隔离广播域并结合 <mark>ACL</mark>（访问控制列表）和生成树协议（STP）可有效遏制。</li><li><strong>APT（高级持续性威胁）</strong>：针对特定高价值目标（政府、金融、能源）发起的<strong>长期潜伏、多阶段渗透、高度隐蔽、定制化工具</strong>的定向威胁，传统基于特征库的单点防御难以发现。</li></ul><p>分布式拒绝服务可针对带宽、协议状态或应用资源，防护应对应限速、容量与连接控制、上游流量清洗及应用层资源约束。会话防窃取依赖加密传输、受保护的会话标识、失效与重认证；网络钓鱼防护结合域名和身份核验、反钓鱼认证及明确的上报流程。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ad58953276d6439cb4397f687ac9ae79/sectionId/e18b71342cc5482d9728c2c6bcf73837\">2.3 网络攻击常见技术方法</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ad58953276d6439cb4397f687ac9ae79/sectionId/b126b5b5eb5841d8aa593abfc68b47a6\">2.3.1 端口扫描</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ad58953276d6439cb4397f687ac9ae79/sectionId/1053e36bfca94c35b06944b8084c5117\">2.3.5 拒绝服务</a></p>",
       "keyTakeaway": "SYN Flood 占满 TCP 半连接队列；ARP 欺骗在局域网伪造 IP-MAC 映射；APT 关键词是「定向、长期潜伏、高度隐蔽」。",
       "pitfall": "ICMP 协议（如 ping、traceroute）属于网络层诊断协议，本身不提供加密或认证，反而可能被用于 Ping Flood 或隐蔽隧道，因此不属于安全协议。",
       "example": "企业内网按研发、财务、办公部门划分独立 VLAN，即便某一部门终端中毒发出广播风暴，也不会波及其他部门的核心业务。"
@@ -37,6 +37,24 @@
       "keyTakeaway": "IDS 旁路只告警、IPS 串联能阻断；漏扫靠自动化广覆盖、渗透靠人工深验证；蜜罐是主动诱捕防御。",
       "pitfall": "不要把漏洞扫描等同于渗透测试——漏洞扫描只报告「可能存在哪些已知漏洞」，并不真正串连利用并验证业务危害。",
       "example": "运维人员访问核心数据库时，必须先登录堡垒主机完成双因素认证，再由堡垒主机代理连接目标服务器，所有执行的命令均被完整审计留存。"
+    },
+    {
+      "id": "intrusion-detection",
+      "title": "入侵检测模型、告警指标与部署",
+      "summary": "区分误用与异常检测，比较 HIDS、NIDS 及串联 IPS。",
+      "bodyHtml": "<p>入侵检测可以抽象为采集数据、分析事件、形成告警和响应。误用检测比对已知特征，异常检测识别与基线偏离的行为。按数据源分，HIDS 使用主机日志、文件或进程事件，NIDS 使用网络流量；IPS 在合适的链路上可对符合策略的流量实施阻断。</p><table><thead><tr><th>现象</th><th>判定</th></tr></thead><tbody><tr><td>正常流量被告警</td><td>误报</td></tr><tr><td>真实攻击未告警</td><td>漏报</td></tr><tr><td>合法流量被串联设备误拦</td><td>误报引起的业务影响</td></tr></tbody></table><p>Snort 教材常以嗅探、数据包记录、网络入侵检测三种工作模式考查。部署时还应评估镜像点覆盖、加密后的可见性、时间关联和告警处置责任。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ff6fe0850d8f4d31b97c322e40f2f065/sectionId/1923bde7e16b47cd96bec448b5fd5b1e\">10.1.1 入侵检测概念</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ff6fe0850d8f4d31b97c322e40f2f065/sectionId/fff2929106734f94bba3647272621d5a\">10.1.2 入侵检测模型</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ff6fe0850d8f4d31b97c322e40f2f065/sectionId/a656e5fac8bc4d6da0089f40a2ca7866\">10.2.1 基于误用的入侵检测技术</a></p>",
+      "keyTakeaway": "误用看已知特征，异常看基线偏离；IDS 重监测，IPS 可阻断。",
+      "example": "网络探针只看到加密会话的元数据，主机日志可补足解密后应用的安全事件。",
+      "pitfall": "高告警数量不等于高检测质量。要结合误报、漏报与影响范围验证。"
+    },
+    {
+      "id": "network-protocol-basics",
+      "title": "网络体系、协议与无线防护",
+      "summary": "用协议层次、常见端口和无线安全机制解读题目中的网络线索。",
+      "bodyHtml": "<p>网络层关注 IP 寻址与路由，运输层关注 TCP/UDP，应用层包含 DNS、HTTP、邮件等应用协议。典型端口包括 SSH 22、DNS 53、HTTP 80、HTTPS 443，端口号是识别线索，服务也可使用其他端口。ARP 完成局域网地址解析，ICMP 用于报告网络层错误和诊断。</p><p>无线安全同时涉及接入身份和链路保护。历史题会出现 WEP、WPA/WPA2、WAPI；部署需按适用标准选用安全模式、强凭据或企业认证，监控异常无线接入点。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/865c9d3ced0c432fb78d8f5e234c8ba9/sectionId/2c53b3252ea846309c0fd44295cd9fb6\">15.9.2 域名服务安全保障</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ad58953276d6439cb4397f687ac9ae79/sectionId/65f764d2f02048e48f0492c3c7cb7b81\">2.6.1 网络体系结构</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/ad58953276d6439cb4397f687ac9ae79/sectionId/fcbf6a5321af4332b6343ce8b0aaa558\">2.6.2 Internet协议</a></p>",
+      "keyTakeaway": "先识别协议职责，再把风险映射到认证、分区或流量监测。",
+      "example": "频繁解析失败时，先分别核对客户端配置、递归解析器和权威 DNS 记录。",
+      "pitfall": "端口、协议与部署用途并非固定一一对应。"
     }
   ],
   "mindmap": [
@@ -44,37 +62,112 @@
       "label": "威胁分类",
       "target": "attack-taxonomy",
       "children": [
-        { "label": "被动：窃听与流量分析", "target": "attack-taxonomy" },
-        { "label": "主动：篡改/伪造/重放/DoS", "target": "attack-taxonomy" }
+        {
+          "label": "被动：窃听与流量分析",
+          "target": "attack-taxonomy"
+        },
+        {
+          "label": "主动：篡改/伪造/重放/DoS",
+          "target": "attack-taxonomy"
+        }
       ]
     },
     {
       "label": "恶意代码辨析",
       "target": "malware-types",
       "children": [
-        { "label": "病毒与宏病毒（需宿主）", "target": "malware-types" },
-        { "label": "蠕虫（独立漏洞自传播）", "target": "malware-types" },
-        { "label": "木马（伪装与反向连接）", "target": "malware-types" },
-        { "label": "后门 / 逻辑炸弹 / 勒索软件", "target": "malware-types" }
+        {
+          "label": "病毒与宏病毒（需宿主）",
+          "target": "malware-types"
+        },
+        {
+          "label": "蠕虫（独立漏洞自传播）",
+          "target": "malware-types"
+        },
+        {
+          "label": "木马（伪装与反向连接）",
+          "target": "malware-types"
+        },
+        {
+          "label": "后门 / 逻辑炸弹 / 勒索软件",
+          "target": "malware-types"
+        }
       ]
     },
     {
       "label": "典型网络威胁",
       "target": "network-threats",
       "children": [
-        { "label": "SYN Flood 与 DDoS", "target": "network-threats" },
-        { "label": "ARP 欺骗与 IP 欺骗", "target": "network-threats" },
-        { "label": "端口扫描 / VLAN+ACL 防风暴", "target": "network-threats" },
-        { "label": "APT 高级持续性威胁", "target": "network-threats" }
+        {
+          "label": "SYN Flood 与 DDoS",
+          "target": "network-threats"
+        },
+        {
+          "label": "ARP 欺骗与 IP 欺骗",
+          "target": "network-threats"
+        },
+        {
+          "label": "端口扫描 / VLAN+ACL 防风暴",
+          "target": "network-threats"
+        },
+        {
+          "label": "APT 高级持续性威胁",
+          "target": "network-threats"
+        }
       ]
     },
     {
       "label": "检测与主动防御",
       "target": "active-defense",
       "children": [
-        { "label": "IDS（旁路告警）vs IPS（串联阻断）", "target": "active-defense" },
-        { "label": "漏洞扫描 vs 渗透测试", "target": "active-defense" },
-        { "label": "蜜罐主动防御与堡垒主机", "target": "active-defense" }
+        {
+          "label": "IDS（旁路告警）vs IPS（串联阻断）",
+          "target": "active-defense"
+        },
+        {
+          "label": "漏洞扫描 vs 渗透测试",
+          "target": "active-defense"
+        },
+        {
+          "label": "蜜罐主动防御与堡垒主机",
+          "target": "active-defense"
+        }
+      ]
+    },
+    {
+      "label": "入侵检测模型、告警指标与部署",
+      "target": "intrusion-detection",
+      "children": [
+        {
+          "label": "误用与异常",
+          "target": "intrusion-detection"
+        },
+        {
+          "label": "HIDS/NIDS/IPS",
+          "target": "intrusion-detection"
+        },
+        {
+          "label": "Snort 与指标",
+          "target": "intrusion-detection"
+        }
+      ]
+    },
+    {
+      "label": "网络体系、协议与无线防护",
+      "target": "network-protocol-basics",
+      "children": [
+        {
+          "label": "网络分层",
+          "target": "network-protocol-basics"
+        },
+        {
+          "label": "主流协议",
+          "target": "network-protocol-basics"
+        },
+        {
+          "label": "无线接入安全",
+          "target": "network-protocol-basics"
+        }
       ]
     }
   ]

@@ -8,7 +8,7 @@
 - **`/finance/`（金融基础）**：8 章完整内容（含 10 张交互/静态图解）
 - **`/insurance/`（保险基础）**：6 章完整内容（含 10 张交互/静态图解）
 - **`/computer/`（计算机科学）**：
-  - `/computer/security/`（信息与网络安全，目录框架已就绪）
+  - `/computer/security/`（信息与网络安全，9 章，含历年真题与案例练习）
   - `/computer/database/`（数据库原理与实践，目录框架已就绪）
   - `/computer/network/`（计算机网络，目录框架已就绪）
 

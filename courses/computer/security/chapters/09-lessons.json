@@ -1,0 +1,143 @@
+{
+  "title": "数据库与行业安全工程",
+  "subtitle": "把最小权限、纵深防御和数据生命周期应用于数据库、云计算、工业控制、移动应用和大数据。",
+  "sections": [
+    {
+      "id": "database-security",
+      "title": "数据库安全机制、审计与备份",
+      "summary": "从数据库风险识别权限、加密、审计和恢复控制。",
+      "bodyHtml": "<p>数据库典型威胁包括越权查询、凭据泄露、业务注入、篡改、日志缺失和不可恢复。身份验证、库表及行列权限、视图、参数化查询、网络隔离、传输与存储加密分别针对不同风险。数据库防火墙提供访问监测或阻断；数据库审计为访问、变更和数据外发提供证据。</p><p>逻辑备份与物理备份恢复特点不同，事务日志可支持符合条件的时间点恢复。Oracle、SQL Server、MySQL 的产品配置不同，均需分离账号职责、避免默认凭据、限制来源和高权限、验证更新及恢复。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/42f13c0af7fb4723bf59e8a3fe99fdc3/sectionId/866fb3b57a494de8b00fd5885cbc2e38\">20.1.2 数据库安全威胁</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/42f13c0af7fb4723bf59e8a3fe99fdc3/sectionId/44e59e6bac2e4bc9bbdaa25374ca2065\">20.1.3 数据库安全隐患</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/42f13c0af7fb4723bf59e8a3fe99fdc3/sectionId/e3537819641148c38d7d4bd40ebda8f7\">20.1.4 数据库安全需求</a></p>",
+      "keyTakeaway": "数据库安全要同时覆盖访问路径、敏感字段、操作证据和恢复能力。",
+      "example": "订单系统账号仅拥有所需库表的最小权限，敏感表访问写入独立审计，定期执行恢复演练。",
+      "pitfall": "加密备份不能代替权限控制，备份成功记录也不能证明可以恢复。"
+    },
+    {
+      "id": "data-security",
+      "title": "数据分级、脱敏与大数据安全",
+      "summary": "覆盖采集、传输、存储、处理、共享、删除各环节。",
+      "bodyHtml": "<p>大数据系统常用数据规模、速度、多样性、价值等维度描述。分布式架构带来多副本、跨节点权限、数据来源与流向难以跟踪等风险。数据按用途、敏感等级和影响分类，配套血缘、访问控制、传输保护、审计及删除流程。</p><table><thead><tr><th>手段</th><th>适用场景</th></tr></thead><tbody><tr><td>静态脱敏</td><td>把脱敏后的副本用于测试、培训或分析</td></tr><tr><td>动态脱敏</td><td>按身份和用途限制查询结果中的字段</td></tr><tr><td>令牌化</td><td>用关联令牌代替敏感值，映射单独受控</td></tr><tr><td>加密</td><td>通过密钥限制读取或校验特定环境中的数据</td></tr></tbody></table><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/42f13c0af7fb4723bf59e8a3fe99fdc3/sectionId/be15a1ad5f9c4c8c946fff474ee09285\">20.2.4 数据库脱敏</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/bcc4a4f4789047b0b3a3b86f3371e3bc/sectionId/3ca2088423694661a5d293b8eb724f72\">26.1.2 大数据安全威胁分析</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/bcc4a4f4789047b0b3a3b86f3371e3bc/sectionId/525e3d4c1ffd4924b312b6a0a3574ed8\">26.1.1 大数据相关概念发展</a></p>",
+      "keyTakeaway": "先确定数据处理目的和风险，再选最小可见范围与保护措施。",
+      "example": "测试库导入经批准的脱敏副本，并验证字段分布和重识别风险。",
+      "pitfall": "权限限制、脱敏和加密服务不同，跨数据集合并后要再次评估敏感性。"
+    },
+    {
+      "id": "cloud-security",
+      "title": "云计算安全、租户隔离与等保扩展",
+      "summary": "按服务形态判断责任边界，理解云平台与租户侧的控制。",
+      "bodyHtml": "<p>IaaS、PaaS、SaaS 的控制责任随产品层级调整，至少明确身份、网络、数据、应用和基础设施由谁操作与验证。云等保场景应区分云平台及云上租户业务，考虑虚拟网络隔离、镜像、快照、平台管理面和相关审计留痕。</p><p>实例角色采用短期凭据与最小权限。对象存储、快照和备份按敏感度限制共享并加密，监控权限变更和跨账户访问。多租户隔离既包括数据，也包括计算、网络和配额。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/25e0bcdb163f4c6d99c4f7809116f593/sectionId/095e41e779a84eb98189be50c3550456\">23.3.1 云计算安全等级保护框架</a></p>",
+      "keyTakeaway": "按责任矩阵核验各层；云平台能力需要租户正确配置才能提供保护。",
+      "example": "云平台维护宿主机，IaaS 租户负责来宾系统更新、网络策略和应用端权限。",
+      "pitfall": "迁移上云后仍需明确每一项安全控制的负责人和证据。"
+    },
+    {
+      "id": "industrial-security",
+      "title": "工业控制系统的分区与安全保护",
+      "summary": "理解现场实时性、连续生产和人身设备安全对控制措施的影响。",
+      "bodyHtml": "<p>工控系统包括现场传感与执行、控制、监控和管理等层面。未授权命令、远程维护风险、陈旧设备和跨区网络连接可能影响物理过程。按业务功能划分安全区域，受控通道承载必要连接，远程维护采用授权、限时、审计和应急关闭。</p><p>工业控制防护优先确保人员设备与生产过程安全；升级前评估兼容性并安排窗口，必要时经审批采用补偿控制。资产清单、配置基线、网络监测与恢复演练构成基本保护。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/0ebcd12cd1eb439cb712cd538998a8f1/sectionId/a344604f41654f5f9486e3670622046f\">24.1.2 工业控制系统安全威胁分析</a></p>",
+      "keyTakeaway": "工业系统需要结合实时性与可用性设计安全分区和变更流程。",
+      "example": "办公网与生产网交换必要报表时，仅开放经过审批和监测的数据通道。",
+      "pitfall": "扫描、重启或升级可能影响生产，现场验证需要授权、控制窗口和回退方案。"
+    },
+    {
+      "id": "mobile-security",
+      "title": "Android 安全机制与移动应用工程",
+      "summary": "区分应用沙箱、权限模型、签名及服务端访问控制。",
+      "bodyHtml": "<p>Android 用应用身份、进程隔离和沙箱限制默认跨应用访问，应用签名用于身份、更新及特定信任关系，敏感能力通过权限模型和系统策略管理。组件是否对外导出、调用者权限和传入数据都要验证。权限保护级别和行为随 Android 版本演变。</p><p>移动应用加固包括凭据安全存储、保护网络传输、最小权限和版本完整性。检测结合静态检查、授权的动态观察和后端访问控制验证，重点关注不必要的权限、明文落盘、日志暴露与敏感信息生命周期。</p><p>Android 四类常见应用组件是 Activity、Service、BroadcastReceiver 和 ContentProvider。iOS 也通过沙箱、代码签名、权限授权和受保护存储建立边界。跨平台审查可对照数据、凭据和接口职责，再结合各平台版本核验实现。</p><p><strong>资料</strong> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/3ca10066e0324939bbc6152524af6e08/sectionId/c6735bc92cb5497f8ac639d1484c7d80\">25.2 Android系统安全与保护机制</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/3ca10066e0324939bbc6152524af6e08/sectionId/a1570db410de40cdb4e0c441d7925db7\">25.2.1 Android系统组成概要</a> · <a href=\"https://www.ruankaoba.com/book/detail/chapterId/3ca10066e0324939bbc6152524af6e08/sectionId/701b430d24cb4f909d69f972b0c542d4\">25.2.2 Android系统安全机制</a></p>",
+      "keyTakeaway": "沙箱隔离应用，权限约束能力，签名标识发布身份，服务端仍需执行授权。",
+      "example": "移动端不把长期 API 凭据写入安装包，敏感请求由服务端验证用户和资源权限。",
+      "pitfall": "客户端加固无法单独保护后端接口，发布版本要同时检查两端。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "数据库安全机制、审计与备份",
+      "target": "database-security",
+      "children": [
+        {
+          "label": "防火墙与审计",
+          "target": "database-security"
+        },
+        {
+          "label": "备份与恢复",
+          "target": "database-security"
+        },
+        {
+          "label": "主流数据库加固",
+          "target": "database-security"
+        }
+      ]
+    },
+    {
+      "label": "数据分级、脱敏与大数据安全",
+      "target": "data-security",
+      "children": [
+        {
+          "label": "数据生命周期",
+          "target": "data-security"
+        },
+        {
+          "label": "脱敏与最小可见",
+          "target": "data-security"
+        },
+        {
+          "label": "分布式审计",
+          "target": "data-security"
+        }
+      ]
+    },
+    {
+      "label": "云计算安全、租户隔离与等保扩展",
+      "target": "cloud-security",
+      "children": [
+        {
+          "label": "IaaS/PaaS/SaaS",
+          "target": "cloud-security"
+        },
+        {
+          "label": "责任边界",
+          "target": "cloud-security"
+        },
+        {
+          "label": "云等保与租户隔离",
+          "target": "cloud-security"
+        }
+      ]
+    },
+    {
+      "label": "工业控制系统的分区与安全保护",
+      "target": "industrial-security",
+      "children": [
+        {
+          "label": "工控分层",
+          "target": "industrial-security"
+        },
+        {
+          "label": "区域与通道",
+          "target": "industrial-security"
+        },
+        {
+          "label": "安全变更",
+          "target": "industrial-security"
+        }
+      ]
+    },
+    {
+      "label": "Android 安全机制与移动应用工程",
+      "target": "mobile-security",
+      "children": [
+        {
+          "label": "沙箱与签名",
+          "target": "mobile-security"
+        },
+        {
+          "label": "组件访问",
+          "target": "mobile-security"
+        },
+        {
+          "label": "加固与检测",
+          "target": "mobile-security"
+        }
+      ]
+    }
+  ]
+}

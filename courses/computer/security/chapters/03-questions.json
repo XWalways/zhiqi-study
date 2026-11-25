@@ -11,7 +11,9 @@
       "C": "用户名 + 6 位数字静态密码",
       "D": "图形验证码 + 静态口令"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "双因素认证要求结合「所知、所有、所是」中至少两类不同要素。登录口令属于「所知」，USB Key 硬件令牌属于「所有」，两者组合构成双因素认证。",
     "optionExplanations": {
       "A": "口令和密保问题同属「所知」类，属于单因素。",
@@ -33,7 +35,9 @@
       "C": "为了方便运维记忆，可以将初始默认口令长期保持不变供多人共用",
       "D": "在服务器端存储用户口令时应采用加盐哈希而非明文存放"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "初始默认口令往往公开可查，且多人共用账号会破坏操作可追溯性与审计追责，存在极高安全隐患。",
     "optionExplanations": {
       "A": "强制首次改密是基本安全基线。",
@@ -55,7 +59,9 @@
       "C": "将用户口令以明文广播给局域网所有主机",
       "D": "仅用于加密电子邮件正文，不提供身份认证功能"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "Kerberos 依赖可信第三方 KDC（AS + TGS）和对称密钥体系完成双向认证，并在认证符中嵌入时间戳来抵御重放攻击。",
     "optionExplanations": {
       "A": "Kerberos 核心基于对称加密和中心 KDC。",
@@ -77,7 +83,9 @@
       "C": "物理隔离性",
       "D": "网络高带宽"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "数字签名通过发送方独有的私钥对消息摘要进行签名，接收方用发送方公钥验证，从而确保内容未被篡改（完整性）且发送方事后不能抵赖（不可否认性）。",
     "optionExplanations": {
       "A": "数字签名不提升网络传输速度。",
@@ -99,7 +107,9 @@
       "C": "Alice 用 Bob 的公钥签名，Bob 用自己的私钥验签",
       "D": "Alice 用 Bob 的私钥签名，Bob 用自己的公钥验签"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "数字签名始终围绕「发送方」的密钥对：发送方（Alice）用自己的私钥对合同摘要签名，接收方（Bob）用发送方（Alice）的公钥验签。",
     "optionExplanations": {
       "A": "Bob 不可能持有 Alice 的私钥。",
@@ -121,7 +131,9 @@
       "C": "先用 A 的私钥加密，再用 B 的私钥签名",
       "D": "仅使用 B 的公钥对 M 加密后发送"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "标准「先签名后加密」流程：发送方 B 先用自己私钥 KBpri 签名（保抗抵赖），再用接收方 A 的公钥 KApub 加密（保机密性）；A 收到后先用自己私钥解密，再用 B 公钥验签。",
     "optionExplanations": {
       "A": "公钥不能用于签名。",
@@ -143,7 +155,9 @@
       "C": "直接对明文签名会导致报文无法在互联网路由",
       "D": "接收方只需要阅读摘要，不需要阅读原文"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "非对称加密对长数据计算开销很大，先用高速哈希算法将任意长度原文压缩为 256 位定长摘要，再对摘要签名，既快又不损失防篡改能力。",
     "optionExplanations": {
       "A": "单独的哈希函数没有密钥，无法防伪造和抗抵赖。",
@@ -165,7 +179,9 @@
       "C": "CA（认证中心）",
       "D": "ISP"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "CA（Certificate Authority，认证中心）是 PKI 的信任核心，负责核发 X.509 数字证书及发布证书吊销列表（CRL）。",
     "optionExplanations": {
       "A": "DNS 负责域名到 IP 的解析。",
@@ -187,7 +203,9 @@
       "C": "颁发机构（CA）的数字签名",
       "D": "证书序列号与有效期"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "数字证书是公开发布的身份凭证，用于向外界证明某公钥归属某主体，因此只能包含主体公钥，绝不能包含必须严格保密的主体私钥。",
     "optionExplanations": {
       "A": "主体公钥是数字证书的核心字段。",
@@ -209,7 +227,9 @@
       "C": "签发该证书的 CA 的公钥",
       "D": "签发该证书的 CA 的私钥"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "证书是由 CA 用其私钥签名的，因此客户端必须使用预置在本地信任库中的对应 CA 公钥进行验签。",
     "optionExplanations": {
       "A": "客户端不可能拥有服务器私钥。",
@@ -231,7 +251,9 @@
       "C": "ARP 缓存表",
       "D": "NAT 映射表"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "CRL（Certificate Revocation List，证书吊销列表）用于公布尚未到期但已失效的证书序列号，客户端在验证证书时需检查 CRL 或通过 OCSP 实时查询状态。",
     "optionExplanations": {
       "A": "ACL 用于网络或文件系统的访问控制。",
@@ -253,7 +275,9 @@
       "C": "基于属性的访问控制（ABAC）",
       "D": "无条件开放访问"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "自主访问控制（DAC）的核心特征是资源所有者拥有自主权，可以按意愿向其他主体分配或撤销其名下客体的访问权限。",
     "optionExplanations": {
       "A": "准确对应所有者自主授权的 DAC 模型。",
@@ -275,7 +299,9 @@
       "C": "RBAC（基于角色的访问控制）",
       "D": "物理访问控制"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "RBAC 在用户与权限之间引入「角色」中间层，实现用户与权限解耦，极大简化了大型组织的权限变更管理与职责分离落地。",
     "optionExplanations": {
       "A": "DAC 由资源所有者直接给具体用户赋权。",
@@ -297,7 +323,9 @@
       "C": "禁止向下读，禁止向上写",
       "D": "允许所有者自由修改密级标签"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "BLP（Bell-LaPadula）模型聚焦机密性：低密级主体不能读高密级文件（不下读允许、禁止向上读），高密级主体不能向低密级客体写入数据（禁止向下写，防止泄密）。",
     "optionExplanations": {
       "A": "向上读和向下写都会直接导致高密级信息泄露。",
@@ -319,7 +347,9 @@
       "C": "绝对透明原则",
       "D": "资源共享原则"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "最小权限原则（Principle of Least Privilege）可最大限度缩小账号被盗或内部误操作造成的破坏半径。",
     "optionExplanations": {
       "A": "盲目追求便利往往会扩大风险敞口。",
@@ -341,7 +371,11 @@
       "C": "安全审计日志应妥善保护，防止普通用户或被审计者自行篡改和删除",
       "D": "只要启用了安全审计，就不再需要配置防火墙和访问控制策略"
     },
-    "answer": ["A", "B", "C"],
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanationSupplement": "认证、授权（访问控制）与审计（AAA）相辅相成：审计属于事中监控与事后追溯机制，不能替代事前的边界防护和访问控制。",
     "optionExplanations": {
       "A": "准确说明了安全审计的核心价值。",
@@ -350,5 +384,1972 @@
       "D": "审计无法在事前阻断入侵，不能取代防火墙与访问控制。"
     },
     "conceptId": "access-control"
+  },
+  {
+    "id": "rkb-d875cf7b1f995ee4cdf860227bb63c97",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "Kerberos 中，哪个实体在初次认证阶段确认客户端并发放 TGT？",
+    "options": {
+      "A": "应用服务器",
+      "B": "日志服务器",
+      "C": "认证服务器 AS",
+      "D": "票据授予服务器 TGS"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "AS 验证客户端并发出 TGT，TGS 收到 TGT 后发放服务票据。",
+    "source": {
+      "date": "2022-11",
+      "number": "25",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/d875cf7b1f995ee4cdf860227bb63c97",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 17
+  },
+  {
+    "id": "rkb-9ba8077d3b8cc2b2881d594a59faa733",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "口令、语音、指纹和虹膜中，哪一种不是生物特征？",
+    "options": {
+      "A": "虹膜",
+      "B": "口令",
+      "C": "语音特征",
+      "D": "指纹"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "口令属于所知因素，其他属于自身特征。",
+    "source": {
+      "date": "2022-11",
+      "number": "23",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/9ba8077d3b8cc2b2881d594a59faa733",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 18
+  },
+  {
+    "id": "rkb-40be3d90014ccd72c2eea546d869abb2",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "以下哪项陈述正确地描述了 Kerberos 的依赖条件？",
+    "options": {
+      "A": "用户长时口令须随每次服务请求发送",
+      "B": "必须公开所有会话密钥",
+      "C": "票据带有效期，系统需合理保持时钟同步",
+      "D": "票据只在本地文件权限校验后生效"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "时间和票据有效期帮助判断请求新鲜性。",
+    "source": {
+      "date": "2022-11",
+      "number": "24",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/40be3d90014ccd72c2eea546d869abb2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 19
+  },
+  {
+    "id": "rkb-ccfc87de93c61e70fd850aba5a16c2ff",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "以下信息中哪项通常最难用于唯一识别一个具体用户或设备？",
+    "options": {
+      "A": "经过可信分配的设备标识",
+      "B": "注册用户名",
+      "C": "绑定到设备的已验证标识",
+      "D": "所用通信运营商的名称"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "大量主体共享同一家运营商，不能靠它区分个体。",
+    "source": {
+      "date": "2021-11",
+      "number": "28",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/ccfc87de93c61e70fd850aba5a16c2ff",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 20
+  },
+  {
+    "id": "rkb-b7523a3d33c1bc3498bb25070d5651e3-1",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "英语语境中，动词 authenticate an individual 表达什么安全活动？",
+    "options": {
+      "A": "授予资源权限",
+      "B": "登记资产分类",
+      "C": "审计所有操作",
+      "D": "核验个人身份"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "authenticate 关注身份真实性，authorize 关注授权。",
+    "source": {
+      "date": "2021-11",
+      "number": "71",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/b7523a3d33c1bc3498bb25070d5651e3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 21
+  },
+  {
+    "id": "rkb-b7523a3d33c1bc3498bb25070d5651e3-2",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "对比人和计算机的鉴别能力时，计算机的哪项特性支持运行复杂密码协议？",
+    "options": {
+      "A": "快速准确执行大量运算并保存状态",
+      "B": "天生知道实际用户的意思",
+      "C": "能不依赖真实数据做身份决策",
+      "D": "必须只靠手写口令"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "机器擅长计算和存取数据，人类通常需要易用的凭据与交互。",
+    "source": {
+      "date": "2021-11",
+      "number": "72",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/b7523a3d33c1bc3498bb25070d5651e3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 22
+  },
+  {
+    "id": "rkb-b7523a3d33c1bc3498bb25070d5651e3-3",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "大量复杂运算的鉴别协议与人类日常使用的差异在哪里？",
+    "options": {
+      "A": "人类不需要身份鉴别",
+      "B": "人需借由受控工具完成复杂密码运算",
+      "C": "人能直接背出任意密钥",
+      "D": "机器使用任何固定文本都能验证身份"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "密码协议可由用户持有的设备代理执行。",
+    "source": {
+      "date": "2021-11",
+      "number": "73",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/b7523a3d33c1bc3498bb25070d5651e3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 23
+  },
+  {
+    "id": "rkb-b7523a3d33c1bc3498bb25070d5651e3-4",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "在“something you have”这一认证术语中，智能卡是哪个因素的例子？",
+    "options": {
+      "A": "自身生理",
+      "B": "设备所在区位",
+      "C": "持有",
+      "D": "所知"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "验证智能卡证明用户控制该物件。",
+    "source": {
+      "date": "2021-11",
+      "number": "74",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/b7523a3d33c1bc3498bb25070d5651e3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 24
+  },
+  {
+    "id": "rkb-b7523a3d33c1bc3498bb25070d5651e3-5",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "选用指纹鉴别时，使用的是主体自身的哪种性质？",
+    "options": {
+      "A": "临时网络端口",
+      "B": "字符口令",
+      "C": "设备资产编号",
+      "D": "生物行为或生理特征"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "指纹属于个体自身特征，即 something you are。",
+    "source": {
+      "date": "2021-11",
+      "number": "75",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/b7523a3d33c1bc3498bb25070d5651e3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 25
+  },
+  {
+    "id": "rkb-97cf7ff5d13843bb941b227f13c3b680",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "Kerberos 中持有 TGT 后，客户端向谁申请面向具体服务的票据？",
+    "options": {
+      "A": "网络交换机",
+      "B": "本地日志服务",
+      "C": "证书注册机构",
+      "D": "TGS"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "TGS 验证 TGT 及相关凭证后发放服务票据。",
+    "source": {
+      "date": "2021-11",
+      "number": "29",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/97cf7ff5d13843bb941b227f13c3b680",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 26
+  },
+  {
+    "id": "rkb-5f0ac5bceff141ace24f20cdc5bf154e",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "哪种认证因素不属于人体特征？",
+    "options": {
+      "A": "动态口令",
+      "B": "虹膜",
+      "C": "面部特征",
+      "D": "声纹"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "动态口令通常证明对生成器的持有或控制。",
+    "source": {
+      "date": "2020-11",
+      "number": "45",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/5f0ac5bceff141ace24f20cdc5bf154e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 27
+  },
+  {
+    "id": "rkb-784ad7675415cd84e49275aa4e4831d8",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "适合用于生物身份鉴别的特征一般应具备什么？",
+    "options": {
+      "A": "每次读取完全随机变化",
+      "B": "在群体中人人完全相同",
+      "C": "必须作为共用字符串公开",
+      "D": "个体间有区分度，随时间相对稳定"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "具有区分度并稳定才能进行可用的比对。",
+    "source": {
+      "date": "2019-05",
+      "number": "45",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/784ad7675415cd84e49275aa4e4831d8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 28
+  },
+  {
+    "id": "rkb-2b31750ba661d569f69dea5528df3314",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "case",
+    "stem": "两端共享一个长期秘密，用挑战值和消息验证来确认身份。设计需抵抗把旧消息再次发送给系统。",
+    "prompts": [
+      "采用了哪种认证因素？",
+      "如何让双方都验证对端而非仅验证一方？",
+      "区分哈希原像、第二原像和碰撞。",
+      "测试时如何检查重复消息会被拒绝？",
+      "把摘要直接换成对称加密能否自动解决这些问题？"
+    ],
+    "explanationSupplement": "长期秘密属于所知或受控凭据；双向独立挑战并用认证标签绑定双方及会话；验证 nonce 不重复和时限。底层更换加密算法并不会自动提供新鲜性与身份绑定。",
+    "source": {
+      "date": "2019-05",
+      "number": "3-7",
+      "url": "https://www.ruankaoba.com/paper/paperId/66bbb1e0025a541e4ea90760eceb825c/chiefId/2b31750ba661d569f69dea5528df3314",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 29
+  },
+  {
+    "id": "rkb-9e7657f184d3136a33eed9e4d1d60ad0",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "信息经过网络传输时，要发现数据被未授权改写，适合哪种方法？",
+    "options": {
+      "A": "只修改文件名",
+      "B": "用无认证的明文 TCP 连接",
+      "C": "对消息校验可信的数字签名或消息认证码",
+      "D": "只压缩正文"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "签名或消息认证码把可验证的完整性信息绑定到数据。",
+    "source": {
+      "date": "2018-05",
+      "number": "39",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/9e7657f184d3136a33eed9e4d1d60ad0",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 30
+  },
+  {
+    "id": "rkb-7ca64cba3d9a32dc5770445ea5da8984",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "哪项认证方式不属于生物识别？",
+    "options": {
+      "A": "输入记忆口令",
+      "B": "指纹识别",
+      "C": "虹膜识别",
+      "D": "声纹识别"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "记忆口令属于所知因素。",
+    "source": {
+      "date": "2018-05",
+      "number": "17",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/7ca64cba3d9a32dc5770445ea5da8984",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 31
+  },
+  {
+    "id": "rkb-2bc5761253ded36933c3e2d28eae4c48",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "一条口令提交成功后即失效，重点防哪种威胁？",
+    "options": {
+      "A": "电源故障",
+      "B": "系统日志膨胀",
+      "C": "服务证书到期",
+      "D": "重放相同口令"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "一次性口令按验证状态拒绝再次使用。",
+    "source": {
+      "date": "2018-05",
+      "number": "7",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/2bc5761253ded36933c3e2d28eae4c48",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 32
+  },
+  {
+    "id": "rkb-29f80be990bc737474905dffe8a57a06",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "Kerberos 生成票据与认证器时主要依靠哪类密码？",
+    "options": {
+      "A": "只用明文校验",
+      "B": "对称密钥密码",
+      "C": "纯公钥数字签名",
+      "D": "无密钥压缩"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "传统 Kerberos 使用基于共享长期密钥和会话密钥的协议。",
+    "source": {
+      "date": "2018-05",
+      "number": "28",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/29f80be990bc737474905dffe8a57a06",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 33
+  },
+  {
+    "id": "rkb-4f50d41ecc4af94b3c82346c06f2d272",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "如果重点是确认消息来自声称的发送方，应选哪类保护？",
+    "options": {
+      "A": "消息来源认证",
+      "B": "无认证的压缩",
+      "C": "磁盘整理",
+      "D": "改变文件扩展名"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "可使用合适的签名或消息认证码验证来源。",
+    "source": {
+      "date": "2017-05",
+      "number": "39",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/4f50d41ecc4af94b3c82346c06f2d272",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 34
+  },
+  {
+    "id": "rkb-c8b961b88560cee60798c60488c6c8bf",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "下列哪一项是知识因素而非生物特征？",
+    "options": {
+      "A": "PIN",
+      "B": "指纹",
+      "C": "虹膜",
+      "D": "面部特征"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "PIN 是用户知道的秘密。",
+    "source": {
+      "date": "2016-11",
+      "number": "17",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/c8b961b88560cee60798c60488c6c8bf",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 35
+  },
+  {
+    "id": "rkb-b50f064468ca51f257b1263269011e9b",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "接收方需要发现传输中的未授权修改，优先使用哪种验证？",
+    "options": {
+      "A": "只检查文件大小",
+      "B": "有可信密钥的消息认证码或数字签名",
+      "C": "把正文换一个编码名称",
+      "D": "增加 IP 包 TTL"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "认证校验能把更改检测与密钥信任结合。",
+    "source": {
+      "date": "2016-11",
+      "number": "39",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/b50f064468ca51f257b1263269011e9b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 36
+  },
+  {
+    "id": "rkb-92b041ddc2ae38334b4d7095cfb695f8",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "Kerberos 协议中保护认证票据的主要密码机制是哪类？",
+    "options": {
+      "A": "对称密钥密码",
+      "B": "纯非对称签名",
+      "C": "无密钥校验",
+      "D": "磁盘卷压缩"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "票据的保密与认证依赖密钥服务器及服务端的共享钥。",
+    "source": {
+      "date": "2016-11",
+      "number": "28",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/92b041ddc2ae38334b4d7095cfb695f8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 37
+  },
+  {
+    "id": "rkb-254ac5fcf6752634d89b00a6c422ccfb",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "一次性口令的每个值仅能成功验证一次，主要防御什么？",
+    "options": {
+      "A": "路由黑洞",
+      "B": "证书过期",
+      "C": "硬件掉电",
+      "D": "重放"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "已经使用的认证值不得重复接受。",
+    "source": {
+      "date": "2016-11",
+      "number": "7",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/254ac5fcf6752634d89b00a6c422ccfb",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 38
+  },
+  {
+    "id": "rkb-706ae728d323268ce4e7722bb314426a",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "case",
+    "stem": "双向认证协议在三条消息中携带随机挑战，并在返回时证明收到了对端挑战。",
+    "prompts": [
+      "认证与传输加密分别提供什么服务？",
+      "对端发来的挑战用于什么，取值需满足什么条件？",
+      "返回消息中为何将挑战绑定到认证数据？",
+      "如何检查该协议的重放和身份绑定风险？"
+    ],
+    "explanationSupplement": "认证证明主体或来源，加密保护可读性；挑战验证新鲜性，应不可预测或按协议保证唯一；认证标签绑定双方身份、角色及会话，检测重复挑战和过期消息。",
+    "source": {
+      "date": "2016-11",
+      "number": "4-7",
+      "url": "https://www.ruankaoba.com/paper/paperId/e9776a541c7160e86566c29feb673116/chiefId/706ae728d323268ce4e7722bb314426a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 39
+  },
+  {
+    "id": "rkb-98a959311448281a614b305be314c566",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "智能卡 COS 收到命令后，按当前认证与权限状态判断是否可以执行。这属于哪个模块？",
+    "source": {
+      "date": "2020-11",
+      "number": "30",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/98a959311448281a614b305be314c566",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 40,
+    "options": {
+      "A": "通信管理",
+      "B": "安全管理",
+      "C": "应用管理",
+      "D": "文件管理"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "判断命令是否在现有授权下可运行属于安全管理。"
+  },
+  {
+    "id": "rkb-33c12def99289608b675fde325bb98c4",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "下列哪项是 IP 层整体通信保护体系，而另几项直接用于口令或实体身份的鉴别流程？",
+    "source": {
+      "date": "2020-11",
+      "number": "61",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/33c12def99289608b675fde325bb98c4",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 41,
+    "options": {
+      "A": "IPsec",
+      "B": "S/Key",
+      "C": "基于 X.509 证书的认证",
+      "D": "Kerberos"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "IPsec 可借助 IKE 进行对端认证，但协议族的范围是保护 IP 通信。"
+  },
+  {
+    "id": "rkb-d731a3ed71894616fbb3d0a92c3c8e03",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "智能卡 COS 负责写入数据单元和保存记录的是哪一个模块？",
+    "source": {
+      "date": "2019-05",
+      "number": "30",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/d731a3ed71894616fbb3d0a92c3c8e03",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 42,
+    "options": {
+      "A": "通信管理",
+      "B": "安全管理",
+      "C": "应用管理",
+      "D": "文件管理"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "文件管理负责组织数据和处理持久记录操作。"
+  },
+  {
+    "id": "rkb-170c17f3c139dc92ff33bb02ecfffd23",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "关于认证，下列判断哪一项不成立？",
+    "source": {
+      "date": "2019-05",
+      "number": "16",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/170c17f3c139dc92ff33bb02ecfffd23",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 43,
+    "options": {
+      "A": "认证能降低冒用身份的风险",
+      "B": "认证可基于口令或生物特征",
+      "C": "认证流程禁止可信第三方参与",
+      "D": "核验主体身份有助于阻止非法访问"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "CA、Kerberos 等认证体系均可依赖可信第三方。"
+  },
+  {
+    "id": "rkb-ee67a6e865fcf22f53f096f365798b1b",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "关于身份认证、消息认证和签名，下列哪项错把显示格式当成算法的必要属性？",
+    "source": {
+      "date": "2017-05",
+      "number": "49",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/ee67a6e865fcf22f53f096f365798b1b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 44,
+    "options": {
+      "A": "生物识别可用于一对一比对或识别候选人",
+      "B": "身份鉴别验证声称的身份",
+      "C": "数字签名只能表示为十六进制字符串",
+      "D": "消息认证能帮助发现未授权改动"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "数字签名是算法输出，可以在传输或展示时采用不同编码。"
+  },
+  {
+    "id": "rkb-8c0206970df42c8f4ed3b75a0fe88609",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "哪项以保护 IP 通信为核心，其后可能借助其他协议做身份鉴别？",
+    "source": {
+      "date": "2017-05",
+      "number": "26",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/8c0206970df42c8f4ed3b75a0fe88609",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 45,
+    "options": {
+      "A": "S/Key 一次性口令鉴别",
+      "B": "Kerberos",
+      "C": "X.509 证书身份鉴别",
+      "D": "IPsec"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "IPsec 的主体作用是网络层保护，密钥管理和端点认证常通过 IKE 完成。"
+  },
+  {
+    "id": "rkb-1431d9203006032bf298e59601ece8bf",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "作为生物身份比对的特征，哪两项特性最有助于稳定地区分不同人？",
+    "source": {
+      "date": "2017-05",
+      "number": "17",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/1431d9203006032bf298e59601ece8bf",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 46,
+    "options": {
+      "A": "个体区分度和绝对保密性",
+      "B": "个体区分度和相对稳定性",
+      "C": "绝对保密性和公开可识别性",
+      "D": "时间稳定性和所有人特征相同"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "识别依赖不同个体之间的区分度和同一人的特征稳定性。"
+  },
+  {
+    "id": "rkb-e91d477a19bea39e2eb626184c60aac2",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "按照题设的四模块模型，智能卡 COS 包含通信、安全、应用、文件管理。哪个名称在该分类中没有单列？",
+    "source": {
+      "date": "2016-11",
+      "number": "54",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/e91d477a19bea39e2eb626184c60aac2",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 47,
+    "options": {
+      "A": "通信管理",
+      "B": "数据管理",
+      "C": "安全管理",
+      "D": "文件管理"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "按教材模型，数据的持久组织属于文件管理等模块，未独立列出数据管理。"
+  },
+  {
+    "id": "rkb-b81cf14c98eb878cad13101f4f81d938",
+    "group": "身份认证、多因素认证与 Kerberos · 历年真题",
+    "conceptId": "auth-factors",
+    "type": "single",
+    "stem": "下列哪项是常见的人机账户登录方式？",
+    "source": {
+      "date": "2016-11",
+      "number": "5",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/b81cf14c98eb878cad13101f4f81d938",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 48,
+    "options": {
+      "A": "只有数据库服务存在就通过",
+      "B": "输入任意摘要值即可通过",
+      "C": "由任何公开证书自动通过",
+      "D": "提供账号名及口令供系统核验"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "账号名用于标识，口令帮助鉴别。高风险系统通常还需要附加因素。"
+  },
+  {
+    "id": "rkb-e2d449c16b449e2ef5a2068e6c73f4cb",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "广泛使用的数字签名方案依赖哪类密钥关系？",
+    "options": {
+      "A": "任意两把独立密钥互相验签",
+      "B": "私钥签名，公钥验签",
+      "C": "公钥签名，私钥验签",
+      "D": "匿名证书签名，口令验签"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "签名用私钥生成，由拥有可信公钥的一方验证。",
+    "source": {
+      "date": "2021-11",
+      "number": "19",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/e2d449c16b449e2ef5a2068e6c73f4cb",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 49
+  },
+  {
+    "id": "rkb-29949faeb48e4d4b26dec82c2f374a4a",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "在用公钥密码生成数字签名时，哪项做法正确？",
+    "options": {
+      "A": "签名者持有私钥，验证者使用其可信公钥",
+      "B": "签名者公布私钥供验签",
+      "C": "验证者必须持有同一私钥",
+      "D": "只凭公开消息就可验证未提供的签名"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "私钥生成签名，公钥验证签名和消息的关联。",
+    "source": {
+      "date": "2020-11",
+      "number": "34",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/29949faeb48e4d4b26dec82c2f374a4a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 50
+  },
+  {
+    "id": "rkb-ef5e9b5a8a27852ca6ba279950a481a6",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "验证一份来自供应商的签名文件，最关键的是哪项操作？",
+    "options": {
+      "A": "使用接收者公钥随意重签名",
+      "B": "只比较文件名",
+      "C": "要求供应商公开私钥",
+      "D": "使用可信的供应商公钥核验文件和签名"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "公钥可信且签名验证通过，才有助于确认来源与完整性。",
+    "source": {
+      "date": "2019-05",
+      "number": "34",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/ef5e9b5a8a27852ca6ba279950a481a6",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 51
+  },
+  {
+    "id": "rkb-8fe4420044cb7e0e43feaa65b910c7a4",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "公钥签名的密钥分工是什么？",
+    "options": {
+      "A": "发送者公钥签名，用其私钥验证",
+      "B": "双方任选一个未绑定的公钥",
+      "C": "发送者私钥签名，接收者用发送者公钥验签",
+      "D": "用接收者公钥签名，再以发送者私钥验签"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "用于验签的公钥对应签名者的私钥。",
+    "source": {
+      "date": "2019-05",
+      "number": "70",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/8fe4420044cb7e0e43feaa65b910c7a4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 52
+  },
+  {
+    "id": "rkb-15c0496ead1ff15255a2b7bb4585c2c8",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "广泛应用的数字签名计算通常依赖哪些技术？",
+    "options": {
+      "A": "只做传输压缩",
+      "B": "只做离线磁盘挂载",
+      "C": "公用计数器和 MAC 地址",
+      "D": "公钥签名体系及安全杂凑"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "实际签名方案会把消息或其摘要以安全方式编码后签名。",
+    "source": {
+      "date": "2018-05",
+      "number": "16",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/15c0496ead1ff15255a2b7bb4585c2c8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 53
+  },
+  {
+    "id": "rkb-1dcca434f7aad812eab4e92f392d62de",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "case",
+    "stem": "方案一只用接收者公钥加密，方案二只用发送者私钥签名，方案三把签名与加密组合。",
+    "prompts": [
+      "方案一能覆盖哪些安全目标？",
+      "方案二能覆盖哪些目标？",
+      "说明组合方案中的密钥角色和验证顺序。"
+    ],
+    "explanationSupplement": "接收者公钥加密提供机密性；发送者签名提供完整性、来源认证及有条件的抗抵赖；实际采用安全协议，接收者解密并用发送者可信公钥验证签名。",
+    "source": {
+      "date": "2018-05",
+      "number": "2-4",
+      "url": "https://www.ruankaoba.com/paper/paperId/3e5853345790aec277f0a109fe7b34b3/chiefId/1dcca434f7aad812eab4e92f392d62de",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 54
+  },
+  {
+    "id": "rkb-7f698ffea64800d1ba5b80bdd3e40dc2",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "数字签名方案的两个主要操作是什么？",
+    "options": {
+      "A": "生成签名和验证签名",
+      "B": "映射网络地址和转发端口",
+      "C": "扩大密钥和删除证书",
+      "D": "对消息压缩和解压"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "签名者生成签名，接收者独立验证。",
+    "source": {
+      "date": "2017-05",
+      "number": "16",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/7f698ffea64800d1ba5b80bdd3e40dc2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 55
+  },
+  {
+    "id": "rkb-7eee54741cd21792b6a69452fb24a7ea",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "对已签名的电子消息，以下哪种安全属性通常可依正确验证得到？",
+    "options": {
+      "A": "验证时不需要可信公钥",
+      "B": "发现签名所绑定内容发生更改",
+      "C": "内容变化后原签名始终仍有效",
+      "D": "通过验签可以导出签名私钥"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "消息被更改后放在相同签名下通常不能通过核验。",
+    "source": {
+      "date": "2017-05",
+      "number": "54",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/7eee54741cd21792b6a69452fb24a7ea",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 56
+  },
+  {
+    "id": "rkb-d37a1558b485f186e32d931ae4ec5f19",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "在常见公钥签名方案中，杂凑算法和公钥签名各起什么作用？",
+    "options": {
+      "A": "杂凑用于解密，公钥用于恢复私钥",
+      "B": "公钥主要用于压缩，杂凑负责提供机密性",
+      "C": "两者仅提供网络重传",
+      "D": "杂凑归纳消息，私钥生成签名，公钥验证"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "签名保护消息与签名者的关联，具体编码由方案规定。",
+    "source": {
+      "date": "2016-11",
+      "number": "16",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/d37a1558b485f186e32d931ae4ec5f19",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 57
+  },
+  {
+    "id": "rkb-90293424a22f07ab1b572c328f782356",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "供应商发送电子订单后否认曾提交。哪项机制可提供可核验的提交证据？",
+    "options": {
+      "A": "只做不受控的本地哈希比较",
+      "B": "经身份绑定的数字签名",
+      "C": "仅压缩订单",
+      "D": "重新分配 IP 地址"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "可信公钥、签名和必要的记录支持不可否认性。",
+    "source": {
+      "date": "2016-11",
+      "number": "40",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/90293424a22f07ab1b572c328f782356",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 58
+  },
+  {
+    "id": "rkb-c529776ea80b2e92b1394df36327eb18",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "采用可信公钥验证 DSA 签名并通过后，仍不能由此证明哪项？",
+    "source": {
+      "date": "2019-05",
+      "number": "11",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/c529776ea80b2e92b1394df36327eb18",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 59,
+    "options": {
+      "A": "签名与可信公钥匹配",
+      "B": "验签的消息没有被改成另一条消息",
+      "C": "验签时消息表示和签名对应",
+      "D": "传输途中无人读到消息"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "签名用于完整性和来源验证。防止内容被读需另外加密。"
+  },
+  {
+    "id": "rkb-f568e3f3f2f484b01b4622247ef04190",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "以下哪项把数字签名的编码格式误当成签名本身？",
+    "source": {
+      "date": "2018-05",
+      "number": "11",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/f568e3f3f2f484b01b4622247ef04190",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 60,
+    "options": {
+      "A": "身份认证用来验证主体",
+      "B": "消息鉴别可检查完整性",
+      "C": "数字签名必定以十六进制字符串表现",
+      "D": "指纹系统可用于验证或搜寻匹配身份"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "签名是按算法产生的字节数据，可按场景采用不同编码。"
+  },
+  {
+    "id": "rkb-4a40b29a885c5473c812bf1622e76c2b",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "按题设时期采用的最早 DSS/DSA 规范，配用的经典杂凑是哪项？",
+    "source": {
+      "date": "2017-05",
+      "number": "67",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/4a40b29a885c5473c812bf1622e76c2b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 61,
+    "options": {
+      "A": "SHA-1",
+      "B": "MD5",
+      "C": "MD4",
+      "D": "SHA-2"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "最早的 DSS/DSA 教材采用 SHA-1；后续规范演变，不能把旧题口径作为部署建议。"
+  },
+  {
+    "id": "rkb-74d80bc848d8f1d08d7fbebd4ebeed3a",
+    "group": "数字签名与双重加解密流程 · 历年真题",
+    "conceptId": "digital-signature",
+    "type": "single",
+    "stem": "下列哪项错误地断言了数字签名的唯一编码形式？",
+    "source": {
+      "date": "2016-11",
+      "number": "11",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/74d80bc848d8f1d08d7fbebd4ebeed3a",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 62,
+    "options": {
+      "A": "指纹可以用于身份核验或识别",
+      "B": "数字签名只可能是十六进制字符串",
+      "C": "可用身份鉴别校验系统中的主体",
+      "D": "消息认证有助于确定数据是否被修改"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "签名可以通过二进制、十六进制或其他编码呈现，编码形式不会改变签名数据。"
+  },
+  {
+    "id": "rkb-ab48cc39888a14bf4d5cf47137061c2c",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "关于 X.509 公钥证书，哪项说法有误？",
+    "options": {
+      "A": "签发者可对证书内容签名",
+      "B": "证书包含主体用于签名的私钥",
+      "C": "证书可带生效和到期时间",
+      "D": "证书载有主体的公钥"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "私钥由持有者保护，公钥证书可被分发。",
+    "source": {
+      "date": "2022-11",
+      "number": "14",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/ab48cc39888a14bf4d5cf47137061c2c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 63
+  },
+  {
+    "id": "rkb-e132f858420b9447256c175c8fe153b1",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "在 PKI 中，证书撤销与签发管理由哪个角色承担？",
+    "options": {
+      "A": "证书使用者任意指定的路由器",
+      "B": "包过滤器",
+      "C": "终端应用日志库",
+      "D": "证书颁发机构 CA"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "CA 负责证书生命周期，注册机构可核验申请身份。",
+    "source": {
+      "date": "2021-11",
+      "number": "30",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/e132f858420b9447256c175c8fe153b1",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 64
+  },
+  {
+    "id": "rkb-dfc6e7c12750c6a65a825641ceadea2b",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "以下内容中哪项不应出现在公开分发的 X.509 证书中？",
+    "options": {
+      "A": "用户私钥",
+      "B": "主题公钥",
+      "C": "证书有效期",
+      "D": "签发者签名"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "签发者证明公钥归属，主题私钥由持有者控制。",
+    "source": {
+      "date": "2020-11",
+      "number": "31",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/dfc6e7c12750c6a65a825641ceadea2b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 65
+  },
+  {
+    "id": "rkb-b3091e37628c7e504207e61a70b2d1fd",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "在 PKI 中，RA 通常做哪项工作？",
+    "options": {
+      "A": "代替用户保管全部私钥",
+      "B": "审查证书申请人与身份",
+      "C": "用 CA 私钥正式签发每张证书",
+      "D": "担任传输层加密算法"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "RA 核验注册，CA 签发证书。",
+    "source": {
+      "date": "2020-11",
+      "number": "33",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/b3091e37628c7e504207e61a70b2d1fd",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 66
+  },
+  {
+    "id": "rkb-84ecccc9ccf9c7085f409d475a79843d",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "按证书管理原则，哪种情况本身一般只需正常校验到期而不用发起紧急撤销？",
+    "options": {
+      "A": "到达证书到期时间",
+      "B": "私钥泄露",
+      "C": "证书信息错误",
+      "D": "签发操作失当"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "过期证书可通过有效期直接拒绝；泄露或误签发时通常应尽快撤销。",
+    "source": {
+      "date": "2019-05",
+      "number": "60",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/84ecccc9ccf9c7085f409d475a79843d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 67
+  },
+  {
+    "id": "rkb-82833170fd7106ab40475b575eff4d9d",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "PKI 中哪项通常属于用户持有和保护的事项，而非 CA 的常规能力？",
+    "options": {
+      "A": "以颁发者身份签名证书",
+      "B": "替用户保管每一个用于签名的私钥",
+      "C": "签发证书",
+      "D": "发布撤销信息"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "CA 维护对公钥与主体绑定的信任，用户保护自己的私钥。",
+    "source": {
+      "date": "2019-05",
+      "number": "31",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/82833170fd7106ab40475b575eff4d9d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 68
+  },
+  {
+    "id": "rkb-7e28e348fe87366746db28445123aebc",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "X.509 证书内容中通常不包含哪项？",
+    "options": {
+      "A": "签发者名称",
+      "B": "公钥及算法信息",
+      "C": "持证者的私钥",
+      "D": "主体名称或标识"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "证书只携带可公开验证的信息。",
+    "source": {
+      "date": "2019-05",
+      "number": "33",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/7e28e348fe87366746db28445123aebc",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 69
+  },
+  {
+    "id": "rkb-e9b8d049e5b22c2f11943057b9886396",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "在申请公钥证书时，RA 的主要角色是什么？",
+    "options": {
+      "A": "发放 Kerberos TGT",
+      "B": "为分组加密提供共享密钥",
+      "C": "核查申请者的注册信息与身份",
+      "D": "用 CA 私钥发布所有证书"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "RA 处理注册核验，签发属于 CA。",
+    "source": {
+      "date": "2018-05",
+      "number": "60",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/e9b8d049e5b22c2f11943057b9886396",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 70
+  },
+  {
+    "id": "rkb-a8d8647abb70fa52828441d60ca12194",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "哪项关于数字证书的陈述与 PKI 设计不符？",
+    "options": {
+      "A": "签发机构以私钥签署证书",
+      "B": "公钥证书必须公开主体的私钥",
+      "C": "可用于验证公钥归属",
+      "D": "通常含序列号"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "公钥证书是可分发的身份绑定声明；主体私钥保持秘密。",
+    "source": {
+      "date": "2018-05",
+      "number": "31",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/a8d8647abb70fa52828441d60ca12194",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 71
+  },
+  {
+    "id": "rkb-03809edc86733269c6544dfe950824cc",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "不知道公钥是否被调包时，可请谁签发证明身份与公钥关系的证书？",
+    "options": {
+      "A": "二层交换机",
+      "B": "客户端缓存",
+      "C": "HTTP 反向代理",
+      "D": "可信 CA"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "CA 以数字签名证明公钥与主体等证书属性的关联。",
+    "source": {
+      "date": "2018-05",
+      "number": "36",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/03809edc86733269c6544dfe950824cc",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 72
+  },
+  {
+    "id": "rkb-3b73c8bffcdda04ad8d110659280bb30",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "以下哪项通常不属于证书颁发机构的工作？",
+    "options": {
+      "A": "签发生效证书",
+      "B": "发布撤销状态",
+      "C": "依规则管理证书有效期",
+      "D": "替使用者公开私人签名密钥"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "CA 认证公钥绑定，用户私钥保持保密。",
+    "source": {
+      "date": "2017-05",
+      "number": "60",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/3b73c8bffcdda04ad8d110659280bb30",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 73
+  },
+  {
+    "id": "rkb-cd8a5c634b547fefd0cefef099b796be",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "需要给通信对端的公钥建立可信归属，最直接使用哪个角色？",
+    "options": {
+      "A": "入侵阻断设备",
+      "B": "负载调度节点",
+      "C": "证书颁发机构 CA",
+      "D": "缓存服务器"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "CA 签发有可验证签名的证书以支持公钥绑定。",
+    "source": {
+      "date": "2016-11",
+      "number": "36",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/cd8a5c634b547fefd0cefef099b796be",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 74
+  },
+  {
+    "id": "rkb-c54b9fac148d19c1f0e8a48282e4a55a",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "X.509 公钥证书应避免包含哪项？",
+    "options": {
+      "A": "公钥",
+      "B": "主体私钥",
+      "C": "签发者数据",
+      "D": "有效期"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "数字证书公开分发，私钥必须由持有者控制。",
+    "source": {
+      "date": "2016-11",
+      "number": "31",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/c54b9fac148d19c1f0e8a48282e4a55a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 75
+  },
+  {
+    "id": "rkb-31e2cdf2fa0f366c0e1fd4e13535dd98",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "注册机构核验申请人，哪个动作一般也不该委托 CA 执行？",
+    "options": {
+      "A": "向公众发送申请人私钥",
+      "B": "签发证书",
+      "C": "公布撤销",
+      "D": "保护 CA 自己的签名密钥"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "用户私钥须自行保护或在受控设备内使用。",
+    "source": {
+      "date": "2016-11",
+      "number": "60",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/31e2cdf2fa0f366c0e1fd4e13535dd98",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 76
+  },
+  {
+    "id": "rkb-b492ad2bd9e4a521f1e3b88c79d50f00",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "在 X.509 证书的数据结构中，哪项不是独立的通用顶层字段？",
+    "source": {
+      "date": "2017-05",
+      "number": "61",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/b492ad2bd9e4a521f1e3b88c79d50f00",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 77,
+    "options": {
+      "A": "证书版本号",
+      "B": "签名算法标识",
+      "C": "一个专门描述证书内容加密方法的字段",
+      "D": "主体公钥信息"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "证书签名算法与主体公钥算法可各自标识，标准证书不是由一项专门的字段指定整体加密。"
+  },
+  {
+    "id": "rkb-9080a3900970365915ae888cb670c2c7",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "哪一对象主要是 Kerberos 的组件，而非一般公钥基础设施的组成？",
+    "source": {
+      "date": "2017-05",
+      "number": "31",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/9080a3900970365915ae888cb670c2c7",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 78,
+    "options": {
+      "A": "证书主体",
+      "B": "依赖证书的应用",
+      "C": "证书颁发机构",
+      "D": "Kerberos 的 AS"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "AS 是 Kerberos 的初始认证服务器。CA 才是典型 PKI 机构。"
+  },
+  {
+    "id": "rkb-755ced63d3badf5e2fa56b2a35e09a26",
+    "group": "PKI 公钥基础设施与 X.509 数字证书 · 历年真题",
+    "conceptId": "pki-ca",
+    "type": "single",
+    "stem": "PKI 对安全通信有何主要帮助？",
+    "source": {
+      "date": "2017-05",
+      "number": "55",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/755ced63d3badf5e2fa56b2a35e09a26",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 79,
+    "options": {
+      "A": "提供可核验的公钥与身份绑定",
+      "B": "使所有公钥默认不可验证",
+      "C": "规定只由政府建立信任体系",
+      "D": "不允许任何证书查询服务"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "可信签发与验证帮助判断公钥的归属。"
+  },
+  {
+    "id": "rkb-c5b5bf689acfea2e4d9713fa17715c31",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "为访问控制模型建立最小抽象时，哪项不是必需角色？",
+    "options": {
+      "A": "客体",
+      "B": "授权规则",
+      "C": "认证机构 CA",
+      "D": "主体"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "主体请求操作，客体是目标，授权规则规定是否允许。",
+    "source": {
+      "date": "2022-11",
+      "number": "26",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/c5b5bf689acfea2e4d9713fa17715c31",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 80
+  },
+  {
+    "id": "rkb-0f4896bce2933a0afa1dd95dc6424330",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "访问矩阵按列为每个客体记录能够访问它的主体和权利。对应哪种表示？",
+    "options": {
+      "A": "主机白名单",
+      "B": "访问控制列表 ACL",
+      "C": "能力表",
+      "D": "事件日志"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "矩阵的列代表客体，ACL 从客体侧组织授权。",
+    "source": {
+      "date": "2022-11",
+      "number": "27",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/0f4896bce2933a0afa1dd95dc6424330",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 81
+  },
+  {
+    "id": "rkb-c4d1b211089bee19d83825cdf2778e77",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "在 DAC 下，资源所有者按对象列出有权访问的用户。对应哪种机制？",
+    "options": {
+      "A": "ACL",
+      "B": "按主体列授权的能力表",
+      "C": "证书状态协议",
+      "D": "进程审计"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "对象视角取访问矩阵的一列。",
+    "source": {
+      "date": "2021-11",
+      "number": "32",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/c4d1b211089bee19d83825cdf2778e77",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 82
+  },
+  {
+    "id": "rkb-57f31a93a50d07b84e95a1d0bf1e0223",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "以系统资源类型划分，对通用文件的读写授权最直接属于哪个层次？",
+    "options": {
+      "A": "数据库级行访问控制",
+      "B": "操作系统访问控制",
+      "C": "无线认证",
+      "D": "应用网关流量审计"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "文件系统操作由操作系统安全机制检查。",
+    "source": {
+      "date": "2021-11",
+      "number": "31",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/57f31a93a50d07b84e95a1d0bf1e0223",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 83
+  },
+  {
+    "id": "rkb-561c08f3f5e4484be4154aeb45f0c6d7",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "员工获得审批角色后才可办理审批，约束依据是什么？",
+    "options": {
+      "A": "角色",
+      "B": "某台端末的屏幕尺寸",
+      "C": "文件后缀",
+      "D": "存储块编号"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "权限按完成职责所需的角色授权。",
+    "source": {
+      "date": "2021-11",
+      "number": "33",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/561c08f3f5e4484be4154aeb45f0c6d7",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 84
+  },
+  {
+    "id": "rkb-72fd8c09afdbc42ddc4a8bc07fd71025",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "访问控制模型中，谁访问、访问谁和按什么规则是核心。哪项不是三者之一？",
+    "options": {
+      "A": "证书商的公司名称",
+      "B": "主体",
+      "C": "客体",
+      "D": "访问策略"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "访问控制的基本元素是主体、客体、规则。",
+    "source": {
+      "date": "2019-05",
+      "number": "9",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/72fd8c09afdbc42ddc4a8bc07fd71025",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 85
+  },
+  {
+    "id": "rkb-ca2a1a9529e6d1ba573aa2020d9fe4bc",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "按 Biba 严格完整性模型，应该禁止哪种访问组合？",
+    "options": {
+      "A": "向高完整性读、向低完整性写",
+      "B": "只禁止同级读取",
+      "C": "只禁止同级写入",
+      "D": "向低完整性读、向高完整性写"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "通过限制低可信数据向高完整性对象流动来保护完整性。",
+    "source": {
+      "date": "2017-05",
+      "number": "70",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/ca2a1a9529e6d1ba573aa2020d9fe4bc",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 86
+  },
+  {
+    "id": "rkb-a05f60758538871980c07f33651f9d0e",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "case",
+    "stem": "一个访问矩阵有用户和资源两个维度。管理员能读写日志库，访客只读公开库。",
+    "prompts": [
+      "说明访问控制的基本要素。",
+      "分别按用户和按对象列出同一权限矩阵中的记录。"
+    ],
+    "explanationSupplement": "主体、客体与策略；能力表为主体列出可访问资源及权限，ACL 为某个资源列出允许的主体和权限；可将矩阵用授权关系保存。",
+    "source": {
+      "date": "2016-11",
+      "number": "2-3",
+      "url": "https://www.ruankaoba.com/paper/paperId/e9776a541c7160e86566c29feb673116/chiefId/a05f60758538871980c07f33651f9d0e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "主体",
+        "日志库",
+        "公开库"
+      ],
+      "rows": [
+        [
+          "管理员",
+          "读、写",
+          "无"
+        ],
+        [
+          "访客",
+          "无",
+          "读"
+        ]
+      ]
+    },
+    "number": 87
+  },
+  {
+    "id": "rkb-cc4944a354917f70147a26e28a5290e0",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "系统规定访问权限、授予权限并对请求执行检查。哪项属于用于事后追溯的独立活动？",
+    "source": {
+      "date": "2020-11",
+      "number": "9",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/cc4944a354917f70147a26e28a5290e0",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 88,
+    "options": {
+      "A": "审计",
+      "B": "授权",
+      "C": "定义访问权限",
+      "D": "执行权限检查"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "审计记录和核查行为。其他三项构成访问控制过程。"
+  },
+  {
+    "id": "rkb-512523677b1202833fad4eaf2f6bcc23",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "若按网络通信控制和业务恢复来区分，哪项直接面向故障后的业务恢复？",
+    "source": {
+      "date": "2020-11",
+      "number": "63",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/512523677b1202833fad4eaf2f6bcc23",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 89,
+    "options": {
+      "A": "VPN",
+      "B": "灾备与备份",
+      "C": "入侵检测",
+      "D": "消息认证"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "灾备与备份为恢复数据和服务提供能力，另三项主要面向对通信的保护或监测。"
+  },
+  {
+    "id": "rkb-fb760ebc08499a16f7b8e4a0c6f3912d",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "哪项模型通常可用于表达自主授权下各主体对各客体具有的操作权限？",
+    "source": {
+      "date": "2019-05",
+      "number": "15",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/fb760ebc08499a16f7b8e4a0c6f3912d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 90,
+    "options": {
+      "A": "BLP",
+      "B": "基于角色的权限分配",
+      "C": "BN 利益冲突模型",
+      "D": "访问控制矩阵"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "访问控制矩阵按主体与客体列出许可，可用于表达由所有者授予或变更的权限。"
+  },
+  {
+    "id": "rkb-58fd34d98e39565df4b59b3edfd55ad9",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "某主体级别高于其要读取的文件。只按级别方向描述，这次读取叫什么？",
+    "source": {
+      "date": "2019-05",
+      "number": "23",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/58fd34d98e39565df4b59b3edfd55ad9",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 91,
+    "options": {
+      "A": "向下读",
+      "B": "向上写",
+      "C": "向下写",
+      "D": "向上读"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "以主体级别为参照，读取更低级客体是向下读。是否允许还要看实际访问规则。"
+  },
+  {
+    "id": "rkb-b5ee305354eaebe827a716bd05ca87ac",
+    "group": "访问控制模型（DAC/MAC/RBAC）与安全审计 · 历年真题",
+    "conceptId": "access-control",
+    "type": "single",
+    "stem": "下列哪一模型可以表达随主体授权变化而更新的访问控制矩阵及权能？",
+    "source": {
+      "date": "2017-05",
+      "number": "34",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/b5ee305354eaebe827a716bd05ca87ac",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 92,
+    "options": {
+      "A": "BLP",
+      "B": "HRU",
+      "C": "BN",
+      "D": "RBAC"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "HRU 以访问矩阵和执行规则描述权限及其变化，可用于分析自主访问控制。"
+  },
+  {
+    "id": "rkb-ca127abf170369f94677562c34d6a3bd",
+    "group": "认证凭据与访问控制策略 · 历年真题",
+    "conceptId": "access-policy",
+    "type": "single",
+    "stem": "分别向不同管理员授予完成其职责必需的权限。这个做法体现什么原则？",
+    "options": {
+      "A": "单一管理员集中操作",
+      "B": "最小特权",
+      "C": "默认放行",
+      "D": "匿名认证"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "权限集合按任务裁减可限制单个账号造成的影响。",
+    "source": {
+      "date": "2022-11",
+      "number": "29",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/ca127abf170369f94677562c34d6a3bd",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 93
+  },
+  {
+    "id": "rkb-5f2aed8eda5f39c144f1255812b0c9b3",
+    "group": "认证凭据与访问控制策略 · 历年真题",
+    "conceptId": "access-policy",
+    "type": "single",
+    "stem": "某应用发现账号异常事件时临时限制会话权限，这属于基于什么的访问控制规则？",
+    "options": {
+      "A": "文件扩展名",
+      "B": "异常事件",
+      "C": "固定身份名",
+      "D": "磁盘容量"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "动态访问约束由异常信号触发。",
+    "source": {
+      "date": "2022-11",
+      "number": "28",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/5f2aed8eda5f39c144f1255812b0c9b3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 94
+  },
+  {
+    "id": "rkb-00d2f9fb0b1081890c63c8f2ae81fd00",
+    "group": "认证凭据与访问控制策略 · 历年真题",
+    "conceptId": "access-policy",
+    "type": "single",
+    "stem": "IIS 设置了 FTP 允许规则，但底层 NTFS 文件权限拒绝该用户写入。结果是什么？",
+    "options": {
+      "A": "只要登录就能写入",
+      "B": "由浏览器颜色决定",
+      "C": "实际写入仍被 NTFS 拒绝",
+      "D": "必然绕过文件系统限制"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "应用授权与操作系统权限应同时允许。",
+    "source": {
+      "date": "2021-11",
+      "number": "34",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/00d2f9fb0b1081890c63c8f2ae81fd00",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 95
+  },
+  {
+    "id": "rkb-5f2752e6022be98ec24e17fc001130e7",
+    "group": "认证凭据与访问控制策略 · 历年真题",
+    "conceptId": "access-policy",
+    "type": "single",
+    "stem": "经典 FTP 文件传输会用到哪两类 TCP 连接？",
+    "options": {
+      "A": "两个数据连接",
+      "B": "串行控制线路和 UDP 数据通道",
+      "C": "TLS 握手连接和 DNS 查询连接",
+      "D": "控制连接和数据连接"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "FTP 使用控制通道提交命令，单独的数据通道传送文件或列表。",
+    "source": {
+      "date": "2020-11",
+      "number": "40",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/5f2752e6022be98ec24e17fc001130e7",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 96
+  },
+  {
+    "id": "rkb-7fa54f4ada28f39a283f58f0901a0a6b",
+    "group": "认证凭据与访问控制策略 · 历年真题",
+    "conceptId": "access-policy",
+    "type": "single",
+    "stem": "以下口令特征中，哪种通常更难被简单字典或规则猜中？",
+    "source": {
+      "date": "2017-05",
+      "number": "19",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/7fa54f4ada28f39a283f58f0901a0a6b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 97,
+    "options": {
+      "A": "仅使用一个常见英文单词",
+      "B": "由口令管理器生成的一串较长、不可预测的随机字符",
+      "C": "八位容易联想到个人的数字",
+      "D": "姓名加常见年份"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "不可预测性与长度是关键。应为不同账号使用独立口令，并按需要启用多因素认证。"
+  },
+  {
+    "id": "sec-extra-access-policy",
+    "type": "single",
+    "stem": "某人即将调岗，保留旧权限会同时使其可以申请和审批。怎样处理？",
+    "options": {
+      "A": "暂时向其开放全部权限",
+      "B": "仅更新显示名",
+      "C": "允许其自行决定以后是否注销",
+      "D": "明确撤回旧角色并验证仍只拥有新职责所需权限"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "回收旧权限并重新核验职责分离。",
+    "group": "认证凭据与访问控制策略",
+    "conceptId": "access-policy",
+    "number": 98
   }
 ]

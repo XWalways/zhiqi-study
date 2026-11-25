@@ -11,7 +11,9 @@
       "C": "应用代理防火墙只检查 IP 地址和端口号，转发速度最快",
       "D": "包过滤防火墙在应用层运行，能彻底阻断所有 SQL 注入"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "从网络层包过滤到应用层代理，防火墙解析的协议深度逐级增加，安全控制能力越强，但 CPU 计算和代理转发开销也越大，吞吐效率相对下降。",
     "optionExplanations": {
       "A": "将安全性与效率的变化规律说反了。",
@@ -33,7 +35,9 @@
       "C": "纯 NAT 转换模式",
       "D": "物理离线模式"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "透明模式（网桥模式）下防火墙接口不配置三层业务 IP，对上下游路由器和主机完全透明，无需改动原有网络拓扑与 IP 规划即可无缝部署。",
     "optionExplanations": {
       "A": "路由模式需要为接口配置不同网段 IP 并调整路由。",
@@ -55,7 +59,9 @@
       "C": "内部员工将感染恶意代码的个人 U 盘直接插入内网主机",
       "D": "按源 IP 黑名单拦截外部异常连接请求"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "防火墙只能控制经过其物理接口的网络流量；员工携带 U 盘物理绕过防火墙直接接入内网属于内部与绕道威胁，超出边界防火墙的防护范围。",
     "optionExplanations": {
       "A": "边界防火墙可有效拦截外部端口扫描。",
@@ -77,7 +83,9 @@
       "C": "随意屏蔽所有 80 和 443 端口",
       "D": "关闭防火墙的日志记录以节省磁盘空间"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "制定防火墙策略须先明确业务资产与合法通信矩阵（识别应用需求），再据此按「最小化放行、默认拒绝」原则逐条编写规则。",
     "optionExplanations": {
       "A": "「全部放行」严重违背默认拒绝安全原则。",
@@ -99,7 +107,9 @@
       "C": "外网 > DMZ > 内网",
       "D": "内网 = DMZ > 外网"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "内网存放核心资产，信任级与受保护程度最高；DMZ 放置对外公开服务，受保护程度居中；外网为不可信公共网络，受保护程度最低。",
     "optionExplanations": {
       "A": "内网受保护程度高于 DMZ。",
@@ -121,7 +131,9 @@
       "C": "外网主机直接主动访问内网核心数据库服务器",
       "D": "内网员工经代理或策略允许访问外网网页"
     },
-    "answer": ["C"],
+    "answer": [
+      "C"
+    ],
     "explanationSupplement": "外网绝不允许直接穿透边界访问内网核心资产；同理，DMZ 默认也不应允许主动向内网发起任意连接，以防成为横向跳板。",
     "optionExplanations": {
       "A": "DMZ 的设计初衷就是承载面向外网的公开服务。",
@@ -143,7 +155,9 @@
       "C": "IPSec — 应用层；SSH — 数据链路层；PGP — 网络层",
       "D": "SSL/TLS — 网络层；PGP — 数据链路层；L2TP — 应用层"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "PPTP 与 L2TP 工作在数据链路层（二层隧道），IPSec 工作在网络层（三层 IP 加密），SSL/TLS 工作在传输层与应用层之间（通常归为传输层安全），SSH 与 PGP 工作在应用层。",
     "optionExplanations": {
       "A": "三者的协议层次全部错位。",
@@ -165,7 +179,9 @@
       "C": "80",
       "D": "443"
     },
-    "answer": ["D"],
+    "answer": [
+      "D"
+    ],
     "explanationSupplement": "HTTP 默认使用 80 端口，HTTPS（HTTP over SSL/TLS）默认使用 443 端口。",
     "optionExplanations": {
       "A": "21 是 FTP 控制连接默认端口。",
@@ -187,7 +203,9 @@
       "C": "ICMP",
       "D": "ARP"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "SSH（Secure Shell，默认端口 22）通过非对称认证与对称加密通道保护远程登录命令与口令，彻底取代明文 Telnet。",
     "optionExplanations": {
       "A": "SSH 提供加密远程终端与安全文件传输（SFTP）。",
@@ -209,7 +227,9 @@
       "C": "SNMP",
       "D": "NTP"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "PGP（Pretty Good Privacy）利用对称加密保护邮件正文、公钥加密保护会话密钥、私钥对摘要签名，实现安全电子邮件通信。",
     "optionExplanations": {
       "A": "PGP 是经典的电子邮件加密与签名方案。",
@@ -231,7 +251,9 @@
       "C": "网页未使用 Flash 动画；禁用浏览器 JavaScript",
       "D": "服务器未安装杀毒软件；重启 Web 服务"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "SQL 注入本质是「数据与指令未分离」。参数化查询（PreparedStatement）先将 SQL 结构预编译，再将用户输入严格作为纯数据参数绑定，从根源阻断注入。",
     "optionExplanations": {
       "A": "升级硬盘无法修复代码拼接缺陷。",
@@ -253,7 +275,9 @@
       "C": "在特定高权限配置下利用数据库扩展功能执行系统命令",
       "D": "直接在其他正常用户的浏览器端弹出跨站脚本（XSS）弹窗窃取本地 DOM"
     },
-    "answer": ["D"],
+    "answer": [
+      "D"
+    ],
     "explanationSupplement": "SQL 注入直接作用于后端数据库，可造成数据泄露、篡改、删除或提权；而在其他用户浏览器端执行恶意脚本属于 XSS（跨站脚本）的典型危害。",
     "optionExplanations": {
       "A": "属于 SQL 注入最常见的机密性破坏后果。",
@@ -275,7 +299,9 @@
       "C": "PublicRead",
       "D": "NoCache"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "为会话 Cookie 添加 HttpOnly 属性后，浏览器仅在 HTTP 请求头中自动携带该 Cookie，禁止前端 JavaScript 通过 document.cookie 读取，显著降低 XSS 劫持会话风险。",
     "optionExplanations": {
       "A": "HttpOnly 专门用于阻止前端脚本访问敏感 Cookie。",
@@ -297,7 +323,9 @@
       "C": "DNS 缓存污染",
       "D": "广播风暴"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "缓冲区溢出是 C/C++ 等底层语言中最经典的内存安全漏洞，可导致程序崩溃（破坏可用性）或被植入恶意代码执行任意指令。",
     "optionExplanations": {
       "A": "准确对应未做边界检查导致的缓冲区溢出成因。",
@@ -319,7 +347,9 @@
       "C": "DNS 递归服务器",
       "D": "静态包过滤路由器"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "WAF（Web Application Firewall）聚焦 Web 应用层协议语义分析，弥补传统网络层防火墙无法深度识别 HTTP 恶意载荷的短板。",
     "optionExplanations": {
       "A": "准确对应 WAF 的应用层 Web 防护定位。",
@@ -341,7 +371,11 @@
       "C": "IPSec 协议族中的 ESP 协议既能提供数据加密，也能提供数据完整性和来源认证",
       "D": "只要部署了防火墙，操作系统就不需要再及时安装安全补丁"
     },
-    "answer": ["A", "B", "C"],
+    "answer": [
+      "A",
+      "B",
+      "C"
+    ],
     "explanationSupplement": "防火墙需持续监控性能与会话表状态；防病毒网关在出口查杀常见文件与邮件协议病毒；IPSec ESP 提供加密与认证。防火墙不能替代操作系统自身的漏洞补丁管理。",
     "optionExplanations": {
       "A": "属于防火墙运行监控的核心健康指标。",
@@ -350,5 +384,1628 @@
       "D": "纵深防御要求边界防护与主机补丁加固并重。"
     },
     "conceptId": "firewall-tech"
+  },
+  {
+    "id": "rkb-27d96d2dfb186224c2054bc100fbc6fc",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "Cisco IPv4 ACL 的通配符掩码中，某位为 0 表示什么？",
+    "options": {
+      "A": "忽略该位",
+      "B": "要求该地址为组播",
+      "C": "强制丢弃所有数据包",
+      "D": "匹配时必须比较地址的该位"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "通配符位为 1 才表示忽略对应比较。",
+    "source": {
+      "date": "2022-11",
+      "number": "31",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/27d96d2dfb186224c2054bc100fbc6fc",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 17
+  },
+  {
+    "id": "rkb-2752c3e59e88061423f01ac295b931d6",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "若多个内部地址通过外部地址的不同端口共享同一个公网地址，这是什么机制？",
+    "options": {
+      "A": "端口地址转换 PAT",
+      "B": "静态一一地址映射",
+      "C": "域名委派",
+      "D": "二层网桥"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "PAT 将地址和端口组合映射。",
+    "source": {
+      "date": "2022-11",
+      "number": "32",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/2752c3e59e88061423f01ac295b931d6",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 18
+  },
+  {
+    "id": "rkb-134b55838c71a6a63cda2cb5f3acc593",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "关于防火墙的工作边界，哪项陈述不成立？",
+    "options": {
+      "A": "可记录部分访问行为",
+      "B": "应明确允许流量及默认动作",
+      "C": "单靠防火墙可消除端点的全部漏洞",
+      "D": "按规则控制跨域流量"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "边界防火墙与系统补丁、端点控制等配合。",
+    "source": {
+      "date": "2022-11",
+      "number": "30",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/134b55838c71a6a63cda2cb5f3acc593",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 19
+  },
+  {
+    "id": "rkb-83e515734fa2b962a15528f9d5332aec",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "针对已有的 Cisco 风格访问列表，deny 匹配上一个数据包后如何处置？",
+    "options": {
+      "A": "按策略拒绝通过",
+      "B": "直接允许通过",
+      "C": "改写成内部地址后放行",
+      "D": "给数据包签发证书"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "deny 表示拒绝匹配流量，并可按规则附带记录。",
+    "source": {
+      "date": "2021-11",
+      "number": "36",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/83e515734fa2b962a15528f9d5332aec",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 20
+  },
+  {
+    "id": "rkb-13d86ec588c7cda9fbfe7816e220a19a",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "边界防火墙难以直接处理的是哪种情况？",
+    "options": {
+      "A": "按服务端口限制外部访问",
+      "B": "边界连接记录留痕",
+      "C": "内部分区未经过防火墙路径的本机越权操作",
+      "D": "经该边界的未经授权连接"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "只对经过其观察和执行点的流量有效。",
+    "source": {
+      "date": "2021-11",
+      "number": "35",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/13d86ec588c7cda9fbfe7816e220a19a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 21
+  },
+  {
+    "id": "rkb-d082459ebfdee426ce2e7d0f8a28818e",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "过滤器阻止匹配数据通过，并向来源返回拒绝信息时，动作通常叫什么？",
+    "options": {
+      "A": "显式拒绝",
+      "B": "静默丢弃",
+      "C": "完全允许",
+      "D": "端口镜像"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "拒绝会按具体实现返回错误；丢弃可以不返回通知。",
+    "source": {
+      "date": "2019-05",
+      "number": "63",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/d082459ebfdee426ce2e7d0f8a28818e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 22
+  },
+  {
+    "id": "rkb-bb159c18a45d4f6cf65d580643646762",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "普通无状态包过滤通常不需要解析哪项信息？",
+    "options": {
+      "A": "目标端口",
+      "B": "通信方向",
+      "C": "加密应用报文的业务文本",
+      "D": "源 IP 地址"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "普通包过滤主要依据报头而非应用报文内容。",
+    "source": {
+      "date": "2019-05",
+      "number": "42",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/bb159c18a45d4f6cf65d580643646762",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 23
+  },
+  {
+    "id": "rkb-fc2fb0bf4ddc822f102af41231cb2d10",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "case",
+    "stem": "企业边界仅允许公网访问公开 HTTPS 服务，拒绝外部直接访问管理接口，其他入站流量交给最后一条默认规则。",
+    "prompts": [
+      "如何写出服务、方向、地址和动作的规则条目？",
+      "为什么最后需要默认规则？",
+      "比较允许、静默丢弃与显式拒绝。",
+      "说明服务、方向、用户、行为控制各控制什么。"
+    ],
+    "explanationSupplement": "先按保护对象写窄范围允许，再显式拒绝未授权路径；默认规则覆盖此前未匹配流量。按协议、流向、身份和使用行为描述不同的访问控制维度。",
+    "source": {
+      "date": "2019-05",
+      "number": "4-7",
+      "url": "https://www.ruankaoba.com/paper/paperId/66bbb1e0025a541e4ea90760eceb825c/chiefId/fc2fb0bf4ddc822f102af41231cb2d10",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 24
+  },
+  {
+    "id": "rkb-81c130272f33ae51685a8f8fd97ee2b8",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "普通包过滤下列哪个条件通常无法直接以网络和运输层头部匹配？",
+    "options": {
+      "A": "传输层协议号",
+      "B": "应用文档中的业务文字",
+      "C": "源 IP",
+      "D": "传输层端口"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "普通包过滤依赖报文头；如需业务内容需要独立的应用层检查。",
+    "source": {
+      "date": "2018-05",
+      "number": "63",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/81c130272f33ae51685a8f8fd97ee2b8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 25
+  },
+  {
+    "id": "rkb-5f4275357ed1c069855d0010beac2ce0",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "包过滤设备通常不解析哪一项？",
+    "options": {
+      "A": "应用层业务正文",
+      "B": "报文源地址",
+      "C": "报文目的地址",
+      "D": "传输层端口"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "仅查看网络和运输层头部的过滤器不检查应用正文。",
+    "source": {
+      "date": "2017-05",
+      "number": "52",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/5f4275357ed1c069855d0010beac2ce0",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 26
+  },
+  {
+    "id": "rkb-2ac53317d1116e1e3530b6ddc0bd1fa4",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "需要在内外网络之间按规则允许或阻断数据传输，应部署什么控制？",
+    "options": {
+      "A": "终端文件恢复程序",
+      "B": "防火墙",
+      "C": "证书打印机",
+      "D": "应用页面缓存"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "防火墙执行区域间访问控制和安全策略。",
+    "source": {
+      "date": "2017-05",
+      "number": "51",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/2ac53317d1116e1e3530b6ddc0bd1fa4",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 27
+  },
+  {
+    "id": "rkb-e8e7a39938074db578343b53b7c8da64",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "经典包过滤器通常不依据哪项内容决定转发？",
+    "options": {
+      "A": "协议编号",
+      "B": "传输层服务端口",
+      "C": "业务层负载的语义",
+      "D": "源地址和目的地址"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "经典包过滤依赖报头。",
+    "source": {
+      "date": "2016-11",
+      "number": "63",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/e8e7a39938074db578343b53b7c8da64",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 28
+  },
+  {
+    "id": "rkb-3a265665af35215a38f9c4737ed607cc",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "哪种威胁通常不在边界防火墙观察和拦截范围内？",
+    "options": {
+      "A": "外部访问被禁用的地址",
+      "B": "不符合跨区规则的流量",
+      "C": "未经过边界的内部本机滥权",
+      "D": "通过边界的异常连接"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "防火墙只约束受其监视与执行的流量。",
+    "source": {
+      "date": "2016-11",
+      "number": "8",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/3a265665af35215a38f9c4737ed607cc",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 29
+  },
+  {
+    "id": "rkb-5c7b3f7dcac03550f4e839ab3902138e",
+    "group": "防火墙分类、工作模式与监控指标 · 历年真题",
+    "conceptId": "firewall-tech",
+    "type": "single",
+    "stem": "动态 NAT 和 NAPT 有什么区别？下列说法哪一项不正确？",
+    "source": {
+      "date": "2017-05",
+      "number": "23",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/5c7b3f7dcac03550f4e839ab3902138e",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 30,
+    "options": {
+      "A": "内部主机可通过转换后地址访问外部",
+      "B": "静态转换可设置固定地址映射",
+      "C": "动态 NAT 可从地址池分配可用地址",
+      "D": "所有动态 NAT 都等同于 NAPT"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "NAPT 还使用端口参与转换；仅动态分配地址并不等同于端口复用。"
+  },
+  {
+    "id": "rkb-6ad24836d5bcae11fb44063dbc327936",
+    "group": "DMZ 非军事区与边界访问策略 · 历年真题",
+    "conceptId": "dmz-architecture",
+    "type": "case",
+    "stem": "业务分为公网服务区、办公区和生产区。公网用户只需访问 DMZ 的 HTTPS，生产网只接收审批后的报表。",
+    "prompts": [
+      "生产区边界采用哪类隔离装置？",
+      "DMZ 对应哪一类防火墙结构？",
+      "四道安全防线的职责分别是什么？",
+      "转发路径应检查哪类过滤链和默认动作？",
+      "如何限制允许的源、目的、端口及回流？"
+    ],
+    "explanationSupplement": "生产侧按审批选择单向或网闸交换；DMZ 为屏蔽子网；保护、检测、响应和恢复；跨区经过转发链；明确方向与目标，默认拒绝其余流量，检查状态回流。",
+    "source": {
+      "date": "2022-11",
+      "number": "1-5",
+      "url": "https://www.ruankaoba.com/paper/paperId/a3dd2e06d897109268c3160478ff6f85/chiefId/6ad24836d5bcae11fb44063dbc327936",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "区域",
+        "允许的业务"
+      ],
+      "rows": [
+        [
+          "DMZ",
+          "互联网访问 HTTPS"
+        ],
+        [
+          "办公区",
+          "走批准的管理路径"
+        ],
+        [
+          "生产区",
+          "仅接收审批报表"
+        ]
+      ]
+    },
+    "number": 31
+  },
+  {
+    "id": "rkb-cdd9ed80e534c7c6a2026d699645c597",
+    "group": "DMZ 非军事区与边界访问策略 · 历年真题",
+    "conceptId": "dmz-architecture",
+    "type": "single",
+    "stem": "屏蔽子网的入口先经哪个组件对来自外部网络的通信执行过滤？",
+    "options": {
+      "A": "内侧文件服务器",
+      "B": "外部边界路由器或过滤器",
+      "C": "数据库备份节点",
+      "D": "内网终端"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "外部过滤器构成向公网的第一层策略边界。",
+    "source": {
+      "date": "2020-11",
+      "number": "42",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/cdd9ed80e534c7c6a2026d699645c597",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 32
+  },
+  {
+    "id": "rkb-bb7965a22e9f253eeef99b16e35a8aed",
+    "group": "DMZ 非军事区与边界访问策略 · 历年真题",
+    "conceptId": "dmz-architecture",
+    "type": "case",
+    "stem": "边界由外侧过滤器、包含公开服务的 DMZ、内侧过滤器与私有网络组成。",
+    "prompts": [
+      "对比双宿主、屏蔽主机及屏蔽子网。",
+      "识别该拓扑，说明内外过滤器的作用。",
+      "如何限制对公开服务和内部网络的访问？"
+    ],
+    "explanationSupplement": "该结构为屏蔽子网；外侧只转接批准的公开服务，内侧限制 DMZ 与内网的交互；管理流量、日志和数据通路各自设定规则。",
+    "source": {
+      "date": "2016-11",
+      "number": "3-5",
+      "url": "https://www.ruankaoba.com/paper/paperId/e9776a541c7160e86566c29feb673116/chiefId/bb7965a22e9f253eeef99b16e35a8aed",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "边界",
+        "拓扑"
+      ],
+      "rows": [
+        [
+          "外部",
+          "公网 → 外侧过滤器 → DMZ"
+        ],
+        [
+          "内部",
+          "DMZ → 内侧过滤器 → 私有网络"
+        ]
+      ]
+    },
+    "number": 33
+  },
+  {
+    "id": "rkb-e5b5ee63414e3cf977d6a4bf56ca9f12",
+    "group": "DMZ 非军事区与边界访问策略 · 历年真题",
+    "conceptId": "dmz-architecture",
+    "type": "single",
+    "stem": "相较只看网络层和运输层信息的防火墙，应用代理的一个典型优势是什么？",
+    "source": {
+      "date": "2017-05",
+      "number": "24",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/e5b5ee63414e3cf977d6a4bf56ca9f12",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 34,
+    "options": {
+      "A": "使用代理就必然提高所有加密强度",
+      "B": "可依据具体应用协议实施较细的控制",
+      "C": "对所有协议都透明且无需代理配置",
+      "D": "能够无条件代理任何协议"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "了解应用消息及其语义，便可按更细的条件校验和访问控制。"
+  },
+  {
+    "id": "rkb-0878ccfccfba09e6793eef64e9986f5c",
+    "group": "DMZ 非军事区与边界访问策略 · 历年真题",
+    "conceptId": "dmz-architecture",
+    "type": "single",
+    "stem": "网络依次连接互联网、外侧包过滤器、承载 Web 与邮件服务的 DMZ、内侧包过滤器和内部网。这是哪类经典防火墙架构？",
+    "source": {
+      "date": "2017-05",
+      "number": "45",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/0878ccfccfba09e6793eef64e9986f5c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 35,
+    "options": {
+      "A": "双宿主主机",
+      "B": "屏蔽主机",
+      "C": "屏蔽子网",
+      "D": "无隔离区的单过滤器结构"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "两个过滤边界之间有独立周边子网，属于屏蔽子网结构。"
+  },
+  {
+    "id": "rkb-aad9ad240a2a7282b74ce7d64ebbc58b",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "IPsec 在网络层建立受保护通信，以下哪项由应用自身实现？",
+    "options": {
+      "A": "保护传输内容的完整性",
+      "B": "按安全关联保护数据机密性",
+      "C": "执行业务角色与订单权限审批",
+      "D": "校验 IP 层数据来源"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "IPsec 不替代应用的业务授权。",
+    "source": {
+      "date": "2022-11",
+      "number": "38",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/aad9ad240a2a7282b74ce7d64ebbc58b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 36
+  },
+  {
+    "id": "rkb-35def67e954d16f7d3c020866897e9f7",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "哪种常用 VPN 实现在 IP 网络层提供保护？",
+    "options": {
+      "A": "PPTP 的链路封装",
+      "B": "应用层远程门户",
+      "C": "普通二层 VLAN",
+      "D": "IPsec"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "IPsec 为 IP 数据提供网络层保护。",
+    "source": {
+      "date": "2022-11",
+      "number": "35",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/35def67e954d16f7d3c020866897e9f7",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 37
+  },
+  {
+    "id": "rkb-32b8bdb30f3890eed7c7210a01ba2b79",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "传统 TLS/SSL 体系中，负责封装和保护上层记录的部分是什么？",
+    "options": {
+      "A": "记录协议",
+      "B": "对端身份注册流程",
+      "C": "域名解析",
+      "D": "网络路由"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "握手建立连接的密码参数，之后由记录层保护数据。",
+    "source": {
+      "date": "2022-11",
+      "number": "37",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/32b8bdb30f3890eed7c7210a01ba2b79",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 38
+  },
+  {
+    "id": "rkb-27160fb8ba9dc5894f2b10fdbbd7828c",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "下列哪项不能由 VPN 的隧道与密码机制本身证明？",
+    "options": {
+      "A": "内容在传输中具有机密性",
+      "B": "业务已经满足全部合规义务",
+      "C": "通信数据获得完整性保护",
+      "D": "双方身份经过鉴别"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "合规要结合业务义务、管理流程和证据，安全隧道仅是技术控制。",
+    "source": {
+      "date": "2022-11",
+      "number": "34",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/27160fb8ba9dc5894f2b10fdbbd7828c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 39
+  },
+  {
+    "id": "rkb-109dd4107e834966cf5d28bc27748b94",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "下列哪项将 IPsec 错放到了别的协议层？",
+    "options": {
+      "A": "把 IPsec 视为应用层邮件签名协议",
+      "B": "AH 可提供来源认证与完整性保护",
+      "C": "ESP 可按配置保护机密性",
+      "D": "隧道模式封装原始 IP 包"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "IPsec 工作于网络层，邮件签名有独立机制。",
+    "source": {
+      "date": "2022-11",
+      "number": "36",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/109dd4107e834966cf5d28bc27748b94",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 40
+  },
+  {
+    "id": "rkb-a3637b5ec0199fabe62f3cf088d6bff8",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "把 VPN 放在网络层时典型选用哪个机制？",
+    "options": {
+      "A": "TCP 流量整形",
+      "B": "二层 MAC 认证",
+      "C": "HTTP 代理缓存",
+      "D": "IPsec"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "IPsec 在 IP 层提供安全服务。",
+    "source": {
+      "date": "2021-11",
+      "number": "39",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/a3637b5ec0199fabe62f3cf088d6bff8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 41
+  },
+  {
+    "id": "rkb-710421737b104f3926b17a67b020a1b0",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "在 IPsec 中，哪项可以为数据提供来源认证及完整性保护？",
+    "options": {
+      "A": "无密钥的普通校验和",
+      "B": "普通 IP 分组转发",
+      "C": "DNS 转发",
+      "D": "AH"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "AH 提供认证，不提供内容机密性；具备认证的 ESP 配置也可提供认证。",
+    "source": {
+      "date": "2021-11",
+      "number": "40",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/710421737b104f3926b17a67b020a1b0",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 42
+  },
+  {
+    "id": "rkb-82bb753ef137a5a1a105157b8d1bf211",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "浏览器通过 HTTPS 访问站点时，HTTP 通信通常获得哪类保护？",
+    "options": {
+      "A": "数据库记录必然加密落盘",
+      "B": "TLS 提供认证、机密性与完整性保护",
+      "C": "网卡驱动隐藏网站路径",
+      "D": "访问控制由浏览器绝对接管"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "HTTPS 在 HTTP 与底层传输间提供 TLS 安全。",
+    "source": {
+      "date": "2020-11",
+      "number": "54",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/82bb753ef137a5a1a105157b8d1bf211",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 43
+  },
+  {
+    "id": "rkb-12059fcbedca278ca531ef6c7be506e2",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "消息认证码与普通杂凑的核心区别是什么？",
+    "options": {
+      "A": "消息认证码必须可逆",
+      "B": "消息认证码使用密钥提供认证保护",
+      "C": "普通杂凑必须用接收者私钥",
+      "D": "两者总是使用身份证明证书"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "消息认证码的密钥绑定真实性和完整性。",
+    "source": {
+      "date": "2020-11",
+      "number": "16",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/12059fcbedca278ca531ef6c7be506e2",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 44
+  },
+  {
+    "id": "rkb-e4c34d8f58b9ff26390da8d6a14b5ffc",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "IPsec 是针对哪一网络层级的安全方案？",
+    "options": {
+      "A": "应用层邮件",
+      "B": "应用层数据库查询",
+      "C": "IP 网络层",
+      "D": "物理层"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "它保护 IP 数据包并根据安全关联处理传输。",
+    "source": {
+      "date": "2019-05",
+      "number": "55",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/e4c34d8f58b9ff26390da8d6a14b5ffc",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 45
+  },
+  {
+    "id": "rkb-92d026be821256d351627dfadcd9876a",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "关于 VPN 的表述，哪项正确？",
+    "options": {
+      "A": "可在共享网络上构建受控的逻辑通信通道",
+      "B": "必须租用物理专用线才能建立",
+      "C": "只允许用于同一机房",
+      "D": "能够替代终端补丁管理"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "VPN 能在共享网络部署，提供的服务取决于协议和配置。",
+    "source": {
+      "date": "2018-05",
+      "number": "61",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/92d026be821256d351627dfadcd9876a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 46
+  },
+  {
+    "id": "rkb-3023f7ebc7fe33c73d9b45a6754a299b",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "在不同网络之间建立 IP 层安全通信，应怎样理解 IPsec？",
+    "options": {
+      "A": "可用安全关联配合 AH 或 ESP 提供多种数据保护",
+      "B": "只能用于应用层密码登录",
+      "C": "只能透露原始数据内容",
+      "D": "完全不支持认证保护"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "IPsec 主要在网络层工作；协议与配置决定具体服务。",
+    "source": {
+      "date": "2018-05",
+      "number": "55",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/3023f7ebc7fe33c73d9b45a6754a299b",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 47
+  },
+  {
+    "id": "rkb-e1bb4b9909e00e211e452d092c7b3c60",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "两个站点由 IPsec 路由器连接，且宜封装整个内部 IP 数据报，应选哪种模式？",
+    "options": {
+      "A": "IPsec 仅传输模式",
+      "B": "单独请求转发",
+      "C": "无状态二层桥接",
+      "D": "IPsec 隧道模式"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "隧道模式可封装完整的原始 IP 分组。",
+    "source": {
+      "date": "2017-05",
+      "number": "33",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/e1bb4b9909e00e211e452d092c7b3c60",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 48
+  },
+  {
+    "id": "rkb-d571236a2670f38e4285d28c76866c7f",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "公司总部与异地分公司需要网络到网络的连接，哪种 VPN 最符合用途？",
+    "options": {
+      "A": "普通主机防火墙",
+      "B": "文件摘要协议",
+      "C": "站点到站点 VPN",
+      "D": "单用户仅访问应用的远程接入 VPN"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "站点到站点 VPN 可连接两个网络分区的边界网关。",
+    "source": {
+      "date": "2017-05",
+      "number": "62",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/d571236a2670f38e4285d28c76866c7f",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 49
+  },
+  {
+    "id": "rkb-59e8787135af6892fefbea792b7a5609",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "在历史 VPN 协议中，哪项是第二层隧道协议？",
+    "options": {
+      "A": "IPsec AH",
+      "B": "BGP",
+      "C": "HTTPS",
+      "D": "PPTP"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "PPTP 通过隧道运送 PPP 帧，属于旧式方案。",
+    "source": {
+      "date": "2017-05",
+      "number": "58",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/59e8787135af6892fefbea792b7a5609",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 50
+  },
+  {
+    "id": "rkb-5ab73a1b14683d3d7ad23294ffd79336",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "关于 IPsec 的工作位置及服务，哪项表述正确？",
+    "options": {
+      "A": "可在 IP 层提供认证、完整性和按配置的机密性",
+      "B": "只在物理层工作",
+      "C": "只能给普通邮件做数字签名",
+      "D": "必须使用明文隧道"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "IPsec 通过 AH、ESP 与安全关联提供不同保护。",
+    "source": {
+      "date": "2016-11",
+      "number": "55",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/5ab73a1b14683d3d7ad23294ffd79336",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 51
+  },
+  {
+    "id": "rkb-498e1b1357518cb35b67413761a11965",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "哪项描述符合 VPN 的基本用途？",
+    "options": {
+      "A": "替代身份审计和日志",
+      "B": "保证所有应用默认安全",
+      "C": "在共享基础设施上建立逻辑隔离的安全通信",
+      "D": "永久关闭远程网络"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "VPN 的保护取决于协议、认证与访问策略。",
+    "source": {
+      "date": "2016-11",
+      "number": "61",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/498e1b1357518cb35b67413761a11965",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 52
+  },
+  {
+    "id": "rkb-ed2e3d1e55953900950b178e3c852ced",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "只考虑 VPN 的安全通信通道，哪项能力通常还要通过独立的分区或授权规则实现？",
+    "source": {
+      "date": "2021-11",
+      "number": "38",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/ed2e3d1e55953900950b178e3c852ced",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 53,
+    "options": {
+      "A": "通信保密",
+      "B": "安全域隔离",
+      "C": "数据完整性校验",
+      "D": "通信实体鉴别"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "隧道保护通信。哪些区域能够互相访问仍需由分区和访问控制策略决定。"
+  },
+  {
+    "id": "rkb-0b2be7390889d7f77c74099e1e16d77d",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "以下哪项把旧式隧道中的加密机制误归作身份鉴别？",
+    "source": {
+      "date": "2020-11",
+      "number": "17",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/0b2be7390889d7f77c74099e1e16d77d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 54,
+    "options": {
+      "A": "VPN 可使用隧道承载通信",
+      "B": "L2TP 的角色可包括 LAC 和 LNS",
+      "C": "适当配置的 IPsec 可提供机密性",
+      "D": "MPPE 是 PPTP 场景中的身份鉴别协议"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "MPPE 用于加密 PPP 数据，本身不负责鉴别。"
+  },
+  {
+    "id": "rkb-90b1d8bd052717b1372b9353d8d0bacb",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "部署 IPsec 时，需要协商安全关联并认证对端，哪一协议承担这一任务？",
+    "source": {
+      "date": "2019-05",
+      "number": "40",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/90b1d8bd052717b1372b9353d8d0bacb",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 55,
+    "options": {
+      "A": "IKE",
+      "B": "ESP",
+      "C": "AH",
+      "D": "SKIP"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "IKE 用来交换密钥和建立安全关联。ESP 和 AH 用于保护 IP 数据。"
+  },
+  {
+    "id": "rkb-699bdc03864243a76dedb772ff6d19dd",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "古典 SSL/TLS 组合通常运行于可靠字节流之上。若应用使用 UDP 数据报，哪项不能由这一组合直接提供？",
+    "source": {
+      "date": "2019-05",
+      "number": "54",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/699bdc03864243a76dedb772ff6d19dd",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 56,
+    "options": {
+      "A": "服务器鉴别",
+      "B": "传输保密",
+      "C": "记录完整性",
+      "D": "面向 UDP 的直接保护"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "UDP 场景可选适合数据报的协议，例如 DTLS。常规 TLS 以可靠传输为基础。"
+  },
+  {
+    "id": "rkb-3492eb0e4620ef9e7513b80530fb9776",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "部署 VPN 时，哪个说法错误？",
+    "source": {
+      "date": "2019-05",
+      "number": "61",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/3492eb0e4620ef9e7513b80530fb9776",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 57,
+    "options": {
+      "A": "兼有 VPN 功能的防火墙也无法终止 VPN",
+      "B": "有些 VPN 在链路层实现",
+      "C": "有些 VPN 保护 IP 层流量",
+      "D": "合理配置的 VPN 能保护传输机密性"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "多功能防火墙或安全网关常可同时承担 VPN 终止。"
+  },
+  {
+    "id": "rkb-18e18ef9d8b7fd6b89fe0b8d81bce5c5",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "基于网络隧道的安全通信通常包含封装、密钥管理和鉴别。哪项不是本题所指的典型 VPN 组成机制？",
+    "source": {
+      "date": "2019-05",
+      "number": "17",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/18e18ef9d8b7fd6b89fe0b8d81bce5c5",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 58,
+    "options": {
+      "A": "隧道",
+      "B": "信息隐藏",
+      "C": "密钥管理",
+      "D": "身份认证"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "信息隐藏关注信息存在与可感知性，并非 VPN 建立安全通道的基础机制。"
+  },
+  {
+    "id": "rkb-874a7515eec9ca11afb943184854f3f6",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "仅靠 SSL/TLS 会话保护，哪项属性仍需容量、冗余和恢复措施来保障？",
+    "source": {
+      "date": "2018-05",
+      "number": "40",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/874a7515eec9ca11afb943184854f3f6",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 59,
+    "options": {
+      "A": "可用性",
+      "B": "完整性",
+      "C": "机密性",
+      "D": "对端认证"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "协议可保护通信内容和鉴别对端，服务是否持续可用还取决于可用性控制。"
+  },
+  {
+    "id": "rkb-d3216bfb8f6e1400812347b1ef4ef332",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "经过正确配置的 SSL/TLS 能保护会话上的数据。下列哪项不是它单独提供的安全服务？",
+    "source": {
+      "date": "2017-05",
+      "number": "32",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/d3216bfb8f6e1400812347b1ef4ef332",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 60,
+    "options": {
+      "A": "机密性",
+      "B": "业务可用性",
+      "C": "完整性",
+      "D": "对端认证"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "通道安全不能保证服务有足够容量或故障后可恢复。"
+  },
+  {
+    "id": "rkb-a0cc63c501c1461e7ee2d9dab399a3c0",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "以下哪项对 SSL/TLS 的工作位置描述错误？",
+    "source": {
+      "date": "2016-11",
+      "number": "52",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/a0cc63c501c1461e7ee2d9dab399a3c0",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 61,
+    "options": {
+      "A": "它只是根据网页业务逻辑工作的应用认证协议",
+      "B": "可保护运行在 TCP 上的应用数据",
+      "C": "可用于验证服务器身份",
+      "D": "提供传输中的保密和完整性服务"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "SSL/TLS 常为应用提供底层安全通道，机制不局限于网页业务。"
+  },
+  {
+    "id": "rkb-a025bdb8422a141e016a8dfc33e21ec6",
+    "group": "各层网络安全协议与 VPN 技术 · 历年真题",
+    "conceptId": "security-protocols",
+    "type": "single",
+    "stem": "关于隧道技术，哪项叙述错误？",
+    "source": {
+      "date": "2016-11",
+      "number": "58",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/a025bdb8422a141e016a8dfc33e21ec6",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 62,
+    "options": {
+      "A": "可承载本来不能直接在中间网络传输的分组",
+      "B": "可用外层协议封装内层协议",
+      "C": "IPsec 不存在隧道模式",
+      "D": "VPN 可采用隧道"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "IPsec 支持隧道模式，能够封装原始 IP 分组。"
+  },
+  {
+    "id": "rkb-b1c6354b31f56e6ddb32ba2b5cbd363f",
+    "group": "Web 应用安全、缓冲区溢出与 WAF · 历年真题",
+    "conceptId": "web-security",
+    "type": "case",
+    "stem": "政务门户部署外网代理、DMZ 应用和内网数据服务。团队拟验收定级、系统端口、访问隔离和入侵检测。",
+    "prompts": [
+      "说明政务网站如何定级并安排测评。",
+      "列举适合核验的测评方法。",
+      "如何核验暴露服务并减少注入风险？",
+      "选择哪一种边界防御结构？",
+      "把检测点和镜像流量布置在哪里？"
+    ],
+    "explanationSupplement": "按适用定级指引和业务影响确定等级和周期；结合功能、管理、代码和授权测试；对照端口与业务白名单，采用参数化查询；使用屏蔽子网；在关键边界采集可见流量并结合主机日志。",
+    "source": {
+      "date": "2021-11",
+      "number": "1-5",
+      "url": "https://www.ruankaoba.com/paper/paperId/627f92f9dc0fe2c33fadaa4b97a522d9/chiefId/b1c6354b31f56e6ddb32ba2b5cbd363f",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "区域",
+        "组件"
+      ],
+      "rows": [
+        [
+          "互联网侧",
+          "公开服务访问"
+        ],
+        [
+          "隔离区",
+          "Web 代理与应用"
+        ],
+        [
+          "内网",
+          "数据服务与运维"
+        ]
+      ]
+    },
+    "number": 63
+  },
+  {
+    "id": "rkb-8699e49505171a8951a335d83ca4d9ec",
+    "group": "Web 应用安全、缓冲区溢出与 WAF · 历年真题",
+    "conceptId": "web-security",
+    "type": "single",
+    "stem": "对照网站防护的工作面，哪项说法把 WAF 的处理范围说得过窄？",
+    "source": {
+      "date": "2021-11",
+      "number": "37",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/8699e49505171a8951a335d83ca4d9ec",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 64,
+    "options": {
+      "A": "WAF 只能检查固定端口 80 和 443 上的应用",
+      "B": "包过滤可根据网络与运输层头部信息拦截流量",
+      "C": "监测网页文件变动可发现部分未经授权的篡改",
+      "D": "流量清洗可分离异常流量与合法业务"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "WAF 针对 HTTP 类应用通信，不以两个常见端口作为唯一条件。"
+  },
+  {
+    "id": "rkb-cbf2b18eb7c7e63b3449916513e5428b",
+    "group": "Web 应用安全、缓冲区溢出与 WAF · 历年真题",
+    "conceptId": "web-security",
+    "type": "single",
+    "stem": "如果弱点来自 HTTP 协议设计本身，而非服务端一处编码错误，按产生阶段怎样分类？",
+    "source": {
+      "date": "2020-11",
+      "number": "47",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/cbf2b18eb7c7e63b3449916513e5428b",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 65,
+    "options": {
+      "A": "设计型漏洞",
+      "B": "开发阶段引入的漏洞",
+      "C": "运行配置漏洞",
+      "D": "单处源代码错误"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "问题起源于设计规则。具体实现即便符合协议也可能受其约束。"
+  },
+  {
+    "id": "rkb-01c4aed1084d00aeec1c122a676058aa",
+    "group": "Web 应用安全、缓冲区溢出与 WAF · 历年真题",
+    "conceptId": "web-security",
+    "type": "single",
+    "stem": "关于历史 SET 支付安全协议，哪种说法不成立？",
+    "source": {
+      "date": "2019-05",
+      "number": "59",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/01c4aed1084d00aeec1c122a676058aa",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 66,
+    "options": {
+      "A": "规定各参与方处理的消息",
+      "B": "支持多方身份认证",
+      "C": "通过直接问答替代可信证书获取对端公钥",
+      "D": "可组合签名、数字信封和对称密码"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "SET 的信任依赖证书体系，不能靠未经认证的临时问答建立。"
+  },
+  {
+    "id": "rkb-2df6409109eb290f208d8ea3d27591ce",
+    "group": "Web 应用安全、缓冲区溢出与 WAF · 历年真题",
+    "conceptId": "web-security",
+    "type": "single",
+    "stem": "历史支付协议 SET 的设计目标较完整的一项是哪组？",
+    "source": {
+      "date": "2018-05",
+      "number": "59",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/2df6409109eb290f208d8ea3d27591ce",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 67,
+    "options": {
+      "A": "只向参与者发验证码",
+      "B": "取消所有证书和信任机构",
+      "C": "交易安全、应用互通及广泛可接受性",
+      "D": "只对界面文字进行加密"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "SET 以多方安全交易为目标，同时考虑支付互操作和行业采用。"
+  },
+  {
+    "id": "rkb-3e1f9933276e48bf04fd87f0c1037f4c",
+    "group": "Web 应用安全、缓冲区溢出与 WAF · 历年真题",
+    "conceptId": "web-security",
+    "type": "single",
+    "stem": "对跨站脚本问题的描述哪项错误？",
+    "source": {
+      "date": "2017-05",
+      "number": "42",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/3e1f9933276e48bf04fd87f0c1037f4c",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 68,
+    "options": {
+      "A": "常因不可信内容被当成代码处理",
+      "B": "常用缩写是 XSS",
+      "C": "与叫作 CSS 的样式表技术是同一个概念",
+      "D": "可以让浏览器执行未经授权的内容"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "CSS 是层叠样式表，与 XSS 的含义不同。应按输出上下文编码并限制可执行内容。"
+  },
+  {
+    "id": "rkb-ea3917676cad2d66d7aac29efd731b0d",
+    "group": "Web 应用安全、缓冲区溢出与 WAF · 历年真题",
+    "conceptId": "web-security",
+    "type": "single",
+    "stem": "哪项符合历史 SET 安全电子交易协议的目标？",
+    "source": {
+      "date": "2016-11",
+      "number": "59",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/ea3917676cad2d66d7aac29efd731b0d",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 69,
+    "options": {
+      "A": "只采用流密码",
+      "B": "不依赖可信认证体系",
+      "C": "保护支付并兼顾互操作和市场采用",
+      "D": "用公共验证码代替证书体系"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "SET 为多方交易定义安全机制和互操作规范。"
+  },
+  {
+    "id": "rkb-f11a3fab6e782aad223b0fd98ee01c7d",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "不同安全区没有直接连通，需要用受控装置完成跨区存储转接。应选择哪项设备？",
+    "options": {
+      "A": "通用二层交换机",
+      "B": "无线接入点",
+      "C": "普通集线器",
+      "D": "安全隔离网闸"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "网闸在分隔的网络之间提供受控交换。",
+    "source": {
+      "date": "2022-11",
+      "number": "45",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/f11a3fab6e782aad223b0fd98ee01c7d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 70
+  },
+  {
+    "id": "rkb-ea50d3422fee1df7ecdeabf72af45fcc",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "下列哪项要求与物理隔离交换系统的基本原则冲突？",
+    "options": {
+      "A": "让两个分区始终直接互相转发任意协议",
+      "B": "将两个安全域分离",
+      "C": "核验跨域数据和授权",
+      "D": "记录交换活动"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "隔离系统要求区域间的交换经过可信控制。",
+    "source": {
+      "date": "2022-11",
+      "number": "44",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/ea50d3422fee1df7ecdeabf72af45fcc",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 71
+  },
+  {
+    "id": "rkb-631a6bd9f4912f7deb0cfba8319f1a6c",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "网络设备的管理接口出现缺陷，可使未授权输入被作为管理指令执行。按主要影响怎样归类？",
+    "options": {
+      "A": "磁盘彻底损坏",
+      "B": "正常协议探测",
+      "C": "代码或命令执行风险",
+      "D": "物理设备盗窃"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "未执行必要的认证和限制，使设备可能执行未经授权的指令。",
+    "source": {
+      "date": "2022-11",
+      "number": "70",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/631a6bd9f4912f7deb0cfba8319f1a6c",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 72
+  },
+  {
+    "id": "rkb-30fcd5a54174f547384b8c0ee28c4e45",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "传统二层以太网交换依据哪种目标地址选择转发端口？",
+    "options": {
+      "A": "服务证书序列号",
+      "B": "目标 MAC 地址",
+      "C": "目标应用进程 ID",
+      "D": "目标用户口令"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "二层转发使用 MAC 转发表。",
+    "source": {
+      "date": "2022-11",
+      "number": "68",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/30fcd5a54174f547384b8c0ee28c4e45",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 73
+  },
+  {
+    "id": "rkb-e0593e61bda9a0c434fec6c38a46950e",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "下面哪组对协议职责的对应不准确？",
+    "options": {
+      "A": "DHCP 把 IP 地址转换为应用端口号",
+      "B": "DNS 解析域名所对应的地址",
+      "C": "ARP 支持局域网 IPv4 地址到链路地址的解析",
+      "D": "TCP/UDP 端口用于区分上层服务或端点"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "DHCP 下发主机网络配置，端口不由 DHCP 进行转换。",
+    "source": {
+      "date": "2021-11",
+      "number": "21",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/e0593e61bda9a0c434fec6c38a46950e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 74
+  },
+  {
+    "id": "rkb-9968e5e5034ca1ffed94dd3fde31a9a7",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "以太网交换机学习 MAC 地址的传统功能位于 OSI 哪一层？",
+    "options": {
+      "A": "会话层",
+      "B": "表示层",
+      "C": "数据链路层",
+      "D": "应用层"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "MAC 属数据链路层地址。",
+    "source": {
+      "date": "2021-11",
+      "number": "68",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/9968e5e5034ca1ffed94dd3fde31a9a7",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 75
+  },
+  {
+    "id": "rkb-8780687bdf9daa55dc012c83734846a5",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "关于两个网络的物理断开，下面哪项陈述有误？",
+    "options": {
+      "A": "物理断开后两个分区仍可直接转发任意通信",
+      "B": "切换器通过受控状态决定连向哪个网络",
+      "C": "隔离设备可以经审批交换有限数据",
+      "D": "应控制可移动介质跨区操作"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "严格断开强调不存在直接互通，受控交换需另外建立机制。",
+    "source": {
+      "date": "2021-11",
+      "number": "44",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/8780687bdf9daa55dc012c83734846a5",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 76
+  },
+  {
+    "id": "rkb-62df94667753e1b1a916ff62e4660795",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "用于 Internet 自治系统之间交换路由的典型协议是哪个？",
+    "options": {
+      "A": "RIP",
+      "B": "ARP",
+      "C": "BGP",
+      "D": "OSPF"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "BGP 用于跨自治系统的路由选择；OSPF、RIP 常用于自治系统内部。",
+    "source": {
+      "date": "2020-11",
+      "number": "12",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/62df94667753e1b1a916ff62e4660795",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 77
+  },
+  {
+    "id": "rkb-9440e9f623683a2c8c85ff69db9006d0",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "BGP 用于确认邻接会话并周期维持会话存活的消息名称是什么？",
+    "options": {
+      "A": "UPDATE",
+      "B": "NOTIFICATION",
+      "C": "ROUTE-REQUEST",
+      "D": "KEEPALIVE"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "BGP KEEPALIVE 用于确认和保活，不负责传播前缀变更。",
+    "source": {
+      "date": "2019-05",
+      "number": "27",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/9440e9f623683a2c8c85ff69db9006d0",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 78
+  },
+  {
+    "id": "rkb-aad83cc9a8f9d2a00c6facd8b7acce03",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "设备需要保留 SNMP 管理能力。哪项做法是关闭整个服务，而非控制仍然运行的服务由谁访问？",
+    "source": {
+      "date": "2022-11",
+      "number": "69",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/aad83cc9a8f9d2a00c6facd8b7acce03",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 79,
+    "options": {
+      "A": "将读和写权限分别授权",
+      "B": "设置管理来源地址范围",
+      "C": "启用管理访问身份认证",
+      "D": "停用 SNMP 服务"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "停用服务直接移除访问入口。前三项对保留的管理服务实施不同的访问控制。"
+  },
+  {
+    "id": "rkb-d9e8055cb0a51c27c2334809dd60504a",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "在经典 Cisco IOS 考题场景中，用哪个命令名称表示保留经保护的特权模式口令？",
+    "source": {
+      "date": "2021-11",
+      "number": "70",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/d9e8055cb0a51c27c2334809dd60504a",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 80,
+    "options": {
+      "A": "enable secret",
+      "B": "key chain",
+      "C": "key-string",
+      "D": "no ip finger"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "enable secret 用于配置特权 EXEC 的秘密，具体散列类型取决于版本及配置。"
+  },
+  {
+    "id": "rkb-b9f34638263947b8992be8c1b7277c82",
+    "group": "交换机、路由器与隔离边界 · 历年真题",
+    "conceptId": "network-device-security",
+    "type": "single",
+    "stem": "通信经过可能被旁观的网络时，要直接降低他人读出内容的风险，应选什么控制？",
+    "source": {
+      "date": "2017-05",
+      "number": "50",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/b9f34638263947b8992be8c1b7277c82",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 81,
+    "options": {
+      "A": "更换终端的位置",
+      "B": "采用可信加密通道",
+      "C": "仅改用无线接入",
+      "D": "只改用专线而不加密"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "加密直接保护内容机密性，链路类型改变不等同于加密。"
+  },
+  {
+    "id": "sec-extra-network-device-security",
+    "type": "single",
+    "stem": "哪项配置能限制只有运维通道访问交换机管理服务？",
+    "options": {
+      "A": "把设备日志重定向到公共网页",
+      "B": "关闭管理认证并只保留非标准端口",
+      "C": "单独管理网络并限定来源和账号角色",
+      "D": "增加所有业务 VLAN 的互相转发"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "管理网络隔离与最小访问策略共同缩小管理面暴露。",
+    "group": "交换机、路由器与隔离边界",
+    "conceptId": "network-device-security",
+    "number": 82
   }
 ]

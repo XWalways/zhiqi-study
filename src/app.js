@@ -12,7 +12,9 @@
  const LAST_KEY='zhiqi-study:v2:last-visited';
  const chapterKey=(route,id)=>`${STORAGE_PREFIX}${route}:${id}`;
  const KEY=chapter?chapterKey(course.route,chapter.id):null;
- const empty=()=>({version:1,answers:{},drafts:{},favorites:[],reading:{seen:[],lastConcept:'',scrollY:0},test:{drafts:{},submitted:false}});
+ const bankSize=course?.route==='computer/security'?C.questions?.length:undefined;
+ const scoredBankSize=bankSize===undefined?undefined:C.questions.filter(window.StudyQuiz.isScored).length;
+ const empty=()=>({version:1,answers:{},drafts:{},caseDrafts:{},favorites:[],reading:{seen:[],lastConcept:'',scrollY:0},test:{drafts:{},caseDrafts:{},submitted:false,bankSize,scoredBankSize}});
  let storageAvailable=true,state=empty(),quizCleanup=null,view='learn',toastTimer,ppfTimer=null;
  let readingTimer, readingTracking=false, readingChanged=false, lessonFilter='all', lessonQuery='';
  const inlineQuizzes=[];
@@ -25,21 +27,26 @@
   });
  }
 
- function cleanSelected(value,q){if(!Array.isArray(value)||!value.every(v=>typeof v==='string'&&Object.hasOwn(q.options,v)))throw Error('备份中的作答选项无效');const out=[...new Set(value)].sort();if(q.type==='single'&&out.length>1)throw Error('单选题备份含多个选项');return out;}
+ function cleanSelected(value,q){if(!Array.isArray(value)||!value.every(v=>typeof v==='string'&&Object.hasOwn(q.options,v)))throw Error('备份中的作答选项无效');const out=[...new Set(value)].sort();if(q.type!=='multiple'&&out.length>1)throw Error('单选题备份含多个选项');return out;}
  function validateState(raw){
   if(!raw||raw.version!==1||!raw.answers||typeof raw.answers!=='object'||Array.isArray(raw.answers)||!Array.isArray(raw.favorites))throw Error('文件不是有效的学习记录备份');
   const out=empty();
-  (C.questions||[]).filter(q=>q.type!=='discussion').forEach(q=>{
-   const rec=Object.hasOwn(raw.answers,q.id)?raw.answers[q.id]:null;
+  const oldTest=bankSize!==undefined&&raw.test?.submitted===true&&(raw.test.bankSize!==bankSize||raw.test.scoredBankSize!==scoredBankSize);
+  (C.questions||[]).filter(window.StudyQuiz.hasChoices).forEach(q=>{
+   const rec=window.StudyQuiz.isScored(q)&&Object.hasOwn(raw.answers,q.id)?raw.answers[q.id]:null;
    if(rec){const selected=cleanSelected(rec.selected,q);if(!selected.length||rec.submitted!==true||!Number.isSafeInteger(rec.attempts)||rec.attempts<1)throw Error('答题记录格式不完整');out.answers[q.id]={selected,submitted:true,correct:window.StudyQuiz.grade(q,selected),attempts:rec.attempts,everWrong:rec.everWrong===true||!window.StudyQuiz.grade(q,selected),lastAnsweredAt:typeof rec.lastAnsweredAt==='string'?rec.lastAnsweredAt:''};}
    if(raw.drafts&&Object.hasOwn(raw.drafts,q.id))out.drafts[q.id]=cleanSelected(raw.drafts[q.id],q);
-   if(raw.test?.drafts&&Object.hasOwn(raw.test.drafts,q.id))out.test.drafts[q.id]=cleanSelected(raw.test.drafts[q.id],q);
+   if(!oldTest&&raw.test?.drafts&&Object.hasOwn(raw.test.drafts,q.id))out.test.drafts[q.id]=cleanSelected(raw.test.drafts[q.id],q);
+  });
+  (C.questions||[]).filter(q=>q.type==='case').forEach(q=>{
+   if(typeof raw.caseDrafts?.[q.id]==='string')out.caseDrafts[q.id]=raw.caseDrafts[q.id].slice(0,3000);
+   if(!oldTest&&typeof raw.test?.caseDrafts?.[q.id]==='string')out.test.caseDrafts[q.id]=raw.test.caseDrafts[q.id].slice(0,3000);
   });
   out.favorites=[...new Set(raw.favorites.filter(id=>typeof id==='string'&&(questionIds.has(id)||(id.startsWith('concept:')&&sectionIds.has(id.slice(8))))))];
   out.reading.seen=Array.isArray(raw.reading?.seen)?[...new Set(raw.reading.seen.filter(id=>sectionIds.has(id)))]:[];
   out.reading.lastConcept=sectionIds.has(raw.reading?.lastConcept)?raw.reading.lastConcept:'';
   out.reading.scrollY=Number.isFinite(raw.reading?.scrollY)?Math.max(0,raw.reading.scrollY):0;
-  out.test.submitted=raw.test?.submitted===true;
+  out.test.submitted=!oldTest&&raw.test?.submitted===true;
   return out;
  }
  function notice(){storageAvailable=false;$('#storage-notice').hidden=false;$('#storage-notice').textContent='当前浏览器无法保存学习记录，阅读和答题仍可使用。离开前请导出记录备份。';}
@@ -694,7 +701,7 @@
   if(chapter){
    wrap.append(el('p','','本章学习记录保存在当前浏览器，也可导出/导入「全站学习记录」跨设备迁移。'));
    const stats=el('div','record-stats'), answered=Object.values(state.answers), correct=answered.filter(x=>x.correct).length;
-   const scoredCount=C.questions.filter(q=>q.type!=='discussion').length;
+   const scoredCount=C.questions.filter(window.StudyQuiz.isScored).length;
    for(const [value,label] of [[state.reading.seen.length+'/'+C.lessons.sections.length,'本章已读'],[answered.length+'/'+scoredCount,'本章已答'],[correct,'最近答对']]) {
     const item=el('div');
     item.append(el('strong','',value),el('small','',label));

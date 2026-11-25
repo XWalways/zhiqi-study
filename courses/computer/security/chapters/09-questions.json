@@ -1,0 +1,592 @@
+[
+  {
+    "id": "rkb-f3d3e04179197cbf07fada1eb90cac5e",
+    "group": "数据库安全机制、审计与备份 · 历年真题",
+    "conceptId": "database-security",
+    "type": "single",
+    "stem": "为数据库配置安全角色、维护安全功能并分配安全管理职责，属于哪个机制？",
+    "options": {
+      "A": "日志留存",
+      "B": "事务恢复",
+      "C": "安全管理",
+      "D": "数据加密"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "角色和控制的配置属于管理；加密和审计负责各自的数据保护任务。",
+    "source": {
+      "date": "2022-11",
+      "number": "67",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/f3d3e04179197cbf07fada1eb90cac5e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 1
+  },
+  {
+    "id": "rkb-551b6b599880f3a12d6298adc0256139",
+    "group": "数据库安全机制、审计与备份 · 历年真题",
+    "conceptId": "database-security",
+    "type": "single",
+    "stem": "攻击者以被冒用的账户身份进入数据库。哪一种风险最直接？",
+    "options": {
+      "A": "布线失效",
+      "B": "时间同步故障",
+      "C": "备份介质退化",
+      "D": "身份冒用"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "这种威胁利用了真实主体与宣称身份之间的差异。",
+    "source": {
+      "date": "2022-11",
+      "number": "65",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/551b6b599880f3a12d6298adc0256139",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 2
+  },
+  {
+    "id": "rkb-5243f8436fc508c26587e5b6a4d1f233",
+    "group": "数据库安全机制、审计与备份 · 历年真题",
+    "conceptId": "database-security",
+    "type": "single",
+    "stem": "数据库恢复若使用备份和事务日志，事务日志主要发挥什么作用？",
+    "options": {
+      "A": "重放或回滚事务以重建一致状态",
+      "B": "删除数据库用户角色",
+      "C": "生成网络地址",
+      "D": "验证 TLS 对端证书"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "事务日志记录数据库变更，为恢复一致性提供依据。",
+    "source": {
+      "date": "2020-11",
+      "number": "39",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/5243f8436fc508c26587e5b6a4d1f233",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 3
+  },
+  {
+    "id": "rkb-43c497fd1e5aa5eed064ad295a95f855",
+    "group": "数据库安全机制、审计与备份 · 历年真题",
+    "conceptId": "database-security",
+    "type": "single",
+    "stem": "设置 MySQL 管理账号时，哪项最不符合安全基线？",
+    "options": {
+      "A": "采取唯一强凭据",
+      "B": "核验口令及认证插件设置",
+      "C": "长期保留可远程使用的空口令",
+      "D": "限制可访问来源"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "默认和空口令是风险，实际基线应结合账户用途与部署方式。",
+    "source": {
+      "date": "2018-05",
+      "number": "19",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/43c497fd1e5aa5eed064ad295a95f855",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 4
+  },
+  {
+    "id": "rkb-2040bfe849a9e68e08fb6c48a1b1c6b2",
+    "group": "数据库安全机制、审计与备份 · 历年真题",
+    "conceptId": "database-security",
+    "type": "single",
+    "stem": "在早期 Oracle 安全教材列举的产品配置示例中，哪个名称被用作保存内部口令的文件？",
+    "source": {
+      "date": "2022-11",
+      "number": "66",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/2040bfe849a9e68e08fb6c48a1b1c6b2",
+      "basis": "历史资料 Securing Database Servers",
+      "basisUrl": "https://pdfs.semanticscholar.org/54f3/d783aa03dec378e9968798a6caeb59866dfd.pdf"
+    },
+    "number": 5,
+    "options": {
+      "A": "listener.ora",
+      "B": "strXXX.cmd",
+      "C": "key.ora",
+      "D": "paswrd.cmd"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "历史资料列出的文件名是 strXXX.cmd。题目只考旧版案例，不能将其视为现行 Oracle 的存储规则；迁移时应核验并轮换明文凭据。"
+  },
+  {
+    "id": "rkb-e93271b11ad1084a72401030f7f2e811",
+    "group": "数据库安全机制、审计与备份 · 历年真题",
+    "conceptId": "database-security",
+    "type": "single",
+    "stem": "关于 Oracle 数据库的身份与数据保护，下列判断哪项错误？",
+    "source": {
+      "date": "2021-11",
+      "number": "67",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/e93271b11ad1084a72401030f7f2e811",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 6,
+    "options": {
+      "A": "可以针对本地账号使用口令认证",
+      "B": "仅能在数据库自身完成认证，无法接入外部身份机制",
+      "C": "支持口令管理与复杂度校验",
+      "D": "可按安全策略细化数据访问条件"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "Oracle 支持多种身份认证方案，包括外部或集中式认证。"
+  },
+  {
+    "id": "rkb-6cf3d10d52f4498653d3e4266966e3c3",
+    "group": "数据库安全机制、审计与备份 · 历年真题",
+    "conceptId": "database-security",
+    "type": "single",
+    "stem": "数据库审计正在评估查询注入后的暴露面。如果应用的查询在其服务账号权限下执行，哪个字段反映执行身份，可用于核对最小权限？",
+    "source": {
+      "date": "2016-11",
+      "number": "19",
+      "url": "https://www.ruankaoba.com/paper/paperId/eab5955bb5407530388cb61301f253ed/chiefId/6cf3d10d52f4498653d3e4266966e3c3",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 7,
+    "options": {
+      "A": "已注册的用户总数",
+      "B": "当前会话使用的数据库用户名",
+      "C": "当前账号的明文口令",
+      "D": "服务器所在业务域名"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "会话执行主体有自己的身份。为服务账号限制权限、采用参数化查询并审计异常操作可减少风险。"
+  },
+  {
+    "id": "sec-extra-database-security",
+    "type": "single",
+    "stem": "备份任务显示成功。哪项活动最能证明受保护数据库可在目标时间内恢复？",
+    "options": {
+      "A": "缩短日志留存期",
+      "B": "在隔离环境恢复并验证应用一致性与耗时",
+      "C": "截图保存备份任务名称",
+      "D": "仅核对数据库账号名称"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "成功生成备份与能恢复到业务可用状态是不同证据。",
+    "group": "数据库安全机制、审计与备份",
+    "conceptId": "database-security",
+    "number": 8
+  },
+  {
+    "id": "rkb-e52990d4f95bb4da8ca153f79d09c03d",
+    "group": "数据分级、脱敏与大数据安全 · 历年真题",
+    "conceptId": "data-security",
+    "type": "case",
+    "stem": "企业审查发现过度采集位置、账户属性及乘客行为数据，团队正在建立合规、分级和脱敏机制。",
+    "prompts": [
+      "哪些规范适用于网络、数据和个人信息安全？",
+      "按数据敏感程度和影响如何分级？",
+      "薪酬记录属于哪类隐私？",
+      "把具体薪资转换为一个区间是什么方法？",
+      "怎样为个人信息记录设计加密保护？"
+    ],
+    "explanationSupplement": "依次考虑网络安全法、数据安全法、个人信息保护法；结合影响分级；薪酬属于属性隐私；用区间替代精确值是泛化；使用合适的认证加密并分离密钥和访问权限。",
+    "source": {
+      "date": "2022-11",
+      "number": "4-8",
+      "url": "https://www.ruankaoba.com/paper/paperId/a3dd2e06d897109268c3160478ff6f85/chiefId/e52990d4f95bb4da8ca153f79d09c03d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 9
+  },
+  {
+    "id": "rkb-ac74f0f4735b0eab88074ae0313b316d",
+    "group": "数据分级、脱敏与大数据安全 · 历年真题",
+    "conceptId": "data-security",
+    "type": "single",
+    "stem": "哪一种操作限制谁能看到原值，但没有对字段值执行脱敏变换？",
+    "options": {
+      "A": "访问控制",
+      "B": "掩码屏蔽",
+      "C": "数据替换",
+      "D": "字段变形"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "脱敏改变内容或显示形态，访问控制规定访问主体和操作。",
+    "source": {
+      "date": "2021-11",
+      "number": "66",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/ac74f0f4735b0eab88074ae0313b316d",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 10
+  },
+  {
+    "id": "rkb-81cc3ba69f7e03c8c7d52e1d5f931fbf",
+    "group": "数据分级、脱敏与大数据安全 · 历年真题",
+    "conceptId": "data-security",
+    "type": "single",
+    "stem": "若目标是避免从已获准的数据分析结果中推出个体隐私，哪项单独使用通常不解决该问题？",
+    "source": {
+      "date": "2017-05",
+      "number": "69",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/81cc3ba69f7e03c8c7d52e1d5f931fbf",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 11,
+    "options": {
+      "A": "数据扰动",
+      "B": "匿名化",
+      "C": "对查询与分析做输出控制",
+      "D": "只给原始记录加密"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "授权计算后仍可能产生推断泄露；需要输出层保护和相应评估。"
+  },
+  {
+    "id": "sec-extra-data-security",
+    "type": "single",
+    "stem": "生产中的敏感姓名应保留，普通客服只需看首字。需要按查询者身份改变显示结果，优先采用什么？",
+    "options": {
+      "A": "撤除登录认证",
+      "B": "仅用本地压缩",
+      "C": "动态脱敏",
+      "D": "把全库永久改成假数据"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "动态脱敏在查询时按授权改变返回给操作员的内容。",
+    "group": "数据分级、脱敏与大数据安全",
+    "conceptId": "data-security",
+    "number": 12
+  },
+  {
+    "id": "rkb-62c853dc55bee56409c043a92edda4bf",
+    "group": "云计算安全、租户隔离与等保扩展 · 历年真题",
+    "conceptId": "cloud-security",
+    "type": "single",
+    "stem": "在等保框架中，“一个中心”指什么？",
+    "options": {
+      "A": "产品采购中心",
+      "B": "身份注册中心",
+      "C": "安全管理中心",
+      "D": "网络通信中心"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "其余三项防护是安全通信网络、区域边界、计算环境。",
+    "source": {
+      "date": "2021-11",
+      "number": "6",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/62c853dc55bee56409c043a92edda4bf",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 13
+  },
+  {
+    "id": "sec-extra-cloud-security",
+    "type": "single",
+    "stem": "企业租用 IaaS 虚拟机。按通常责任边界，谁负责及时修补来宾操作系统？",
+    "options": {
+      "A": "所有情况下都只由云平台负责",
+      "B": "只由硬件品牌商负责",
+      "C": "由访问应用的客户负责",
+      "D": "租户或其委托的运维方"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "服务类型和合约决定分工；IaaS 中来宾操作系统通常由租户管理。",
+    "group": "云计算安全、租户隔离与等保扩展",
+    "conceptId": "cloud-security",
+    "number": 14
+  },
+  {
+    "id": "rkb-a0b32fd4a664c9c088788f32fefa4437",
+    "group": "工业控制系统的分区与安全保护 · 历年真题",
+    "conceptId": "industrial-security",
+    "type": "single",
+    "stem": "“震网”案例说明哪一领域的专用设备也可能受到恶意代码影响？",
+    "options": {
+      "A": "工业控制和 PLC",
+      "B": "纯离线电话线",
+      "C": "普通邮件签名",
+      "D": "图像压缩"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "Stuxnet 属于典型工控安全历史案例。",
+    "source": {
+      "date": "2021-11",
+      "number": "2",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/a0b32fd4a664c9c088788f32fefa4437",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 15
+  },
+  {
+    "id": "rkb-b48d9bb112994c8a42e0b2009c875a57",
+    "group": "工业控制系统的分区与安全保护 · 历年真题",
+    "conceptId": "industrial-security",
+    "type": "single",
+    "stem": "用风险评估术语给工控风险分类。哪项首先描述系统自身的脆弱点，其他选项可描述威胁事件？",
+    "source": {
+      "date": "2020-11",
+      "number": "59",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/b48d9bb112994c8a42e0b2009c875a57",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 16,
+    "options": {
+      "A": "产品中存在未处置的漏洞",
+      "B": "遭遇未经授权的网络操作",
+      "C": "关键设备发生故障",
+      "D": "恶意程序导致业务中断"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "漏洞是脆弱性，设备故障或恶意行为都可能成为威胁事件。分类与企业的风险口径有关。"
+  },
+  {
+    "id": "rkb-8b515e307a5098759fcaeac8ac12962f",
+    "group": "工业控制系统的分区与安全保护 · 历年真题",
+    "conceptId": "industrial-security",
+    "type": "single",
+    "stem": "对照工控安全威胁的教材分类，哪项主要描述一般设备老化，而其他几项可直接表示安全威胁？",
+    "source": {
+      "date": "2017-05",
+      "number": "20",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/8b515e307a5098759fcaeac8ac12962f",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 17,
+    "options": {
+      "A": "内部人员滥用权限",
+      "B": "外部非法入侵",
+      "C": "普通部件磨损",
+      "D": "恶意代码破坏"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "磨损首先是设备可靠性问题，同时也可能带来可用性风险。"
+  },
+  {
+    "id": "sec-extra-industrial-security",
+    "type": "single",
+    "stem": "办公区希望调阅生产报表，怎样同时保护工控区连续运行？",
+    "options": {
+      "A": "经批准的受控通道只传输必要报表",
+      "B": "办公区和工控区互通所有管理协议",
+      "C": "绕过变更验证升级控制器",
+      "D": "直接把控制台暴露到互联网"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "按区域和通道实施最小通信兼顾生产可用性。",
+    "group": "工业控制系统的分区与安全保护",
+    "conceptId": "industrial-security",
+    "number": 18
+  },
+  {
+    "id": "rkb-f2374b68913e7c4879e51c37643c614e",
+    "group": "Android 安全机制与移动应用工程 · 历年真题",
+    "conceptId": "mobile-security",
+    "type": "single",
+    "stem": "Android 的硬件显示驱动通常归在哪一层？",
+    "options": {
+      "A": "应用程序层",
+      "B": "Java 应用框架层",
+      "C": "应用签名工具层",
+      "D": "Linux 内核及驱动层"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "驱动直接使用内核提供的硬件和设备能力。",
+    "source": {
+      "date": "2021-11",
+      "number": "62",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/f2374b68913e7c4879e51c37643c614e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 19
+  },
+  {
+    "id": "rkb-e311a18d62345fa1466ad7476a814843",
+    "group": "Android 安全机制与移动应用工程 · 历年真题",
+    "conceptId": "mobile-security",
+    "type": "single",
+    "stem": "通过增加无关结构改变程序静态表现以增加阅读难度，属于什么措施？",
+    "options": {
+      "A": "代码混淆",
+      "B": "数字签名",
+      "C": "端口镜像",
+      "D": "多因素认证"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "混淆可提高静态分析成本，没有替代签名与服务端校验。",
+    "source": {
+      "date": "2021-11",
+      "number": "14",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/e311a18d62345fa1466ad7476a814843",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 20
+  },
+  {
+    "id": "rkb-72b93b5dbf57f0d55e81e6f00036aba3",
+    "group": "Android 安全机制与移动应用工程 · 历年真题",
+    "conceptId": "mobile-security",
+    "type": "case",
+    "stem": "一个出行 App 要采集位置和账户资料。团队需核验 Android 平台分层、组件权限与本地数据存储。",
+    "prompts": [
+      "说明内核、系统运行、框架、应用各层可用的保护。",
+      "应用如何声明权限，何时需要运行时授权？",
+      "四大应用组件分别承担什么功能？",
+      "对配置、结构化记录和敏感凭据分别选择合适的存储机制。"
+    ],
+    "explanationSupplement": "沙箱、应用身份、签名、权限和 SELinux 共同保护系统；清单声明并按级别请求授权；Activity、Service、BroadcastReceiver、ContentProvider 分别负责界面、后台、广播、数据接口；敏感密钥优先采用平台专用能力。",
+    "source": {
+      "date": "2021-11",
+      "number": "4-7",
+      "url": "https://www.ruankaoba.com/paper/paperId/627f92f9dc0fe2c33fadaa4b97a522d9/chiefId/72b93b5dbf57f0d55e81e6f00036aba3",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 21
+  },
+  {
+    "id": "rkb-d79ecc60be190c2d85ffa9eab949d314",
+    "group": "Android 安全机制与移动应用工程 · 历年真题",
+    "conceptId": "mobile-security",
+    "type": "single",
+    "stem": "按教材四层 Android 架构，由上到下正确顺序是什么？",
+    "options": {
+      "A": "系统运行库、应用、内核、框架",
+      "B": "应用、内核、框架、系统运行库",
+      "C": "应用、框架、系统运行库、Linux 内核",
+      "D": "内核、应用、框架、系统运行库"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "框架提供上层服务，系统库和内核支撑平台。",
+    "source": {
+      "date": "2019-05",
+      "number": "18",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/d79ecc60be190c2d85ffa9eab949d314",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 22
+  },
+  {
+    "id": "rkb-3a9022cb391f4b8fad8c9e01f0e0f747",
+    "group": "Android 安全机制与移动应用工程 · 历年真题",
+    "conceptId": "mobile-security",
+    "type": "single",
+    "stem": "Android 的文件对象访问控制主要由哪个层级实现？",
+    "options": {
+      "A": "Linux 内核层",
+      "B": "仅由应用商店决定",
+      "C": "显示层",
+      "D": "应用图标层"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "内核通过进程凭据、文件权限和安全策略执行底层隔离。",
+    "source": {
+      "date": "2017-05",
+      "number": "30",
+      "url": "https://www.ruankaoba.com/paper/paperId/ffc9d8291f5c017034879a8cd68f96ba/chiefId/3a9022cb391f4b8fad8c9e01f0e0f747",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 23
+  },
+  {
+    "id": "rkb-5629b584f39b6075fbf3b675dd5b8588",
+    "group": "Android 安全机制与移动应用工程 · 历年真题",
+    "conceptId": "mobile-security",
+    "type": "single",
+    "stem": "依移动应用最小必要权限草案所列参考范围，下列哪组业务的特定功能更常直接依赖位置，因而需要按具体功能核验位置权限？",
+    "source": {
+      "date": "2021-11",
+      "number": "54",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/5629b584f39b6075fbf3b675dd5b8588",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 24,
+    "options": {
+      "A": "网络支付、金融借贷",
+      "B": "网上购物、即时通信",
+      "C": "餐饮外卖、运动健身",
+      "D": "问诊挂号、求职招聘"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "配送定位和运动轨迹是典型位置功能。只能按对应功能实际所需请求权限。"
+  },
+  {
+    "id": "rkb-771f95d93aa966844e4fc2a56cd88755",
+    "group": "Android 安全机制与移动应用工程 · 历年真题",
+    "conceptId": "mobile-security",
+    "type": "single",
+    "stem": "Android 应用可以使用偏好设置、文件、SQLite、内容提供程序和网络数据服务中的哪些方式处理持久数据？",
+    "source": {
+      "date": "2020-11",
+      "number": "19",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/771f95d93aa966844e4fc2a56cd88755",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 25,
+    "options": {
+      "A": "五种都可用",
+      "B": "只有偏好、SQLite 和网络",
+      "C": "只有偏好、文件、内容提供程序和网络",
+      "D": "只有文件、SQLite 和网络"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "各方式适用数据类型和访问路径不同；内容提供程序可包装底层存储，网络存储位于设备之外。"
+  },
+  {
+    "id": "sec-extra-mobile-security",
+    "type": "single",
+    "stem": "某 Android 应用完成签名和代码加固后，有人尝试从其他账户读取订单。哪项控制应阻止？",
+    "options": {
+      "A": "仅对图像做混淆",
+      "B": "服务端按用户、租户和资源校验访问权限",
+      "C": "只检查应用图标颜色",
+      "D": "在安装包内硬编码通用权限"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "客户端保护不能替代后端的对象授权。",
+    "group": "Android 安全机制与移动应用工程",
+    "conceptId": "mobile-security",
+    "number": 26
+  }
+]

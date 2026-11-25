@@ -80,6 +80,12 @@ const visualsMap = {
   'computer/security/04': [{ type: 'sec-defense-topology', sectionId: 'active-defense' }],
   'computer/security/05': [{ type: 'sec-dmz-policy', sectionId: 'dmz-architecture' }],
   'computer/security/06': [{ type: 'sec-chmod-calc', sectionId: 'linux-security' }],
+  'computer/security/07': [
+    { type: 'sec-information-flow', sectionId: 'security-models' },
+    { type: 'sec-incident-response', sectionId: 'incident-response' },
+  ],
+  'computer/security/08': [{ type: 'sec-vulnerability-cycle', sectionId: 'vulnerability-management' }],
+  'computer/security/09': [{ type: 'sec-data-lifecycle', sectionId: 'data-security' }],
 };
 
 const templateHtml = read('src/template.html');
@@ -101,7 +107,11 @@ const bundleMembership = {
   macroFin: new Set(['is-lm', 'ad-as', 'phillips', 'trilemma', 'bond', 'multiplier', 'deductible', 'liability-timeline']),
   static: new Set(['money-layers', 'financing-flow', 'bill-chain', 'bank-balance', 'basel-pillars', 'proximate-cause', 'contract-timeline', 'pension-pyramid', 'life-interest']),
   extra: new Set(['tu-mu', 'lac-envelope', 'prisoners-matrix', 'lorenz-gini', 'labour-supply', 'externality', 'keynes-cross', 'lm-regions', 'solow', 'bop-structure', 'repression-gap', 'risk-matrix']),
-  security: new Set(['sec-cia-layers', 'sec-hybrid-crypto', 'sec-transmission-crypto', 'sec-signature-pki', 'sec-defense-topology', 'sec-dmz-policy', 'sec-chmod-calc']),
+  security: new Set([
+    'sec-cia-layers', 'sec-hybrid-crypto', 'sec-transmission-crypto', 'sec-signature-pki',
+    'sec-defense-topology', 'sec-dmz-policy', 'sec-chmod-calc', 'sec-information-flow',
+    'sec-incident-response', 'sec-vulnerability-cycle', 'sec-data-lifecycle',
+  ]),
 };
 
 const siteConfig = readJson('courses/site.json');
@@ -126,6 +136,7 @@ function rootPrefixFor(relHtmlPath) {
 
 function renderPage(relHtmlPath, pageType, payload, visuals = []) {
   const rootPrefix = rootPrefixFor(relHtmlPath);
+  const securityVersion = pageType === 'chapter' && payload.course.route === 'computer/security' ? '?v=security-practice-2' : '';
   const inlineTemplates = visuals
     .filter(v => diagramTemplates[v.type])
     .map(v => `<template data-visual-template="${v.type}">${diagramTemplates[v.type]}</template>`)
@@ -133,14 +144,18 @@ function renderPage(relHtmlPath, pageType, payload, visuals = []) {
   const visualScriptTags = [];
   for (const [bundleKey, set] of Object.entries(bundleMembership)) {
     if (visuals.some(v => set.has(v.type))) {
-      visualScriptTags.push(`<script src="${rootPrefix}${scriptBundles[bundleKey]}"></script>`);
+      visualScriptTags.push(`<script src="${rootPrefix}${scriptBundles[bundleKey]}${bundleKey === 'security' ? securityVersion : ''}"></script>`);
     }
   }
   const inlineData = JSON.stringify(payload)
     .replaceAll('<', '\\u003c')
     .replaceAll('\u2028', '\\u2028')
     .replaceAll('\u2029', '\\u2029');
-  return templateHtml
+  // Give updated chapter HTML and its quiz runtime matching cache keys.
+  const template = securityVersion
+    ? templateHtml.replace(/assets\/(styles\.css|quiz\.js|app\.js)"/g, `assets/$1${securityVersion}"`)
+    : templateHtml;
+  return template
     .replaceAll('<!--ROOT-->', rootPrefix)
     .replaceAll('<!--REPO_URL-->', siteConfig.repoUrl)
     .replace('<body>', `<body data-page="${pageType}" data-root="${rootPrefix}">`)

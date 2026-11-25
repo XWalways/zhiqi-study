@@ -11,7 +11,9 @@
       "C": "ipconfig /add student 1234",
       "D": "ping student 1234"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "Windows 命令行下使用 net user <用户名> <密码> /add 创建本地用户；/delete 则用于删除指定用户。",
     "optionExplanations": {
       "A": "语法与参数完全正确。",
@@ -33,7 +35,9 @@
       "C": "msconfig 和 notepad.exe",
       "D": "cmd.exe 和 calc.exe"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "regedit.exe（Registry Editor）用于编辑 Windows 注册表；gpedit.msc（Group Policy Editor）用于配置本地组策略（含密码策略、账户锁定策略与安全审核策略）。",
     "optionExplanations": {
       "A": "两者顺序颠倒。",
@@ -55,7 +59,9 @@
       "C": "关闭所有安全审核日志",
       "D": "将所有普通用户加入 Administrators 组"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "账户锁定策略可在连续多次登录失败后暂时锁定账号，大幅拖慢并阻断自动化暴力破解脚本。",
     "optionExplanations": {
       "A": "直接限制单位时间内的口令试错次数，有效防暴力破解。",
@@ -77,7 +83,9 @@
       "C": "自动升级为完全控制",
       "D": "由用户登录时自行选择"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "NTFS 权限遵循「累加原则 + 拒绝优先」：来自不同组的允许权限会合并累加，但只要存在显式「拒绝（Deny）」，拒绝权限永远优先于允许权限。",
     "optionExplanations": {
       "A": "忽略了拒绝优先规则。",
@@ -99,7 +107,9 @@
       "C": "/home，/tmp",
       "D": "/bin，/var"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "Linux 中 /dev（device）存放磁盘、终端等设备文件；/etc（etcetera）存放系统及各类网络服务的配置文件。",
     "optionExplanations": {
       "A": "两个目录的用途顺序颠倒。",
@@ -121,7 +131,9 @@
       "C": "/etc/resolv.conf",
       "D": "/etc/hostname"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "/etc/services 保存常见网络服务名与端口号及传输协议的映射表；/etc/hosts 保存本地静态 IP 与主机名映射；/etc/resolv.conf 配置 DNS 服务器；/etc/hostname 保存本机主机名。",
     "optionExplanations": {
       "A": "/etc/hosts 用于本地 IP 与主机名静态解析。",
@@ -143,7 +155,9 @@
       "C": "halt",
       "D": "history"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "shutdown 命令中，-r 表示 reboot（重启），-h 表示 halt（关机）。因此立即重启应使用 shutdown -r now 或 reboot。",
     "optionExplanations": {
       "A": "-r 代表 reboot，now 代表立即执行重启。",
@@ -165,7 +179,9 @@
       "C": "rw-r-----",
       "D": "rwx------"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "Linux 八进制权限按 r=4、w=2、x=1 累加：7=4+2+1（rwx，所有者），5=4+0+1（r-x，所属组），0=0+0+0（---，其他用户），合起来为 rwxr-x---。",
     "optionExplanations": {
       "A": "对应八进制权限 755。",
@@ -187,7 +203,9 @@
       "C": "chmod",
       "D": "mkdir"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "history 命令可列出当前 Shell 会话保存的历史命令列表，在入侵排查中常用来追溯异常操作痕迹。",
     "optionExplanations": {
       "A": "iptables 用于配置 Linux 内核数据包过滤防火墙。",
@@ -209,7 +227,9 @@
       "C": "FTP 只能传输纯文本文件，无法传输二进制程序",
       "D": "开启 anonymous 匿名上传能够提高服务器安全性"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "传统 FTP 控制端口为 21、数据端口为 20，采用明文传输易被嗅探，且开启 anonymous 匿名登录易导致未授权访问与恶意文件上传，生产环境建议改用 SFTP/FTPS。",
     "optionExplanations": {
       "A": "准确概括了 FTP 端口、明文隐患及匿名风险。",
@@ -231,7 +251,9 @@
       "C": "LAN + ARP + MPLS + PPP",
       "D": "Linux + Android + MongoDB + Python"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "LAMP 是最经典的开源 Web 应用服务栈：Linux（操作系统）+ Apache（Web 服务器）+ MySQL（关系型数据库）+ PHP（脚本语言，有时也指 Perl/Python）。",
     "optionExplanations": {
       "A": "准确对应 LAMP 架构的四个核心组件。",
@@ -253,7 +275,9 @@
       "C": "公有云租户必须亲自派遣保安驻守云服务商的物理机房",
       "D": "云计算环境中不存在多租户资源共享带来的隔离风险"
     },
-    "answer": ["B"],
+    "answer": [
+      "B"
+    ],
     "explanationSupplement": "责任共担模型（Shared Responsibility Model）明确：云商负责「云本身的安全」（物理/网络/虚拟化底层），客户负责「云内部的安全」（数据、账号、访问策略与自身应用）。",
     "optionExplanations": {
       "A": "数据与访问配置安全始终需要租户自身负责。",
@@ -275,7 +299,9 @@
       "C": "部分设备出厂使用统一默认弱口令，易被劫持组成僵尸网络",
       "D": "所有物联网终端都内置了高性能独立机房级硬件防火墙"
     },
-    "answer": ["D"],
+    "answer": [
+      "D"
+    ],
     "explanationSupplement": "物联网终端普遍成本低、功耗与算力受限，不可能每台传感器都内置机房级硬件防火墙，这正是 IoT 防护薄弱的根源之一。",
     "optionExplanations": {
       "A": "资源受限是 IoT 终端的典型特征。",
@@ -297,7 +323,9 @@
       "C": "SQL 预编译绕过",
       "D": "宏病毒感染"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "PoW 共识遵循「最长链原则」，一旦某方掌握全网超过 50% 的算力（俗称 51% 算力风险），就能以更快速度生成私有分叉链覆盖历史交易，破坏共识安全。",
     "optionExplanations": {
       "A": "准确对应 PoW 区块链的 51% 算力共识风险。",
@@ -319,7 +347,9 @@
       "C": "磁盘配额耗尽",
       "D": "物理断电"
     },
-    "answer": ["A"],
+    "answer": [
+      "A"
+    ],
     "explanationSupplement": "数据投毒发生在模型训练阶段，通过污染训练样本破坏模型决策边界或植入隐蔽后门；在推理阶段通过微小扰动欺骗已训练模型则称为对抗样本。",
     "optionExplanations": {
       "A": "准确对应训练阶段污染数据集的 AI 安全威胁。",
@@ -341,7 +371,12 @@
       "C": "及时为操作系统安装官方发布的安全补丁是防范已知漏洞利用的关键手段",
       "D": "在 Windows 中配置磁盘配额有助于防止单一用户耗尽服务器磁盘空间"
     },
-    "answer": ["A", "B", "C", "D"],
+    "answer": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
     "explanationSupplement": "人员变动及时改密、合理配置 Linux iptables、及时更新系统安全补丁以及启用磁盘配额，均是操作系统日常安全运维的标准最佳实践。",
     "optionExplanations": {
       "A": "防范前员工留存凭证引发越权风险。",
@@ -350,5 +385,439 @@
       "D": "磁盘配额可保障存储资源可用性。"
     },
     "conceptId": "windows-security"
+  },
+  {
+    "id": "rkb-caaa763578fd9f7e2b1baa5ea655a2de",
+    "group": "Windows 系统安全与域管理 · 历年真题",
+    "conceptId": "windows-security",
+    "type": "single",
+    "stem": "Windows 安全基线列出口令复杂度、锁定阈值、历史口令和登录审计。哪项属于审计策略？",
+    "options": {
+      "A": "登录审计",
+      "B": "口令复杂度",
+      "C": "锁定阈值",
+      "D": "历史口令限制"
+    },
+    "answer": [
+      "A"
+    ],
+    "explanationSupplement": "审计记录事件，账户策略则涵盖密码和账户锁定。",
+    "source": {
+      "date": "2022-11",
+      "number": "64",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/caaa763578fd9f7e2b1baa5ea655a2de",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 17
+  },
+  {
+    "id": "rkb-3a98649cadd2b475f5347b40ec081ad8",
+    "group": "Windows 系统安全与域管理 · 历年真题",
+    "conceptId": "windows-security",
+    "type": "single",
+    "stem": "Windows 里，记录账户登录审核等安全事件的是哪种事件日志？",
+    "options": {
+      "A": "普通服务访问日志",
+      "B": "安全日志",
+      "C": "应用程序日志",
+      "D": "安装日志"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "按事件源区分，登录审计属于安全日志。",
+    "source": {
+      "date": "2022-11",
+      "number": "47",
+      "url": "https://www.ruankaoba.com/paper/paperId/dc4f7443b825988670547f85f359804b/chiefId/3a98649cadd2b475f5347b40ec081ad8",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 18
+  },
+  {
+    "id": "rkb-91d52060d3f57b56579ecc72a65331fa",
+    "group": "Windows 系统安全与域管理 · 历年真题",
+    "conceptId": "windows-security",
+    "type": "single",
+    "stem": "给操作系统安装厂商安全补丁，属于哪项加固操作？",
+    "options": {
+      "A": "关闭证书链验证",
+      "B": "替代事件留存",
+      "C": "修补已知漏洞",
+      "D": "变更用户的角色属性"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "补丁针对已知缺陷，安装后需要验证。",
+    "source": {
+      "date": "2021-11",
+      "number": "63",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/91d52060d3f57b56579ecc72a65331fa",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 19
+  },
+  {
+    "id": "rkb-091f88d600f2f9c79fa9a0c9493cfe0e",
+    "group": "Windows 系统安全与域管理 · 历年真题",
+    "conceptId": "windows-security",
+    "type": "single",
+    "stem": "现代 Windows 的安全事件日志常见文件名是什么？",
+    "options": {
+      "A": "Application.evtx",
+      "B": "System.evtx",
+      "C": "Setup.evtx",
+      "D": "Security.evtx"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "常见事件通道与归档文件相对应。",
+    "source": {
+      "date": "2021-11",
+      "number": "64",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/091f88d600f2f9c79fa9a0c9493cfe0e",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 20
+  },
+  {
+    "id": "rkb-bb70cf5a268b3f61c10da2ae138f26b9",
+    "group": "Windows 系统安全与域管理 · 历年真题",
+    "conceptId": "windows-security",
+    "type": "case",
+    "stem": "管理员用 Windows 主机防火墙约束入站 ICMP，并保留已批准的诊断流量。",
+    "prompts": [
+      "从系统哪个管理入口可配置高级规则？",
+      "异常 ICMP 流量可能损害哪个基本属性？",
+      "为什么需要针对入站方向建立规则？",
+      "怎样按协议、类型和来源缩小匹配范围？",
+      "为什么 ICMP 规则无需填写 TCP 或 UDP 端口？"
+    ],
+    "explanationSupplement": "通过高级安全防火墙管理入站规则；服务中断影响可用性；分别控制入站与出站，限定 ICMP 的类型、代码或范围；ICMP 不使用运输层端口。",
+    "source": {
+      "date": "2020-11",
+      "number": "3-7",
+      "url": "https://www.ruankaoba.com/paper/paperId/ab4f61947582107908a2d4284a9d3349/chiefId/bb70cf5a268b3f61c10da2ae138f26b9",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 21
+  },
+  {
+    "id": "rkb-e47ce663115d3bbcd796ef5ee9bc66dc",
+    "group": "Windows 系统安全与域管理 · 历年真题",
+    "conceptId": "windows-security",
+    "type": "single",
+    "stem": "Windows 用户配置中，口令长度和账户锁定阈值属于哪一类设置？",
+    "options": {
+      "A": "审计策略",
+      "B": "文件备份",
+      "C": "网络地址转换",
+      "D": "账户策略"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "密码策略和账户锁定属于账户策略。",
+    "source": {
+      "date": "2019-05",
+      "number": "49",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/e47ce663115d3bbcd796ef5ee9bc66dc",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 22
+  },
+  {
+    "id": "rkb-15dd6ecc4de8237615e5c54614c02443",
+    "group": "Windows 系统安全与域管理 · 历年真题",
+    "conceptId": "windows-security",
+    "type": "single",
+    "stem": "Windows 中为 NTFS 上的文件提供透明加密的机制是什么？",
+    "options": {
+      "A": "组播转发",
+      "B": "EFS",
+      "C": "DNSSEC",
+      "D": "VPN"
+    },
+    "answer": [
+      "B"
+    ],
+    "explanationSupplement": "EFS 用于文件级加密，BitLocker 更常用于卷级保护。",
+    "source": {
+      "date": "2019-05",
+      "number": "19",
+      "url": "https://www.ruankaoba.com/paper/paperId/a39e2f579daa8213d2b77b65599f1bdd/chiefId/15dd6ecc4de8237615e5c54614c02443",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 23
+  },
+  {
+    "id": "rkb-968a2da69f477e913d8f6b741ff7ca29",
+    "group": "Windows 系统安全与域管理 · 历年真题",
+    "conceptId": "windows-security",
+    "type": "case",
+    "stem": "管理员检查 Windows 密码长度、复杂性、重用历史与锁定阈值。",
+    "prompts": [
+      "这些设置属于哪类安全策略？",
+      "怎样核验弱口令和账户锁定策略是否符合组织基线？"
+    ],
+    "explanationSupplement": "账号策略包括密码策略和账号锁定策略；核对有效组策略和授权测试结果，也需考虑长口令、泄露检测、多因素和恢复流程。",
+    "source": {
+      "date": "2017-05",
+      "number": "2-3",
+      "url": "https://www.ruankaoba.com/paper/paperId/f1d251c45cf7b606843d5fac97cb6945/chiefId/968a2da69f477e913d8f6b741ff7ca29",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "基线项目",
+        "判断对象"
+      ],
+      "rows": [
+        [
+          "密码历史",
+          "是否允许重复使用"
+        ],
+        [
+          "锁定阈值",
+          "什么情况下拒绝后续登录"
+        ],
+        [
+          "策略生效",
+          "本机实际采用何种策略"
+        ]
+      ]
+    },
+    "number": 24
+  },
+  {
+    "id": "rkb-81c84467c06e693042e22886d46259cb",
+    "group": "Windows 系统安全与域管理 · 历年真题",
+    "conceptId": "windows-security",
+    "type": "single",
+    "stem": "Windows 运维人员检查系统当前监听的端口及关联进程，哪个工具具备相应观察功能？",
+    "source": {
+      "date": "2020-11",
+      "number": "15",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/81c84467c06e693042e22886d46259cb",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 25,
+    "options": {
+      "A": "ipconfig",
+      "B": "tracert",
+      "C": "netstat",
+      "D": "nslookup"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "netstat 能显示网络连接和监听信息，并可展示关联进程标识。"
+  },
+  {
+    "id": "rkb-17a4690445b662b3b3a5247094c5f87a",
+    "group": "Linux 目录结构、文件权限与常用安全命令 · 历年真题",
+    "conceptId": "linux-security",
+    "type": "case",
+    "stem": "Linux 控制台显示当前提示符为 #。清单里有 -rw-r----- 的 audit.log，drwxr-x--- 的 reports，以及 lrwxrwxrwx 的 latest。",
+    "prompts": [
+      "结合有效用户 ID 判断身份，提示符能否单独证明？",
+      "判断三个条目的类型。",
+      "用自己的话解释符号链接的作用。",
+      "目标移动后怎样检查链接是否仍然有效？",
+      "audit.log 的数字权限与三个主体的权限分别是什么？"
+    ],
+    "explanationSupplement": "UID 0 表示超级用户，提示符可定制；分别为普通文件、目录、符号链接；链接引用目标路径，检查目标能否解析；640 分别为读写、只读、无权。",
+    "source": {
+      "date": "2022-11",
+      "number": "2-6",
+      "url": "https://www.ruankaoba.com/paper/paperId/a3dd2e06d897109268c3160478ff6f85/chiefId/17a4690445b662b3b3a5247094c5f87a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "material": {
+      "headers": [
+        "名称",
+        "类型与权限字段"
+      ],
+      "rows": [
+        [
+          "audit.log",
+          "-rw-r-----"
+        ],
+        [
+          "reports",
+          "drwxr-x---"
+        ],
+        [
+          "latest",
+          "lrwxrwxrwx"
+        ]
+      ]
+    },
+    "number": 26
+  },
+  {
+    "id": "rkb-a4eb07b9086ce0f3cbf39ea45a77e0ed",
+    "group": "Linux 目录结构、文件权限与常用安全命令 · 历年真题",
+    "conceptId": "linux-security",
+    "type": "single",
+    "stem": "Linux 的 lastlog 记录通常保存什么？",
+    "options": {
+      "A": "每次失败登录的完整历史",
+      "B": "系统应用日志",
+      "C": "用户最近一次登录的信息",
+      "D": "所有用户口令"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "lastlog 关注最近登录状态，其他登录历史或失败记录由相应日志记录。",
+    "source": {
+      "date": "2021-11",
+      "number": "45",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/a4eb07b9086ce0f3cbf39ea45a77e0ed",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 27
+  },
+  {
+    "id": "rkb-5fbeb45fe1673a7084d59b40603ac67a",
+    "group": "Linux 目录结构、文件权限与常用安全命令 · 历年真题",
+    "conceptId": "linux-security",
+    "type": "single",
+    "stem": "实现 Linux 最小服务基线时，优先采取何种做法？",
+    "options": {
+      "A": "把所有服务统一开放",
+      "B": "删除事件日志",
+      "C": "允许未认证远程管理",
+      "D": "关闭并验证业务不需要的监听服务"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "只保留业务所需服务可减少受攻击面。",
+    "source": {
+      "date": "2021-11",
+      "number": "65",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/5fbeb45fe1673a7084d59b40603ac67a",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 28
+  },
+  {
+    "id": "rkb-4b6675da20d1222ab866aea8c0b4b369",
+    "group": "Linux 目录结构、文件权限与常用安全命令 · 历年真题",
+    "conceptId": "linux-security",
+    "type": "case",
+    "stem": "系统维护人员正在审查 Linux 用户文件和影子口令文件。示例账号有一项仅供内部服务，登录 Shell 为 nologin。",
+    "prompts": [
+      "普通用户通常能读哪个账号文件？",
+      "怎样从 UID、组和授权规则判断账号权限？",
+      "说明 passwd 记录的七个字段。",
+      "如何核验可能交互登录的账号？",
+      "影子口令文件路径是什么？",
+      "制定影子文件权限基线时要核对哪些条件？"
+    ],
+    "explanationSupplement": "通常 /etc/passwd 可读；结合 UID、组、sudo 和访问策略判断；字段依次是用户名、标记、UID、GID、备注、主目录、Shell；核对 Shell 与认证策略；/etc/shadow 权限应按发行版基线严格限制。",
+    "source": {
+      "date": "2020-11",
+      "number": "1-6",
+      "url": "https://www.ruankaoba.com/paper/paperId/ab4f61947582107908a2d4284a9d3349/chiefId/4b6675da20d1222ab866aea8c0b4b369",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 29
+  },
+  {
+    "id": "rkb-7dd5fde0ea214e681761bd9a5e9e3173",
+    "group": "Linux 目录结构、文件权限与常用安全命令 · 历年真题",
+    "conceptId": "linux-security",
+    "type": "single",
+    "stem": "在常见 Linux 文件层级中，服务或系统日志通常保存在哪个目录？",
+    "options": {
+      "A": "/bin",
+      "B": "/etc/skel",
+      "C": "/dev",
+      "D": "/var/log"
+    },
+    "answer": [
+      "D"
+    ],
+    "explanationSupplement": "具体日志可能由 journald 等管理，传统文件多见于 /var/log。",
+    "source": {
+      "date": "2018-05",
+      "number": "24",
+      "url": "https://www.ruankaoba.com/paper/paperId/d2bed7d5a318c3e6fb6408e0430d3984/chiefId/7dd5fde0ea214e681761bd9a5e9e3173",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 30
+  },
+  {
+    "id": "rkb-7c88967cf834c3aaf358b55872331961",
+    "group": "Linux 目录结构、文件权限与常用安全命令 · 历年真题",
+    "conceptId": "linux-security",
+    "type": "case",
+    "stem": "账号规范要求账号元数据供系统组件查找，口令验证材料只能由受控组件读取。",
+    "prompts": [
+      "Linux 通常分别用哪些文件存放这两类数据？",
+      "解释一条账户记录中 UID、GID、主目录和 Shell 的含义。",
+      "比较两个文件的典型读取要求。"
+    ],
+    "explanationSupplement": "元数据在 /etc/passwd，口令散列等在 /etc/shadow；UID/GID 表示身份和组，主目录和 Shell 指定环境；shadow 的具体模式按发行版基线，只授予必要读取。",
+    "source": {
+      "date": "2018-05",
+      "number": "3-5",
+      "url": "https://www.ruankaoba.com/paper/paperId/3e5853345790aec277f0a109fe7b34b3/chiefId/7c88967cf834c3aaf358b55872331961",
+      "basis": "课程教材与本节所列资料"
+    },
+    "number": 31
+  },
+  {
+    "id": "rkb-f286278f8860b4b32958416bafa758db",
+    "group": "网络服务器架构与常见端口加固 · 历年真题",
+    "conceptId": "server-hardening",
+    "type": "single",
+    "stem": "在传统 Apache HTTP Server 的拆分配置中，哪份文件主要用于基本访问控制？",
+    "source": {
+      "date": "2021-11",
+      "number": "69",
+      "url": "https://www.ruankaoba.com/paper/paperId/df6d9aa84ab07256401763e59ac2676e/chiefId/f286278f8860b4b32958416bafa758db",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 32,
+    "options": {
+      "A": "httpd.conf",
+      "B": "srm.conf",
+      "C": "access.conf",
+      "D": "mime.conf"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "早期拆分配置可用 access.conf 管理访问规则。现代部署可通过主配置和 Include 文件组织规则。"
+  },
+  {
+    "id": "rkb-dba6c26357ef78aea56f80b9753e60de",
+    "group": "网络服务器架构与常见端口加固 · 历年真题",
+    "conceptId": "server-hardening",
+    "type": "single",
+    "stem": "在教材列出的操作系统安全控制分类中，哪项通常另列为密码基础设施职责，而不是和鉴别、访问控制、审计并列的核心项？",
+    "source": {
+      "date": "2020-11",
+      "number": "23",
+      "url": "https://www.ruankaoba.com/paper/paperId/209e55792bb9fb20b8aae33c7a215f40/chiefId/dba6c26357ef78aea56f80b9753e60de",
+      "basis": "课程教材与本节参考资料"
+    },
+    "number": 33,
+    "options": {
+      "A": "主体标识和鉴别",
+      "B": "访问控制",
+      "C": "密钥生命周期管理",
+      "D": "安全审计"
+    },
+    "answer": [
+      "C"
+    ],
+    "explanationSupplement": "本题按教材分类。具体操作系统本身仍可提供密钥环和加密存储等能力。"
   }
 ]
