@@ -134,9 +134,22 @@ function rootPrefixFor(relHtmlPath) {
   return depth === 0 ? './' : '../'.repeat(depth);
 }
 
+function publishQuestions(questions) {
+  return questions.map(question => {
+    if (!question.source) return question;
+    const source = { ...question.source };
+    for (const field of ['url', 'basisUrl']) {
+      if (!source[field]) continue;
+      const host = new URL(source[field]).hostname.replace(/\.$/, '');
+      if (host === 'ruankaoba.com' || host.endsWith('.ruankaoba.com')) delete source[field];
+    }
+    return { ...question, source };
+  });
+}
+
 function renderPage(relHtmlPath, pageType, payload, visuals = []) {
   const rootPrefix = rootPrefixFor(relHtmlPath);
-  const securityVersion = pageType === 'chapter' && payload.course.route === 'computer/security' ? '?v=security-practice-2' : '';
+  const securityVersion = pageType === 'chapter' && payload.course.route === 'computer/security' ? '?v=security-practice-3' : '';
   const inlineTemplates = visuals
     .filter(v => diagramTemplates[v.type])
     .map(v => `<template data-visual-template="${v.type}">${diagramTemplates[v.type]}</template>`)
@@ -202,7 +215,7 @@ for (const course of courses) {
   for (const ch of course.chapters) {
     if (!ch.ready) continue;
     const lessons = readJson(`courses/${course.route}/chapters/${ch.id}-lessons.json`);
-    const questions = readJson(`courses/${course.route}/chapters/${ch.id}-questions.json`);
+    const questions = publishQuestions(readJson(`courses/${course.route}/chapters/${ch.id}-questions.json`));
     const key = `${course.route}/${ch.id}`;
     const visuals = visualsMap[key] || [];
     totalVisuals += visuals.length;

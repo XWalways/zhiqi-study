@@ -20,13 +20,14 @@
 
   function renderSource(card, source) {
     if (!source) return;
-    const row = el('p', 'quiz-source muted');
-    row.append(document.createTextNode(`${source.date} 历年真题 · 第 ${source.number} 题 · `));
-    const link = el('a', '', '查看原题');
-    link.href = source.url;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    row.append(link);
+    const row = el('p', 'quiz-source muted', `${source.date} 历年真题 · 第 ${source.number} 题`);
+    if (source.url) {
+      const link = el('a', '', '查看原题');
+      link.href = source.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      row.append(' · ', link);
+    }
     card.append(row);
   }
 

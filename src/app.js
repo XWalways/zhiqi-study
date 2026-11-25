@@ -501,6 +501,11 @@
    body.innerHTML = section.bodyHtml;
    $$('table', body).forEach(table => {
     const wrap = el('div', 'table-wrap');
+    if (table.classList.contains('reference-table')) {
+     wrap.tabIndex = 0;
+     wrap.setAttribute('role', 'region');
+     wrap.setAttribute('aria-label', table.previousElementSibling?.textContent || section.title);
+    }
     table.replaceWith(wrap);
     wrap.append(table);
    });

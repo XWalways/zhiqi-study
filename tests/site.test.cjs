@@ -60,6 +60,7 @@ test('all 31 migrated chapters exist in economy/finance/insurance with 41 visual
 test('computer/security builds nine chapters and covers the catalog and previous question bank', () => {
   const coverage = require('../courses/computer/security/source-coverage.json');
   const concepts = new Map();
+  const pdfPages = new Map(coverage.pdfs.map(pdf => [pdf.chapter ?? pdf.title, pdf.pages]));
   const ids = new Set();
   const exams = new Set();
   let totalVisuals = 0;
@@ -72,6 +73,8 @@ test('computer/security builds nine chapters and covers the catalog and previous
     assert.ok(fs.existsSync(file), `Missing computer/security/${id}.html`);
     const html = fs.readFileSync(file, 'utf8');
     const data = JSON.parse(html.match(/<script>window\.STUDY_CONTENT=(.*);<\/script>/)[1]);
+    const originalQuestions = require(`../courses/computer/security/chapters/${id}-questions.json`);
+    assert.equal(data.questions.length, originalQuestions.length);
     assert.ok((data.chapter.visuals || []).length >= 1, `computer/security/${id} should have at least 1 visual`);
     assert.ok(html.includes('assets/visuals/security-visuals.js'), `computer/security/${id} should load security-visuals.js`);
     totalVisuals += data.chapter.visuals.length;
@@ -80,6 +83,11 @@ test('computer/security builds nine chapters and covers the catalog and previous
     for (const visual of data.chapter.visuals) assert.ok(sectionIds.has(visual.sectionId));
     for (const section of sectionIds) {
       assert.ok(data.questions.some(question => question.conceptId === section), section);
+    }
+    for (const section of data.lessons.sections) {
+      assert.match(section.bodyHtml, /<h4>/, section.id);
+      assert.match(section.bodyHtml, /资料索引/, section.id);
+      assert.ok(section.keyTakeaway && section.example && section.pitfall, section.id);
     }
     for (const [index, question] of data.questions.entries()) {
       assert.ok(!ids.has(question.id), question.id);
@@ -91,7 +99,13 @@ test('computer/security builds nine chapters and covers the catalog and previous
         exams.add(question.id.split('-')[1]);
         assert.match(question.source.date, /^\d{4}-\d{2}$/);
         assert.match(question.source.number, /^\d+(?:-\d+)?$/);
-        assert.match(question.source.url, /^https:\/\/www\.ruankaoba\.com\/paper\/paperId\/[a-f\d]+\/chiefId\/[a-f\d]+$/);
+        const originalSource = originalQuestions[index].source;
+        assert.equal(question.id, originalQuestions[index].id);
+        assert.match(originalSource.url, /^https:\/\/www\.ruankaoba\.com\/paper\/paperId\/[a-f\d]+\/chiefId\/[a-f\d]+$/);
+        assert.equal(question.source.url, undefined);
+        if (originalSource.basisUrl && !/ruankaoba\.com/i.test(originalSource.basisUrl)) {
+          assert.equal(question.source.basisUrl, originalSource.basisUrl);
+        }
         if (question.type === 'case') {
           cases++;
           casePrompts += question.prompts.length;
@@ -102,8 +116,8 @@ test('computer/security builds nine chapters and covers the catalog and previous
           assert.ok(Object.values(question.options).every(option => option.trim()), question.id);
           assert.equal(new Set(Object.values(question.options)).size, 4, question.id);
           assert.ok(!question.stem.includes('题干与选项可在原题查看'), question.id);
-          if (question.type === 'pending') assert.equal(question.answer, undefined, question.id);
-          else assert.ok(question.explanationSupplement.trim(), question.id);
+          assert.ok(quiz.isScored(question), question.id);
+          assert.ok(question.explanationSupplement.trim(), question.id);
         }
       }
     }
@@ -124,6 +138,30 @@ test('computer/security builds nine chapters and covers the catalog and previous
   for (const section of coverage.sections) {
     assert.ok(concepts.get(section.chapter)?.has(section.conceptId), section.topic);
   }
+  const coveredConcepts = new Set();
+  const referencedPdfs = new Set();
+  for (const ref of coverage.lessonReferences) {
+    assert.ok(concepts.get(ref.chapter)?.has(ref.conceptId), ref.conceptId);
+    assert.ok(!coveredConcepts.has(ref.conceptId), ref.conceptId);
+    coveredConcepts.add(ref.conceptId);
+    for (const entry of coverage.sections.filter(section => section.conceptId === ref.conceptId)) {
+      assert.ok(ref.textbook.includes(entry.topic), entry.topic);
+    }
+    assert.ok(ref.pdf.length, ref.conceptId);
+    for (const pdf of ref.pdf) {
+      const key = pdf.chapter ?? pdf.title;
+      const pageCount = pdfPages.get(key);
+      assert.ok(pageCount, `Unknown PDF in ${ref.conceptId}: ${key}`);
+      referencedPdfs.add(key);
+      for (const range of pdf.pages.split(',')) {
+        assert.match(range, /^\d+(?:–\d+)?$/);
+        const [start, end = start] = range.split('–').map(Number);
+        assert.ok(start >= 1 && start <= end && end <= pageCount, `${ref.conceptId}: ${range}`);
+      }
+    }
+  }
+  assert.deepEqual(coveredConcepts, new Set([...concepts.values()].flatMap(ids => [...ids])));
+  assert.deepEqual(referencedPdfs, new Set(pdfPages.keys()));
 });
 
 test('all shared JS assets parse cleanly as valid JavaScript', () => {
@@ -144,13 +182,15 @@ test('all shared JS assets parse cleanly as valid JavaScript', () => {
   }
 });
 
-test('published pages and assets omit the retired exam wording', () => {
+test('published pages and assets omit the retired exam wording and source domain', () => {
   const retired = String.fromCodePoint(0x8f6f, 0x8003);
   const files = fs.readdirSync(dist, { recursive: true, withFileTypes: true });
   for (const entry of files) {
     if (!entry.isFile() || !/\.(html|js|css|json|webmanifest)$/.test(entry.name)) continue;
     const file = path.join(entry.parentPath, entry.name);
-    assert.ok(!fs.readFileSync(file, 'utf8').includes(retired), path.relative(dist, file));
+    const published = fs.readFileSync(file, 'utf8');
+    assert.ok(!published.includes(retired), path.relative(dist, file));
+    assert.doesNotMatch(published, /ruankaoba\.com/i, path.relative(dist, file));
   }
 });
 

@@ -122,9 +122,9 @@
       </div>`;
     const steps = {
       1: { box: 'm', msg: '步骤 1（对称加密正文）：Alice 随机生成一次性对称会话密钥 K（如 AES-256），快速加密体积庞大的业务明文 M，解决非对称算法速度慢的瓶颈。' },
-      2: { box: 'k', msg: '步骤 2（公钥封装数字信封）：Alice 获取 Bob 的公钥 KB_pub，仅对短小的会话密钥 K 进行非对称加密，解决对称密钥安全分发难题。' },
+      2: { box: 'k', msg: '步骤 2（公钥封装数字信封）：Alice 验证 Bob 公钥的身份绑定，用该公钥保护会话密钥 K。' },
       3: { box: 'dec-k', msg: '步骤 3（接收方私钥解封）：Bob 收到密文与数字信封后，使用只有自己掌握的私钥 KB_pri 解密数字信封，安全还原出会话密钥 K。' },
-      4: { box: 'dec-m', msg: '步骤 4（对称高效解密）：Bob 使用解出的会话密钥 K 对正文密文进行对称解密，完整还原明文 M。HTTPS 和 PGP 均采用此机制。' },
+      4: { box: 'dec-m', msg: '步骤 4（正文解密）：Bob 用会话密钥 K 还原正文。数字信封与 TLS 1.3 都使用对称密钥保护正文，TLS 1.3 通过协商或预共享密钥建立会话密钥。' },
     };
     function show(id) {
       const s = steps[id];
@@ -142,16 +142,16 @@
   // 3. Ch02: 三种网络传输加密对照图
   const renderTransmissionCrypto = () => wrapStatic(
     '链路加密 vs 节点加密 vs 端到端加密对照',
-    '核心区别：中间路由器是否解密、内存是否暴露明文，以及报文头（源/目的地址）是否被加密。',
+    '沿路径比较解密位置、明文出现的位置和可见的内外层报头。',
     `<svg viewBox="0 0 680 250" role="img" aria-label="链路加密节点加密与端到端加密对照图" style="width:100%;height:auto;display:block">
       <g font-size="12">
         <!-- Row 1: Link -->
         <rect x="14" y="14" width="112" height="62" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
         <text x="70" y="40" text-anchor="middle" fill="var(--accent)" font-weight="680">链路加密</text>
-        <text x="70" y="60" text-anchor="middle" fill="var(--muted)" font-size="11">防流量分析 ✓</text>
+        <text x="70" y="60" text-anchor="middle" fill="var(--muted)" font-size="11">逐跳保护</text>
         <rect x="140" y="14" width="526" height="62" rx="8" fill="var(--surface)" stroke="var(--line)"/>
-        <text x="156" y="38" fill="var(--heading)" font-weight="650">源主机 ──[密文含报头]──▶ 路由器(解密成明文再重加密) ──[密文含报头]──▶ 目的主机</text>
-        <text x="156" y="60" fill="var(--muted)" font-size="11.5">特点：连同路由报头一起加密（可抗流量分析），但中间节点内存会出现明文。</text>
+        <text x="156" y="38" fill="var(--heading)" font-weight="650">源主机 ──[内层报头与载荷]──▶ 中转节点解密再加密 ──▶ 目的主机</text>
+        <text x="156" y="60" fill="var(--muted)" font-size="11.5">内层报头可加密。当前链路转发所需的外层信息仍可见。</text>
 
         <!-- Row 2: Node -->
         <rect x="14" y="92" width="112" height="62" rx="8" fill="var(--surface-subtle)" stroke="var(--mv-c2)" stroke-width="1.5"/>
@@ -218,22 +218,22 @@
       </div>`;
     const modes = {
       sign: {
-        lt: '发送方 B', l1: '1. 计算摘要 H(M)', l2: '2. 用 B 私钥签名', l3: '密钥：KB_pri',
-        mt: '网络传输', m1: '{ M, Sign(H) }', m2: '明文 + 签名值',
-        rt: '接收方 A', r1: '1. 用 B 公钥验签', r2: '2. 重算 H(M) 比对', r3: '密钥：KB_pub',
-        msg: '数字签名看「发送方」密钥对：发送方 B 用自己的私钥对摘要签名，接收方 A 用 B 的公钥验证，确保内容未被篡改且 B 无法抵赖。',
+        lt: '发送方 B', l1: '1. 按方案处理消息', l2: '2. 用 B 私钥签名', l3: '密钥：KB_pri',
+        mt: '网络传输', m1: '{ 消息, 签名 }', m2: '明文 + 签名值',
+        rt: '接收方 A', r1: '1. 验证 B 的公钥', r2: '2. 校验消息与签名', r3: '密钥：KB_pub',
+        msg: 'B 用私钥对消息签名，摘要处理由签名方案规定。A 用可信的 B 公钥校验消息和签名。抗抵赖还需要可信的身份绑定和密钥管理。',
       },
       both: {
-        lt: '发送方 B', l1: '1. B 私钥签名摘要', l2: '2. A 公钥加密整体', l3: 'KApub(KBpri(M\'))',
-        mt: '双重封装', m1: '保密 + 抗抵赖', m2: '外层加密 · 内层签名',
-        rt: '接收方 A', r1: '1. A 私钥解密外层', r2: '2. B 公钥验证内层', r3: '先解密，后验签',
-        msg: '双重加解密真题公式：发送方 B 先用自己私钥签名，再用接收方 A 的公钥加密；A 收到后先用自己私钥解密，再用 B 的公钥验签。',
+        lt: '发送方 B', l1: '1. B 私钥签名', l2: '2. 用会话密钥加密', l3: 'A 公钥保护会话密钥',
+        mt: '数字信封', m1: '加密消息和签名', m2: '附带受保护的会话密钥',
+        rt: '接收方 A', r1: '1. A 私钥解开信封', r2: '2. 用 B 公钥验签', r3: '先解密，后验签',
+        msg: 'B 签名后，用会话密钥保护消息和签名，用 A 的公钥保护会话密钥。A 解开数字信封并还原内容后，用 B 的公钥验签。',
       },
       ca: {
         lt: '权威 CA 机构', l1: '核验网站身份与公钥', l2: '用 CA 私钥签署证书', l3: '不含网站私钥！',
         mt: 'X.509 证书', m1: '身份 + 网站公钥', m2: '+ 有效期 + CA签名',
-        rt: '浏览器客户端', r1: '用内置 CA 公钥验签', r2: '检查有效期与 CRL', r3: '确认网站公钥可信',
-        msg: 'PKI 证书验证链：CA 用「CA 私钥」给证书签名，客户端用系统预置的「CA 公钥」验证签名，并核查证书是否被列入 CRL 吊销列表。',
+        rt: '浏览器客户端', r1: '验证证书与信任链', r2: '核对域名与有效期', r3: '检查适用的吊销状态',
+        msg: 'CA 用自己的私钥签发证书。验证端将证书链关联到受信任的锚点，核对域名、有效期、用途与适用的吊销状态，并确认对端持有私钥。',
       },
     };
     const radios = [...root.querySelectorAll('input[name="sig-mode"]')];

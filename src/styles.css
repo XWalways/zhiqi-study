@@ -425,6 +425,8 @@ main:focus { outline: none; }
 .lesson-body blockquote { border-left: 2px solid var(--accent-line); padding: 6px 0 6px 16px; color: var(--muted); }
 .table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); margin: 17px 0; }
 .lesson-body table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.75; }
+.lesson-body .reference-table { min-width: 36rem; }
+.lesson-body .reference-table time { white-space: nowrap; }
 .lesson-body :where(th, td) { padding: 10px 12px; text-align: left; vertical-align: top; }
 .lesson-body th { background: var(--surface-subtle); color: var(--heading); }
 .lesson-body tr + tr, .lesson-body thead { border-bottom: 1px solid var(--line); }
