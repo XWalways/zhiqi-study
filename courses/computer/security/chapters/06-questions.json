@@ -1,0 +1,354 @@
+[
+  {
+    "id": "sec-06-q01",
+    "number": 1,
+    "group": "Windows 系统安全",
+    "type": "single",
+    "stem": "在 Windows 系统中，若要通过命令行创建一个名为 student、初始密码为 1234 的本地用户账号，正确的命令是（　　）。",
+    "options": {
+      "A": "net user student 1234 /add",
+      "B": "net user student 1234 /delete",
+      "C": "ipconfig /add student 1234",
+      "D": "ping student 1234"
+    },
+    "answer": ["A"],
+    "explanationSupplement": "Windows 命令行下使用 net user <用户名> <密码> /add 创建本地用户；/delete 则用于删除指定用户。",
+    "optionExplanations": {
+      "A": "语法与参数完全正确。",
+      "B": "/delete 用于删除用户，而非创建。",
+      "C": "ipconfig 用于查看和管理网络接口 IP 配置。",
+      "D": "ping 用于测试网络连通性。"
+    },
+    "conceptId": "windows-security"
+  },
+  {
+    "id": "sec-06-q02",
+    "number": 2,
+    "group": "Windows 系统安全",
+    "type": "single",
+    "stem": "在 Windows 操作系统中，用于打开「注册表编辑器」和「本地组策略编辑器」的命令分别是（　　）。",
+    "options": {
+      "A": "gpedit.msc 和 regedit.exe",
+      "B": "regedit.exe 和 gpedit.msc",
+      "C": "msconfig 和 notepad.exe",
+      "D": "cmd.exe 和 calc.exe"
+    },
+    "answer": ["B"],
+    "explanationSupplement": "regedit.exe（Registry Editor）用于编辑 Windows 注册表；gpedit.msc（Group Policy Editor）用于配置本地组策略（含密码策略、账户锁定策略与安全审核策略）。",
+    "optionExplanations": {
+      "A": "两者顺序颠倒。",
+      "B": "准确对应注册表编辑器与本地组策略编辑器。",
+      "C": "msconfig 为系统启动项配置，notepad 为记事本。",
+      "D": "分别为命令提示符与计算器。"
+    },
+    "conceptId": "windows-security"
+  },
+  {
+    "id": "sec-06-q03",
+    "number": 3,
+    "group": "Windows 系统安全",
+    "type": "single",
+    "stem": "为了有效防范针对 Windows 登录账号的在线口令暴力破解，管理员应在安全策略中重点启用（　　）。",
+    "options": {
+      "A": "账户锁定策略（设置失败尝试阈值与锁定时间）",
+      "B": "允许空密码远程登录",
+      "C": "关闭所有安全审核日志",
+      "D": "将所有普通用户加入 Administrators 组"
+    },
+    "answer": ["A"],
+    "explanationSupplement": "账户锁定策略可在连续多次登录失败后暂时锁定账号，大幅拖慢并阻断自动化暴力破解脚本。",
+    "optionExplanations": {
+      "A": "直接限制单位时间内的口令试错次数，有效防暴力破解。",
+      "B": "允许空密码会彻底丧失登录防护。",
+      "C": "关闭日志会导致无法发现暴力破解行为。",
+      "D": "违背最小权限原则，扩大系统失陷风险。"
+    },
+    "conceptId": "windows-security"
+  },
+  {
+    "id": "sec-06-q04",
+    "number": 4,
+    "group": "Windows 系统安全",
+    "type": "single",
+    "stem": "在 Windows NTFS 文件系统权限设置中，当某个用户同时属于两个用户组，一个组对该文件夹拥有「允许读取」权限，另一个组被明确设置为「拒绝读取」权限时，该用户的最终有效权限是（　　）。",
+    "options": {
+      "A": "允许读取",
+      "B": "拒绝读取",
+      "C": "自动升级为完全控制",
+      "D": "由用户登录时自行选择"
+    },
+    "answer": ["B"],
+    "explanationSupplement": "NTFS 权限遵循「累加原则 + 拒绝优先」：来自不同组的允许权限会合并累加，但只要存在显式「拒绝（Deny）」，拒绝权限永远优先于允许权限。",
+    "optionExplanations": {
+      "A": "忽略了拒绝优先规则。",
+      "B": "显式拒绝优先级最高，最终结果是拒绝读取。",
+      "C": "不存在自动提权机制。",
+      "D": "权限由系统内核强制裁决，不可由用户自选。"
+    },
+    "conceptId": "windows-security"
+  },
+  {
+    "id": "sec-06-q05",
+    "number": 5,
+    "group": "Linux 系统安全",
+    "type": "single",
+    "stem": "在 Linux 系统的树形目录结构中，用于存放硬件设备文件的目录是（　　），用于存放系统及服务配置文件的目录是（　　）。",
+    "options": {
+      "A": "/etc，/dev",
+      "B": "/dev，/etc",
+      "C": "/home，/tmp",
+      "D": "/bin，/var"
+    },
+    "answer": ["B"],
+    "explanationSupplement": "Linux 中 /dev（device）存放磁盘、终端等设备文件；/etc（etcetera）存放系统及各类网络服务的配置文件。",
+    "optionExplanations": {
+      "A": "两个目录的用途顺序颠倒。",
+      "B": "/dev 为设备文件目录，/etc 为配置文件目录，完全正确。",
+      "C": "/home 为普通用户家目录，/tmp 为临时文件目录。",
+      "D": "/bin 为基础命令目录，/var 存放日志等经常变化的文件。"
+    },
+    "conceptId": "linux-security"
+  },
+  {
+    "id": "sec-06-q06",
+    "number": 6,
+    "group": "Linux 系统安全",
+    "type": "single",
+    "stem": "在 Linux 系统中，记录网络服务名称与标准端口号（如 http 80/tcp、ssh 22/tcp）对应关系的配置文件是（　　）。",
+    "options": {
+      "A": "/etc/hosts",
+      "B": "/etc/services",
+      "C": "/etc/resolv.conf",
+      "D": "/etc/hostname"
+    },
+    "answer": ["B"],
+    "explanationSupplement": "/etc/services 保存常见网络服务名与端口号及传输协议的映射表；/etc/hosts 保存本地静态 IP 与主机名映射；/etc/resolv.conf 配置 DNS 服务器；/etc/hostname 保存本机主机名。",
+    "optionExplanations": {
+      "A": "/etc/hosts 用于本地 IP 与主机名静态解析。",
+      "B": "/etc/services 专门记录服务与端口映射。",
+      "C": "/etc/resolv.conf 用于指定 DNS 服务器地址。",
+      "D": "/etc/hostname 仅记录当前主机名称。"
+    },
+    "conceptId": "linux-security"
+  },
+  {
+    "id": "sec-06-q07",
+    "number": 7,
+    "group": "Linux 系统安全",
+    "type": "single",
+    "stem": "在 Linux 命令行中，若要立即安全重启操作系统，正确的命令是（　　）。",
+    "options": {
+      "A": "shutdown -r now",
+      "B": "shutdown -h now",
+      "C": "halt",
+      "D": "history"
+    },
+    "answer": ["A"],
+    "explanationSupplement": "shutdown 命令中，-r 表示 reboot（重启），-h 表示 halt（关机）。因此立即重启应使用 shutdown -r now 或 reboot。",
+    "optionExplanations": {
+      "A": "-r 代表 reboot，now 代表立即执行重启。",
+      "B": "-h 代表 halt，执行的是立即关机。",
+      "C": "halt 用于关闭系统电源/停机，而非重启。",
+      "D": "history 用于查看历史执行过的命令列表。"
+    },
+    "conceptId": "linux-security"
+  },
+  {
+    "id": "sec-06-q08",
+    "number": 8,
+    "group": "Linux 系统安全",
+    "type": "single",
+    "stem": "Linux 管理员执行命令 chmod 750 deploy.sh 后，该脚本文件对应的符号权限表示为（　　）。",
+    "options": {
+      "A": "rwxr-xr-x",
+      "B": "rwxr-x---",
+      "C": "rw-r-----",
+      "D": "rwx------"
+    },
+    "answer": ["B"],
+    "explanationSupplement": "Linux 八进制权限按 r=4、w=2、x=1 累加：7=4+2+1（rwx，所有者），5=4+0+1（r-x，所属组），0=0+0+0（---，其他用户），合起来为 rwxr-x---。",
+    "optionExplanations": {
+      "A": "对应八进制权限 755。",
+      "B": "7(rwx) 5(r-x) 0(---)，完全正确。",
+      "C": "对应八进制权限 640。",
+      "D": "对应八进制权限 700。"
+    },
+    "conceptId": "linux-security"
+  },
+  {
+    "id": "sec-06-q09",
+    "number": 9,
+    "group": "Linux 系统安全",
+    "type": "single",
+    "stem": "在 Linux 系统中，用于查看当前登录用户近期在终端执行过的历史命令记录（常用于安全事件应急排查）的命令是（　　）。",
+    "options": {
+      "A": "iptables",
+      "B": "history",
+      "C": "chmod",
+      "D": "mkdir"
+    },
+    "answer": ["B"],
+    "explanationSupplement": "history 命令可列出当前 Shell 会话保存的历史命令列表，在入侵排查中常用来追溯异常操作痕迹。",
+    "optionExplanations": {
+      "A": "iptables 用于配置 Linux 内核数据包过滤防火墙。",
+      "B": "history 用于查看历史执行命令。",
+      "C": "chmod 用于修改文件或目录权限。",
+      "D": "mkdir 用于新建目录。"
+    },
+    "conceptId": "linux-security"
+  },
+  {
+    "id": "sec-06-q10",
+    "number": 10,
+    "group": "网络服务器与端口",
+    "type": "single",
+    "stem": "关于传统文件传输协议 FTP 的默认端口与安全特性，下列说法正确的是（　　）。",
+    "options": {
+      "A": "FTP 默认控制端口为 21，账号口令与数据均以明文传输，且应防范 anonymous 匿名访问风险",
+      "B": "FTP 默认端口为 443，全程采用 AES-256 强制加密",
+      "C": "FTP 只能传输纯文本文件，无法传输二进制程序",
+      "D": "开启 anonymous 匿名上传能够提高服务器安全性"
+    },
+    "answer": ["A"],
+    "explanationSupplement": "传统 FTP 控制端口为 21、数据端口为 20，采用明文传输易被嗅探，且开启 anonymous 匿名登录易导致未授权访问与恶意文件上传，生产环境建议改用 SFTP/FTPS。",
+    "optionExplanations": {
+      "A": "准确概括了 FTP 端口、明文隐患及匿名风险。",
+      "B": "443 是 HTTPS 端口，传统 FTP 默认不加密。",
+      "C": "FTP 支持 ASCII 与二进制两种传输模式。",
+      "D": "匿名上传极易被利用植入恶意文件，严重降低安全性。"
+    },
+    "conceptId": "server-hardening"
+  },
+  {
+    "id": "sec-06-q11",
+    "number": 11,
+    "group": "网络服务器与端口",
+    "type": "single",
+    "stem": "常见的开源 Web 服务器经典组合架构 LAMP 中，四个字母依次代表（　　）。",
+    "options": {
+      "A": "Linux + Apache + MySQL + PHP",
+      "B": "LDAP + AES + MAC + PKI",
+      "C": "LAN + ARP + MPLS + PPP",
+      "D": "Linux + Android + MongoDB + Python"
+    },
+    "answer": ["A"],
+    "explanationSupplement": "LAMP 是最经典的开源 Web 应用服务栈：Linux（操作系统）+ Apache（Web 服务器）+ MySQL（关系型数据库）+ PHP（脚本语言，有时也指 Perl/Python）。",
+    "optionExplanations": {
+      "A": "准确对应 LAMP 架构的四个核心组件。",
+      "B": "列出的均为密码与目录安全术语。",
+      "C": "列出的均为网络底层协议术语。",
+      "D": "并非经典 LAMP 组合定义。"
+    },
+    "conceptId": "server-hardening"
+  },
+  {
+    "id": "sec-06-q12",
+    "number": 12,
+    "group": "新兴安全挑战",
+    "type": "single",
+    "stem": "在云计算安全治理中，通常遵循「责任共担模型」。以下关于公有云安全责任划分的说法正确的是（　　）。",
+    "options": {
+      "A": "企业业务迁入公有云后，数据加密、账号权限和配置安全全部自动由云厂商兜底",
+      "B": "云服务商主要负责底层物理机房、硬件与虚拟化平台安全，云租户负责自身数据、身份权限及业务配置安全",
+      "C": "公有云租户必须亲自派遣保安驻守云服务商的物理机房",
+      "D": "云计算环境中不存在多租户资源共享带来的隔离风险"
+    },
+    "answer": ["B"],
+    "explanationSupplement": "责任共担模型（Shared Responsibility Model）明确：云商负责「云本身的安全」（物理/网络/虚拟化底层），客户负责「云内部的安全」（数据、账号、访问策略与自身应用）。",
+    "optionExplanations": {
+      "A": "数据与访问配置安全始终需要租户自身负责。",
+      "B": "准确表述了公有云安全责任共担边界。",
+      "C": "物理机房安保由云服务商统一负责。",
+      "D": "多租户共享宿主机存在虚拟化逃逸与侧信道隔离风险。"
+    },
+    "conceptId": "emerging-security"
+  },
+  {
+    "id": "sec-06-q13",
+    "number": 13,
+    "group": "新兴安全挑战",
+    "type": "single",
+    "stem": "物联网（IoT）系统通常按逻辑划分为感知层、网络层和应用层。物联网终端设备面临的最突出安全难点不包括（　　）。",
+    "options": {
+      "A": "大量传感器与摄像头计算能力和存储资源受限，难以运行重型安全软件",
+      "B": "设备分布广泛、数量庞大，固件升级与漏洞打补丁困难",
+      "C": "部分设备出厂使用统一默认弱口令，易被劫持组成僵尸网络",
+      "D": "所有物联网终端都内置了高性能独立机房级硬件防火墙"
+    },
+    "answer": ["D"],
+    "explanationSupplement": "物联网终端普遍成本低、功耗与算力受限，不可能每台传感器都内置机房级硬件防火墙，这正是 IoT 防护薄弱的根源之一。",
+    "optionExplanations": {
+      "A": "资源受限是 IoT 终端的典型特征。",
+      "B": "运维补丁困难导致大量老旧 IoT 漏洞长期暴露。",
+      "C": "默认弱口令是 Mirai 等物联网僵尸网络扩散主因。",
+      "D": "与 IoT 终端低功耗、低成本的实际特征完全不符，故该项正确。"
+    },
+    "conceptId": "emerging-security"
+  },
+  {
+    "id": "sec-06-q14",
+    "number": 14,
+    "group": "新兴安全挑战",
+    "type": "single",
+    "stem": "在采用工作量证明（PoW）共识机制的区块链系统中，若单一主体或联盟控制了全网超过半数的算力，从而能够伪造交易分支或实施「双花」，这类安全风险称为（　　）。",
+    "options": {
+      "A": "51% 算力风险",
+      "B": "ARP 缓存溢出",
+      "C": "SQL 预编译绕过",
+      "D": "宏病毒感染"
+    },
+    "answer": ["A"],
+    "explanationSupplement": "PoW 共识遵循「最长链原则」，一旦某方掌握全网超过 50% 的算力（俗称 51% 算力风险），就能以更快速度生成私有分叉链覆盖历史交易，破坏共识安全。",
+    "optionExplanations": {
+      "A": "准确对应 PoW 区块链的 51% 算力共识风险。",
+      "B": "属于局域网链路层问题。",
+      "C": "属于 Web 数据库安全范畴。",
+      "D": "属于办公文档恶意代码范畴。"
+    },
+    "conceptId": "emerging-security"
+  },
+  {
+    "id": "sec-06-q15",
+    "number": 15,
+    "group": "新兴安全挑战",
+    "type": "single",
+    "stem": "在人工智能模型训练阶段，恶意方故意向训练数据集中混入精心构造的错误标注样本，导致模型上线后在特定输入下给出预设错误判断，这种安全威胁称为（　　）。",
+    "options": {
+      "A": "数据投毒（Data Poisoning）",
+      "B": "端口扫描",
+      "C": "磁盘配额耗尽",
+      "D": "物理断电"
+    },
+    "answer": ["A"],
+    "explanationSupplement": "数据投毒发生在模型训练阶段，通过污染训练样本破坏模型决策边界或植入隐蔽后门；在推理阶段通过微小扰动欺骗已训练模型则称为对抗样本。",
+    "optionExplanations": {
+      "A": "准确对应训练阶段污染数据集的 AI 安全威胁。",
+      "B": "属于网络服务探测手段。",
+      "C": "属于主机存储资源管理问题。",
+      "D": "属于物理环境供电故障。"
+    },
+    "conceptId": "emerging-security"
+  },
+  {
+    "id": "sec-06-q16",
+    "number": 16,
+    "group": "操作系统与运维安全",
+    "type": "multiple",
+    "stem": "关于 Windows 与 Linux 操作系统的日常安全管理，下列说法正确的有（　　）。",
+    "options": {
+      "A": "当某岗位运维人员离职或更换交接时，应立即修改其掌握的系统管理员口令",
+      "B": "Linux 内置的 iptables 可用于配置基于规则的数据包过滤防火墙",
+      "C": "及时为操作系统安装官方发布的安全补丁是防范已知漏洞利用的关键手段",
+      "D": "在 Windows 中配置磁盘配额有助于防止单一用户耗尽服务器磁盘空间"
+    },
+    "answer": ["A", "B", "C", "D"],
+    "explanationSupplement": "人员变动及时改密、合理配置 Linux iptables、及时更新系统安全补丁以及启用磁盘配额，均是操作系统日常安全运维的标准最佳实践。",
+    "optionExplanations": {
+      "A": "防范前员工留存凭证引发越权风险。",
+      "B": "iptables 是 Linux 经典主机防火墙管理工具。",
+      "C": "补丁管理是消除已知操作系统漏洞的根本措施。",
+      "D": "磁盘配额可保障存储资源可用性。"
+    },
+    "conceptId": "windows-security"
+  }
+]

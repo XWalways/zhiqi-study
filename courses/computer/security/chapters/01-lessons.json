@@ -1,0 +1,82 @@
+{
+  "title": "信息安全基础与法律法规",
+  "subtitle": "从 CIA 五大安全属性出发，掌握物理与逻辑防护层级、我国网络安全核心法规及等级保护体系。",
+  "sections": [
+    {
+      "id": "cia-properties",
+      "title": "信息安全五大基本属性（CIA 扩展）",
+      "summary": "准确区分机密性、完整性、可用性三大核心属性，以及可控性与不可否认性。",
+      "bodyHtml": "<p>信息安全的核心目标是保障信息资产在存储、传输和处理全生命周期中的安全。最基础的是 <mark>CIA 三元组</mark>（机密性、完整性、可用性），在此基础上通常扩展为五大属性：</p><table><thead><tr><th>安全属性</th><th>核心含义</th><th>典型破坏场景</th><th>常用保障手段</th></tr></thead><tbody><tr><td><strong>机密性</strong>（Confidentiality）</td><td>信息不泄露给非授权用户、实体或进程</td><td>窃听、非法读取、数据泄露</td><td>加密技术、访问控制、物理隔离</td></tr><tr><td><strong>完整性</strong>（Integrity）</td><td>数据未经授权不能被篡改、伪造或破坏</td><td>传输中被恶意修改、中间人篡改</td><td>哈希摘要（MD5/SHA/SM3）、数字签名、MAC</td></tr><tr><td><strong>可用性</strong>（Availability）</td><td>授权实体在需要时能正常访问并使用信息</td><td>DoS/DDoS 导致瘫痪、HTTP 503 服务不可用</td><td>冗余备份、负载均衡、高可用集群、应急预案</td></tr><tr><td><strong>可控性</strong>（Controllability）</td><td>对信息的传播及内容具有控制与审计能力</td><td>越权操作、违规外发无法追溯</td><td>安全审计、内容过滤、日志留存</td></tr><tr><td><strong>不可否认性</strong>（Non-repudiation）</td><td>通信双方事后不能否认曾经发送或接收过信息</td><td>发送方否认发过交易指令或合同</td><td>数字签名、可信时间戳、第三方公证</td></tr></tbody></table>",
+      "keyTakeaway": "防偷看＝机密性，防篡改＝完整性，防瘫痪＝可用性，防赖账＝不可否认性。",
+      "pitfall": "HTTP 503（Service Unavailable）和 DDoS 攻击直接破坏的是「可用性」，而不是机密性或完整性。",
+      "example": "电商平台遭遇大流量泛洪导致正常用户无法下单（破坏可用性）；订单金额在传输中被恶意改小（破坏完整性）；客户身份证号被拖库外泄（破坏机密性）。"
+    },
+    {
+      "id": "security-layers",
+      "title": "信息安全四层面与物理隔离",
+      "summary": "理解物理、网络、系统、应用四个防护层面，掌握机房灭火与物理隔离网闸原则。",
+      "bodyHtml": "<p>完整的信息安全防护体系按纵深防御思想划分为四个层面：<strong>物理安全</strong>（机房环境、供电、防雷、消防、设备防盗）、<strong>网络安全</strong>（边界防火墙、入侵检测、VPN 传输加密）、<strong>系统安全</strong>（操作系统加固、补丁管理、账号权限）和<strong>应用安全</strong>（代码审计、防 SQL 注入/XSS、业务逻辑校验）。</p><ul><li><strong>机房消防规范</strong>：数据中心机房存放精密电子设备，严禁使用水喷淋或普通干粉灭火，通常采用<mark>七氟丙烷</mark>等洁净气体灭火系统，灭火后无残留且不损坏精密电路。</li><li><strong>物理隔离</strong>：核心涉密网或生产内网与互联网之间完全断开物理连接（无直接网线或无线互通）。若确需单向或受控交换数据，应使用<mark>安全隔离网闸（GAP）</mark>或经审批的专用只读刻录光盘摆渡，严禁混用普通 U 盘。</li><li><strong>高可用与选址</strong>：数据中心选址应避开地震带、洪涝区、强电磁干扰源及易燃易爆场所，并配置双路供电与 UPS。</li></ul>",
+      "keyTakeaway": "物理安全是整个信息系统安全的前提；机房用七氟丙烷气体灭火，涉密/内网交互首选网闸或规范光盘摆渡。",
+      "pitfall": "误以为部署了防火墙就等于物理隔离。防火墙本质仍是逻辑隔离（网络层互通），真正的物理隔离要求链路完全断开或通过网闸实现「协议剥离 + 分时开关」。",
+      "example": "某金融机构核心账务网与办公外网实行物理隔离，需要从外网导入补丁包时，必须经过病毒查杀、完整性校验后刻录一次性只读光盘再导入内网。"
+    },
+    {
+      "id": "compliance-laws",
+      "title": "我国网络安全核心法规与等级保护",
+      "summary": "熟记《网安法》《数安法》《个保法》《关基条例》及等保 2.0 五级划分高频数字考点。",
+      "bodyHtml": "<p>我国已形成以「三法一条例」为核心、以<mark>网络安全等级保护制度（等保 2.0）</mark>为基石的法治与合规框架：</p><table><thead><tr><th>法规 / 标准</th><th>核心制度与必背考点</th></tr></thead><tbody><tr><td><strong>《网络安全法》</strong></td><td>实行网络安全等级保护制度；网络运营者监测记录网络运行状态、网络安全事件的技术措施，留存相关的网络日志<strong>不少于 6 个月</strong>；确立网络安全责任制。</td></tr><tr><td><strong>《数据安全法》</strong></td><td>建立<strong>数据分类分级保护制度</strong>，对关系国家安全、国民经济命脉、重要民生、重大公共利益的数据实行更严格保护（核心数据 / 重要数据 / 一般数据）。</td></tr><tr><td><strong>《个人信息保护法》</strong></td><td>处理个人信息前应以显著方式、清晰易懂语言向个人真实、准确、完整地告知：处理者名称及联系方式、处理目的与方式、保存期限、个人行使权利的方式和程序等。</td></tr><tr><td><strong>《关键信息基础设施安全保护条例》</strong></td><td>运营者应当自行或者委托网络安全服务机构对其关键信息基础设施<strong>每年至少进行一次</strong>网络安全检测和风险评估。</td></tr><tr><td><strong>GB 17859 等级保护</strong></td><td>将计算机信息系统安全保护等级由低到高分为<strong>五级</strong>：① 用户自主保护级、② 系统审计保护级、③ 安全标记保护级、④ 结构化保护级、⑤ 访问验证保护级。</td></tr></tbody></table><p>我国国家秘密按泄露后果严重程度由低到高分为三级：<mark>秘密</mark>（一般损害）、<mark>机密</mark>（严重损害）、<mark>绝密</mark>（特别严重损害）。等保 2.0 还在原有要求基础上强化了<strong>可信计算（可信验证）</strong>控制点，并将云计算、物联网、工控系统纳入扩展要求。</p>",
+      "keyTakeaway": "牢记四个高频数字：网安日志留存 ≥ 6 个月、关基检测评估 ≥ 每年 1 次、等保分 5 级、涉密分 3 级（秘/机/绝）。",
+      "pitfall": "不要混淆「等保五级」与「涉密三级」；也不要把《数据安全法》的「分类分级保护」张冠李戴为《网安法》的「等级保护」。",
+      "example": "某企业系统日志仅保留 30 天即被覆盖，违反了《网络安全法》关于网络日志留存不少于 6 个月的强制要求。"
+    },
+    {
+      "id": "risk-management",
+      "title": "安全管理体系、风险评估与人员意识",
+      "summary": "掌握 ISMS、BIA 业务影响分析、职责分离、数据敏感性分级及社会工程学防范。",
+      "bodyHtml": "<p>信息安全「三分技术、七分管理」。仅靠防火墙和杀毒软件无法阻挡内部违规或人员受骗，必须建立完整的安全治理与运维机制：</p><ul><li><strong>ISMS（信息安全管理体系）</strong>：遵循 PDCA（策划—实施—检查—改进）循环持续审查与优化，而非一劳永逸。</li><li><strong>风险评估与 BIA</strong>：依据 GB/T 20984，风险由资产价值、威胁频率与脆弱性共同决定。制定业务连续性计划（BCP）与灾难恢复计划（DRP）前，需开展<mark>业务影响分析（BIA）</mark>，确定关键业务的恢复时间目标（RTO）与恢复点目标（RPO）。</li><li><strong>职责分离与最小权限</strong>：关键岗位实行操作员、审核员、审计员分权制衡，防止单人既执行交易又篡改审计日志；员工离职或转岗时必须第一时间回收或重置账号口令。</li><li><strong>社会工程学防范</strong>：社会工程学利用人的信任、好奇、恐慌或疏忽（如钓鱼邮件、冒充 IT 运维索要验证码）绕过技术防线，最有效的防御手段是常态化的<mark>安全意识培训</mark>与身份回拨核验。</li><li><strong>开源软件风险</strong>：使用开源组件需关注许可证合规、已知漏洞（CVE）跟踪及供应链投毒风险，不能默认开源即安全。</li></ul>",
+      "keyTakeaway": "防社工靠安全意识培训；防内部舞弊靠职责分离与最小权限；定灾备目标先做 BIA 业务影响分析。",
+      "pitfall": "安全与发展的关系是「相辅相成、辩证统一、同步规划」，不能为了追求绝对安全而停滞业务发展，也不能只顾发展忽视安全底线。",
+      "example": "某员工接到自称系统管理员的电话要求提供短信验证码以「修复账号异常」，这是典型的社会工程学套取凭证手段，应通过官方内部渠道反向核实并拒绝提供。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "信息安全基础属性",
+      "target": "cia-properties",
+      "children": [
+        { "label": "机密性（防泄露）", "target": "cia-properties" },
+        { "label": "完整性（防篡改）", "target": "cia-properties" },
+        { "label": "可用性（防瘫痪）", "target": "cia-properties" },
+        { "label": "可控性与不可否认性", "target": "cia-properties" }
+      ]
+    },
+    {
+      "label": "四层面与物理隔离",
+      "target": "security-layers",
+      "children": [
+        { "label": "物理 / 网络 / 系统 / 应用四层", "target": "security-layers" },
+        { "label": "机房七氟丙烷气体灭火", "target": "security-layers" },
+        { "label": "物理隔离与安全网闸", "target": "security-layers" }
+      ]
+    },
+    {
+      "label": "法律法规与等保",
+      "target": "compliance-laws",
+      "children": [
+        { "label": "网安法（日志≥6个月）", "target": "compliance-laws" },
+        { "label": "数安法（分类分级保护）", "target": "compliance-laws" },
+        { "label": "个保法与关基条例（每年≥1次）", "target": "compliance-laws" },
+        { "label": "GB 17859 等保五级与涉密三级", "target": "compliance-laws" }
+      ]
+    },
+    {
+      "label": "安全治理与风险管理",
+      "target": "risk-management",
+      "children": [
+        { "label": "ISMS 持续审查与 BIA 分析", "target": "risk-management" },
+        { "label": "职责分离与最小权限", "target": "risk-management" },
+        { "label": "社会工程学与安全意识培训", "target": "risk-management" }
+      ]
+    }
+  ]
+}

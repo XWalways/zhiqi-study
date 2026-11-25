@@ -57,6 +57,24 @@ test('all 31 migrated chapters exist in economy/finance/insurance with 41 visual
   assert.equal(totalVisuals, 41);
 });
 
+test('computer/security builds 6 chapters with 7 visuals and 96 questions', () => {
+  let totalVisuals = 0;
+  let totalQuestions = 0;
+  for (let i = 1; i <= 6; i++) {
+    const id = String(i).padStart(2, '0');
+    const file = path.join(dist, 'computer/security', `${id}.html`);
+    assert.ok(fs.existsSync(file), `Missing computer/security/${id}.html`);
+    const html = fs.readFileSync(file, 'utf8');
+    const data = JSON.parse(html.match(/<script>window\.STUDY_CONTENT=(.*);<\/script>/)[1]);
+    assert.ok((data.chapter.visuals || []).length >= 1, `computer/security/${id} should have at least 1 visual`);
+    assert.ok(html.includes('assets/visuals/security-visuals.js'), `computer/security/${id} should load security-visuals.js`);
+    totalVisuals += data.chapter.visuals.length;
+    totalQuestions += (data.questions || []).length;
+  }
+  assert.equal(totalVisuals, 7);
+  assert.equal(totalQuestions, 96);
+});
+
 test('all shared JS assets parse cleanly as valid JavaScript', () => {
   const jsFiles = [
     'assets/app.js',
@@ -66,6 +84,7 @@ test('all shared JS assets parse cleanly as valid JavaScript', () => {
     'assets/visuals/macro-fin-visuals.js',
     'assets/visuals/static-visuals.js',
     'assets/visuals/extra-visuals.js',
+    'assets/visuals/security-visuals.js',
     'sw.js',
   ];
   for (const rel of jsFiles) {

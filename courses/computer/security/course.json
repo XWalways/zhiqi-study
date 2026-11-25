@@ -2,6 +2,43 @@
   "id": "computer-security",
   "route": "computer/security",
   "title": "信息与网络安全",
-  "subtitle": "密码学基础、Web 安全防护、身份认证授权与系统安全实践",
-  "chapters": []
+  "subtitle": "信息安全基础、密码学与国密算法、认证与 PKI、威胁防护、防火墙协议及系统安全",
+  "chapters": [
+    {
+      "id": "01",
+      "number": 1,
+      "title": "信息安全基础与法律法规",
+      "ready": true
+    },
+    {
+      "id": "02",
+      "number": 2,
+      "title": "密码学基础与国产密码算法",
+      "ready": true
+    },
+    {
+      "id": "03",
+      "number": 3,
+      "title": "身份认证、数字签名与访问控制",
+      "ready": true
+    },
+    {
+      "id": "04",
+      "number": 4,
+      "title": "网络威胁、恶意代码与主动防御",
+      "ready": true
+    },
+    {
+      "id": "05",
+      "number": 5,
+      "title": "防火墙、安全协议与 Web 应用安全",
+      "ready": true
+    },
+    {
+      "id": "06",
+      "number": 6,
+      "title": "操作系统安全管理与新兴安全挑战",
+      "ready": true
+    }
+  ]
 }

@@ -12,7 +12,7 @@ const writeOut = (relPath, content) => {
   fs.writeFileSync(full, content);
 };
 
-// Map courseRoute/chapterId -> visuals (all 41 diagrams across 31 chapters)
+// Map courseRoute/chapterId -> visuals
 const visualsMap = {
   'economy/01': [{ type: 'ppf', sectionId: 'ppf' }],
   'economy/02': [
@@ -71,6 +71,15 @@ const visualsMap = {
     { type: 'liability-timeline', sectionId: 'liability-triggers' },
   ],
   'insurance/06': [{ type: 'life-interest', sectionId: 'interest' }],
+  'computer/security/01': [{ type: 'sec-cia-layers', sectionId: 'cia-properties' }],
+  'computer/security/02': [
+    { type: 'sec-hybrid-crypto', sectionId: 'asymmetric-crypto' },
+    { type: 'sec-transmission-crypto', sectionId: 'transmission-crypto' },
+  ],
+  'computer/security/03': [{ type: 'sec-signature-pki', sectionId: 'digital-signature' }],
+  'computer/security/04': [{ type: 'sec-defense-topology', sectionId: 'active-defense' }],
+  'computer/security/05': [{ type: 'sec-dmz-policy', sectionId: 'dmz-architecture' }],
+  'computer/security/06': [{ type: 'sec-chmod-calc', sectionId: 'linux-security' }],
 };
 
 const templateHtml = read('src/template.html');
@@ -84,6 +93,7 @@ const scriptBundles = {
   macroFin: 'assets/visuals/macro-fin-visuals.js',
   static: 'assets/visuals/static-visuals.js',
   extra: 'assets/visuals/extra-visuals.js',
+  security: 'assets/visuals/security-visuals.js',
 };
 const bundleMembership = {
   market: new Set(['market']),
@@ -91,6 +101,7 @@ const bundleMembership = {
   macroFin: new Set(['is-lm', 'ad-as', 'phillips', 'trilemma', 'bond', 'multiplier', 'deductible', 'liability-timeline']),
   static: new Set(['money-layers', 'financing-flow', 'bill-chain', 'bank-balance', 'basel-pillars', 'proximate-cause', 'contract-timeline', 'pension-pyramid', 'life-interest']),
   extra: new Set(['tu-mu', 'lac-envelope', 'prisoners-matrix', 'lorenz-gini', 'labour-supply', 'externality', 'keynes-cross', 'lm-regions', 'solow', 'bop-structure', 'repression-gap', 'risk-matrix']),
+  security: new Set(['sec-cia-layers', 'sec-hybrid-crypto', 'sec-transmission-crypto', 'sec-signature-pki', 'sec-defense-topology', 'sec-dmz-policy', 'sec-chmod-calc']),
 };
 
 const siteConfig = readJson('courses/site.json');
@@ -150,7 +161,7 @@ fs.mkdirSync(dist, { recursive: true });
 writeOut('assets/styles.css', read('src/styles.css'));
 writeOut('assets/quiz.js', read('src/quiz.js'));
 writeOut('assets/app.js', read('src/app.js'));
-for (const fname of ['market.js', 'micro-visuals.js', 'macro-fin-visuals.js', 'static-visuals.js', 'extra-visuals.js']) {
+for (const fname of ['market.js', 'micro-visuals.js', 'macro-fin-visuals.js', 'static-visuals.js', 'extra-visuals.js', 'security-visuals.js']) {
   writeOut(`assets/visuals/${fname}`, read(`src/visuals/${fname}`));
 }
 writeOut('manifest.webmanifest', read('src/manifest.webmanifest'));

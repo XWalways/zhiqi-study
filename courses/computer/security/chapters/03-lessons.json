@@ -1,0 +1,81 @@
+{
+  "title": "身份认证、数字签名与访问控制",
+  "subtitle": "厘清多因素认证与 Kerberos 防重放机制，掌握数字签名与 PKI 证书验证链，对比三大访问控制模型。",
+  "sections": [
+    {
+      "id": "auth-factors",
+      "title": "身份认证、多因素认证与 Kerberos",
+      "summary": "区分认证三要素、强弱认证方式，以及 Kerberos 如何借助时间戳和票据防范重放。",
+      "bodyHtml": "<p><strong>身份认证（Authentication）</strong>用于确认通信主体「你就是你声称的那个人」，是信息系统安全的第一道防线。认证凭证按来源分为三类要素：</p><table><thead><tr><th>认证要素</th><th>核心依据</th><th>常见实例</th><th>安全特点</th></tr></thead><tbody><tr><td><strong>所知（Something you know）</strong></td><td>用户记忆的秘密</td><td>静态口令、PIN 码、密保问题</td><td>成本低但易遭弱口令猜测、撞库或社工套取；<strong>初始默认口令极不安全</strong>，首次登录须强制修改</td></tr><tr><td><strong>所有（Something you have）</strong></td><td>用户持有的实体或令牌</td><td>USB Key、硬件动态口令牌（OTP）、手机短信验证码、智能卡</td><td>防远程窃密能力强，属于强认证重要组成</td></tr><tr><td><strong>所是（Something you are）</strong></td><td>用户固有生物特征</td><td>指纹、人脸、虹膜、声纹</td><td>不易遗忘和转借，但需防范活体伪造与生物特征泄露不可重置风险</td></tr></tbody></table><p><mark>双因素/多因素认证（2FA/MFA）</mark>要求同时验证上述<strong>两种或以上不同类别</strong>的要素（例如「口令 + 动态令牌」或「USB Key + 指纹」），显著降低单一凭证泄露引发的越权风险。</p><p><strong>Kerberos 网络认证协议</strong>基于<strong>对称加密</strong>与可信第三方<strong>KDC（密钥分发中心，含 AS 认证服务器与 TGS 票据授予服务器）</strong>实现单点登录与双向认证：客户端凭票据（TGT / ST）和带<strong>时间戳</strong>的认证符（Authenticator）向服务端证明身份，有效防止窃听和<mark>重放风险</mark>（要求参与方时钟同步）。</p>",
+      "keyTakeaway": "静态口令是单因素弱认证；「口令 + 手机动态码/USB Key」才是真双因素；Kerberos 用对称加密 + 票据 + 时间戳防重放。",
+      "pitfall": "「密码 + 密保问题」都属于「所知」类别，本质仍是单因素认证，不算双因素认证。",
+      "example": "网上银行大额转账要求输入「登录口令（所知）+ 插入 USB Key 确认（所有）」，即便木马窃取了键盘输入的口令，没有物理 USB Key 也无法完成转账。"
+    },
+    {
+      "id": "digital-signature",
+      "title": "数字签名与双重加解密流程",
+      "summary": "牢记「私钥签名、公钥验签」及机密性与不可否认性兼得的双重加解密顺序。",
+      "bodyHtml": "<p><strong>数字签名（Digital Signature）</strong>用于验证消息来源真实性、数据<mark>完整性</mark>与<mark>不可否认性（抗抵赖）</mark>。实际应用中不会直接对长篇原文签名，而是先对明文做哈希摘要，再用发送方私钥签名：</p><pre><code class=\"language-text\"># 典型数字签名与验证流程（发送方 A → 接收方 B）\n1. 签名生成（A 端）：\n   摘要 h = Hash(M)             # 如 SHA-256 或 SM3\n   签名 S = Sign(h, KA_pri)     # 用 A 的私钥对摘要签名\n   发送：{ M, S }\n\n2. 签名验证（B 端）：\n   h1 = Verify(S, KA_pub)       # 用 A 的公钥解出原摘要\n   h2 = Hash(M)                 # 对收到的 M 重新计算摘要\n   若 h1 == h2 → 验证通过（确认来自 A 且内容未被篡改，A 不可抵赖）</code></pre><p><strong>同时实现机密性 + 不可否认性（签名后加密）</strong>：若 B 要给 A 发送一份既保密又防抵赖的电子合同，标准做法是先用发送方 B 的<strong>私钥签名</strong>，再用接收方 A 的<strong>公钥加密</strong>，记为 <code>KApub(KBpri(M'))</code>；A 收到后先用自己的私钥解密，再用 B 的公钥验签。</p>",
+      "keyTakeaway": "加密通信看「接收方」：接收方公钥加密、接收方私钥解密；数字签名看「发送方」：发送方私钥签名、发送方公钥验签。",
+      "pitfall": "绝对不能反过来用接收方私钥签名或发送方公钥签名——私钥只有本人掌握，唯有发送方私钥签署的结果才能证明「确实是发送方所为」从而实现抗抵赖。",
+      "example": "Alice 用自己的私钥对合同摘要签名后发给 Bob，Bob 用 Alice 的公钥验证通过。事后 Alice 无法抵赖称合同不是自己签的，因为全网只有 Alice 掌握该私钥。"
+    },
+    {
+      "id": "pki-ca",
+      "title": "PKI 公钥基础设施与 X.509 数字证书",
+      "summary": "理解 CA 如何解决公钥信任问题，掌握 X.509 证书字段、CRL 吊销列表与证书验证链。",
+      "bodyHtml": "<p>公钥密码面临一个根本难题：如何确认收到的公钥真的属于通信对方，而非中间人伪造？<strong>PKI（公钥基础设施）</strong>通过引入权威第三方<strong>CA（证书颁发机构）</strong>签发<mark>数字证书</mark>，将「实体身份」与「公钥」绑定起来。</p><ul><li><strong>PKI 核心组件</strong>：<strong>CA</strong>（签发、管理与吊销证书）、<strong>RA</strong>（注册审核机构，负责核验申请人身份）、<strong>证书库与 CRL</strong>（证书吊销列表，列出已提前作废的证书序列号；实时查询则用 OCSP 协议）。</li><li><strong>X.509 数字证书关键字段</strong>：版本号、序列号、签名算法标识、<strong>颁发者（CA）名称</strong>、<strong>有效期</strong>、<strong>主体名称</strong>、<strong>主体公钥信息</strong>以及<strong>CA 的数字签名</strong>。注意：数字证书中<strong>绝不包含</strong>用户的私钥！</li><li><strong>数字证书验证链</strong>：验证方使用 <strong>CA 的公钥</strong>对目标证书上的 CA 数字签名进行验签；同时检查证书是否在有效期内、主体域名是否匹配、以及是否已被列入 CRL 吊销列表。</li></ul>",
+      "keyTakeaway": "CA 用「CA 私钥」给用户证书签名；浏览器/客户端用内置的「CA 公钥」验证证书真伪；证书里放的是用户公钥，绝无私钥。",
+      "pitfall": "真题高频陷阱：问「数字证书中包含以下哪项？」若选项出现「证书持有人的私钥」，一定是错误干扰项。",
+      "example": "访问 HTTPS 网站时，浏览器收到网站发来的 X.509 证书，使用操作系统预置的根 CA 公钥逐级验证签名链并核对有效期与域名，确认无误后才信任其中的网站公钥。"
+    },
+    {
+      "id": "access-control",
+      "title": "访问控制模型（DAC/MAC/RBAC）与安全审计",
+      "summary": "区分自主访问控制、强制访问控制和基于角色的访问控制，理解最小权限与审计机制。",
+      "bodyHtml": "<p><strong>访问控制（Access Control）</strong>在身份认证通过后决定「你被允许对哪些资源执行哪些操作」（主体 Subject → 客体 Object 的权限裁决），三大经典模型对比如下：</p><table><thead><tr><th>模型名称</th><th>英文简称</th><th>核心授权机制</th><th>典型应用与特点</th></tr></thead><tbody><tr><td><strong>自主访问控制</strong></td><td><strong>DAC</strong></td><td>资源<strong>所有者</strong>自主决定将读/写/执行权限授予或撤销给其他用户</td><td>Windows NTFS 权限、Linux 文件权限（ACL）；灵活但易因用户误授权或木马继承权限导致越权泄露</td></tr><tr><td><strong>强制访问控制</strong></td><td><strong>MAC</strong></td><td>系统为每个主体和客体分配固定<strong>安全密级标签</strong>，由系统强制比对裁决，用户无法自行更改</td><td>涉密与军政系统（如 BLP 模型「不下写、不上读」保机密性）；安全性极高但管理僵化</td></tr><tr><td><strong>基于角色的访问控制</strong></td><td><strong>RBAC</strong></td><td>权限不直接赋给个人，而是赋给<strong>角色</strong>，用户通过归属角色获得相应权限</td><td>企业 ERP、OA、云平台 IAM；大幅降低人员变动时的授权维护成本，便于落实职责分离</td></tr></tbody></table><p>访问控制必须遵循<mark>最小权限原则</mark>（仅授予完成工作必需的最小权限）和<strong>默认拒绝原则</strong>。配合<strong>安全审计（Audit）</strong>记录所有关键登录、越权尝试与数据变更，实现事后追责与异常检测。</p>",
+      "keyTakeaway": "所有者自己定权限＝DAC；系统按密级标签硬性卡死＝MAC；先建角色再把人放进去＝RBAC。",
+      "pitfall": "在多级安全模型（BLP 模型）中，为了防止高密级信息流向低密级，规则是「禁止向上读（No Read Up）、禁止向下写（No Write Down）」，切勿记反。",
+      "example": "公司新入职一名财务实习生，管理员只需将其加入「财务只读」角色即可自动获得报表查询权限，离职或转岗时移除角色即可一次性收回全部权限，这就是 RBAC。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "身份认证体系",
+      "target": "auth-factors",
+      "children": [
+        { "label": "所知 / 所有 / 所是三要素", "target": "auth-factors" },
+        { "label": "多因素认证（2FA/MFA）", "target": "auth-factors" },
+        { "label": "Kerberos 对称加密与防重放", "target": "auth-factors" }
+      ]
+    },
+    {
+      "label": "数字签名与抗抵赖",
+      "target": "digital-signature",
+      "children": [
+        { "label": "Hash 摘要 + 私钥签名", "target": "digital-signature" },
+        { "label": "公钥验签防篡改、抗抵赖", "target": "digital-signature" },
+        { "label": "双重加解密 KApub(KBpri(M'))", "target": "digital-signature" }
+      ]
+    },
+    {
+      "label": "PKI 与 X.509 证书",
+      "target": "pki-ca",
+      "children": [
+        { "label": "CA / RA / CRL 吊销列表", "target": "pki-ca" },
+        { "label": "X.509 字段（不含私钥）", "target": "pki-ca" },
+        { "label": "CA 公钥验证证书链", "target": "pki-ca" }
+      ]
+    },
+    {
+      "label": "访问控制与审计",
+      "target": "access-control",
+      "children": [
+        { "label": "DAC 自主访问控制", "target": "access-control" },
+        { "label": "MAC 强制访问控制", "target": "access-control" },
+        { "label": "RBAC 基于角色的访问控制", "target": "access-control" },
+        { "label": "最小权限原则与安全审计", "target": "access-control" }
+      ]
+    }
+  ]
+}

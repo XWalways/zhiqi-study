@@ -1,0 +1,81 @@
+{
+  "title": "网络威胁、恶意代码与主动防御",
+  "subtitle": "区分主动与被动威胁、各类恶意代码特征与典型网络威胁原理，掌握 IDS/IPS、漏洞扫描与蜜罐等纵深防御手段。",
+  "sections": [
+    {
+      "id": "attack-taxonomy",
+      "title": "主动威胁与被动威胁的分类",
+      "summary": "从是否改动系统数据或干扰正常通信，准确区分被动窃听/流量分析与主动篡改/伪造/重放/拒绝服务。",
+      "bodyHtml": "<p>按照是否对传输数据或系统正常运行状态产生实质修改与干扰，网络威胁可分为<strong>被动威胁</strong>与<strong>主动威胁</strong>两大类：</p><table><thead><tr><th>类型</th><th>核心特征</th><th>典型手段</th><th>防御重点</th></tr></thead><tbody><tr><td><strong>被动威胁</strong></td><td>只窥探、收集信息，<strong>不修改</strong>数据、不破坏系统，隐蔽性极强、<strong>难以检测</strong></td><td><strong>消息内容窃听（嗅探）</strong>、<strong>流量分析</strong>（统计通信频次、报文长度与收发双方）</td><td>重在<strong>预防</strong>（端到端加密防窃听、链路加密防流量分析）</td></tr><tr><td><strong>主动威胁</strong></td><td>对数据流进行<strong>修改、伪造、重放或阻断</strong>，破坏完整性或可用性</td><td><strong>假冒（伪造身份）</strong>、<strong>重放</strong>、<strong>消息篡改</strong>、<strong>拒绝服务（DoS/DDoS）</strong></td><td>难以完全杜绝，重在<strong>检测与快速恢复</strong>（数字签名、时间戳、IPS、高防清洗）</td></tr></tbody></table>",
+      "keyTakeaway": "只看不改＝被动（窃听、流量分析，防靠加密）；动手改/伪/重放/打瘫＝主动（防靠检测、签名与冗余）。",
+      "pitfall": "「流量分析」虽然听起来像主动分析行为，但在信息安全分类中严格属于<strong>被动威胁</strong>，因为它并未向网络注入或修改任何数据包。",
+      "example": "在共享局域网中运行抓包工具静默监听未加密 HTTP 流量属于被动窃听；拦截报文后修改转账目标账号再发出去则属于主动篡改。"
+    },
+    {
+      "id": "malware-types",
+      "title": "恶意代码分类与勒索软件防范",
+      "summary": "精准辨析病毒、宏病毒、蠕虫、特洛伊木马、后门、逻辑炸弹与勒索软件的传播及触发特征。",
+      "bodyHtml": "<p>恶意代码指违背系统安全策略、造成信息泄露或破坏的程序代码，考试中极常考查各类恶意代码的本质区别：</p><table><thead><tr><th>恶意代码类型</th><th>是否依赖宿主</th><th>核心特征与经典案例</th></tr></thead><tbody><tr><td><strong>计算机病毒</strong></td><td><strong>需要宿主</strong></td><td>寄生在正常可执行文件或文档中，随宿主运行被激活并自我复制传染。<strong>宏病毒</strong>（如 <code>Macro.Melissa</code>）专门寄生在 Word/Excel 等办公文档的宏脚本中，跨平台传播快。</td></tr><tr><td><strong>网络蠕虫（Worm）</strong></td><td><strong>独立运行</strong></td><td>无需寄生在宿主文件、无需人工干预，利用系统网络漏洞自动扫描并在网络中高速自我复制扩散（如震网、WannaCry 蠕虫模块）。</td></tr><tr><td><strong>特洛伊木马（Trojan）</strong></td><td>伪装正常程序</td><td>不以自我复制为主要特征，伪装成正常工具诱骗运行后在后台建立远控通道；现代木马常采用<mark>反向连接</mark>（由内网受控机主动向外连控制端）以绕过防火墙入站拦截。</td></tr><tr><td><strong>后门与逻辑炸弹</strong></td><td>潜伏在系统中</td><td><strong>后门（Backdoor）</strong>绕过正常认证留作隐蔽入口；<strong>逻辑炸弹</strong>在满足特定日期、账号删除等预设条件时才触发破坏。</td></tr><tr><td><strong>勒索软件</strong></td><td>独立或结合蠕虫</td><td>加密受害主机重要文件并勒索赎金。例如 <strong>WannaCry</strong> 利用 Windows SMB（445 端口）「永恒之蓝」漏洞扩散，防范关键在于<strong>及时打补丁、关闭不必要的 445 端口、定期离线异地备份</strong>。</td></tr></tbody></table>",
+      "keyTakeaway": "病毒靠宿主、蠕虫靠漏洞自传播、木马靠伪装（常反向连接绕防火墙）、逻辑炸弹靠条件触发、勒索病毒防靠补丁+关高危端口+离线备份。",
+      "pitfall": "杀毒软件（防病毒系统）主要针对恶意代码查杀，<strong>无法有效抵御</strong>来自海量外部肉鸡的分布式拒绝服务（DDoS）流量洪泛。",
+      "example": "某主机感染木马后，防火墙虽禁止外网主动访问内网，但木马进程主动向外部服务器 443 端口发起出站 TCP 连接（反向连接），从而成功建立控制通道。"
+    },
+    {
+      "id": "network-threats",
+      "title": "典型网络威胁与 APT 高级持续性威胁",
+      "summary": "掌握 SYN Flood、ARP/IP 欺骗、端口扫描、网络风暴及 APT 的核心机制与缓解措施。",
+      "bodyHtml": "<ul><li><strong>拒绝服务与 TCP SYN Flood</strong>：DoS/DDoS 通过海量无效请求耗尽目标带宽或计算资源（破坏可用性）。<strong>SYN Flood</strong> 利用 TCP 三次握手缺陷：伪造源 IP 发送大量 <code>SYN</code> 包，服务器回复 <code>SYN+ACK</code> 后迟迟收不到第三次 <code>ACK</code>，导致<strong>半连接队列被占满</strong>而拒绝正常用户连接。</li><li><strong>ARP 欺骗与 IP 欺骗</strong>：ARP 协议缺乏认证机制，恶意主机在局域网发送伪造 ARP 应答包，将网关 IP 映射到自己 MAC 地址，实现中间人窃听或断网；IP 欺骗则伪造数据包源 IP 地址冒充受信任主机。</li><li><strong>网络嗅探与端口扫描</strong>：嗅探器将网卡设为<strong>混杂模式</strong>监听局域网明文流量；端口扫描（如 Nmap）探测目标开放端口与运行服务，是入侵前信息搜集的常见步骤，因此服务器应遵守<strong>最小服务原则</strong>关闭所有非必要端口。</li><li><strong>广播/网络风暴防范</strong>：局域网环路或异常广播泛洪会耗尽交换机带宽，划分 <mark>VLAN</mark> 隔离广播域并结合 <mark>ACL</mark>（访问控制列表）和生成树协议（STP）可有效遏制。</li><li><strong>APT（高级持续性威胁）</strong>：针对特定高价值目标（政府、金融、能源）发起的<strong>长期潜伏、多阶段渗透、高度隐蔽、定制化工具</strong>的定向威胁，传统基于特征库的单点防御难以发现。</li></ul>",
+      "keyTakeaway": "SYN Flood 占满 TCP 半连接队列；ARP 欺骗在局域网伪造 IP-MAC 映射；APT 关键词是「定向、长期潜伏、高度隐蔽」。",
+      "pitfall": "ICMP 协议（如 ping、traceroute）属于网络层诊断协议，本身不提供加密或认证，反而可能被用于 Ping Flood 或隐蔽隧道，因此不属于安全协议。",
+      "example": "企业内网按研发、财务、办公部门划分独立 VLAN，即便某一部门终端中毒发出广播风暴，也不会波及其他部门的核心业务。"
+    },
+    {
+      "id": "active-defense",
+      "title": "入侵检测（IDS/IPS）、漏洞评估与主动防御",
+      "summary": "对比 IDS 与 IPS、漏洞扫描与渗透测试，理解蜜罐主动防御与堡垒主机作用。",
+      "bodyHtml": "<table><thead><tr><th>防护技术</th><th>部署方式与核心能力</th><th>关键区别与考点</th></tr></thead><tbody><tr><td><strong>IDS（入侵检测系统）</strong></td><td><strong>旁路监听</strong>（镜像流量），事中检测告警与日志审计</td><td>分为基于特征的<strong>误用检测</strong>（误报低，难检未知 0-day）与基于基线的<strong>异常检测</strong>（可检未知异常，但误报偏高）；IDS 仅告警，不直接阻断</td></tr><tr><td><strong>IPS（入侵防御系统）</strong></td><td><strong>串联接入</strong>网络主干，检测到恶意特征后<strong>实时阻断</strong></td><td>兼具检测与主动拦截能力，但串联部署需防范单点故障与性能瓶颈</td></tr><tr><td><strong>漏洞扫描 vs 渗透测试</strong></td><td><strong>漏洞扫描</strong>：自动化工具按漏洞库批量排查已知弱点；<strong>渗透测试</strong>：授权安全专家模拟真实思路深度验证漏洞可利用性</td><td>漏扫覆盖面广、成本低但存在误报且不深挖业务链；渗透测试深度高、贴近实战但依赖人工且成本高</td></tr><tr><td><strong>蜜罐（Honeypot）</strong></td><td>故意暴露的诱饵系统，吸引并记录入侵者行为</td><td>属于典型的<mark>主动防御</mark>技术，可延缓对真实资产的侵害并提取最新威胁情报</td></tr><tr><td><strong>堡垒主机（运维审计）</strong></td><td>置于高防护区域的跳板与审计入口，统一管控运维登录</td><td>集中实施强身份认证、权限细分与全过程字符/图形操作录像审计</td></tr></tbody></table>",
+      "keyTakeaway": "IDS 旁路只告警、IPS 串联能阻断；漏扫靠自动化广覆盖、渗透靠人工深验证；蜜罐是主动诱捕防御。",
+      "pitfall": "不要把漏洞扫描等同于渗透测试——漏洞扫描只报告「可能存在哪些已知漏洞」，并不真正串连利用并验证业务危害。",
+      "example": "运维人员访问核心数据库时，必须先登录堡垒主机完成双因素认证，再由堡垒主机代理连接目标服务器，所有执行的命令均被完整审计留存。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "威胁分类",
+      "target": "attack-taxonomy",
+      "children": [
+        { "label": "被动：窃听与流量分析", "target": "attack-taxonomy" },
+        { "label": "主动：篡改/伪造/重放/DoS", "target": "attack-taxonomy" }
+      ]
+    },
+    {
+      "label": "恶意代码辨析",
+      "target": "malware-types",
+      "children": [
+        { "label": "病毒与宏病毒（需宿主）", "target": "malware-types" },
+        { "label": "蠕虫（独立漏洞自传播）", "target": "malware-types" },
+        { "label": "木马（伪装与反向连接）", "target": "malware-types" },
+        { "label": "后门 / 逻辑炸弹 / 勒索软件", "target": "malware-types" }
+      ]
+    },
+    {
+      "label": "典型网络威胁",
+      "target": "network-threats",
+      "children": [
+        { "label": "SYN Flood 与 DDoS", "target": "network-threats" },
+        { "label": "ARP 欺骗与 IP 欺骗", "target": "network-threats" },
+        { "label": "端口扫描 / VLAN+ACL 防风暴", "target": "network-threats" },
+        { "label": "APT 高级持续性威胁", "target": "network-threats" }
+      ]
+    },
+    {
+      "label": "检测与主动防御",
+      "target": "active-defense",
+      "children": [
+        { "label": "IDS（旁路告警）vs IPS（串联阻断）", "target": "active-defense" },
+        { "label": "漏洞扫描 vs 渗透测试", "target": "active-defense" },
+        { "label": "蜜罐主动防御与堡垒主机", "target": "active-defense" }
+      ]
+    }
+  ]
+}

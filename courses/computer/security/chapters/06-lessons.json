@@ -1,0 +1,81 @@
+{
+  "title": "操作系统安全管理与新兴安全挑战",
+  "subtitle": "掌握 Windows 域与 NTFS 权限管理、Linux 核心目录与防火墙命令、常见服务器端口加固及云/物联网/AI/区块链安全。",
+  "sections": [
+    {
+      "id": "windows-security",
+      "title": "Windows 系统安全与域管理",
+      "summary": "掌握活动目录 AD、账户分类与锁定策略、NTFS 权限及注册表/组策略常用管理命令。",
+      "bodyHtml": "<p>企业内网大量终端与服务器运行 Windows 系统，其集中安全管理核心是<strong>域（Domain）与活动目录（Active Directory, AD）</strong>。账户分为本地账户、域账户与组账户，安全配置重点如下：</p><ul><li><strong>账号口令与锁定策略</strong>：开启<mark>账户锁定策略</mark>（如连续输错 5 次锁定 15 分钟）可有效抵御在线暴力破解；岗位交接或运维人员离职时，必须<strong>立即修改交接账号口令或禁用离职账号</strong>；遵循最小权限原则，日常办公不使用 Administrator 特权账户。</li><li><strong>NTFS 权限与磁盘配额</strong>：NTFS 文件系统支持精细的自主访问控制（DAC）列表，当用户同属多个组时权限取<strong>累加</strong>，但<mark>「拒绝（Deny）」权限优先级最高</mark>；配合<strong>磁盘配额</strong>可防止个别用户写满磁盘引发系统拒绝服务。</li><li><strong>系统补丁与高频管理工具</strong>：操作系统存在安全漏洞时，最根本的修复方式是及时安装官方安全补丁。牢记三个高频命令行/运行工具：</li></ul><pre><code class=\"language-powershell\"># Windows 安全管理高频命令与工具\nnet user student 1234 /add   # 创建本地用户 student，初始口令 1234\nregedit.exe                  # 打开「注册表编辑器」（修改底层系统配置）\ngpedit.msc                   # 打开「本地组策略编辑器」（配置密码复杂度、账户锁定、审核策略）</code></pre>",
+      "keyTakeaway": "防暴力破解开「账户锁定策略」；组策略用 gpedit.msc，注册表用 regedit.exe；NTFS 拒绝权限优先于允许。",
+      "pitfall": "切勿把 <code>regedit.exe</code>（注册表编辑器）与 <code>gpedit.msc</code>（本地组策略编辑器）张冠李戴；<code>net user</code> 添加用户必须带 <code>/add</code> 参数。",
+      "example": "某部门新接手一台共用测试机，前任管理员调离后，第一步安全操作不是重装系统，而是立即重置管理员口令并核查是否存在多余隐藏账号。"
+    },
+    {
+      "id": "linux-security",
+      "title": "Linux 目录结构、文件权限与常用安全命令",
+      "summary": "熟记 /etc、/dev 等关键目录及网络配置文件，掌握 chmod 权限计算、iptables 防火墙与关机重启命令。",
+      "bodyHtml": "<p>Linux 采用单一根目录（<code>/</code>）的树形文件系统，一切皆文件。考试极常考查核心目录、网络配置文件与常用管理命令：</p><table><thead><tr><th>路径 / 命令</th><th>核心含义与高频考点</th></tr></thead><tbody><tr><td><code>/etc</code></td><td>存放系统与服务的<strong>配置文件</strong>（最常考目录）</td></tr><tr><td><code>/dev</code></td><td>存放<strong>硬件设备文件</strong>（如磁盘 <code>/dev/sda</code>、终端设备）</td></tr><tr><td><code>/bin</code> 与 <code>/sbin</code></td><td><code>/bin</code> 存所有用户可用的基本命令；<code>/sbin</code> 存<strong>超级用户（root）</strong>专用系统管理命令</td></tr><tr><td><code>/etc/hosts</code></td><td>本地静态<strong>IP 地址与主机名</strong>映射表（优先级通常高于 DNS）</td></tr><tr><td><code>/etc/services</code></td><td>记录网络<strong>服务名称与默认端口号/协议</strong>对应关系</td></tr><tr><td><code>/etc/resolv.conf</code></td><td>配置本机使用的 <strong>DNS 域名服务器</strong> IP 地址</td></tr><tr><td><code>/etc/hostname</code></td><td>保存当前系统的<strong>主机名</strong></td></tr></tbody></table><pre><code class=\"language-bash\"># Linux 高频安全与运维命令\nchmod 750 app.sh          # 权限计算：r=4, w=2, x=1 → 所有者 rwx(7), 属组 r-x(5), 其他 ---(0)\niptables -L -n            # 查看 Linux 内核防火墙（Netfilter）过滤规则\nhistory                   # 查看当前用户历史执行过的命令记录（审计排查常用）\nshutdown -r now           # 立即安全重启系统（等价于 reboot；关机为 shutdown -h now 或 halt）</code></pre>",
+      "keyTakeaway": "配置在 /etc，设备在 /dev；端口映射查 /etc/services，本地解析查 /etc/hosts，DNS 查 /etc/resolv.conf；权限 r=4、w=2、x=1。",
+      "pitfall": "区分 <code>shutdown -r now</code>（<code>-r</code> = reboot 重启）与 <code>shutdown -h now</code>（<code>-h</code> = halt 关机）；<code>rm -rf</code> 强制递归删除不可逆，运维须极其谨慎。",
+      "example": "给某敏感配置文件执行 <code>chmod 600 secret.key</code>（即 <code>rw-------</code>），确保只有文件所有者能读写，同组用户与其他任何用户均无权查看。"
+    },
+    {
+      "id": "server-hardening",
+      "title": "网络服务器架构与常见端口加固",
+      "summary": "熟悉 IIS 与 LAMP 架构，牢记常见服务默认端口及 FTP 明文/匿名访问等典型风险。",
+      "bodyHtml": "<p>常见 Web 与网络服务部署组合包括 Windows 平台的 <strong>IIS</strong> 与开源生态的 <strong>LAMP</strong>（Linux + Apache + MySQL + PHP）。服务器加固首要原则是最小化暴露面并替换不安全明文协议：</p><table><thead><tr><th>协议 / 服务</th><th>默认端口</th><th>典型安全隐患与加固建议</th></tr></thead><tbody><tr><td><strong>HTTP / HTTPS</strong></td><td>80 / 443</td><td>HTTP 全程明文易遭窃听篡改，应强制跳转 HTTPS（TLS 1.2/1.3）</td></tr><tr><td><strong>FTP</strong></td><td><strong>21（控制）</strong> / 20（数据）</td><td>默认<strong>明文传输</strong>账号口令与文件，且若误开 <code>anonymous</code> 匿名登录会导致文件任意下载或上传；应改用 <strong>SFTP / FTPS</strong></td></tr><tr><td><strong>SSH</strong></td><td>22</td><td>替代明文 Telnet（23 端口）；加固应禁止 root 直接口令登录、改用公钥认证并限制源 IP</td></tr><tr><td><strong>DNS</strong></td><td>53（UDP/TCP）</td><td>防范 DNS 区域传送泄露与缓存投毒</td></tr><tr><td><strong>SMTP / POP3 / IMAP</strong></td><td>25 / 110 / 143</td><td>邮件收发协议，生产环境应启用加密端口（SMTPS/IMAPS）防凭证泄露</td></tr></tbody></table>",
+      "keyTakeaway": "FTP（21）和 Telnet（23）、HTTP（80）都是明文协议；FTP 还要特别留意关闭 anonymous 匿名访问。",
+      "pitfall": "不要以为 FTP 只用 21 端口——21 是控制连接端口，20 是主动模式下的数据传输端口。",
+      "example": "安全基线核查发现某文件服务器开放了 21 端口且允许 anonymous 匿名上传，应立即关闭匿名登录并将服务迁移至基于 SSH 的 SFTP（22 端口）。"
+    },
+    {
+      "id": "emerging-security",
+      "title": "新兴领域安全挑战（云、物联网、AI 与区块链）",
+      "summary": "理解云计算责任共担与多租户隔离、IoT 三层架构风险、AI 安全威胁以及区块链 51% 算力风险。",
+      "bodyHtml": "<p>随着新技术普及，传统边界防御面临新形态挑战，考试重点聚焦以下四大方向的核心特征：</p><table><thead><tr><th>新兴领域</th><th>核心特征与典型安全风险</th><th>防护重点</th></tr></thead><tbody><tr><td><strong>云计算安全</strong></td><td>虚拟化共享物理资源，存在<strong>多租户隔离逃逸</strong>、云配置错误（如对象存储公开泄露）、API 越权风险</td><td>遵循<mark>责任共担模型</mark>（云商保底层基础设施，租户保数据、账号与配置）；落实云等保与零信任接入</td></tr><tr><td><strong>物联网（IoT）安全</strong></td><td>架构分<strong>感知层、网络层、应用层</strong>；终端数量庞大、计算/存储资源受限、常使用默认弱口令且难以及时打补丁，易被劫持组成大型僵尸网络（如 Mirai）</td><td>固件签名校验、消除出厂默认口令、轻量级加密（如 ECC/SM2）与网络分段隔离</td></tr><tr><td><strong>人工智能（AI）安全</strong></td><td>面临<strong>训练数据投毒</strong>、<strong>对抗样本</strong>欺骗识别模型、模型窃取、生成式 AI 深度伪造与训练数据隐私泄露</td><td>数据清洗与脱敏、对抗训练、模型访问审计与生成内容合规标识</td></tr><tr><td><strong>区块链安全</strong></td><td>具备去中心化、可追溯、不可篡改特性，但仍面临<strong>51% 算力风险</strong>（PoW 共识下掌握超半数算力可双花或分叉）、<strong>私钥丢失不可找回</strong>及<strong>智能合约代码漏洞</strong></td><td>严格审计智能合约、冷钱包/多签保管私钥、完善共识与节点治理</td></tr></tbody></table>",
+      "keyTakeaway": "云安全记「责任共担 + 多租户隔离」；IoT 记「感知/网络/应用三层 + 资源受限弱口令」；区块链记「51% 算力 + 私钥 + 智能合约漏洞」。",
+      "pitfall": "误以为「上云了所有安全都归云厂商负责」或「区块链不可篡改就绝对安全」——云端数据配置安全仍由租户自负，区块链也受限于私钥保管与智能合约代码质量。",
+      "example": "某企业将备份数据库存放在公有云对象存储中，因误将访问权限设为「公共可读」导致数据外泄，这属于责任共担模型下用户侧的配置失误。"
+    }
+  ],
+  "mindmap": [
+    {
+      "label": "Windows 系统安全",
+      "target": "windows-security",
+      "children": [
+        { "label": "活动目录 AD 与账户锁定策略", "target": "windows-security" },
+        { "label": "NTFS 权限（拒绝优先）与磁盘配额", "target": "windows-security" },
+        { "label": "net user / regedit.exe / gpedit.msc", "target": "windows-security" }
+      ]
+    },
+    {
+      "label": "Linux 系统安全",
+      "target": "linux-security",
+      "children": [
+        { "label": "目录：/etc 配置 · /dev 设备", "target": "linux-security" },
+        { "label": "网络配置：hosts / services / resolv.conf", "target": "linux-security" },
+        { "label": "chmod(4/2/1) / iptables / shutdown -r", "target": "linux-security" }
+      ]
+    },
+    {
+      "label": "网络服务器与端口",
+      "target": "server-hardening",
+      "children": [
+        { "label": "IIS 与 LAMP 架构", "target": "server-hardening" },
+        { "label": "端口：80/443/21/22/53/25", "target": "server-hardening" },
+        { "label": "FTP 明文与 anonymous 风险", "target": "server-hardening" }
+      ]
+    },
+    {
+      "label": "新兴安全挑战",
+      "target": "emerging-security",
+      "children": [
+        { "label": "云安全（责任共担/多租户）", "target": "emerging-security" },
+        { "label": "物联网 IoT（三层/资源受限）", "target": "emerging-security" },
+        { "label": "AI 安全（投毒/对抗样本）", "target": "emerging-security" },
+        { "label": "区块链（51% 算力/智能合约）", "target": "emerging-security" }
+      ]
+    }
+  ]
+}
