@@ -147,7 +147,6 @@
   if(!box)return;
   if(course){
    $('#sidebar-title').textContent=course.title;
-   $('#open-chapter-count').textContent=`${course.chapters.length} 章`;
    const back=el('a','sidebar-back','← 返回全部学科');
    back.href=`${rootPrefix}index.html`;
    box.append(back);
@@ -175,14 +174,11 @@
    return;
   }
   // Home or Domain view: show domain -> course tree in sidebar
-  const totalChapters=site.courses.reduce((sum,c)=>sum+c.chapters.filter(x=>x.ready).length,0);
   $('#sidebar-title').textContent='全部学科';
-  $('#open-chapter-count').textContent=`${totalChapters} 章`;
   site.domains.forEach(dom=>{
    const group=el('details','module-group');
    group.open=true;
    const summary=el('summary','',dom.title);
-   summary.append(el('small','',`${dom.courses.length} 门`));
    group.append(summary);
    dom.courses.forEach(route=>{
     const c=site.courses.find(x=>x.route===route);
@@ -198,7 +194,7 @@
  function renderHome(){
   const root=$('#home-view');
   const hero=el('div','home-hero');
-  hero.innerHTML=`<h1>${site.siteTitle} · ${site.siteSubtitle}</h1>
+  hero.innerHTML=`<h1>${site.siteTitle}</h1>
    <p>按学科沉淀知识体系，每章提供思维导图、图文结合精讲、交互图解与即学即练。</p>
    <div class="home-search-row">
      <div class="search-box">
@@ -248,7 +244,7 @@
     card.href=`${rootPrefix}${c.route}/index.html`;
     const top=el('div','course-card-top');
     top.append(el('h3','',c.title));
-    top.append(el('span', stats.total?'status-pill is-done':'status-pill', stats.total?`${stats.total} 章`:'筹备中'));
+    if(!stats.total)top.append(el('span','status-pill','筹备中'));
     card.append(top, el('p','',c.subtitle));
     const foot=el('div','course-card-foot');
     if(stats.total){
@@ -307,7 +303,8 @@
    const card=el('a','course-card');
    card.href=`${rootPrefix}${c.route}/index.html`;
    const top=el('div','course-card-top');
-   top.append(el('h3','',c.title), el('span', stats.total?'status-pill is-done':'status-pill', stats.total?`${stats.total} 章`:'筹备中'));
+   top.append(el('h3','',c.title));
+   if(!stats.total)top.append(el('span','status-pill','筹备中'));
    card.append(top, el('p','',c.subtitle));
    const foot=el('div','course-card-foot');
    foot.append(el('span','',`/${c.route}/`), el('strong','',stats.total?'进入课程 →':'查看框架 →'));
@@ -348,7 +345,7 @@
 
   const sec=el('section','catalog-section');
   const heading=el('div','catalog-heading');
-  heading.append(el('h2','','全部章节'), el('span','',`${course.chapters.length} 章`));
+  heading.append(el('h2','','全部章节'));
   sec.append(heading);
   const grid=el('div','catalog-grid');
   course.chapters.forEach(entry=>{
@@ -837,7 +834,7 @@
   renderDomain();
  } else {
   $('#home-view').hidden=false;
-  document.title=`${site.siteTitle} · ${site.siteSubtitle}`;
+  document.title=site.siteTitle;
   renderHome();
  }
 
